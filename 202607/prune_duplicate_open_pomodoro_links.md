@@ -1,6 +1,6 @@
 ---
 create_time: 2026-07-13 08:41:33
-status: wip
+status: done
 prompt: 202607/prompts/prune_duplicate_open_pomodoro_links.md
 tier: tale
 ---
