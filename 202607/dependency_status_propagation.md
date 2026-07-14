@@ -1,6 +1,6 @@
 ---
 create_time: 2026-07-14 09:29:49
-status: wip
+status: done
 prompt: 202607/prompts/dependency_status_propagation.md
 tier: tale
 ---
