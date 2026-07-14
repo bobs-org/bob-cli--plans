@@ -1,6 +1,6 @@
 ---
 create_time: 2026-07-14 08:15:58
-status: wip
+status: done
 prompt: 202607/prompts/mark_next_hidden_transclusions.md
 tier: tale
 ---
