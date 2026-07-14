@@ -22,3 +22,16 @@ bob highlights: scan completed with 1 per-PDF failure(s)
 planning failures:
   /Users/bbugyi/bob/lib/chat/backcompat_lifecycle_governance.pdf: generated PDF task line on line 1 is malformed; expected a generated task such as '- [ ] #task #ref [[...pdf]] #hide ^ref', '- [x] #task #ref [[...pdf]] #hide ^ref', or '- [-] #task #ref [[...pdf]] #hide ^ref'; legacy generated lines without #ref, with [p::2], or without #hide are still accepted
 ```
+
+%xprompts_enabled:false
+### Questions and Answers
+
+#### Q1: Ref conflicts
+
+> Four completed reference notes say read with checked ^ref tasks, but their PDF markers say wip. How should I resolve them before the live write-back?
+
+- [x] **Keep read (Recommended)** — Rewrite the four stale PDF markers to read, then migrate the fifth unchecked ref to ready and verify a no-op rerun.
+- [ ] **Restore WIP** — Treat the PDF markers as intentional and change the four notes/tasks back to wip before syncing.
+- [ ] **Skip live writes** — Finish the code, tests, docs, and refs.base change but leave all PDF/note migrations pending.
+
+%xprompts_enabled:true
