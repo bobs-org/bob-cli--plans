@@ -1,6 +1,6 @@
 ---
 create_time: 2026-07-14 07:21:36
-status: wip
+status: done
 prompt: 202607/prompts/highlights_ref_reading_lifecycle.md
 tier: tale
 ---
@@ -17,7 +17,7 @@ The reference note it chokes on looks like this (real example, `ref/chat/backcom
 
 ```markdown
 ---
-status: wip
+status: done
 …
 ---
 
