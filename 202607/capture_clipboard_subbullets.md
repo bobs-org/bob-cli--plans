@@ -7,7 +7,7 @@ goal: 'bob capture supports a trailing %[header] marker (and matching --clip/--n
 
   '
 create_time: 2026-07-15 17:03:39
-status: wip
+status: done
 prompt: 202607/prompts/capture_clipboard_subbullets.md
 ---
 
