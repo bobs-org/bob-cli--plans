@@ -4,7 +4,7 @@ goal: Preserve the active Obsidian editor viewport and caret context whenever th
   `!` transclusion keymap toggles links, without regressing dependency synchronization,
   counted toggles, or undo behavior.
 create_time: 2026-07-15 15:41:27
-status: wip
+status: done
 prompt: 202607/prompts/preserve_transclusion_toggle_viewport.md
 ---
 
