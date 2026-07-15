@@ -3,7 +3,7 @@ tier: tale
 goal: Bare clipboard captures create unlabeled child bullets, while explicit clipboard
   headers retain their current formatting and behavior across every capture mode.
 create_time: 2026-07-15 18:29:02
-status: wip
+status: done
 prompt: 202607/prompts/headerless_clip_default.md
 ---
 
