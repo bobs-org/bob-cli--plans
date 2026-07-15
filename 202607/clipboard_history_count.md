@@ -5,7 +5,7 @@ goal: Positive numeric clipboard markers capture the current clipboard plus the 
   sourcing, collision-safe file planning, atomic writes, and stable human and JSON
   output.
 create_time: 2026-07-15 18:57:33
-status: wip
+status: done
 prompt: 202607/prompts/clipboard_history_count.md
 ---
 
