@@ -4,7 +4,7 @@ goal: Eliminate the macOS unreachable-code warning in clipboard capture while pr
   clipboard source selection, command arguments, and failure behavior on every supported
   target.
 create_time: 2026-07-15 18:08:59
-status: wip
+status: done
 prompt: 202607/prompts/fix_macos_clipboard_unreachable.md
 ---
 
