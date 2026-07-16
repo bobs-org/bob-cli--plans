@@ -6,7 +6,7 @@ goal: 'Ctrl+Shift+P accepts an explicit Vim count and safely applies the chosen 
 
   '
 create_time: 2026-07-16 07:59:10
-status: wip
+status: done
 prompt: 202607/prompts/counted_obsidian_task_properties.md
 ---
 
