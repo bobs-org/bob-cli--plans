@@ -5,7 +5,7 @@ goal: Make normal-mode Ctrl+Enter on an open Pomodoro's sub-bullets complete tha
   Pomodoro with the existing rollover behavior, while preserving selected embedded
   task-transclusion handling.
 create_time: 2026-07-16 10:34:42
-status: wip
+status: done
 prompt: 202607/prompts/ctrl_enter_pomodoro_sub_bullets.md
 ---
 
