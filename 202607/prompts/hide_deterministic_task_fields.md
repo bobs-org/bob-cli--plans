@@ -4,7 +4,6 @@ plan: 202607/hide_deterministic_task_fields.md
  Can you help me hide these ugly Obsidian `dependsOn` and `id` dataview properties somehow (using icons/emojis maybe)? The values for these properties are always determined deterministicly from the transcluded block links or block ID, respectively. See #sshot for what these look like now. I want you to lead the design on this one. Make sure you design this feature so it is intuitive, reliable, and (last but not least) beautiful! Think this through thoroughly and create a plan using your `/sase_plan` skill. Choose and author the appropriate
 tier, validate and revalidate until it passes, then submit it with `sase plan propose` (as the skill instructs)
 before making any file changes.
-  
 
 %xprompts_enabled:false
 ### Questions and Answers
@@ -41,5 +40,12 @@ before making any file changes.
 - [ ] **Hide now, add a drift check later (recommended)** — Keep this plan a focused presentation change. I will note the drift gap as explicit follow-up work rather than silently accepting it.
 - [ ] **Include a drift check in this plan** — Bigger scope: something must compare dependsOn against the transclusions/canonical form and flag mismatches - a plugin, or a `bob` check wired into nightly. Makes the plan an epic.
 - [x] **Not worried, just hide them** — Drift is rare enough and `!` reconciles it; do not spend effort here.
+
+#### Q5: Deploy vault
+
+> How should commit 540479ba reach the live ~/bob vault?
+
+- [x] **Apply it now** — Fast-forward the live vault while preserving its unrelated modified files.
+- [ ] **I will sync it** — Leave the commit pushed and let me use my own sync routine.
 
 %xprompts_enabled:true
