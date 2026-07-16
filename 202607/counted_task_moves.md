@@ -4,7 +4,7 @@ title: Counted Obsidian task moves
 goal: Ctrl+Shift+M safely moves the current task, or the current task plus the next
   N tasks when given an explicit Vim count, into a selected area or open project note.
 create_time: 2026-07-16 08:31:32
-status: wip
+status: done
 prompt: 202607/prompts/counted_task_moves.md
 ---
 
