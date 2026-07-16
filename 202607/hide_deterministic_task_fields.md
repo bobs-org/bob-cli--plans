@@ -7,7 +7,7 @@ goal: 'Task lines in the Bob vault read as prose again: the machine-derived [id:
 
   '
 create_time: 2026-07-16 17:05:05
-status: wip
+status: done
 prompt: 202607/prompts/hide_deterministic_task_fields.md
 ---
 
