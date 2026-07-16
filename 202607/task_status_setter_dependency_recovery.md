@@ -7,7 +7,7 @@ goal: 'Task statuses are authoritatively reconciled through the renamed bob task
 
   '
 create_time: 2026-07-16 11:25:43
-status: wip
+status: done
 prompt: 202607/prompts/task_status_setter_dependency_recovery.md
 ---
 
