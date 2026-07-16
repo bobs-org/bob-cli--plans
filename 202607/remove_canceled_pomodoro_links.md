@@ -7,7 +7,7 @@ goal: 'bob task-status-setter removes open-Pomodoro block-link occurrences whose
 
   '
 create_time: 2026-07-16 13:13:24
-status: wip
+status: done
 prompt: 202607/prompts/remove_canceled_pomodoro_links.md
 ---
 
