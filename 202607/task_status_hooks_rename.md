@@ -7,7 +7,7 @@ goal: 'Make `bob task-status-hooks` the canonical public command while preservin
 
   '
 create_time: 2026-07-16 16:09:37
-status: wip
+status: done
 prompt: 202607/prompts/task_status_hooks_rename.md
 ---
 
