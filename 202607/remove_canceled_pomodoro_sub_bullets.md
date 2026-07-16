@@ -4,7 +4,7 @@ title: Remove canceled Pomodoro sub-bullets
 goal: Remove the complete open-Pomodoro list item for an unambiguously canceled task
   reference, leaving no empty or misleading ledger bullet behind.
 create_time: 2026-07-16 15:08:07
-status: wip
+status: done
 prompt: 202607/prompts/remove_canceled_pomodoro_sub_bullets.md
 ---
 
