@@ -5,7 +5,7 @@ goal: One Ctrl+Shift+M press opens exactly one task-move destination picker, and
   the user selects a destination (or dismisses the picker) no picker remains on screen,
   with counted moves still honored.
 create_time: 2026-07-17 09:42:24
-status: wip
+status: done
 prompt: 202607/prompts/task_move_picker_single_instance.md
 ---
 
