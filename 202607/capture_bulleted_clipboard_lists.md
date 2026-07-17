@@ -5,7 +5,7 @@ goal: Recognize flat unordered Markdown lists copied to the clipboard and render
   item as an Obsidian child bullet beneath the captured task without weakening structured-text
   safeguards.
 create_time: 2026-07-17 16:20:54
-status: wip
+status: done
 prompt: 202607/prompts/capture_bulleted_clipboard_lists.md
 ---
 
