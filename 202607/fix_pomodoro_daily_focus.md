@@ -8,7 +8,7 @@ goal: 'The Ctrl+9 daily-note fallback actually activates and focuses today''s da
 
   '
 create_time: 2026-07-17 10:05:48
-status: wip
+status: done
 prompt: 202607/prompts/fix_pomodoro_daily_focus.md
 ---
 
