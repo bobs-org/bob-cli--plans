@@ -8,7 +8,7 @@ goal: 'Ctrl+9 keeps its direct Pomodoro jump within the active note, but when it
 
   '
 create_time: 2026-07-17 09:36:45
-status: wip
+status: done
 prompt: 202607/prompts/two_step_pomodoro_navigation.md
 ---
 
