@@ -5,7 +5,7 @@ goal: Ctrl+Shift+M moves one or more tasks into the chosen note without syntheti
   blank lines between task blocks, and the destination picker closes immediately when
   a destination is selected.
 create_time: 2026-07-17 09:19:09
-status: wip
+status: done
 prompt: 202607/prompts/task_move_spacing_and_picker_close.md
 ---
 
