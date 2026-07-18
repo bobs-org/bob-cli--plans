@@ -5,7 +5,7 @@ goal: One Ctrl+Shift+P press — counted or bare — opens exactly one Set bulle
   picker, and after the user completes or dismisses the picker no duplicate picker
   remains on screen, with counted batch sessions still honored.
 create_time: 2026-07-18 14:01:31
-status: wip
+status: done
 prompt: 202607/prompts/bullet_property_picker_single_instance.md
 ---
 
