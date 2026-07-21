@@ -7,7 +7,7 @@ goal: 'bob task-status-hooks uses today and the latest existing earlier daily no
 
   '
 create_time: 2026-07-21 16:00:22
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/task_status_hooks_previous_daily.md](prompts/task_status_hooks_previous_daily.md)
