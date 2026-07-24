@@ -5,7 +5,7 @@ goal: When an inline task schedule becomes due or is removed, recover Blocked ta
   to Ready or their recent Pomodoro-derived rank without overriding another blocking
   reason.
 create_time: 2026-07-24 19:17:44
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/due_scheduled_task_recovery.md](prompts/due_scheduled_task_recovery.md)
