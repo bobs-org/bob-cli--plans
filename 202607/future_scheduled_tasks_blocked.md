@@ -4,7 +4,7 @@ title: Mark future-scheduled Obsidian tasks Blocked
 goal: Future-scheduled inline Obsidian tasks are reconciled to `[?]` by the property
   picker and CLI and appear in blocked.md.
 create_time: 2026-07-24 18:19:44
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/future_scheduled_tasks_blocked.md](prompts/future_scheduled_tasks_blocked.md)
