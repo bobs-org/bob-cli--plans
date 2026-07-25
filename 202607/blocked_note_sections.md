@@ -6,7 +6,7 @@ goal: ~/bob/blocked.md renders seven H2 Tasks sections that partition every bloc
   plus a self-auditing catch-all — with identical results in Obsidian Tasks and `bob
   query`.
 create_time: 2026-07-25 15:01:02
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/blocked_note_sections.md](prompts/blocked_note_sections.md)
