@@ -5,7 +5,7 @@ goal: In an Obsidian daily note, Ctrl+Alt+] converts an empty sub-bullet into a 
   [ ] ()` Pomodoro placeholder and converts an empty, open Pomodoro placeholder back
   into an empty sub-bullet, with no effect anywhere else.
 create_time: 2026-07-27 07:41:02
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/pomodoro_bullet_toggle_keymap.md](prompts/pomodoro_bullet_toggle_keymap.md)
