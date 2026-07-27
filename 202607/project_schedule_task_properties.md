@@ -5,7 +5,7 @@ goal: 'A project note''s frontmatter schedule propagates into per-task Dataview 
   YYYY-MM-DD]` fields and derived `[?]` Blocked checkboxes instead of `#hide` tags
   on ordinary tasks.'
 create_time: 2026-07-27 08:16:07
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/project_schedule_task_properties.md](prompts/project_schedule_task_properties.md)
