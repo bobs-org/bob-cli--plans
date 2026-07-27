@@ -6,7 +6,7 @@ goal: The `^^` task picker opens and completes correctly for every wiki block-li
   form in every source context, while a linked task is promoted to `[*]` only when
   the block link is the entire content of a Pomodoro sub-bullet.
 create_time: 2026-07-27 07:23:09
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/universal_task_picker_block_links.md](prompts/universal_task_picker_block_links.md)
