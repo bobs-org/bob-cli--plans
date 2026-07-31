@@ -9,6 +9,11 @@ status: done
 ---
 
 - **PROMPT:** [202607/prompts/pomodoro_carry_forward_grouping.md](prompts/pomodoro_carry_forward_grouping.md)
+- **AGENTS:**
+  - [bbugyi200.athena.pv](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.pv.md)
+- **COMMITS:**
+  - [59f17ad](https://github.com/bobs-org/bob-plugins/commit/59f17ad7cdc3f11c539cda9bdf168bf17a28796c) —
+    feat(task-status-cycler): group deferred \#-marked links below worked-on links on Pomodoro carry-forward
 
 # Group `#`-marked Pomodoro links below worked-on links on carry-forward
 
