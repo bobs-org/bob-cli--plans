@@ -17,8 +17,8 @@ status: done
 - **AGENTS:**
   - [bbugyi200.athena.gh_bobs-org__bob-cli-2.land](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.gh_bobs-org__bob-cli-2.land.md)
 - **COMMITS:**
-  - [fafb07e](https://github.com/bobs-org/bob-cli/commit/fafb07e2c23ab00e1b649840496b5aa96645d8ba) — test(cli): add
-    malformed sub-bullet capture validation cases
+  - [b6dc784](https://github.com/bobs-org/bob-cli--plans/commit/b6dc78429681c0ac3dd61b4618637b3d30e12957) — docs(plans):
+    mark complete_capture_sub_bullets epic as done
 
 # Complete and land the capture-sub-bullets epic
 
