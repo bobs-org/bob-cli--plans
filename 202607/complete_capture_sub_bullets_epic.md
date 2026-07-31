@@ -6,7 +6,7 @@ goal:
   epic gh_bobs-org__bob-cli-2 is closed and finalized without force.
 bead: gh_bobs-org__bob-cli-2
 create_time: 2026-07-31 08:39:30
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/complete_capture_sub_bullets_epic.md](prompts/complete_capture_sub_bullets_epic.md)
