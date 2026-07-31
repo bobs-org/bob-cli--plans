@@ -5,7 +5,7 @@ goal:
   Ctrl+Enter carries worked-on (unmarked) task-link sub-bullets into the new Pomodoro first and deferred `#`-marked
   links after them, each group in source order, instead of interleaving both kinds in plain source order.
 create_time: 2026-07-31 07:01:40
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/pomodoro_carry_forward_grouping.md](prompts/pomodoro_carry_forward_grouping.md)
