@@ -1,49 +1,51 @@
 ---
 tier: epic
 title: Capture sub-bullets onto existing Obsidian tasks
-goal: "`bob capture` can append a sub-bullet to an existing Obsidian task via a new `@<route>^<block-id>` marker, `bob
-  capture-tasks` lists a note's open tasks with their statuses, and the Hammerspoon capture panel resolves a bare
-  `@<route>^` into a status-annotated task picker.
+goal: '`bob capture` can append a sub-bullet to an existing Obsidian task via a new
+  `@<route>^<block-id>` marker, `bob capture-tasks` lists a note''s open tasks with
+  their statuses, and the Hammerspoon capture panel resolves a bare `@<route>^` into
+  a status-annotated task picker.
 
-  "
+  '
 phases:
-  - id: scan
-    title: Shared note-task scanner
-    depends_on: []
-    size: medium
-    description:
-      "scan: add src/native/note_tasks.rs, a pure scanner that turns one note's Markdown into task records (line,
-      indentation, status, description, block ID, section, child span, stale-safe ref digest), plus the small
-      markdown.rs ATX-heading extraction it depends on."
-  - id: write
-    title: Sub-bullet capture in bob capture
-    depends_on:
-      - scan
-    size: medium
-    description:
-      "write: teach bob capture the @<route>^<block-id> marker plus -t/--task and hidden --task-ref, render and insert
-      the child bullet at the parent task's own indentation, and report the new sub_bullet kind in human and JSON
-      output."
-  - id: list
-    title: bob capture-tasks discovery command
-    depends_on:
-      - write
-    size: medium
-    description:
-      "list: add the read-only bob capture-tasks subcommand that lists a note's open tasks as colored human output and
-      stable JSON for pickers, and wire it into the runner, help surfaces, justfile smoke list, and README."
-  - id: ui
-    title: Hammerspoon task picker
-    depends_on:
-      - list
-    size: medium
-    description:
-      "ui: extend the chezmoi Hammerspoon capture panel with the @<route>^<id> marker family, a status-annotated task
-      chooser backed by bob capture-tasks, sub-bullet success notifications, and busted coverage of the new request
-      model."
+- id: scan
+  title: Shared note-task scanner
+  depends_on: []
+  size: medium
+  description: 'scan: add src/native/note_tasks.rs, a pure scanner that turns one
+    note''s Markdown into task records (line, indentation, status, description, block
+    ID, section, child span, stale-safe ref digest), plus the small markdown.rs ATX-heading
+    extraction it depends on.'
+- id: write
+  title: Sub-bullet capture in bob capture
+  depends_on:
+  - scan
+  size: medium
+  description: 'write: teach bob capture the @<route>^<block-id> marker plus -t/--task
+    and hidden --task-ref, render and insert the child bullet at the parent task''s
+    own indentation, and report the new sub_bullet kind in human and JSON output.'
+- id: list
+  title: bob capture-tasks discovery command
+  depends_on:
+  - write
+  size: medium
+  description: 'list: add the read-only bob capture-tasks subcommand that lists a
+    note''s open tasks as colored human output and stable JSON for pickers, and wire
+    it into the runner, help surfaces, justfile smoke list, and README.'
+- id: ui
+  title: Hammerspoon task picker
+  depends_on:
+  - list
+  size: medium
+  description: 'ui: extend the chezmoi Hammerspoon capture panel with the @<route>^<id>
+    marker family, a status-annotated task chooser backed by bob capture-tasks, sub-bullet
+    success notifications, and busted coverage of the new request model.'
 create_time: 2026-07-31 07:55:37
 status: wip
+bead_id: gh_bobs-org__bob-cli-2
 ---
+
+- **BEAD:** [gh_bobs-org__bob-cli-2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/gh_bobs-org__bob-cli-2/README.md)
 
 # Plan: Capture sub-bullets onto existing Obsidian tasks
 
