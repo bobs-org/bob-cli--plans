@@ -41,7 +41,7 @@ phases:
     marker family, a status-annotated task chooser backed by bob capture-tasks, sub-bullet
     success notifications, and busted coverage of the new request model.'
 create_time: 2026-07-31 07:55:37
-status: wip
+status: done
 bead_id: gh_bobs-org__bob-cli-2
 ---
 
