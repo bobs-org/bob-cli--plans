@@ -5,7 +5,7 @@ goal:
   Task sub-bullets render without a created Dataview property while their scheduling, nesting, output metadata, and
   capture behavior remain intact.
 create_time: 2026-07-31 08:56:44
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202607/prompts/unstamped_task_sub_bullets.md](prompts/unstamped_task_sub_bullets.md)
