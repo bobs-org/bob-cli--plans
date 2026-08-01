@@ -10,6 +10,11 @@ status: done
 ---
 
 - **PROMPT:** [202608/prompts/capture_picker_terminal_markers.md](prompts/capture_picker_terminal_markers.md)
+- **AGENTS:**
+  - [bbugyi200.athena.qz](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.qz.md)
+- **COMMITS:**
+  - [34edc25](https://github.com/bobs-org/bob-cli/commit/34edc25ca5eb8b6b9ed2ba825e76a3d7e364fdb8) — docs: document
+    capture picker terminal markers
 
 # Make Hammerspoon capture pickers compose with clipboard markers
 
