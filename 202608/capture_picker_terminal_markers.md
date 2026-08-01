@@ -13,8 +13,8 @@ status: done
 - **AGENTS:**
   - [bbugyi200.athena.qz](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.qz.md)
 - **COMMITS:**
-  - [34edc25](https://github.com/bobs-org/bob-cli/commit/34edc25ca5eb8b6b9ed2ba825e76a3d7e364fdb8) — docs: document
-    capture picker terminal markers
+  - [ce4af19](https://github.com/bbugyi200/dotfiles/commit/ce4af19fa42dbfca22c483cd3a910609a5b86bfe) — fix: preserve
+    capture terminal markers through picker
 
 # Make Hammerspoon capture pickers compose with clipboard markers
 
