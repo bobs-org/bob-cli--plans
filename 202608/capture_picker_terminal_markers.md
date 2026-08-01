@@ -6,7 +6,7 @@ goal:
   flow.
 proposed_by: bbugyi200.athena.qz
 create_time: 2026-08-01 07:18:27
-status: wip
+status: done
 ---
 
 - **PROMPT:** [202608/prompts/capture_picker_terminal_markers.md](prompts/capture_picker_terminal_markers.md)
