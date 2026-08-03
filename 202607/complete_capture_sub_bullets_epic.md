@@ -3,7 +3,7 @@ tier: tale
 title: Complete and land the capture-sub-bullets epic
 goal:
   The remaining CLI acceptance coverage is added, the completed feature is revalidated against concurrent changes, and
-  epic gh_bobs-org__bob-cli-2 is closed and finalized without force.
+  epic bob-cli-b is closed and finalized without force.
 bead: bob-cli-b
 create_time: 2026-07-31 08:39:30
 status: done
@@ -24,13 +24,13 @@ status: done
 
 ## Goal
 
-Finish the one remaining acceptance-coverage gap for epic bead `gh_bobs-org__bob-cli-2`, revalidate the complete feature
+Finish the one remaining acceptance-coverage gap for epic bead `bob-cli-b`, revalidate the complete feature
 across `bob-cli` and the linked `chezmoi` repository, then perform the epic landing sequence without forcing the bead
 closed.
 
 ## Audit context
 
-- The epic has four closed phase beads: `gh_bobs-org__bob-cli-2.1` through `.4`, all with resolution `done`.
+- The epic has four closed phase beads: `bob-cli-b.1` through `.4`, all with resolution `done`.
 - Full current and historical note review found no `PROPOSED FOLLOW-UP:` entries on any child bead.
 - The implementation commits are `31a10c59` (scanner), `0dc8d666` (sub-bullet writing), `851d7a16` (`capture-tasks`),
   `8831506c` (bob-cli documentation), and linked-chezmoi commit `745988aa` (Hammerspoon picker).
@@ -64,20 +64,20 @@ closed.
 
 3. Land and close the epic. This is the final phase and must be completed in this order.
    - File the plan's worthwhile out-of-scope correction as a task bead with a description naming
-     `gh_bobs-org__bob-cli-2` as its source: fix the Pomodoro block-ID usage error so it no longer claims underscore is
+     `bob-cli-b` as its source: fix the Pomodoro block-ID usage error so it no longer claims underscore is
      accepted when `collect_done::is_block_id_byte` rejects it. Create it as `open`, refine if needed, then set it to
      `ready`. Do not file child-note follow-ups because the child histories contained none.
-   - Close `gh_bobs-org__bob-cli-2` without `--force`, using a detailed `--note` that records: all four child beads and
+   - Close `bob-cli-b` without `--force`, using a detailed `--note` that records: all four child beads and
      implementation commits verified; the source and acceptance coverage reviewed; `just all`, `just fmt-lua`, and
      `just test-hammerspoon` results; the unrelated `0f8691c1` integration judgment plus any later-commit review; the
      newly created follow-up bead ID; and that no `PROPOSED FOLLOW-UP:` entries were omitted because none existed.
    - Only after the close succeeds, check whether a `symvision` recipe is available. If it is, run `just symvision`,
-     remove only stale `gh_bobs-org__bob-cli-2` whitelist entries and unused code it reports, rerun focused checks plus
+     remove only stale `bob-cli-b` whitelist entries and unused code it reports, rerun focused checks plus
      `just symvision` until clean, and then rerun `just all`. If no recipe is available, record that fact in the final
      handoff.
    - Open the configured plans sidecar with `sase repo open plans`, edit the linked epic plan
      `202607/capture_sub_bullets.md`, and change only its frontmatter `status: wip` to `status: done`.
-   - Verify `sase bead show gh_bobs-org__bob-cli-2` reports `CLOSED` with resolution `done`, the linked plan reports
+   - Verify `sase bead show bob-cli-b` reports `CLOSED` with resolution `done`, the linked plan reports
      `status: done`, all relevant diffs pass `git diff --check`, and no unexpected working-tree changes exist.
 
 ## Constraints
