@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/priority_toast.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_toast.md)
+- **AGENTS:**
+  - [bbugyi200.athena.sj](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.sj.md)
+- **COMMITS:**
+  - [6fa6e48](https://github.com/bobs-org/bob-plugins/commit/6fa6e487ca91e06d4ce5ebcf184dcf89086f6feb) —
+    feat(navigation-hotkeys): add structured priority notices
 
 # Plan: Redesign the priority write toast around relative scheduled days
 
