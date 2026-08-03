@@ -42,10 +42,10 @@ phases:
     success notifications, and busted coverage of the new request model.'
 create_time: 2026-07-31 07:55:37
 status: done
-bead_id: gh_bobs-org__bob-cli-2
+bead_id: bob-cli-b
 ---
 
-- **BEAD:** [gh_bobs-org__bob-cli-2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/gh_bobs-org__bob-cli-2/README.md)
+- **BEAD:** [bob-cli-b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-b/README.md)
 
 # Plan: Capture sub-bullets onto existing Obsidian tasks
 

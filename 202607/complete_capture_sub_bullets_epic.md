@@ -4,7 +4,7 @@ title: Complete and land the capture-sub-bullets epic
 goal:
   The remaining CLI acceptance coverage is added, the completed feature is revalidated against concurrent changes, and
   epic gh_bobs-org__bob-cli-2 is closed and finalized without force.
-bead: gh_bobs-org__bob-cli-2
+bead: bob-cli-b
 create_time: 2026-07-31 08:39:30
 status: done
 ---
@@ -13,9 +13,9 @@ status: done
 - **PARENT:**
   [202607/capture_sub_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202607/capture_sub_bullets.md)
 - **BEAD:**
-  [gh_bobs-org__bob-cli-2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/gh_bobs-org__bob-cli-2/README.md)
+  [bob-cli-b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-b/README.md)
 - **AGENTS:**
-  - [bbugyi200.athena.gh_bobs-org__bob-cli-2.land](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.gh_bobs-org__bob-cli-2.land.md)
+  - [bbugyi200.athena.bob-cli-b.land](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.bob-cli-b.land.md)
 - **COMMITS:**
   - [b6dc784](https://github.com/bobs-org/bob-cli--plans/commit/b6dc78429681c0ac3dd61b4618637b3d30e12957) — docs(plans):
     mark complete_capture_sub_bullets epic as done

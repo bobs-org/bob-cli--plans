@@ -59,11 +59,11 @@ phases:
 proposed_by: bbugyi200.athena.s8
 create_time: 2026-08-02 15:21:48
 status: done
-bead_id: gh_bobs-org__bob-cli-5
+bead_id: bob-cli-e
 ---
 
 - **PROMPT:** [prompts/202608/priority_property.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_property.md)
-- **BEAD:** [gh_bobs-org__bob-cli-5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/gh_bobs-org__bob-cli-5/README.md)
+- **BEAD:** [bob-cli-e](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-e/README.md)
 
 # Plan: Priority bullet property that rolls a scheduled date
 
