@@ -6,7 +6,7 @@ goal:
   in every supported scope and fallback.
 proposed_by: bbugyi200.athena.sj.f0
 create_time: 2026-08-03 07:07:06
-status: wip
+status: done
 ---
 
 - **PROMPT:**
