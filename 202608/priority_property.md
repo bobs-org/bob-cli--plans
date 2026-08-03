@@ -1,64 +1,69 @@
 ---
 tier: epic
 title: Priority bullet property that rolls a scheduled date
-goal: "The Ctrl+Shift+P bullet-property picker offers a `priority` property whose P2/P3/P4 levels each write a random
-  `scheduled` date drawn from a per-level day range configured in bob/config.yml, and the `scheduled` date picker offers
-  a visually distinct re-rollable date suggestion whenever the current task already has a priority.
+goal: 'The Ctrl+Shift+P bullet-property picker offers a `priority` property whose
+  P2/P3/P4 levels each write a random `scheduled` date drawn from a per-level day
+  range configured in bob/config.yml, and the `scheduled` date picker offers a visually
+  distinct re-rollable date suggestion whenever the current task already has a priority.
 
-  "
+  '
 phases:
-  - id: config
-    title: "Config schema for `values: priority`"
-    depends_on: []
-    size: medium
-    description: "config: teach the bullet-property config loader a `values: priority` kind with a validated `levels`
-      list (label, value, day range) and a `schedules` target, and add the `priority` entry to the chezmoi-managed
-      bob/config.yml.
+- id: config
+  title: 'Config schema for `values: priority`'
+  depends_on: []
+  size: medium
+  description: 'config: teach the bullet-property config loader a `values: priority`
+    kind with a validated `levels` list (label, value, day range) and a `schedules`
+    target, and add the `priority` entry to the chezmoi-managed bob/config.yml.
 
-      "
-  - id: picker
-    title: Priority value stage and single-task write
-    depends_on:
-      - config
-    size: medium
-    description: "picker: render the P2/P3/P4 value stage, roll a random date from the chosen level's day range, and
-      write the priority field plus the derived scheduled value in one guarded edit that reuses the existing
-      Blocked/recovery and project-frontmatter behavior.
+    '
+- id: picker
+  title: Priority value stage and single-task write
+  depends_on:
+  - config
+  size: medium
+  description: 'picker: render the P2/P3/P4 value stage, roll a random date from the
+    chosen level''s day range, and write the priority field plus the derived scheduled
+    value in one guarded edit that reuses the existing Blocked/recovery and project-frontmatter
+    behavior.
 
-      "
-  - id: counted
-    title: Counted-session priority writes
-    depends_on:
-      - picker
-    size: medium
-    description: "counted: extend the counted batch planner so N<Ctrl+Shift+P> applies one priority to every counted
-      task while rolling an independent scheduled date per task.
+    '
+- id: counted
+  title: Counted-session priority writes
+  depends_on:
+  - picker
+  size: medium
+  description: 'counted: extend the counted batch planner so N<Ctrl+Shift+P> applies
+    one priority to every counted task while rolling an independent scheduled date
+    per task.
 
-      "
-  - id: suggest
-    title: Priority-derived suggestion in the date picker
-    depends_on:
-      - picker
-    size: medium
-    description: "suggest: pin a visually distinct, re-rollable suggested date at the top of the `scheduled` value stage
-      whenever the current task (or every counted task) already has a priority.
+    '
+- id: suggest
+  title: Priority-derived suggestion in the date picker
+  depends_on:
+  - picker
+  size: medium
+  description: 'suggest: pin a visually distinct, re-rollable suggested date at the
+    top of the `scheduled` value stage whenever the current task (or every counted
+    task) already has a priority.
 
-      "
-  - id: release
-    title: Docs, version bump, and vault deploy
-    depends_on:
-      - counted
-      - suggest
-    size: small
-    description:
-      "release: document the new property kind, bump the plugin manifest and README, and deploy the plugin to the vault."
+    '
+- id: release
+  title: Docs, version bump, and vault deploy
+  depends_on:
+  - counted
+  - suggest
+  size: small
+  description: 'release: document the new property kind, bump the plugin manifest
+    and README, and deploy the plugin to the vault.'
 proposed_by: bbugyi200.athena.s8
 create_time: 2026-08-02 15:21:48
 status: wip
+bead_id: gh_bobs-org__bob-cli-5
 ---
 
-- **PROMPT:**
-  [prompts/202608/priority_property.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_property.md)
+- **PROMPT:** [prompts/202608/priority_property.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_property.md)
+- **BEAD:** [gh_bobs-org__bob-cli-5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/gh_bobs-org__bob-cli-5/README.md)
 
 # Plan: Priority bullet property that rolls a scheduled date
 
