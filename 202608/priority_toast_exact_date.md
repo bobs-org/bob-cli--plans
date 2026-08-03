@@ -11,6 +11,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/priority_toast_exact_date.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_toast_exact_date.md)
+- **AGENTS:**
+  - [bbugyi200.athena.sj.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.sj.f0.md)
+- **COMMITS:**
+  - [f143506](https://github.com/bobs-org/bob-plugins/commit/f1435065d489391999b89d4097bcbe9d1e512544) —
+    fix(navigation-hotkeys): show exact dates in priority notices
 
 # Plan: Give the priority toast a durable exact-date receipt
 
