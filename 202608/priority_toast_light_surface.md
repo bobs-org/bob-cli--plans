@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/priority_toast_light_surface.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/priority_toast_light_surface.md)
+- **AGENTS:**
+  - [bbugyi200.athena.sj.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.sj.f0.f0.md)
+- **COMMITS:**
+  - [816b6fb](https://github.com/bobs-org/bob-plugins/commit/816b6fb6371148e6bffbb3558d5fa4850d4ecaa0) —
+    fix(navigation-hotkeys): resurface priority toast
 
 # Plan: Give the priority toast its own light-mode-native surface
 
