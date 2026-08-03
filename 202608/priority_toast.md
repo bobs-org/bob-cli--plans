@@ -16,8 +16,8 @@ status: done
 - **AGENTS:**
   - [bbugyi200.athena.sj](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.sj.md)
 - **COMMITS:**
-  - [6fa6e48](https://github.com/bobs-org/bob-plugins/commit/6fa6e487ca91e06d4ce5ebcf184dcf89086f6feb) —
-    feat(navigation-hotkeys): add structured priority notices
+  - [102c59f](https://github.com/bobs-org/bob-cli/commit/102c59f41a531bd0e0e2cd3c29e6046847caf0ab) — docs(projects):
+    document priority write notices
 
 # Plan: Redesign the priority write toast around relative scheduled days
 
