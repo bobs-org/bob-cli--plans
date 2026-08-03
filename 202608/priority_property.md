@@ -58,7 +58,7 @@ phases:
     and README, and deploy the plugin to the vault.'
 proposed_by: bbugyi200.athena.s8
 create_time: 2026-08-02 15:21:48
-status: wip
+status: done
 bead_id: gh_bobs-org__bob-cli-5
 ---
 
