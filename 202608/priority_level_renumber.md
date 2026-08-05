@@ -8,7 +8,7 @@ goal:
   priority field is an implicit P0."
 proposed_by: bbugyi200.athena.t1
 create_time: 2026-08-05 13:32:49
-status: wip
+status: done
 ---
 
 # Plan: Renumber picker priority levels to P1-P3 and add a P4 someday level
