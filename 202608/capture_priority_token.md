@@ -8,7 +8,7 @@ goal:
   route kind, with the Hammerspoon capture panel treating `p:<N>` as a terminal marker exactly like `s:<N>`."
 proposed_by: bbugyi200.athena.t1.f0
 create_time: 2026-08-05 14:34:06
-status: wip
+status: done
 ---
 
 # Plan: Add a `p:<N>` priority token to `bob capture`
