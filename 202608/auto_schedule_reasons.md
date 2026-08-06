@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/auto_schedule_reasons.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/auto_schedule_reasons.md)
+- **AGENTS:**
+  - [bbugyi200.athena.tu.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.tu.f0.f0.md)
+- **COMMITS:**
+  - [d97762d](https://github.com/bobs-org/bob-plugins/commit/d97762d47bcab960d6bb5ad1c2a3796c8855425f) —
+    feat(bob-navigation-hotkeys): log deterministic reasons for machine-rolled scheduled dates
 
 # Plan: Deterministic schedule-log reasons for machine-rolled dates
 
