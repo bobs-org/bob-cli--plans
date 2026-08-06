@@ -1,44 +1,45 @@
 ---
 tier: epic
 title: Modernize the quote.md and podcasts.md vault notes
-goal: "~/bob/quote.md and ~/bob/podcasts.md read like the vault's recent hand-authored notes instead of zorg conversion
-  output: clean frontmatter, real Markdown structure, human-readable block IDs, and — for podcasts — one note per show
-  behind a Bases dashboard, with every existing inbound and outbound link still resolving.
+goal: '~/bob/quote.md and ~/bob/podcasts.md read like the vault''s recent hand-authored
+  notes instead of zorg conversion output: clean frontmatter, real Markdown structure,
+  human-readable block IDs, and — for podcasts — one note per show behind a Bases
+  dashboard, with every existing inbound and outbound link still resolving.
 
-  "
+  '
 phases:
-  - id: podcasts
-    title: Extract podcasts into per-show notes with a Bases dashboard
-    depends_on: []
-    size: medium
-    description:
-      "podcasts: create the `[[podcast]]` type note, one `podcasts/<slug>.md` note for each of the 15 shows, a
-      `podcasts.base` dashboard modeled on `eat.base`, and rewrite `podcasts.md` into a hub note that keeps all 17
-      legacy block anchors alive on its new lines."
-  - id: quote
-    title: Rewrite quote.md as Obsidian quote callouts
-    depends_on: []
-    size: medium
-    description:
-      "quote: convert all 32 zorg quote bullets in `quote.md` into `> [!quote]` callouts with human-readable block IDs,
-      drop the dead zorg frontmatter and self-referential `[[quote]]` noise, and preserve every outbound wikilink and
-      URL verbatim."
-  - id: verify
-    title: Verify link integrity and vault render
-    depends_on:
-      - podcasts
-      - quote
-    size: small
-    description:
-      "verify: re-check every inbound block reference, outbound wikilink, and URL touched by the two rewrites, confirm
-      `podcasts.base` parses and renders, and confirm the vault working tree contains only the intended changes."
+- id: podcasts
+  title: Extract podcasts into per-show notes with a Bases dashboard
+  depends_on: []
+  size: medium
+  description: 'podcasts: create the `[[podcast]]` type note, one `podcasts/<slug>.md`
+    note for each of the 15 shows, a `podcasts.base` dashboard modeled on `eat.base`,
+    and rewrite `podcasts.md` into a hub note that keeps all 17 legacy block anchors
+    alive on its new lines.'
+- id: quote
+  title: Rewrite quote.md as Obsidian quote callouts
+  depends_on: []
+  size: medium
+  description: 'quote: convert all 32 zorg quote bullets in `quote.md` into `> [!quote]`
+    callouts with human-readable block IDs, drop the dead zorg frontmatter and self-referential
+    `[[quote]]` noise, and preserve every outbound wikilink and URL verbatim.'
+- id: verify
+  title: Verify link integrity and vault render
+  depends_on:
+  - podcasts
+  - quote
+  size: small
+  description: 'verify: re-check every inbound block reference, outbound wikilink,
+    and URL touched by the two rewrites, confirm `podcasts.base` parses and renders,
+    and confirm the vault working tree contains only the intended changes.'
 proposed_by: bbugyi200.athena.tt
 create_time: 2026-08-06 07:33:57
 status: wip
+bead_id: bob-cli-f
 ---
 
-- **PROMPT:**
-  [prompts/202608/modernize_quote_and_podcasts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/modernize_quote_and_podcasts.md)
+- **PROMPT:** [prompts/202608/modernize_quote_and_podcasts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/modernize_quote_and_podcasts.md)
+- **BEAD:** [bob-cli-f](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-f/README.md)
 
 # Plan: Modernize `quote.md` and `podcasts.md`
 
