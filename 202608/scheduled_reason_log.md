@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/scheduled_reason_log.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/scheduled_reason_log.md)
+- **AGENTS:**
+  - [bbugyi200.athena.tu](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.tu.md)
+- **COMMITS:**
+  - [1be7015](https://github.com/bobs-org/bob-plugins/commit/1be70159a4fb57749d8b3c9f4cf90a47deb4dead) —
+    feat(bob-navigation-hotkeys): prompt for a reason after picking a scheduled date
 
 # Plan: Schedule-log reason prompt for the `Ctrl+Shift+P` scheduled picker
 
