@@ -11,6 +11,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/focus_task_move_destination.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/focus_task_move_destination.md)
+- **AGENTS:**
+  - [bbugyi200.athena.tp](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.tp.md)
+- **COMMITS:**
+  - [2728043](https://github.com/bobs-org/bob-plugins/commit/272804381359a6f579180ee9ca172c96b71a8391) —
+    feat(navigation-hotkeys): focus destination note after task move
 
 # Plan: Focus the destination note after a `Ctrl+Shift+M` task move
 
