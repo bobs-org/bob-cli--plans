@@ -7,7 +7,7 @@ goal:
   one existing vault log is migrated in place.
 proposed_by: bbugyi200.athena.tu.f0
 create_time: 2026-08-06 08:29:56
-status: wip
+status: done
 ---
 
 # Plan: Nest schedule-log entries under the marker and restyle the log
