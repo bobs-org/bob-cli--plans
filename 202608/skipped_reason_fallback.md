@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/skipped_reason_fallback.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/skipped_reason_fallback.md)
+- **AGENTS:**
+  - [bbugyi200.athena.tu.f0.f0.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.tu.f0.f0.f1.md)
+- **COMMITS:**
+  - [1830491](https://github.com/bobs-org/bob-plugins/commit/1830491d242fb488afa58a8b0307fd314be901a2) —
+    feat(bob-navigation-hotkeys): log an unexplained entry when skipping the reason prompt on a task with a log
 
 # Plan: Log an unexplained entry when a task already keeps a schedule log
 
