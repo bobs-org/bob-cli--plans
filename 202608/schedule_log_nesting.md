@@ -13,8 +13,8 @@ status: done
 - **AGENTS:**
   - [bbugyi200.athena.tu.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.tu.f0.md)
 - **COMMITS:**
-  - [e5cca2d](https://github.com/bobs-org/bob-plugins/commit/e5cca2d342aa6811b6a442dc3a0765c46cbde340) —
-    fix(bob-navigation-hotkeys): nest schedule-log entries under the marker
+  - [2830142](https://github.com/bobs-org/bob-cli/commit/2830142dcbd701f6fcf8421bad13c3e755b67a58) — docs(projects):
+    update schedule-log reason prompt for nesting fix
 
 # Plan: Nest schedule-log entries under the marker and restyle the log
 
