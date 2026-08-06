@@ -6,7 +6,7 @@ goal:
   instead of staying in the source note.
 proposed_by: bbugyi200.athena.tp
 create_time: 2026-08-05 20:44:45
-status: wip
+status: done
 ---
 
 - **PROMPT:**
