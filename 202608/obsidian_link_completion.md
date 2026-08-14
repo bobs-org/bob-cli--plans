@@ -1,50 +1,47 @@
 ---
 tier: epic
 title: Obsidian-aware completion and highlighting for Bob Mac Capture
-goal:
-  Typing an Obsidian wikilink in the Bob Mac Capture popup produces fast, accurate,
+goal: Typing an Obsidian wikilink in the Bob Mac Capture popup produces fast, accurate,
   keyboard-first suggestions and polished semantic highlighting without moving capture
   grammar or vault authority into Swift.
 phases:
-  - id: link_protocol
-    title: Authoritative Obsidian link protocol in bob-cli
-    depends_on: []
-    size: medium
-    description:
-      "link_protocol: extend bob-cli's editor-facing parse and completion contracts with
-      a shared, vault-aware Obsidian wikilink scanner, note/alias/heading/block
-      discovery, byte-exact replacements, deterministic ranking, additive JSON metadata,
-      documentation, and exhaustive Rust coverage while preserving existing capture
-      behavior and the lexical no-I/O guarantee of capture-parse."
-  - id: caret_integration
-    title: Caret-correct link intelligence in Bob Mac Capture
-    depends_on:
-      - link_protocol
-    size: medium
-    description:
-      "caret_integration: update the linked bob-mac-capture app to decode the additive
-      contract, drive completion from the real AttributedTextSelection insertion point,
-      preserve selection and IME state while applying highlights, accept server-provided
-      replacements with a restored caret, and harden cancellation, stale-response,
-      Unicode, and failure behavior with fixture-backed Swift tests."
-  - id: visual_polish
-    title: Beautiful, accessible completion presentation and release gate
-    depends_on:
-      - caret_integration
-    size: medium
-    description:
-      "visual_polish: refine the popup's wikilink palette and completion rows into an
-      adaptive native macOS experience with clear note/path/alias/subpath hierarchy,
-      matched-result emphasis, keyboard and VoiceOver feedback, responsive sizing,
-      documentation, automated regression coverage, and a focused
-      light/dark/high-contrast/IME owner-assisted validation gate."
+- id: link_protocol
+  title: Authoritative Obsidian link protocol in bob-cli
+  depends_on: []
+  size: medium
+  description: 'link_protocol: extend bob-cli''s editor-facing parse and completion
+    contracts with a shared, vault-aware Obsidian wikilink scanner, note/alias/heading/block
+    discovery, byte-exact replacements, deterministic ranking, additive JSON metadata,
+    documentation, and exhaustive Rust coverage while preserving existing capture
+    behavior and the lexical no-I/O guarantee of capture-parse.'
+- id: caret_integration
+  title: Caret-correct link intelligence in Bob Mac Capture
+  depends_on:
+  - link_protocol
+  size: medium
+  description: 'caret_integration: update the linked bob-mac-capture app to decode
+    the additive contract, drive completion from the real AttributedTextSelection
+    insertion point, preserve selection and IME state while applying highlights, accept
+    server-provided replacements with a restored caret, and harden cancellation, stale-response,
+    Unicode, and failure behavior with fixture-backed Swift tests.'
+- id: visual_polish
+  title: Beautiful, accessible completion presentation and release gate
+  depends_on:
+  - caret_integration
+  size: medium
+  description: 'visual_polish: refine the popup''s wikilink palette and completion
+    rows into an adaptive native macOS experience with clear note/path/alias/subpath
+    hierarchy, matched-result emphasis, keyboard and VoiceOver feedback, responsive
+    sizing, documentation, automated regression coverage, and a focused light/dark/high-contrast/IME
+    owner-assisted validation gate.'
 proposed_by: bbugyi200.athena.00w.f0.f0.w0.w0
 create_time: 2026-08-14 11:05:26
 status: wip
+bead_id: bob-cli-n
 ---
 
-- **PROMPT:**
-  [prompts/202608/obsidian_link_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/obsidian_link_completion.md)
+- **PROMPT:** [prompts/202608/obsidian_link_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/obsidian_link_completion.md)
+- **BEAD:** [bob-cli-n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-n/README.md)
 
 # Obsidian-aware completion and highlighting for Bob Mac Capture
 
