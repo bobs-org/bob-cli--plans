@@ -1,91 +1,84 @@
 ---
 tier: epic
 title: Native Bob Mac Capture app
-goal:
-  A signed native macOS 26 menu-bar app in bobs-org/bob-mac-capture replaces the
-  Hammerspoon capture pop-up with a pre-warmed global-hotkey panel that supports
-  multi-line editing, authoritative marker highlighting and completion, exact live
-  preview, lossless failure handling, and reliable inline and system feedback, while
-  bob-cli remains the only implementation of capture grammar and vault mutation.
+goal: A signed native macOS 26 menu-bar app in bobs-org/bob-mac-capture replaces the
+  Hammerspoon capture pop-up with a pre-warmed global-hotkey panel that supports multi-line
+  editing, authoritative marker highlighting and completion, exact live preview, lossless
+  failure handling, and reliable inline and system feedback, while bob-cli remains
+  the only implementation of capture grammar and vault mutation.
 phases:
-  - id: grammar
-    title: Authoritative capture parser endpoint
-    depends_on: []
-    size: medium
-    description:
-      "grammar: refactor bob-cli's existing capture parser into a span-aware reusable
-      model and add the read-only bob capture-parse command with stable JSON,
-      diagnostics, CLI/docs wiring, and Rust plus ported Hammerspoon grammar coverage."
-  - id: completion
-    title: Cursor-aware capture completion endpoint
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "completion: add bob capture-complete as the authoritative cursor-aware completion
-      service over capture targets, sections, and open tasks, returning replacement
-      ranges and stable JSON while preserving the current discovery-command contracts."
-  - id: foundation
-    title: Signed app foundation and macOS CI
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "foundation: scaffold bobs-org/bob-mac-capture as a macOS 26 SwiftPM app with a
-      pure CaptureCore, direct cancellable bob process client, fixture-backed tests,
-      macOS CI, deterministic bundle/install/sign scripts, LSUIElement lifecycle, Carbon
-      hotkey, pre-warmed non-activating NSPanel, draft-safe multi-line editor, settings,
-      and launch-at-login support."
-  - id: feedback
-    title: Capture execution and reliable feedback
-    depends_on:
-      - foundation
-    size: medium
-    description:
-      "feedback: wire submit and explicit clipboard-resolving preview through bob
-      capture, prevent duplicate writes, preserve drafts and destinations on every
-      failure, add inline status, and implement signed UNUserNotificationCenter
-      notifications with foreground presentation, authorization diagnostics, a test
-      action, and Open Note."
-  - id: intelligence
-    title: Highlighting, completion, and live preview
-    depends_on:
-      - completion
-      - foundation
-    size: medium
-    description:
-      "intelligence: connect macOS 26 attributed editing to capture-parse spans, add an
-      inline keyboard completion popover backed by capture-complete, and add debounced
-      cancellable exact preview through bob capture --dry-run --no-clip with cached
-      targets and explicit stale-response handling."
-  - id: hardening
-    title: Integrated macOS validation and release hardening
-    depends_on:
-      - feedback
-      - intelligence
-    size: medium
-    description:
-      "hardening: complete app accessibility, appearance, privacy, error, packaging,
-      installation, and user documentation; exercise core and full-app CI; and run the
-      owner-assisted signed on-Mac notification, focus, clipboard, Spaces, IME, latency,
-      and smoke-test gate without changing the existing Hammerspoon hotkey."
-  - id: cutover
-    title: Hammerspoon cutover and migration cleanup
-    depends_on:
-      - hardening
-    size: small
-    description:
-      "cutover: only after the hardening gate passes, remove the old Hammerspoon hotkey,
-      WebView workflow, duplicated task_capture.lua grammar, and migrated specs from
-      chezmoi; deploy the dotfiles change and document rollback to the last known-good
-      Hammerspoon revision."
+- id: grammar
+  title: Authoritative capture parser endpoint
+  depends_on: []
+  size: medium
+  description: 'grammar: refactor bob-cli''s existing capture parser into a span-aware
+    reusable model and add the read-only bob capture-parse command with stable JSON,
+    diagnostics, CLI/docs wiring, and Rust plus ported Hammerspoon grammar coverage.'
+- id: completion
+  title: Cursor-aware capture completion endpoint
+  depends_on:
+  - grammar
+  size: medium
+  description: 'completion: add bob capture-complete as the authoritative cursor-aware
+    completion service over capture targets, sections, and open tasks, returning replacement
+    ranges and stable JSON while preserving the current discovery-command contracts.'
+- id: foundation
+  title: Signed app foundation and macOS CI
+  depends_on:
+  - grammar
+  size: medium
+  description: 'foundation: scaffold bobs-org/bob-mac-capture as a macOS 26 SwiftPM
+    app with a pure CaptureCore, direct cancellable bob process client, fixture-backed
+    tests, macOS CI, deterministic bundle/install/sign scripts, LSUIElement lifecycle,
+    Carbon hotkey, pre-warmed non-activating NSPanel, draft-safe multi-line editor,
+    settings, and launch-at-login support.'
+- id: feedback
+  title: Capture execution and reliable feedback
+  depends_on:
+  - foundation
+  size: medium
+  description: 'feedback: wire submit and explicit clipboard-resolving preview through
+    bob capture, prevent duplicate writes, preserve drafts and destinations on every
+    failure, add inline status, and implement signed UNUserNotificationCenter notifications
+    with foreground presentation, authorization diagnostics, a test action, and Open
+    Note.'
+- id: intelligence
+  title: Highlighting, completion, and live preview
+  depends_on:
+  - completion
+  - foundation
+  size: medium
+  description: 'intelligence: connect macOS 26 attributed editing to capture-parse
+    spans, add an inline keyboard completion popover backed by capture-complete, and
+    add debounced cancellable exact preview through bob capture --dry-run --no-clip
+    with cached targets and explicit stale-response handling.'
+- id: hardening
+  title: Integrated macOS validation and release hardening
+  depends_on:
+  - feedback
+  - intelligence
+  size: medium
+  description: 'hardening: complete app accessibility, appearance, privacy, error,
+    packaging, installation, and user documentation; exercise core and full-app CI;
+    and run the owner-assisted signed on-Mac notification, focus, clipboard, Spaces,
+    IME, latency, and smoke-test gate without changing the existing Hammerspoon hotkey.'
+- id: cutover
+  title: Hammerspoon cutover and migration cleanup
+  depends_on:
+  - hardening
+  size: small
+  description: 'cutover: only after the hardening gate passes, remove the old Hammerspoon
+    hotkey, WebView workflow, duplicated task_capture.lua grammar, and migrated specs
+    from chezmoi; deploy the dotfiles change and document rollback to the last known-good
+    Hammerspoon revision.'
 proposed_by: bbugyi200.athena.005
 create_time: 2026-08-13 20:32:33
 status: wip
+bead_id: bob-cli-j
 ---
 
-- **PROMPT:**
-  [prompts/202608/bob_mac_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/bob_mac_capture.md)
+- **PROMPT:** [prompts/202608/bob_mac_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/bob_mac_capture.md)
+- **BEAD:** [bob-cli-j](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j/README.md)
 
 # Plan: Native Bob Mac Capture app
 
