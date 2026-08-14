@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_paste_plain_text.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_paste_plain_text.md)
+- **AGENTS:**
+  - [bbugyi200.athena.01g](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01g.md)
+- **COMMITS:**
+  - [68031c4](https://github.com/bobs-org/bob-mac-capture/commit/68031c415149a7095f831d1192f21b8edd1fc692)
+    — fix: paste capture text as plain text
 
 # Plan: Strip Formatting On Paste In The Bob Mac Capture Panel
 
