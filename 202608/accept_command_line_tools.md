@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/accept_command_line_tools.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/accept_command_line_tools.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00r.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00r.f0.md)
+- **COMMITS:**
+  - [09d0d73](https://github.com/bobs-org/bob-mac-capture/commit/09d0d73d14ec9efc9680b9a508fc53e9e1c9a8c3)
+    — fix: accept command line tools for Swift resolution
 
 # Allow matching Apple Command Line Tools for bob-mac-capture
 
