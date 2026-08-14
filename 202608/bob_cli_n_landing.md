@@ -23,6 +23,8 @@ status: done
     — fix(capture): qualify panel test size scalars
   - [38b56dc](https://github.com/bobs-org/bob-mac-capture/commit/38b56dcd7aac89d2bc19e0f83acdbba3a904e440)
     — test(capture): harden macOS release gate assumptions
+  - [55687af](https://github.com/bobs-org/bob-mac-capture/commit/55687af0595f1e4f8e9467cf97f19090327149ed)
+    — test(capture): mirror screen fallback in metrics replay test
 
 # Finish and land epic `bob-cli-n`
 
