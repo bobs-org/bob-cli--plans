@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_content_visibility.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_content_visibility.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00w.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00w.f0.f0.md)
+- **COMMITS:**
+  - [a20055e](https://github.com/bobs-org/bob-mac-capture/commit/a20055e96eea268ef0c52ee02cfad1e2fff14d16)
+    — fix(capture): keep panel actions visible while autosizing
 
 # Keep capture-panel controls visible while the window autosizes
 
