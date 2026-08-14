@@ -1,38 +1,36 @@
 ---
 tier: epic
 title: First-class authored sub-bullets in Bob capture
-goal:
-  Bob capture accepts a one-line parent followed by flat authored bullets, applies
+goal: Bob capture accepts a one-line parent followed by flat authored bullets, applies
   capture-wide markers from the end of any input line, writes the children with native
   Obsidian indentation, and gives the macOS capture app polished bullet editing and
   exact hierarchical preview behavior.
 phases:
-  - id: line-aware-capture
-    title: Line-aware capture grammar and Markdown output
-    depends_on: []
-    size: medium
-    description:
-      "line-aware-capture: make bob-cli own a line-preserving capture model,
-      line-terminal marker extraction, authored-child rendering, compatible JSON and
-      stdin contracts, documentation, and exhaustive Rust coverage across every capture
-      mode."
-  - id: mac-bullet-editor
-    title: Native bullet editing and hierarchical preview
-    depends_on:
-      - line-aware-capture
-    size: medium
-    description:
-      "mac-bullet-editor: consume bob-cli's authored-child contract in bob-mac-capture,
-      add Ctrl-J bullet insertion and empty-bullet Backspace behavior through the native
-      text system, render exact nested preview lines, and verify the complete macOS
-      interaction."
+- id: line-aware-capture
+  title: Line-aware capture grammar and Markdown output
+  depends_on: []
+  size: medium
+  description: 'line-aware-capture: make bob-cli own a line-preserving capture model,
+    line-terminal marker extraction, authored-child rendering, compatible JSON and
+    stdin contracts, documentation, and exhaustive Rust coverage across every capture
+    mode.'
+- id: mac-bullet-editor
+  title: Native bullet editing and hierarchical preview
+  depends_on:
+  - line-aware-capture
+  size: medium
+  description: 'mac-bullet-editor: consume bob-cli''s authored-child contract in bob-mac-capture,
+    add Ctrl-J bullet insertion and empty-bullet Backspace behavior through the native
+    text system, render exact nested preview lines, and verify the complete macOS
+    interaction.'
 proposed_by: bbugyi200.athena.00w.f0.f0.w0
 create_time: 2026-08-14 10:54:44
 status: wip
+bead_id: bob-cli-m
 ---
 
-- **PROMPT:**
-  [prompts/202608/capture_authored_sub_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_authored_sub_bullets.md)
+- **PROMPT:** [prompts/202608/capture_authored_sub_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_authored_sub_bullets.md)
+- **BEAD:** [bob-cli-m](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-m/README.md)
 
 # First-class authored sub-bullets in Bob capture
 
