@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_window_autosize.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_window_autosize.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00w.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00w.f0.md)
+- **COMMITS:**
+  - [ffd3786](https://github.com/bobs-org/bob-mac-capture/commit/ffd37860c82ab4356199bbe4f7b0c1c16703e384)
+    — feat(capture): size the panel window to its content
 
 # Size the Bob Mac Capture panel window to its content
 
