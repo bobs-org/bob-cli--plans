@@ -21,6 +21,8 @@ status: done
 - **COMMITS:**
   - [1d859d9](https://github.com/bobs-org/bob-mac-capture/commit/1d859d909571010c90ff16e487c08bb32272328c)
     — fix(capture): qualify panel test size scalars
+  - [38b56dc](https://github.com/bobs-org/bob-mac-capture/commit/38b56dcd7aac89d2bc19e0f83acdbba3a904e440)
+    — test(capture): harden macOS release gate assumptions
 
 # Finish and land epic `bob-cli-n`
 
