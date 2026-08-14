@@ -14,6 +14,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_clip_entries_json_contract.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_clip_entries_json_contract.md)
+- **AGENTS:**
+  - [bbugyi200.athena.01c](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01c.md)
+- **COMMITS:**
+  - [7fa0658](https://github.com/bobs-org/bob-cli/commit/7fa06585b32cd15f136f7b5a0908fa05d0dc50b5)
+    — fix(capture): always emit clip entries in JSON
 
 # Fix the capture clipboard JSON contract that breaks every % capture
 
