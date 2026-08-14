@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/repair_hammerspoon_startup.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/repair_hammerspoon_startup.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00o.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00o.f0.md)
+- **COMMITS:**
+  - [742692c](https://github.com/bbugyi200/dotfiles/commit/742692c6df1b7fe93b794664611ecffe4d9d1290)
+    — fix(hammerspoon): repair Pomodoro startup bootstrap
 
 # Repair the Hammerspoon startup regression and font-warning loop
 
