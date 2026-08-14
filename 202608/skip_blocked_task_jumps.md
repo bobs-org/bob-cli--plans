@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/skip_blocked_task_jumps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/skip_blocked_task_jumps.md)
+- **AGENTS:**
+  - [bbugyi200.athena.01m](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01m.md)
+- **COMMITS:**
+  - [f772c9a](https://github.com/bobs-org/bob-plugins/commit/f772c9a5871ced48191f69034b247cf53992c5e9)
+    — feat(bob-navigation-hotkeys): skip Blocked tasks on Ctrl+Shift+J/K
 
 # Skip Blocked Tasks During Ctrl+Shift+J/K Navigation
 
