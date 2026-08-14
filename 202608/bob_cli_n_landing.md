@@ -16,6 +16,11 @@ status: done
 - **PARENT:** [202608/obsidian_link_completion.md](obsidian_link_completion.md)
 - **BEAD:**
   [bob-cli-n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-n/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-n.land](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.bob-cli-n.land.md)
+- **COMMITS:**
+  - [1d859d9](https://github.com/bobs-org/bob-mac-capture/commit/1d859d909571010c90ff16e487c08bb32272328c)
+    — fix(capture): qualify panel test size scalars
 
 # Finish and land epic `bob-cli-n`
 
