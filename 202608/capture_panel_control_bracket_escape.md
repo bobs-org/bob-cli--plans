@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_control_bracket_escape.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_control_bracket_escape.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00w.f0.f0.w0.w0.w0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00w.f0.f0.w0.w0.w0.f0.md)
+- **COMMITS:**
+  - [49df61b](https://github.com/bobs-org/bob-mac-capture/commit/49df61b65d82e172416ea040decad0414f8e8533)
+    — feat(capture): recognize Control-\[ as Escape alias in capture panel
 
 # Recognize Control-[ as Escape in the Bob Mac Capture panel
 
