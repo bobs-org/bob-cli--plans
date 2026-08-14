@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/fix_mac_capture_plain_text_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/fix_mac_capture_plain_text_ci.md)
+- **AGENTS:**
+  - [bbugyi200.athena.01s](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01s.md)
+- **COMMITS:**
+  - [9880af5](https://github.com/bobs-org/bob-mac-capture/commit/9880af548ffa7912c3e2b3620444c762be27ffcf)
+    — fix(capture): only read explicitly advertised plain-text pasteboard flavor
 
 # Fix bob-mac-capture plain-text paste CI failure
 
