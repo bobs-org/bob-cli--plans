@@ -27,6 +27,8 @@ status: done
     — test(capture): mirror screen fallback in metrics replay test
   - [912cbc4](https://github.com/bobs-org/bob-mac-capture/commit/912cbc444dc39cc8227385a49cbf1df027e694b8)
     — test(capture): assert cached metrics replay from applied height
+  - [bb7218f](https://github.com/bobs-org/bob-mac-capture/commit/bb7218f68feabe0e0e2ee9e844c0f26e067209b4)
+    — ci(capture): include signposts in launch smoke log query
 
 # Finish and land epic `bob-cli-n`
 
