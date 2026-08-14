@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/bob_mac_capture_restart.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/bob_mac_capture_restart.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00x](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00x.md)
+- **COMMITS:**
+  - [1b76705](https://github.com/bobs-org/bob-mac-capture/commit/1b76705be1d45e55e96684664c87172c2ece0449)
+    — feat(capture): add Restart action to Bob Mac Capture status menu
 
 # Add a Restart action to the Bob Mac Capture menu-bar menu
 
