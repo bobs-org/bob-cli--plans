@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_auto_dismiss.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_auto_dismiss.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00v](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00v.md)
+- **COMMITS:**
+  - [2b32425](https://github.com/bobs-org/bob-mac-capture/commit/2b32425cb19aeefc5eb6eb5d070eed297599f72d)
+    — feat(capture): auto-dismiss capture panel after a successful capture
 
 # Close the Bob Mac Capture panel after a successful capture
 
