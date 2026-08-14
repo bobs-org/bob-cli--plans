@@ -73,7 +73,7 @@ phases:
     Hammerspoon revision.'
 proposed_by: bbugyi200.athena.005
 create_time: 2026-08-13 20:32:33
-status: wip
+status: done
 bead_id: bob-cli-j
 ---
 
