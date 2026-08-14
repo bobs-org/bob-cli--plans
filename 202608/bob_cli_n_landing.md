@@ -25,6 +25,8 @@ status: done
     — test(capture): harden macOS release gate assumptions
   - [55687af](https://github.com/bobs-org/bob-mac-capture/commit/55687af0595f1e4f8e9467cf97f19090327149ed)
     — test(capture): mirror screen fallback in metrics replay test
+  - [912cbc4](https://github.com/bobs-org/bob-mac-capture/commit/912cbc444dc39cc8227385a49cbf1df027e694b8)
+    — test(capture): assert cached metrics replay from applied height
 
 # Finish and land epic `bob-cli-n`
 
