@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_discard_and_close_keys.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_discard_and_close_keys.md)
+- **AGENTS:**
+  - [bbugyi200.athena.00w.f0.f0.w0.w0.w0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.00w.f0.f0.w0.w0.w0.md)
+- **COMMITS:**
+  - [984852c](https://github.com/bobs-org/bob-mac-capture/commit/984852ce1987969c0f878c3a1ef2d6f518311b9a)
+    — feat\!: make capture panel close retain drafts by default
 
 # Add Control-C discard and single-press Escape to the capture panel
 
