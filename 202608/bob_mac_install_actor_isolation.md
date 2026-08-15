@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/bob_mac_install_actor_isolation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/bob_mac_install_actor_isolation.md)
+- **AGENTS:**
+  - [bbugyi200.athena.02b](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02b.md)
+- **COMMITS:**
+  - [b55d485](https://github.com/bobs-org/bob-mac-capture/commit/b55d485000a7b25a8d04f1ad4a3485b565a4ae40)
+    — fix: resolve actor-isolation errors blocking Bob Mac Capture install
 
 # Restore Bob Mac Capture installation under current Swift toolchains
 
