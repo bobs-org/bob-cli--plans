@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/canceled_draft_stash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/canceled_draft_stash.md)
+- **AGENTS:**
+  - [bbugyi200.athena.024](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.024.md)
+- **COMMITS:**
+  - [77da370](https://github.com/bobs-org/bob-mac-capture/commit/77da37099de1bf509e97a3f60a7599f865f66728)
+    — feat(capture): add canceled draft stash
 
 # Add a keyboard-first canceled-draft stash to Bob Mac Capture
 
