@@ -1,56 +1,53 @@
 ---
 tier: epic
 title: Finish and land multi-item capture
-goal:
-  Integrate every change that landed while bob-cli-t was in progress, restore the full
-  macOS release gate, verify the real single- and multi-item experience, and close the
-  original epic with every child proposal and landing artifact accounted for.
+goal: Integrate every change that landed while bob-cli-t was in progress, restore
+  the full macOS release gate, verify the real single- and multi-item experience,
+  and close the original epic with every child proposal and landing artifact accounted
+  for.
 phases:
-  - id: restore_macos_test_compilation
-    title: Restore the macOS test and release pipeline
-    depends_on: []
-    size: small
-    description:
-      "restore_macos_test_compilation: resolve bob-cli-x by making pure indentation
-      helpers safely nonisolated so the macOS test target compiles without weakening
-      main-actor protection around AppKit and model mutation."
-  - id: integrate_batch_task_id_flow
-    title: Integrate later-item task-ID assignment with batch capture
-    depends_on: []
-    size: medium
-    description:
-      "integrate_batch_task_id_flow: add cross-repository regression coverage for
-      all-task completion and inline block-ID assignment in a later batch item, fixing
-      any loss of global ranges, earlier draft items, or one-process capture semantics."
-  - id: validate_integrated_release
-    title: Validate the integrated CLI and installed macOS experience
-    depends_on:
-      - restore_macos_test_compilation
-      - integrate_batch_task_id_flow
-    size: medium
-    description:
-      "validate_integrated_release: verify both repositories at their current tips,
-      require a green complete macOS workflow, and run the owner-assisted installed-app
-      batch, keyboard, preview, notification, and opening matrix."
-  - id: land_original_multi_capture_epic
-    title: Close bob-cli-t and clean its expired symbol allowances
-    depends_on:
-      - validate_integrated_release
-    size: small
-    description:
-      "land_original_multi_capture_epic: perform the final drift and note audit, record
-      every follow-up outcome, close bob-cli-t, run post-close symvision cleanup, and
-      mark plan:202608/multi_capture.md done."
+- id: restore_macos_test_compilation
+  title: Restore the macOS test and release pipeline
+  depends_on: []
+  size: small
+  description: 'restore_macos_test_compilation: resolve bob-cli-x by making pure indentation
+    helpers safely nonisolated so the macOS test target compiles without weakening
+    main-actor protection around AppKit and model mutation.'
+- id: integrate_batch_task_id_flow
+  title: Integrate later-item task-ID assignment with batch capture
+  depends_on: []
+  size: medium
+  description: 'integrate_batch_task_id_flow: add cross-repository regression coverage
+    for all-task completion and inline block-ID assignment in a later batch item,
+    fixing any loss of global ranges, earlier draft items, or one-process capture
+    semantics.'
+- id: validate_integrated_release
+  title: Validate the integrated CLI and installed macOS experience
+  depends_on:
+  - restore_macos_test_compilation
+  - integrate_batch_task_id_flow
+  size: medium
+  description: 'validate_integrated_release: verify both repositories at their current
+    tips, require a green complete macOS workflow, and run the owner-assisted installed-app
+    batch, keyboard, preview, notification, and opening matrix.'
+- id: land_original_multi_capture_epic
+  title: Close bob-cli-t and clean its expired symbol allowances
+  depends_on:
+  - validate_integrated_release
+  size: small
+  description: 'land_original_multi_capture_epic: perform the final drift and note
+    audit, record every follow-up outcome, close bob-cli-t, run post-close symvision
+    cleanup, and mark plan:202608/multi_capture.md done.'
 proposed_by: bbugyi200.athena.bob-cli-t.land
 parent_bead: bob-cli-t
 create_time: 2026-08-15 11:31:14
 status: wip
+bead_id: bob-cli-t.4
 ---
 
-- **PROMPT:**
-  [prompts/202608/land_multi_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/land_multi_capture.md)
-- **PARENT:**
-  [202608/multi_capture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202608/multi_capture.md)
+- **PROMPT:** [prompts/202608/land_multi_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/land_multi_capture.md)
+- **PARENT:** [202608/multi_capture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202608/multi_capture.md)
+- **BEAD:** [bob-cli-t.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-t/bob-cli-t.4.md)
 
 # Finish and land multi-item capture
 
