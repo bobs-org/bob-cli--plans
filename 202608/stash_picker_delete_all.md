@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/stash_picker_delete_all.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/stash_picker_delete_all.md)
+- **AGENTS:**
+  - [bbugyi200.athena.02g](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02g.md)
+- **COMMITS:**
+  - [3d65b05](https://github.com/bobs-org/bob-mac-capture/commit/3d65b052a8ecfc2b031c69587271692947f04701)
+    — feat: add stash picker delete-all command
 
 # Add one-key clear-all to the canceled-draft stash picker
 
