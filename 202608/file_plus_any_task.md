@@ -1,34 +1,33 @@
 ---
 tier: epic
 title: Any-task @route+ completion with inline block-ID authoring
-goal: "Bob Mac Capture can select any open task from @file+ completion, safely assign a
-  user-authored block ID through Bob when needed, and clearly distinguish ready tasks
-  from tasks that require an ID.
+goal: 'Bob Mac Capture can select any open task from @file+ completion, safely assign
+  a user-authored block ID through Bob when needed, and clearly distinguish ready
+  tasks from tasks that require an ID.
 
-  "
+  '
 phases:
-  - id: bob_task_identity_contract
-    title: Bob completion and task-ID mutation contract
-    depends_on: []
-    size: medium
-    description:
-      "bob_task_identity_contract: define opt-in all-task discovery, safe ID assignment,
-      and the tested CLI wire contract."
-  - id: mac_capture_task_id_prompt
-    title: Beautiful stateful macOS selection and prompt
-    depends_on:
-      - bob_task_identity_contract
-    size: medium
-    description:
-      "mac_capture_task_id_prompt: build grouped task presentation, inline ID authoring,
-      reliable state transitions, and end-to-end app coverage."
+- id: bob_task_identity_contract
+  title: Bob completion and task-ID mutation contract
+  depends_on: []
+  size: medium
+  description: 'bob_task_identity_contract: define opt-in all-task discovery, safe
+    ID assignment, and the tested CLI wire contract.'
+- id: mac_capture_task_id_prompt
+  title: Beautiful stateful macOS selection and prompt
+  depends_on:
+  - bob_task_identity_contract
+  size: medium
+  description: 'mac_capture_task_id_prompt: build grouped task presentation, inline
+    ID authoring, reliable state transitions, and end-to-end app coverage.'
 proposed_by: bbugyi200.athena.02a
 create_time: 2026-08-15 10:10:31
 status: wip
+bead_id: bob-cli-u
 ---
 
-- **PROMPT:**
-  [prompts/202608/file_plus_any_task.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/file_plus_any_task.md)
+- **PROMPT:** [prompts/202608/file_plus_any_task.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/file_plus_any_task.md)
+- **BEAD:** [bob-cli-u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-u/README.md)
 
 # Select Any Parent Task from `@file+`
 
