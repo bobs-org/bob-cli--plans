@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_panel_bullet_indentation_keys.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_panel_bullet_indentation_keys.md)
+- **AGENTS:**
+  - [bbugyi200.athena.022.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.022.f0.f0.md)
+- **COMMITS:**
+  - [3898739](https://github.com/bobs-org/bob-mac-capture/commit/38987390fdec770a55eb59db24437f87ac7a24d1)
+    — feat(capture): add Tab/Shift-Tab bullet indentation keys
 
 # Add Tab and Shift-Tab bullet indentation to Bob Mac Capture
 
