@@ -15,8 +15,8 @@ status: done
 - **AGENTS:**
   - [bbugyi200.athena.022](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.022.md)
 - **COMMITS:**
-  - [31b3461](https://github.com/bobs-org/bob-cli/commit/31b346170befa08f998d4408665f99ae97c538b7)
-    — feat(capture): add ID-only routed task marker
+  - [593398a](https://github.com/bobs-org/bob-mac-capture/commit/593398a99de1c075f388b94310e4764d19eab970)
+    — feat(capture): handle ID-only routed task marker
 
 # Add an ID-only `bob capture` marker across CLI and macOS capture
 
