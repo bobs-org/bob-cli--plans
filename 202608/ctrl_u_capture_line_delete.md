@@ -7,7 +7,7 @@ goal:
 size: small
 proposed_by: bbugyi200.athena.02h
 create_time: 2026-08-15 11:25:43
-status: wip
+status: done
 ---
 
 # Add Control-U line-prefix deletion to Bob Mac Capture
