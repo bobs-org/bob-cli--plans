@@ -17,6 +17,11 @@ status: done
   [prompts/202608/bob_cli_u_landing_regressions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/bob_cli_u_landing_regressions.md)
 - **BEAD:**
   [bob-cli-u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-u/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-u.land--1--code](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-u.land--1--code/README.md)
+- **COMMITS:**
+  - [dcbc6b7](https://github.com/bobs-org/bob-mac-capture/commit/dcbc6b7a5ac4fb659f9cfc0715a8f606ed50d9f0)
+    — fix: keep route completion cache authoritative
 
 # Finish and Land `bob-cli-u`
 
