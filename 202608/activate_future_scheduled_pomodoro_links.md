@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/activate_future_scheduled_pomodoro_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/activate_future_scheduled_pomodoro_links.md)
+- **AGENTS:**
+  - [bbugyi200.athena.023](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.023.md)
+- **COMMITS:**
+  - [d6a9f26](https://github.com/bobs-org/bob-plugins/commit/d6a9f26bff2a8111cdf8acd42e08c0bdb50a8c33)
+    — feat(block-id-prompt): activate future-scheduled tasks on Pomodoro ^^ links
 
 # Plan: activate future-scheduled tasks when `^^` links them to a Pomodoro
 
