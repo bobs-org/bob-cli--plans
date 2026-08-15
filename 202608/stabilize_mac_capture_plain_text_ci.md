@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/stabilize_mac_capture_plain_text_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/stabilize_mac_capture_plain_text_ci.md)
+- **AGENTS:**
+  - [bbugyi200.athena.021](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.021.md)
+- **COMMITS:**
+  - [5d211b8](https://github.com/bobs-org/bob-mac-capture/commit/5d211b847b8ab53f78acab3a1f851c3d579c0795)
+    — fix: stabilize rich-only pasteboard test
 
 # Stabilize bob-mac-capture plain-text paste CI coverage
 
