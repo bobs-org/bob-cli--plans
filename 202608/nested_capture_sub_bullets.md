@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/nested_capture_sub_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/nested_capture_sub_bullets.md)
+- **AGENTS:**
+  - [bbugyi200.athena.022.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.022.f0.md)
+- **COMMITS:**
+  - [291501b](https://github.com/bobs-org/bob-cli/commit/291501b8b4c1c1a1b879b15df957acfdc4e4b96d)
+    — feat: support nested authored capture bullets
 
 # Add nested authored sub-bullets to Bob capture
 
