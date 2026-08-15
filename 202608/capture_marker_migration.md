@@ -13,6 +13,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/capture_marker_migration.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/capture_marker_migration.md)
+- **AGENTS:**
+  - [bbugyi200.athena.022.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.022.f1.md)
+- **COMMITS:**
+  - [2bdf4f7](https://github.com/bobs-org/bob-cli/commit/2bdf4f7078ec4caa1efb2d966e9b805a97ef492c)
+    — feat(capture)\!: use + for sub-bullets and ^ for authored IDs
 
 # Migrate capture sub-bullet and ID-only markers
 
