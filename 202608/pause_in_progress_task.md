@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/pause_in_progress_task.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/pause_in_progress_task.md)
+- **AGENTS:**
+  - [bbugyi200.athena.028.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.028.f0.f0.md)
+- **COMMITS:**
+  - [634a931](https://github.com/bobs-org/bob-plugins/commit/634a931ba491d2567663fd0dcd1547a3c8201562)
+    — feat(block-id-prompt): pause in-progress tasks with work log
 
 # Plan: Pause In Progress tasks with an optional work summary
 
