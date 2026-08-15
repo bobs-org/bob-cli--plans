@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/dated_work_log_entries.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/dated_work_log_entries.md)
+- **AGENTS:**
+  - [bbugyi200.athena.028.f0.f0.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.028.f0.f0.f1.md)
+- **COMMITS:**
+  - [68099a0](https://github.com/bobs-org/bob-plugins/commit/68099a0b01ca2fba25103d8d148f544979c0a8d4)
+    — feat(block-id-prompt): date work log entries
 
 # Plan: Add beautiful date prefixes to Work Log entries
 
