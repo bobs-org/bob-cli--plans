@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/stash_picker_uppercase_delete_bottom.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/stash_picker_uppercase_delete_bottom.md)
+- **AGENTS:**
+  - [bbugyi200.athena.02g.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02g.f0.md)
+- **COMMITS:**
+  - [a35003a](https://github.com/bobs-org/bob-mac-capture/commit/a35003a96fa0838870aa5bd3d4af3f2c2ac04341)
+    — fix: require uppercase D to clear stash picker
 
 # Require uppercase D and place Delete All below the stash list
 
