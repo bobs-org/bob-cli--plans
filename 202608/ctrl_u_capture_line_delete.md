@@ -10,6 +10,12 @@ create_time: 2026-08-15 11:25:43
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.02h](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02h.md)
+- **COMMITS:**
+  - [a1ae3fd](https://github.com/bobs-org/bob-mac-capture/commit/a1ae3fd2d3327fdce27763dd72c9a51eaa91b871)
+    — feat: add Ctrl-U capture line deletion
+
 # Add Control-U line-prefix deletion to Bob Mac Capture
 
 ## Goal
