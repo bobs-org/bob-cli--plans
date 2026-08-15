@@ -1,41 +1,38 @@
 ---
 tier: epic
 title: Multi-item capture for Bob Mac Capture
-goal:
-  One Bob Mac Capture draft atomically captures every blank-line-separated task or note,
-  with intuitive native editing, complete preview and notification feedback, and
-  backward-compatible Bob protocols.
+goal: One Bob Mac Capture draft atomically captures every blank-line-separated task
+  or note, with intuitive native editing, complete preview and notification feedback,
+  and backward-compatible Bob protocols.
 phases:
-  - id: bob_batch_protocol
-    title: Add Bob's batch grammar, protocol, and atomic transaction
-    depends_on: []
-    size: medium
-    description:
-      "bob_batch_protocol: implement shared item boundaries, cursor-aware parse and
-      completion, additive ordered output, and all-or-nothing multi-file capture."
-  - id: mac_batch_integration
-    title: Integrate batch results and native editor behavior in the mac app
-    depends_on:
-      - bob_batch_protocol
-    size: medium
-    description:
-      "mac_batch_integration: decode and present aggregate results, add reliable
-      indentation-aware Control-J edits, and preserve one-process submission semantics."
-  - id: mac_notification_polish
-    title: Deliver complete, polished single and batch notifications
-    depends_on:
-      - mac_batch_integration
-    size: small
-    description:
-      "mac_notification_polish: render richer ordered notification summaries and route
-      singular or plural open actions to every unique captured destination."
+- id: bob_batch_protocol
+  title: Add Bob's batch grammar, protocol, and atomic transaction
+  depends_on: []
+  size: medium
+  description: 'bob_batch_protocol: implement shared item boundaries, cursor-aware
+    parse and completion, additive ordered output, and all-or-nothing multi-file capture.'
+- id: mac_batch_integration
+  title: Integrate batch results and native editor behavior in the mac app
+  depends_on:
+  - bob_batch_protocol
+  size: medium
+  description: 'mac_batch_integration: decode and present aggregate results, add reliable
+    indentation-aware Control-J edits, and preserve one-process submission semantics.'
+- id: mac_notification_polish
+  title: Deliver complete, polished single and batch notifications
+  depends_on:
+  - mac_batch_integration
+  size: small
+  description: 'mac_notification_polish: render richer ordered notification summaries
+    and route singular or plural open actions to every unique captured destination.'
 proposed_by: bbugyi200.athena.024.w1
 create_time: 2026-08-15 09:47:49
 status: wip
+bead_id: bob-cli-t
 ---
 
-- **PROMPT:**
-  [prompts/202608/multi_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/multi_capture.md)
+- **PROMPT:** [prompts/202608/multi_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/multi_capture.md)
+- **BEAD:** [bob-cli-t](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-t/README.md)
 
 # Multi-item capture for Bob Mac Capture
 
