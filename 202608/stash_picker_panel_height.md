@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/stash_picker_panel_height.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/stash_picker_panel_height.md)
+- **AGENTS:**
+  - [bbugyi200.athena.02g.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02g.f0.f0.md)
+- **COMMITS:**
+  - [9844895](https://github.com/bobs-org/bob-mac-capture/commit/9844895a8ecfd3120a5d7effa265e401a6b941ed)
+    — fix: size stash picker panel for fixed action
 
 # Keep every stash-picker action visible while the panel autosizes
 
