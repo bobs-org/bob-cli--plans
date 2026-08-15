@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/toggle_pomodoro_task_link.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/toggle_pomodoro_task_link.md)
+- **AGENTS:**
+  - [bbugyi200.athena.028.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.028.f0.md)
+- **COMMITS:**
+  - [e1cbc2d](https://github.com/bobs-org/bob-plugins/commit/e1cbc2da82c0392e43597db76ed1e48ff64ca3a6)
+    — feat(block-id-prompt): toggle Next tasks off Pomodoro links
 
 # Toggle Next tasks out of current and future Pomodoros
 
