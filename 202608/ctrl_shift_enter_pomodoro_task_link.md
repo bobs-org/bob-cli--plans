@@ -12,6 +12,11 @@ status: done
 
 - **PROMPT:**
   [prompts/202608/ctrl_shift_enter_pomodoro_task_link.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/ctrl_shift_enter_pomodoro_task_link.md)
+- **AGENTS:**
+  - [bbugyi200.athena.028](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.028.md)
+- **COMMITS:**
+  - [39d46fd](https://github.com/bobs-org/bob-plugins/commit/39d46fd7149419c2ce66b7a6b52b061fd3c41cbf)
+    — feat(block-id-prompt): add Ctrl+Shift+Enter Pomodoro task linking
 
 # Add Ctrl+Shift+Enter Pomodoro task linking
 
