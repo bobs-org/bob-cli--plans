@@ -1,46 +1,42 @@
 ---
 tier: epic
 title: Complete the multi-item capture landing
-goal:
-  Prove the newly integrated Bob Mac Capture tip on macOS and in the signed installed
+goal: Prove the newly integrated Bob Mac Capture tip on macOS and in the signed installed
   app, then close bob-cli-t.4 with every proposal and post-close artifact resolved.
 phases:
-  - id: validate_latest_mac_integration
-    title: Validate the latest macOS integration tip
-    depends_on: []
-    size: medium
-    description:
-      "validate_latest_mac_integration: verify the combined multi-item capture and
-      task-ID completion behavior after dcbc6b7, fix any regression it exposes, and
-      require the complete exact-head macOS release workflow to pass."
-  - id: exercise_signed_batch_experience
-    title: Exercise the signed installed-app batch experience
-    depends_on:
-      - validate_latest_mac_integration
-    size: medium
-    description:
-      "exercise_signed_batch_experience: guide and record the owner-assisted signed-app
-      matrix for batch capture, keyboard editing, previews, notifications, target
-      opening, failure retention, and later-item task-ID assignment."
-  - id: land_multi_capture_followup
-    title: Close bob-cli-t.4 and finish its landing artifacts
-    depends_on:
-      - exercise_signed_batch_experience
-    size: small
-    description:
-      "land_multi_capture_followup: perform the final drift and note audit, record every
-      proposal outcome, close bob-cli-t.4, run post-close symvision cleanup if
-      available, and mark plan:202608/land_multi_capture.md done."
+- id: validate_latest_mac_integration
+  title: Validate the latest macOS integration tip
+  depends_on: []
+  size: medium
+  description: 'validate_latest_mac_integration: verify the combined multi-item capture
+    and task-ID completion behavior after dcbc6b7, fix any regression it exposes,
+    and require the complete exact-head macOS release workflow to pass.'
+- id: exercise_signed_batch_experience
+  title: Exercise the signed installed-app batch experience
+  depends_on:
+  - validate_latest_mac_integration
+  size: medium
+  description: 'exercise_signed_batch_experience: guide and record the owner-assisted
+    signed-app matrix for batch capture, keyboard editing, previews, notifications,
+    target opening, failure retention, and later-item task-ID assignment.'
+- id: land_multi_capture_followup
+  title: Close bob-cli-t.4 and finish its landing artifacts
+  depends_on:
+  - exercise_signed_batch_experience
+  size: small
+  description: 'land_multi_capture_followup: perform the final drift and note audit,
+    record every proposal outcome, close bob-cli-t.4, run post-close symvision cleanup
+    if available, and mark plan:202608/land_multi_capture.md done.'
 proposed_by: bbugyi200.athena.bob-cli-t.4.land
 parent_bead: bob-cli-t.4
 create_time: 2026-08-15 12:23:25
 status: wip
+bead_id: bob-cli-t.4.5
 ---
 
-- **PROMPT:**
-  [prompts/202608/complete_multi_capture_landing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/complete_multi_capture_landing.md)
-- **PARENT:**
-  [202608/land_multi_capture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202608/land_multi_capture.md)
+- **PROMPT:** [prompts/202608/complete_multi_capture_landing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/complete_multi_capture_landing.md)
+- **PARENT:** [202608/land_multi_capture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202608/land_multi_capture.md)
+- **BEAD:** [bob-cli-t.4.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-t/bob-cli-t.4.5.md)
 
 # Complete the multi-item capture landing
 
