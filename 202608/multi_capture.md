@@ -27,7 +27,7 @@ phases:
     and route singular or plural open actions to every unique captured destination.'
 proposed_by: bbugyi200.athena.024.w1
 create_time: 2026-08-15 09:47:49
-status: wip
+status: done
 bead_id: bob-cli-t
 ---
 
