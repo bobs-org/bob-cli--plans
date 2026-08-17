@@ -12,6 +12,12 @@ create_time: 2026-08-17 11:16:12
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.04w](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.04w.md)
+- **COMMITS:**
+  - [85351cc](https://github.com/bobs-org/bob-cli/commit/85351cce291e040ad8e918cab09f39b997e929ad)
+    — docs: note option-bracket Blocked-cycle retirement in task-status-hooks
+
 # Plan: option-bracket cycling out of Blocked (`[?]`)
 
 ## Goal
