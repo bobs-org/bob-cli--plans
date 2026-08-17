@@ -9,7 +9,7 @@ goal:
 size: medium
 proposed_by: bbugyi200.athena.04w
 create_time: 2026-08-17 11:16:12
-status: wip
+status: done
 ---
 
 # Plan: option-bracket cycling out of Blocked (`[?]`)
