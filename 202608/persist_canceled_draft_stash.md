@@ -10,6 +10,12 @@ create_time: 2026-08-19 09:48:46
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.07p](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.07p.md)
+- **COMMITS:**
+  - [3bb1691](https://github.com/bobs-org/bob-mac-capture/commit/3bb16910902a9d2d879c5334655e95f6ee76ffc0)
+    — feat(capture): persist canceled-draft stash across restarts
+
 # Plan: Persist the canceled-draft stash across restarts
 
 ## Repository
