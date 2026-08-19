@@ -10,9 +10,6 @@ create_time: 2026-08-19 09:48:46
 status: wip
 ---
 
-- **PROMPT:**
-  [prompts/202608/persist_canceled_draft_stash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/persist_canceled_draft_stash.md)
-
 # Plan: Persist the canceled-draft stash across restarts
 
 ## Repository
