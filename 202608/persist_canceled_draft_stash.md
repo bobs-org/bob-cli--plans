@@ -7,7 +7,7 @@ goal:
 size: medium
 proposed_by: bbugyi200.athena.07p
 create_time: 2026-08-19 09:48:46
-status: wip
+status: done
 ---
 
 # Plan: Persist the canceled-draft stash across restarts
