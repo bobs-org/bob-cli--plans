@@ -10,6 +10,12 @@ create_time: 2026-08-21 14:15:34
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.09x](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.09x.md)
+- **COMMITS:**
+  - [30ae7b9](https://github.com/bobs-org/bob-plugins/commit/30ae7b9a8eea2035c4550425952ca23a3031767b)
+    — fix(bob-navigation-hotkeys): preserve vim navigation after transclusion toggle
+
 # Fix Vim navigation after task-link transclusion
 
 ## Objective
