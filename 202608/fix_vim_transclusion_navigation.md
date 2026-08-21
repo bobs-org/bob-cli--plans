@@ -7,7 +7,7 @@ goal:
 size: medium
 proposed_by: bbugyi200.athena.09x
 create_time: 2026-08-21 14:15:34
-status: wip
+status: done
 ---
 
 # Fix Vim navigation after task-link transclusion
