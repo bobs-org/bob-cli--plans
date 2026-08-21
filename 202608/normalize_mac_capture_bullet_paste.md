@@ -8,7 +8,7 @@ goal:
 size: medium
 proposed_by: bbugyi200.athena.091
 create_time: 2026-08-21 06:44:14
-status: wip
+status: done
 ---
 
 # Normalize bullet-list paste into an empty capture bullet
