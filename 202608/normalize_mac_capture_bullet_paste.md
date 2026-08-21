@@ -11,9 +11,6 @@ create_time: 2026-08-21 06:44:14
 status: wip
 ---
 
-- **PROMPT:**
-  [prompts/202608/normalize_mac_capture_bullet_paste.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/normalize_mac_capture_bullet_paste.md)
-
 # Normalize bullet-list paste into an empty capture bullet
 
 ## Goal
