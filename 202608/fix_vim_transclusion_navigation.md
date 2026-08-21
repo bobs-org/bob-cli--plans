@@ -10,9 +10,6 @@ create_time: 2026-08-21 14:15:34
 status: wip
 ---
 
-- **PROMPT:**
-  [prompts/202608/fix_vim_transclusion_navigation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202608/fix_vim_transclusion_navigation.md)
-
 # Fix Vim navigation after task-link transclusion
 
 ## Objective
