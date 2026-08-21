@@ -11,6 +11,12 @@ create_time: 2026-08-21 06:44:14
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.091](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.091.md)
+- **COMMITS:**
+  - [7987253](https://github.com/bobs-org/bob-mac-capture/commit/79872533fd387ea4331ba5fd38b5666bed659da0)
+    — fix: normalize pasted bullet lists in capture placeholders
+
 # Normalize bullet-list paste into an empty capture bullet
 
 ## Goal
