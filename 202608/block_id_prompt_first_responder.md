@@ -8,8 +8,6 @@ goal:
   depending on SwiftUI focus resolution.
 size: medium
 proposed_by: bbugyi200.athena.0c9
-create_time: 2026-08-24 07:33:56
-status: wip
 ---
 
 # The Add Block ID Prompt Still Does Not Take Keyboard Focus
