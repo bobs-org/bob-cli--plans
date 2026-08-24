@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/capture_global_destination_anywhere.md",
+  "rows": [
+    {
+      "created_at": "2026-08-24T19:04:34Z",
+      "created_by": "bob-cli-13.1",
+      "description": "Need approved design context for phase bob-cli-13.1",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:bob-cli-13.1",
+      "target_ref": "plan:202608/capture_global_destination_anywhere.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
