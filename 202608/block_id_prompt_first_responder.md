@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.athena.0c9
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0c9](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0c9.md)
+- **COMMITS:**
+  - [29228d2](https://github.com/bobs-org/bob-mac-capture/commit/29228d2269f337af8386eefdc4c11f1325736cea)
+    — fix(capture): claim block ID field focus via AppKit
+
 # The Add Block ID Prompt Still Does Not Take Keyboard Focus
 
 ## Symptom
