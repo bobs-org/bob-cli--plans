@@ -1,48 +1,50 @@
 ---
 tier: epic
 title: Free the @@ global destination from the header line and teach it to absorb
-goal: "A `@@route` / `@@route+block-id` global destination declaration can be typed on
-  any line of any capture item instead of only on a header line, and typing a bare `@@`
-  inside an item that already carries a `@file` reference moves that reference onto the
-  `@@` and deletes the original, so a draft can never end up with a shadowed local
-  marker or two competing declarations.
+goal: 'A `@@route` / `@@route+block-id` global destination declaration can be typed
+  on any line of any capture item instead of only on a header line, and typing a bare
+  `@@` inside an item that already carries a `@file` reference moves that reference
+  onto the `@@` and deletes the original, so a draft can never end up with a shadowed
+  local marker or two competing declarations.
 
-  "
+  '
 phases:
-  - id: grammar
-    title: Position-free @@ declarations in the capture grammar
-    depends_on: []
-    size: medium
-    description: "grammar: make any `@@…` token a global destination declaration
-      anywhere in a draft, drop the header-line-only restriction, add
-      duplicate-declaration and shadowed-local diagnostics, and update capture,
-      capture-parse, capture-complete, help text, docs, and tests.
+- id: grammar
+  title: Position-free @@ declarations in the capture grammar
+  depends_on: []
+  size: medium
+  description: 'grammar: make any `@@…` token a global destination declaration anywhere
+    in a draft, drop the header-line-only restriction, add duplicate-declaration and
+    shadowed-local diagnostics, and update capture, capture-parse, capture-complete,
+    help text, docs, and tests.
 
-      "
-  - id: rewrite
-    title: bob capture-rewrite and the bare @@ absorption rule
-    depends_on:
-      - grammar
-    size: medium
-    description: "rewrite: add the `bob capture-rewrite` subcommand that turns a bare
-      `@@` into `@@<payload>` by absorbing the item's local destination marker (or the
-      draft's other declaration), deleting the source token and returning edits, cursor,
-      and a human summary.
+    '
+- id: rewrite
+  title: bob capture-rewrite and the bare @@ absorption rule
+  depends_on:
+  - grammar
+  size: medium
+  description: 'rewrite: add the `bob capture-rewrite` subcommand that turns a bare
+    `@@` into `@@<payload>` by absorbing the item''s local destination marker (or
+    the draft''s other declaration), deleting the source token and returning edits,
+    cursor, and a human summary.
 
-      "
-  - id: macapp
-    title: Mac capture panel absorbs @@ as you type
-    depends_on:
-      - rewrite
-    size: medium
-    description:
-      "macapp: wire the bob-mac-capture panel to `bob capture-rewrite` so typing a bare
-      `@@` rewrites the draft in place with an announced summary, plus CaptureCore
-      models, process-client lane, tests, and README updates."
+    '
+- id: macapp
+  title: Mac capture panel absorbs @@ as you type
+  depends_on:
+  - rewrite
+  size: medium
+  description: 'macapp: wire the bob-mac-capture panel to `bob capture-rewrite` so
+    typing a bare `@@` rewrites the draft in place with an announced summary, plus
+    CaptureCore models, process-client lane, tests, and README updates.'
 proposed_by: bbugyi200.athena.0cv
 create_time: 2026-08-24 15:01:17
 status: wip
+bead_id: bob-cli-13
 ---
+
+- **BEAD:** [bob-cli-13](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-13/README.md)
 
 # Plan: Free the `@@` global destination from the header line and teach it to absorb
 
