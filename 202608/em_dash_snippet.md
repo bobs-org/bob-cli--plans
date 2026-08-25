@@ -8,12 +8,6 @@ size: small
 proposed_by: bbugyi200.athena.0dw
 ---
 
-- **AGENTS:**
-  - [bbugyi200.athena.0dw](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0dw.md)
-- **COMMITS:**
-  - [8979334](https://github.com/bobs-org/bob-mac-capture/commit/8979334afba0daf3b91ab6d4726700498c36cd39)
-    — feat(capture): expand -- to an em dash on Tab in the capture editor
-
 # Add a Tab-expanded em-dash snippet to Bob Mac Capture
 
 ## Outcome
