@@ -6,8 +6,6 @@ goal:
   bullet indentation, modal key handling, or native focus traversal.
 size: small
 proposed_by: bbugyi200.athena.0dw
-create_time: 2026-08-25 19:02:09
-status: wip
 ---
 
 # Add a Tab-expanded em-dash snippet to Bob Mac Capture
