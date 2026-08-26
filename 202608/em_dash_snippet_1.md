@@ -8,6 +8,12 @@ size: small
 proposed_by: bbugyi200.athena.0du
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0du](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0du.md)
+- **COMMITS:**
+  - [bc738bb](https://github.com/bobs-org/bob-plugins/commit/bc738bb62da186fb3c9069d3ec8993af0a2a27e6)
+    — feat(bob-ledger-tools): add Tab-expanded em-dash snippet
+
 # Add a Tab-expanded em-dash snippet to Bob Ledger Tools
 
 ## Goal
