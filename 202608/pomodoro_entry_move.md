@@ -8,8 +8,6 @@ goal:
   changing the existing sub-bullet or cross-note task-move behavior.
 size: medium
 proposed_by: bbugyi200.athena.0el
-create_time: 2026-08-26 19:11:09
-status: wip
 ---
 
 # Ctrl+Shift+M on a Pomodoro entry line
