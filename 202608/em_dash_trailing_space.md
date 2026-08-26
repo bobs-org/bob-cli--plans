@@ -6,8 +6,6 @@ goal:
   the cursor after that space.
 size: small
 proposed_by: bbugyi200.athena.0e9
-create_time: 2026-08-26 09:47:54
-status: wip
 ---
 
 # Add a trailing space to the em-dash snippet expansion
