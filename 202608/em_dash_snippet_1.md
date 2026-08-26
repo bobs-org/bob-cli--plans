@@ -6,8 +6,6 @@ goal:
   snippet Tab path without disturbing Markdown hyphen runs or existing snippets.
 size: small
 proposed_by: bbugyi200.athena.0du
-create_time: 2026-08-26 06:43:29
-status: wip
 ---
 
 # Add a Tab-expanded em-dash snippet to Bob Ledger Tools
