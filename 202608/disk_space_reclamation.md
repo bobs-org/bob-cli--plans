@@ -1,75 +1,72 @@
 ---
 tier: epic
 title: Reclaim disk space on / and /mnt/hercules
-goal: "Both pressured filesystems return to a healthy steady state with durable
-  headroom: `/` drops below 75% used and `/mnt/hercules` below 80% used, the backup
-  system stops storing redundant full copies of regenerable build artifacts, and
-  monitoring alerts before either filesystem fills again.
+goal: 'Both pressured filesystems return to a healthy steady state with durable headroom:
+  `/` drops below 75% used and `/mnt/hercules` below 80% used, the backup system stops
+  storing redundant full copies of regenerable build artifacts, and monitoring alerts
+  before either filesystem fills again.
 
-  "
+  '
 phases:
-  - id: triage
-    title: Emergency triage on /mnt/hercules
-    depends_on: []
-    size: small
-    description:
-      "triage: reclaim immediate headroom on the 100%-full RAID array by clearing
-      interrupted-rotation leftovers and the oldest redundant backup rotations, without
-      touching Plex media."
-  - id: rootreclaim
-    title: Ephemeral cache reclamation on /
-    depends_on: []
-    size: medium
-    description:
-      "rootreclaim: purge regenerable caches and stale temp data on the root filesystem
-      - Docker, APT archives, journald, /var/tmp, the uv cache, disabled snap revisions,
-      and root's own caches."
-  - id: plexthumbs
-    title: Plex video preview thumbnails
-    depends_on: []
-    size: small
-    description:
-      "plexthumbs: remove the 73.8G of .bif preview thumbnails under
-      /var/lib/plexmediaserver and turn off the generation setting that recreates them."
-  - id: buildart
-    title: Rust and agent-workspace build artifacts
-    depends_on: []
-    size: medium
-    description:
-      "buildart: prune the 125G sase-core target directory and the per-workspace Rust
-      target copies under ~/.local/state/sase/workspaces, then redirect future builds to
-      a single shared, size-capped location."
-  - id: bkexclude
-    title: Backup exclusion list for regenerable data
-    depends_on:
-      - triage
-    size: medium
-    description:
-      "bkexclude: extend the rsync exclude list in backup.sh so build artifacts, agent
-      workspaces, and toolchain caches stop being copied into every backup rotation."
-  - id: bklinkdest
-    title: Hardlinked backup rotations via --link-dest
-    depends_on:
-      - bkexclude
-    size: medium
-    description:
-      "bklinkdest: make each rotation an incremental hardlink snapshot instead of a full
-      independent copy, which is the single largest structural win on the array."
-  - id: guardrails
-    title: Monitoring, alerting, and regression guards
-    depends_on:
-      - rootreclaim
-      - buildart
-      - bkexclude
-      - bklinkdest
-    size: small
-    description:
-      "guardrails: add Prometheus disk alerts, recurring cleanup jobs, and a documented
-      steady-state baseline so neither filesystem silently refills."
+- id: triage
+  title: Emergency triage on /mnt/hercules
+  depends_on: []
+  size: small
+  description: 'triage: reclaim immediate headroom on the 100%-full RAID array by
+    clearing interrupted-rotation leftovers and the oldest redundant backup rotations,
+    without touching Plex media.'
+- id: rootreclaim
+  title: Ephemeral cache reclamation on /
+  depends_on: []
+  size: medium
+  description: 'rootreclaim: purge regenerable caches and stale temp data on the root
+    filesystem - Docker, APT archives, journald, /var/tmp, the uv cache, disabled
+    snap revisions, and root''s own caches.'
+- id: plexthumbs
+  title: Plex video preview thumbnails
+  depends_on: []
+  size: small
+  description: 'plexthumbs: remove the 73.8G of .bif preview thumbnails under /var/lib/plexmediaserver
+    and turn off the generation setting that recreates them.'
+- id: buildart
+  title: Rust and agent-workspace build artifacts
+  depends_on: []
+  size: medium
+  description: 'buildart: prune the 125G sase-core target directory and the per-workspace
+    Rust target copies under ~/.local/state/sase/workspaces, then redirect future
+    builds to a single shared, size-capped location.'
+- id: bkexclude
+  title: Backup exclusion list for regenerable data
+  depends_on:
+  - triage
+  size: medium
+  description: 'bkexclude: extend the rsync exclude list in backup.sh so build artifacts,
+    agent workspaces, and toolchain caches stop being copied into every backup rotation.'
+- id: bklinkdest
+  title: Hardlinked backup rotations via --link-dest
+  depends_on:
+  - bkexclude
+  size: medium
+  description: 'bklinkdest: make each rotation an incremental hardlink snapshot instead
+    of a full independent copy, which is the single largest structural win on the
+    array.'
+- id: guardrails
+  title: Monitoring, alerting, and regression guards
+  depends_on:
+  - rootreclaim
+  - buildart
+  - bkexclude
+  - bklinkdest
+  size: small
+  description: 'guardrails: add Prometheus disk alerts, recurring cleanup jobs, and
+    a documented steady-state baseline so neither filesystem silently refills.'
 proposed_by: bbugyi200.athena.0dy
 create_time: 2026-08-26 08:19:51
 status: wip
+bead_id: bob-cli-15
 ---
+
+- **BEAD:** [bob-cli-15](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-15/README.md)
 
 # Plan: Reclaim disk space on / and /mnt/hercules
 
