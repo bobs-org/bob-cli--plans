@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/disk_space_reclamation.md",
+  "rows": [
+    {
+      "created_at": "2026-08-26T13:32:36Z",
+      "created_by": "bob-cli-15.2",
+      "description": "Need the approved design and rootreclaim phase requirements for bob-cli-15.2",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:bob-cli-15.2",
+      "target_ref": "plan:202608/disk_space_reclamation.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
