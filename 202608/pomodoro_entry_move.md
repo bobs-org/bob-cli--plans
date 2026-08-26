@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.athena.0el
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0el](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0el.md)
+- **COMMITS:**
+  - [7002124](https://github.com/bobs-org/bob-plugins/commit/7002124fca399ed23cfedd55e1697405ca15b095)
+    — feat(navigation-hotkeys): move or rename Pomodoro entries with Ctrl+Shift+M
+
 # Ctrl+Shift+M on a Pomodoro entry line
 
 ## Goal
