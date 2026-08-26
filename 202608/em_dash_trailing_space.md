@@ -8,6 +8,12 @@ size: small
 proposed_by: bbugyi200.athena.0e9
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0e9](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0e9.md)
+- **COMMITS:**
+  - [2ede7b2](https://github.com/bobs-org/bob-plugins/commit/2ede7b292b856bbfcc74bb5a2d11a9beb8b22b27)
+    — fix(bob-ledger-tools): add trailing space to em-dash snippet expansion
+
 # Add a trailing space to the em-dash snippet expansion
 
 ## Goal
