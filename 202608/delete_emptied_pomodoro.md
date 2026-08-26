@@ -9,6 +9,12 @@ size: small
 proposed_by: bbugyi200.athena.0ei
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0ei](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ei.md)
+- **COMMITS:**
+  - [602df0f](https://github.com/bobs-org/bob-plugins/commit/602df0fe5e6369a0e780147a33e343c9646a9fb1)
+    — fix(navigation-hotkeys): delete Pomodoros emptied by Ctrl+Shift+M bullet moves
+
 # Delete a Pomodoro when Ctrl+Shift+M moves out its last sub-bullet
 
 ## Goal
