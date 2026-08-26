@@ -7,8 +7,6 @@ goal:
   Ctrl+Shift+M behavior.
 size: small
 proposed_by: bbugyi200.athena.0ei
-create_time: 2026-08-26 14:39:39
-status: wip
 ---
 
 # Delete a Pomodoro when Ctrl+Shift+M moves out its last sub-bullet
