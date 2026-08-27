@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/pomodoro_work_log_notes.md",
+  "rows": [
+    {
+      "created_at": "2026-08-27T16:54:51Z",
+      "created_by": "bob-cli-1m.land",
+      "description": "Need the approved epic design, scope, phases, exclusions, and acceptance criteria to verify and land bob-cli-1m",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:bob-cli-1m.land",
+      "target_ref": "plan:202608/pomodoro_work_log_notes.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
