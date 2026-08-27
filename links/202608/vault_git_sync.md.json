@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/vault_git_sync.md",
+  "rows": [
+    {
+      "created_at": "2026-08-27T17:22:04Z",
+      "created_by": "bob-cli-1n.1",
+      "description": "Need the approved phase design before finishing bob-cli-1n.1",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:bob-cli-1n.1",
+      "target_ref": "plan:202608/vault_git_sync.md",
+      "uses": 3
+    }
+  ],
+  "schema_version": 2
+}
