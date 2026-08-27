@@ -9,6 +9,12 @@ size: small
 proposed_by: bbugyi200.athena.0ey
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0ey](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ey.md)
+- **COMMITS:**
+  - [926adc7](https://github.com/bobs-org/bob-plugins/commit/926adc74bbaab91c2ec28bc221dbea6428ffca01)
+    — feat(task-status-cycler): carry pomodoro names on completion
+
 # Carry the closed Pomodoro's name onto the created Pomodoro
 
 ## Goal
