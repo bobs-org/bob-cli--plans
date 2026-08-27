@@ -7,8 +7,6 @@ goal:
   instead of an unnamed `- [ ] ()` placeholder.
 size: small
 proposed_by: bbugyi200.athena.0ey
-create_time: 2026-08-27 11:52:15
-status: wip
 ---
 
 # Carry the closed Pomodoro's name onto the created Pomodoro
