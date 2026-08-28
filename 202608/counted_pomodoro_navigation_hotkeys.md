@@ -11,8 +11,8 @@ proposed_by: bbugyi200.athena.0ff.f0
 - **AGENTS:**
   - [bbugyi200.athena.0ff.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ff.f0.md)
 - **COMMITS:**
-  - [59855bd](https://github.com/bobs-org/bob-plugins/commit/59855bdf538ef40f870706f1321ccc5da2ca7d52)
-    — feat(navigation-hotkeys): honor Vim counts on Ctrl+Shift+J/K
+  - [f42153d](https://github.com/bobs-org/bob-cli--plans/commit/f42153d3c6c7039f9b2e860fd06c1f126b40f0e8)
+    — chore(plans): record pomodoro move hotkeys plan link
 
 # Plan
 
