@@ -8,8 +8,6 @@ goal:
   cursor position keeps the exact navigation behavior it has today.
 size: medium
 proposed_by: bbugyi200.athena.0ff
-create_time: 2026-08-28 09:19:38
-status: wip
 ---
 
 # Plan
