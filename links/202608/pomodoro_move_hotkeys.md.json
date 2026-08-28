@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/pomodoro_move_hotkeys.md",
+  "rows": [
+    {
+      "created_at": "2026-08-28T13:35:14Z",
+      "created_by": "0ff.f0",
+      "description": "Need the prior approved hotkey-routing design and its invariants before planning count support",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:0ff.f0",
+      "target_ref": "plan:202608/pomodoro_move_hotkeys.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
