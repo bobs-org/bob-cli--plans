@@ -8,8 +8,6 @@ goal:
   immediately under the `^ref` line."
 size: medium
 proposed_by: bbugyi200.athena.0fj
-create_time: 2026-08-28 11:07:19
-status: wip
 ---
 
 # Plan: Put highlights annotation tasks in an H2 `Tasks` section
