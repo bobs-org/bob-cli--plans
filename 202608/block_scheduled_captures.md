@@ -8,6 +8,12 @@ size: small
 proposed_by: bbugyi200.athena.0fg
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0fg](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fg.md)
+- **COMMITS:**
+  - [9b534e3](https://github.com/bobs-org/bob-cli/commit/9b534e38ef8db45881e3c545541419975aec4b58)
+    — fix(capture): start scheduled captures blocked
+
 # Start scheduled captures in Blocked status
 
 ## Goal
