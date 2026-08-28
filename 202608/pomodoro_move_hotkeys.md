@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.athena.0ff
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0ff](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ff.md)
+- **COMMITS:**
+  - [bab14b0](https://github.com/bobs-org/bob-plugins/commit/bab14b0e1f0e5c3f139a500b80ed20ee4de0f118)
+    — feat(bob-navigation-hotkeys): reorder planned Pomodoros with Ctrl+Shift+J/K
+
 # Plan
 
 ## Repository
