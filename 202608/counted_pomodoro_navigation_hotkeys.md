@@ -6,8 +6,6 @@ goal:
   counted task navigation while preserving bare behavior.
 size: medium
 proposed_by: bbugyi200.athena.0ff.f0
-create_time: 2026-08-28 09:43:55
-status: wip
 ---
 
 # Plan
