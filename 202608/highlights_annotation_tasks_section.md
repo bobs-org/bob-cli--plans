@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.athena.0fj
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0fj](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fj.md)
+- **COMMITS:**
+  - [57a20e4](https://github.com/bobs-org/bob-cli/commit/57a20e4ed3b771aba5414e8163dcec02e8bc9b12)
+    — feat(highlights): put annotation tasks in an H2 Tasks section
+
 # Plan: Put highlights annotation tasks in an H2 `Tasks` section
 
 ## Why
