@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/capture_named_pomodoro.md",
+  "rows": [
+    {
+      "created_at": "2026-08-28T16:56:57Z",
+      "created_by": "bob-cli-1t.2",
+      "description": "Need the approved design for bob-cli-1t.2 named-Pomodoro capture grammar",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:bob-cli-1t.2",
+      "target_ref": "plan:202608/capture_named_pomodoro.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
