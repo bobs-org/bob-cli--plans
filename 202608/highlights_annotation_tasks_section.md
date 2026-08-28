@@ -10,24 +10,6 @@ size: medium
 proposed_by: bbugyi200.athena.0fj
 ---
 
-- **AGENTS:**
-  - [bbugyi200.athena.0fj](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fj.md)
-  - [bbugyi200.athena.bob-cli-1t.1](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1t.1/README.md)
-  - [bbugyi200.athena.bob-cli-1t.2](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1t.2/README.md)
-  - [bbugyi200.athena.bob-cli-1t.3](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1t.3/README.md)
-  - [bbugyi200.athena.bob-cli-1t.4](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1t.4/README.md)
-- **COMMITS:**
-  - [57a20e4](https://github.com/bobs-org/bob-cli/commit/57a20e4ed3b771aba5414e8163dcec02e8bc9b12)
-    — feat(highlights): put annotation tasks in an H2 Tasks section
-  - [cc4c9a3](https://github.com/bobs-org/bob-cli/commit/cc4c9a38684e2ed70af7c65df745029a03aa6503)
-    — feat(capture): list pomodoro ledger entries
-  - [9b7282d](https://github.com/bobs-org/bob-cli/commit/9b7282d8b2bba90c798ce0143c55c988e615a841)
-    — feat(capture): add @route:id\#pomodoro named targeting
-  - [a03bd58](https://github.com/bobs-org/bob-cli/commit/a03bd58070857ea56434a4cc042aa13a725354e8)
-    — feat(capture): add bob capture-pomodoro-name write command
-  - [50a69c3](https://github.com/bobs-org/bob-cli/commit/50a69c394da1ce479debd9e0e1bc2d5a42e4461c)
-    — feat(capture): complete pomodoro-name completions
-
 # Plan: Put highlights annotation tasks in an H2 `Tasks` section
 
 ## Why
