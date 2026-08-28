@@ -6,8 +6,6 @@ goal:
   inside the shared jump/move route instead of only in the capture-phase fallback.
 size: small
 proposed_by: bbugyi200.athena.0ff.f0.f1
-create_time: 2026-08-28 11:00:55
-status: wip
 ---
 
 # Plan
