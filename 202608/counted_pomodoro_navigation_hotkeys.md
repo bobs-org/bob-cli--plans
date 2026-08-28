@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.athena.0ff.f0
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0ff.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ff.f0.md)
+- **COMMITS:**
+  - [59855bd](https://github.com/bobs-org/bob-plugins/commit/59855bdf538ef40f870706f1321ccc5da2ca7d52)
+    — feat(navigation-hotkeys): honor Vim counts on Ctrl+Shift+J/K
+
 # Plan
 
 ## Goal
