@@ -6,8 +6,6 @@ goal:
   unscheduled and non-task capture behavior remains unchanged.
 size: small
 proposed_by: bbugyi200.athena.0fg
-create_time: 2026-08-28 09:18:19
-status: wip
 ---
 
 # Start scheduled captures in Blocked status
