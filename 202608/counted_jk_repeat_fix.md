@@ -8,6 +8,13 @@ size: small
 proposed_by: bbugyi200.athena.0ff.f0.f1
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0ff.f0.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0ff.f0.f1.md)
+- **COMMITS:**
+  - [b57e485](https://github.com/bobs-org/bob-plugins/commit/b57e48519928029dc4508f202bffc171a4e98ed6)
+    — fix(bob-navigation-hotkeys): honor Vim counts on Ctrl+Shift+J/K from the command
+    route
+
 # Plan
 
 ## Goal
