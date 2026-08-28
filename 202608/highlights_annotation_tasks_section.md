@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.athena.0fj
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-1t.5](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1t.5/README.md)
+- **COMMITS:**
+  - [c9f2e9f](https://github.com/bobs-org/bob-mac-capture/commit/c9f2e9f6627315bb9148c3a81b457bf10389dd9b)
+    — feat(capture): add Pomodoro-name completion and naming prompt
+
 # Plan: Put highlights annotation tasks in an H2 `Tasks` section
 
 ## Why
