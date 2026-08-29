@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.athena.0fv
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0fv](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fv.md)
+- **COMMITS:**
+  - [160d554](https://github.com/bobs-org/bob-cli/commit/160d5544e1aa7079eee20d77186fb0bf2e2c8d41)
+    — feat(highlights): add exact PDF output path to create
+
 # Add an exact PDF output path to `bob highlights create`
 
 ## Goal
