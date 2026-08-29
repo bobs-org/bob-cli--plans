@@ -6,8 +6,6 @@ goal:
   intake workflow or its safety guarantees.
 size: medium
 proposed_by: bbugyi200.athena.0fv
-create_time: 2026-08-29 06:38:00
-status: wip
 ---
 
 # Add an exact PDF output path to `bob highlights create`
