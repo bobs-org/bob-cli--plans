@@ -6,8 +6,6 @@ goal:
   completion choice without changing existing selection or naming flows.
 size: medium
 proposed_by: bbugyi200.athena.0fw.f0
-create_time: 2026-08-29 07:30:07
-status: wip
 ---
 
 # Add an explicit create-future-Pomodoro completion action
