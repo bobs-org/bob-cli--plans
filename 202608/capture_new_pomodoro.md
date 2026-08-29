@@ -6,8 +6,6 @@ goal:
   Pomodoro when no open name matches.
 size: medium
 proposed_by: bbugyi200.athena.0fw
-create_time: 2026-08-29 06:57:21
-status: wip
 ---
 
 # Create named future Pomodoros from Pomodoro-linked capture
