@@ -8,12 +8,6 @@ size: medium
 proposed_by: bbugyi200.athena.0fw.f0
 ---
 
-- **AGENTS:**
-  - [bbugyi200.athena.0fw.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fw.f0.md)
-- **COMMITS:**
-  - [2fd247d](https://github.com/bobs-org/bob-cli/commit/2fd247d4fdb1d02336254b0603259b0f5ec70770)
-    — feat(capture-complete): offer a create-future-Pomodoro completion action
-
 # Add an explicit create-future-Pomodoro completion action
 
 ## Goal
