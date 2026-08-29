@@ -6,8 +6,6 @@ goal:
   new project note's ^prj task instead of converting either into a
 size: medium
 proposed_by: bbugyi200.athena.0g4
-create_time: 2026-08-29 10:02:27
-status: wip
 ---
 
 # Plan: work logs follow the task onto `^prj`, like schedule logs already do
@@ -125,7 +123,7 @@ For the source task in "The bug", `Ctrl+Shift+Alt+N` produces:
 parent: "[[Area]]"
 template: "[[new_project]]"
 type: "[[project]]"
-status: wip
+status: done
 created: 2026-08-29T09:00:00-04:00
 scheduled: 2026-08-20
 ---
