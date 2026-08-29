@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.athena.0fw
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0fw](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fw.md)
+- **COMMITS:**
+  - [5e2f5ea](https://github.com/bobs-org/bob-cli/commit/5e2f5eae92dd8910e8ba4556d13ad6bdc05c4fb6)
+    — feat(capture): create named future pomodoros
+
 # Create named future Pomodoros from Pomodoro-linked capture
 
 ## Goal
