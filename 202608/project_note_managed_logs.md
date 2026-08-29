@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.athena.0g4
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0g4](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0g4.md)
+- **COMMITS:**
+  - [76c259e](https://github.com/bobs-org/bob-cli/commit/76c259e06835d91e6121aeeb86655c539db68fb5)
+    — docs(projects): document managed work logs moving onto ^prj
+
 # Plan: work logs follow the task onto `^prj`, like schedule logs already do
 
 ## Context
