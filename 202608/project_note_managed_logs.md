@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.athena.0g4
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0g4](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0g4.md)
+- **COMMITS:**
+  - [dfa9546](https://github.com/bobs-org/bob-plugins/commit/dfa9546e4f44ed0a3fe1594315e91a58ccab837d)
+    — feat(bob-navigation-hotkeys): move work logs under ^prj with schedule logs
+
 # Plan: work logs follow the task onto `^prj`, like schedule logs already do
 
 ## Context
