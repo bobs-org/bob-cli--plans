@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/project_note_schedule_log.md",
+  "rows": [
+    {
+      "created_at": "2026-08-29T13:56:23Z",
+      "created_by": "0g4",
+      "description": "Continue reading the prior schedule-log plan's implementation steps and acceptance criteria",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:0g4",
+      "target_ref": "plan:202608/project_note_schedule_log.md",
+      "uses": 2
+    }
+  ],
+  "schema_version": 2
+}
