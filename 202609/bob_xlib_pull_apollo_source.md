@@ -208,3 +208,16 @@ the script's error handling on the fly.
 - The global `~/CLAUDE.md` core memory still describes athena as the home server. Any
   correction there is a sase memory change and must go through `/sase_memory_write`; do
   not edit it as part of this plan.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                            | Why                                                          | Uses |
+| -------- | ----------------------------------- | ------------------------------------------------------------ | ---: |
+| cited-by | [agent:bbugyi200.apollo.d--code][1] | prompt reference @plan:202609/bob_xlib_pull_apollo_source.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.apollo.d.md
+
+<!-- sase:referenced-by:end -->
