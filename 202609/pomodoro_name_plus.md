@@ -10,6 +10,12 @@ size: medium
 proposed_by: bbugyi200.kellys_mbp.8
 ---
 
+- **AGENTS:**
+  - [bbugyi200.kellys_mbp.8](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.kellys_mbp.8.md)
+- **COMMITS:**
+  - [338c90a](https://github.com/bobs-org/bob-cli/commit/338c90a3a4bbf0d9ac92003d0ac0bbd331932816)
+    — feat(capture): allow + in Pomodoro names
+
 # Plan: Allow `+` in Pomodoro names
 
 ## Goal
