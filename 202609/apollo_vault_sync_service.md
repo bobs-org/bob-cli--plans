@@ -6,8 +6,6 @@ goal:
   systemd service, mirroring athena.
 size: medium
 proposed_by: bbugyi200.kellys_mbp.k
-create_time: 2026-09-03 16:52:06
-status: wip
 ---
 
 # Enable the bob vault-sync launch service on apollo
