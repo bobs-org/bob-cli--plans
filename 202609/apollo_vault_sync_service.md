@@ -8,6 +8,12 @@ size: medium
 proposed_by: bbugyi200.kellys_mbp.k
 ---
 
+- **AGENTS:**
+  - [bbugyi200.kellys_mbp.k](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.kellys_mbp.k.md)
+- **COMMITS:**
+  - [d1c5a68](https://github.com/bobs-org/bob-cli/commit/d1c5a68ccba114c950d0081cd0ec9dc226b6da59)
+    — docs(vault-sync): document apollo's launch-enabled vault-sync service
+
 # Enable the bob vault-sync launch service on apollo
 
 ## Goal
