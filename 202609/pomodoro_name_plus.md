@@ -8,8 +8,6 @@ goal:
   task-section titles and sub-bullet section selectors keep their current character set.
 size: medium
 proposed_by: bbugyi200.kellys_mbp.8
-create_time: 2026-09-03 05:13:28
-status: wip
 ---
 
 # Plan: Allow `+` in Pomodoro names
