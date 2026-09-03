@@ -9,6 +9,12 @@ size: small
 proposed_by: bbugyi200.apollo.d
 ---
 
+- **AGENTS:**
+  - [bbugyi200.apollo.d](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.apollo.d.md)
+- **COMMITS:**
+  - [92dfd5e](https://github.com/bobs-org/bob-cli/commit/92dfd5ebdecaca002be4dbc78dd163063ca4e559)
+    — docs(highlights): document Apollo xlib source candidates
+
 # Plan: Pull Bob xlib intake from apollo instead of athena's LAN alias
 
 ## Goal
