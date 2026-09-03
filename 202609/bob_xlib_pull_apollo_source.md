@@ -7,8 +7,6 @@ goal:
   sentence that names the old source host describes the new candidate list.
 size: small
 proposed_by: bbugyi200.apollo.d
-create_time: 2026-09-03 16:18:29
-status: wip
 ---
 
 # Plan: Pull Bob xlib intake from apollo instead of athena's LAN alias
