@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Preserve monitor shell identity when expanding fork context
-goal: Resume dotted agent families with bounded monitor evidence while preserving
-  correct provider retry behavior.
+goal:
+  Resume dotted agent families with bounded monitor evidence while preserving correct
+  provider retry behavior.
 size: medium
 proposed_by: bbugyi200.athena.sase-x7.3.1.5.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-1h](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-1h/README.md)
+- **COMMITS:**
+  - [a99cfdd](https://github.com/bbugyi200/dotfiles/commit/a99cfdddd6bf6b0411d290e3345b8ab628493ff3)
+    — docs(memory): document bob vault sync topology
 
 # Preserve monitor shell identity when expanding fork context
 
