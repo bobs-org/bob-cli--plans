@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Swap current and future Pomodoros while preserving the current time range
-goal: Ctrl+Shift+J/K can exchange current and future Pomodoros while keeping the exact
-  time range in the current slot and preserving past history.
+goal:
+  Ctrl+Shift+J/K can exchange current and future Pomodoros while keeping the exact time
+  range in the current slot and preserving past history.
 size: medium
 proposed_by: bbugyi200.athena.0h0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0h0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0h0.md)
+- **COMMITS:**
+  - [9a3da96](https://github.com/bobs-org/bob-plugins/commit/9a3da9658278f7b9d1301998d13a875af210e6eb)
+    — feat(bob-navigation-hotkeys): swap current pomodoros with future slots
 
 # Swap the current Pomodoro with future Pomodoros using Ctrl+Shift+J/K
 
