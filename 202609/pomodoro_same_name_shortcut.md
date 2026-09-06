@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Create a same-name Pomodoro destination with +
-goal:
-  Typing + in the Pomodoro sub-bullet move picker creates a fresh destination with the
-  source name and moves the selected bullets into it.
+goal: Typing + in the Pomodoro sub-bullet move picker creates a fresh destination
+  with the source name and moves the selected bullets into it.
 size: small
 proposed_by: bbugyi200.athena.0gp
-create_time: 2026-09-06 12:52:06
-status: wip
+status: done
 ---
 
 # Create a same-name Pomodoro destination with `+`
