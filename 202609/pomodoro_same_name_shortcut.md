@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Create a same-name Pomodoro destination with +
-goal: Typing + in the Pomodoro sub-bullet move picker creates a fresh destination
-  with the source name and moves the selected bullets into it.
+goal:
+  Typing + in the Pomodoro sub-bullet move picker creates a fresh destination with the
+  source name and moves the selected bullets into it.
 size: small
 proposed_by: bbugyi200.athena.0gp
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0gp](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0gp.md)
+- **COMMITS:**
+  - [132973b](https://github.com/bobs-org/bob-plugins/commit/132973b956cebbda42d795445cc870b1a06853af)
+    — feat(bob-navigation-hotkeys): add same-name pomodoro move shortcut
 
 # Create a same-name Pomodoro destination with `+`
 
