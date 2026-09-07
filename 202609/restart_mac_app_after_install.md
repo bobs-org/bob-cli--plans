@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Restart Bob Mac Capture automatically after a successful reinstall
-goal:
-  A successful just install restarts the exact installed app it replaced when that app
-  was running, while stopped installs remain stopped and installer safety contracts
-  remain intact.
+goal: A successful just install restarts the exact installed app it replaced when
+  that app was running, while stopped installs remain stopped and installer safety
+  contracts remain intact.
 size: medium
 proposed_by: bbugyi200.athena.01k
-create_time: 2026-09-07 09:52:39
-status: wip
+status: done
 ---
 
 # Plan: Restart Bob Mac Capture automatically after a successful reinstall
