@@ -1,15 +1,22 @@
 ---
 tier: tale
 title: Add Ctrl-Shift-O to insert a blank line above the current capture line
-goal: 'Bob Mac Capture''s main draft editor handles Ctrl-Shift-O as the inverse of
-  its existing native Ctrl-O open-line behavior: it inserts a blank physical line
-  immediately above the caret''s current line, moves the caret onto that new blank
-  line, preserves the draft''s line-ending convention, dismisses completion like other
-  text edits, and leaves Ctrl-O plus every prompt and picker context unchanged.'
+goal:
+  "Bob Mac Capture's main draft editor handles Ctrl-Shift-O as the inverse of its
+  existing native Ctrl-O open-line behavior: it inserts a blank physical line
+  immediately above the caret's current line, moves the caret onto that new blank line,
+  preserves the draft's line-ending convention, dismisses completion like other text
+  edits, and leaves Ctrl-O plus every prompt and picker context unchanged."
 size: small
 proposed_by: bbugyi200.athena.02e
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.02e](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02e.md)
+- **COMMITS:**
+  - [976a835](https://github.com/bobs-org/bob-mac-capture/commit/976a8356e4f80f81ec95e07fc211858138cf1f12)
+    — feat: add capture line-above shortcut
 
 <!-- sase:links:start -->
 
