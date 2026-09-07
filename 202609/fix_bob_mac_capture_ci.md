@@ -1,12 +1,21 @@
 ---
 tier: tale
-title: Fix the red bob-mac-capture CI by removing implicit self capture in InstallRelauncherTests
-goal: The bob-mac-capture `CI` workflow on `master` is green again, end to end, including
+title:
+  Fix the red bob-mac-capture CI by removing implicit self capture in
+  InstallRelauncherTests
+goal:
+  The bob-mac-capture `CI` workflow on `master` is green again, end to end, including
   the install/reinstall and signpost steps that have never successfully executed.
 size: medium
 proposed_by: bbugyi200.athena.065
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.065](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.065.md)
+- **COMMITS:**
+  - [33b89be](https://github.com/bobs-org/bob-mac-capture/commit/33b89be3432af8c6715c2c1bc6955e9ed796639e)
+    — test: hoist InstallRelauncher fixtures out of the test class
 
 # Plan: Fix the red bob-mac-capture CI
 
