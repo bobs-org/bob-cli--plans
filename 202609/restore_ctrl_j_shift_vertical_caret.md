@@ -1,12 +1,20 @@
 ---
 tier: tale
 title: Restore Ctrl-J bullet insertion and shift vertical caret movement
-goal: Ctrl-J inserts bullet rows again while exact Ctrl-Shift-J/K provide the existing
-  safe sticky-column vertical movement.
+goal:
+  Ctrl-J inserts bullet rows again while exact Ctrl-Shift-J/K provide the existing safe
+  sticky-column vertical movement.
 size: small
 proposed_by: bbugyi200.athena.02t.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.02t.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02t.f0.md)
+- **COMMITS:**
+  - [e5d7306](https://github.com/bobs-org/bob-mac-capture/commit/e5d73066ce4a07ac2963b071b780c74676f2b5ab)
+    — feat(capture): restore Ctrl-J bullet insertion and shift vertical caret to
+    Ctrl-Shift-J/K
 
 # Restore Ctrl-J bullet insertion and move vertical caret navigation to Ctrl-Shift-J/K
 
