@@ -1,12 +1,23 @@
 ---
 tier: tale
 title: Notify when an install-triggered restart completes
-goal: A running-copy just install produces one polished, actionable macOS completion
-  notification from the successfully relaunched app without changing install reliability.
+goal:
+  A running-copy just install produces one polished, actionable macOS completion
+  notification from the successfully relaunched app without changing install
+  reliability.
 size: medium
 proposed_by: bbugyi200.athena.01k.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.01k.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01k.f0.md)
+  - [bbugyi200.athena.02t](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02t.md)
+- **COMMITS:**
+  - [78315d9](https://github.com/bobs-org/bob-mac-capture/commit/78315d9d1217d0e4530db38556d41fe0c93e9a92)
+    — feat(capture): move bullet insertion to Ctrl-I, add Ctrl-J/Ctrl-K caret movement
+  - [3f28a06](https://github.com/bobs-org/bob-mac-capture/commit/3f28a06b2d8e0adb59b8d3b8a9fffa9c1fe04356)
+    — feat: notify after install-triggered restart
 
 # Plan: Notify when an install-triggered restart completes
 
