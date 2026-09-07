@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202609/capture_line_edge_cycling.md",
+  "rows": [
+    {
+      "created_at": "2026-09-07T13:22:38Z",
+      "created_by": "01e--code",
+      "description": "Need the approved capture_line_edge_cycling plan to implement it",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:01e--code",
+      "target_ref": "plan:202609/capture_line_edge_cycling.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
