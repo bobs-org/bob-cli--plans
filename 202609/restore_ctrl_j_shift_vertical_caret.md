@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Restore Ctrl-J bullet insertion and shift vertical caret movement
-goal:
-  Ctrl-J inserts bullet rows again while exact Ctrl-Shift-J/K provide the existing safe
-  sticky-column vertical movement.
+goal: Ctrl-J inserts bullet rows again while exact Ctrl-Shift-J/K provide the existing
+  safe sticky-column vertical movement.
 size: small
 proposed_by: bbugyi200.athena.02t.f0
-create_time: 2026-09-07 14:53:02
-status: wip
+status: done
 ---
 
 # Restore Ctrl-J bullet insertion and move vertical caret navigation to Ctrl-Shift-J/K
