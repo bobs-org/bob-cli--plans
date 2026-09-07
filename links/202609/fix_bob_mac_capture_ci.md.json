@@ -1,0 +1,50 @@
+{
+  "artifact_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+  "rows": [
+    {
+      "created_at": "2026-09-07T21:22:11Z",
+      "created_by": "065--code",
+      "description": "Implement the approved plan to fix bob-mac-capture CI",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:065--code",
+      "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+      "uses": 1
+    },
+    {
+      "created_at": "2026-09-07T21:29:43Z",
+      "created_by": "065--1",
+      "description": "Need approved plan workflow for remaining CI failure after run 34163055815",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:065--1",
+      "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+      "uses": 1
+    },
+    {
+      "created_at": "2026-09-07T21:36:06Z",
+      "created_by": "065--2",
+      "description": "Need approved plan workflow before diagnosing remaining test failures",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:065--2",
+      "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+      "uses": 1
+    },
+    {
+      "created_at": "2026-09-07T21:45:33Z",
+      "created_by": "065--3",
+      "description": "Read approved plan follow-up after green CI",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:065--3",
+      "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
