@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202609/restore_ctrl_j_shift_vertical_caret.md",
+  "rows": [
+    {
+      "created_at": "2026-09-07T18:55:30Z",
+      "created_by": "02t.f0--code",
+      "description": "Need the approved plan to implement restore Ctrl-J shift vertical caret",
+      "origin": "read",
+      "relation": "read",
+      "schema_version": 2,
+      "source_ref": "agent:02t.f0--code",
+      "target_ref": "plan:202609/restore_ctrl_j_shift_vertical_caret.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}
