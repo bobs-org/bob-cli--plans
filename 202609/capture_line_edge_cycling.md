@@ -1,14 +1,21 @@
 ---
 tier: tale
 title: Cycle Ctrl-A/Ctrl-E across physical lines in the capture editor
-goal: In the Bob Mac Capture editor, Ctrl-A and Ctrl-E move to the beginning/end of
-  the current physical line, and when the caret already sits on that edge they step
-  to the beginning of the previous line / end of the next line, stopping at the first
-  and last line.
+goal:
+  In the Bob Mac Capture editor, Ctrl-A and Ctrl-E move to the beginning/end of the
+  current physical line, and when the caret already sits on that edge they step to the
+  beginning of the previous line / end of the next line, stopping at the first and last
+  line.
 size: medium
 proposed_by: bbugyi200.athena.01e
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.01e](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01e.md)
+- **COMMITS:**
+  - [f2c1ed8](https://github.com/bobs-org/bob-mac-capture/commit/f2c1ed85c2db1267f2646826ea2b9666679e393e)
+    — feat(capture): cycle Ctrl-A/Ctrl-E across physical lines
 
 # Plan: Cycle Ctrl-A/Ctrl-E across physical lines in the capture editor
 
