@@ -1,14 +1,21 @@
 ---
 tier: tale
 title: Extend Ctrl-U to delete the previous line when there is nothing to delete
-goal: In the Bob Mac Capture editor, Ctrl-U keeps deleting from the caret to the beginning
-  of the current physical line, and when the caret already sits at that line's start
-  (so the ordinary deletion would remove nothing) it instead deletes the entire previous
+goal:
+  In the Bob Mac Capture editor, Ctrl-U keeps deleting from the caret to the beginning
+  of the current physical line, and when the caret already sits at that line's start (so
+  the ordinary deletion would remove nothing) it instead deletes the entire previous
   physical line including its terminator, stopping on the first line.
 size: small
 proposed_by: bbugyi200.athena.01e.f1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.01e.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01e.f1.md)
+- **COMMITS:**
+  - [a6d6f4c](https://github.com/bobs-org/bob-mac-capture/commit/a6d6f4cadf6ba96784dfd91ca29687e84e7d6064)
+    — feat(capture): delete the previous line with Ctrl-U at column zero
 
 # Plan: Delete the previous line with Ctrl-U when the current deletion would be empty
 
