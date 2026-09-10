@@ -1,80 +1,79 @@
 ---
 tier: epic
 title: Capture-driven Obsidian task status toggle (@route+block-id with no other text)
-goal: "Submitting a capture draft that is exactly `@route+block-id` (optionally
-  `@route+block-id#pomodoro`) toggles that existing Obsidian task between Ready `[ ]`
-  and Next `[*]` and adds or removes its Pomodoro task link, matching the Obsidian
-  `<ctrl+shift+enter>` keymap's semantics. The `@route+block-id` completion and Add
-  block ID prompt behave exactly as they already do for sub-bullet capture, and Bob Mac
-  Capture makes the mode, the target task, and the exact before/after change obvious
-  before the user commits it.
+goal: 'Submitting a capture draft that is exactly `@route+block-id` (optionally `@route+block-id#pomodoro`)
+  toggles that existing Obsidian task between Ready `[ ]` and Next `[*]` and adds
+  or removes its Pomodoro task link, matching the Obsidian `<ctrl+shift+enter>` keymap''s
+  semantics. The `@route+block-id` completion and Add block ID prompt behave exactly
+  as they already do for sub-bullet capture, and Bob Mac Capture makes the mode, the
+  target task, and the exact before/after change obvious before the user commits it.
 
-  "
+  '
 phases:
-  - id: grammar
-    title: Capture grammar and completion for the task-toggle item
-    depends_on: []
-    size: medium
-    description: "grammar: add the `task_toggle` item mode to the shared capture
-      grammar, re-point `#` after `@route+id` at Pomodoro names while the item has no
-      text, add the three `task_toggle_*` span kinds, and route completion accordingly.
+- id: grammar
+  title: Capture grammar and completion for the task-toggle item
+  depends_on: []
+  size: medium
+  description: 'grammar: add the `task_toggle` item mode to the shared capture grammar,
+    re-point `#` after `@route+id` at Pomodoro names while the item has no text, add
+    the three `task_toggle_*` span kinds, and route completion accordingly.
 
-      "
-  - id: engine
-    title: Pure toggle planners for the route note and the daily ledger
-    depends_on: []
-    size: medium
-    description: "engine: add a new native module of pure, unit-tested planners that
-      compute the route-note task mutation (status, future-schedule pull-forward,
-      Schedule Log entry) and the daily-note Pomodoro task-link insertion, cleanup, and
-      removal.
+    '
+- id: engine
+  title: Pure toggle planners for the route note and the daily ledger
+  depends_on: []
+  size: medium
+  description: 'engine: add a new native module of pure, unit-tested planners that
+    compute the route-note task mutation (status, future-schedule pull-forward, Schedule
+    Log entry) and the daily-note Pomodoro task-link insertion, cleanup, and removal.
 
-      "
-  - id: capture
-    title: Wire the toggle into bob capture, its JSON contract, and its human output
-    depends_on:
-      - grammar
-      - engine
-    size: medium
-    description: "capture: execute `task_toggle` items inside the existing staged batch
-      planner, emit the additive JSON fields, render the human before/after output, and
-      cover the whole surface with CLI integration tests.
+    '
+- id: capture
+  title: Wire the toggle into bob capture, its JSON contract, and its human output
+  depends_on:
+  - grammar
+  - engine
+  size: medium
+  description: 'capture: execute `task_toggle` items inside the existing staged batch
+    planner, emit the additive JSON fields, render the human before/after output,
+    and cover the whole surface with CLI integration tests.
 
-      "
-  - id: cli-docs
-    title: bob-cli documentation for the task-toggle marker
-    depends_on:
-      - capture
-    size: small
-    description: "cli-docs: document the toggle marker, its semantics, its errors, and
-      its JSON in docs/capture.md and README.md, including the `#` mode-dependency rule.
+    '
+- id: cli-docs
+  title: bob-cli documentation for the task-toggle marker
+  depends_on:
+  - capture
+  size: small
+  description: 'cli-docs: document the toggle marker, its semantics, its errors, and
+    its JSON in docs/capture.md and README.md, including the `#` mode-dependency rule.
 
-      "
-  - id: mac-core
-    title: CaptureCore models, presentation model, and panel wiring
-    depends_on:
-      - capture
-    size: medium
-    description: "mac-core: decode the additive toggle fields in CaptureCore, add a
-      Linux-testable toggle presentation model, and route completion, the footer verb,
-      status text, announcements, and notifications through it.
+    '
+- id: mac-core
+  title: CaptureCore models, presentation model, and panel wiring
+  depends_on:
+  - capture
+  size: medium
+  description: 'mac-core: decode the additive toggle fields in CaptureCore, add a
+    Linux-testable toggle presentation model, and route completion, the footer verb,
+    status text, announcements, and notifications through it.
 
-      "
-  - id: mac-preview
-    title: Bob Mac Capture toggle preview, highlighting, and documentation
-    depends_on:
-      - mac-core
-    size: medium
-    description:
-      "mac-preview: render the before/after toggle preview and destination detail, color
-      the new `task_toggle_*` spans, and document the flow in the app README."
+    '
+- id: mac-preview
+  title: Bob Mac Capture toggle preview, highlighting, and documentation
+  depends_on:
+  - mac-core
+  size: medium
+  description: 'mac-preview: render the before/after toggle preview and destination
+    detail, color the new `task_toggle_*` spans, and document the flow in the app
+    README.'
 proposed_by: bbugyi200.athena.0ir
 create_time: 2026-09-10 13:19:07
 status: wip
+bead_id: bob-cli-1z
 ---
 
-- **PROMPT:**
-  [prompts/202609/capture_task_toggle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_task_toggle.md)
+- **PROMPT:** [prompts/202609/capture_task_toggle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_task_toggle.md)
+- **BEAD:** [bob-cli-1z](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-1z/README.md)
 
 # Plan: Capture-driven Obsidian task status toggle
 
