@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Make usage window indicators readable at a glance
-goal: Give each existing usage window a distinct, high-contrast presentation with
-  a color-matched percentage and reset countdown, preserving all displayed content
-  and layout capacity.
+goal:
+  Give each existing usage window a distinct, high-contrast presentation with a
+  color-matched percentage and reset countdown, preserving all displayed content and
+  layout capacity.
 size: medium
 proposed_by: bbugyi200.athena.0j0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0j1](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.0j1/README.md)
+- **COMMITS:**
+  - [2254336](https://github.com/bobs-org/bob-cli/commit/225433611b47a9bd9094aeb3fb5238ba8f656dae)
+    — feat(task-status-hooks): add status badge counts
 
 # Make usage window indicators readable at a glance
 
