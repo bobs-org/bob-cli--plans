@@ -68,7 +68,7 @@ phases:
     README.'
 proposed_by: bbugyi200.athena.0ir
 create_time: 2026-09-10 13:19:07
-status: wip
+status: done
 bead_id: bob-cli-1z
 ---
 
