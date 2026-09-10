@@ -1,45 +1,43 @@
 ---
 tier: epic
 title: Safe status sections for bob task-status-hooks
-goal: "Group project and area Tasks sections by final task status while preserving
-  authored context and minimizing concurrent-edit risk through guarded, recoverable note
-  writes.
+goal: 'Group project and area Tasks sections by final task status while preserving
+  authored context and minimizing concurrent-edit risk through guarded, recoverable
+  note writes.
 
-  "
+  '
 phases:
-  - id: guarded_writes
-    title: Protect task-status-hooks writes against concurrent vault edits
-    size: medium
-    depends_on: []
-    description:
-      "guarded_writes: route existing hook writes through snapshot validation, shared
-      maintenance locking, staged replacement, recovery records, and accurate failure
-      outcomes."
-  - id: status_group_transform
-    title: Implement a lossless Markdown status-group transformation
-    size: medium
-    depends_on: []
-    description:
-      "status_group_transform: preserve task subtrees and authored topic context while
-      producing stable status headings, source-aware change records, and conservative
-      skip diagnostics."
-  - id: integrate_status_groups
-    title: Integrate grouping, reporting, compatibility, and acceptance coverage
-    size: medium
-    depends_on:
-      - guarded_writes
-      - status_group_transform
-    description:
-      "integrate_status_groups: compose grouping after final status derivation, enable
-      guarded structural writes, expose clear reports, and verify capture and collection
-      compatibility."
+- id: guarded_writes
+  title: Protect task-status-hooks writes against concurrent vault edits
+  size: medium
+  depends_on: []
+  description: 'guarded_writes: route existing hook writes through snapshot validation,
+    shared maintenance locking, staged replacement, recovery records, and accurate
+    failure outcomes.'
+- id: status_group_transform
+  title: Implement a lossless Markdown status-group transformation
+  size: medium
+  depends_on: []
+  description: 'status_group_transform: preserve task subtrees and authored topic
+    context while producing stable status headings, source-aware change records, and
+    conservative skip diagnostics.'
+- id: integrate_status_groups
+  title: Integrate grouping, reporting, compatibility, and acceptance coverage
+  size: medium
+  depends_on:
+  - guarded_writes
+  - status_group_transform
+  description: 'integrate_status_groups: compose grouping after final status derivation,
+    enable guarded structural writes, expose clear reports, and verify capture and
+    collection compatibility.'
 proposed_by: bbugyi200.athena.0if
 create_time: 2026-09-10 11:32:31
 status: wip
+bead_id: bob-cli-1y
 ---
 
-- **PROMPT:**
-  [prompts/202609/task_status_groups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_status_groups.md)
+- **PROMPT:** [prompts/202609/task_status_groups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_status_groups.md)
+- **BEAD:** [bob-cli-1y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-1y/README.md)
 
 # Safe status sections for bob task-status-hooks
 
