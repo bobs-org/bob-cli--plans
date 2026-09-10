@@ -136,3 +136,16 @@ cargo test --test cli capture_pomodoro
 cargo test --test cli capture_named_pomodoro
 just all
 ```
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                   | Uses |
+| -------- | ------------------------------------- | ----------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.0fw--code][1] | prompt reference @plan:202608/capture_new_pomodoro.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fw.md
+
+<!-- sase:referenced-by:end -->

@@ -17,6 +17,21 @@ status: done
   - [f2c1ed8](https://github.com/bobs-org/bob-mac-capture/commit/f2c1ed85c2db1267f2646826ea2b9666679e393e)
     — feat(capture): cycle Ctrl-A/Ctrl-E across physical lines
 
+<!-- sase:links:start -->
+
+## Links
+
+| Relation | Artifact                                            | Why                                                                                                               |
+| -------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| related  | [plan:202609/capture_ctrl_shift_o_line_above.md][1] | Establishes physical-line, exact-modifier, modal-isolation, and caret-scrolling conventions for editor shortcuts. |
+
+_Plus 3 automatic references — see [Referenced By](#referenced-by)._
+
+[1]:
+  https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_ctrl_shift_o_line_above.md
+
+<!-- sase:links:end -->
+
 # Plan: Cycle Ctrl-A/Ctrl-E across physical lines in the capture editor
 
 ## 1. Where this work happens
@@ -489,3 +504,20 @@ fix is to route the caret through the model's selection instead of the text view
 4. The macOS 26 CI job is green on the PR.
 5. The README Keyboard table and editing prose describe the new behavior, including that
    it stops rather than wraps.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                                               | Uses |
+| -------- | ------------------------------------- | --------------------------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.01e--code][1] | prompt reference @plan:202609/capture_line_edge_cycling.md                        |    1 |
+| read-by  | [agent:01e--code][1]                  | Need the approved capture_line_edge_cycling plan to implement it                  |    1 |
+| read-by  | [agent:02e][2]                        | Need the related plan's validation and completion criteria for this shortcut plan |    2 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01e.md
+[2]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02e.md
+
+<!-- sase:referenced-by:end -->

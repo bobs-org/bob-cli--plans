@@ -151,3 +151,16 @@ just all
 ./Scripts/xcode-swift.sh test --filter CapturePanelModelTests
 just all
 ```
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                                 | Why                                                       | Uses |
+| -------- | ---------------------------------------- | --------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.0fw.f0--code][1] | prompt reference @plan:202608/mac_capture_new_pomodoro.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fw.f0.md
+
+<!-- sase:referenced-by:end -->

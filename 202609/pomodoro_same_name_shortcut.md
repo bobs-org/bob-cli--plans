@@ -197,3 +197,16 @@ available, reload the plugin and smoke-test `Ctrl+Shift+M`, `+`, Enter in a disp
 example with two same-name entries; check the new entry, source cleanup, and one-step
 Undo. Otherwise report GUI verification as unperformed while giving the automated and
 sync results.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                          | Uses |
+| -------- | ------------------------------------- | ------------------------------------------------------------ | ---: |
+| cited-by | [agent:bbugyi200.athena.0gp--code][1] | prompt reference @plan:202609/pomodoro_same_name_shortcut.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0gp.md
+
+<!-- sase:referenced-by:end -->

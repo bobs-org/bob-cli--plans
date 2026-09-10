@@ -202,3 +202,17 @@ claimed locally.
   notification window/attachment, new entitlement, bundle identifier/signing change,
   version bump, launch-at-login change, `bob-cli` change, or menu-restart behavior
   change is in scope.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                                 | Why                                                           | Uses |
+| -------- | ---------------------------------------- | ------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.01k.f0--code][1] | prompt reference @plan:202609/notify_after_install_restart.md |    1 |
+| read-by  | [agent:01k.f0--code][1]                  | Implement the approved notify-after-install-restart plan      |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01k.f0.md
+
+<!-- sase:referenced-by:end -->

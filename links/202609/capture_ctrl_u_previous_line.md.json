@@ -33,6 +33,17 @@
       "source_ref": "plan:202609/capture_ctrl_shift_o_line_above.md",
       "target_ref": "plan:202609/capture_ctrl_u_previous_line.md",
       "uses": 1
+    },
+    {
+      "created_at": "2026-09-07T14:08:12Z",
+      "created_by": "bbugyi200.athena.01e.f1--code",
+      "description": "prompt reference @plan:202609/capture_ctrl_u_previous_line.md",
+      "origin": "prompt_ref",
+      "relation": "cites",
+      "schema_version": 2,
+      "source_ref": "agent:bbugyi200.athena.01e.f1--code",
+      "target_ref": "plan:202609/capture_ctrl_u_previous_line.md",
+      "uses": 1
     }
   ],
   "schema_version": 2

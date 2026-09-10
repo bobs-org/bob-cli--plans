@@ -1,0 +1,17 @@
+{
+  "artifact_ref": "plan:202608/highlights_create_output_path.md",
+  "rows": [
+    {
+      "created_at": "2026-08-29T10:52:41Z",
+      "created_by": "bbugyi200.athena.0fv--code",
+      "description": "prompt reference @plan:202608/highlights_create_output_path.md",
+      "origin": "prompt_ref",
+      "relation": "cites",
+      "schema_version": 2,
+      "source_ref": "agent:bbugyi200.athena.0fv--code",
+      "target_ref": "plan:202608/highlights_create_output_path.md",
+      "uses": 1
+    }
+  ],
+  "schema_version": 2
+}

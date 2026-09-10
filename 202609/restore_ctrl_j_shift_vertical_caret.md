@@ -324,3 +324,17 @@ From the opened `bob-mac-capture` checkout:
    Ctrl-Shift-J/K vertical movement, and exact Ctrl-K's restored native behavior.
 7. The syntax gate and applicable local build/tests pass, the macOS app type-checks with
    an Apple toolchain, and the macOS CI job is green.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                                 | Why                                                                     | Uses |
+| -------- | ---------------------------------------- | ----------------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.02t.f0--code][1] | prompt reference @plan:202609/restore_ctrl_j_shift_vertical_caret.md    |    1 |
+| read-by  | [agent:02t.f0--code][1]                  | Need the approved plan to implement restore Ctrl-J shift vertical caret |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02t.f0.md
+
+<!-- sase:referenced-by:end -->

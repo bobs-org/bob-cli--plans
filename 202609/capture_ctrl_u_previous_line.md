@@ -17,6 +17,21 @@ status: done
   - [a6d6f4c](https://github.com/bobs-org/bob-mac-capture/commit/a6d6f4cadf6ba96784dfd91ca29687e84e7d6064)
     — feat(capture): delete the previous line with Ctrl-U at column zero
 
+<!-- sase:links:start -->
+
+## Links
+
+| Relation | Artifact                                            | Why                                                                                                        |
+| -------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| related  | [plan:202609/capture_ctrl_shift_o_line_above.md][1] | Establishes native NSTextView edit, line-terminator, completion-dismissal, and edge-case test conventions. |
+
+_Plus 3 automatic references — see [Referenced By](#referenced-by)._
+
+[1]:
+  https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_ctrl_shift_o_line_above.md
+
+<!-- sase:links:end -->
+
 # Plan: Delete the previous line with Ctrl-U when the current deletion would be empty
 
 ## 1. Where this work happens
@@ -410,3 +425,20 @@ Run from the path `sase repo open bob-mac-capture` printed:
 5. The real gate is the macOS 26 SwiftPM CI job, which is the only place
    `BobMacCaptureTests` actually runs. Say so plainly in the handoff rather than
    implying a local pass.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                                 | Why                                                                                                    | Uses |
+| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---: |
+| cited-by | [agent:bbugyi200.athena.01e.f1--code][1] | prompt reference @plan:202609/capture_ctrl_u_previous_line.md                                          |    1 |
+| read-by  | [agent:01e.f1--code][1]                  | Need the resolver doc comment from the approved plan                                                   |    3 |
+| read-by  | [agent:02e][2]                           | Need the established native-edit and edge-case conventions for a related capture-editor line operation |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.01e.f1.md
+[2]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02e.md
+
+<!-- sase:referenced-by:end -->

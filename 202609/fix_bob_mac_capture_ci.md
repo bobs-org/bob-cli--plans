@@ -240,3 +240,20 @@ The structural gap is that macOS-only targets are verified _only_ by GitHub Acti
 a red `master` can persist unnoticed for five commits. Worth a separate task bead (via
 `/sase_new_task`): a durable convention that agents touching `bob-mac-capture` must
 watch CI to completion after pushing, since no local gate exists.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                                        | Uses |
+| -------- | ------------------------------------- | -------------------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.065--code][1] | prompt reference @plan:202609/fix_bob_mac_capture_ci.md                    |    1 |
+| read-by  | [agent:065--1][1]                     | Need approved plan workflow for remaining CI failure after run 34163055815 |    1 |
+| read-by  | [agent:065--2][1]                     | Need approved plan workflow before diagnosing remaining test failures      |    1 |
+| read-by  | [agent:065--3][1]                     | Read approved plan follow-up after green CI                                |    1 |
+| read-by  | [agent:065--code][1]                  | Implement the approved plan to fix bob-mac-capture CI                      |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.065.md
+
+<!-- sase:referenced-by:end -->

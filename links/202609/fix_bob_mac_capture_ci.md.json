@@ -44,6 +44,17 @@
       "source_ref": "agent:065--3",
       "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
       "uses": 1
+    },
+    {
+      "created_at": "2026-09-07T21:25:03Z",
+      "created_by": "bbugyi200.athena.065--code",
+      "description": "prompt reference @plan:202609/fix_bob_mac_capture_ci.md",
+      "origin": "prompt_ref",
+      "relation": "cites",
+      "schema_version": 2,
+      "source_ref": "agent:bbugyi200.athena.065--code",
+      "target_ref": "plan:202609/fix_bob_mac_capture_ci.md",
+      "uses": 1
     }
   ],
   "schema_version": 2

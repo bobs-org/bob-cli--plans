@@ -708,3 +708,16 @@ model's selection instead of the text view.
 9. The README Keyboard table and editing prose describe Ctrl-I, Ctrl-J, and Ctrl-K,
    including that the vertical moves stop rather than wrap and that Ctrl-K no longer
    deletes.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                              | Uses |
+| -------- | ------------------------------------- | ---------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.02t--code][1] | prompt reference @plan:202609/capture_vertical_caret_movement.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.02t.md
+
+<!-- sase:referenced-by:end -->

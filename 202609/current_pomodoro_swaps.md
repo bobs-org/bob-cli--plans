@@ -237,3 +237,16 @@ undo, and a history-boundary refusal on a disposable note after reloading the pl
 Otherwise report live interaction as unverified while distinguishing it from passing
 automated tests and verified sync. Report the changed repository, test results, and
 deployment outcome through the required SASE final declaration workflow.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                     | Uses |
+| -------- | ------------------------------------- | ------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.0h0--code][1] | prompt reference @plan:202609/current_pomodoro_swaps.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0h0.md
+
+<!-- sase:referenced-by:end -->

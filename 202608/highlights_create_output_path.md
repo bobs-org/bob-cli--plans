@@ -101,3 +101,16 @@ Acceptance requires unchanged behavior without `--output`, exact placement with 
 `-o` and `--output`, no dry-run writes, retained collision and atomic write guarantees,
 accurate workflow guidance, excellent sorted help with a short alias, updated public
 documentation, and a clean full check suite.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                            | Uses |
+| -------- | ------------------------------------- | -------------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.0fv--code][1] | prompt reference @plan:202608/highlights_create_output_path.md |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0fv.md
+
+<!-- sase:referenced-by:end -->

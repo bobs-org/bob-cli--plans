@@ -469,3 +469,17 @@ not pick up the new `main.js` on its own.
   restored tasks and section bullets. That is pre-existing behavior for schedule logs
   and is not a regression here.
 - The plain `Ctrl+Shift+N` "Create project note" command, which has no source task.
+
+<!-- sase:referenced-by:start -->
+
+## Referenced By
+
+| Relation | Artifact                              | Why                                                        | Uses |
+| -------- | ------------------------------------- | ---------------------------------------------------------- | ---: |
+| cited-by | [agent:bbugyi200.athena.0g4--code][1] | prompt reference @plan:202608/project_note_managed_logs.md |    1 |
+| read-by  | [agent:0g4--code][1]                  | Need the approved plan to implement                        |    1 |
+
+[1]:
+  https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0g4.md
+
+<!-- sase:referenced-by:end -->
