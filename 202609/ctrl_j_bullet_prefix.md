@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Remove the leading bullet prefix with Ctrl-J at or before its hyphen
-goal: Ctrl-J turns a populated dash bullet into a separated body line when the caret
-  is at or before its marker, preserving the body and existing editor behavior.
+goal:
+  Ctrl-J turns a populated dash bullet into a separated body line when the caret is at
+  or before its marker, preserving the body and existing editor behavior.
 size: small
 proposed_by: bbugyi200.athena.0iz
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0iz](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0iz.md)
+- **COMMITS:**
+  - [c6273cf](https://github.com/bobs-org/bob-mac-capture/commit/c6273cfd860e9eaff382750e10cabe80ec5c5e3d)
+    — feat: remove dash bullet prefixes with ctrl-j
 
 # Ctrl-J removes a bullet prefix when the caret is at or before its marker
 
