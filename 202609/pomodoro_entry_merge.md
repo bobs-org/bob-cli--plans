@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Merge pomodoros with Ctrl+X in the entry move and rename picker
-goal:
-  Combine pomodoro names and append their bullets while keeping the current timed entry
-  or selected future destination intact.
+goal: Combine pomodoro names and append their bullets while keeping the current timed
+  entry or selected future destination intact.
 size: medium
 proposed_by: bbugyi200.athena.0k5
-create_time: 2026-09-12 08:48:40
-status: wip
+status: done
 ---
 
 # Merge pomodoros from the Ctrl+Shift+M entry picker
