@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Split the last merged Pomodoro from selected bullets
-goal: Typing ++ in the Pomodoro sub-bullet picker can atomically peel the last merge-derived
+goal:
+  Typing ++ in the Pomodoro sub-bullet picker can atomically peel the last merge-derived
   name into a new placeholder Pomodoro containing exactly the selected bullet subtrees.
 size: medium
 proposed_by: bbugyi200.athena.0k5.f1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0k5.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0k5.f1.md)
+- **COMMITS:**
+  - [6eb8e71](https://github.com/bobs-org/bob-plugins/commit/6eb8e7120a5986802d046124344cf06838146390)
+    — feat(navigation-hotkeys): split merged pomodoro bullets
 
 # Plan: Split the last merged Pomodoro from the Ctrl+Shift+M bullet picker
 
