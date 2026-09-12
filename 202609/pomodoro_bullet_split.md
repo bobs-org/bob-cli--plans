@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Split the last merged Pomodoro from selected bullets
-goal:
-  Typing ++ in the Pomodoro sub-bullet picker can atomically peel the last merge-derived
+goal: Typing ++ in the Pomodoro sub-bullet picker can atomically peel the last merge-derived
   name into a new placeholder Pomodoro containing exactly the selected bullet subtrees.
 size: medium
 proposed_by: bbugyi200.athena.0k5.f1
-create_time: 2026-09-12 16:51:58
-status: wip
+status: done
 ---
 
 # Plan: Split the last merged Pomodoro from the Ctrl+Shift+M bullet picker
