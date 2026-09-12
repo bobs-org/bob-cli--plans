@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Merge pomodoros with Ctrl+X in the entry move and rename picker
-goal: Combine pomodoro names and append their bullets while keeping the current timed
-  entry or selected future destination intact.
+goal:
+  Combine pomodoro names and append their bullets while keeping the current timed entry
+  or selected future destination intact.
 size: medium
 proposed_by: bbugyi200.athena.0k5
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0k5](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0k5.md)
+- **COMMITS:**
+  - [ae4e37e](https://github.com/bobs-org/bob-plugins/commit/ae4e37e038f5f19cdec4777522df94fd685d7894)
+    — feat(navigation-hotkeys): merge pomodoro entries from picker
 
 # Merge pomodoros from the Ctrl+Shift+M entry picker
 
