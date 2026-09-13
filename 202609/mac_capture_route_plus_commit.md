@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Open task completion when + follows a route completion in bob-mac-capture
-goal:
-  Typing + after an @route completion in the Mac capture panel immediately opens the
-  @route+ task picker without pressing Return first.
+goal: Typing + after an @route completion in the Mac capture panel immediately opens
+  the @route+ task picker without pressing Return first.
 size: medium
 proposed_by: bbugyi200.apollo.w
-create_time: 2026-09-13 19:16:18
-status: wip
+status: done
 ---
 
 # Mac capture: typing `+` after a route opens task completion without Return
