@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Reliable scheduled task-status hooks on the Mac
-goal:
-  Recover safely from transient vault contention, retain cron diagnostics in logs, and
-  stagger and verify the Mac's Bob maintenance jobs.
+goal: Recover safely from transient vault contention, retain cron diagnostics in logs,
+  and stagger and verify the Mac's Bob maintenance jobs.
 size: medium
 proposed_by: bbugyi200.athena.0kj
-create_time: 2026-09-14 09:52:26
-status: wip
+status: done
 ---
 
 # Reliable scheduled task-status hooks on the Mac
