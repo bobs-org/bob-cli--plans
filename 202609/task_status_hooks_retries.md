@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Reliable scheduled task-status hooks on the Mac
-goal: Recover safely from transient vault contention, retain cron diagnostics in logs,
-  and stagger and verify the Mac's Bob maintenance jobs.
+goal:
+  Recover safely from transient vault contention, retain cron diagnostics in logs, and
+  stagger and verify the Mac's Bob maintenance jobs.
 size: medium
 proposed_by: bbugyi200.athena.0kj
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0kj](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.athena.0kj.md)
+- **COMMITS:**
+  - [6892ec0](https://github.com/bobs-org/bob-cli/commit/6892ec089b3635395260b39bde9b5a4265f200cc)
+    — feat(task-status-hooks): retry transient sync failures with jittered backoff
 
 # Reliable scheduled task-status hooks on the Mac
 
