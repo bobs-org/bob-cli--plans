@@ -49,7 +49,7 @@ phases:
     so the `+` sigil is highlighted and project-note results are labeled correctly.'
 proposed_by: bbugyi200.apollo.1a
 create_time: 2026-09-20 18:07:10
-status: wip
+status: done
 bead_id: bob-cli-25
 ---
 
