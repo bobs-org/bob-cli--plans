@@ -1,39 +1,38 @@
 ---
 tier: epic
 title: Rename highlights pre-scan hook config and auto-scan from bob_xlib_pull
-goal: "`bob highlights` reads the hook from `highlights.pre_scan_hook`, a new
-  `-n|--no-hooks` flag ignores it, and `bob_xlib_pull` runs `bob highlights --no-hooks
-  scan -w` itself on macOS so freshly pulled PDFs sync immediately instead of waiting
-  for the 15-minute cron.
+goal: '`bob highlights` reads the hook from `highlights.pre_scan_hook`, a new `-n|--no-hooks`
+  flag ignores it, and `bob_xlib_pull` runs `bob highlights --no-hooks scan -w` itself
+  on macOS so freshly pulled PDFs sync immediately instead of waiting for the 15-minute
+  cron.
 
-  "
+  '
 phases:
-  - id: cli
-    title: Rename the pre-scan hook config surface and add `--no-hooks`
-    depends_on: []
-    size: medium
-    description:
-      "cli: rename `highlights.pre_scan_command` to `highlights.pre_scan_hook` (config
-      key, env override, report labels, docs), reject the legacy names loudly, add the
-      `-n|--no-hooks` flag to `bob highlights`, and export a hook-marker env var to the
-      hook child process."
-  - id: dotfiles
-    title: Auto-scan from bob_xlib_pull and follow the rename in chezmoi
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "dotfiles: update the managed bob config and `maybe_bob_highlights_sync` for the
-      new names, make `bob_xlib_pull` run `bob highlights --no-hooks scan -w` after its
-      pull on macOS with hook and cron-lock guards, extend the bashunit regression
-      tests, and refresh the Highlights bridge documentation."
+- id: cli
+  title: Rename the pre-scan hook config surface and add `--no-hooks`
+  depends_on: []
+  size: medium
+  description: 'cli: rename `highlights.pre_scan_command` to `highlights.pre_scan_hook`
+    (config key, env override, report labels, docs), reject the legacy names loudly,
+    add the `-n|--no-hooks` flag to `bob highlights`, and export a hook-marker env
+    var to the hook child process.'
+- id: dotfiles
+  title: Auto-scan from bob_xlib_pull and follow the rename in chezmoi
+  depends_on:
+  - cli
+  size: medium
+  description: 'dotfiles: update the managed bob config and `maybe_bob_highlights_sync`
+    for the new names, make `bob_xlib_pull` run `bob highlights --no-hooks scan -w`
+    after its pull on macOS with hook and cron-lock guards, extend the bashunit regression
+    tests, and refresh the Highlights bridge documentation.'
 proposed_by: bbugyi200.apollo.16
 create_time: 2026-09-20 15:38:35
 status: wip
+bead_id: bob-cli-23
 ---
 
-- **PROMPT:**
-  [prompts/202609/highlights_pre_scan_hook.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/highlights_pre_scan_hook.md)
+- **PROMPT:** [prompts/202609/highlights_pre_scan_hook.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/highlights_pre_scan_hook.md)
+- **BEAD:** [bob-cli-23](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-23/README.md)
 
 # Plan: Rename the Highlights pre-scan hook and auto-scan from `bob_xlib_pull`
 
