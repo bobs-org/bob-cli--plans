@@ -1,64 +1,60 @@
 ---
 tier: epic
 title: Capture project notes with @route^id+ and @route:id+
-goal: "`bob capture` can create a new sub-project note `<route>_<block_id>.md` — with a
-  `parent` wikilink back to `<route>.md`, a seeded `^prj` lifecycle task, authored child
-  tasks under `## Tasks`, and authored ALL-CAPS sections as `##` headers — from the new
-  `@<route>^<block-id>+` and `@<route>:<block-id>+[#<pomodoro>]` markers, and Bob Mac
-  Capture highlights and reports the new family correctly.
+goal: '`bob capture` can create a new sub-project note `<route>_<block_id>.md` — with
+  a `parent` wikilink back to `<route>.md`, a seeded `^prj` lifecycle task, authored
+  child tasks under `## Tasks`, and authored ALL-CAPS sections as `##` headers — from
+  the new `@<route>^<block-id>+` and `@<route>:<block-id>+[#<pomodoro>]` markers,
+  and Bob Mac Capture highlights and reports the new family correctly.
 
-  "
+  '
 phases:
-  - id: grammar
-    title: Project-note marker grammar
-    depends_on: []
-    size: medium
-    description:
-      "grammar: add the `+` project-note sigil to the `^` and `:` marker families in the
-      shared capture grammar, with a new `CaptureKind`, editor modes, span kind, needs,
-      and diagnostics."
-  - id: render
-    title: Project-note content renderer
-    depends_on: []
-    size: medium
-    description:
-      "render: add a pure module that derives the project-note basename and renders its
-      frontmatter, `^prj` task, `## Tasks` entries, and ALL-CAPS section headers from a
-      parsed capture item."
-  - id: execute
-    title: Capture execution and JSON contract
-    depends_on:
-      - grammar
-      - render
-    size: medium
-    description:
-      "execute: wire project-note planning into the capture batch planner — parent-note
-      validation, collision rejection, Pomodoro linking on `^prj`, marker conflicts,
-      JSON fields, and human output — plus end-to-end CLI tests."
-  - id: docs
-    title: Capture documentation and help text
-    depends_on:
-      - execute
-    size: small
-    description:
-      "docs: document the new marker family in the capture guide, `bob capture --help`,
-      and the grammar tables, and cross-reference the projects guide."
-  - id: mac
-    title: Bob Mac Capture frontend support
-    depends_on:
-      - grammar
-      - execute
-    size: small
-    description:
-      "mac: teach the macOS capture panel the new span kind and capture kind so the `+`
-      sigil is highlighted and project-note results are labeled correctly."
+- id: grammar
+  title: Project-note marker grammar
+  depends_on: []
+  size: medium
+  description: 'grammar: add the `+` project-note sigil to the `^` and `:` marker
+    families in the shared capture grammar, with a new `CaptureKind`, editor modes,
+    span kind, needs, and diagnostics.'
+- id: render
+  title: Project-note content renderer
+  depends_on: []
+  size: medium
+  description: 'render: add a pure module that derives the project-note basename and
+    renders its frontmatter, `^prj` task, `## Tasks` entries, and ALL-CAPS section
+    headers from a parsed capture item.'
+- id: execute
+  title: Capture execution and JSON contract
+  depends_on:
+  - grammar
+  - render
+  size: medium
+  description: 'execute: wire project-note planning into the capture batch planner
+    — parent-note validation, collision rejection, Pomodoro linking on `^prj`, marker
+    conflicts, JSON fields, and human output — plus end-to-end CLI tests.'
+- id: docs
+  title: Capture documentation and help text
+  depends_on:
+  - execute
+  size: small
+  description: 'docs: document the new marker family in the capture guide, `bob capture
+    --help`, and the grammar tables, and cross-reference the projects guide.'
+- id: mac
+  title: Bob Mac Capture frontend support
+  depends_on:
+  - grammar
+  - execute
+  size: small
+  description: 'mac: teach the macOS capture panel the new span kind and capture kind
+    so the `+` sigil is highlighted and project-note results are labeled correctly.'
 proposed_by: bbugyi200.apollo.1a
 create_time: 2026-09-20 18:07:10
 status: wip
+bead_id: bob-cli-25
 ---
 
-- **PROMPT:**
-  [prompts/202609/capture_project_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_project_notes.md)
+- **PROMPT:** [prompts/202609/capture_project_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_project_notes.md)
+- **BEAD:** [bob-cli-25](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-25/README.md)
 
 # Plan: Capture project notes with `@route^id+` and `@route:id+`
 
