@@ -27,7 +27,7 @@ phases:
     tests, and refresh the Highlights bridge documentation.'
 proposed_by: bbugyi200.apollo.16
 create_time: 2026-09-20 15:38:35
-status: wip
+status: done
 bead_id: bob-cli-23
 ---
 
