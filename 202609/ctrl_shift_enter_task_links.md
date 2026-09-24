@@ -1,13 +1,21 @@
 ---
 tier: tale
 title: Ctrl+Shift+Enter on a selected Task Link deletes it and sets the task Open
-goal: In the bob-plugins block-id-prompt plugin, pressing Ctrl+Shift+Enter with the
-  cursor on a Task Link deletes that link and sets the linked Obsidian task to Open,
-  while existing task-line behavior is unchanged.
+goal:
+  In the bob-plugins block-id-prompt plugin, pressing Ctrl+Shift+Enter with the cursor
+  on a Task Link deletes that link and sets the linked Obsidian task to Open, while
+  existing task-line behavior is unchanged.
 size: medium
 proposed_by: bbugyi200.apollo.1m
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.1m](https://github.com/bobs-org/bob-cli--agents/blob/main/families/bbugyi200.apollo.1m.md)
+- **COMMITS:**
+  - [d98f677](https://github.com/bobs-org/bob-plugins/commit/d98f6775aef9f6eaae681ae50de1695d6fc1a556)
+    — feat(block-id-prompt): delete selected Task Link and set task Open with
+    Ctrl+Shift+Enter
 
 # Plan: Ctrl+Shift+Enter on a selected Task Link deletes the link and sets the task Open
 
