@@ -1,40 +1,39 @@
 ---
 tier: epic
 title: Adjust the current Pomodoro from capture with +N and -N
-goal:
-  Whole-item +N and -N captures adjust the current Pomodoro reliably in Bob CLI and Bob
-  Mac Capture, with accurate previews and atomic bulk behavior.
+goal: Whole-item +N and -N captures adjust the current Pomodoro reliably in Bob CLI
+  and Bob Mac Capture, with accurate previews and atomic bulk behavior.
 phases:
-  - id: adjustment_core
-    title: Parse and atomically apply Pomodoro duration adjustments
-    size: medium
-    depends_on: []
-    description:
-      "adjustment_core: add exact-item signed-count grammar and a staged daily-ledger
-      edit, with integration coverage for bulk capture, timing, failure, and rollback."
-  - id: editor_contract
-    title: Expose and document the adjustment contract
-    size: medium
-    depends_on:
-      - adjustment_core
-    description:
-      "editor_contract: expose additive parse and capture JSON semantics, clear human
-      output, help, docs, and protocol tests for adjustment items."
-  - id: mac_presentation
-    title: Show Pomodoro adjustments in Bob Mac Capture
-    size: medium
-    depends_on:
-      - editor_contract
-    description:
-      "mac_presentation: decode Bob's additive adjustment result and present accurate
-      dry-run and committed before/after timing in Mac Capture, with fixtures and tests."
+- id: adjustment_core
+  title: Parse and atomically apply Pomodoro duration adjustments
+  size: medium
+  depends_on: []
+  description: 'adjustment_core: add exact-item signed-count grammar and a staged
+    daily-ledger edit, with integration coverage for bulk capture, timing, failure,
+    and rollback.'
+- id: editor_contract
+  title: Expose and document the adjustment contract
+  size: medium
+  depends_on:
+  - adjustment_core
+  description: 'editor_contract: expose additive parse and capture JSON semantics,
+    clear human output, help, docs, and protocol tests for adjustment items.'
+- id: mac_presentation
+  title: Show Pomodoro adjustments in Bob Mac Capture
+  size: medium
+  depends_on:
+  - editor_contract
+  description: 'mac_presentation: decode Bob''s additive adjustment result and present
+    accurate dry-run and committed before/after timing in Mac Capture, with fixtures
+    and tests.'
 proposed_by: bbugyi200.apollo.21
 create_time: 2026-09-26 19:06:50
 status: wip
+bead_id: bob-cli-27
 ---
 
-- **PROMPT:**
-  [prompts/202609/adjust_pomodoro_duration.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/adjust_pomodoro_duration.md)
+- **PROMPT:** [prompts/202609/adjust_pomodoro_duration.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/adjust_pomodoro_duration.md)
+- **BEAD:** [bob-cli-27](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-27/README.md)
 
 # Problem and outcome
 
