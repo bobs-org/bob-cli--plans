@@ -20,7 +20,7 @@ phases:
     and accessibility behavior.'
 proposed_by: bbugyi200.apollo.bob-cli-26.land
 create_time: 2026-09-26 17:47:02
-status: wip
+status: done
 bead_id: bob-cli-26.4
 ---
 

@@ -13,7 +13,7 @@ phases:
     record capture-complete at cursor 12 and leave swift test green on macOS 26.'
 proposed_by: bbugyi200.apollo.bob-cli-26.4.land
 create_time: 2026-09-26 18:20:13
-status: wip
+status: done
 bead_id: bob-cli-26.4.3
 ---
 

@@ -26,7 +26,7 @@ phases:
     accessible session preview.'
 proposed_by: bbugyi200.apollo.20
 create_time: 2026-09-26 16:50:54
-status: wip
+status: done
 bead_id: bob-cli-26
 ---
 
