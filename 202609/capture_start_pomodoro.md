@@ -1,37 +1,36 @@
 ---
 tier: epic
 title: Start the next Pomodoro from Bob capture
-goal:
-  New Pomodoro-linked capture tasks can atomically start a session with se-compatible
+goal: New Pomodoro-linked capture tasks can atomically start a session with se-compatible
   timing, and Bob Mac Capture previews and submits that behavior accurately.
 phases:
-  - id: capture-core
-    title: Capture grammar and atomic Pomodoro start
-    depends_on: []
-    size: medium
-    description:
-      "capture-core: parse the se-compatible suffix and stage the task, link, and timed
-      ledger entry atomically."
-  - id: capture-editor-contract
-    title: Editor protocol, help, and documentation
-    depends_on:
-      - capture-core
-    size: medium
-    description:
-      "capture-editor-contract: expose start metadata, parsing spans, completion-safe
-      replacement ranges, and documented examples."
-  - id: mac-capture
-    title: Bob Mac Capture start preview and submission
-    depends_on:
-      - capture-editor-contract
-    size: medium
-    description:
-      "mac-capture: decode Bob's additive start contract and present a polished,
-      accessible session preview."
+- id: capture-core
+  title: Capture grammar and atomic Pomodoro start
+  depends_on: []
+  size: medium
+  description: 'capture-core: parse the se-compatible suffix and stage the task, link,
+    and timed ledger entry atomically.'
+- id: capture-editor-contract
+  title: Editor protocol, help, and documentation
+  depends_on:
+  - capture-core
+  size: medium
+  description: 'capture-editor-contract: expose start metadata, parsing spans, completion-safe
+    replacement ranges, and documented examples.'
+- id: mac-capture
+  title: Bob Mac Capture start preview and submission
+  depends_on:
+  - capture-editor-contract
+  size: medium
+  description: 'mac-capture: decode Bob''s additive start contract and present a polished,
+    accessible session preview.'
 proposed_by: bbugyi200.apollo.20
 create_time: 2026-09-26 16:50:54
 status: wip
+bead_id: bob-cli-26
 ---
+
+- **BEAD:** [bob-cli-26](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-26/README.md)
 
 # Start the next Pomodoro from capture
 
