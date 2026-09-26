@@ -1,35 +1,32 @@
 ---
 tier: epic
 title: Finish macOS verification of atomic Pomodoro capture
-goal:
-  Bob Mac Capture compiles and passes its tests with the additive Pomodoro start
+goal: Bob Mac Capture compiles and passes its tests with the additive Pomodoro start
   contract, and the panel presents the resolved session accessibly.
 parent_bead: bob-cli-26
 phases:
-  - id: fix-swift-decoder
-    title: Repair Pomodoro diagnostic range decoding
-    depends_on: []
-    size: small
-    description:
-      "fix-swift-decoder: make additive diagnostic ranges compile and decode safely on
-      macOS."
-  - id: verify-mac-capture
-    title: Run Mac capture suite and panel checks
-    depends_on:
-      - fix-swift-decoder
-    size: medium
-    description:
-      "verify-mac-capture: run Swift tests and check the new session preview and
-      accessibility behavior."
+- id: fix-swift-decoder
+  title: Repair Pomodoro diagnostic range decoding
+  depends_on: []
+  size: small
+  description: 'fix-swift-decoder: make additive diagnostic ranges compile and decode
+    safely on macOS.'
+- id: verify-mac-capture
+  title: Run Mac capture suite and panel checks
+  depends_on:
+  - fix-swift-decoder
+  size: medium
+  description: 'verify-mac-capture: run Swift tests and check the new session preview
+    and accessibility behavior.'
 proposed_by: bbugyi200.apollo.bob-cli-26.land
 create_time: 2026-09-26 17:47:02
 status: wip
+bead_id: bob-cli-26.4
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_mac_verification.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_mac_verification.md)
-- **PARENT:**
-  [202609/capture_start_pomodoro.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_start_pomodoro.md)
+- **PROMPT:** [prompts/202609/pomodoro_mac_verification.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_mac_verification.md)
+- **PARENT:** [202609/capture_start_pomodoro.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_start_pomodoro.md)
+- **BEAD:** [bob-cli-26.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-26/bob-cli-26.4.md)
 
 # Finish macOS verification of atomic Pomodoro capture
 
