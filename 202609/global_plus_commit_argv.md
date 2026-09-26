@@ -1,27 +1,25 @@
 ---
 tier: epic
 title: Fix global plus-commit capture-complete argv
-goal:
-  Bob Mac Capture's swift test suite passes on macOS 26, including the global route
-  plus-commit that must request task completion at cursor 12.
+goal: Bob Mac Capture's swift test suite passes on macOS 26, including the global
+  route plus-commit that must request task completion at cursor 12.
 parent_bead: bob-cli-26.4
 phases:
-  - id: fix-global-plus-commit
-    title: Fix global plus-commit capture-complete argv
-    depends_on: []
-    size: small
-    description:
-      "fix-global-plus-commit: make the multiline global route plus-commit record
-      capture-complete at cursor 12 and leave swift test green on macOS 26."
+- id: fix-global-plus-commit
+  title: Fix global plus-commit capture-complete argv
+  depends_on: []
+  size: small
+  description: 'fix-global-plus-commit: make the multiline global route plus-commit
+    record capture-complete at cursor 12 and leave swift test green on macOS 26.'
 proposed_by: bbugyi200.apollo.bob-cli-26.4.land
 create_time: 2026-09-26 18:20:13
 status: wip
+bead_id: bob-cli-26.4.3
 ---
 
-- **PROMPT:**
-  [prompts/202609/global_plus_commit_argv.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/global_plus_commit_argv.md)
-- **PARENT:**
-  [202609/pomodoro_mac_verification.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/pomodoro_mac_verification.md)
+- **PROMPT:** [prompts/202609/global_plus_commit_argv.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/global_plus_commit_argv.md)
+- **PARENT:** [202609/pomodoro_mac_verification.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/pomodoro_mac_verification.md)
+- **BEAD:** [bob-cli-26.4.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-26/bob-cli-26.4.3.md)
 
 # Fix global plus-commit capture-complete argv
 
