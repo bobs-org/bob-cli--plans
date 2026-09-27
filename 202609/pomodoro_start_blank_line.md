@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Fix extra blank line when atomic-start capture creates a Pomodoro
-goal:
-  Pomodoro-linked `=<X>` start captures that create a new ledger entry insert it before
-  the first existing Pomodoro, after any blank lines under the heading, exactly like
-  non-start `#name` creation, so no stray blank line splits the ledger.
+goal: Pomodoro-linked `=<X>` start captures that create a new ledger entry insert
+  it before the first existing Pomodoro, after any blank lines under the heading,
+  exactly like non-start `#name` creation, so no stray blank line splits the ledger.
 size: small
 proposed_by: bbugyi200.apollo.2b
-create_time: 2026-09-27 08:15:37
-status: wip
+status: done
 ---
 
 # Fix extra blank line when `=<X>` start capture creates a new Pomodoro
