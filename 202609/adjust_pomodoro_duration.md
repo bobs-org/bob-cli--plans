@@ -28,7 +28,7 @@ phases:
     and tests.'
 proposed_by: bbugyi200.apollo.21
 create_time: 2026-09-26 19:06:50
-status: wip
+status: done
 bead_id: bob-cli-27
 ---
 

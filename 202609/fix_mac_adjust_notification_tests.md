@@ -14,7 +14,7 @@ phases:
     that commit is green.'
 proposed_by: bbugyi200.apollo.bob-cli-27.land
 create_time: 2026-09-26 20:02:58
-status: wip
+status: done
 bead_id: bob-cli-27.4
 ---
 
