@@ -1,28 +1,26 @@
 ---
 tier: epic
 title: Fix Mac adjustment notification test calls
-goal:
-  bob-mac-capture's macOS CI test step compiles the Pomodoro adjustment notification
+goal: bob-mac-capture's macOS CI test step compiles the Pomodoro adjustment notification
   tests and those tests pass.
 parent_bead: bob-cli-27
 phases:
-  - id: fix_calls
-    title: Reorder the adjustment notification test calls
-    size: small
-    depends_on: []
-    description:
-      "fix_calls: put relativeTarget last on the two new NotificationServiceTests
-      capture() calls so Swift accepts them, and confirm the macOS CI test step for that
-      commit is green."
+- id: fix_calls
+  title: Reorder the adjustment notification test calls
+  size: small
+  depends_on: []
+  description: 'fix_calls: put relativeTarget last on the two new NotificationServiceTests
+    capture() calls so Swift accepts them, and confirm the macOS CI test step for
+    that commit is green.'
 proposed_by: bbugyi200.apollo.bob-cli-27.land
 create_time: 2026-09-26 20:02:58
 status: wip
+bead_id: bob-cli-27.4
 ---
 
-- **PROMPT:**
-  [prompts/202609/fix_mac_adjust_notification_tests.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/fix_mac_adjust_notification_tests.md)
-- **PARENT:**
-  [202609/adjust_pomodoro_duration.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/adjust_pomodoro_duration.md)
+- **PROMPT:** [prompts/202609/fix_mac_adjust_notification_tests.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/fix_mac_adjust_notification_tests.md)
+- **PARENT:** [202609/adjust_pomodoro_duration.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/adjust_pomodoro_duration.md)
+- **BEAD:** [bob-cli-27.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-27/bob-cli-27.4.md)
 
 # Plan: Fix Mac adjustment notification test calls
 
