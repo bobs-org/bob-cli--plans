@@ -1,60 +1,58 @@
 ---
 tier: epic
 title: Link and start existing tasks with solo @route:id and active-task ^route:id
-goal: "A capture item that is only `@route:block-id[#pomodoro][=<X>]` or
-  `^route:block-id[#pomodoro][=<X>]` links an existing task into today's Pomodoro ledger
-  (and optionally starts that session) atomically, and typing `^` in Bob CLI completion
-  and Bob Mac Capture offers only In Progress and Next tasks, inserting the full
-  `route:block-id` in one accept.
+goal: 'A capture item that is only `@route:block-id[#pomodoro][=<X>]` or `^route:block-id[#pomodoro][=<X>]`
+  links an existing task into today''s Pomodoro ledger (and optionally starts that
+  session) atomically, and typing `^` in Bob CLI completion and Bob Mac Capture offers
+  only In Progress and Next tasks, inserting the full `route:block-id` in one accept.
 
-  "
+  '
 phases:
-  - id: link-core
-    title: Solo Pomodoro-link grammar and atomic execution
-    depends_on: []
-    size: medium
-    description: "link-core: add the shared `@`/`^` solo grammar, the keep/move/insert
-      Task Link planner with queue-respecting start, the `pomodoro_link` JSON kind and
-      human output, and CLI integration tests.
+- id: link-core
+  title: Solo Pomodoro-link grammar and atomic execution
+  depends_on: []
+  size: medium
+  description: 'link-core: add the shared `@`/`^` solo grammar, the keep/move/insert
+    Task Link planner with queue-respecting start, the `pomodoro_link` JSON kind and
+    human output, and CLI integration tests.
 
-      "
-  - id: active-task-discovery
-    title: Active-task discovery module
-    depends_on:
-      - link-core
-    size: small
-    description: "active-task-discovery: build a read-only scanner that lists In
-      Progress and Next tasks with block IDs from routable vault-root notes, annotated
-      and ordered by today's open-Pomodoro Task Links, with query ranking and bounded
-      warnings.
+    '
+- id: active-task-discovery
+  title: Active-task discovery module
+  depends_on:
+  - link-core
+  size: small
+  description: 'active-task-discovery: build a read-only scanner that lists In Progress
+    and Next tasks with block IDs from routable vault-root notes, annotated and ordered
+    by today''s open-Pomodoro Task Links, with query ranking and bounded warnings.
 
-      "
-  - id: editor-contract
-    title: Parse, completion, rewrite, help, and docs for the new forms
-    depends_on:
-      - active-task-discovery
-    size: medium
-    description: "editor-contract: expose the `pomodoro_link` mode, `^` spans, needs and
-      diagnostics in capture-parse, the `active_task` full-completion context in
-      capture-complete, a rewrite guard, help text, and docs.
+    '
+- id: editor-contract
+  title: Parse, completion, rewrite, help, and docs for the new forms
+  depends_on:
+  - active-task-discovery
+  size: medium
+  description: 'editor-contract: expose the `pomodoro_link` mode, `^` spans, needs
+    and diagnostics in capture-parse, the `active_task` full-completion context in
+    capture-complete, a rewrite guard, help text, and docs.
 
-      "
-  - id: mac-capture
-    title: Bob Mac Capture active-task picker and link/start preview
-    depends_on:
-      - editor-contract
-    size: medium
-    description:
-      "mac-capture: decode the new context, candidates and kind in bob-mac-capture,
-      render an active-task picker, preview and notify link/move/start outcomes, and
-      cover everything with fake-bob tests and macOS CI."
+    '
+- id: mac-capture
+  title: Bob Mac Capture active-task picker and link/start preview
+  depends_on:
+  - editor-contract
+  size: medium
+  description: 'mac-capture: decode the new context, candidates and kind in bob-mac-capture,
+    render an active-task picker, preview and notify link/move/start outcomes, and
+    cover everything with fake-bob tests and macOS CI.'
 proposed_by: bbugyi200.athena.0t3
 create_time: 2026-09-27 10:38:08
 status: wip
+bead_id: bob-cli-28
 ---
 
-- **PROMPT:**
-  [prompts/202609/active_task_link.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/active_task_link.md)
+- **PROMPT:** [prompts/202609/active_task_link.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/active_task_link.md)
+- **BEAD:** [bob-cli-28](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-28/README.md)
 
 # Plan: Link and start existing tasks with solo `@route:id` and active-task `^route:id`
 
