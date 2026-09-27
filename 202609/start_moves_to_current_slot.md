@@ -1,15 +1,12 @@
 ---
 tier: tale
 title: A started Pomodoro moves ahead of every planned Pomodoro
-goal:
-  Every `=<X>` capture start (new-task `@route:id[#name]=<X>` and solo
-  `@`/`^route:id[#name]=<X>`) leaves the running Pomodoro, with its child block,
-  directly after the last completed Pomodoro and above every open planned Pomodoro, with
-  correct post-image line reporting.
+goal: Every `=<X>` capture start (new-task `@route:id[#name]=<X>` and solo `@`/`^route:id[#name]=<X>`)
+  leaves the running Pomodoro, with its child block, directly after the last completed
+  Pomodoro and above every open planned Pomodoro, with correct post-image line reporting.
 size: medium
 proposed_by: bbugyi200.apollo.2e
-create_time: 2026-09-27 13:31:17
-status: wip
+status: done
 ---
 
 # Plan: A started Pomodoro moves ahead of every planned Pomodoro
