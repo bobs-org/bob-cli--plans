@@ -2,13 +2,12 @@
 tier: tale
 size: medium
 title: Split the capture language grammar into focused modules
-goal:
-  Preserve the capture grammar's behavior and public module paths while splitting its
-  11,615-line source and 163 unit tests into Rust files of at most 1,500 lines each.
+goal: Preserve the capture grammar's behavior and public module paths while splitting
+  its 11,615-line source and 163 unit tests into Rust files of at most 1,500 lines
+  each.
 proposed_by: bbugyi200.apollo.bob-cli-2f.3
 bead: bob-cli-2f.3
-create_time: 2026-09-28 17:46:53
-status: wip
+status: done
 ---
 
 - **PARENT:**
