@@ -1,16 +1,14 @@
 ---
 tier: tale
 size: medium
-title: "bob gkeep: fix land-review defects and close epic bob-cli-2d"
-goal:
-  "Every epic-caused defect the bob-cli-2d land review found is fixed and tested: the
-  adapter timeout, attachments, archive confirm, pull reporting, time zones, escaping,
+title: 'bob gkeep: fix land-review defects and close epic bob-cli-2d'
+goal: 'Every epic-caused defect the bob-cli-2d land review found is fixed and tested:
+  the adapter timeout, attachments, archive confirm, pull reporting, time zones, escaping,
   flakes, gkeep clippy warnings, and docs drift. Epic bob-cli-2d is then closed, with
-  its plan file marked done."
+  its plan file marked done.'
 proposed_by: bbugyi200.apollo.bob-cli-2d.land
 bead: bob-cli-2d
-create_time: 2026-09-28 15:12:26
-status: wip
+status: done
 ---
 
 - **PARENT:**
