@@ -2,15 +2,14 @@
 tier: tale
 size: medium
 title: Split task_status_hooks into modules of at most 1500 lines
-goal: "Turn src/native/task_status_hooks.rs into a directory module whose every file is
-  at most 1500 lines, without changing behavior, test assertions, or the paths outside
-  callers already use.
+goal: 'Turn src/native/task_status_hooks.rs into a directory module whose every file
+  is at most 1500 lines, without changing behavior, test assertions, or the paths
+  outside callers already use.
 
-  "
+  '
 proposed_by: bbugyi200.apollo.bob-cli-2f.6
 bead: bob-cli-2f.6
-create_time: 2026-09-28 19:19:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
