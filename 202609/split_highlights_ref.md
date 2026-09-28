@@ -1,11 +1,11 @@
 ---
 tier: tale
 title: Split highlights_ref into modules of at most 1500 lines
-goal: 'Thin src/native/highlights_ref/mod.rs into cohesive submodules and split its
-  unit tests so every Rust file in that directory has at most 1500 lines, behavior
-  is unchanged, the 59 unit tests in that file still pass, and just all is green.
+goal: "Thin src/native/highlights_ref/mod.rs into cohesive submodules and split its unit
+  tests so every Rust file in that directory has at most 1500 lines, behavior is
+  unchanged, the 59 unit tests in that file still pass, and just all is green.
 
-  '
+  "
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.4
 bead: bob-cli-2f.4
@@ -16,6 +16,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.4.md)
+- **COMMITS:**
+  - [836e0a8](https://github.com/bobs-org/bob-cli/commit/836e0a88564081a58b61e11f5767b01e4e0f30f0)
+    — refactor(highlights-ref): split mod.rs into submodules under 1500 lines
 
 # Split highlights_ref into modules of at most 1500 lines
 
