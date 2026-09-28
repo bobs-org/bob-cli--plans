@@ -41,7 +41,7 @@ phases:
     lint verification.'
 proposed_by: bbugyi200.apollo.bob-cli-2f.3.w1
 create_time: 2026-09-28 18:28:10
-status: wip
+status: done
 bead_id: bob-cli-2g
 ---
 
