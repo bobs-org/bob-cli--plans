@@ -2,13 +2,11 @@
 tier: tale
 size: small
 title: Guard randomize date bounds and land bob-cli-2b
-goal:
-  "`bob randomize` rejects unrepresentable `--until` and priority-window dates without
-  wrapping or panicking, then bob-cli-2b is closed after verification."
+goal: '`bob randomize` rejects unrepresentable `--until` and priority-window dates
+  without wrapping or panicking, then bob-cli-2b is closed after verification.'
 bead: bob-cli-2b
 proposed_by: bbugyi200.apollo.bob-cli-2b.land
-create_time: 2026-09-28 12:13:32
-status: wip
+status: done
 ---
 
 - **PARENT:**
