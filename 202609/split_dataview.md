@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split the Dataview query module
-goal: Move the Dataview query implementation into cohesive modules of at most 1500
-  lines without changing behavior or tests.
+goal:
+  Move the Dataview query implementation into cohesive modules of at most 1500 lines
+  without changing behavior or tests.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.5
 bead: bob-cli-2f.5
@@ -13,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.5.md)
+- **COMMITS:**
+  - [2307179](https://github.com/bobs-org/bob-cli/commit/2307179cd17439fc6bb2a14eecbc842189ab0199)
+    — refactor(dataview): split query module into cohesive submodules
 
 # Split the Dataview query module
 
