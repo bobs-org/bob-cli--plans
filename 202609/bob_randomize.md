@@ -1,61 +1,59 @@
 ---
 tier: epic
-title: "bob randomize: bulk re-roll of due prioritized tasks"
-goal: "`bob randomize` re-rolls every due P1–P4 Obsidian task to its own random date
-  inside that task's configured priority window. Each touched note is written once, with
-  the new date, Blocked status, a 🎲 Schedule Log entry, and status grouping applied
-  together. The result is published as exactly one scoped `bob randomize` commit, taken
-  between two vault-sync cycles under the shared maintenance lock. The command also has
-  a reproducible dry-run preview, polished human output, and a stable JSON contract.
+title: 'bob randomize: bulk re-roll of due prioritized tasks'
+goal: '`bob randomize` re-rolls every due P1–P4 Obsidian task to its own random date
+  inside that task''s configured priority window. Each touched note is written once,
+  with the new date, Blocked status, a 🎲 Schedule Log entry, and status grouping applied
+  together. The result is published as exactly one scoped `bob randomize` commit,
+  taken between two vault-sync cycles under the shared maintenance lock. The command
+  also has a reproducible dry-run preview, polished human output, and a stable JSON
+  contract.
 
-  "
+  '
 phases:
-  - id: planner
-    title: Pure randomize planner and shared task-field helpers
-    depends_on: []
-    size: medium
-    description:
-      "planner: lift inline-field parsing into a shared task_fields module; add priority
-      level lookups, seed mixing, the randomize Schedule Log reason and insertion, and
-      hooks helper exposure; build the pure randomize_plan module that turns note
-      snapshots into per-note postimages, a reroll list, skip reasons, and load data.
-      Includes exhaustive unit tests."
-  - id: plumbing
-    title: Lock wait, scoped commit, sync report, and writer reuse
-    depends_on: []
-    size: small
-    description:
-      "plumbing: add a bounded lock wait and a scoped path commit helper to ob.rs, a
-      structured report variant of the in-process vault-sync cycle, and a tool-name
-      parameter for the guarded writer so recovery records land under bob-cli/randomize.
-      Existing hooks, nightly, and vault-sync behavior stays unchanged."
-  - id: command
-    title: bob randomize command, output, and integration tests
-    depends_on:
-      - planner
-      - plumbing
-    size: medium
-    description:
-      "command: add the clap CLI and runner registration; orchestrate lock, pre-sync,
-      plan and guarded apply with retries, scoped commit, and post-sync; render the
-      human and JSON outputs and exit codes; add tests/randomize.rs integration
-      coverage, including git, conflicts, determinism, and task-status-hooks parity."
-  - id: docs
-    title: Documentation and cross-links
-    depends_on:
-      - command
-    size: small
-    description:
-      "docs: write docs/randomize.md as the full contract, add README index, section,
-      workflow, and environment entries, and cross-link projects.md, vault-git-sync.md,
-      task-status-hooks.md, and docs/README.md."
+- id: planner
+  title: Pure randomize planner and shared task-field helpers
+  depends_on: []
+  size: medium
+  description: 'planner: lift inline-field parsing into a shared task_fields module;
+    add priority level lookups, seed mixing, the randomize Schedule Log reason and
+    insertion, and hooks helper exposure; build the pure randomize_plan module that
+    turns note snapshots into per-note postimages, a reroll list, skip reasons, and
+    load data. Includes exhaustive unit tests.'
+- id: plumbing
+  title: Lock wait, scoped commit, sync report, and writer reuse
+  depends_on: []
+  size: small
+  description: 'plumbing: add a bounded lock wait and a scoped path commit helper
+    to ob.rs, a structured report variant of the in-process vault-sync cycle, and
+    a tool-name parameter for the guarded writer so recovery records land under bob-cli/randomize.
+    Existing hooks, nightly, and vault-sync behavior stays unchanged.'
+- id: command
+  title: bob randomize command, output, and integration tests
+  depends_on:
+  - planner
+  - plumbing
+  size: medium
+  description: 'command: add the clap CLI and runner registration; orchestrate lock,
+    pre-sync, plan and guarded apply with retries, scoped commit, and post-sync; render
+    the human and JSON outputs and exit codes; add tests/randomize.rs integration
+    coverage, including git, conflicts, determinism, and task-status-hooks parity.'
+- id: docs
+  title: Documentation and cross-links
+  depends_on:
+  - command
+  size: small
+  description: 'docs: write docs/randomize.md as the full contract, add README index,
+    section, workflow, and environment entries, and cross-link projects.md, vault-git-sync.md,
+    task-status-hooks.md, and docs/README.md.'
 proposed_by: bbugyi200.apollo.2q
 create_time: 2026-09-28 10:45:16
 status: wip
+bead_id: bob-cli-2b
 ---
 
-- **PROMPT:**
-  [prompts/202609/bob_randomize.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/bob_randomize.md)
+- **PROMPT:** [prompts/202609/bob_randomize.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/bob_randomize.md)
+- **BEAD:** [bob-cli-2b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2b/README.md)
 
 # Plan: `bob randomize`, a bulk re-roll of due prioritized tasks
 
