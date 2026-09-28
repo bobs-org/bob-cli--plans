@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Correct the shift CLI example and close bob-cli-2a
-goal: The "Shifting the current Pomodoro" example in docs/capture.md shows a command
-  that actually shifts one unit earlier, and epic bob-cli-2a is closed with its plan
-  marked done.
+goal:
+  The "Shifting the current Pomodoro" example in docs/capture.md shows a command that
+  actually shifts one unit earlier, and epic bob-cli-2a is closed with its plan marked
+  done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-2a.land
 bead: bob-cli-2a
@@ -14,6 +15,11 @@ status: done
   [202609/pomodoro_shift_operators.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/pomodoro_shift_operators.md)
 - **BEAD:**
   [bob-cli-2a](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2a/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2a.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2a.land.md)
+- **COMMITS:**
+  - [b10b45e](https://github.com/bobs-org/bob-cli/commit/b10b45ec8eb91e66d2d121d7a10f688bc6fb0954)
+    — docs(capture): fix shift example bare -- to --1
 
 # Correct the shift CLI example and close bob-cli-2a
 
