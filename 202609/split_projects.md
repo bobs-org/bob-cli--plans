@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Split the projects command into cohesive Rust modules
-goal:
-  Keep the bob projects command and its public native-module API unchanged while
-  splitting its 4,652-line implementation and 53 unit tests into files of at most 1,500
-  lines.
+goal: Keep the bob projects command and its public native-module API unchanged while
+  splitting its 4,652-line implementation and 53 unit tests into files of at most
+  1,500 lines.
 proposed_by: bbugyi200.apollo.bob-cli-2f.7
 bead: bob-cli-2f.7
-create_time: 2026-09-28 19:37:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
