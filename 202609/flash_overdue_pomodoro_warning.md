@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Flash the OVERDUE POMODORO menu-bar warning
-goal: The Hammerspoon OVERDUE POMODORO menu-bar warning alternates at 1 Hz between
-  an inverted white-on-red frame and the existing bold red frame, stays readable,
-  keeps a constant width, and leaves every other Pomodoro state unanimated.
+goal:
+  The Hammerspoon OVERDUE POMODORO menu-bar warning alternates at 1 Hz between an
+  inverted white-on-red frame and the existing bold red frame, stays readable, keeps a
+  constant width, and leaves every other Pomodoro state unanimated.
 size: small
 proposed_by: bbugyi200.apollo.2j
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.2j](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.2j.md)
+- **COMMITS:**
+  - [1762c63](https://github.com/bbugyi200/dotfiles/commit/1762c6395e48b33ef108862643feed8fc73822b5)
+    — feat(hammerspoon): flash overdue Pomodoro warning
 
 # Plan: Flash the `OVERDUE POMODORO` menu-bar warning
 
