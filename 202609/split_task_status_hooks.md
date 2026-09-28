@@ -2,11 +2,11 @@
 tier: tale
 size: medium
 title: Split task_status_hooks into modules of at most 1500 lines
-goal: 'Turn src/native/task_status_hooks.rs into a directory module whose every file
-  is at most 1500 lines, without changing behavior, test assertions, or the paths
-  outside callers already use.
+goal: "Turn src/native/task_status_hooks.rs into a directory module whose every file is
+  at most 1500 lines, without changing behavior, test assertions, or the paths outside
+  callers already use.
 
-  '
+  "
 proposed_by: bbugyi200.apollo.bob-cli-2f.6
 bead: bob-cli-2f.6
 status: done
@@ -16,6 +16,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.6.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.6](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.6.md)
+- **COMMITS:**
+  - [a89dff8](https://github.com/bobs-org/bob-cli/commit/a89dff84d9d5c07662bd1482aa0ca78d08e6c09c)
+    — refactor(task-status-hooks): split engine into directory module under 1500 lines
 
 # Split `src/native/task_status_hooks.rs`
 
