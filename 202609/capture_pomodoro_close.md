@@ -1,77 +1,73 @@
 ---
 tier: epic
 title: Close the running Pomodoro with =x in bob capture and Bob Mac Capture
-goal: "A capture item `=x` closes today's running Pomodoro exactly the way Obsidian's
-  Pomodoro completion does, and also shortens a session stopped early. The forms
-  `@route:block-id=x`, `^route:block-id=x`, and `<text> @route:block-id=x` first put
-  that task into the running session. Every close is atomic. A missing, ambiguous, or
-  malformed target gives an actionable diagnostic. Bob Mac Capture shows a rich,
-  accurate preview of the session about to close.
+goal: 'A capture item `=x` closes today''s running Pomodoro exactly the way Obsidian''s
+  Pomodoro completion does, and also shortens a session stopped early. The forms `@route:block-id=x`,
+  `^route:block-id=x`, and `<text> @route:block-id=x` first put that task into the
+  running session. Every close is atomic. A missing, ambiguous, or malformed target
+  gives an actionable diagnostic. Bob Mac Capture shows a rich, accurate preview of
+  the session about to close.
 
-  "
+  '
 phases:
-  - id: close-ledger
-    title: Pomodoro close engine, daily-note half
-    depends_on: []
-    size: medium
-    description:
-      "close-ledger: add a pure module that finds the running Pomodoro and computes the
-      early-stop auto-decrement. It ports Obsidian's completion rewrite of the daily
-      note: sub-bullet classification, tomato markers, deferred-link removal, and
-      carrying links into a new placeholder. It exposes the planned task effects and
-      Work Log note groups as data, with unit tests pinned to the worked example."
-  - id: close-tasks
-    title: Pomodoro close engine, linked-task effects and Work Log
-    depends_on:
-      - close-ledger
-    size: medium
-    description:
-      "close-tasks: share task-status-hooks' vault link resolver. Port the linked-task
-      side of completion: start bare-linked tasks `[/]`, close embedded targets
-      recursively with a completion date, write dated Work Log entries, and retire
-      closed embeds. Wrap both halves in one `plan_pomodoro_close` entry point over an
-      injectable vault, with unit tests."
-  - id: close-capture
-    title: =x grammar, atomic capture transaction, and outputs
-    depends_on:
-      - close-tasks
-    size: medium
-    description:
-      "close-capture: recognize whole-item `=x` and the `=x` suffix on solo `@`/`^`
-      links and body-bearing `:` captures, together with their near-miss and conflict
-      errors. Wire the close through CaptureBatchPlanner, including the
-      link-into-running step. Emit the `pomodoro_close` kind and object plus human
-      output, point the start guards at `=x`, and add integration tests."
-  - id: close-editor-contract
-    title: Editor contract, help, and docs for =x
-    depends_on:
-      - close-capture
-    size: medium
-    description:
-      "close-editor-contract: add the capture-parse `pomodoro_close` mode, span, spec,
-      incomplete state, and `invalid_pomodoro_close` diagnostics. Make capture-complete
-      and capture-rewrite ignore the close suffix. Update the help for capture,
-      capture-parse, and capture-complete, and update docs/capture.md, the
-      task-status-hooks note, and the README."
-  - id: mac-close-preview
-    title: Bob Mac Capture close preview, footer, and notifications
-    depends_on:
-      - close-capture
-    size: medium
-    description:
-      "mac-close-preview: in bob-mac-capture, decode the additive `pomodoro_close`
-      contract. Render the dedicated close card (session, timing chip, task rows with
-      transitions and Work Log previews, next session), including the variants for link
-      and new-task closes. Add the Close footer and notifications, fix stale preview
-      state, and add fake-bob fixtures generated from real bob output, tests, README
-      updates, and green macOS CI."
+- id: close-ledger
+  title: Pomodoro close engine, daily-note half
+  depends_on: []
+  size: medium
+  description: 'close-ledger: add a pure module that finds the running Pomodoro and
+    computes the early-stop auto-decrement. It ports Obsidian''s completion rewrite
+    of the daily note: sub-bullet classification, tomato markers, deferred-link removal,
+    and carrying links into a new placeholder. It exposes the planned task effects
+    and Work Log note groups as data, with unit tests pinned to the worked example.'
+- id: close-tasks
+  title: Pomodoro close engine, linked-task effects and Work Log
+  depends_on:
+  - close-ledger
+  size: medium
+  description: 'close-tasks: share task-status-hooks'' vault link resolver. Port the
+    linked-task side of completion: start bare-linked tasks `[/]`, close embedded
+    targets recursively with a completion date, write dated Work Log entries, and
+    retire closed embeds. Wrap both halves in one `plan_pomodoro_close` entry point
+    over an injectable vault, with unit tests.'
+- id: close-capture
+  title: =x grammar, atomic capture transaction, and outputs
+  depends_on:
+  - close-tasks
+  size: medium
+  description: 'close-capture: recognize whole-item `=x` and the `=x` suffix on solo
+    `@`/`^` links and body-bearing `:` captures, together with their near-miss and
+    conflict errors. Wire the close through CaptureBatchPlanner, including the link-into-running
+    step. Emit the `pomodoro_close` kind and object plus human output, point the start
+    guards at `=x`, and add integration tests.'
+- id: close-editor-contract
+  title: Editor contract, help, and docs for =x
+  depends_on:
+  - close-capture
+  size: medium
+  description: 'close-editor-contract: add the capture-parse `pomodoro_close` mode,
+    span, spec, incomplete state, and `invalid_pomodoro_close` diagnostics. Make capture-complete
+    and capture-rewrite ignore the close suffix. Update the help for capture, capture-parse,
+    and capture-complete, and update docs/capture.md, the task-status-hooks note,
+    and the README.'
+- id: mac-close-preview
+  title: Bob Mac Capture close preview, footer, and notifications
+  depends_on:
+  - close-capture
+  size: medium
+  description: 'mac-close-preview: in bob-mac-capture, decode the additive `pomodoro_close`
+    contract. Render the dedicated close card (session, timing chip, task rows with
+    transitions and Work Log previews, next session), including the variants for link
+    and new-task closes. Add the Close footer and notifications, fix stale preview
+    state, and add fake-bob fixtures generated from real bob output, tests, README
+    updates, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2i
 create_time: 2026-09-28 06:24:48
 status: wip
+bead_id: bob-cli-29
 ---
 
-- **PROMPT:**
-  [prompts/202609/capture_pomodoro_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_pomodoro_close.md)
+- **PROMPT:** [prompts/202609/capture_pomodoro_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/capture_pomodoro_close.md)
+- **BEAD:** [bob-cli-29](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-29/README.md)
 
 # Plan: Close the running Pomodoro with `=x`
 
