@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Split the projects command into cohesive Rust modules
-goal: Keep the bob projects command and its public native-module API unchanged while
-  splitting its 4,652-line implementation and 53 unit tests into files of at most
-  1,500 lines.
+goal:
+  Keep the bob projects command and its public native-module API unchanged while
+  splitting its 4,652-line implementation and 53 unit tests into files of at most 1,500
+  lines.
 proposed_by: bbugyi200.apollo.bob-cli-2f.7
 bead: bob-cli-2f.7
 status: done
@@ -14,6 +15,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.7.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.7](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.7.md)
+- **COMMITS:**
+  - [0abb2bd](https://github.com/bobs-org/bob-cli/commit/0abb2bd6f45cd587fc0d66f1e1f8af096b751b61)
+    — refactor(projects): split command into directory module under 1500 lines
 
 # Scope
 
