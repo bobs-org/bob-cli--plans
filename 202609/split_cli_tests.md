@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Split tests/cli.rs into one cli integration target
-goal:
-  Replace the 35334-line tests/cli.rs file with a single Cargo test target at
+goal: Replace the 35334-line tests/cli.rs file with a single Cargo test target at
   tests/cli/main.rs, a shared support module, and per-command test modules of at most
   1500 lines, keeping all 515 tests and the same behavior.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.1
 bead: bob-cli-2f.1
-create_time: 2026-09-28 17:02:03
-status: wip
+status: done
 ---
 
 - **PARENT:**
