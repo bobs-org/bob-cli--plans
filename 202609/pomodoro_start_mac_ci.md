@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Green the Mac Pomodoro start preview CI and close bob-cli-2c
-goal:
-  The bob-mac-capture macOS 26 SwiftPM job is green for the whole-item Pomodoro start
-  preview, and epic bob-cli-2c is closed with its plan marked done.
+goal: The bob-mac-capture macOS 26 SwiftPM job is green for the whole-item Pomodoro
+  start preview, and epic bob-cli-2c is closed with its plan marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-2c.land
 bead: bob-cli-2c
-create_time: 2026-09-28 14:10:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
