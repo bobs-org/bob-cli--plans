@@ -1,11 +1,12 @@
 ---
 tier: tale
 size: medium
-title: 'bob gkeep: fix land-review defects and close epic bob-cli-2d'
-goal: 'Every epic-caused defect the bob-cli-2d land review found is fixed and tested:
-  the adapter timeout, attachments, archive confirm, pull reporting, time zones, escaping,
+title: "bob gkeep: fix land-review defects and close epic bob-cli-2d"
+goal:
+  "Every epic-caused defect the bob-cli-2d land review found is fixed and tested: the
+  adapter timeout, attachments, archive confirm, pull reporting, time zones, escaping,
   flakes, gkeep clippy warnings, and docs drift. Epic bob-cli-2d is then closed, with
-  its plan file marked done.'
+  its plan file marked done."
 proposed_by: bbugyi200.apollo.bob-cli-2d.land
 bead: bob-cli-2d
 status: done
@@ -15,6 +16,11 @@ status: done
   [202609/bob_gkeep_inbox_drain.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/bob_gkeep_inbox_drain.md)
 - **BEAD:**
   [bob-cli-2d](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2d/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2d.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2d.land.md)
+- **COMMITS:**
+  - [d0c1692](https://github.com/bobs-org/bob-cli/commit/d0c1692c111f2691d35c53a402a38af62591b918)
+    — fix(gkeep): land closeout defects for bob-cli-2d
 
 # Plan: fix the `bob gkeep` land-review defects, then close epic bob-cli-2d
 
