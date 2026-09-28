@@ -2,8 +2,9 @@
 tier: tale
 size: small
 title: Guard randomize date bounds and land bob-cli-2b
-goal: '`bob randomize` rejects unrepresentable `--until` and priority-window dates
-  without wrapping or panicking, then bob-cli-2b is closed after verification.'
+goal:
+  "`bob randomize` rejects unrepresentable `--until` and priority-window dates without
+  wrapping or panicking, then bob-cli-2b is closed after verification."
 bead: bob-cli-2b
 proposed_by: bbugyi200.apollo.bob-cli-2b.land
 status: done
@@ -13,6 +14,12 @@ status: done
   [202609/bob_randomize.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/bob_randomize.md)
 - **BEAD:**
   [bob-cli-2b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2b/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2b.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2b.land.md)
+- **COMMITS:**
+  - [8487fe2](https://github.com/bobs-org/bob-cli/commit/8487fe28dba27ad396b135a87c172b4b54a41a39)
+    — fix(randomize): reject unrepresentable until offsets and priority rolls without
+    wrapping
 
 # Guard randomize dates and land bob-cli-2b
 
