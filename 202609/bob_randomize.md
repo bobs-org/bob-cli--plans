@@ -48,7 +48,7 @@ phases:
     task-status-hooks.md, and docs/README.md.'
 proposed_by: bbugyi200.apollo.2q
 create_time: 2026-09-28 10:45:16
-status: wip
+status: done
 bead_id: bob-cli-2b
 ---
 
