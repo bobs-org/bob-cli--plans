@@ -1,60 +1,58 @@
 ---
 tier: epic
 title: Start the next future Pomodoro from capture with =<X>
-goal: "A whole capture item `=<X>` starts today's next future Pomodoro with the same
-  `se<X>` timing as `@route:block-id=<X>`, only when a future Pomodoro exists and none
-  is running, and Bob CLI and Bob Mac Capture preview (including the session's queued
-  tasks) and apply it with identical, atomic results.
+goal: 'A whole capture item `=<X>` starts today''s next future Pomodoro with the same
+  `se<X>` timing as `@route:block-id=<X>`, only when a future Pomodoro exists and
+  none is running, and Bob CLI and Bob Mac Capture preview (including the session''s
+  queued tasks) and apply it with identical, atomic results.
 
-  "
+  '
 phases:
-  - id: start_core
-    title: Parse and atomically apply whole-item Pomodoro starts
-    depends_on: []
-    size: medium
-    description: 'start_core: add the shared `=`-family lexer,
-      CaptureKind::PomodoroStart, the staged next-future-Pomodoro planner with its
-      guards and error copy, JSON/human output, the shared selection helper, the "start
-      it with `=`" hints, and CLI tests.
+- id: start_core
+  title: Parse and atomically apply whole-item Pomodoro starts
+  depends_on: []
+  size: medium
+  description: 'start_core: add the shared `=`-family lexer, CaptureKind::PomodoroStart,
+    the staged next-future-Pomodoro planner with its guards and error copy, JSON/human
+    output, the shared selection helper, the "start it with `=`" hints, and CLI tests.
 
-      '
-  - id: start_lineup
-    title: Report the started session's queued Task Links
-    depends_on:
-      - start_core
-    size: medium
-    description: "start_lineup: list and read-only resolve the started entry's
-      direct-child Task Links through the close planner's vault view, and report them as
-      `pomodoro_start.tasks` rows and human lineup lines.
+    '
+- id: start_lineup
+  title: Report the started session's queued Task Links
+  depends_on:
+  - start_core
+  size: medium
+  description: 'start_lineup: list and read-only resolve the started entry''s direct-child
+    Task Links through the close planner''s vault view, and report them as `pomodoro_start.tasks`
+    rows and human lineup lines.
 
-      "
-  - id: editor_contract
-    title: Expose and document the Pomodoro start editor contract
-    depends_on:
-      - start_lineup
-    size: medium
-    description: "editor_contract: teach capture-parse, completion, and rewrite the
-      whole-item start (mode, span, spec, diagnostics, @@ skip), update help,
-      docs/capture.md, and README with the lifecycle table and zsh quoting, and add
-      protocol tests.
+    '
+- id: editor_contract
+  title: Expose and document the Pomodoro start editor contract
+  depends_on:
+  - start_lineup
+  size: medium
+  description: 'editor_contract: teach capture-parse, completion, and rewrite the
+    whole-item start (mode, span, spec, diagnostics, @@ skip), update help, docs/capture.md,
+    and README with the lifecycle table and zsh quoting, and add protocol tests.
 
-      "
-  - id: mac_start
-    title: Preview and submit Pomodoro starts in Bob Mac Capture
-    depends_on:
-      - editor_contract
-    size: medium
-    description:
-      "mac_start: tolerant start decoding, a play-glyph start card with queued tasks,
-      the Start footer action, notifications, real-bob fixtures replacing the `=`
-      incomplete fixtures, tests, README, and green macOS CI."
+    '
+- id: mac_start
+  title: Preview and submit Pomodoro starts in Bob Mac Capture
+  depends_on:
+  - editor_contract
+  size: medium
+  description: 'mac_start: tolerant start decoding, a play-glyph start card with queued
+    tasks, the Start footer action, notifications, real-bob fixtures replacing the
+    `=` incomplete fixtures, tests, README, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2s
 create_time: 2026-09-28 12:19:12
 status: wip
+bead_id: bob-cli-2c
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_start_next_operator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_start_next_operator.md)
+- **PROMPT:** [prompts/202609/pomodoro_start_next_operator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_start_next_operator.md)
+- **BEAD:** [bob-cli-2c](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2c/README.md)
 
 # Problem and outcome
 
