@@ -38,7 +38,7 @@ phases:
     editor, and cover it with real-bob fixtures, tests, README, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2k
 create_time: 2026-09-28 10:35:56
-status: wip
+status: done
 bead_id: bob-cli-2a
 ---
 
