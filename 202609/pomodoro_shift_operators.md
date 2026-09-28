@@ -1,51 +1,49 @@
 ---
 tier: epic
 title: Shift the running Pomodoro from capture with ++N and --N
-goal: 'A whole capture item `++[N]` / `--[N]` moves today''s running Pomodoro N
-  five-minute units later / earlier exactly like Obsidian''s `N\o` / `N\O`, every
-  Pomodoro session operator''s count is optional and defaults to 1 (so `+`, `-`, `++`,
-  and `--` all work), and Bob CLI and Bob Mac Capture preview and apply these operators
-  with identical, atomic results.
+goal: 'A whole capture item `++[N]` / `--[N]` moves today''s running Pomodoro N five-minute
+  units later / earlier exactly like Obsidian''s `N\o` / `N\O`, every Pomodoro session
+  operator''s count is optional and defaults to 1 (so `+`, `-`, `++`, and `--` all
+  work), and Bob CLI and Bob Mac Capture preview and apply these operators with identical,
+  atomic results.
 
   '
 phases:
-  - id: shift_core
-    title: Parse and atomically apply Pomodoro session shifts
-    depends_on: []
-    size: medium
-    description:
-      'shift_core: add the unified whole-item session-operator lexer (one sign resizes,
-      two signs shift, count defaults to 1), the PomodoroShift capture kind, a staged
-      planner that translates the running session''s start and end like `N\o`/`N\O`,
-      additive `pomodoro_shift` capture JSON plus human output, and CLI integration
-      tests.'
-  - id: editor_contract
-    title: Expose and document the session-operator contract
-    depends_on:
-      - shift_core
-    size: medium
-    description:
-      "editor_contract: surface `pomodoro_shift` mode, span, spec, and diagnostics in
-      capture-parse, make bare `+`/`-`/`++`/`--` complete editor states, keep
-      completion/rewrite/`@@` away from operator items, and update every help text,
-      docs/capture.md, and README with protocol tests."
-  - id: mac_shift
-    title: Preview and submit session shifts in Bob Mac Capture
-    depends_on:
-      - editor_contract
-    size: medium
-    description:
-      "mac_shift: decode the shift spec/summary tolerantly, add a pure shift
-      presentation with a double-chevron row, name the footer action, carry shifts into
-      notifications and the Pomodoro palette, guarantee literal ASCII hyphens in the
-      editor, and cover it with real-bob fixtures, tests, README, and green macOS CI."
+- id: shift_core
+  title: Parse and atomically apply Pomodoro session shifts
+  depends_on: []
+  size: medium
+  description: 'shift_core: add the unified whole-item session-operator lexer (one
+    sign resizes, two signs shift, count defaults to 1), the PomodoroShift capture
+    kind, a staged planner that translates the running session''s start and end like
+    `N\o`/`N\O`, additive `pomodoro_shift` capture JSON plus human output, and CLI
+    integration tests.'
+- id: editor_contract
+  title: Expose and document the session-operator contract
+  depends_on:
+  - shift_core
+  size: medium
+  description: 'editor_contract: surface `pomodoro_shift` mode, span, spec, and diagnostics
+    in capture-parse, make bare `+`/`-`/`++`/`--` complete editor states, keep completion/rewrite/`@@`
+    away from operator items, and update every help text, docs/capture.md, and README
+    with protocol tests.'
+- id: mac_shift
+  title: Preview and submit session shifts in Bob Mac Capture
+  depends_on:
+  - editor_contract
+  size: medium
+  description: 'mac_shift: decode the shift spec/summary tolerantly, add a pure shift
+    presentation with a double-chevron row, name the footer action, carry shifts into
+    notifications and the Pomodoro palette, guarantee literal ASCII hyphens in the
+    editor, and cover it with real-bob fixtures, tests, README, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2k
 create_time: 2026-09-28 10:35:56
 status: wip
+bead_id: bob-cli-2a
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_shift_operators.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_shift_operators.md)
+- **PROMPT:** [prompts/202609/pomodoro_shift_operators.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_shift_operators.md)
+- **BEAD:** [bob-cli-2a](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2a/README.md)
 
 # Problem and outcome
 
