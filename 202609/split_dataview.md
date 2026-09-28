@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split the Dataview query module
-goal:
-  Move the Dataview query implementation into cohesive modules of at most 1500 lines
-  without changing behavior or tests.
+goal: Move the Dataview query implementation into cohesive modules of at most 1500
+  lines without changing behavior or tests.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.5
 bead: bob-cli-2f.5
-create_time: 2026-09-28 18:38:55
-status: wip
+status: done
 ---
 
 - **PARENT:**
