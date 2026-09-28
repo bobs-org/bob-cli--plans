@@ -1,106 +1,97 @@
 ---
 tier: epic
 title: Split the ten largest Rust files into modules of at most 1500 lines
-goal: "Each of the ten largest Rust source files in bob-cli is split into cohesive
+goal: 'Each of the ten largest Rust source files in bob-cli is split into cohesive
   modules in which every resulting file has at most 1500 lines. Behavior does not
   change, the test count stays the same, and `just all` stays green after every phase.
 
-  "
+  '
 phases:
-  - id: split-cli-tests
-    title: Split tests/cli.rs
-    depends_on: []
-    size: large
-    description:
-      "split-cli-tests: turn the 35k-line CLI integration test file into a single
-      `tests/cli/` test target with a shared support module and per-command test
-      modules, each at most 1500 lines."
-  - id: split-capture
-    title: Split src/native/capture.rs
-    depends_on:
-      - split-cli-tests
-    size: large
-    description:
-      "split-capture: turn the capture executor into a directory module (CLI, planning,
-      Pomodoro operations, commit/staging, markdown placement, output, and split unit
-      tests), each file at most 1500 lines."
-  - id: split-capture-language
-    title: Split src/native/capture_language.rs
-    depends_on:
-      - split-capture
-    size: large
-    description:
-      "split-capture-language: split the pure capture grammar into model, draft/item
-      parsing, token parsers, markers, editor parse, completion, rewrite, and split unit
-      tests, each file at most 1500 lines."
-  - id: split-highlights-ref
-    title: Split src/native/highlights_ref/mod.rs
-    depends_on:
-      - split-capture-language
-    size: large
-    description:
-      "split-highlights-ref: thin the existing highlights_ref directory root into sync,
-      reporting, sidecar, annotation-task, note, marker, and frontmatter/IO submodules
-      plus split tests, each file at most 1500 lines."
-  - id: split-dataview
-    title: Split src/native/dataview.rs
-    depends_on:
-      - split-highlights-ref
-    size: large
-    description:
-      "split-dataview: move the Obsidian engine, native evaluator, function library,
-      lexer/parser, sources, errors, and CLI out of the dataview root into new files
-      under the existing dataview directory."
-  - id: split-task-status-hooks
-    title: Split src/native/task_status_hooks.rs
-    depends_on:
-      - split-dataview
-    size: large
-    description:
-      "split-task-status-hooks: turn the task status hook engine into a directory module
-      (model, retry, sync, pomodoro, settings, structure, references, compose, output,
-      split tests)."
-  - id: split-projects
-    title: Split src/native/projects.rs
-    depends_on:
-      - split-task-status-hooks
-    size: large
-    description:
-      "split-projects: turn the projects command into a directory module (model,
-      scan/parse, sync planning, edits, tags/inline fields, output, split tests)."
-  - id: split-collect-done
-    title: Split src/native/collect_done.rs
-    depends_on:
-      - split-projects
-    size: large
-    description:
-      "split-collect-done: turn move-done-tasks collection into a directory module
-      (plan, git, archive, link repair, markdown transform, split tests) and fix
-      relative include_str! fixture paths."
-  - id: split-task-status-groups
-    title: Split src/native/task_status_groups.rs
-    depends_on:
-      - split-collect-done
-    size: large
-    description:
-      "split-task-status-groups: apply a light three-to-five-file split to the task
-      status grouping transform (model/transform, parse, emit/headings, tests)."
-  - id: split-capture-pomodoro-close
-    title: Split src/native/capture_pomodoro_close.rs
-    depends_on:
-      - split-task-status-groups
-    size: large
-    description:
-      "split-capture-pomodoro-close: separate the ledger close planner, link and marker
-      parsing, the linked-task close planner, and their two test modules into a
-      directory module."
+- id: split-cli-tests
+  title: Split tests/cli.rs
+  depends_on: []
+  size: large
+  description: 'split-cli-tests: turn the 35k-line CLI integration test file into
+    a single `tests/cli/` test target with a shared support module and per-command
+    test modules, each at most 1500 lines.'
+- id: split-capture
+  title: Split src/native/capture.rs
+  depends_on:
+  - split-cli-tests
+  size: large
+  description: 'split-capture: turn the capture executor into a directory module (CLI,
+    planning, Pomodoro operations, commit/staging, markdown placement, output, and
+    split unit tests), each file at most 1500 lines.'
+- id: split-capture-language
+  title: Split src/native/capture_language.rs
+  depends_on:
+  - split-capture
+  size: large
+  description: 'split-capture-language: split the pure capture grammar into model,
+    draft/item parsing, token parsers, markers, editor parse, completion, rewrite,
+    and split unit tests, each file at most 1500 lines.'
+- id: split-highlights-ref
+  title: Split src/native/highlights_ref/mod.rs
+  depends_on:
+  - split-capture-language
+  size: large
+  description: 'split-highlights-ref: thin the existing highlights_ref directory root
+    into sync, reporting, sidecar, annotation-task, note, marker, and frontmatter/IO
+    submodules plus split tests, each file at most 1500 lines.'
+- id: split-dataview
+  title: Split src/native/dataview.rs
+  depends_on:
+  - split-highlights-ref
+  size: large
+  description: 'split-dataview: move the Obsidian engine, native evaluator, function
+    library, lexer/parser, sources, errors, and CLI out of the dataview root into
+    new files under the existing dataview directory.'
+- id: split-task-status-hooks
+  title: Split src/native/task_status_hooks.rs
+  depends_on:
+  - split-dataview
+  size: large
+  description: 'split-task-status-hooks: turn the task status hook engine into a directory
+    module (model, retry, sync, pomodoro, settings, structure, references, compose,
+    output, split tests).'
+- id: split-projects
+  title: Split src/native/projects.rs
+  depends_on:
+  - split-task-status-hooks
+  size: large
+  description: 'split-projects: turn the projects command into a directory module
+    (model, scan/parse, sync planning, edits, tags/inline fields, output, split tests).'
+- id: split-collect-done
+  title: Split src/native/collect_done.rs
+  depends_on:
+  - split-projects
+  size: large
+  description: 'split-collect-done: turn move-done-tasks collection into a directory
+    module (plan, git, archive, link repair, markdown transform, split tests) and
+    fix relative include_str! fixture paths.'
+- id: split-task-status-groups
+  title: Split src/native/task_status_groups.rs
+  depends_on:
+  - split-collect-done
+  size: large
+  description: 'split-task-status-groups: apply a light three-to-five-file split to
+    the task status grouping transform (model/transform, parse, emit/headings, tests).'
+- id: split-capture-pomodoro-close
+  title: Split src/native/capture_pomodoro_close.rs
+  depends_on:
+  - split-task-status-groups
+  size: large
+  description: 'split-capture-pomodoro-close: separate the ledger close planner, link
+    and marker parsing, the linked-task close planner, and their two test modules
+    into a directory module.'
 proposed_by: bbugyi200.apollo.2u
 create_time: 2026-09-28 16:49:28
 status: wip
+bead_id: bob-cli-2f
 ---
 
-- **PROMPT:**
-  [prompts/202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/split_largest_rust_files.md)
+- **PROMPT:** [prompts/202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/split_largest_rust_files.md)
+- **BEAD:** [bob-cli-2f](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/README.md)
 
 # Plan: Split the ten largest Rust files into modules of at most 1500 lines
 
