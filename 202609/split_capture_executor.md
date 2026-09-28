@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split the capture executor into directory modules
-goal:
-  Preserve capture behavior and all tests while every resulting capture module is at
-  most 1500 lines.
+goal: Preserve capture behavior and all tests while every resulting capture module
+  is at most 1500 lines.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.2
 bead: bob-cli-2f.2
-create_time: 2026-09-28 17:25:43
-status: wip
+status: done
 ---
 
 - **PARENT:**
