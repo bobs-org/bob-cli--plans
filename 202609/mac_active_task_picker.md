@@ -1,53 +1,52 @@
 ---
 tier: epic
 title: Large fuzzy Active Task Picker for `^` in Bob Mac Capture
-goal: "Typing `^` as a capture item in Bob Mac Capture opens a large, keyboard-first
-  Active Task Picker. It lists every In Progress and Next task grouped by today's
+goal: 'Typing `^` as a capture item in Bob Mac Capture opens a large, keyboard-first
+  Active Task Picker. It lists every In Progress and Next task grouped by today''s
   Pomodoro plan, filters them instantly with fuzzy matching, and inserts the chosen
-  `route:block-id` reliably. It never shows red incomplete-marker errors while you pick.
+  `route:block-id` reliably. It never shows red incomplete-marker errors while you
+  pick.
 
-  "
+  '
 phases:
-  - id: core
-    title: Fuzzy matcher and picker presentation engine (CaptureCore)
-    depends_on: []
-    size: medium
-    description:
-      "core: add a pure, Foundation-only fuzzy matcher, the task display-text parser for
-      code spans and wikilinks, and the grouped/filtered picker presentation with
-      navigation helpers. Ship thorough CaptureCore unit tests; the app's behavior does
-      not change."
-  - id: picker-flow
-    title: Picker state machine, keyboard routing, focus, and a functional picker view
-    depends_on:
-      - core
-    size: medium
-    description:
-      "picker-flow: route `active_task` completion into a modal picker state. This
-      covers open, suppress, and reopen rules, full-snapshot fetch, accept and
-      accept-and-submit, the two-stage Escape, trigger removal on Backspace, and the
-      reopen chip. Add picker key routing, an AppKit-owned filter field, and
-      live-preview suppression for an incomplete `^`. Ship a plain but fully working
-      picker view, fake-bob fixtures, tests, and README behavior docs."
-  - id: picker-design
-    title: Beautiful picker card, sizing, accessibility, docs, and macOS verification
-    depends_on:
-      - core
-      - picker-flow
-    size: medium
-    description:
-      "picker-design: replace the functional view with the final design, including the
-      large card, pinned Pomodoro headers, rich rows, detail strip, empty states, chip,
-      and key-hint footer. Add the fixed-height sizing policy, accessibility
-      announcements, README visuals, rendered-image review, and macOS build, test, and
-      lint verification."
+- id: core
+  title: Fuzzy matcher and picker presentation engine (CaptureCore)
+  depends_on: []
+  size: medium
+  description: 'core: add a pure, Foundation-only fuzzy matcher, the task display-text
+    parser for code spans and wikilinks, and the grouped/filtered picker presentation
+    with navigation helpers. Ship thorough CaptureCore unit tests; the app''s behavior
+    does not change.'
+- id: picker-flow
+  title: Picker state machine, keyboard routing, focus, and a functional picker view
+  depends_on:
+  - core
+  size: medium
+  description: 'picker-flow: route `active_task` completion into a modal picker state.
+    This covers open, suppress, and reopen rules, full-snapshot fetch, accept and
+    accept-and-submit, the two-stage Escape, trigger removal on Backspace, and the
+    reopen chip. Add picker key routing, an AppKit-owned filter field, and live-preview
+    suppression for an incomplete `^`. Ship a plain but fully working picker view,
+    fake-bob fixtures, tests, and README behavior docs.'
+- id: picker-design
+  title: Beautiful picker card, sizing, accessibility, docs, and macOS verification
+  depends_on:
+  - core
+  - picker-flow
+  size: medium
+  description: 'picker-design: replace the functional view with the final design,
+    including the large card, pinned Pomodoro headers, rich rows, detail strip, empty
+    states, chip, and key-hint footer. Add the fixed-height sizing policy, accessibility
+    announcements, README visuals, rendered-image review, and macOS build, test, and
+    lint verification.'
 proposed_by: bbugyi200.apollo.bob-cli-2f.3.w1
 create_time: 2026-09-28 18:28:10
 status: wip
+bead_id: bob-cli-2g
 ---
 
-- **PROMPT:**
-  [prompts/202609/mac_active_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/mac_active_task_picker.md)
+- **PROMPT:** [prompts/202609/mac_active_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/mac_active_task_picker.md)
+- **BEAD:** [bob-cli-2g](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2g/README.md)
 
 # Plan: Large fuzzy Active Task Picker for `^` in Bob Mac Capture
 
