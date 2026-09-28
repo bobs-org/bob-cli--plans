@@ -47,7 +47,7 @@ phases:
     `=` incomplete fixtures, tests, README, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2s
 create_time: 2026-09-28 12:19:12
-status: wip
+status: done
 bead_id: bob-cli-2c
 ---
 
