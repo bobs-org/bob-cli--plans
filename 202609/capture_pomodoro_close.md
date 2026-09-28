@@ -62,7 +62,7 @@ phases:
     updates, and green macOS CI.'
 proposed_by: bbugyi200.apollo.2i
 create_time: 2026-09-28 06:24:48
-status: wip
+status: done
 bead_id: bob-cli-29
 ---
 

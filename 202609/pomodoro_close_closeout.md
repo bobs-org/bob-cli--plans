@@ -32,7 +32,7 @@ phases:
     and tests, update the README, and get a green `macOS 26 SwiftPM` CI run.'
 proposed_by: bbugyi200.apollo.bob-cli-29.land
 create_time: 2026-09-28 09:06:27
-status: wip
+status: done
 bead_id: bob-cli-29.6
 ---
 
