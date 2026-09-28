@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Split tests/cli.rs into one cli integration target
-goal: Replace the 35334-line tests/cli.rs file with a single Cargo test target at
+goal:
+  Replace the 35334-line tests/cli.rs file with a single Cargo test target at
   tests/cli/main.rs, a shared support module, and per-command test modules of at most
   1500 lines, keeping all 515 tests and the same behavior.
 size: medium
@@ -14,6 +15,12 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.1.md)
+- **COMMITS:**
+  - [7d1c8dd](https://github.com/bobs-org/bob-cli/commit/7d1c8dd3054fd30f6e4f5a15e2dc61c42c3b2593)
+    — refactor(tests): split tests/cli.rs into tests/cli/ target with support and
+    per-command modules
 
 # Plan: Split tests/cli.rs into one cli integration target
 
