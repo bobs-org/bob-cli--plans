@@ -74,7 +74,7 @@ phases:
     do a final consistency pass over help, output, and `just all`.'
 proposed_by: bbugyi200.apollo.2t
 create_time: 2026-09-28 13:31:27
-status: wip
+status: done
 bead_id: bob-cli-2d
 ---
 
