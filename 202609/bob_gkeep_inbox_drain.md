@@ -1,92 +1,85 @@
 ---
 tier: epic
-title: "bob gkeep: drain the Google Keep inbox into Obsidian tasks"
-goal: "`bob gkeep` moves every Google Keep inbox note into `~/bob/gkeep_inbox.md` as
-  Obsidian tasks and archives each note in Keep only after its current content is
-  provably in the vault. It also shows Keep and the vault side by side in one
-  reconciliation view, and ships `doctor` and `login` so the setup is diagnosable. The
-  output is styled and consistent with `bob plugins`, and the tests never touch live
-  Keep.
+title: 'bob gkeep: drain the Google Keep inbox into Obsidian tasks'
+goal: '`bob gkeep` moves every Google Keep inbox note into `~/bob/gkeep_inbox.md`
+  as Obsidian tasks and archives each note in Keep only after its current content
+  is provably in the vault. It also shows Keep and the vault side by side in one reconciliation
+  view, and ships `doctor` and `login` so the setup is diagnosable. The output is
+  styled and consistent with `bob plugins`, and the tests never touch live Keep.
 
-  "
+  '
 phases:
-  - id: skeleton
-    title: Command skeleton, CLI contract, config, and model
-    depends_on: []
-    size: medium
-    description:
-      "skeleton: register `bob gkeep` and pin the whole CLI surface, including help,
-      typed args, and stub handlers. Add the `gkeep:` config section, the note model
-      with its canonical content and fingerprint, UI helpers, and the small visibility
-      promotions later phases need."
-  - id: adapter
-    title: Embedded Python Keep adapter and Rust adapter client
-    depends_on:
-      - skeleton
-    size: medium
-    description:
-      "adapter: write the pinned PEP 723 gkeepapi adapter (ping, snapshot, archive with
-      content guard, exchange) and embed it as a support asset. Add the Rust client that
-      spawns it under `uv run --script` with a timeout, spinner, and typed errors, plus
-      the shared fake-adapter test harness."
-  - id: render
-    title: Literal renderer, vault ledger, and planner
-    depends_on:
-      - skeleton
-    size: medium
-    description:
-      "render: pure, golden-tested note→Markdown rendering with strict escaping. Add the
-      `%%gkeep:v1:…%%` marker format, the vault-wide ledger and journal model, the
-      target-note task reader, and the classifier (new / pending / revised / skipped)
-      with REF selection."
-  - id: auth
-    title: login and doctor subcommands
-    depends_on:
-      - adapter
-    size: medium
-    description:
-      "auth: implement `bob gkeep login` (hidden cookie prompt or stdin, exchange, store
-      via `token_store_command`, read-back and reachability check) and `bob gkeep
-      doctor` (a styled checklist plus JSON), with integration tests."
-  - id: list
-    title: list reconciliation view (default subcommand)
-    depends_on:
-      - adapter
-      - render
-    size: medium
-    description:
-      "list: implement the two-section Keep/vault reconciliation table with per-note
-      pull states, REF ids, a next-command footer, source filters, `--all`, graceful
-      Keep failure, and `schema_version: 1` JSON, with integration tests."
-  - id: pull
-    title: pull transaction with guarded archive
-    depends_on:
-      - adapter
-      - render
-    size: medium
-    description:
-      "pull: implement the guarded transaction: snapshot, vault lock, plan,
-      compare-and-swap durable write, parse-verify, scoped commit, content-guarded
-      archive, journal. Add dry-run Markdown preview, human/JSON reports, and
-      crash/conflict integration tests."
-  - id: docs
-    title: Documentation, config seed, and final polish
-    depends_on:
-      - auth
-      - list
-      - pull
-    size: small
-    description:
-      "docs: write `docs/gkeep.md` (the full contract) and the README/doc index entries,
-      seed the chezmoi-managed Bob config with a `gkeep:` section, and do a final
-      consistency pass over help, output, and `just all`."
+- id: skeleton
+  title: Command skeleton, CLI contract, config, and model
+  depends_on: []
+  size: medium
+  description: 'skeleton: register `bob gkeep` and pin the whole CLI surface, including
+    help, typed args, and stub handlers. Add the `gkeep:` config section, the note
+    model with its canonical content and fingerprint, UI helpers, and the small visibility
+    promotions later phases need.'
+- id: adapter
+  title: Embedded Python Keep adapter and Rust adapter client
+  depends_on:
+  - skeleton
+  size: medium
+  description: 'adapter: write the pinned PEP 723 gkeepapi adapter (ping, snapshot,
+    archive with content guard, exchange) and embed it as a support asset. Add the
+    Rust client that spawns it under `uv run --script` with a timeout, spinner, and
+    typed errors, plus the shared fake-adapter test harness.'
+- id: render
+  title: Literal renderer, vault ledger, and planner
+  depends_on:
+  - skeleton
+  size: medium
+  description: 'render: pure, golden-tested note→Markdown rendering with strict escaping.
+    Add the `%%gkeep:v1:…%%` marker format, the vault-wide ledger and journal model,
+    the target-note task reader, and the classifier (new / pending / revised / skipped)
+    with REF selection.'
+- id: auth
+  title: login and doctor subcommands
+  depends_on:
+  - adapter
+  size: medium
+  description: 'auth: implement `bob gkeep login` (hidden cookie prompt or stdin,
+    exchange, store via `token_store_command`, read-back and reachability check) and
+    `bob gkeep doctor` (a styled checklist plus JSON), with integration tests.'
+- id: list
+  title: list reconciliation view (default subcommand)
+  depends_on:
+  - adapter
+  - render
+  size: medium
+  description: 'list: implement the two-section Keep/vault reconciliation table with
+    per-note pull states, REF ids, a next-command footer, source filters, `--all`,
+    graceful Keep failure, and `schema_version: 1` JSON, with integration tests.'
+- id: pull
+  title: pull transaction with guarded archive
+  depends_on:
+  - adapter
+  - render
+  size: medium
+  description: 'pull: implement the guarded transaction: snapshot, vault lock, plan,
+    compare-and-swap durable write, parse-verify, scoped commit, content-guarded archive,
+    journal. Add dry-run Markdown preview, human/JSON reports, and crash/conflict
+    integration tests.'
+- id: docs
+  title: Documentation, config seed, and final polish
+  depends_on:
+  - auth
+  - list
+  - pull
+  size: small
+  description: 'docs: write `docs/gkeep.md` (the full contract) and the README/doc
+    index entries, seed the chezmoi-managed Bob config with a `gkeep:` section, and
+    do a final consistency pass over help, output, and `just all`.'
 proposed_by: bbugyi200.apollo.2t
 create_time: 2026-09-28 13:31:27
 status: wip
+bead_id: bob-cli-2d
 ---
 
-- **PROMPT:**
-  [prompts/202609/bob_gkeep_inbox_drain.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/bob_gkeep_inbox_drain.md)
+- **PROMPT:** [prompts/202609/bob_gkeep_inbox_drain.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/bob_gkeep_inbox_drain.md)
+- **BEAD:** [bob-cli-2d](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2d/README.md)
 
 # Plan: `bob gkeep` — drain the Google Keep inbox into Obsidian tasks
 
