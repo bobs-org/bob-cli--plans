@@ -2,45 +2,43 @@
 tier: epic
 title: Finish the =x Pomodoro close contract in bob-cli and Bob Mac Capture
 parent_bead: bob-cli-29
-goal:
-  Close the gaps the bob-cli-29 land audit found. In bob-cli, `bob capture =x` and its
-  link forms honor the plan's JSON, human, and diagnostic contract for any `-b` path,
-  with the required tests. In Bob Mac Capture, the close preview, footer, palette, and
-  notifications match the plan's mac spec, use fixtures generated from the fixed bob,
-  and pass macOS CI.
+goal: Close the gaps the bob-cli-29 land audit found. In bob-cli, `bob capture =x`
+  and its link forms honor the plan's JSON, human, and diagnostic contract for any
+  `-b` path, with the required tests. In Bob Mac Capture, the close preview, footer,
+  palette, and notifications match the plan's mac spec, use fixtures generated from
+  the fixed bob, and pass macOS CI.
 phases:
-  - id: close-contract-fixes
-    title: bob-cli close contract fixes, clippy cleanup, docs, and required tests
-    depends_on: []
-    size: medium
-    description:
-      "close-contract-fixes: in bob-cli, fix five things. (1) A relative `-b` path
-      double-joins the vault dir, so every task effect is skipped. (2) `raw` is wrong on
-      link forms. (3) Non-carried rows report `tasks[].carried`. (4) Link-form
-      diagnostics, the human header and locator, and link-form `placement` are wrong.
-      (5) The JSON drops nulls and keeps a `#task` prefix on embedded rows. Also fix the
-      12 clippy warnings the epic introduced and the gaps in docs/capture.md, and add
-      the integration and protocol tests the parent plan required."
-  - id: mac-close-finish
-    title: Bob Mac Capture close preview to spec, real-bob fixtures, and green macOS CI
-    depends_on:
-      - close-contract-fixes
-    size: medium
-    description:
-      "mac-close-finish: in bob-mac-capture, fix the failing close presentation test,
-      and bring the presentation, card, model, palette mapping, and notifications up to
-      the parent plan's mac-close-preview spec. Regenerate every close fixture from
-      bob-cli built at the close-contract-fixes commit, add the missing fixtures and
-      tests, update the README, and get a green `macOS 26 SwiftPM` CI run."
+- id: close-contract-fixes
+  title: bob-cli close contract fixes, clippy cleanup, docs, and required tests
+  depends_on: []
+  size: medium
+  description: 'close-contract-fixes: in bob-cli, fix five things. (1) A relative
+    `-b` path double-joins the vault dir, so every task effect is skipped. (2) `raw`
+    is wrong on link forms. (3) Non-carried rows report `tasks[].carried`. (4) Link-form
+    diagnostics, the human header and locator, and link-form `placement` are wrong.
+    (5) The JSON drops nulls and keeps a `#task` prefix on embedded rows. Also fix
+    the 12 clippy warnings the epic introduced and the gaps in docs/capture.md, and
+    add the integration and protocol tests the parent plan required.'
+- id: mac-close-finish
+  title: Bob Mac Capture close preview to spec, real-bob fixtures, and green macOS
+    CI
+  depends_on:
+  - close-contract-fixes
+  size: medium
+  description: 'mac-close-finish: in bob-mac-capture, fix the failing close presentation
+    test, and bring the presentation, card, model, palette mapping, and notifications
+    up to the parent plan''s mac-close-preview spec. Regenerate every close fixture
+    from bob-cli built at the close-contract-fixes commit, add the missing fixtures
+    and tests, update the README, and get a green `macOS 26 SwiftPM` CI run.'
 proposed_by: bbugyi200.apollo.bob-cli-29.land
 create_time: 2026-09-28 09:06:27
 status: wip
+bead_id: bob-cli-29.6
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_close_closeout.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_close_closeout.md)
-- **PARENT:**
-  [202609/capture_pomodoro_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_pomodoro_close.md)
+- **PROMPT:** [prompts/202609/pomodoro_close_closeout.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_close_closeout.md)
+- **PARENT:** [202609/capture_pomodoro_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/capture_pomodoro_close.md)
+- **BEAD:** [bob-cli-29.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-29/bob-cli-29.6.md)
 
 # Plan: finish the `=x` Pomodoro close
 
