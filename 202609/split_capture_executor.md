@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split the capture executor into directory modules
-goal: Preserve capture behavior and all tests while every resulting capture module
-  is at most 1500 lines.
+goal:
+  Preserve capture behavior and all tests while every resulting capture module is at
+  most 1500 lines.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.2
 bead: bob-cli-2f.2
@@ -13,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.2.md)
+- **COMMITS:**
+  - [e73e2e9](https://github.com/bobs-org/bob-cli/commit/e73e2e985b855f451ed2c41e4581b3200c161674)
+    — refactor(capture): split capture executor into directory modules
 
 # Split the capture executor into small directory modules
 
