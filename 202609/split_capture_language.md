@@ -2,9 +2,9 @@
 tier: tale
 size: medium
 title: Split the capture language grammar into focused modules
-goal: Preserve the capture grammar's behavior and public module paths while splitting
-  its 11,615-line source and 163 unit tests into Rust files of at most 1,500 lines
-  each.
+goal:
+  Preserve the capture grammar's behavior and public module paths while splitting its
+  11,615-line source and 163 unit tests into Rust files of at most 1,500 lines each.
 proposed_by: bbugyi200.apollo.bob-cli-2f.3
 bead: bob-cli-2f.3
 status: done
@@ -14,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.3.md)
+- **COMMITS:**
+  - [e73900e](https://github.com/bobs-org/bob-cli/commit/e73900e386cdbf3235ac1f9ab9e1be147e13b09a)
+    — refactor(capture): split capture_language grammar into focused modules
 
 # Split `src/native/capture_language.rs`
 
