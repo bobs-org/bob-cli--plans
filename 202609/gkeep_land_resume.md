@@ -1,14 +1,21 @@
 ---
 tier: tale
 size: medium
-title: 'bob gkeep: finish the bob-cli-2d closeout and land the epic'
-goal: 'The defects and test gaps left after the bob-cli-2d closeout commit d0c1692
-  are fixed: the Ctrl-C adapter orphan, small pull contract gaps, missing regression
-  tests, help duplication, and docs drift. Epic bob-cli-2d is then closed, with its
-  plan file marked done.'
+title: "bob gkeep: finish the bob-cli-2d closeout and land the epic"
+goal:
+  "The defects and test gaps left after the bob-cli-2d closeout commit d0c1692 are
+  fixed: the Ctrl-C adapter orphan, small pull contract gaps, missing regression tests,
+  help duplication, and docs drift. Epic bob-cli-2d is then closed, with its plan file
+  marked done."
 proposed_by: bbugyi200.apollo.2w
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.2w](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.2w.md)
+- **COMMITS:**
+  - [4a6c8b8](https://github.com/bobs-org/bob-cli--plans/commit/4a6c8b805bc10ec4a95c65a54683282c74340f82)
+    — chore(plans): mark bob gkeep epic plan done after bob-cli-2d closeout
 
 # Plan: finish the `bob gkeep` closeout, then land epic bob-cli-2d
 
