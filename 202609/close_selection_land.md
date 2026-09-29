@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Finish landing bob-cli-2k (=x<N>!<M> close selection) and close the epic
-goal: The =x<N>!<M> close selection has no remaining epic-caused defects in row numbering,
-  listed warnings, grammar diagnostics, block-ID completion, or docs, and epic bob-cli-2k
-  is closed with its plan marked done.
+goal:
+  The =x<N>!<M> close selection has no remaining epic-caused defects in row numbering,
+  listed warnings, grammar diagnostics, block-ID completion, or docs, and epic
+  bob-cli-2k is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2k.land
 bead: bob-cli-2k
 status: done
@@ -14,6 +15,11 @@ status: done
   [202609/close_task_selection.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/close_task_selection.md)
 - **BEAD:**
   [bob-cli-2k](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2k/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2k.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2k.land.md)
+- **COMMITS:**
+  - [583d8ef](https://github.com/bobs-org/bob-cli--plans/commit/583d8ef3539e3340286cbaf59531bedd605e65b3)
+    — chore(plans): mark close_task_selection epic plan done
 
 # Finish landing epic bob-cli-2k
 
