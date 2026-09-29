@@ -2,8 +2,9 @@
 tier: tale
 title: Split collect_done into a directory module
 size: medium
-goal: Turn src/native/collect_done.rs into a directory module whose files stay at
-  most 1500 lines, with the same behavior and the same 67 unit tests.
+goal:
+  Turn src/native/collect_done.rs into a directory module whose files stay at most 1500
+  lines, with the same behavior and the same 67 unit tests.
 proposed_by: bbugyi200.apollo.bob-cli-2f.8
 bead: bob-cli-2f.8
 status: done
@@ -13,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.8.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.8](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.8.md)
+- **COMMITS:**
+  - [65a3917](https://github.com/bobs-org/bob-cli/commit/65a39179b278f4eee9d6cd8b0e44432e52dfbf13)
+    — feat(collect-done): split collect_done.rs into directory module
 
 # Plan: Split src/native/collect_done.rs into a directory module
 
