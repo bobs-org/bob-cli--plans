@@ -1,85 +1,85 @@
 ---
 tier: epic
 title: Named and linked project tasks with ` :id` in `bob capture` and Bob Mac Capture
-goal: "A project-note capture (`@route^id+` or `@route^id+#pomodoro`) can name any of
-  its task bullets with a trailing ` ^id`, or name them and link them into the
+goal: 'A project-note capture (`@route^id+` or `@route^id+#pomodoro`) can name any
+  of its task bullets with a trailing ` ^id`, or name them and link them into the
   current/next (or named) Pomodoro with a trailing ` :id`. The `^prj` task is never
   linked, the retired `@route:id+` forms fail with a message that teaches the new
   spelling, and Bob Mac Capture highlights, completes, previews, and reports the new
   syntax.
 
-  "
+  '
 phases:
-  - id: marker
-    title: "Project-note marker grammar: `@route^id+#pomodoro`, retire `@route:id+`"
-    depends_on: []
-    size: medium
-    description: "marker: move the Pomodoro name onto the `^` project-note marker
-      (`@route^id+#pomodoro`), retire the `:` project-note forms with teaching errors,
-      stop linking or starring `^prj`, and keep execution, capture-parse,
-      capture-complete, and help text in agreement.
+- id: marker
+  title: 'Project-note marker grammar: `@route^id+#pomodoro`, retire `@route:id+`'
+  depends_on: []
+  size: medium
+  description: 'marker: move the Pomodoro name onto the `^` project-note marker (`@route^id+#pomodoro`),
+    retire the `:` project-note forms with teaching errors, stop linking or starring
+    `^prj`, and keep execution, capture-parse, capture-complete, and help text in
+    agreement.
 
-      "
-  - id: task-id-grammar
-    title: Project task IDs in the capture grammar and capture-parse
-    depends_on:
-      - marker
-    size: medium
-    description: "task-id-grammar: lex trailing ` :id` / ` ^id` tokens on project-note
-      lines, enforce the placement, validity, duplicate, checkbox, and
-      unused-`#pomodoro` rules in both the execution and editor parsers, and expose
-      spans, needs, modes, and `sub_bullet_task_ids` through capture-parse.
+    '
+- id: task-id-grammar
+  title: Project task IDs in the capture grammar and capture-parse
+  depends_on:
+  - marker
+  size: medium
+  description: 'task-id-grammar: lex trailing ` :id` / ` ^id` tokens on project-note
+    lines, enforce the placement, validity, duplicate, checkbox, and unused-`#pomodoro`
+    rules in both the execution and editor parsers, and expose spans, needs, modes,
+    and `sub_bullet_task_ids` through capture-parse.
 
-      "
-  - id: task-id-execution
-    title: Render named project tasks and write their Task Links
-    depends_on:
-      - task-id-grammar
-    size: medium
-    description: "task-id-execution: render `^id` onto named tasks (`[*]` for `:`
-      tasks), write one Task Link per `:` task into the selected Pomodoro atomically
-      with the new note, and report `project_note.task_links` in JSON and human output.
+    '
+- id: task-id-execution
+  title: Render named project tasks and write their Task Links
+  depends_on:
+  - task-id-grammar
+  size: medium
+  description: 'task-id-execution: render `^id` onto named tasks (`[*]` for `:` tasks),
+    write one Task Link per `:` task into the selected Pomodoro atomically with the
+    new note, and report `project_note.task_links` in JSON and human output.
 
-      "
-  - id: task-id-completion
-    title: Block-ID completion for project task IDs
-    depends_on:
-      - task-id-grammar
-    size: small
-    description: "task-id-completion: add the `project_task_block_id` capture-complete
-      context with a `block_id` object (new intent, sibling and `prj` used IDs,
-      body-derived suggestions) so editors can offer a New ID picker after ` :` or ` ^`.
+    '
+- id: task-id-completion
+  title: Block-ID completion for project task IDs
+  depends_on:
+  - task-id-grammar
+  size: small
+  description: 'task-id-completion: add the `project_task_block_id` capture-complete
+    context with a `block_id` object (new intent, sibling and `prj` used IDs, body-derived
+    suggestions) so editors can offer a New ID picker after ` :` or ` ^`.
 
-      "
-  - id: docs
-    title: Capture docs for named and linked project tasks
-    depends_on:
-      - task-id-execution
-      - task-id-completion
-    size: small
-    description: "docs: rewrite the capture guide's grammar tables, Project notes
-      section, JSON contract, and capture-parse/capture-complete references for the new
-      syntax, with the worked example.
+    '
+- id: docs
+  title: Capture docs for named and linked project tasks
+  depends_on:
+  - task-id-execution
+  - task-id-completion
+  size: small
+  description: 'docs: rewrite the capture guide''s grammar tables, Project notes section,
+    JSON contract, and capture-parse/capture-complete references for the new syntax,
+    with the worked example.
 
-      "
-  - id: mac
-    title: Bob Mac Capture support for project task links
-    depends_on:
-      - task-id-execution
-      - task-id-completion
-    size: medium
-    description:
-      "mac: in bob-mac-capture, color the new spans, route `project_task_block_id` into
-      a Project task New ID picker, fix stale `+` teaching and `:` locator text, preview
-      and notify linked tasks, update README, fixtures, and tests, and land a green
-      macOS CI run."
+    '
+- id: mac
+  title: Bob Mac Capture support for project task links
+  depends_on:
+  - task-id-execution
+  - task-id-completion
+  size: medium
+  description: 'mac: in bob-mac-capture, color the new spans, route `project_task_block_id`
+    into a Project task New ID picker, fix stale `+` teaching and `:` locator text,
+    preview and notify linked tasks, update README, fixtures, and tests, and land
+    a green macOS CI run.'
 proposed_by: bbugyi200.apollo.35
 create_time: 2026-09-29 15:35:24
 status: wip
+bead_id: bob-cli-2n
 ---
 
-- **PROMPT:**
-  [prompts/202609/project_task_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/project_task_links.md)
+- **PROMPT:** [prompts/202609/project_task_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/project_task_links.md)
+- **BEAD:** [bob-cli-2n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2n/README.md)
 
 # Plan: Named and linked project tasks with ` :id`
 
