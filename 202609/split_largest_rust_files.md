@@ -86,7 +86,7 @@ phases:
     into a directory module.'
 proposed_by: bbugyi200.apollo.2u
 create_time: 2026-09-28 16:49:28
-status: wip
+status: done
 bead_id: bob-cli-2f
 ---
 
