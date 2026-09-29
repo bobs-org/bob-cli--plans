@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split capture_pomodoro_close into a directory module
-goal:
-  The Pomodoro close planner keeps its behavior, tests, and external paths, and every
-  file in the new directory module is at most 1500 lines.
+goal: The Pomodoro close planner keeps its behavior, tests, and external paths, and
+  every file in the new directory module is at most 1500 lines.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.10
 bead: bob-cli-2f.10
-create_time: 2026-09-28 20:58:40
-status: wip
+status: done
 ---
 
 - **PARENT:**
