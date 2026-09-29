@@ -1,5 +1,6 @@
 ---
 tier: epic
+status: done
 title: Choose each Task Link's outcome while closing a Pomodoro with =x<N>!<M>
 goal: '`=x<N>`, `=x!<M>`, and `=x<N>!<M>` close the running Pomodoro and decide, by
   number,
