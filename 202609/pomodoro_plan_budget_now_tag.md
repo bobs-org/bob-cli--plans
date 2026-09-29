@@ -1,171 +1,168 @@
 ---
 tier: epic
-title: "Close the day, tag the week: plan budget, #now, and ledger guardrails"
-goal: "Today's Pomodoro plan is a visible, capped, closed list (GTD + 3 themes, about 10
-  Task Links) and this week's bets live in a `#now` tag. One shared budget definition
-  shows the same numbers in `bob plan`, task-status-hooks, tmux, `bob capture`, Bob Mac
-  Capture, and Obsidian. New gestures let Bryan drop, defer, and tag work from the
-  ledger itself, and nothing rewrites the plan behind Bryan's back.
+title: 'Close the day, tag the week: plan budget, #now, and ledger guardrails'
+goal: 'Today''s Pomodoro plan is a visible, capped, closed list (GTD + 3 themes, about
+  10 Task Links) and this week''s bets live in a `#now` tag. One shared budget definition
+  shows the same numbers in `bob plan`, task-status-hooks, tmux, `bob capture`, Bob
+  Mac Capture, and Obsidian. New gestures let Bryan drop, defer, and tag work from
+  the ledger itself, and nothing rewrites the plan behind Bryan''s back.
 
-  "
+  '
 phases:
-  - id: plan-core
-    title: "bob-cli: shared plan-budget core, config block, and `bob plan`"
-    depends_on: []
-    size: medium
-    description: "plan-core: add the `plan:` config block, a pure ledger budget and lint
-      engine, a NOW counter built on the native Tasks engine, the read-only `bob plan`
-      command (human and JSON), and `docs/plan.md` as the authoritative definition with
-      conformance examples.
+- id: plan-core
+  title: 'bob-cli: shared plan-budget core, config block, and `bob plan`'
+  depends_on: []
+  size: medium
+  description: 'plan-core: add the `plan:` config block, a pure ledger budget and
+    lint engine, a NOW counter built on the native Tasks engine, the read-only `bob
+    plan` command (human and JSON), and `docs/plan.md` as the authoritative definition
+    with conformance examples.
 
-      "
-  - id: vault-now
-    title: "Vault: NOW chip, NOW section, and the gtd_daily chore swap"
-    depends_on: []
-    size: small
-    description: "vault-now: add a NOW chip and a `### NOW Tasks` section to `dash.md`,
-      and replace the three migrate/review chores in `gtd_daily.md` with one daily pick
-      and one weekly review, so the trial can start without waiting for code.
+    '
+- id: vault-now
+  title: 'Vault: NOW chip, NOW section, and the gtd_daily chore swap'
+  depends_on: []
+  size: small
+  description: 'vault-now: add a NOW chip and a `### NOW Tasks` section to `dash.md`,
+    and replace the three migrate/review chores in `gtd_daily.md` with one daily pick
+    and one weekly review, so the trial can start without waiting for code.
 
-      "
-  - id: hooks-tmux
-    title: "bob-cli: plan budget in task-status-hooks and the tmux segment"
-    depends_on:
-      - plan-core
-    size: small
-    description: "hooks-tmux: add a read-only `plan_budget` to task-status-hooks JSON
-      and human output, make the multiple-open-timed error name the entries and suggest
-      `=x`, and append the budget meter (reversed when over the cap) to `bob
-      tmux-pomodoro`.
+    '
+- id: hooks-tmux
+  title: 'bob-cli: plan budget in task-status-hooks and the tmux segment'
+  depends_on:
+  - plan-core
+  size: small
+  description: 'hooks-tmux: add a read-only `plan_budget` to task-status-hooks JSON
+    and human output, make the multiple-open-timed error name the entries and suggest
+    `=x`, and append the budget meter (reversed when over the cap) to `bob tmux-pomodoro`.
 
-      "
-  - id: capture-budget
-    title:
-      "bob-cli: capture plan-budget warnings, strict mode, and implicit destination"
-    depends_on:
-      - plan-core
-    size: medium
-    description: "capture-budget: `bob capture` reports before/after `plan_budget` when
-      a batch changes today's ledger, warns only when it grows past a cap, refuses new
-      non-start themes past the cap in strict mode, reports where a Task Link lands
-      (`role`: current/next_up/named/created), and marks capture-complete create rows
-      with the resulting theme count.
+    '
+- id: capture-budget
+  title: 'bob-cli: capture plan-budget warnings, strict mode, and implicit destination'
+  depends_on:
+  - plan-core
+  size: medium
+  description: 'capture-budget: `bob capture` reports before/after `plan_budget` when
+    a batch changes today''s ledger, warns only when it grows past a cap, refuses
+    new non-start themes past the cap in strict mode, reports where a Task Link lands
+    (`role`: current/next_up/named/created), and marks capture-complete create rows
+    with the resulting theme count.
 
-      "
-  - id: close-drop
-    title: "bob-cli: `~<K>` drop outcome for `=x` closes"
-    depends_on:
-      - plan-core
-      - capture-budget
-    size: medium
-    description: "close-drop: extend the close grammar to `=x[<N>][!<M>][~<K>]`, where
-      dropped links are removed from the closed session, not carried, and not started;
-      add editor spans, JSON (`drop`, outcome and role `dropped`, and a `now` flag on
-      close task rows), human output, help, and docs.
+    '
+- id: close-drop
+  title: 'bob-cli: `~<K>` drop outcome for `=x` closes'
+  depends_on:
+  - plan-core
+  - capture-budget
+  size: medium
+  description: 'close-drop: extend the close grammar to `=x[<N>][!<M>][~<K>]`, where
+    dropped links are removed from the closed session, not carried, and not started;
+    add editor spans, JSON (`drop`, outcome and role `dropped`, and a `now` flag on
+    close task rows), human output, help, and docs.
 
-      "
-  - id: now-token
-    title: "bob-cli: first-class `#now` in capture"
-    depends_on:
-      - close-drop
-    size: medium
-    description: "now-token: accept `#now` after the route marker, color it with a
-      `now_tag` span, complete a partial `#n`/`#no` to `#now`, and list Ready `#now`
-      tasks (flagged `now`) in the `^` active-task picker.
+    '
+- id: now-token
+  title: 'bob-cli: first-class `#now` in capture'
+  depends_on:
+  - close-drop
+  size: medium
+  description: 'now-token: accept `#now` after the route marker, color it with a `now_tag`
+    span, complete a partial `#n`/`#no` to `#now`, and list Ready `#now` tasks (flagged
+    `now`) in the `^` active-task picker.
 
-      "
-  - id: ledger-plan-view
-    title: "bob-plugins: Bob Ledger Tools plan view, `bob-plan` block, and public API"
-    depends_on:
-      - plan-core
-    size: medium
-    description: "ledger-plan-view: mirror the plan-budget definition in
-      bob-ledger-tools; render a live ```` ```bob-plan ```` block (PLAN and NOW chips,
-      today's themes with the highlight starred, and lint lines); and expose a versioned
-      `api` (caps, planBudget, nowBudget) for the dash and the other plugins.
+    '
+- id: ledger-plan-view
+  title: 'bob-plugins: Bob Ledger Tools plan view, `bob-plan` block, and public API'
+  depends_on:
+  - plan-core
+  size: medium
+  description: 'ledger-plan-view: mirror the plan-budget definition in bob-ledger-tools;
+    render a live ```` ```bob-plan ```` block (PLAN and NOW chips, today''s themes
+    with the highlight starred, and lint lines); and expose a versioned `api` (caps,
+    planBudget, nowBudget) for the dash and the other plugins.
 
-      "
-  - id: link-picker
-    title: "bob-plugins: Ctrl+Shift+P edits the task behind a Task Link"
-    depends_on: []
-    size: medium
-    description: "link-picker: on a dedicated Task Link bullet, the bullet-property
-      picker targets the linked task in its own note. Counted `N<Ctrl+Shift+P>` covers
-      the next N sibling links. Future-date picks still prune those links from today's
-      open Pomodoros.
+    '
+- id: link-picker
+  title: 'bob-plugins: Ctrl+Shift+P edits the task behind a Task Link'
+  depends_on: []
+  size: medium
+  description: 'link-picker: on a dedicated Task Link bullet, the bullet-property
+    picker targets the linked task in its own note. Counted `N<Ctrl+Shift+P>` covers
+    the next N sibling links. Future-date picks still prune those links from today''s
+    open Pomodoros.
 
-      "
-  - id: now-toggle
-    title: "bob-plugins: toggle #now from task lines and Task Links"
-    depends_on:
-      - link-picker
-      - ledger-plan-view
-    size: medium
-    description: 'now-toggle: add a counted "Toggle #now" command (default Alt+N) and a
-      `#now` row in the Ctrl+Shift+P picker. Both work on task lines and Task Link
-      lines, place the tag before the fields, and report the NOW count in the Notice.
+    '
+- id: now-toggle
+  title: 'bob-plugins: toggle #now from task lines and Task Links'
+  depends_on:
+  - link-picker
+  - ledger-plan-view
+  size: medium
+  description: 'now-toggle: add a counted "Toggle #now" command (default Alt+N) and
+    a `#now` row in the Ctrl+Shift+P picker. Both work on task lines and Task Link
+    lines, place the tag before the fields, and report the NOW count in the Notice.
 
-      '
-  - id: link-notice-budget
-    title: "bob-plugins: plan budget in the Ctrl+Shift+Enter Notice"
-    depends_on:
-      - ledger-plan-view
-    size: small
-    description: "link-notice-budget: append `plan T/3 · L/10`, marked 🔴 when over, to
-      block-id-prompt's link, unlink, and Task Link Notices, using the ledger-tools API
-      on the post-write daily content. It warns and never refuses.
+    '
+- id: link-notice-budget
+  title: 'bob-plugins: plan budget in the Ctrl+Shift+Enter Notice'
+  depends_on:
+  - ledger-plan-view
+  size: small
+  description: 'link-notice-budget: append `plan T/3 · L/10`, marked 🔴 when over,
+    to block-id-prompt''s link, unlink, and Task Link Notices, using the ledger-tools
+    API on the post-write daily content. It warns and never refuses.
 
-      "
-  - id: mac-budget
-    title:
-      "Bob Mac Capture: plan budget meter, destination row, and create-row cap badge"
-    depends_on:
-      - capture-budget
-    size: medium
-    description: 'mac-budget: decode `plan_budget`, the destination `role`, the
-      create-row theme counts, and the failure `code` tolerantly. Render a destination
-      row, a themes/links meter with delta chips and warnings, and a cap badge on
-      "create Pomodoro" completion rows. Use real-bob fixtures and green macOS CI.
+    '
+- id: mac-budget
+  title: 'Bob Mac Capture: plan budget meter, destination row, and create-row cap
+    badge'
+  depends_on:
+  - capture-budget
+  size: medium
+  description: 'mac-budget: decode `plan_budget`, the destination `role`, the create-row
+    theme counts, and the failure `code` tolerantly. Render a destination row, a themes/links
+    meter with delta chips and warnings, and a cap badge on "create Pomodoro" completion
+    rows. Use real-bob fixtures and green macOS CI.
 
-      '
-  - id: mac-close-now
-    title: "Bob Mac Capture: drop outcome, `#now` token, and NOW badges"
-    depends_on:
-      - mac-budget
-      - close-drop
-      - now-token
-    size: medium
-    description: "mac-close-now: render the `dropped` close outcome and the `~` span,
-      the `now_tag` span color and completion row, and NOW badges on active-task and
-      close rows, all decoded tolerantly and verified on macOS CI.
+    '
+- id: mac-close-now
+  title: 'Bob Mac Capture: drop outcome, `#now` token, and NOW badges'
+  depends_on:
+  - mac-budget
+  - close-drop
+  - now-token
+  size: medium
+  description: 'mac-close-now: render the `dropped` close outcome and the `~` span,
+    the `now_tag` span color and completion row, and NOW badges on active-task and
+    close rows, all decoded tolerantly and verified on macOS CI.
 
-      "
-  - id: rollout
-    title:
-      "Rollout: PLAN chip, daily template block, config knobs, install, and end-to-end
-      check"
-    depends_on:
-      - plan-core
-      - vault-now
-      - hooks-tmux
-      - now-token
-      - ledger-plan-view
-      - now-toggle
-      - link-notice-budget
-      - mac-close-now
-    size: small
-    description:
-      "rollout: switch the dash NOW chip to the API and add the PLAN chip; add the
-      `bob-plan` block to the daily template and to today's note; add the commented
-      `plan:` block to the chezmoi-managed config; reinstall `bob` on apollo and sync
-      the plugins; run an end-to-end check; hand Bryan the manual checklist."
+    '
+- id: rollout
+  title: 'Rollout: PLAN chip, daily template block, config knobs, install, and end-to-end
+    check'
+  depends_on:
+  - plan-core
+  - vault-now
+  - hooks-tmux
+  - now-token
+  - ledger-plan-view
+  - now-toggle
+  - link-notice-budget
+  - mac-close-now
+  size: small
+  description: 'rollout: switch the dash NOW chip to the API and add the PLAN chip;
+    add the `bob-plan` block to the daily template and to today''s note; add the commented
+    `plan:` block to the chezmoi-managed config; reinstall `bob` on apollo and sync
+    the plugins; run an end-to-end check; hand Bryan the manual checklist.'
 proposed_by: bbugyi200.apollo.38
 create_time: 2026-09-29 18:09:55
 status: wip
+bead_id: bob-cli-2o
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_plan_budget_now_tag.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_plan_budget_now_tag.md)
+- **PROMPT:** [prompts/202609/pomodoro_plan_budget_now_tag.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_plan_budget_now_tag.md)
+- **BEAD:** [bob-cli-2o](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2o/README.md)
 
 # Plan: Close the day, tag the week — plan budget, `#now`, and ledger guardrails
 
