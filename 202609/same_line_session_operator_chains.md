@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Same-line Pomodoro session operator chains
-goal: Whitespace-separated session operators on one line (for example `+2 =x`) behave
+goal:
+  Whitespace-separated session operators on one line (for example `+2 =x`) behave
   exactly like the same operators split across blank-line capture items, in bob capture,
   capture-parse, capture-complete, and therefore bob-mac-capture.
 size: medium
 proposed_by: bbugyi200.apollo.36
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.36](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.36.md)
+- **COMMITS:**
+  - [dcf7db2](https://github.com/bobs-org/bob-cli/commit/dcf7db203008eb6ff72283e05caab3f9403836dd)
+    — feat(capture): support same-line Pomodoro session operator chains
 
 # Plan: Same-line Pomodoro session operator chains (`+2 =x`)
 
