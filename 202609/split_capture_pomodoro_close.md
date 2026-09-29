@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split capture_pomodoro_close into a directory module
-goal: The Pomodoro close planner keeps its behavior, tests, and external paths, and
-  every file in the new directory module is at most 1500 lines.
+goal:
+  The Pomodoro close planner keeps its behavior, tests, and external paths, and every
+  file in the new directory module is at most 1500 lines.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2f.10
 bead: bob-cli-2f.10
@@ -13,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.10](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.10.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.10](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.10.md)
+- **COMMITS:**
+  - [f8b03c2](https://github.com/bobs-org/bob-cli/commit/f8b03c2bc696c6020a1d246cd29d555e54c6fa1b)
+    — refactor(native): split capture_pomodoro_close into directory module
 
 # Plan: Split capture_pomodoro_close into a directory module
 
