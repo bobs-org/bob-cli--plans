@@ -2,13 +2,11 @@
 tier: tale
 size: medium
 title: Split the task status grouping transform into four modules
-goal:
-  Keep task status grouping behavior and its 36 unit tests intact while reducing every
-  resulting Rust file to at most 1500 lines.
+goal: Keep task status grouping behavior and its 36 unit tests intact while reducing
+  every resulting Rust file to at most 1500 lines.
 proposed_by: bbugyi200.apollo.bob-cli-2f.9
 bead: bob-cli-2f.9
-create_time: 2026-09-28 20:22:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
