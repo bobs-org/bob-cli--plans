@@ -1,7 +1,7 @@
 ---
 tier: epic
 title: Choose each Task Link's outcome while closing a Pomodoro with =x<N>!<M>
-goal: "`=x<N>`, `=x!<M>`, and `=x<N>!<M>` close the running Pomodoro and decide, by
+goal: '`=x<N>`, `=x!<M>`, and `=x<N>!<M>` close the running Pomodoro and decide, by
   number,
 
   which of its Task Links stay in progress, which are deferred, and which are
@@ -18,106 +18,108 @@ goal: "`=x<N>`, `=x!<M>`, and `=x<N>!<M>` close the running Pomodoro and decide,
 
   and the outcome each one will get, so choosing the numbers is easy.
 
-  "
+  '
 phases:
-  - id: selection-planner
-    title: Numbered Task Links and outcome selection in the pure close planner
-    depends_on: []
-    size: medium
-    description: "selection-planner: in `src/native/capture_pomodoro_close/`, number the
-      running
+- id: selection-planner
+  title: Numbered Task Links and outcome selection in the pure close planner
+  depends_on: []
+  size: medium
+  description: 'selection-planner: in `src/native/capture_pomodoro_close/`, number
+    the running
 
-      session's Task Links. Apply a `CloseSelection` by rewriting only the `#`/`![[…]]`
+    session''s Task Links. Apply a `CloseSelection` by rewriting only the `#`/`![[…]]`
 
-      markers of the numbered lines, then run the unchanged close. Validate numbers
+    markers of the numbered lines, then run the unchanged close. Validate numbers
 
-      against the lineup, warn when a listed task cannot change status, and expose the
+    against the lineup, warn when a listed task cannot change status, and expose the
 
-      numbered lineup plus a per-row `index`. Every caller passes `None` for now. Pinned
+    numbered lineup plus a per-row `index`. Every caller passes `None` for now. Pinned
 
-      by unit tests on the worked example.
+    by unit tests on the worked example.
 
-      "
-  - id: selection-grammar
-    title: =x<N>!<M> grammar, capture-parse contract, and editor states
-    depends_on: []
-    size: medium
-    description: "selection-grammar: lex `=x[<N>][!<M>]` once and share the lexer
-      between the
+    '
+- id: selection-grammar
+  title: =x<N>!<M> grammar, capture-parse contract, and editor states
+  depends_on: []
+  size: medium
+  description: 'selection-grammar: lex `=x[<N>][!<M>]` once and share the lexer between
+    the
 
-      whole-item close and the `@`/`^`/body-bearing `=x` suffix, in both the execution
+    whole-item close and the `@`/`^`/body-bearing `=x` suffix, in both the execution
 
-      and editor parsers. Report the additive `in_progress`/`complete` spec, new span
+    and editor parsers. Report the additive `in_progress`/`complete` spec, new span
 
-      kinds, precise `invalid_pomodoro_close` diagnostics, and an incomplete
+    kinds, precise `invalid_pomodoro_close` diagnostics, and an incomplete
 
-      `pomodoro_close_task` need for a dangling `,`/`!`. Update capture-complete,
+    `pomodoro_close_task` need for a dangling `,`/`!`. Update capture-complete,
 
-      capture-rewrite, and capture-parse help. The executor refuses a selection-bearing
+    capture-rewrite, and capture-parse help. The executor refuses a selection-bearing
 
-      close until selection-capture wires it in.
+    close until selection-capture wires it in.
 
-      "
-  - id: selection-capture
-    title: Wire the selection into all close forms, JSON, and human output
-    depends_on:
-      - selection-planner
-      - selection-grammar
-    size: medium
-    description: "selection-capture: pass the parsed selection into the planner for
-      whole-item,
+    '
+- id: selection-capture
+  title: Wire the selection into all close forms, JSON, and human output
+  depends_on:
+  - selection-planner
+  - selection-grammar
+  size: medium
+  description: 'selection-capture: pass the parsed selection into the planner for
+    whole-item,
 
-      link, and new-task closes, and remove the temporary refusal. Emit
+    link, and new-task closes, and remove the temporary refusal. Emit
 
-      `in_progress`, `complete`, `task_links`, and `tasks[].index` in the
+    `in_progress`, `complete`, `task_links`, and `tasks[].index` in the
 
-      `pomodoro_close` JSON. Print a numbered index column in human output, and fix the
+    `pomodoro_close` JSON. Print a numbered index column in human output, and fix
+    the
 
-      `carries 1 links` plural. Pin all of it with CLI integration tests on the worked
+    `carries 1 links` plural. Pin all of it with CLI integration tests on the worked
 
-      example, including batches, link forms, dry-run parity, and every diagnostic.
+    example, including batches, link forms, dry-run parity, and every diagnostic.
 
-      "
-  - id: selection-docs
-    title: Help and docs for =x<N>!<M>
-    depends_on:
-      - selection-capture
-    size: small
-    description: "selection-docs: document the selection grammar, numbering, outcomes,
+    '
+- id: selection-docs
+  title: Help and docs for =x<N>!<M>
+  depends_on:
+  - selection-capture
+  size: small
+  description: 'selection-docs: document the selection grammar, numbering, outcomes,
 
-      diagnostics, and the JSON and human output. Update `bob capture --help`,
+    diagnostics, and the JSON and human output. Update `bob capture --help`,
 
-      `docs/capture.md` (grammar tables, the close section with worked examples, and
+    `docs/capture.md` (grammar tables, the close section with worked examples, and
 
-      the capture-parse, capture, and capture-complete contracts), and `README.md`.
+    the capture-parse, capture, and capture-complete contracts), and `README.md`.
 
-      "
-  - id: mac-selection-preview
-    title: Bob Mac Capture numbered close card, span colors, and pending list state
-    depends_on:
-      - selection-capture
-    size: medium
-    description: "mac-selection-preview: in the bob-mac-capture linked repo, decode the
-      new close
+    '
+- id: mac-selection-preview
+  title: Bob Mac Capture numbered close card, span colors, and pending list state
+  depends_on:
+  - selection-capture
+  size: medium
+  description: 'mac-selection-preview: in the bob-mac-capture linked repo, decode
+    the new close
 
-      fields. Render SF Symbol number badges tinted by outcome on the close card, with
+    fields. Render SF Symbol number badges tinted by outcome on the close card, with
 
-      a teaching hint before a selection is typed and an outcome summary after. Color
+    a teaching hint before a selection is typed and an outcome summary after. Color
 
-      the in-progress and complete list spans in the editor. Keep a live, dimmed card
+    the in-progress and complete list spans in the editor. Keep a live, dimmed card
 
-      with Close disabled while a list ends in `,` or `!`. Update status and
+    with Close disabled while a list ends in `,` or `!`. Update status and
 
-      notifications, regenerate real-bob fixtures, add tests and README notes, and get
+    notifications, regenerate real-bob fixtures, add tests and README notes, and get
 
-      macOS CI green."
+    macOS CI green.'
 proposed_by: bbugyi200.apollo.34
 create_time: 2026-09-29 13:45:01
 status: wip
+bead_id: bob-cli-2k
 ---
 
-- **PROMPT:**
-  [prompts/202609/close_task_selection.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_task_selection.md)
+- **PROMPT:** [prompts/202609/close_task_selection.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_task_selection.md)
+- **BEAD:** [bob-cli-2k](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2k/README.md)
 
 # Plan: Choose each Task Link's outcome while closing with `=x<N>!<M>`
 
