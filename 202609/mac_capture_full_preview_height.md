@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Grow the Bob Mac Capture window to show the full live preview
-goal: The bob-mac-capture panel grows its window to render every live-preview card
-  in full (no clipped header or rows) whenever the screen has room, and only scrolls
-  the auxiliary region once the window reaches the screen-height limit.
+goal:
+  The bob-mac-capture panel grows its window to render every live-preview card in full
+  (no clipped header or rows) whenever the screen has room, and only scrolls the
+  auxiliary region once the window reaches the screen-height limit.
 size: medium
 proposed_by: bbugyi200.apollo.2z
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.2z](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.2z.md)
+- **COMMITS:**
+  - [62ff0a3](https://github.com/bobs-org/bob-mac-capture/commit/62ff0a37fb343c6b2a91437cc25ad5fff60b778b)
+    — fix(capture): grow panel to show full live preview
 
 # Plan: Grow the Bob Mac Capture window to show the full live preview
 
