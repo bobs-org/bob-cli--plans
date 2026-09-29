@@ -55,7 +55,7 @@ phases:
     README visuals, and a real-panel smoke test.'
 proposed_by: bbugyi200.apollo.31
 create_time: 2026-09-29 09:43:05
-status: wip
+status: done
 bead_id: bob-cli-2h
 ---
 
