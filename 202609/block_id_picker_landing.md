@@ -1,14 +1,12 @@
 ---
 tier: tale
 size: medium
-title:
-  Land epic bob-cli-2h — make the Block ID Picker build, pass macOS CI, report Bob's
-  real ID rule, and close the epic
-goal:
-  The Block ID Picker epic is truly done. Bob reports its real `@route:` ID rule, the
-  `^` picker accepts exactly as before the epic, bob-mac-capture builds and passes its
-  full macOS CI with the rendered picker states reviewed, and epic bob-cli-2h is closed
-  with its plan file marked done.
+title: Land epic bob-cli-2h — make the Block ID Picker build, pass macOS CI, report
+  Bob's real ID rule, and close the epic
+goal: The Block ID Picker epic is truly done. Bob reports its real `@route:` ID rule,
+  the `^` picker accepts exactly as before the epic, bob-mac-capture builds and passes
+  its full macOS CI with the rendered picker states reviewed, and epic bob-cli-2h
+  is closed with its plan file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2h.land
 bead: bob-cli-2h
 status: done
@@ -18,17 +16,6 @@ status: done
   [202609/mac_block_id_picker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/mac_block_id_picker.md)
 - **BEAD:**
   [bob-cli-2h](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2h/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-2h.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2h.land.md)
-- **COMMITS:**
-  - [580ca49](https://github.com/bobs-org/bob-mac-capture/commit/580ca493e8f114fbe4dfc8846346ad8bcd7f6291)
-    — fix(capture): use Color.accentColor in suggestion header style
-  - [7fd8989](https://github.com/bobs-org/bob-mac-capture/commit/7fd898952a6b9c0b499ab59a2ecda73fae5b17f7)
-    — fix(capture): align block-ID tests with Bob's real authored-ID contract
-  - [d68d21d](https://github.com/bobs-org/bob-mac-capture/commit/d68d21d2bb715063342ea31f476e8e2de93f98e0)
-    — fix(capture): repair block-ID landing defects for Bob's real grammar
-  - [da30442](https://github.com/bobs-org/bob-mac-capture/commit/da30442ed347d4ce7c06b1c84421a97cbad04f35)
-    — fix(capture): correct taken-alternative caret expectation to end of insert
 
 # Plan: Finish and land epic bob-cli-2h (Block ID Picker)
 
