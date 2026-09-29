@@ -2,13 +2,11 @@
 tier: tale
 title: Split collect_done into a directory module
 size: medium
-goal:
-  Turn src/native/collect_done.rs into a directory module whose files stay at most 1500
-  lines, with the same behavior and the same 67 unit tests.
+goal: Turn src/native/collect_done.rs into a directory module whose files stay at
+  most 1500 lines, with the same behavior and the same 67 unit tests.
 proposed_by: bbugyi200.apollo.bob-cli-2f.8
 bead: bob-cli-2f.8
-create_time: 2026-09-28 20:02:17
-status: wip
+status: done
 ---
 
 - **PARENT:**
