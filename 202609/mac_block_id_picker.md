@@ -1,76 +1,66 @@
 ---
 tier: epic
 title: Block ID Picker for `@file:` and `@file^` in Bob Mac Capture
-goal:
-  Typing `@route:` or `@route^` anywhere those markers are valid opens the same large,
-  fuzzy, keyboard-first picker language as `^`. A marker-only `@route:` browses and
-  links the note's tasks. Every new-ID position (`@route^`, and `@route:` on an item
-  with text) becomes an ID composer with Bob-generated suggestions, live availability
+goal: Typing `@route:` or `@route^` anywhere those markers are valid opens the same
+  large, fuzzy, keyboard-first picker language as `^`. A marker-only `@route:` browses
+  and links the note's tasks. Every new-ID position (`@route^`, and `@route:` on an
+  item with text) becomes an ID composer with Bob-generated suggestions, live availability
   against every ID already in the note, and type-through commits. Bob stays the only
   authority for grammar, candidates, intent, used IDs, and suggestions.
 phases:
-  - id: bob-contract
-    title:
-      "bob-cli: block-ID completion contract (intent, used IDs, suggestions,
-      `task_block_id`)"
-    depends_on: []
-    size: medium
-    description:
-      "bob-contract: extend `bob capture-complete` with the `task_block_id` context, the
-      additive `block_id` object (intent, marker range, body, allowed-character rule,
-      used IDs, suggestions), link-only candidates with Pomodoro annotations, and the
-      project-note `+` replacement fix; update docs and tests."
-  - id: picker-generalize
-    title:
-      "Mac: generalize the Active Task Picker into a source-agnostic capture picker"
-    depends_on: []
-    size: medium
-    description:
-      "picker-generalize: refactor the `^` picker's presentation types, model state
-      machine, routing, controller focus repair, filter field, and card into
-      source-agnostic `CapturePicker*` building blocks with zero user-visible change to
-      `^`."
-  - id: block-id-core
-    title:
-      "Mac CaptureCore: decode the block-ID contract and build the Block ID Picker
-      engine"
-    depends_on:
-      - bob-contract
-      - picker-generalize
-    size: medium
-    description:
-      "block-id-core: decode the `block_id` object and `task_block_id` context, add
-      Bob-driven ID rules, and build the link and new-ID presentation engine on the
-      generic picker types, with real-bob fixtures and exhaustive tests."
-  - id: block-id-flow
-    title: "Mac app: Block ID Picker flow, type-through, quiet states, and routing"
-    depends_on:
-      - block-id-core
-    size: medium
-    description:
-      "block-id-flow: route `pomodoro_block_id`/`task_block_id` completions into the
-      generic picker with intent-aware opening rules, accept, type-through commits,
-      trigger removal, chip, quiet incomplete states, fake-bob fixtures, model and
-      router tests, and README behavior docs."
-  - id: block-id-design
-    title:
-      "Mac app: Block ID Picker visuals, sizing, accessibility, docs, and macOS
-      verification"
-    depends_on:
-      - block-id-flow
-    size: medium
-    description:
-      "block-id-design: finish the link and new-ID visuals (scope token, availability
-      badge, section headers, row kinds, detail strip, key hints, chip, marker
-      highlight), sizing, accessibility, rendered-image review of both pickers, README
-      visuals, and a real-panel smoke test."
+- id: bob-contract
+  title: 'bob-cli: block-ID completion contract (intent, used IDs, suggestions, `task_block_id`)'
+  depends_on: []
+  size: medium
+  description: 'bob-contract: extend `bob capture-complete` with the `task_block_id`
+    context, the additive `block_id` object (intent, marker range, body, allowed-character
+    rule, used IDs, suggestions), link-only candidates with Pomodoro annotations,
+    and the project-note `+` replacement fix; update docs and tests.'
+- id: picker-generalize
+  title: 'Mac: generalize the Active Task Picker into a source-agnostic capture picker'
+  depends_on: []
+  size: medium
+  description: 'picker-generalize: refactor the `^` picker''s presentation types,
+    model state machine, routing, controller focus repair, filter field, and card
+    into source-agnostic `CapturePicker*` building blocks with zero user-visible change
+    to `^`.'
+- id: block-id-core
+  title: 'Mac CaptureCore: decode the block-ID contract and build the Block ID Picker
+    engine'
+  depends_on:
+  - bob-contract
+  - picker-generalize
+  size: medium
+  description: 'block-id-core: decode the `block_id` object and `task_block_id` context,
+    add Bob-driven ID rules, and build the link and new-ID presentation engine on
+    the generic picker types, with real-bob fixtures and exhaustive tests.'
+- id: block-id-flow
+  title: 'Mac app: Block ID Picker flow, type-through, quiet states, and routing'
+  depends_on:
+  - block-id-core
+  size: medium
+  description: 'block-id-flow: route `pomodoro_block_id`/`task_block_id` completions
+    into the generic picker with intent-aware opening rules, accept, type-through
+    commits, trigger removal, chip, quiet incomplete states, fake-bob fixtures, model
+    and router tests, and README behavior docs.'
+- id: block-id-design
+  title: 'Mac app: Block ID Picker visuals, sizing, accessibility, docs, and macOS
+    verification'
+  depends_on:
+  - block-id-flow
+  size: medium
+  description: 'block-id-design: finish the link and new-ID visuals (scope token,
+    availability badge, section headers, row kinds, detail strip, key hints, chip,
+    marker highlight), sizing, accessibility, rendered-image review of both pickers,
+    README visuals, and a real-panel smoke test.'
 proposed_by: bbugyi200.apollo.31
 create_time: 2026-09-29 09:43:05
 status: wip
+bead_id: bob-cli-2h
 ---
 
-- **PROMPT:**
-  [prompts/202609/mac_block_id_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/mac_block_id_picker.md)
+- **PROMPT:** [prompts/202609/mac_block_id_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/mac_block_id_picker.md)
+- **BEAD:** [bob-cli-2h](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2h/README.md)
 
 # Plan: Block ID Picker for `@file:` and `@file^` in Bob Mac Capture
 
