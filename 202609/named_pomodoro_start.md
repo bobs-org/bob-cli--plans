@@ -1,81 +1,82 @@
 ---
 tier: epic
 title: Named Pomodoro starts with `=<X>#pomodoro` in `bob capture` and Bob Mac Capture
-goal: "A whole capture item `=<X>#<pomodoro>` (for example `=#deep-work`, `=3#bugs`,
+goal: 'A whole capture item `=<X>#<pomodoro>` (for example `=#deep-work`, `=3#bugs`,
   `=-2#bugs`) starts the named Pomodoro now with `se<X>` timing, atomically. It starts
   the open placeholder whose name matches (whole slug, else prefix), or a new session
   named like a completed match, or a brand-new named session. The token composes in
-  same-line chains (`=x =#bugs` switches sessions in one line). `bob capture-parse` and
-  `bob capture-complete` expose it, and Bob Mac Capture completes the name with a
-  start-aware list, highlights it, previews the session live, and teaches the syntax.
+  same-line chains (`=x =#bugs` switches sessions in one line). `bob capture-parse`
+  and `bob capture-complete` expose it, and Bob Mac Capture completes the name with
+  a start-aware list, highlights it, previews the session live, and teaches the syntax.
 
-  "
+  '
 phases:
-  - id: execution
-    title: "`=<X>#pomodoro` grammar, chains, and named session start in `bob capture`"
-    depends_on: []
-    size: medium
-    description: "execution: extend the shared `=`-family lexer with an optional `#name`
-      part, claim `=<X>#name` (and the `=x#name` near miss) as whole-item session tokens
-      and chain tokens, plan the named start (resolve, guard, start or create, move to
-      the current slot, report queued links), and update JSON, human output, and `bob
-      capture --help`.
+- id: execution
+  title: '`=<X>#pomodoro` grammar, chains, and named session start in `bob capture`'
+  depends_on: []
+  size: medium
+  description: 'execution: extend the shared `=`-family lexer with an optional `#name`
+    part, claim `=<X>#name` (and the `=x#name` near miss) as whole-item session tokens
+    and chain tokens, plan the named start (resolve, guard, start or create, move
+    to the current slot, report queued links), and update JSON, human output, and
+    `bob capture --help`.
 
-      "
-  - id: editor
-    title: Named starts in `bob capture-parse`
-    depends_on:
-      - execution
-    size: medium
-    description: "editor: mirror the named start in the live-editor parser. Report mode,
-      `section`, spans, the `=<X>#` incomplete state, and every near-miss diagnostic
-      with precise ranges. Keep `@@` away from named starts and extend the
-      editor/execution parity tests.
+    '
+- id: editor
+  title: Named starts in `bob capture-parse`
+  depends_on:
+  - execution
+  size: medium
+  description: 'editor: mirror the named start in the live-editor parser. Report mode,
+    `section`, spans, the `=<X>#` incomplete state, and every near-miss diagnostic
+    with precise ranges. Keep `@@` away from named starts and extend the editor/execution
+    parity tests.
 
-      "
-  - id: completion
-    title: "`pomodoro_start_name` completion context in `bob capture-complete`"
-    depends_on:
-      - editor
-    size: medium
-    description: 'completion: add the `pomodoro_start_name` context for the name part of
-      `=<X>#name`, and return start-aware candidates from today''s ledger: planned
-      placeholders with `next_up`, a create row, "again" rows for completed sessions,
-      nameable rows, and the running entry last. Include help, human output, and tests.
+    '
+- id: completion
+  title: '`pomodoro_start_name` completion context in `bob capture-complete`'
+  depends_on:
+  - editor
+  size: medium
+  description: 'completion: add the `pomodoro_start_name` context for the name part
+    of `=<X>#name`, and return start-aware candidates from today''s ledger: planned
+    placeholders with `next_up`, a create row, "again" rows for completed sessions,
+    nameable rows, and the running entry last. Include help, human output, and tests.
 
-      '
-  - id: docs
-    title: Capture docs and README for named starts
-    depends_on:
-      - execution
-      - editor
-      - completion
-    size: small
-    description: 'docs: document `=<X>#pomodoro` in `docs/capture.md` (grammar tables,
-      lifecycle, a new "Starting a named Pomodoro" section, chains, capture-parse, and
-      capture-complete) and in `README.md`, all consistent with the shipped behavior.
+    '
+- id: docs
+  title: Capture docs and README for named starts
+  depends_on:
+  - execution
+  - editor
+  - completion
+  size: small
+  description: 'docs: document `=<X>#pomodoro` in `docs/capture.md` (grammar tables,
+    lifecycle, a new "Starting a named Pomodoro" section, chains, capture-parse, and
+    capture-complete) and in `README.md`, all consistent with the shipped behavior.
 
-      '
-  - id: mac
-    title: Bob Mac Capture support for named starts
-    depends_on:
-      - execution
-      - editor
-      - completion
-    size: medium
-    description: "mac: add the `pomodoro_start_name` completion rows (planned, next up,
-      new, again, name it, running) with accept announcements. Add a calm incomplete
-      state for `=#`, a New badge and a `#name` teaching hint on the start card, and
-      real-bob fixtures, tests, and README. Verify with a green macOS CI run.
+    '
+- id: mac
+  title: Bob Mac Capture support for named starts
+  depends_on:
+  - execution
+  - editor
+  - completion
+  size: medium
+  description: 'mac: add the `pomodoro_start_name` completion rows (planned, next
+    up, new, again, name it, running) with accept announcements. Add a calm incomplete
+    state for `=#`, a New badge and a `#name` teaching hint on the start card, and
+    real-bob fixtures, tests, and README. Verify with a green macOS CI run.
 
-      "
+    '
 proposed_by: bbugyi200.apollo.36.w0
 create_time: 2026-09-29 19:17:56
 status: wip
+bead_id: bob-cli-2p
 ---
 
-- **PROMPT:**
-  [prompts/202609/named_pomodoro_start.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/named_pomodoro_start.md)
+- **PROMPT:** [prompts/202609/named_pomodoro_start.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/named_pomodoro_start.md)
+- **BEAD:** [bob-cli-2p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2p/README.md)
 
 # Plan: Named Pomodoro starts with `=<X>#pomodoro`
 
