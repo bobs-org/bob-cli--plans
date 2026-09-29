@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Split the task status grouping transform into four modules
-goal: Keep task status grouping behavior and its 36 unit tests intact while reducing
-  every resulting Rust file to at most 1500 lines.
+goal:
+  Keep task status grouping behavior and its 36 unit tests intact while reducing every
+  resulting Rust file to at most 1500 lines.
 proposed_by: bbugyi200.apollo.bob-cli-2f.9
 bead: bob-cli-2f.9
 status: done
@@ -13,6 +14,11 @@ status: done
   [202609/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-2f.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2f/bob-cli-2f.9.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2f.9](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2f.9.md)
+- **COMMITS:**
+  - [410973b](https://github.com/bobs-org/bob-cli/commit/410973bfb7449f2c01d3bcefd60927c4a42a4964)
+    — feat(task-status): split task_status_groups.rs into four modules
 
 # Split task status grouping
 
