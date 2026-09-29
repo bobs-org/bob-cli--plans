@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish landing bob-cli-2k (=x<N>!<M> close selection) and close the epic
-goal:
-  The =x<N>!<M> close selection has no remaining epic-caused defects in row numbering,
-  listed warnings, grammar diagnostics, block-ID completion, or docs, and epic
-  bob-cli-2k is closed with its plan marked done.
+goal: The =x<N>!<M> close selection has no remaining epic-caused defects in row numbering,
+  listed warnings, grammar diagnostics, block-ID completion, or docs, and epic bob-cli-2k
+  is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2k.land
 bead: bob-cli-2k
-create_time: 2026-09-29 15:18:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
