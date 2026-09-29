@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish and land epic bob-cli-2n (named and linked project tasks)
-goal:
-  The epic-caused defects found while landing bob-cli-2n are fixed and tested, the stale
-  README/docs/comments/help text is refreshed, and epic bob-cli-2n is closed with its
-  plan marked done.
+goal: The epic-caused defects found while landing bob-cli-2n are fixed and tested,
+  the stale README/docs/comments/help text is refreshed, and epic bob-cli-2n is closed
+  with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2n.land
 bead: bob-cli-2n
-create_time: 2026-09-29 17:59:54
-status: wip
+status: done
 ---
 
 - **PARENT:**
