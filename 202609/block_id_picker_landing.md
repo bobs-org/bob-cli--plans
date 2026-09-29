@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: Land epic bob-cli-2h — make the Block ID Picker build, pass macOS CI, report
-  Bob's real ID rule, and close the epic
-goal: The Block ID Picker epic is truly done. Bob reports its real `@route:` ID rule,
-  the `^` picker accepts exactly as before the epic, bob-mac-capture builds and passes
-  its full macOS CI with the rendered picker states reviewed, and epic bob-cli-2h
-  is closed with its plan file marked done.
+title:
+  Land epic bob-cli-2h — make the Block ID Picker build, pass macOS CI, report Bob's
+  real ID rule, and close the epic
+goal:
+  The Block ID Picker epic is truly done. Bob reports its real `@route:` ID rule, the
+  `^` picker accepts exactly as before the epic, bob-mac-capture builds and passes its
+  full macOS CI with the rendered picker states reviewed, and epic bob-cli-2h is closed
+  with its plan file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2h.land
 bead: bob-cli-2h
 status: done
@@ -16,6 +18,11 @@ status: done
   [202609/mac_block_id_picker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/mac_block_id_picker.md)
 - **BEAD:**
   [bob-cli-2h](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2h/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2h.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2h.land.md)
+- **COMMITS:**
+  - [ad8616e](https://github.com/bobs-org/bob-cli/commit/ad8616eca05ff6c9decb91779df8d6f9e6af4174)
+    — fix(capture): report Bob's real block-ID character rule for @route:
 
 # Plan: Finish and land epic bob-cli-2h (Block ID Picker)
 
