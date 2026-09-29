@@ -74,7 +74,7 @@ phases:
     a green macOS CI run.'
 proposed_by: bbugyi200.apollo.35
 create_time: 2026-09-29 15:35:24
-status: wip
+status: done
 bead_id: bob-cli-2n
 ---
 
