@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Reinstate Pomodoro block debug asserts and close bob-cli-2r
-goal:
-  Unreported Pomodoro headline rewrites and vanished entries panic again in debug
+goal: Unreported Pomodoro headline rewrites and vanished entries panic again in debug
   builds, the start-drop family locks the block coverage invariant, and epic bob-cli-2r
   is closed with its plan file marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-2r.land
 bead: bob-cli-2r
-create_time: 2026-09-30 10:42:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
