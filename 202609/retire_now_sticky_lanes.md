@@ -1,134 +1,125 @@
 ---
 tier: epic
-title: "Retire #now: sticky Next/Pending lanes and a ledger-derived Today"
-goal: "Linking a task makes it Next, working it makes it Pending, and no unlink path
+title: 'Retire #now: sticky Next/Pending lanes and a ledger-derived Today'
+goal: 'Linking a task makes it Next, working it makes it Pending, and no unlink path
   (hooks, keymap, capture drop, hand deletion) ever lowers it; only an explicit one-key
-  release returns it to Ready. Today is read from the ledger when the dash renders, the
-  dash shows mutually exclusive TODAY / PENDING / NEXT / READY sections with soft caps,
-  and #now is gone from bob-cli, bob-plugins, Bob Mac Capture, the vault, and memory.
+  release returns it to Ready. Today is read from the ledger when the dash renders,
+  the dash shows mutually exclusive TODAY / PENDING / NEXT / READY sections with soft
+  caps, and #now is gone from bob-cli, bob-plugins, Bob Mac Capture, the vault, and
+  memory.
 
-  "
+  '
 phases:
-  - id: cutover-pause
-    title: Pause the MacBook's hooks cron before the first 2026-10-01 pass
-    depends_on: []
-    size: small
-    description:
-      "cutover-pause: best-effort, backed-up pause of the Mac's task-status-hooks
-      crontab line so tomorrow's first pass cannot demote the current [/] and [*] tasks."
-  - id: hooks-sticky
-    title: Sticky lanes in bob task-status-hooks, docs, and superseding decision records
-    depends_on: []
-    size: medium
-    description:
-      "hooks-sticky: stop the hooks lowering Next and In Progress when links disappear
-      (daily-note tasks keep clearing), verify with a simulated next-day dry run, update
-      the hooks docs, and write the two superseding decision records."
-  - id: hooks-resume
-    title: Install sticky hooks on the MacBook and restore the cron
-    depends_on:
-      - cutover-pause
-      - hooks-sticky
-    size: small
-    description:
-      "hooks-resume: reinstall bob on the Mac from master, confirm with a dry run that
-      lanes are kept, and restore the paused cron line byte-for-byte."
-  - id: capture-toggle-lanes
-    title: No bob capture path lowers a lane
-    depends_on:
-      - hooks-sticky
-    size: medium
-    description:
-      "capture-toggle-lanes: make @route+id! a link-presence toggle, keep In Progress
-      under Ensure Next, word dropped rows as 'stays <status>', and fix capture docs
-      that promise hooks demotion."
-  - id: today-core
-    title: Define Today once; NEXT/PENDING lanes replace NOW in bob plan and the hooks
-    depends_on:
-      - hooks-sticky
-    size: medium
-    description:
-      "today-core: Rust Today engine with conformance vectors in docs/plan.md, lane
-      meters and caps replacing NOW, bob plan JSON schema 2 with today_tasks, and the
-      hooks plan_budget line."
-  - id: capture-now-removal
-    title: Remove
-    depends_on:
-      - capture-toggle-lanes
-      - today-core
-    size: medium
-    description:
-      "capture-now-removal: delete the #now grammar, spans, completion context, picker
-      group, now fields, and budget hint clause, then sweep bob-cli docs and README."
-  - id: ledger-today-api
-    title:
-      bob-ledger-tools api v2 with a synchronous Today, lane budgets, and query refresh
-    depends_on:
-      - today-core
-    size: medium
-    description:
-      "ledger-today-api: synchronous Today cache with midnight rollover and the Tasks
-      reload event, api v2 (isToday, todayRank, nextBudget, pendingBudget), lane chips
-      in the bob-plan block, JS tests on the shared vectors."
-  - id: link-toggle
-    title: Ctrl+Shift+Enter toggles on link presence and never changes the lane
-    depends_on:
-      - hooks-sticky
-    size: medium
-    description:
-      "link-toggle: block-id-prompt links or unlinks by link presence, never writes the
-      checkbox on unlink, offers the Work Log prompt for In Progress, and never lowers
-      In Progress when linking."
-  - id: release-key
-    title: "Alt+N commits or releases a lane; #now leaves Bob Navigation Hotkeys"
-    depends_on:
-      - ledger-today-api
-      - link-toggle
-    size: medium
-    description:
-      "release-key: retarget Alt+N and the Ctrl+Shift+P pinned row from the #now toggle
-      to commit (Ready to Next) and release (Next/In Progress to Ready, unlinking
-      today), and delete every #now path."
-  - id: dash-lanes
-    title: Mutually exclusive dash sections, GTD chores, and lane caps config
-    depends_on:
-      - ledger-today-api
-      - link-toggle
-      - release-key
-    size: small
-    description:
-      "dash-lanes: rebuild dash.md as TODAY / PENDING / NEXT / READY with matching
-      chips, swap the gtd_daily chores, and set max_next / max_pending in the chezmoi
-      config."
-  - id: mac-lanes
-    title: "Bob Mac Capture drops #now and presents the link-presence toggle"
-    depends_on:
-      - capture-toggle-lanes
-      - capture-now-removal
-    size: medium
-    description:
-      "mac-lanes: remove now_tag, NOW badges, the now picker section, and 'stays in
-      NOW'; present link/unlink toggles and unchanged statuses; regenerate fixtures;
-      green macOS CI."
-  - id: rollout
-    title: Install, deploy, end-to-end check, and Bryan's checklist
-    depends_on:
-      - hooks-resume
-      - capture-now-removal
-      - dash-lanes
-      - mac-lanes
-    size: small
-    description:
-      "rollout: install bob on apollo, sync every plugin, finish any Mac step
-      hooks-resume could not, run the end-to-end checks, finalize the Surfaces table,
-      and hand Bryan the triage and trial checklist."
+- id: cutover-pause
+  title: Pause the MacBook's hooks cron before the first 2026-10-01 pass
+  depends_on: []
+  size: small
+  description: 'cutover-pause: best-effort, backed-up pause of the Mac''s task-status-hooks
+    crontab line so tomorrow''s first pass cannot demote the current [/] and [*] tasks.'
+- id: hooks-sticky
+  title: Sticky lanes in bob task-status-hooks, docs, and superseding decision records
+  depends_on: []
+  size: medium
+  description: 'hooks-sticky: stop the hooks lowering Next and In Progress when links
+    disappear (daily-note tasks keep clearing), verify with a simulated next-day dry
+    run, update the hooks docs, and write the two superseding decision records.'
+- id: hooks-resume
+  title: Install sticky hooks on the MacBook and restore the cron
+  depends_on:
+  - cutover-pause
+  - hooks-sticky
+  size: small
+  description: 'hooks-resume: reinstall bob on the Mac from master, confirm with a
+    dry run that lanes are kept, and restore the paused cron line byte-for-byte.'
+- id: capture-toggle-lanes
+  title: No bob capture path lowers a lane
+  depends_on:
+  - hooks-sticky
+  size: medium
+  description: 'capture-toggle-lanes: make @route+id! a link-presence toggle, keep
+    In Progress under Ensure Next, word dropped rows as ''stays <status>'', and fix
+    capture docs that promise hooks demotion.'
+- id: today-core
+  title: Define Today once; NEXT/PENDING lanes replace NOW in bob plan and the hooks
+  depends_on:
+  - hooks-sticky
+  size: medium
+  description: 'today-core: Rust Today engine with conformance vectors in docs/plan.md,
+    lane meters and caps replacing NOW, bob plan JSON schema 2 with today_tasks, and
+    the hooks plan_budget line.'
+- id: capture-now-removal
+  title: Remove
+  depends_on:
+  - capture-toggle-lanes
+  - today-core
+  size: medium
+  description: 'capture-now-removal: delete the #now grammar, spans, completion context,
+    picker group, now fields, and budget hint clause, then sweep bob-cli docs and
+    README.'
+- id: ledger-today-api
+  title: bob-ledger-tools api v2 with a synchronous Today, lane budgets, and query
+    refresh
+  depends_on:
+  - today-core
+  size: medium
+  description: 'ledger-today-api: synchronous Today cache with midnight rollover and
+    the Tasks reload event, api v2 (isToday, todayRank, nextBudget, pendingBudget),
+    lane chips in the bob-plan block, JS tests on the shared vectors.'
+- id: link-toggle
+  title: Ctrl+Shift+Enter toggles on link presence and never changes the lane
+  depends_on:
+  - hooks-sticky
+  size: medium
+  description: 'link-toggle: block-id-prompt links or unlinks by link presence, never
+    writes the checkbox on unlink, offers the Work Log prompt for In Progress, and
+    never lowers In Progress when linking.'
+- id: release-key
+  title: 'Alt+N commits or releases a lane; #now leaves Bob Navigation Hotkeys'
+  depends_on:
+  - ledger-today-api
+  - link-toggle
+  size: medium
+  description: 'release-key: retarget Alt+N and the Ctrl+Shift+P pinned row from the
+    #now toggle to commit (Ready to Next) and release (Next/In Progress to Ready,
+    unlinking today), and delete every #now path.'
+- id: dash-lanes
+  title: Mutually exclusive dash sections, GTD chores, and lane caps config
+  depends_on:
+  - ledger-today-api
+  - link-toggle
+  - release-key
+  size: small
+  description: 'dash-lanes: rebuild dash.md as TODAY / PENDING / NEXT / READY with
+    matching chips, swap the gtd_daily chores, and set max_next / max_pending in the
+    chezmoi config.'
+- id: mac-lanes
+  title: 'Bob Mac Capture drops #now and presents the link-presence toggle'
+  depends_on:
+  - capture-toggle-lanes
+  - capture-now-removal
+  size: medium
+  description: 'mac-lanes: remove now_tag, NOW badges, the now picker section, and
+    ''stays in NOW''; present link/unlink toggles and unchanged statuses; regenerate
+    fixtures; green macOS CI.'
+- id: rollout
+  title: Install, deploy, end-to-end check, and Bryan's checklist
+  depends_on:
+  - hooks-resume
+  - capture-now-removal
+  - dash-lanes
+  - mac-lanes
+  size: small
+  description: 'rollout: install bob on apollo, sync every plugin, finish any Mac
+    step hooks-resume could not, run the end-to-end checks, finalize the Surfaces
+    table, and hand Bryan the triage and trial checklist.'
 proposed_by: bbugyi200.apollo.3n
 create_time: 2026-09-30 16:41:58
 status: wip
+bead_id: bob-cli-2y
 ---
 
-- **PROMPT:**
-  [prompts/202609/retire_now_sticky_lanes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/retire_now_sticky_lanes.md)
+- **PROMPT:** [prompts/202609/retire_now_sticky_lanes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/retire_now_sticky_lanes.md)
+- **BEAD:** [bob-cli-2y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2y/README.md)
 
 # Plan: Retire `#now` — sticky Next/Pending lanes and a ledger-derived Today
 
