@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: Land bob-cli-2p — plan-budget preview on named-start completion rows, help/docs
-  fixes, and epic closeout
-goal: Named-start completion rows that create a session (new and again) preview the
-  plan budget in bob and show the cap badge in Bob Mac Capture. The named-start help
-  and docs are accurate and covered by tests. Epic bob-cli-2p is closed and its plan
-  is marked done.
+title:
+  Land bob-cli-2p — plan-budget preview on named-start completion rows, help/docs fixes,
+  and epic closeout
+goal:
+  Named-start completion rows that create a session (new and again) preview the plan
+  budget in bob and show the cap badge in Bob Mac Capture. The named-start help and docs
+  are accurate and covered by tests. Epic bob-cli-2p is closed and its plan is marked
+  done.
 proposed_by: bbugyi200.apollo.bob-cli-2p.land
 bead: bob-cli-2p
 status: done
@@ -16,6 +18,11 @@ status: done
   [202609/named_pomodoro_start.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/named_pomodoro_start.md)
 - **BEAD:**
   [bob-cli-2p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2p/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2p.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2p.land.md)
+- **COMMITS:**
+  - [090e3eb](https://github.com/bobs-org/bob-cli/commit/090e3eb49ae8248c6d9e5ac9b2169ccd742a9365)
+    — fix(capture): preview plan budget on again rows, fix named-start help and docs
 
 # Plan: finish landing epic bob-cli-2p (named Pomodoro starts `=<X>#pomodoro`)
 
