@@ -1,17 +1,14 @@
 ---
 tier: tale
 size: small
-title:
-  "Close out bob-cli-2y: remove the In Progress rollback leftovers, fix two stale doc
-  lines, and land the epic"
-goal:
-  The dead hooks plumbing the sticky-lanes change orphaned is gone, docs/capture.md and
-  docs/plan.md describe what actually ships, and epic bob-cli-2y is closed with its plan
-  file marked done.
+title: 'Close out bob-cli-2y: remove the In Progress rollback leftovers, fix two stale
+  doc lines, and land the epic'
+goal: The dead hooks plumbing the sticky-lanes change orphaned is gone, docs/capture.md
+  and docs/plan.md describe what actually ships, and epic bob-cli-2y is closed with
+  its plan file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2y.land
 bead: bob-cli-2y
-create_time: 2026-09-30 19:13:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
