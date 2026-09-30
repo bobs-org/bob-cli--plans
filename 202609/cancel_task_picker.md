@@ -1,70 +1,70 @@
 ---
 tier: epic
 title: Cancel tasks with an optional reason from the Ctrl+Shift+P picker
-goal: "In Obsidian, Ctrl+Shift+P on a #task line (bare or counted) or on a dedicated
-  Task Link offers a pinned Cancel row. It asks for an optional reason, then closes the
-  task(s) as Cancelled `[-]` with a `[cancelled:: YYYY-MM-DD]` stamp and records the
-  reason under a managed `❌ **CANCEL LOG**` child. It also removes the tasks' links
-  from today's open Pomodoros, unblocks their dependents right away, and confirms with a
-  rich notice card.
+goal: 'In Obsidian, Ctrl+Shift+P on a #task line (bare or counted) or on a dedicated
+  Task Link offers a pinned Cancel row. It asks for an optional reason, then closes
+  the task(s) as Cancelled `[-]` with a `[cancelled:: YYYY-MM-DD]` stamp and records
+  the reason under a managed `❌ **CANCEL LOG**` child. It also removes the tasks''
+  links from today''s open Pomodoros, unblocks their dependents right away, and confirms
+  with a rich notice card.
 
-  "
+  '
 phases:
-  - id: tsc-recovery-api
-    title:
-      "Task Status Cycler: versioned dependent-recovery API and cancelled-link guard"
-    depends_on: []
-    size: small
-    description: "tsc-recovery-api: expose `api.recoverBlockedDependents` (version 1)
-      from task-status-cycler. Keep a dependent Blocked while it has a strictly future
-      `scheduled` date. When Ctrl+Enter lands on a Task Link to a Cancelled task, show a
-      notice instead of completing the owning Pomodoro. Bump the version, update the
-      README, add tests, and sync to the vault.
+- id: tsc-recovery-api
+  title: 'Task Status Cycler: versioned dependent-recovery API and cancelled-link
+    guard'
+  depends_on: []
+  size: small
+  description: 'tsc-recovery-api: expose `api.recoverBlockedDependents` (version 1)
+    from task-status-cycler. Keep a dependent Blocked while it has a strictly future
+    `scheduled` date. When Ctrl+Enter lands on a Task Link to a Cancelled task, show
+    a notice instead of completing the owning Pomodoro. Bump the version, update the
+    README, add tests, and sync to the vault.
 
-      "
-  - id: cancel-planner
-    title: "Navigation Hotkeys: Cancel Log grammar and pure cancel planner"
-    depends_on: []
-    size: medium
-    description: "cancel-planner: add the `❌ **CANCEL LOG**` marker/entry grammar, a
-      `cancel` managed-log kind (so project conversion carries the log), and a pure
-      batch planner. The planner sets `[-]`, upserts `[cancelled::]`, writes the Cancel
-      Log first-child/prepend/fallback entry, refuses recurring tasks, and returns the
-      cancelled identities. Export the helpers and unit-test them. No UI yet.
+    '
+- id: cancel-planner
+  title: 'Navigation Hotkeys: Cancel Log grammar and pure cancel planner'
+  depends_on: []
+  size: medium
+  description: 'cancel-planner: add the `❌ **CANCEL LOG**` marker/entry grammar, a
+    `cancel` managed-log kind (so project conversion carries the log), and a pure
+    batch planner. The planner sets `[-]`, upserts `[cancelled::]`, writes the Cancel
+    Log first-child/prepend/fallback entry, refuses recurring tasks, and returns the
+    cancelled identities. Export the helpers and unit-test them. No UI yet.
 
-      "
-  - id: cancel-picker
-    title:
-      "Navigation Hotkeys: Cancel row, reason stage, guarded writes, and notice card"
-    depends_on:
-      - tsc-recovery-api
-      - cancel-planner
-    size: medium
-    description: "cancel-picker: wire the pinned Cancel row and the live-preview reason
-      stage into BulletPropertyPickerModal for single, counted, and Task Link sessions.
-      Commit through the existing guarded editor and cross-note write paths, including
-      the today's-Pomodoro prune. Call the TSC recovery API, show the Cancelled notice
-      card, add CSS, bump the version, update the README, add tests, and sync.
+    '
+- id: cancel-picker
+  title: 'Navigation Hotkeys: Cancel row, reason stage, guarded writes, and notice
+    card'
+  depends_on:
+  - tsc-recovery-api
+  - cancel-planner
+  size: medium
+  description: 'cancel-picker: wire the pinned Cancel row and the live-preview reason
+    stage into BulletPropertyPickerModal for single, counted, and Task Link sessions.
+    Commit through the existing guarded editor and cross-note write paths, including
+    the today''s-Pomodoro prune. Call the TSC recovery API, show the Cancelled notice
+    card, add CSS, bump the version, update the README, add tests, and sync.
 
-      "
-  - id: cancel-docs
-    title: bob-cli documentation for the cancel gesture and the Cancel Log
-    depends_on:
-      - cancel-picker
-    size: small
-    description:
-      "cancel-docs: document the gesture, the written shape, and its side effects in
-      docs/projects.md. Add a Cancel Log row to the README glossary and update
-      docs/task-status-hooks.md for immediate cancel pruning, the recovery API, and both
-      new guards. Add a parity comment in bob-cli's managed-log parser and propose a
-      glossary follow-up."
+    '
+- id: cancel-docs
+  title: bob-cli documentation for the cancel gesture and the Cancel Log
+  depends_on:
+  - cancel-picker
+  size: small
+  description: 'cancel-docs: document the gesture, the written shape, and its side
+    effects in docs/projects.md. Add a Cancel Log row to the README glossary and update
+    docs/task-status-hooks.md for immediate cancel pruning, the recovery API, and
+    both new guards. Add a parity comment in bob-cli''s managed-log parser and propose
+    a glossary follow-up.'
 proposed_by: bbugyi200.athena.0ug
 create_time: 2026-09-30 13:42:47
 status: wip
+bead_id: bob-cli-2w
 ---
 
-- **PROMPT:**
-  [prompts/202609/cancel_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/cancel_task_picker.md)
+- **PROMPT:** [prompts/202609/cancel_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/cancel_task_picker.md)
+- **BEAD:** [bob-cli-2w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2w/README.md)
 
 # Plan: Cancel tasks with an optional reason from the Ctrl+Shift+P picker
 
