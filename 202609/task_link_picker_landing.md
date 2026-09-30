@@ -1,14 +1,12 @@
 ---
 tier: tale
 size: medium
-title:
-  Land epic bob-cli-2v - green the Task Link Picker's macOS CI, close the Mac gaps,
-  close the epic
-goal:
-  Bob Mac Capture's Task Link Picker passes a fully green macOS 26 SwiftPM CI run. The
-  mac_panel gaps against plan:202609/task_link_picker.md are fixed and covered by tests.
-  Two small bob-cli leftovers are cleaned up. Epic bob-cli-2v is closed and its plan
-  file is marked done.
+title: Land epic bob-cli-2v - green the Task Link Picker's macOS CI, close the Mac
+  gaps, close the epic
+goal: Bob Mac Capture's Task Link Picker passes a fully green macOS 26 SwiftPM CI
+  run. The mac_panel gaps against plan:202609/task_link_picker.md are fixed and covered
+  by tests. Two small bob-cli leftovers are cleaned up. Epic bob-cli-2v is closed
+  and its plan file is marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2v.land
 bead: bob-cli-2v
 status: done
@@ -18,11 +16,6 @@ status: done
   [202609/task_link_picker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/task_link_picker.md)
 - **BEAD:**
   [bob-cli-2v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2v/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-2v.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2v.land.md)
-- **COMMITS:**
-  - [8f2a02e](https://github.com/bobs-org/bob-cli/commit/8f2a02ec31d23d3b70bde8a4dcd7fc751dcc0461)
-    — refactor(capture): move completion doc comment and privatize schedule helper
 
 # Land epic bob-cli-2v: green the Task Link Picker's macOS CI and close the epic
 
