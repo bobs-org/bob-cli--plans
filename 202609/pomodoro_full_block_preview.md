@@ -1,67 +1,67 @@
 ---
 tier: epic
 title: Show the full Pomodoro block in the Mac capture preview
-goal: "Whenever a capture touches, creates, or reports a Pomodoro, the Bob Mac Capture
+goal: 'Whenever a capture touches, creates, or reports a Pomodoro, the Bob Mac Capture
   live preview shows that Pomodoro in full: its headline and every nested child line,
-  exactly as Bob will write it, with the lines the capture changes clearly marked. Bob
-  computes the blocks and the diff. The app only decodes and renders them in one
+  exactly as Bob will write it, with the lines the capture changes clearly marked.
+  Bob computes the blocks and the diff. The app only decodes and renders them in one
   consistent, polished block view.
 
-  "
+  '
 phases:
-  - id: blocks_tracker
-    title: Emit batch-level pomodoro_blocks from bob capture
-    depends_on: []
-    size: medium
-    description: "blocks_tracker: add the block-range and depth helpers, the per-item
-      block-ref tracker (ref resolution, auto-detection, cross-item forwarding, line
-      diff), and the top-level `pomodoro_blocks` JSON. Add explicit refs for adjust,
-      shift, whole-item and named starts, and whole-item close (closed and next). Add
-      unit and CLI tests and the docs/capture.md contract.
+- id: blocks_tracker
+  title: Emit batch-level pomodoro_blocks from bob capture
+  depends_on: []
+  size: medium
+  description: 'blocks_tracker: add the block-range and depth helpers, the per-item
+    block-ref tracker (ref resolution, auto-detection, cross-item forwarding, line
+    diff), and the top-level `pomodoro_blocks` JSON. Add explicit refs for adjust,
+    shift, whole-item and named starts, and whole-item close (closed and next). Add
+    unit and CLI tests and the docs/capture.md contract.
 
-      "
-  - id: blocks_refs
-    title: Report every remaining Pomodoro-touching capture
-    depends_on:
-      - blocks_tracker
-    size: medium
-    description: "blocks_refs: add explicit refs for link and task starts, close link
-      and task forms, Pomodoro task and link captures, and Ensure Next, including
-      mention-only cases. Prove that toggles, Pomodoro notes, and project notes are
-      auto-detected. Add a coverage-invariant test helper used by every Pomodoro CLI
-      test family.
+    '
+- id: blocks_refs
+  title: Report every remaining Pomodoro-touching capture
+  depends_on:
+  - blocks_tracker
+  size: medium
+  description: 'blocks_refs: add explicit refs for link and task starts, close link
+    and task forms, Pomodoro task and link captures, and Ensure Next, including mention-only
+    cases. Prove that toggles, Pomodoro notes, and project notes are auto-detected.
+    Add a coverage-invariant test helper used by every Pomodoro CLI test family.
 
-      "
-  - id: mac_block_model
-    title: Decode and present Pomodoro blocks in CaptureCore
-    depends_on:
-      - blocks_tracker
-    size: medium
-    description: "mac_block_model: add tolerant `pomodoro_blocks` decoding, a pure block
-      presentation, a display-only line tokenizer, and the covers-preview-lines rule.
-      Add real-bob fixtures for adjust, shift, start, named start, close, and a chain,
-      plus CaptureCore tests. Commit and get macOS CI green.
+    '
+- id: mac_block_model
+  title: Decode and present Pomodoro blocks in CaptureCore
+  depends_on:
+  - blocks_tracker
+  size: medium
+  description: 'mac_block_model: add tolerant `pomodoro_blocks` decoding, a pure block
+    presentation, a display-only line tokenizer, and the covers-preview-lines rule.
+    Add real-bob fixtures for adjust, shift, start, named start, close, and a chain,
+    plus CaptureCore tests. Commit and get macOS CI green.
 
-      "
-  - id: mac_block_view
-    title: Render the Pomodoro block view in the preview pane
-    depends_on:
-      - mac_block_model
-      - blocks_refs
-    size: medium
-    description:
-      "mac_block_view: add PomodoroBlockView (status rail, diff gutter, indent guides,
-      syntax tint) and render blocks after the item stack. Drop verbatim lines the
-      blocks already cover, dim blocks with a pending close card, and remove the
-      duplicated path in the destination summary. Add link, move, and note fixtures,
-      fake-bob routes, model, height, and render tests, the README, and green macOS CI."
+    '
+- id: mac_block_view
+  title: Render the Pomodoro block view in the preview pane
+  depends_on:
+  - mac_block_model
+  - blocks_refs
+  size: medium
+  description: 'mac_block_view: add PomodoroBlockView (status rail, diff gutter, indent
+    guides, syntax tint) and render blocks after the item stack. Drop verbatim lines
+    the blocks already cover, dim blocks with a pending close card, and remove the
+    duplicated path in the destination summary. Add link, move, and note fixtures,
+    fake-bob routes, model, height, and render tests, the README, and green macOS
+    CI.'
 proposed_by: bbugyi200.apollo.3c
 create_time: 2026-09-30 07:52:26
 status: wip
+bead_id: bob-cli-2r
 ---
 
-- **PROMPT:**
-  [prompts/202609/pomodoro_full_block_preview.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_full_block_preview.md)
+- **PROMPT:** [prompts/202609/pomodoro_full_block_preview.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/pomodoro_full_block_preview.md)
+- **BEAD:** [bob-cli-2r](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2r/README.md)
 
 # Problem
 
