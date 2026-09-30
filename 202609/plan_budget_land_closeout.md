@@ -1,11 +1,10 @@
 ---
 tier: tale
-title: "Land bob-cli-2o: fix plan-budget and #now gaps, then close the epic"
-goal:
-  "The plan-budget and #now surfaces in bob-cli, bob-plugins, the vault dash and the Bob
-  Mac Capture README match the epic spec: a mistyped plan block never breaks other
-  commands, the Rust and JS engines agree, and docs are final. Epic bob-cli-2o is closed
-  and its plan file is marked done."
+title: 'Land bob-cli-2o: fix plan-budget and #now gaps, then close the epic'
+goal: 'The plan-budget and #now surfaces in bob-cli, bob-plugins, the vault dash and
+  the Bob Mac Capture README match the epic spec: a mistyped plan block never breaks
+  other commands, the Rust and JS engines agree, and docs are final. Epic bob-cli-2o
+  is closed and its plan file is marked done.'
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2o.land
 bead: bob-cli-2o
@@ -16,11 +15,6 @@ status: done
   [202609/pomodoro_plan_budget_now_tag.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/pomodoro_plan_budget_now_tag.md)
 - **BEAD:**
   [bob-cli-2o](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2o/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-2o.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2o.land.md)
-- **COMMITS:**
-  - [17fbc09](https://github.com/bobs-org/bob-plugins/commit/17fbc097fb8599464f16ac635ed1240817e61e55)
-    — feat(ledger): plan-budget closeout parity, render child, live re-render, notices
 
 # Plan: Finish and close epic bob-cli-2o (plan budget, `#now`, ledger guardrails)
 
