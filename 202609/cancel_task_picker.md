@@ -59,7 +59,7 @@ phases:
     a glossary follow-up.'
 proposed_by: bbugyi200.athena.0ug
 create_time: 2026-09-30 13:42:47
-status: wip
+status: done
 bead_id: bob-cli-2w
 ---
 
