@@ -1,14 +1,13 @@
 ---
 tier: tale
 size: medium
-title:
-  Fix the Task Link Picker that never opens in Bob Mac Capture (stdout pipe deadlock),
+title: Fix the Task Link Picker that never opens in Bob Mac Capture (stdout pipe deadlock),
   finish the missing picker tests, and close epic bob-cli-2v
-goal:
-  Typing `:` in Bob Mac Capture opens the Task Link Picker on a real, vault-sized task
-  list within a fraction of a second. `BobProcessClient` can no longer deadlock on large
-  `bob` output. The epic's missing panel tests and real-bob fixtures exist, a macOS 26
-  CI run is fully green, and epic bob-cli-2v is closed with its plan file marked done.
+goal: Typing `:` in Bob Mac Capture opens the Task Link Picker on a real, vault-sized
+  task list within a fraction of a second. `BobProcessClient` can no longer deadlock
+  on large `bob` output. The epic's missing panel tests and real-bob fixtures exist,
+  a macOS 26 CI run is fully green, and epic bob-cli-2v is closed with its plan file
+  marked done.
 bead: bob-cli-2v
 proposed_by: bbugyi200.apollo.3k
 status: done
@@ -16,17 +15,6 @@ status: done
 
 - **BEAD:**
   [bob-cli-2v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2v/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.3k](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3k.md)
-- **COMMITS:**
-  - [8b40e08](https://github.com/bobs-org/bob-mac-capture/commit/8b40e08b71023fa4f17303f77b64606204c116e7)
-    — fix(capture): drain bob stdout and stderr concurrently so large task_link
-    responses open the picker
-  - [9de8eb9](https://github.com/bobs-org/bob-mac-capture/commit/9de8eb91d7cead2853dbd1a539b5b81801835729)
-    — test(capture): assert the real fast-typed :dee partial presentation
-  - [e7cb242](https://github.com/bobs-org/bob-mac-capture/commit/e7cb242ce1b4a9d04f85c6e4491181c1c05f1e6c)
-    — test(capture): cover task-link opening, keys, and ID-less flow with real-bob
-    fixtures
 
 # Fix the `:` Task Link Picker deadlock and close epic bob-cli-2v
 
