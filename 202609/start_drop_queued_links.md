@@ -1,55 +1,55 @@
 ---
 tier: epic
-title: "Start lean: `=~<K>` drops queued Task Links as the next Pomodoro starts"
-goal: "`bob capture '=~2'` starts today's next Pomodoro without queued Task Link 2. It
-  also works as `=<X>~<K>` and `=<X>#name~<K>`, in blank-line batches, and in same-line
-  chains such as `=x =~2`. It is atomic and dry-runnable. Every start shows its numbered
-  lineup, so you can see which number to drop. `capture-parse` and `capture-complete`
+title: 'Start lean: `=~<K>` drops queued Task Links as the next Pomodoro starts'
+goal: '`bob capture ''=~2''` starts today''s next Pomodoro without queued Task Link
+  2. It also works as `=<X>~<K>` and `=<X>#name~<K>`, in blank-line batches, and in
+  same-line chains such as `=x =~2`. It is atomic and dry-runnable. Every start shows
+  its numbered lineup, so you can see which number to drop. `capture-parse` and `capture-complete`
   support the new token, and Bob Mac Capture shows a numbered, drop-aware start card.
 
-  "
+  '
 phases:
-  - id: start-lineup
-    title: "bob-cli: numbered start lineup and the drop engine"
-    depends_on: []
-    size: medium
-    description: "start-lineup: number every whole-item start's queued Task Links
-      (`tasks[].index`, `tasks[].now`, a numbered human index column). Build the pure
-      drop engine: validate numbers against the lineup, remove each dropped Task Link
-      subtree byte-exactly, and report `drop`/`dropped` plus duplicate warnings. Plumb a
-      `drop` list through both start planners, with no grammar yet.
+- id: start-lineup
+  title: 'bob-cli: numbered start lineup and the drop engine'
+  depends_on: []
+  size: medium
+  description: 'start-lineup: number every whole-item start''s queued Task Links (`tasks[].index`,
+    `tasks[].now`, a numbered human index column). Build the pure drop engine: validate
+    numbers against the lineup, remove each dropped Task Link subtree byte-exactly,
+    and report `drop`/`dropped` plus duplicate warnings. Plumb a `drop` list through
+    both start planners, with no grammar yet.
 
-      "
-  - id: start-drop-grammar
-    title: "bob-cli: `=[<X>][#name]~<K>` grammar, editor support, and docs"
-    depends_on:
-      - start-lineup
-    size: medium
-    description: "start-drop-grammar: lex the trailing `~<K>` drop list on whole-item
-      starts. Wire it through `bob capture` (execution, batches, chains) into the
-      start-lineup engine. Mirror it in `capture-parse` (the `pomodoro_start_drop` span,
-      the `pomodoro_start_task` need, incomplete states, precise diagnostics) and in
-      `capture-complete`. Document the gesture everywhere.
+    '
+- id: start-drop-grammar
+  title: 'bob-cli: `=[<X>][#name]~<K>` grammar, editor support, and docs'
+  depends_on:
+  - start-lineup
+  size: medium
+  description: 'start-drop-grammar: lex the trailing `~<K>` drop list on whole-item
+    starts. Wire it through `bob capture` (execution, batches, chains) into the start-lineup
+    engine. Mirror it in `capture-parse` (the `pomodoro_start_drop` span, the `pomodoro_start_task`
+    need, incomplete states, precise diagnostics) and in `capture-complete`. Document
+    the gesture everywhere.
 
-      "
-  - id: mac-start-drop
-    title: "Bob Mac Capture: numbered, drop-aware start card"
-    depends_on:
-      - start-drop-grammar
-    size: medium
-    description:
-      "mac-start-drop: decode the new start fields tolerantly. Render numbered queued
-      rows with NOW badges, dropped rows in place, a `Type ~2 to drop task 2` hint, and
-      a `Dropped 2` summary. Color the new span. Preview a dangling `~`/`,` as a dimmed
-      pending start with Start disabled. Add real-bob fixtures, tests, and README
-      updates, gated by green macOS CI."
+    '
+- id: mac-start-drop
+  title: 'Bob Mac Capture: numbered, drop-aware start card'
+  depends_on:
+  - start-drop-grammar
+  size: medium
+  description: 'mac-start-drop: decode the new start fields tolerantly. Render numbered
+    queued rows with NOW badges, dropped rows in place, a `Type ~2 to drop task 2`
+    hint, and a `Dropped 2` summary. Color the new span. Preview a dangling `~`/`,`
+    as a dimmed pending start with Start disabled. Add real-bob fixtures, tests, and
+    README updates, gated by green macOS CI.'
 proposed_by: bbugyi200.apollo.3f
 create_time: 2026-09-30 08:28:31
 status: wip
+bead_id: bob-cli-2s
 ---
 
-- **PROMPT:**
-  [prompts/202609/start_drop_queued_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/start_drop_queued_links.md)
+- **PROMPT:** [prompts/202609/start_drop_queued_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/start_drop_queued_links.md)
+- **BEAD:** [bob-cli-2s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2s/README.md)
 
 # Plan: Start lean — `=~<K>` drops queued Task Links as the next Pomodoro starts
 
