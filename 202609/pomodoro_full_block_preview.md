@@ -56,7 +56,7 @@ phases:
     CI.'
 proposed_by: bbugyi200.apollo.3c
 create_time: 2026-09-30 07:52:26
-status: wip
+status: done
 bead_id: bob-cli-2r
 ---
 
