@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Land epic bob-cli-2v - green the Task Link Picker's macOS CI, close the Mac gaps,
-  close the epic
-goal:
-  Bob Mac Capture's Task Link Picker passes a fully green macOS 26 SwiftPM CI run. The
-  mac_panel gaps against plan:202609/task_link_picker.md are fixed and covered by tests.
-  Two small bob-cli leftovers are cleaned up. Epic bob-cli-2v is closed and its plan
-  file is marked done.
+title: Land epic bob-cli-2v - green the Task Link Picker's macOS CI, close the Mac
+  gaps, close the epic
+goal: Bob Mac Capture's Task Link Picker passes a fully green macOS 26 SwiftPM CI
+  run. The mac_panel gaps against plan:202609/task_link_picker.md are fixed and covered
+  by tests. Two small bob-cli leftovers are cleaned up. Epic bob-cli-2v is closed
+  and its plan file is marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2v.land
 bead: bob-cli-2v
-create_time: 2026-09-30 14:47:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
