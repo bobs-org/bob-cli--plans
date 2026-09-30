@@ -1,73 +1,69 @@
 ---
 tier: epic
-title: "`:` Task Link Picker for bob capture and Bob Mac Capture"
-goal: "Typing `:` at the start of any capture item, including any item of a
-  blank-line-separated batch draft, opens a fast, beautiful fuzzy picker over every open
-  (not done or canceled) task in the vault's area and project notes. Accepting a task
-  replaces the `:` query with the canonical `@route:block-id` link. Tasks without a
-  block ID get one first, from a prefilled suggestion. The link can then be captured
-  as-is or started with `=`, so any task can be linked into today's Pomodoros in a few
-  keystrokes.
+title: '`:` Task Link Picker for bob capture and Bob Mac Capture'
+goal: 'Typing `:` at the start of any capture item, including any item of a blank-line-separated
+  batch draft, opens a fast, beautiful fuzzy picker over every open (not done or canceled)
+  task in the vault''s area and project notes. Accepting a task replaces the `:` query
+  with the canonical `@route:block-id` link. Tasks without a block ID get one first,
+  from a prefilled suggestion. The link can then be captured as-is or started with
+  `=`, so any task can be linked into today''s Pomodoros in a few keystrokes.
 
-  "
+  '
 phases:
-  - id: discovery
-    title: Vault-wide linkable-task discovery and fuzzy ranking
-    depends_on: []
-    size: medium
-    description:
-      "discovery: add the read-only `capture_link_tasks` scanner. It collects Ready,
-      Blocked, Next, and In Progress tasks from area, project, and inbox notes. It adds
-      groups, the canonical order, ledger annotation, block-ID suggestions, schedule
-      pull-forward flags, and a deterministic tiered fuzzy ranker, all with unit tests."
-  - id: grammar
-    title: "`:` picker-query grammar in capture, capture-parse, and completion fields"
-    depends_on: []
-    size: medium
-    description:
-      'grammar: add one claim predicate for single-token `:` items. Execution rejects
-      them with teaching errors T1 and T2. capture-parse reports `incomplete` with
-      `needs: ["task_link"]`. The completion field (`task_link` context) covers the
-      sigil. Also update help text and add a claim-equivalence test.'
-  - id: mac_core
-    title: CaptureCore task-link picker index, source, and decoding
-    depends_on: []
-    size: medium
-    description:
-      "mac_core: in bob-mac-capture's CaptureCore, decode the new candidate fields and
-      add the `taskLink` picker source and need. Add `TaskLinkPickerIndex` with grouped
-      and fuzzy-filtered presentations, rows keyed by route and ref, and a `:`-aware
-      FuzzyQuery. Cover it with unit tests and verify on macOS CI."
-  - id: complete
-    title: "`task_link` completion candidates, round-trip tests, and docs"
-    depends_on:
-      - discovery
-      - grammar
-    size: medium
-    description:
-      "complete: wire discovery into the `task_link` context of `bob capture-complete`,
-      with a pinned JSON schema, human rows, and help. Prove accept-then-capture round
-      trips (including capture-task-id for tasks without an ID), check real-vault
-      latency, and document the feature in docs/capture.md and README.md."
-  - id: mac_panel
-    title: Bob Mac Capture task-link picker panel, ID prompt, and keys
-    depends_on:
-      - complete
-      - mac_core
-    size: medium
-    description:
-      "mac_panel: route the `task_link` context into the picker card. Accept inserts
-      `@route:id`, Shift-Return inserts it with `=`, and Command-Return inserts it and
-      captures. Tasks without an ID open a prefilled Add block ID prompt that assigns
-      the ID and splices the link, and Escape returns to the picker. Also update the
-      views, README, real-bob fixtures, and tests, and get macOS CI green."
+- id: discovery
+  title: Vault-wide linkable-task discovery and fuzzy ranking
+  depends_on: []
+  size: medium
+  description: 'discovery: add the read-only `capture_link_tasks` scanner. It collects
+    Ready, Blocked, Next, and In Progress tasks from area, project, and inbox notes.
+    It adds groups, the canonical order, ledger annotation, block-ID suggestions,
+    schedule pull-forward flags, and a deterministic tiered fuzzy ranker, all with
+    unit tests.'
+- id: grammar
+  title: '`:` picker-query grammar in capture, capture-parse, and completion fields'
+  depends_on: []
+  size: medium
+  description: 'grammar: add one claim predicate for single-token `:` items. Execution
+    rejects them with teaching errors T1 and T2. capture-parse reports `incomplete`
+    with `needs: ["task_link"]`. The completion field (`task_link` context) covers
+    the sigil. Also update help text and add a claim-equivalence test.'
+- id: mac_core
+  title: CaptureCore task-link picker index, source, and decoding
+  depends_on: []
+  size: medium
+  description: 'mac_core: in bob-mac-capture''s CaptureCore, decode the new candidate
+    fields and add the `taskLink` picker source and need. Add `TaskLinkPickerIndex`
+    with grouped and fuzzy-filtered presentations, rows keyed by route and ref, and
+    a `:`-aware FuzzyQuery. Cover it with unit tests and verify on macOS CI.'
+- id: complete
+  title: '`task_link` completion candidates, round-trip tests, and docs'
+  depends_on:
+  - discovery
+  - grammar
+  size: medium
+  description: 'complete: wire discovery into the `task_link` context of `bob capture-complete`,
+    with a pinned JSON schema, human rows, and help. Prove accept-then-capture round
+    trips (including capture-task-id for tasks without an ID), check real-vault latency,
+    and document the feature in docs/capture.md and README.md.'
+- id: mac_panel
+  title: Bob Mac Capture task-link picker panel, ID prompt, and keys
+  depends_on:
+  - complete
+  - mac_core
+  size: medium
+  description: 'mac_panel: route the `task_link` context into the picker card. Accept
+    inserts `@route:id`, Shift-Return inserts it with `=`, and Command-Return inserts
+    it and captures. Tasks without an ID open a prefilled Add block ID prompt that
+    assigns the ID and splices the link, and Escape returns to the picker. Also update
+    the views, README, real-bob fixtures, and tests, and get macOS CI green.'
 proposed_by: bbugyi200.apollo.3j
 create_time: 2026-09-30 13:00:13
 status: wip
+bead_id: bob-cli-2v
 ---
 
-- **PROMPT:**
-  [prompts/202609/task_link_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_link_picker.md)
+- **PROMPT:** [prompts/202609/task_link_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_link_picker.md)
+- **BEAD:** [bob-cli-2v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2v/README.md)
 
 # Plan: `:` Task Link Picker
 
