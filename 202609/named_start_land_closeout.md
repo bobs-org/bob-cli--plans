@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Land bob-cli-2p — plan-budget preview on named-start completion rows, help/docs fixes,
-  and epic closeout
-goal:
-  Named-start completion rows that create a session (new and again) preview the plan
-  budget in bob and show the cap badge in Bob Mac Capture. The named-start help and docs
-  are accurate and covered by tests. Epic bob-cli-2p is closed and its plan is marked
-  done.
+title: Land bob-cli-2p — plan-budget preview on named-start completion rows, help/docs
+  fixes, and epic closeout
+goal: Named-start completion rows that create a session (new and again) preview the
+  plan budget in bob and show the cap badge in Bob Mac Capture. The named-start help
+  and docs are accurate and covered by tests. Epic bob-cli-2p is closed and its plan
+  is marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2p.land
 bead: bob-cli-2p
-create_time: 2026-09-29 20:56:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
