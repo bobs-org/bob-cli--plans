@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Launch a decisions memory web for the Bob ecosystem
-goal: 'bob-cli''s project memory gains a sase-style decisions web with three verified
-  records (the #now tag, the Mac thin client, derived task status), and its roster
-  is loaded into every generated agent instruction file.'
+goal:
+  "bob-cli's project memory gains a sase-style decisions web with three verified records
+  (the #now tag, the Mac thin client, derived task status), and its roster is loaded
+  into every generated agent instruction file."
 size: medium
 proposed_by: bbugyi200.apollo.3i
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.3i](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3i.md)
+- **COMMITS:**
+  - [f04377a](https://github.com/bobs-org/bob-cli/commit/f04377a01c73a0e30cfd2cbe96e4956e67ba00e6)
+    — feat(memory): launch decisions web with three accepted records
 
 # Plan: A `decisions` memory web for the Bob ecosystem, launched with three records
 
