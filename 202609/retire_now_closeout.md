@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: small
-title: 'Close out bob-cli-2y: remove the In Progress rollback leftovers, fix two stale
-  doc lines, and land the epic'
-goal: The dead hooks plumbing the sticky-lanes change orphaned is gone, docs/capture.md
-  and docs/plan.md describe what actually ships, and epic bob-cli-2y is closed with
-  its plan file marked done.
+title:
+  "Close out bob-cli-2y: remove the In Progress rollback leftovers, fix two stale doc
+  lines, and land the epic"
+goal:
+  The dead hooks plumbing the sticky-lanes change orphaned is gone, docs/capture.md and
+  docs/plan.md describe what actually ships, and epic bob-cli-2y is closed with its plan
+  file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-2y.land
 bead: bob-cli-2y
 status: done
@@ -15,6 +17,11 @@ status: done
   [202609/retire_now_sticky_lanes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/retire_now_sticky_lanes.md)
 - **BEAD:**
   [bob-cli-2y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2y/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-2y.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-2y.land.md)
+- **COMMITS:**
+  - [809664a](https://github.com/bobs-org/bob-cli--plans/commit/809664ae0c37b9f6246c6f610025c6087f84c16f)
+    — chore(plans): mark retire_now_sticky_lanes plan done (bob-cli-2y)
 
 # Close out epic `bob-cli-2y` (retire `#now`, sticky lanes, ledger-derived Today)
 
