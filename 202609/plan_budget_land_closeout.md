@@ -1,16 +1,14 @@
 ---
 tier: tale
-title: "Land bob-cli-2o: fix plan-budget and #now gaps, then close the epic"
-goal:
-  "The plan-budget and #now surfaces in bob-cli, bob-plugins, the vault dash and the Bob
-  Mac Capture README match the epic spec: a mistyped plan block never breaks other
-  commands, the Rust and JS engines agree, and docs are final. Epic bob-cli-2o is closed
-  and its plan file is marked done."
+title: 'Land bob-cli-2o: fix plan-budget and #now gaps, then close the epic'
+goal: 'The plan-budget and #now surfaces in bob-cli, bob-plugins, the vault dash and
+  the Bob Mac Capture README match the epic spec: a mistyped plan block never breaks
+  other commands, the Rust and JS engines agree, and docs are final. Epic bob-cli-2o
+  is closed and its plan file is marked done.'
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-2o.land
 bead: bob-cli-2o
-create_time: 2026-09-29 22:35:47
-status: wip
+status: done
 ---
 
 - **PARENT:**
