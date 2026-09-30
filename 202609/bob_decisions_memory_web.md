@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Launch a decisions memory web for the Bob ecosystem
-goal:
-  "bob-cli's project memory gains a sase-style decisions web with three verified records
-  (the #now tag, the Mac thin client, derived task status), and its roster is loaded
-  into every generated agent instruction file."
+goal: 'bob-cli''s project memory gains a sase-style decisions web with three verified
+  records (the #now tag, the Mac thin client, derived task status), and its roster
+  is loaded into every generated agent instruction file.'
 size: medium
 proposed_by: bbugyi200.apollo.3i
-create_time: 2026-09-30 12:38:38
-status: wip
+status: done
 ---
 
 # Plan: A `decisions` memory web for the Bob ecosystem, launched with three records
