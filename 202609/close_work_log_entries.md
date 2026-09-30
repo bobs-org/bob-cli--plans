@@ -1,63 +1,63 @@
 ---
 tier: epic
 title: Work Log entries on the =x Pomodoro close
-goal: "`bob capture '=x2,3 2 wired the lexer'` closes the running Pomodoro with tasks 2
-  and 3 in progress and first adds `wired the lexer` as a sub-bullet under Task Link 2,
-  so the unchanged close writes it to that task's Work Log. Bob Mac Capture highlights,
-  previews, and submits the same drafts, and every mistake is caught loudly before
-  anything is written.
+goal: '`bob capture ''=x2,3 2 wired the lexer''` closes the running Pomodoro with
+  tasks 2 and 3 in progress and first adds `wired the lexer` as a sub-bullet under
+  Task Link 2, so the unchanged close writes it to that task''s Work Log. Bob Mac
+  Capture highlights, previews, and submits the same drafts, and every mistake is
+  caught loudly before anything is written.
 
-  "
+  '
 phases:
-  - id: engine
-    title: Close planner inserts typed Work Log entries and reports them
-    depends_on: []
-    size: medium
-    description: "engine: add the `log` entries to the close spec and CloseSelection.
-      Validate each target, append the entry sub-bullets under their numbered links
-      before the unchanged close runs, and report `pomodoro_close.log` plus
-      `tasks[].typed_work_log` in JSON and human output. Grammar comes in the next
-      phase, so the tests build specs directly.
+- id: engine
+  title: Close planner inserts typed Work Log entries and reports them
+  depends_on: []
+  size: medium
+  description: 'engine: add the `log` entries to the close spec and CloseSelection.
+    Validate each target, append the entry sub-bullets under their numbered links
+    before the unchanged close runs, and report `pomodoro_close.log` plus `tasks[].typed_work_log`
+    in JSON and human output. Grammar comes in the next phase, so the tests build
+    specs directly.
 
-      "
-  - id: grammar
-    title: Lex, parse, chain, and document the =x Work Log tail
-    depends_on:
-      - engine
-    size: medium
-    description: 'grammar: add one shared tail lexer for `bob capture` and
-      `capture-parse` (index spans, the `pomodoro_close_log_text` editing state, precise
-      diagnostics, `\` escapes). Add chain splitting for leading operators and trailing
-      starts, help text, docs/capture.md, and CLI integration tests.
+    '
+- id: grammar
+  title: Lex, parse, chain, and document the =x Work Log tail
+  depends_on:
+  - engine
+  size: medium
+  description: 'grammar: add one shared tail lexer for `bob capture` and `capture-parse`
+    (index spans, the `pomodoro_close_log_text` editing state, precise diagnostics,
+    `\` escapes). Add chain splitting for leading operators and trailing starts, help
+    text, docs/capture.md, and CLI integration tests.
 
-      '
-  - id: mac
-    title: Bob Mac Capture highlights, previews, and submits close Work Log entries
-    depends_on:
-      - grammar
-    size: medium
-    description: "mac: decode `log` and `typed_work_log`, color index chips, and add a
-      pending state for a dangling index. Show typed entries on the close card, extend
-      the teaching hint, and add real-bob fixtures, tests, README updates, and green
-      macOS CI.
+    '
+- id: mac
+  title: Bob Mac Capture highlights, previews, and submits close Work Log entries
+  depends_on:
+  - grammar
+  size: medium
+  description: 'mac: decode `log` and `typed_work_log`, color index chips, and add
+    a pending state for a dangling index. Show typed entries on the close card, extend
+    the teaching hint, and add real-bob fixtures, tests, README updates, and green
+    macOS CI.
 
-      "
-  - id: rollout
-    title: Install bob, verify end to end with dry runs, and hand Bryan the Mac steps
-    depends_on:
-      - mac
-    size: small
-    description:
-      "rollout: reinstall bob on this host and (best effort) on the MacBook. Verify the
-      grammar against the live vault with dry runs only, never closing a real session,
-      and give Bryan the checklist for installing the Mac app."
+    '
+- id: rollout
+  title: Install bob, verify end to end with dry runs, and hand Bryan the Mac steps
+  depends_on:
+  - mac
+  size: small
+  description: 'rollout: reinstall bob on this host and (best effort) on the MacBook.
+    Verify the grammar against the live vault with dry runs only, never closing a
+    real session, and give Bryan the checklist for installing the Mac app.'
 proposed_by: bbugyi200.athena.0ui
 create_time: 2026-09-30 18:46:55
 status: wip
+bead_id: bob-cli-2z
 ---
 
-- **PROMPT:**
-  [prompts/202609/close_work_log_entries.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_work_log_entries.md)
+- **PROMPT:** [prompts/202609/close_work_log_entries.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_work_log_entries.md)
+- **BEAD:** [bob-cli-2z](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2z/README.md)
 
 # Plan: Work Log entries on the `=x` Pomodoro close
 
