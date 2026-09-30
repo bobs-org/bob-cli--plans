@@ -1,13 +1,14 @@
 ---
 tier: tale
 size: medium
-title: Fix the Task Link Picker that never opens in Bob Mac Capture (stdout pipe deadlock),
+title:
+  Fix the Task Link Picker that never opens in Bob Mac Capture (stdout pipe deadlock),
   finish the missing picker tests, and close epic bob-cli-2v
-goal: Typing `:` in Bob Mac Capture opens the Task Link Picker on a real, vault-sized
-  task list within a fraction of a second. `BobProcessClient` can no longer deadlock
-  on large `bob` output. The epic's missing panel tests and real-bob fixtures exist,
-  a macOS 26 CI run is fully green, and epic bob-cli-2v is closed with its plan file
-  marked done.
+goal:
+  Typing `:` in Bob Mac Capture opens the Task Link Picker on a real, vault-sized task
+  list within a fraction of a second. `BobProcessClient` can no longer deadlock on large
+  `bob` output. The epic's missing panel tests and real-bob fixtures exist, a macOS 26
+  CI run is fully green, and epic bob-cli-2v is closed with its plan file marked done.
 bead: bob-cli-2v
 proposed_by: bbugyi200.apollo.3k
 status: done
@@ -15,6 +16,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-2v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2v/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.3k](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3k.md)
+- **COMMITS:**
+  - [bd7bd5e](https://github.com/bobs-org/bob-cli--plans/commit/bd7bd5e3dbe1eb933f71b5fdfebcbfda60486c16)
+    — docs(plans): mark 202609/task_link_picker done for epic bob-cli-2v
 
 # Fix the `:` Task Link Picker deadlock and close epic bob-cli-2v
 
