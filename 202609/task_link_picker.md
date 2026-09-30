@@ -58,7 +58,7 @@ phases:
     the views, README, real-bob fixtures, and tests, and get macOS CI green.'
 proposed_by: bbugyi200.apollo.3j
 create_time: 2026-09-30 13:00:13
-status: wip
+status: done
 bead_id: bob-cli-2v
 ---
 
