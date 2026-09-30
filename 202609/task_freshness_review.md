@@ -1,120 +1,111 @@
 ---
 tier: epic
-title: "Task freshness: a rolling review lease for Ready tasks"
-goal: "Every visible, non-recurring Ready task can carry a human-confirmed [fresh::
+title: 'Task freshness: a rolling review lease for Ready tasks'
+goal: 'Every visible, non-recurring Ready task can carry a human-confirmed [fresh::
   YYYY-MM-DD]. A task that was never confirmed (every new capture) or was confirmed
   longer ago than its refresh interval is due for review. The interval is 7 days by
   default and can be overridden per task, per note, and in config. Bryan works through
   the due tasks each morning in their source notes with ]s / [s and Alt+F / Alt+Shift+F,
   and the status bar always shows how many tasks are due and how many he refreshed
-  today. Every supported keymap and bob capture edit stamps the tasks it rewrites; task
-  creation and automation never do.
+  today. Every supported keymap and bob capture edit stamps the tasks it rewrites;
+  task creation and automation never do.
 
-  "
+  '
 phases:
-  - id: fresh-core
-    title: Freshness contract, placement helper, evaluator, and config in bob-cli
-    depends_on: []
-    size: medium
-    description:
-      "fresh-core: docs/freshness.md (definition, placement and state rules, conformance
-      vectors), the Rust placement helper stamp_fresh / set_refresh, the pure evaluator,
-      and the freshness: config block, with a test per vector and parse-invariance tests
-      for both Rust task parsers."
-  - id: fresh-cli
-    title: bob freshness list and seed
-    depends_on:
-      - fresh-core
-    size: medium
-    description:
-      "fresh-cli: headless review queue (bob freshness list, human and JSON) and a
-      guarded, idempotent, staggered cutover seed (bob freshness seed) that aborts on
-      any parse change, plus help, README, and CLI tests."
-  - id: capture-stamps
-    title: bob capture stamps the existing tasks it rewrites
-    depends_on:
-      - fresh-core
-    size: medium
-    description:
-      "capture-stamps: plan_task_link and the =x in-progress close stamp fresh in the
-      same write; creation never stamps; hooks preserve the field; docs and tests
-      updated."
-  - id: seed
-    title: Seed the live vault and mute the fields
-    depends_on:
-      - fresh-cli
-    size: small
-    description:
-      "seed: install bob from master, dry-run then apply bob freshness seed to ~/bob,
-      verify that no task parses differently before and after, add the CSS rule that
-      mutes fresh and refresh, and vault-sync."
-  - id: ledger-freshness
-    title: bob-ledger-tools api v3 freshness namespace and status bar
-    depends_on:
-      - fresh-core
-      - seed
-    size: medium
-    description:
-      "ledger-freshness: the JavaScript evaluator and placement helper on the shared
-      vectors, api v3 (api.freshness with stampLine, state, isDue, tier, rank, queue,
-      counts), the freshness: config, and a status bar counter that clicks through to
-      the next due task."
-  - id: nav-review
-    title: Review keys in Bob Navigation Hotkeys
-    depends_on:
-      - ledger-freshness
-    size: medium
-    description:
-      "nav-review: vault-wide next/previous due-task jumps (Ctrl+Alt+J/K, and the
-      commands behind ]s / [s), Alt+F refresh with no other change, and Alt+Shift+F
-      refresh-and-advance, including counted and Task Link modes."
-  - id: nav-stamps
-    title: Bob Navigation Hotkeys gestures stamp freshness; Ctrl+Shift+P refresh row
-    depends_on:
-      - nav-review
-    size: medium
-    description:
-      "nav-stamps: Alt+N, the Ctrl+Shift+P property/lane rows, Ctrl+Shift+M moves, and
-      the dependency toggle stamp every open task they rewrite, and a new pinned refresh
-      row sets or clears [refresh:: N]."
-  - id: cycler-link-stamps
-    title: Status cycling and Task Link gestures stamp freshness
-    depends_on:
-      - ledger-freshness
-    size: medium
-    description:
-      "cycler-link-stamps: task-status-cycler (Alt+[ / Alt+] to an open status, leaving
-      Blocked, reopening) and block-id-prompt (Ctrl+Shift+Enter and ^^ when they rewrite
-      the task line) stamp through api.freshness.stampLine."
-  - id: vault-review
-    title: Review note, dash chip, vim maps, chores, and config
-    depends_on:
-      - nav-review
-      - seed
-    size: small
-    description:
-      "vault-review: freshness.md review note, a REVIEW dash chip, ]s / [s vimrc maps,
-      the Morning review and Weekly prune chore text, and the freshness: block in the
-      chezmoi-managed config.yml."
-  - id: rollout
-    title: Install, end-to-end check, glossary term, and Bryan's checklist
-    depends_on:
-      - capture-stamps
-      - nav-stamps
-      - cycler-link-stamps
-      - vault-review
-    size: small
-    description:
-      "rollout: install bob and confirm plugin deploys, run the headless end-to-end
-      checks, add the Task Freshness glossary strand, finalize the docs Surfaces table,
-      and hand Bryan his visual checklist and tuning steps."
+- id: fresh-core
+  title: Freshness contract, placement helper, evaluator, and config in bob-cli
+  depends_on: []
+  size: medium
+  description: 'fresh-core: docs/freshness.md (definition, placement and state rules,
+    conformance vectors), the Rust placement helper stamp_fresh / set_refresh, the
+    pure evaluator, and the freshness: config block, with a test per vector and parse-invariance
+    tests for both Rust task parsers.'
+- id: fresh-cli
+  title: bob freshness list and seed
+  depends_on:
+  - fresh-core
+  size: medium
+  description: 'fresh-cli: headless review queue (bob freshness list, human and JSON)
+    and a guarded, idempotent, staggered cutover seed (bob freshness seed) that aborts
+    on any parse change, plus help, README, and CLI tests.'
+- id: capture-stamps
+  title: bob capture stamps the existing tasks it rewrites
+  depends_on:
+  - fresh-core
+  size: medium
+  description: 'capture-stamps: plan_task_link and the =x in-progress close stamp
+    fresh in the same write; creation never stamps; hooks preserve the field; docs
+    and tests updated.'
+- id: seed
+  title: Seed the live vault and mute the fields
+  depends_on:
+  - fresh-cli
+  size: small
+  description: 'seed: install bob from master, dry-run then apply bob freshness seed
+    to ~/bob, verify that no task parses differently before and after, add the CSS
+    rule that mutes fresh and refresh, and vault-sync.'
+- id: ledger-freshness
+  title: bob-ledger-tools api v3 freshness namespace and status bar
+  depends_on:
+  - fresh-core
+  - seed
+  size: medium
+  description: 'ledger-freshness: the JavaScript evaluator and placement helper on
+    the shared vectors, api v3 (api.freshness with stampLine, state, isDue, tier,
+    rank, queue, counts), the freshness: config, and a status bar counter that clicks
+    through to the next due task.'
+- id: nav-review
+  title: Review keys in Bob Navigation Hotkeys
+  depends_on:
+  - ledger-freshness
+  size: medium
+  description: 'nav-review: vault-wide next/previous due-task jumps (Ctrl+Alt+J/K,
+    and the commands behind ]s / [s), Alt+F refresh with no other change, and Alt+Shift+F
+    refresh-and-advance, including counted and Task Link modes.'
+- id: nav-stamps
+  title: Bob Navigation Hotkeys gestures stamp freshness; Ctrl+Shift+P refresh row
+  depends_on:
+  - nav-review
+  size: medium
+  description: 'nav-stamps: Alt+N, the Ctrl+Shift+P property/lane rows, Ctrl+Shift+M
+    moves, and the dependency toggle stamp every open task they rewrite, and a new
+    pinned refresh row sets or clears [refresh:: N].'
+- id: cycler-link-stamps
+  title: Status cycling and Task Link gestures stamp freshness
+  depends_on:
+  - ledger-freshness
+  size: medium
+  description: 'cycler-link-stamps: task-status-cycler (Alt+[ / Alt+] to an open status,
+    leaving Blocked, reopening) and block-id-prompt (Ctrl+Shift+Enter and ^^ when
+    they rewrite the task line) stamp through api.freshness.stampLine.'
+- id: vault-review
+  title: Review note, dash chip, vim maps, chores, and config
+  depends_on:
+  - nav-review
+  - seed
+  size: small
+  description: 'vault-review: freshness.md review note, a REVIEW dash chip, ]s / [s
+    vimrc maps, the Morning review and Weekly prune chore text, and the freshness:
+    block in the chezmoi-managed config.yml.'
+- id: rollout
+  title: Install, end-to-end check, glossary term, and Bryan's checklist
+  depends_on:
+  - capture-stamps
+  - nav-stamps
+  - cycler-link-stamps
+  - vault-review
+  size: small
+  description: 'rollout: install bob and confirm plugin deploys, run the headless
+    end-to-end checks, add the Task Freshness glossary strand, finalize the docs Surfaces
+    table, and hand Bryan his visual checklist and tuning steps.'
 proposed_by: bbugyi200.apollo.research.v.linker.w0
 create_time: 2026-09-30 19:32:04
 status: wip
+bead_id: bob-cli-31
 ---
 
-- **PROMPT:**
-  [prompts/202609/task_freshness_review.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_freshness_review.md)
+- **PROMPT:** [prompts/202609/task_freshness_review.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/task_freshness_review.md)
+- **BEAD:** [bob-cli-31](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-31/README.md)
 
 # Plan: Task freshness — a rolling review lease for Ready tasks
 
