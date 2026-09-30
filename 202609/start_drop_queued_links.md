@@ -44,7 +44,7 @@ phases:
     README updates, gated by green macOS CI.'
 proposed_by: bbugyi200.apollo.3f
 create_time: 2026-09-30 08:28:31
-status: wip
+status: done
 bead_id: bob-cli-2s
 ---
 
