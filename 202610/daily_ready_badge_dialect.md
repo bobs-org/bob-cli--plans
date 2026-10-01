@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Daily READY badge matches its neighbors and raises a READY over-cap lint
-goal:
-  In daily notes, READY looks exactly like the PENDING and NEXT chips and shows a
-  ready_cap_exceeded lint line when over its cap. The dash READY chip keeps its two-tone
-  style, and the shared badge logic stays in one place.
+goal: In daily notes, READY looks exactly like the PENDING and NEXT chips and shows
+  a ready_cap_exceeded lint line when over its cap. The dash READY chip keeps its
+  two-tone style, and the shared badge logic stays in one place.
 size: small
 proposed_by: bbugyi200.apollo.3x.f0
-create_time: 2026-10-01 14:29:36
-status: wip
+status: done
 ---
 
 # Daily READY badge: match the daily chips and add a READY over-cap lint
