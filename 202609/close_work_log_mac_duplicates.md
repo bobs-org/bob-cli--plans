@@ -12,12 +12,6 @@ status: done
   [202609/close_work_log_entries.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/close_work_log_entries.md)
 - **BEAD:**
   [bob-cli-2z](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2z/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-2z.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-2z.land.md)
-- **COMMITS:**
-  - [0f5def1](https://github.com/bobs-org/bob-mac-capture/commit/0f5def1ab90e9279dd7075294c55c3569a28ef7a)
-    — fix(mac-capture): preserve duplicate Work Log rows in close card by occurrence
-    count
 
 # Preserve duplicate Work Log rows in the Mac close card, then land bob-cli-2z
 
