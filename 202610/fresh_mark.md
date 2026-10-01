@@ -1,54 +1,54 @@
 ---
 tier: epic
-title: "Freshness mark: a concise, live rendering of [fresh::] stamps"
-goal: "Every canonical `[fresh:: YYYY-MM-DD]` stamp renders in Obsidian as a small,
+title: 'Freshness mark: a concise, live rendering of [fresh::] stamps'
+goal: 'Every canonical `[fresh:: YYYY-MM-DD]` stamp renders in Obsidian as a small,
   theme-native freshness mark (`✓ today`, a draining lease ring with its age, `⟳ 9d`
   when due). The mark agrees exactly with the review queue wherever it shows a review
   state, and the stored syntax, both implementations, and every stamping path stay
   unchanged.
 
-  "
+  '
 phases:
-  - id: mark-core
-    title: Display contract and pure mark model
-    depends_on: []
-    size: medium
-    description: "mark-core: write the freshness-mark display contract and its M/N/C
-      conformance vectors into docs/freshness.md. Then implement the pure, exported
-      bob-ledger-tools helpers (source detection, resolution, model, consensus, tooltip,
-      DOM builder) and the mark styles, and test them against the vectors verbatim.
+- id: mark-core
+  title: Display contract and pure mark model
+  depends_on: []
+  size: medium
+  description: 'mark-core: write the freshness-mark display contract and its M/N/C
+    conformance vectors into docs/freshness.md. Then implement the pure, exported
+    bob-ledger-tools helpers (source detection, resolution, model, consensus, tooltip,
+    DOM builder) and the mark styles, and test them against the vectors verbatim.
 
-      "
-  - id: mark-surfaces
-    title: Live Preview decoration and rendered-view marks
-    depends_on:
-      - mark-core
-    size: medium
-    description: "mark-surfaces: wire the model into Obsidian. Add a Prec.highest
-      CodeMirror ViewPlugin that replaces canonical stamps in Live Preview, with
-      reveal-on-cursor and click-to-reveal. Add a markdown post-processor for reading
-      view and Tasks query results, a filesystem-free cached mark snapshot refreshed on
-      the status bar paths, a session toggle command, and the repair flag on leftover
-      Dataview pills, all with stubbed CodeMirror tests.
+    '
+- id: mark-surfaces
+  title: Live Preview decoration and rendered-view marks
+  depends_on:
+  - mark-core
+  size: medium
+  description: 'mark-surfaces: wire the model into Obsidian. Add a Prec.highest CodeMirror
+    ViewPlugin that replaces canonical stamps in Live Preview, with reveal-on-cursor
+    and click-to-reveal. Add a markdown post-processor for reading view and Tasks
+    query results, a filesystem-free cached mark snapshot refreshed on the status
+    bar paths, a session toggle command, and the repair flag on leftover Dataview
+    pills, all with stubbed CodeMirror tests.
 
-      "
-  - id: mark-rollout
-    title: Release, docs, deploy, and live-verify gate
-    depends_on:
-      - mark-surfaces
-    size: small
-    description:
-      "mark-rollout: bump bob-ledger-tools to 1.10.0, update both READMEs, the Surfaces
-      table, and the vault snippet comment, run the full plugin suite and manifest
-      validation, deploy with bob plugins sync, and record the live-verify checklist
-      Bryan runs in Obsidian."
+    '
+- id: mark-rollout
+  title: Release, docs, deploy, and live-verify gate
+  depends_on:
+  - mark-surfaces
+  size: small
+  description: 'mark-rollout: bump bob-ledger-tools to 1.10.0, update both READMEs,
+    the Surfaces table, and the vault snippet comment, run the full plugin suite and
+    manifest validation, deploy with bob plugins sync, and record the live-verify
+    checklist Bryan runs in Obsidian.'
 proposed_by: bbugyi200.apollo.3y
 create_time: 2026-10-01 11:19:38
 status: wip
+bead_id: bob-cli-3a
 ---
 
-- **PROMPT:**
-  [prompts/202610/fresh_mark.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/fresh_mark.md)
+- **PROMPT:** [prompts/202610/fresh_mark.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/fresh_mark.md)
+- **BEAD:** [bob-cli-3a](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3a/README.md)
 
 # Plan: The freshness mark
 
