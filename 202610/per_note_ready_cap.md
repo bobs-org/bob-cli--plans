@@ -1,73 +1,69 @@
 ---
 tier: epic
-title: "Per-note Ready cap: crowded notes in the CLI, dash, and notes"
-goal: "Every area/project note has a soft cap on its Ready lane
-  (plan.max_ready_per_note, default 5, per-note ready_cap override). Crowded notes are
-  named, counted, and easy to act on: in a new `bob ready` CLI view, a dash CROWDED chip
-  that opens crowded.md, and a live chip on each note's `## Tasks` heading. All surfaces
-  share one read-time contract, implemented in Rust and in bob-ledger-tools and pinned
-  by shared vectors. The keymap-notice work is fully specified and filed to start after
-  the freshness trial.
+title: 'Per-note Ready cap: crowded notes in the CLI, dash, and notes'
+goal: 'Every area/project note has a soft cap on its Ready lane (plan.max_ready_per_note,
+  default 5, per-note ready_cap override). Crowded notes are named, counted, and easy
+  to act on: in a new `bob ready` CLI view, a dash CROWDED chip that opens crowded.md,
+  and a live chip on each note''s `## Tasks` heading. All surfaces share one read-time
+  contract, implemented in Rust and in bob-ledger-tools and pinned by shared vectors.
+  The keymap-notice work is fully specified and filed to start after the freshness
+  trial.
 
-  "
+  '
 phases:
-  - id: core
-    title: Ready-lane-per-note contract, config, and Rust evaluator
-    depends_on: []
-    size: medium
-    description:
-      "core: add plan.max_ready_per_note and the ready_cap frontmatter. Extend the
-      area/project classifier to list forms. Build the Rust note_ready evaluator
-      (counts, states, make-up, lints) on the freshness snapshot. Document the contract
-      and vectors R1–R14 in docs/plan.md, and record the new decision memory."
-  - id: cli
-    title: bob ready command
-    depends_on:
-      - core
-    size: medium
-    description:
-      "cli: add the read-only top-level `bob ready [NOTE]`: a colored CROWDED/FULL/ROOM
-      bar view, a per-note worklist, schema-1 JSON, --check (exit 3), --cap preview, and
-      --all. Includes help, README, justfile smoke, and integration tests."
-  - id: ledger-api
-    title: bob-ledger-tools noteReady API
-    depends_on:
-      - core
-    size: medium
-    description:
-      "ledger-api: add api.noteReady v1 (snapshot, forNote, counted, inCrowdedNote,
-      groupLabel), built in one memoized O(tasks) pass with live invalidation. Also a
-      stat-cached loadPlanCaps, a shared getFileCache frontmatter reader (fixes
-      bob-cli-3e), and the R1–R14 JS vectors. Deploys the plugin."
-  - id: ledger-views
-    title: CROWDED chip, bob-ready-notes block, and Tasks heading chip
-    depends_on:
-      - ledger-api
-    size: medium
-    description:
-      "ledger-views: add the live renderCrowdedChip, the bob-ready-notes ranked-bar code
-      block, and the `## Tasks` heading chip (CM6 widget plus Reading view). Adds
-      theme-safe CSS, the bob-cli-3d anchor-class fix, and one consolidated live-refresh
-      fan-out. Deploys the plugin."
-  - id: rollout
-    title: Vault rollout, docs, and live verification
-    depends_on:
-      - cli
-      - ledger-views
-    size: medium
-    description:
-      "rollout: add the dash CROWDED chip and the new crowded.md page. Set ready_cap:
-      off on the three inboxes, add CROWDED to the morning ritual and `bob ready -a` to
-      the weekly prune, add a sase.md triage task, and log the trial. Updates the plan
-      and freshness docs, cross-checks the CLI against the plugin, and records
-      verification evidence."
+- id: core
+  title: Ready-lane-per-note contract, config, and Rust evaluator
+  depends_on: []
+  size: medium
+  description: 'core: add plan.max_ready_per_note and the ready_cap frontmatter. Extend
+    the area/project classifier to list forms. Build the Rust note_ready evaluator
+    (counts, states, make-up, lints) on the freshness snapshot. Document the contract
+    and vectors R1–R14 in docs/plan.md, and record the new decision memory.'
+- id: cli
+  title: bob ready command
+  depends_on:
+  - core
+  size: medium
+  description: 'cli: add the read-only top-level `bob ready [NOTE]`: a colored CROWDED/FULL/ROOM
+    bar view, a per-note worklist, schema-1 JSON, --check (exit 3), --cap preview,
+    and --all. Includes help, README, justfile smoke, and integration tests.'
+- id: ledger-api
+  title: bob-ledger-tools noteReady API
+  depends_on:
+  - core
+  size: medium
+  description: 'ledger-api: add api.noteReady v1 (snapshot, forNote, counted, inCrowdedNote,
+    groupLabel), built in one memoized O(tasks) pass with live invalidation. Also
+    a stat-cached loadPlanCaps, a shared getFileCache frontmatter reader (fixes bob-cli-3e),
+    and the R1–R14 JS vectors. Deploys the plugin.'
+- id: ledger-views
+  title: CROWDED chip, bob-ready-notes block, and Tasks heading chip
+  depends_on:
+  - ledger-api
+  size: medium
+  description: 'ledger-views: add the live renderCrowdedChip, the bob-ready-notes
+    ranked-bar code block, and the `## Tasks` heading chip (CM6 widget plus Reading
+    view). Adds theme-safe CSS, the bob-cli-3d anchor-class fix, and one consolidated
+    live-refresh fan-out. Deploys the plugin.'
+- id: rollout
+  title: Vault rollout, docs, and live verification
+  depends_on:
+  - cli
+  - ledger-views
+  size: medium
+  description: 'rollout: add the dash CROWDED chip and the new crowded.md page. Set
+    ready_cap: off on the three inboxes, add CROWDED to the morning ritual and `bob
+    ready -a` to the weekly prune, add a sase.md triage task, and log the trial. Updates
+    the plan and freshness docs, cross-checks the CLI against the plugin, and records
+    verification evidence.'
 proposed_by: bbugyi200.athena.0v5
 create_time: 2026-10-01 17:55:46
 status: wip
+bead_id: bob-cli-3f
 ---
 
-- **PROMPT:**
-  [prompts/202610/per_note_ready_cap.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/per_note_ready_cap.md)
+- **PROMPT:** [prompts/202610/per_note_ready_cap.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/per_note_ready_cap.md)
+- **BEAD:** [bob-cli-3f](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3f/README.md)
 
 # Per-note Ready cap: crowded notes in the CLI, dash, and notes
 
