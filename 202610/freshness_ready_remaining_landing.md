@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Finish freshness READY integration and vault rollout, then land bob-cli-3b
-goal: Repair the verified snapshot and daily READY integration defects, deliver the
-  NEW/ROTTEN vault cutover with the latest compatible plugins, account for live verification
-  honestly, and close epic bob-cli-3b in this coding turn.
+goal:
+  Repair the verified snapshot and daily READY integration defects, deliver the
+  NEW/ROTTEN vault cutover with the latest compatible plugins, account for live
+  verification honestly, and close epic bob-cli-3b in this coding turn.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3b.land
 bead: bob-cli-3b
@@ -14,6 +15,11 @@ status: done
   [202610/freshness_gated_ready.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/freshness_gated_ready.md)
 - **BEAD:**
   [bob-cli-3b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3b/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3b.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3b.land.md)
+- **COMMITS:**
+  - [8d9a229](https://github.com/bobs-org/bob-cli/commit/8d9a2292f2f2c82e6b3a8a953780e8b31daf8d84)
+    — docs(plan): correct daily bob-plan block to the four-chip contract
 
 # Finish the remaining work and land bob-cli-3b
 
