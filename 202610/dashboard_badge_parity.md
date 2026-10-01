@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Align dashboard badges with their task sections
-goal: Make PENDING, NEXT, and READY dashboard counts match their Tasks sections while
+goal:
+  Make PENDING, NEXT, and READY dashboard counts match their Tasks sections while
   preserving whole-lane budgets and freshness semantics.
 size: medium
 proposed_by: bbugyi200.apollo.40
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.40](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.40.md)
+- **COMMITS:**
+  - [d4197f7](https://github.com/bobs-org/bob-plugins/commit/d4197f7c0fe89186047cb7ec3bb5434a79cedd88)
+    — feat(ledger-tools): dashboard badge parity with Tasks sections (1.14.0)
 
 # Make dashboard badge counts agree with their task sections
 
