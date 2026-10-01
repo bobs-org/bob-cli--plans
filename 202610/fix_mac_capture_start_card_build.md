@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix the Bob Mac Capture build broken by the parked-caption start-card hunk
-goal: Bob Mac Capture compiles and installs again. The start card's invalid parked-caption
+goal:
+  Bob Mac Capture compiles and installs again. The start card's invalid parked-caption
   branch from commit 1056569 is removed, and macOS CI is green on bob-mac-capture
   master.
 size: small
 proposed_by: bbugyi200.apollo.3u
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.3u](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3u.md)
+- **COMMITS:**
+  - [f8d530d](https://github.com/bobs-org/bob-mac-capture/commit/f8d530d47c2b5f6263702574599fa6c76dccf048)
+    — fix(capture): drop the parked caption branch from the start card
 
 # Fix the Bob Mac Capture build broken by the parked-caption start-card hunk
 
