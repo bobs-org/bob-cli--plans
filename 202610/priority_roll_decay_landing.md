@@ -1,12 +1,13 @@
 ---
 tier: tale
 size: medium
-title: 'Finish and land epic bob-cli-34: one-undo inline roll writes, decay notice
-  copy, end-to-end Ctrl+Enter tests'
-goal: Every Ctrl+Enter recommended-roll write in the Ctrl+Shift+P picker is one undo
-  step, the decay notice text matches the epic plan, end-to-end tests lock in single
-  and counted Ctrl+Enter behavior, and epic bob-cli-34 is closed with its plan marked
-  done.
+title:
+  "Finish and land epic bob-cli-34: one-undo inline roll writes, decay notice copy,
+  end-to-end Ctrl+Enter tests"
+goal:
+  Every Ctrl+Enter recommended-roll write in the Ctrl+Shift+P picker is one undo step,
+  the decay notice text matches the epic plan, end-to-end tests lock in single and
+  counted Ctrl+Enter behavior, and epic bob-cli-34 is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-34.land
 bead: bob-cli-34
 status: done
@@ -16,6 +17,11 @@ status: done
   [202609/priority_roll_decay.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/priority_roll_decay.md)
 - **BEAD:**
   [bob-cli-34](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-34/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-34.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-34.land.md)
+- **COMMITS:**
+  - [9da50dd](https://github.com/bobs-org/bob-plugins/commit/9da50dd5ea9959823c9a7c288383f8992fbf6b2b)
+    — feat(nav-hotkeys): land priority roll decay epic bob-cli-34
 
 # Plan: finish and land epic bob-cli-34 (priority roll decay)
 
