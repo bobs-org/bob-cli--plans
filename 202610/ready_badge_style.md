@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Match the dashboard READY badge to its neighboring badges
-goal: The shared READY badge uses dashboard label and value styling and retains it
-  through live updates.
+goal:
+  The shared READY badge uses dashboard label and value styling and retains it through
+  live updates.
 size: small
 proposed_by: bbugyi200.apollo.3x
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.3x](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3x.md)
+- **COMMITS:**
+  - [58b6200](https://github.com/bobs-org/bob-plugins/commit/58b6200e5f3009a761c93df8a2313eebaf7b467c)
+    — feat(bob-ledger-tools): render READY badge with structured label/value spans
 
 # Match the dashboard READY badge to its neighboring badges
 
