@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish freshness READY integration and vault rollout, then land bob-cli-3b
-goal:
-  Repair the verified snapshot and daily READY integration defects, deliver the
-  NEW/ROTTEN vault cutover with the latest compatible plugins, account for live
-  verification honestly, and close epic bob-cli-3b in this coding turn.
+goal: Repair the verified snapshot and daily READY integration defects, deliver the
+  NEW/ROTTEN vault cutover with the latest compatible plugins, account for live verification
+  honestly, and close epic bob-cli-3b in this coding turn.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3b.land
 bead: bob-cli-3b
-create_time: 2026-10-01 14:49:06
-status: wip
+status: done
 ---
 
 - **PARENT:**
