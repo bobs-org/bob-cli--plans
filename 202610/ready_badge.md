@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: A shared READY badge for daily notes and the dashboard
-goal: Daily files and dash share a live READY backlog badge that turns red above a
+goal:
+  Daily files and dash share a live READY backlog badge that turns red above a
   configurable limit defaulting to 100.
 size: medium
 proposed_by: bbugyi200.athena.0uq
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0uq](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0uq.md)
+- **COMMITS:**
+  - [81c7208](https://github.com/bbugyi200/dotfiles/commit/81c7208bc2459fe4a7128e8b2ace18fde5c5b964)
+    — feat(config): add plan.max_ready soft limit for READY backlog
 
 # A shared READY badge for daily notes and the dashboard
 
