@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Match the dashboard READY badge to its neighboring badges
-goal:
-  The shared READY badge uses dashboard label and value styling and retains it through
-  live updates.
+goal: The shared READY badge uses dashboard label and value styling and retains it
+  through live updates.
 size: small
 proposed_by: bbugyi200.apollo.3x
-create_time: 2026-10-01 10:58:00
-status: wip
+status: done
 ---
 
 # Match the dashboard READY badge to its neighboring badges
