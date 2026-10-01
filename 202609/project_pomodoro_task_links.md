@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Expand Pomodoro links when promoting tasks to projects
-goal: Replace live current and future Pomodoro links to a promoted task with links
-  to every real task in its new project, preserving the no-task fallback and historical
+goal:
+  Replace live current and future Pomodoro links to a promoted task with links to every
+  real task in its new project, preserving the no-task fallback and historical
   references.
 size: medium
 proposed_by: bbugyi200.athena.0un
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0un](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0un.md)
+- **COMMITS:**
+  - [0b6c847](https://github.com/bobs-org/bob-plugins/commit/0b6c847044cf063077153dc3c86d1234cdca3f07)
+    — feat(nav): expand live Pomodoro links when promoting task to project
 
 # Expand live Pomodoro links when promoting a task to a project
 
