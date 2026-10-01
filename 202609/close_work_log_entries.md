@@ -52,7 +52,7 @@ phases:
     real session, and give Bryan the checklist for installing the Mac app.'
 proposed_by: bbugyi200.athena.0ui
 create_time: 2026-09-30 18:46:55
-status: wip
+status: done
 bead_id: bob-cli-2z
 ---
 
