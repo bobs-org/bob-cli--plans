@@ -1,51 +1,48 @@
 ---
 tier: epic
 title: Freshness-gated READY with NEW and ROTTEN review views
-goal:
-  The dashboard separates unconfirmed tasks into NEW, keeps confirmed and exempt tasks
-  in READY, and links expired or returned confirmations to rotten.md, with matching live
-  badges and one rotten vocabulary across human and machine views.
+goal: The dashboard separates unconfirmed tasks into NEW, keeps confirmed and exempt
+  tasks in READY, and links expired or returned confirmations to rotten.md, with matching
+  live badges and one rotten vocabulary across human and machine views.
 phases:
-  - id: ledger-bucket
-    title: Add cached freshness buckets and matching dashboard models
-    size: medium
-    depends_on: []
-    description:
-      "ledger-bucket: add the shared read-time bucket contract in bob-ledger-tools and
-      bob-cli, memoize classification and config reads, gate the shared READY count, and
-      implement availability-aware NEW/ROTTEN models and live refresh. Cover the
-      partition, fallback, calendar boundaries, and performance; preserve v1 JSON state
-      names until vocab-rotten. Follow the ledger-bucket section below."
-  - id: dash-gating
-    title: Roll out NEW and ROTTEN views, badges, docs, and decisions
-    size: medium
-    depends_on:
-      - ledger-bucket
-    description:
-      "dash-gating: add NEW between TODAY and PENDING, gate READY, rename freshness.md
-      to rotten.md with RETURNED and ROTTEN groups, migrate links and badges, and
-      publish the authorized decision/glossary updates. Deploy the plugin and vault
-      changes together and verify the actual rendered views. Follow the dash-gating
-      section below, including the two-week trial and rollout checks."
-  - id: vocab-rotten
-    title: Finish the rotten vocabulary and versioned contract migration
-    size: medium
-    depends_on:
-      - dash-gating
-    description:
-      "vocab-rotten: rename freshness-specific machine state/count/config names in Rust
-      and JavaScript, publish bob freshness JSON schema 2, and support the old budget
-      key with a deprecation lint for one release. Update every freshness consumer and
-      conformance test, preserve the bucket contract and unrelated stale terminology,
-      then release and verify the final integration. Follow the vocab-rotten section
-      below."
+- id: ledger-bucket
+  title: Add cached freshness buckets and matching dashboard models
+  size: medium
+  depends_on: []
+  description: 'ledger-bucket: add the shared read-time bucket contract in bob-ledger-tools
+    and bob-cli, memoize classification and config reads, gate the shared READY count,
+    and implement availability-aware NEW/ROTTEN models and live refresh. Cover the
+    partition, fallback, calendar boundaries, and performance; preserve v1 JSON state
+    names until vocab-rotten. Follow the ledger-bucket section below.'
+- id: dash-gating
+  title: Roll out NEW and ROTTEN views, badges, docs, and decisions
+  size: medium
+  depends_on:
+  - ledger-bucket
+  description: 'dash-gating: add NEW between TODAY and PENDING, gate READY, rename
+    freshness.md to rotten.md with RETURNED and ROTTEN groups, migrate links and badges,
+    and publish the authorized decision/glossary updates. Deploy the plugin and vault
+    changes together and verify the actual rendered views. Follow the dash-gating
+    section below, including the two-week trial and rollout checks.'
+- id: vocab-rotten
+  title: Finish the rotten vocabulary and versioned contract migration
+  size: medium
+  depends_on:
+  - dash-gating
+  description: 'vocab-rotten: rename freshness-specific machine state/count/config
+    names in Rust and JavaScript, publish bob freshness JSON schema 2, and support
+    the old budget key with a deprecation lint for one release. Update every freshness
+    consumer and conformance test, preserve the bucket contract and unrelated stale
+    terminology, then release and verify the final integration. Follow the vocab-rotten
+    section below.'
 proposed_by: bbugyi200.athena.0uy
 create_time: 2026-10-01 13:09:36
 status: wip
+bead_id: bob-cli-3b
 ---
 
-- **PROMPT:**
-  [prompts/202610/freshness_gated_ready.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/freshness_gated_ready.md)
+- **PROMPT:** [prompts/202610/freshness_gated_ready.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/freshness_gated_ready.md)
+- **BEAD:** [bob-cli-3b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3b/README.md)
 
 # Freshness-gated READY with NEW on the dashboard and ROTTEN review
 
