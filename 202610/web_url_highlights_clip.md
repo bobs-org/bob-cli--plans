@@ -1,67 +1,64 @@
 ---
 tier: epic
 title: bob highlights clip — web URL to Highlights reference PDF
-goal: "`bob highlights clip <URL>` turns a web article into a beautiful, readable,
+goal: '`bob highlights clip <URL>` turns a web article into a beautiful, readable,
   provenance-stamped PDF in the Highlights intake (`~/bob/xlib/blogs/` by default),
-  which the existing `bob highlights scan` turns into a `~/bob/ref/` note. The
-  Cloudflare-protected OpenAI Symphony post is captured on a host that can run headed
-  Chrome (athena), and every unsupported case fails loudly with a next step, never with
-  a silently wrong PDF.
+  which the existing `bob highlights scan` turns into a `~/bob/ref/` note. The Cloudflare-protected
+  OpenAI Symphony post is captured on a host that can run headed Chrome (athena),
+  and every unsupported case fails loudly with a next step, never with a silently
+  wrong PDF.
 
-  "
+  '
 phases:
-  - id: stamp-core
-    title: Shared target, marker, and install helpers
-    depends_on: []
-    size: small
-    description:
-      "stamp-core: factor create's target planning, collision guards, marker
-      composition, and stamp-plus-atomic-install into a shared module; add optional
-      provenance marker keys; make `captured` a standard synced field."
-  - id: adapter-capture
-    title: Web clip adapter capture and extraction
-    depends_on: []
-    size: medium
-    description:
-      "adapter-capture: pinned uv/Playwright adapter (protocol v1) that launches Chrome,
-      falls back to headed Xvfb on bot challenges, snapshots a stable DOM, runs vendored
-      Defuddle in isolation, layers metadata, checks fidelity, sanitizes, and localizes
-      images; placeholder renderer; offline self-test."
-  - id: reader-template
-    title: Reader print template and renderer
-    depends_on:
-      - adapter-capture
-    size: medium
-    description:
-      "reader-template: Bob-owned Chromium print template with bundled OFL fonts,
-      masthead, Highlights-safe typography, Pillow image normalization, offline headless
-      print with outline and n / N footers."
-  - id: clip-command
-    title: bob highlights clip Rust command
-    depends_on:
-      - stamp-core
-    size: medium
-    description:
-      "clip-command: clap subcommand, URL validation and slug rules, source_url dedupe,
-      adapter client with BOB_WEB_CLIP_ADAPTER seam, dry-run and success reports, doctor
-      rows, fake-adapter CLI tests, docs."
-  - id: live-verify
-    title: Live OpenAI capture verification and docs finish
-    depends_on:
-      - reader-template
-      - clip-command
-    size: medium
-    description:
-      "live-verify: build bob, capture the OpenAI Symphony URL on athena into a scratch
-      vault and then the real intake queue, inspect pages and text layer, prove scan
-      writes the ref note, confirm apollo fails closed, fix issues, record follow-ups."
+- id: stamp-core
+  title: Shared target, marker, and install helpers
+  depends_on: []
+  size: small
+  description: 'stamp-core: factor create''s target planning, collision guards, marker
+    composition, and stamp-plus-atomic-install into a shared module; add optional
+    provenance marker keys; make `captured` a standard synced field.'
+- id: adapter-capture
+  title: Web clip adapter capture and extraction
+  depends_on: []
+  size: medium
+  description: 'adapter-capture: pinned uv/Playwright adapter (protocol v1) that launches
+    Chrome, falls back to headed Xvfb on bot challenges, snapshots a stable DOM, runs
+    vendored Defuddle in isolation, layers metadata, checks fidelity, sanitizes, and
+    localizes images; placeholder renderer; offline self-test.'
+- id: reader-template
+  title: Reader print template and renderer
+  depends_on:
+  - adapter-capture
+  size: medium
+  description: 'reader-template: Bob-owned Chromium print template with bundled OFL
+    fonts, masthead, Highlights-safe typography, Pillow image normalization, offline
+    headless print with outline and n / N footers.'
+- id: clip-command
+  title: bob highlights clip Rust command
+  depends_on:
+  - stamp-core
+  size: medium
+  description: 'clip-command: clap subcommand, URL validation and slug rules, source_url
+    dedupe, adapter client with BOB_WEB_CLIP_ADAPTER seam, dry-run and success reports,
+    doctor rows, fake-adapter CLI tests, docs.'
+- id: live-verify
+  title: Live OpenAI capture verification and docs finish
+  depends_on:
+  - reader-template
+  - clip-command
+  size: medium
+  description: 'live-verify: build bob, capture the OpenAI Symphony URL on athena
+    into a scratch vault and then the real intake queue, inspect pages and text layer,
+    prove scan writes the ref note, confirm apollo fails closed, fix issues, record
+    follow-ups.'
 proposed_by: bbugyi200.apollo.3s
 create_time: 2026-10-01 02:07:04
 status: wip
+bead_id: bob-cli-35
 ---
 
-- **PROMPT:**
-  [prompts/202610/web_url_highlights_clip.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/web_url_highlights_clip.md)
+- **PROMPT:** [prompts/202610/web_url_highlights_clip.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/web_url_highlights_clip.md)
+- **BEAD:** [bob-cli-35](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-35/README.md)
 
 # Plan: `bob highlights clip` — web URL to Highlights reference PDF
 
