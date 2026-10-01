@@ -1,14 +1,13 @@
 ---
 tier: tale
 title: Rename the plan badge to TODAY and drop the count badge
-goal: "Obsidian daily notes and dash.md show one TODAY badge for the theme and link
+goal: 'Obsidian daily notes and dash.md show one TODAY badge for the theme and link
   budget, and no longer show the separate today-task count badge.
 
-  "
+  '
 size: small
 proposed_by: bbugyi200.apollo.3w
-create_time: 2026-10-01 10:26:41
-status: wip
+status: done
 ---
 
 # Rename the plan badge to TODAY and drop the count badge
