@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Restore dashboard lane caps and repair the NEXT Tasks query
-goal: Show PENDING/NEXT dashboard badges as section/cap again, make the NEXT Tasks
-  block parse in Obsidian Tasks 8.4.0, and stop bob-cli's headless Tasks engine from
-  accepting query syntax that the real plugin rejects.
+goal:
+  Show PENDING/NEXT dashboard badges as section/cap again, make the NEXT Tasks block
+  parse in Obsidian Tasks 8.4.0, and stop bob-cli's headless Tasks engine from accepting
+  query syntax that the real plugin rejects.
 size: medium
 proposed_by: bbugyi200.apollo.40.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.40.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.40.f0.md)
+- **COMMITS:**
+  - [5d24c98](https://github.com/bobs-org/bob-cli/commit/5d24c98857b1d16dd1d4161da72272f272ad92bc)
+    — fix(tasks): reject native-only status.symbol in user Tasks queries
 
 # Restore dashboard lane caps and repair the NEXT Tasks query
 
