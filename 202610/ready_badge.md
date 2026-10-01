@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: A shared READY badge for daily notes and the dashboard
-goal:
-  Daily files and dash share a live READY backlog badge that turns red above a
+goal: Daily files and dash share a live READY backlog badge that turns red above a
   configurable limit defaulting to 100.
 size: medium
 proposed_by: bbugyi200.athena.0uq
-create_time: 2026-10-01 02:26:57
-status: wip
+status: done
 ---
 
 # A shared READY badge for daily notes and the dashboard
