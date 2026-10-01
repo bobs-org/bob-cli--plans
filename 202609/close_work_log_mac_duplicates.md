@@ -12,6 +12,11 @@ status: done
   [202609/close_work_log_entries.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202609/close_work_log_entries.md)
 - **BEAD:**
   [bob-cli-2z](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-2z/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-2z.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-2z.land.md)
+- **COMMITS:**
+  - [d5435d2](https://github.com/bobs-org/bob-cli--plans/commit/d5435d262d42a79c2bf2b9751964baf841601b56)
+    — docs(plans): mark close_work_log_entries epic plan done for bob-cli-2z landing
 
 # Preserve duplicate Work Log rows in the Mac close card, then land bob-cli-2z
 
