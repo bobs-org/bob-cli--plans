@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Align dashboard badges with their task sections
-goal:
-  Make PENDING, NEXT, and READY dashboard counts match their Tasks sections while
+goal: Make PENDING, NEXT, and READY dashboard counts match their Tasks sections while
   preserving whole-lane budgets and freshness semantics.
 size: medium
 proposed_by: bbugyi200.apollo.40
-create_time: 2026-10-01 15:38:47
-status: wip
+status: done
 ---
 
 # Make dashboard badge counts agree with their task sections
