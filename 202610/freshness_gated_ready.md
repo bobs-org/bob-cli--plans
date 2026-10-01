@@ -37,7 +37,7 @@ phases:
     section below.'
 proposed_by: bbugyi200.athena.0uy
 create_time: 2026-10-01 13:09:36
-status: wip
+status: done
 bead_id: bob-cli-3b
 ---
 
