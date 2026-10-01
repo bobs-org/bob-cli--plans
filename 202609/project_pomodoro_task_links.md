@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Expand Pomodoro links when promoting tasks to projects
-goal:
-  Replace live current and future Pomodoro links to a promoted task with links to every
-  real task in its new project, preserving the no-task fallback and historical
+goal: Replace live current and future Pomodoro links to a promoted task with links
+  to every real task in its new project, preserving the no-task fallback and historical
   references.
 size: medium
 proposed_by: bbugyi200.athena.0un
-create_time: 2026-09-30 23:59:33
-status: wip
+status: done
 ---
 
 # Expand live Pomodoro links when promoting a task to a project
