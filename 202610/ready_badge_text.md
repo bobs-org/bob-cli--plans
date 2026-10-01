@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Restore the dashboard READY badge text
-goal:
-  The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
+goal: The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
   including when the backlog is over the limit.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-3a.land
@@ -14,11 +13,6 @@ status: done
   [202610/fresh_mark.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/fresh_mark.md)
 - **BEAD:**
   [bob-cli-3a](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3a/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-3a.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-3a.land.md)
-- **COMMITS:**
-  - [854bdbe](https://github.com/bobs-org/bob-plugins/commit/854bdbe0495325b88ebe66e2566c7183c8b7facb)
-    — fix(ledger-tools): restore READY badge text wiped by Obsidian text setter
 
 # Restore the dashboard READY badge text
 
