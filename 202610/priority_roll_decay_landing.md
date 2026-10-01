@@ -1,17 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish and land epic bob-cli-34: one-undo inline roll writes, decay notice copy,
-  end-to-end Ctrl+Enter tests"
-goal:
-  Every Ctrl+Enter recommended-roll write in the Ctrl+Shift+P picker is one undo step,
-  the decay notice text matches the epic plan, end-to-end tests lock in single and
-  counted Ctrl+Enter behavior, and epic bob-cli-34 is closed with its plan marked done.
+title: 'Finish and land epic bob-cli-34: one-undo inline roll writes, decay notice
+  copy, end-to-end Ctrl+Enter tests'
+goal: Every Ctrl+Enter recommended-roll write in the Ctrl+Shift+P picker is one undo
+  step, the decay notice text matches the epic plan, end-to-end tests lock in single
+  and counted Ctrl+Enter behavior, and epic bob-cli-34 is closed with its plan marked
+  done.
 proposed_by: bbugyi200.athena.bob-cli-34.land
 bead: bob-cli-34
-create_time: 2026-10-01 01:54:44
-status: wip
+status: done
 ---
 
 - **PARENT:**
