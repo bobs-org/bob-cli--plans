@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Park worked task links with =x* in Bob capture
-goal: Support composable =x* selections that record normal work without carrying selected
+goal:
+  Support composable =x* selections that record normal work without carrying selected
   links into the next Pomodoro, with accurate CLI and Mac previews.
 size: medium
 proposed_by: bbugyi200.athena.0un.w0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0un.w0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0un.w0.md)
+- **COMMITS:**
+  - [3dd833f](https://github.com/bobs-org/bob-cli/commit/3dd833fd6a2744e7529b74f1a5cf008fab53434a)
+    — feat(capture): park worked pomodoro links with star selection
 
 # Park worked tasks when closing a Pomodoro
 
