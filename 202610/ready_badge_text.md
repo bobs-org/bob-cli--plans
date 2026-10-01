@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Restore the dashboard READY badge text
-goal: The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
+goal:
+  The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
   including when the backlog is over the limit.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-3a.land
@@ -13,6 +14,11 @@ status: done
   [202610/fresh_mark.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/fresh_mark.md)
 - **BEAD:**
   [bob-cli-3a](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3a/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-3a.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-3a.land.md)
+- **COMMITS:**
+  - [36d4fd1](https://github.com/bobs-org/bob-cli--plans/commit/36d4fd15b6bc9e7686cf8a595a93e6984ca50c08)
+    — chore(plans): mark freshness-mark epic plan done
 
 # Restore the dashboard READY badge text
 
