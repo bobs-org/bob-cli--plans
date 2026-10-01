@@ -1,13 +1,21 @@
 ---
 tier: tale
 title: Daily READY badge matches its neighbors and raises a READY over-cap lint
-goal: In daily notes, READY looks exactly like the PENDING and NEXT chips and shows
-  a ready_cap_exceeded lint line when over its cap. The dash READY chip keeps its
-  two-tone style, and the shared badge logic stays in one place.
+goal:
+  In daily notes, READY looks exactly like the PENDING and NEXT chips and shows a
+  ready_cap_exceeded lint line when over its cap. The dash READY chip keeps its two-tone
+  style, and the shared badge logic stays in one place.
 size: small
 proposed_by: bbugyi200.apollo.3x.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.3x.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.3x.f0.md)
+- **COMMITS:**
+  - [beb634f](https://github.com/bobs-org/bob-plugins/commit/beb634f2b0b96a3f0afcba2bfea2f2c25940195c)
+    — feat(ledger-tools): daily single-tone READY badge dialect with ready_cap_exceeded
+    lint
 
 # Daily READY badge: match the daily chips and add a READY over-cap lint
 
