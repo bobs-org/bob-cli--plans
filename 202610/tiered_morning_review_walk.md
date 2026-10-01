@@ -1,57 +1,54 @@
 ---
 tier: epic
 title: Tiered morning review walk with daily lane review
-goal: "`]s` / `[s` and Ctrl+Alt+J/K walk one shared review queue in explicit tiers, NEW
-  → PENDING → NEXT → RETURNED → ROTTEN. Pending and Next tasks come due for a daily
-  review set by new `pending_interval` / `next_interval` keys (default 1 day). ROTTEN
-  sorts by interval, then lateness, then newest `created`. The walk tells Bryan by tier
-  where he is, when the commitments are done, and that ROTTEN is stoppable upkeep. No
-  stamps are stripped, and the seed is never run again.
+goal: '`]s` / `[s` and Ctrl+Alt+J/K walk one shared review queue in explicit tiers,
+  NEW → PENDING → NEXT → RETURNED → ROTTEN. Pending and Next tasks come due for a
+  daily review set by new `pending_interval` / `next_interval` keys (default 1 day).
+  ROTTEN sorts by interval, then lateness, then newest `created`. The walk tells Bryan
+  by tier where he is, when the commitments are done, and that ROTTEN is stoppable
+  upkeep. No stamps are stripped, and the seed is never run again.
 
-  "
+  '
 phases:
-  - id: rust-walk
-    title: Walk contract and Rust evaluator
-    depends_on: []
-    size: medium
-    description:
-      "rust-walk: write the tier/lane-interval contract and conformance vectors into
-      docs/freshness.md, add the lane interval keys, tiered queue, lane-aware intervals,
-      upkeep budget, and schema-3 bob freshness list human/JSON output in Rust."
-  - id: ledger-walk
-    title: Ledger-tools tiered queue, status bar, and lane marks
-    depends_on:
-      - rust-walk
-    size: medium
-    description:
-      "ledger-walk: mirror the tiered evaluator in bob-ledger-tools under freshness
-      namespace v4, update the status bar and review meters, and give due lane tasks the
-      due freshness mark."
-  - id: nav-walk
-    title: Navigation tier notices, walk anchor, and lane-aware refresh row
-    depends_on:
-      - ledger-walk
-    size: medium
-    description:
-      "nav-walk: give bob-navigation-hotkeys tier-aware jump notices, a commitments-done
-      boundary notice, a robust walk anchor for advancing after stamps and releases, and
-      a refresh row that reads the lane interval from the api."
-  - id: rollout
-    title: Config, vault ritual, memory, and live rollout
-    depends_on:
-      - nav-walk
-    size: medium
-    description:
-      "rollout: add the config block, rewrite the morning ritual in docs and vault,
-      record the decision and glossary memory, install and deploy, verify live,
-      read-only census of stamps, and close ^wip-next-refresh."
+- id: rust-walk
+  title: Walk contract and Rust evaluator
+  depends_on: []
+  size: medium
+  description: 'rust-walk: write the tier/lane-interval contract and conformance vectors
+    into docs/freshness.md, add the lane interval keys, tiered queue, lane-aware intervals,
+    upkeep budget, and schema-3 bob freshness list human/JSON output in Rust.'
+- id: ledger-walk
+  title: Ledger-tools tiered queue, status bar, and lane marks
+  depends_on:
+  - rust-walk
+  size: medium
+  description: 'ledger-walk: mirror the tiered evaluator in bob-ledger-tools under
+    freshness namespace v4, update the status bar and review meters, and give due
+    lane tasks the due freshness mark.'
+- id: nav-walk
+  title: Navigation tier notices, walk anchor, and lane-aware refresh row
+  depends_on:
+  - ledger-walk
+  size: medium
+  description: 'nav-walk: give bob-navigation-hotkeys tier-aware jump notices, a commitments-done
+    boundary notice, a robust walk anchor for advancing after stamps and releases,
+    and a refresh row that reads the lane interval from the api.'
+- id: rollout
+  title: Config, vault ritual, memory, and live rollout
+  depends_on:
+  - nav-walk
+  size: medium
+  description: 'rollout: add the config block, rewrite the morning ritual in docs
+    and vault, record the decision and glossary memory, install and deploy, verify
+    live, read-only census of stamps, and close ^wip-next-refresh.'
 proposed_by: bbugyi200.athena.0v7
 create_time: 2026-10-01 18:28:56
 status: wip
+bead_id: bob-cli-3g
 ---
 
-- **PROMPT:**
-  [prompts/202610/tiered_morning_review_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/tiered_morning_review_walk.md)
+- **PROMPT:** [prompts/202610/tiered_morning_review_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/tiered_morning_review_walk.md)
+- **BEAD:** [bob-cli-3g](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3g/README.md)
 
 # Plan: Tiered morning review walk with daily lane review
 
