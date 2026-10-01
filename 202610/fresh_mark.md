@@ -43,7 +43,7 @@ phases:
     checklist Bryan runs in Obsidian.'
 proposed_by: bbugyi200.apollo.3y
 create_time: 2026-10-01 11:19:38
-status: wip
+status: done
 bead_id: bob-cli-3a
 ---
 
