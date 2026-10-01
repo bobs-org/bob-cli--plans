@@ -1,99 +1,102 @@
 ---
 tier: epic
 title: Work Log entries as bullets under the =x close
-goal: "Work Log entries become child bullets of the `=x` close instead of an inline
+goal: 'Work Log entries become child bullets of the `=x` close instead of an inline
   tail:
 
   `=x2,3` followed by `- 2 foo bar baz` on the next line closes the running Pomodoro
 
   with tasks 2 and 3 in progress and logs `foo bar baz` to task 2. A two-space
 
-  `  - …` bullet under an entry is a detail that nests under that entry in the task's
+  `  - …` bullet under an entry is a detail that nests under that entry in the task''s
 
-  Work Log. The inline tail (`=x2,3 2 foo bar baz`) is retired; it now fails with a
+  Work Log. The inline tail (`=x2,3 2 foo bar baz`) is retired; it now fails with
+  a
 
   message that shows the bullet to write. Bob Mac Capture highlights, previews, and
 
   submits the new drafts, and the close card shows each entry with its details.
 
-  "
+  '
 phases:
-  - id: engine
-    title: Close planner writes Work Log details under typed entries and reports them
-    depends_on: []
-    size: small
-    description: 'engine: give each typed close Work Log entry a `details` list. The
-      planner
+- id: engine
+  title: Close planner writes Work Log details under typed entries and reports them
+  depends_on: []
+  size: small
+  description: 'engine: give each typed close Work Log entry a `details` list. The
+    planner
 
-      inserts the details one level under the entry line, so the unchanged close
+    inserts the details one level under the entry line, so the unchanged close
 
-      nests them under the dated entry in the task''s Work Log. Report the details in
+    nests them under the dated entry in the task''s Work Log. Report the details in
 
-      `pomodoro_close.log[].details` and `tasks[].typed_work_log_details`, and print
+    `pomodoro_close.log[].details` and `tasks[].typed_work_log_details`, and print
 
-      them in human output. Out-of-range errors stop suggesting the retired `\N`
+    them in human output. Out-of-range errors stop suggesting the retired `\N`
 
-      escape.
+    escape.
 
-      '
-  - id: grammar
-    title: Parse Work Log bullets under =x, retire the inline tail, and document it
-    depends_on:
-      - engine
-    size: medium
-    description: "grammar: replace the inline tail lexer with one shared Work Log bullet
-      lexer
+    '
+- id: grammar
+  title: Parse Work Log bullets under =x, retire the inline tail, and document it
+  depends_on:
+  - engine
+  size: medium
+  description: 'grammar: replace the inline tail lexer with one shared Work Log bullet
+    lexer
 
-      used by `bob capture` and `capture-parse`. It produces index spans, the
+    used by `bob capture` and `capture-parse`. It produces index spans, the
 
-      dangling-bullet editing state, and diagnostics. Retire the tail with a message
+    dangling-bullet editing state, and diagnostics. Retire the tail with a message
 
-      that shows the bullet to write. Revert the tail-only chain splitting, and attach
+    that shows the bullet to write. Revert the tail-only chain splitting, and attach
 
-      a chain line's bullets to its `=x`. Silence marker and block-link completion on
+    a chain line''s bullets to its `=x`. Silence marker and block-link completion
+    on
 
-      bullet lines, then update help, docs/capture.md, and tests.
+    bullet lines, then update help, docs/capture.md, and tests.
 
-      "
-  - id: mac
-    title: Bob Mac Capture previews Work Log bullets and their details
-    depends_on:
-      - engine
-      - grammar
-    size: medium
-    description: "mac: decode `details` and `typed_work_log_details`, and show each
-      typed entry's
+    '
+- id: mac
+  title: Bob Mac Capture previews Work Log bullets and their details
+  depends_on:
+  - engine
+  - grammar
+  size: medium
+  description: 'mac: decode `details` and `typed_work_log_details`, and show each
+    typed entry''s
 
-      details under it on the close card. Reword the pending notice (the escape is
+    details under it on the close card. Reword the pending notice (the escape is
 
-      gone), and teach the bullet form in the hint (`=x ⌃J 1 wrote the tests`).
+    gone), and teach the bullet form in the hint (`=x ⌃J 1 wrote the tests`).
 
-      Regenerate the real-bob fixtures for bullet drafts, update tests and the README,
+    Regenerate the real-bob fixtures for bullet drafts, update tests and the README,
 
-      and get macOS CI green.
+    and get macOS CI green.
 
-      "
-  - id: rollout
-    title: Install bob, verify bullet drafts with dry runs, and hand Bryan the Mac steps
-    depends_on:
-      - grammar
-      - mac
-    size: small
-    description: "rollout: reinstall bob on this host and, best effort, on the MacBook.
-      Verify
+    '
+- id: rollout
+  title: Install bob, verify bullet drafts with dry runs, and hand Bryan the Mac steps
+  depends_on:
+  - grammar
+  - mac
+  size: small
+  description: 'rollout: reinstall bob on this host and, best effort, on the MacBook.
+    Verify
 
-      bullet drafts against the live vault with `capture-parse` and `--dry-run` only,
+    bullet drafts against the live vault with `capture-parse` and `--dry-run` only,
 
-      never closing a real session. Give Bryan the checklist for installing the Mac
+    never closing a real session. Give Bryan the checklist for installing the Mac
 
-      app."
+    app.'
 proposed_by: bbugyi200.athena.0uj
 create_time: 2026-09-30 21:31:27
 status: wip
+bead_id: bob-cli-32
 ---
 
-- **PROMPT:**
-  [prompts/202609/close_work_log_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_work_log_bullets.md)
+- **PROMPT:** [prompts/202609/close_work_log_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/close_work_log_bullets.md)
+- **BEAD:** [bob-cli-32](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-32/README.md)
 
 # Plan: Work Log entries as bullets under the `=x` close
 
