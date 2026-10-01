@@ -1,79 +1,77 @@
 ---
 tier: epic
-title: "Priority roll decay: Ctrl+Enter takes the recommended roll"
-goal: "In the Ctrl+Shift+P picker, Ctrl+Enter on `scheduled` takes the recommended roll
-  in one keypress, and the date it will write is shown on the `scheduled` row. The roll
-  follows a configurable decay ladder read from the task's Schedule Log. A level is
-  re-rolled `rolls` times (default 1), the next recommended roll moves the task one
-  level down (P2 → P3), and past the last level it cancels the task. This works for
-  single tasks, `^prj` tasks, counted sessions and Task Link sessions, and every write
-  is a guarded, logged, one-undo edit.
+title: 'Priority roll decay: Ctrl+Enter takes the recommended roll'
+goal: 'In the Ctrl+Shift+P picker, Ctrl+Enter on `scheduled` takes the recommended
+  roll in one keypress, and the date it will write is shown on the `scheduled` row.
+  The roll follows a configurable decay ladder read from the task''s Schedule Log.
+  A level is re-rolled `rolls` times (default 1), the next recommended roll moves
+  the task one level down (P2 → P3), and past the last level it cancels the task.
+  This works for single tasks, `^prj` tasks, counted sessions and Task Link sessions,
+  and every write is a guarded, logged, one-undo edit.
 
-  "
+  '
 phases:
-  - id: decay-core
-    title:
-      "Navigation Hotkeys: decay config, Schedule Log roll streak, and pure
-      recommendation planner"
-    depends_on: []
-    size: medium
-    description: "decay-core: add the `decay`/`rolls` config grammar, the roll-streak
-      reader with its entry classification, the date roll that avoids the current date,
-      the recommendation planner, the decay and cancel reason formatters, and the
-      preview model. Includes a new conformance test file. No UI changes.
+- id: decay-core
+  title: 'Navigation Hotkeys: decay config, Schedule Log roll streak, and pure recommendation
+    planner'
+  depends_on: []
+  size: medium
+  description: 'decay-core: add the `decay`/`rolls` config grammar, the roll-streak
+    reader with its entry classification, the date roll that avoids the current date,
+    the recommendation planner, the decay and cancel reason formatters, and the preview
+    model. Includes a new conformance test file. No UI changes.
 
-      "
-  - id: picker-single
-    title: "Navigation Hotkeys: Ctrl+Enter recommended roll for single and ^prj tasks"
-    depends_on:
-      - decay-core
-    size: medium
-    description: "picker-single: add the roll preview line on the `scheduled` row,
-      Ctrl+Enter in both picker stages, and Ctrl+R re-roll in stage one. The value
-      stage's pinned row shares the previewed date. Writes are guarded and re-verified
-      for roll, decay and cancel, with decay-aware notice cards, CSS, a manifest bump
-      and a vault deploy.
+    '
+- id: picker-single
+  title: 'Navigation Hotkeys: Ctrl+Enter recommended roll for single and ^prj tasks'
+  depends_on:
+  - decay-core
+  size: medium
+  description: 'picker-single: add the roll preview line on the `scheduled` row, Ctrl+Enter
+    in both picker stages, and Ctrl+R re-roll in stage one. The value stage''s pinned
+    row shares the previewed date. Writes are guarded and re-verified for roll, decay
+    and cancel, with decay-aware notice cards, CSS, a manifest bump and a vault deploy.
 
-      "
-  - id: picker-counted
-    title: "Navigation Hotkeys: recommended roll for counted N<Ctrl+Shift+P> sessions"
-    depends_on:
-      - picker-single
-    size: medium
-    description: "picker-counted: plan a recommendation for each target, show a batch
-      preview line, and compose the cancel and set-priority plans into one undoable
-      editor transaction. Also adds the priorityValueByLine and reasonByLine planner
-      extensions, the batch notice card, and a manifest bump.
+    '
+- id: picker-counted
+  title: 'Navigation Hotkeys: recommended roll for counted N<Ctrl+Shift+P> sessions'
+  depends_on:
+  - picker-single
+  size: medium
+  description: 'picker-counted: plan a recommendation for each target, show a batch
+    preview line, and compose the cancel and set-priority plans into one undoable
+    editor transaction. Also adds the priorityValueByLine and reasonByLine planner
+    extensions, the batch notice card, and a manifest bump.
 
-      "
-  - id: picker-links
-    title: "Navigation Hotkeys: recommended roll for Task Link sessions"
-    depends_on:
-      - picker-counted
-    size: medium
-    description: "picker-links: read each linked task's streak from its own note and
-      reuse the composed batch planner for each note group. Commits go through
-      commitLinkPickerNoteWrites with one shared Pomodoro prune and dependent recovery
-      for cancelled tasks. Also bumps the manifest.
+    '
+- id: picker-links
+  title: 'Navigation Hotkeys: recommended roll for Task Link sessions'
+  depends_on:
+  - picker-counted
+  size: medium
+  description: 'picker-links: read each linked task''s streak from its own note and
+    reuse the composed batch planner for each note group. Commits go through commitLinkPickerNoteWrites
+    with one shared Pomodoro prune and dependent recovery for cancelled tasks. Also
+    bumps the manifest.
 
-      "
-  - id: decay-docs
-    title: bob-cli docs, config guard test, and chezmoi config for roll decay
-    depends_on:
-      - picker-links
-    size: small
-    description:
-      "decay-docs: add the bob-cli docs/projects.md section, the reason-table rows, and
-      notes in randomize.md and freshness.md. Also adds a Rust test that keeps
-      `decay`/`rolls` keys parseable, and a commented `decay` block in the
-      chezmoi-managed config."
+    '
+- id: decay-docs
+  title: bob-cli docs, config guard test, and chezmoi config for roll decay
+  depends_on:
+  - picker-links
+  size: small
+  description: 'decay-docs: add the bob-cli docs/projects.md section, the reason-table
+    rows, and notes in randomize.md and freshness.md. Also adds a Rust test that keeps
+    `decay`/`rolls` keys parseable, and a commented `decay` block in the chezmoi-managed
+    config.'
 proposed_by: bbugyi200.athena.0um
 create_time: 2026-09-30 23:56:47
 status: wip
+bead_id: bob-cli-34
 ---
 
-- **PROMPT:**
-  [prompts/202609/priority_roll_decay.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/priority_roll_decay.md)
+- **PROMPT:** [prompts/202609/priority_roll_decay.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202609/priority_roll_decay.md)
+- **BEAD:** [bob-cli-34](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-34/README.md)
 
 # Plan: Priority roll decay — Ctrl+Enter takes the recommended roll
 
