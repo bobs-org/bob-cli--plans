@@ -5,8 +5,7 @@ goal: Close bob-cli-2z with every typed and hand-written Work Log entry visible.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-2z.land
 bead: bob-cli-2z
-create_time: 2026-09-30 20:38:11
-status: wip
+status: done
 ---
 
 - **PARENT:**
