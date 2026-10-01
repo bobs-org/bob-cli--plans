@@ -100,7 +100,7 @@ phases:
     table, and hand Bryan his visual checklist and tuning steps.'
 proposed_by: bbugyi200.apollo.research.v.linker.w0
 create_time: 2026-09-30 19:32:04
-status: wip
+status: done
 bead_id: bob-cli-31
 ---
 
