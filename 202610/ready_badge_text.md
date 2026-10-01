@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Restore the dashboard READY badge text
-goal:
-  The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
+goal: The READY chip between NEXT and BLOCKED on dash.md shows its label and count,
   including when the backlog is over the limit.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-3a.land
 bead: bob-cli-3a
-create_time: 2026-10-01 12:28:11
-status: wip
+status: done
 ---
 
 - **PARENT:**
