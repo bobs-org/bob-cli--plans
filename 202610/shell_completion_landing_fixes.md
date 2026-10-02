@@ -1,43 +1,41 @@
 ---
 tier: epic
-title:
-  Finish shell completion — correct results, bash insertion, and an honest lifecycle
-goal: "Every shell-completion reply means what bob itself would do with it, bash inserts
-  exactly what bob returned, and `bob completion` / `just install` probe quickly from a
-  real terminal and report registration, exit codes, and closers honestly — so epic
+title: Finish shell completion — correct results, bash insertion, and an honest lifecycle
+goal: 'Every shell-completion reply means what bob itself would do with it, bash inserts
+  exactly what bob returned, and `bob completion` / `just install` probe quickly from
+  a real terminal and report registration, exit codes, and closers honestly — so epic
   bob-cli-3j can land.
 
-  "
+  '
 parent_bead: bob-cli-3j
 phases:
-  - id: results
-    title: Completion results, bash insertion, and capture-grammar integration
-    depends_on: []
-    size: medium
-    description:
-      "results: make body-bearing @route: follow capture-complete's new-ID intent, honor
-      ValueHints and positional file slots, fix the stale capture-complete TEXT hint,
-      make the bash adapter insert correctly across = wordbreaks, open quotes, spaces,
-      and attached !files-in, and add goldens and docs for the =x/=*/=! capture changes."
-  - id: lifecycle
-    title: Honest, fast bob completion lifecycle
-    depends_on: []
-    size: medium
-    description:
-      "lifecycle: run shell probes in their own session so they never stall under a
-      terminal, stop status from probing or failing not-installed shells, honor $SHELL
-      alongside owned adapters, align glyphs, exit codes, and closers with registration,
-      keep stale compdumps visible, refuse unrecorded stamped files, and add the
-      lifecycle tests the original plan required."
+- id: results
+  title: Completion results, bash insertion, and capture-grammar integration
+  depends_on: []
+  size: medium
+  description: 'results: make body-bearing @route: follow capture-complete''s new-ID
+    intent, honor ValueHints and positional file slots, fix the stale capture-complete
+    TEXT hint, make the bash adapter insert correctly across = wordbreaks, open quotes,
+    spaces, and attached !files-in, and add goldens and docs for the =x/=*/=! capture
+    changes.'
+- id: lifecycle
+  title: Honest, fast bob completion lifecycle
+  depends_on: []
+  size: medium
+  description: 'lifecycle: run shell probes in their own session so they never stall
+    under a terminal, stop status from probing or failing not-installed shells, honor
+    $SHELL alongside owned adapters, align glyphs, exit codes, and closers with registration,
+    keep stale compdumps visible, refuse unrecorded stamped files, and add the lifecycle
+    tests the original plan required.'
 proposed_by: bbugyi200.apollo.bob-cli-3j.land
 create_time: 2026-10-02 14:29:06
 status: wip
+bead_id: bob-cli-3j.9
 ---
 
-- **PROMPT:**
-  [prompts/202610/shell_completion_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/shell_completion_landing_fixes.md)
-- **PARENT:**
-  [202610/bob_shell_completion.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_shell_completion.md)
+- **PROMPT:** [prompts/202610/shell_completion_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/shell_completion_landing_fixes.md)
+- **PARENT:** [202610/bob_shell_completion.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_shell_completion.md)
+- **BEAD:** [bob-cli-3j.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3j/bob-cli-3j.9.md)
 
 # Plan: Finish shell completion (landing fixes for epic bob-cli-3j)
 
