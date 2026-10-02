@@ -1,97 +1,91 @@
 ---
 tier: epic
 title: Excellent shell completion for bob, plus just install
-goal: "Pressing TAB after `bob` in zsh (and bash) offers grouped, described, vault-aware
+goal: 'Pressing TAB after `bob` in zsh (and bash) offers grouped, described, vault-aware
   completions computed live by the installed bob binary, so completion can never drift
   from the CLI; `bob completion` installs, inspects, and removes the shell adapter
   safely and honestly; and `just install` installs bob from source and keeps its shell
   completion current in one step.
 
-  "
+  '
 phases:
-  - id: one-tree
-    title: One composed clap command tree for completion
-    depends_on: []
-    size: medium
-    description:
-      "one-tree: build an exhaustive, completion-only clap tree from the module builders
-      plus descriptors for the five hand-parsed commands and the bare default-subcommand
-      forms, guarded by parity, parse-smoke, and help-drift tests, with no user-visible
-      change."
-  - id: engine
-    title: Hidden __complete endpoint, protocol 1, and static value kinds
-    depends_on:
-      - one-tree
-    size: medium
-    description:
-      "engine: pin clap_complete's dynamic engine behind one module, add the
-      early-intercepted hidden __complete endpoint speaking protocol 1, the kinds table
-      with static decisions, the presenter rules and groups, coverage and golden tests,
-      and the first docs/completion.md."
-  - id: zsh-adapter
-    title: The bob-owned zsh adapter
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "zsh-adapter: ship the embedded, protocol-stamped _bob zsh adapter that renders
-      grouped, described, natively styled menus, completes on the first autoloaded TAB,
-      and is covered by stubbed-compsys and real-zpty tests."
-  - id: lifecycle
-    title: bob completion command, adapter lifecycle, and just install
-    depends_on:
-      - zsh-adapter
-    size: medium
-    description:
-      "lifecycle: add the public bob completion command (status default, install,
-      uninstall, zsh) with target discovery, ownership stamp plus manifest, atomic
-      writes, real-shell verification and beautiful stacked reports, then the just
-      install recipe, install-smoke checks, README, and docs."
-  - id: vault-kinds
-    title: Vault-aware value kinds with partial-parse context
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "vault-kinds: add partial-parse context and read-only vault providers for routes,
-      sections, tasks, task sections, Pomodoro refs, plugins, levels, and vault notes,
-      behind a 150 ms deadline, with a read-only enforcement test and fixture-vault
-      goldens."
-  - id: capture-text
-    title: Capture markers inside capture TEXT
-    depends_on:
-      - vault-kinds
-    size: medium
-    description:
-      "capture-text: complete capture markers at the end of the active TEXT word through
-      an in-process capture_complete extraction, honoring the release gates (boundary,
-      safe rows only, end of word only, no wikilinks), using the !prefix directive."
-  - id: bash
-    title: bash adapter and bash lifecycle support
-    depends_on:
-      - lifecycle
-      - capture-text
-    size: medium
-    description:
-      "bash: add the values-only bash adapter with COMP_LINE word reassembly and
-      wordbreak-safe replies, wire bash into install/status/uninstall and verification,
-      and cover it with real-bash tests."
-  - id: polish
-    title: End-to-end polish, performance record, and docs finish
-    depends_on:
-      - bash
-    size: small
-    description:
-      "polish: run a sandboxed end-to-end zsh session, record real latency on the vault,
-      replace illustrative docs samples with real transcripts from the fixture vault,
-      and sweep help text and output for cli_rules and visual consistency."
+- id: one-tree
+  title: One composed clap command tree for completion
+  depends_on: []
+  size: medium
+  description: 'one-tree: build an exhaustive, completion-only clap tree from the
+    module builders plus descriptors for the five hand-parsed commands and the bare
+    default-subcommand forms, guarded by parity, parse-smoke, and help-drift tests,
+    with no user-visible change.'
+- id: engine
+  title: Hidden __complete endpoint, protocol 1, and static value kinds
+  depends_on:
+  - one-tree
+  size: medium
+  description: 'engine: pin clap_complete''s dynamic engine behind one module, add
+    the early-intercepted hidden __complete endpoint speaking protocol 1, the kinds
+    table with static decisions, the presenter rules and groups, coverage and golden
+    tests, and the first docs/completion.md.'
+- id: zsh-adapter
+  title: The bob-owned zsh adapter
+  depends_on:
+  - engine
+  size: medium
+  description: 'zsh-adapter: ship the embedded, protocol-stamped _bob zsh adapter
+    that renders grouped, described, natively styled menus, completes on the first
+    autoloaded TAB, and is covered by stubbed-compsys and real-zpty tests.'
+- id: lifecycle
+  title: bob completion command, adapter lifecycle, and just install
+  depends_on:
+  - zsh-adapter
+  size: medium
+  description: 'lifecycle: add the public bob completion command (status default,
+    install, uninstall, zsh) with target discovery, ownership stamp plus manifest,
+    atomic writes, real-shell verification and beautiful stacked reports, then the
+    just install recipe, install-smoke checks, README, and docs.'
+- id: vault-kinds
+  title: Vault-aware value kinds with partial-parse context
+  depends_on:
+  - engine
+  size: medium
+  description: 'vault-kinds: add partial-parse context and read-only vault providers
+    for routes, sections, tasks, task sections, Pomodoro refs, plugins, levels, and
+    vault notes, behind a 150 ms deadline, with a read-only enforcement test and fixture-vault
+    goldens.'
+- id: capture-text
+  title: Capture markers inside capture TEXT
+  depends_on:
+  - vault-kinds
+  size: medium
+  description: 'capture-text: complete capture markers at the end of the active TEXT
+    word through an in-process capture_complete extraction, honoring the release gates
+    (boundary, safe rows only, end of word only, no wikilinks), using the !prefix
+    directive.'
+- id: bash
+  title: bash adapter and bash lifecycle support
+  depends_on:
+  - lifecycle
+  - capture-text
+  size: medium
+  description: 'bash: add the values-only bash adapter with COMP_LINE word reassembly
+    and wordbreak-safe replies, wire bash into install/status/uninstall and verification,
+    and cover it with real-bash tests.'
+- id: polish
+  title: End-to-end polish, performance record, and docs finish
+  depends_on:
+  - bash
+  size: small
+  description: 'polish: run a sandboxed end-to-end zsh session, record real latency
+    on the vault, replace illustrative docs samples with real transcripts from the
+    fixture vault, and sweep help text and output for cli_rules and visual consistency.'
 proposed_by: bbugyi200.apollo.46
 create_time: 2026-10-02 11:06:14
 status: wip
+bead_id: bob-cli-3j
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_shell_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_shell_completion.md)
+- **PROMPT:** [prompts/202610/bob_shell_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_shell_completion.md)
+- **BEAD:** [bob-cli-3j](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3j/README.md)
 
 # Plan: Excellent shell completion for `bob`, plus `just install`
 
