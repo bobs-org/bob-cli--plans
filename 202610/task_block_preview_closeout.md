@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish task-block preview correctness and land bob-cli-3i
-goal: Preserve first-touch ordering and task-row strikethrough, verify integration,
-  and close bob-cli-3i with its plan marked done.
+goal:
+  Preserve first-touch ordering and task-row strikethrough, verify integration, and
+  close bob-cli-3i with its plan marked done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-3i.land
 bead: bob-cli-3i
@@ -13,6 +14,11 @@ status: done
   [202610/sub_bullet_task_block_preview.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/sub_bullet_task_block_preview.md)
 - **BEAD:**
   [bob-cli-3i](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3i/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3i.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3i.land.md)
+- **COMMITS:**
+  - [15f930e](https://github.com/bobs-org/bob-mac-capture/commit/15f930e3125a2fa855a1989ab87af9ea0f677fdf)
+    — fix(capture): preserve strikethrough in task-row token splitting
 
 # Finish task-block preview correctness and land bob-cli-3i
 
