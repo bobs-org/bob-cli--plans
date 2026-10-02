@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Make every Pomodoro menu-bar color legible on any menu bar
-goal: The Pomodoro status item paints only colors that pass a tested legibility contract
-  on both light and dark macOS menu bars, using one appearance-independent, blue-free,
+goal:
+  The Pomodoro status item paints only colors that pass a tested legibility contract on
+  both light and dark macOS menu bars, using one appearance-independent, blue-free,
   isoluminant ten-stop countdown gradient with bold digits.
 size: medium
 proposed_by: bbugyi200.apollo.48.f1.f1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.48.f1.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.48.f1.f1.md)
+- **COMMITS:**
+  - [f40c745](https://github.com/bbugyi200/dotfiles/commit/f40c745929f9a8ef5f03a00c0a99b0f8afc40d85)
+    — feat(hammerspoon): make Pomodoro menu-bar gradient legible on any menu bar
 
 # Make every Pomodoro menu-bar color legible on any menu bar
 
