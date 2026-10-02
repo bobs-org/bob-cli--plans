@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Preserve positional Work Log origins and land bob-cli-3l
-goal:
-  Selection-mode unnumbered bullets retain positional diagnostics and epic bob-cli-3l
+goal: Selection-mode unnumbered bullets retain positional diagnostics and epic bob-cli-3l
   closes after regression verification.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-3l.land
 bead: bob-cli-3l
-create_time: 2026-10-02 16:11:56
-status: wip
+status: done
 ---
 
 - **PARENT:**
