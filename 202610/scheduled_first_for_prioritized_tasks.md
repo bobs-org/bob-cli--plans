@@ -1,19 +1,12 @@
 ---
 tier: tale
 title: Put scheduled first for prioritized tasks
-goal:
-  Opening the task property picker on a prioritized task selects scheduled first so the
-  existing recommended action is one Ctrl+Enter away.
+goal: Opening the task property picker on a prioritized task selects scheduled first
+  so the existing recommended action is one Ctrl+Enter away.
 size: small
 proposed_by: bbugyi200.apollo.4a
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.4a](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4a.md)
-- **COMMITS:**
-  - [664e01c](https://github.com/bobs-org/bob-cli/commit/664e01ce66403e1bb7a268454cbbf7b91e37d063)
-    — docs(projects): document scheduled-first picker row for prioritized tasks
 
 # Put scheduled first in the prioritized task property picker
 
