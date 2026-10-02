@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Put the tomato beside the countdown and add a ten-color time gradient
-goal:
-  Show the tomato immediately before the Pomodoro countdown, keep duration text neutral,
-  and color running time with ten reliable SASE-inspired steps.
+goal: Show the tomato immediately before the Pomodoro countdown, keep duration text
+  neutral, and color running time with ten reliable SASE-inspired steps.
 size: medium
 proposed_by: bbugyi200.apollo.48.f1
-create_time: 2026-10-02 15:39:25
-status: wip
+status: done
 ---
 
 # Put the tomato beside the countdown and add a ten-color time gradient
