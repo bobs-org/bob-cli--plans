@@ -43,7 +43,7 @@ phases:
     live, read-only census of stamps, and close ^wip-next-refresh.'
 proposed_by: bbugyi200.athena.0v7
 create_time: 2026-10-01 18:28:56
-status: wip
+status: done
 bead_id: bob-cli-3g
 ---
 
