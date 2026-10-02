@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Preserve positional Work Log origins and land bob-cli-3l
-goal: Selection-mode unnumbered bullets retain positional diagnostics and epic bob-cli-3l
+goal:
+  Selection-mode unnumbered bullets retain positional diagnostics and epic bob-cli-3l
   closes after regression verification.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-3l.land
@@ -13,6 +14,11 @@ status: done
   [202610/unnumbered_close_log_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/unnumbered_close_log_bullets.md)
 - **BEAD:**
   [bob-cli-3l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3l/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-3l.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-3l.land.md)
+- **COMMITS:**
+  - [da1e123](https://github.com/bobs-org/bob-cli--plans/commit/da1e1231df2df6f311eb304a1e8a9367bafc9187)
+    — docs(plans): mark unnumbered close log bullets plan done
 
 # Preserve positional Work Log origins and land bob-cli-3l
 
