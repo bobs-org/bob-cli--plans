@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Finish task-block preview correctness and land bob-cli-3i
-goal:
-  Preserve first-touch ordering and task-row strikethrough, verify integration, and
-  close bob-cli-3i with its plan marked done.
+goal: Preserve first-touch ordering and task-row strikethrough, verify integration,
+  and close bob-cli-3i with its plan marked done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-3i.land
 bead: bob-cli-3i
-create_time: 2026-10-02 11:36:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
