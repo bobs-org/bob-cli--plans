@@ -1,40 +1,39 @@
 ---
 tier: epic
 title: Unnumbered =x Work Log bullets
-goal: "Work Log bullets under a whole-item `=x` close need a leading task number only
-  when bullet order cannot say which task each bullet logs to. `=x3,4` plus `- foo bar`
-  and `- baz bam` writes exactly what `- 3 foo bar` and `- 4 baz bam` write, and `bob
-  capture`, `bob capture-parse`, dry-run previews, and Bob Mac Capture all agree on
-  that.
+goal: 'Work Log bullets under a whole-item `=x` close need a leading task number only
+  when bullet order cannot say which task each bullet logs to. `=x3,4` plus `- foo
+  bar` and `- baz bam` writes exactly what `- 3 foo bar` and `- 4 baz bam` write,
+  and `bob capture`, `bob capture-parse`, dry-run previews, and Bob Mac Capture all
+  agree on that.
 
-  "
+  '
 phases:
-  - id: bob-cli
-    title: Positional Work Log bullets in bob-cli
-    depends_on: []
-    size: medium
-    description:
-      "bob-cli: lex unnumbered first-level bullets (all or none), assign them in order
-      to the close's worked tasks (lexically when `<N>`/`*<P>` is typed, against the
-      running session otherwise), make `CloseLogEntry.index` optional with a positional
-      origin, report resolved indices in `bob capture` JSON, add the new diagnostics,
-      and update help, docs, and tests."
-  - id: mac
-    title: Bob Mac Capture decoding, fixtures, and docs
-    depends_on:
-      - bob-cli
-    size: small
-    description:
-      "mac: decode an absent `log[].index` as nil, add real-bob parse and preview
-      fixtures plus tests for unnumbered bullets, and rewrite the README's Work Log
-      bullet contract and syntax text; no grammar logic moves into Swift."
+- id: bob-cli
+  title: Positional Work Log bullets in bob-cli
+  depends_on: []
+  size: medium
+  description: 'bob-cli: lex unnumbered first-level bullets (all or none), assign
+    them in order to the close''s worked tasks (lexically when `<N>`/`*<P>` is typed,
+    against the running session otherwise), make `CloseLogEntry.index` optional with
+    a positional origin, report resolved indices in `bob capture` JSON, add the new
+    diagnostics, and update help, docs, and tests.'
+- id: mac
+  title: Bob Mac Capture decoding, fixtures, and docs
+  depends_on:
+  - bob-cli
+  size: small
+  description: 'mac: decode an absent `log[].index` as nil, add real-bob parse and
+    preview fixtures plus tests for unnumbered bullets, and rewrite the README''s
+    Work Log bullet contract and syntax text; no grammar logic moves into Swift.'
 proposed_by: bbugyi200.apollo.47
 create_time: 2026-10-02 15:17:47
 status: wip
+bead_id: bob-cli-3l
 ---
 
-- **PROMPT:**
-  [prompts/202610/unnumbered_close_log_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/unnumbered_close_log_bullets.md)
+- **PROMPT:** [prompts/202610/unnumbered_close_log_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/unnumbered_close_log_bullets.md)
+- **BEAD:** [bob-cli-3l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3l/README.md)
 
 # Plan: Unnumbered `=x` Work Log bullets
 
