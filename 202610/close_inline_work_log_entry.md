@@ -1,20 +1,13 @@
 ---
 tier: tale
 title: One Work Log entry on the =x close line
-goal:
-  A single Work Log entry can be typed on the close line itself (`=x foo bar baz`,
+goal: A single Work Log entry can be typed on the close line itself (`=x foo bar baz`,
   `=x1,3,4 3 boom`), executing byte for byte like its bullet form, in both bob capture
   and Bob Mac Capture, while several entries keep using sub-bullets.
 size: medium
 proposed_by: bbugyi200.athena.0vc
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.athena.0vc](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vc.md)
-- **COMMITS:**
-  - [74f47d4](https://github.com/bobs-org/bob-cli/commit/74f47d46ee3db9b3318abeedc965dee65d9d7227)
-    — feat(capture): land the inline single-entry close on the =x line
 
 # Plan: One Work Log entry on the `=x` close line
 
