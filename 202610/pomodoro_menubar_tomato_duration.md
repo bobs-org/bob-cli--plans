@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Pomodoro menu bar tomato and session duration
-goal:
-  The Hammerspoon Pomodoro status item leads with a 🍅 in every visible state, shows the
-  session's scheduled duration (e.g. "(50m)") instead of the stop time while running,
-  and shows both duration and stop time once overdue — reliably, with full tests and
-  README.
+goal: The Hammerspoon Pomodoro status item leads with a 🍅 in every visible state,
+  shows the session's scheduled duration (e.g. "(50m)") instead of the stop time while
+  running, and shows both duration and stop time once overdue — reliably, with full
+  tests and README.
 size: medium
 proposed_by: bbugyi200.apollo.48
-create_time: 2026-10-02 15:21:38
-status: wip
+status: done
 ---
 
 # Add a tomato to the Mac Pomodoro menu bar item and show the session length
