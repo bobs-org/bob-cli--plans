@@ -1,58 +1,59 @@
 ---
 tier: epic
 title: Show the full parent task and its diff when capturing a sub-bullet
-goal: "When a draft adds a sub-bullet under an existing task (`@route+block-id`, with or
-  without `#section`, picker task refs, and global `@@route+block-id` batches), the Bob
-  Mac Capture preview shows the whole parent task as a card: the task line and every
-  line of its block, exactly as Bob will write them, with the new lines marked as added.
-  Bob computes the block and the diff. The app decodes and renders it with the same diff
-  card the Pomodoro blocks use.
+goal: 'When a draft adds a sub-bullet under an existing task (`@route+block-id`, with
+  or without `#section`, picker task refs, and global `@@route+block-id` batches),
+  the Bob Mac Capture preview shows the whole parent task as a card: the task line
+  and every line of its block, exactly as Bob will write them, with the new lines
+  marked as added. Bob computes the block and the diff. The app decodes and renders
+  it with the same diff card the Pomodoro blocks use.
 
-  "
+  '
 phases:
-  - id: task_blocks_contract
-    title: Emit batch-level task_blocks from bob capture
-    depends_on: []
-    size: medium
-    description: "task_blocks_contract: move the Pomodoro block diff helpers into a
-      shared module, add a batch-level parent-task tracker fed by sub-bullet items, and
-      emit the additive top-level `task_blocks` JSON (final-state block, cumulative diff
-      against the note before the capture). Add unit and CLI tests and the
-      docs/capture.md contract. Pomodoro block JSON stays byte-identical.
+- id: task_blocks_contract
+  title: Emit batch-level task_blocks from bob capture
+  depends_on: []
+  size: medium
+  description: 'task_blocks_contract: move the Pomodoro block diff helpers into a
+    shared module, add a batch-level parent-task tracker fed by sub-bullet items,
+    and emit the additive top-level `task_blocks` JSON (final-state block, cumulative
+    diff against the note before the capture). Add unit and CLI tests and the docs/capture.md
+    contract. Pomodoro block JSON stays byte-identical.
 
-      "
-  - id: mac_task_block_model
-    title: Decode and present task blocks in CaptureCore
-    depends_on:
-      - task_blocks_contract
-    size: medium
-    description: "mac_task_block_model: in bob-mac-capture, add tolerant `task_blocks`
-      decoding, a shared diff-row model, task-row tokenizing (tags and block IDs), a
-      pure CaptureTaskBlockPresentation (caption, status, rows, folding of long quiet
-      runs, covers rule, accessibility), and sub-bullet wording. Add real-bob fixtures
-      and CaptureCore tests. Commit and get macOS CI green.
+    '
+- id: mac_task_block_model
+  title: Decode and present task blocks in CaptureCore
+  depends_on:
+  - task_blocks_contract
+  size: medium
+  description: 'mac_task_block_model: in bob-mac-capture, add tolerant `task_blocks`
+    decoding, a shared diff-row model, task-row tokenizing (tags and block IDs), a
+    pure CaptureTaskBlockPresentation (caption, status, rows, folding of long quiet
+    runs, covers rule, accessibility), and sub-bullet wording. Add real-bob fixtures
+    and CaptureCore tests. Commit and get macOS CI green.
 
-      "
-  - id: mac_task_block_view
-    title: Render the parent task card in the preview pane
-    depends_on:
-      - mac_task_block_model
-    size: medium
-    description: 'mac_task_block_view: extract a shared BlockDiffCard from
-      PomodoroBlockView, add TaskBlockView (status caption, status rail, diff gutter,
-      indent guides, task tinting, expandable folds), render task blocks after the
-      items, give covered sub-bullet items a compact header, name the parent in the
-      status and summary, and fix the stale "Preview failed" footer. Add fake-bob
-      routes, model, height, and render tests, the README, and green macOS CI.
+    '
+- id: mac_task_block_view
+  title: Render the parent task card in the preview pane
+  depends_on:
+  - mac_task_block_model
+  size: medium
+  description: 'mac_task_block_view: extract a shared BlockDiffCard from PomodoroBlockView,
+    add TaskBlockView (status caption, status rail, diff gutter, indent guides, task
+    tinting, expandable folds), render task blocks after the items, give covered sub-bullet
+    items a compact header, name the parent in the status and summary, and fix the
+    stale "Preview failed" footer. Add fake-bob routes, model, height, and render
+    tests, the README, and green macOS CI.
 
-      '
+    '
 proposed_by: bbugyi200.athena.0vb
 create_time: 2026-10-02 09:49:31
 status: wip
+bead_id: bob-cli-3i
 ---
 
-- **PROMPT:**
-  [prompts/202610/sub_bullet_task_block_preview.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/sub_bullet_task_block_preview.md)
+- **PROMPT:** [prompts/202610/sub_bullet_task_block_preview.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/sub_bullet_task_block_preview.md)
+- **BEAD:** [bob-cli-3i](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3i/README.md)
 
 # Problem
 
