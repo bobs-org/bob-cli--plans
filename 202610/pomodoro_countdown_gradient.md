@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Put the tomato beside the countdown and add a ten-color time gradient
-goal: Show the tomato immediately before the Pomodoro countdown, keep duration text
-  neutral, and color running time with ten reliable SASE-inspired steps.
+goal:
+  Show the tomato immediately before the Pomodoro countdown, keep duration text neutral,
+  and color running time with ten reliable SASE-inspired steps.
 size: medium
 proposed_by: bbugyi200.apollo.48.f1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.48.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.48.f1.md)
+- **COMMITS:**
+  - [c7b88df](https://github.com/bbugyi200/dotfiles/commit/c7b88df8848f0fdedf3ca653d0f1bcc4a9609046)
+    — feat(hammerspoon): put tomato beside countdown with ten-color time gradient
 
 # Put the tomato beside the countdown and add a ten-color time gradient
 
