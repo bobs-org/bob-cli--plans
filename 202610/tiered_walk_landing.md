@@ -2,10 +2,10 @@
 tier: tale
 size: small
 title: Integrate the tiered walk into crowded.md and plan surfaces, then land bob-cli-3g
-goal: "Update the two surfaces committed while epic bob-cli-3g was open so they match
+goal: 'Update the two surfaces committed while epic bob-cli-3g was open so they match
   the landed tiered walk, then close bob-cli-3g in this same coding turn.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-3g.land
 bead: bob-cli-3g
 status: done
@@ -15,11 +15,6 @@ status: done
   [202610/tiered_morning_review_walk.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/tiered_morning_review_walk.md)
 - **BEAD:**
   [bob-cli-3g](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3g/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-3g.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3g.land.md)
-- **COMMITS:**
-  - [f11a9f8](https://github.com/bobs-org/bob-cli/commit/f11a9f81256a10ee812e47c3a203797262e9c381)
-    — docs(plan): update plan surfaces to freshness namespace v4 for tiered walk
 
 # Integrate the tiered walk, then land bob-cli-3g
 
