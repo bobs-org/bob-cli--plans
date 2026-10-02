@@ -1,12 +1,20 @@
 ---
 tier: tale
 title: Optional Work Log when scheduling Pending or Next tasks
-goal: Offer an optional work summary before Ctrl+Shift+P schedules Pending or Next
-  tasks and save nonblank summaries atomically with the scheduling edits.
+goal:
+  Offer an optional work summary before Ctrl+Shift+P schedules Pending or Next tasks and
+  save nonblank summaries atomically with the scheduling edits.
 size: medium
 proposed_by: bbugyi200.apollo.4c
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4c](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4c.md)
+- **COMMITS:**
+  - [6f67cd2](https://github.com/bobs-org/bob-plugins/commit/6f67cd23924eed1bca8a060bc696ac4658c083ed)
+    — feat(navigation-hotkeys): optional scheduling Work Log prompt for Pending/Next
+    tasks (1.52.0)
 
 # Optional Work Log when scheduling Pending or Next tasks
 
