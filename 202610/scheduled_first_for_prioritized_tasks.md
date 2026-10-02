@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Put scheduled first for prioritized tasks
-goal:
-  Opening the task property picker on a prioritized task selects scheduled first so the
-  existing recommended action is one Ctrl+Enter away.
+goal: Opening the task property picker on a prioritized task selects scheduled first
+  so the existing recommended action is one Ctrl+Enter away.
 size: small
 proposed_by: bbugyi200.apollo.4a
-create_time: 2026-10-02 16:55:17
-status: wip
+status: done
 ---
 
 # Put scheduled first in the prioritized task property picker
