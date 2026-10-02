@@ -28,7 +28,7 @@ phases:
     Work Log bullet contract and syntax text; no grammar logic moves into Swift.'
 proposed_by: bbugyi200.apollo.47
 create_time: 2026-10-02 15:17:47
-status: wip
+status: done
 bead_id: bob-cli-3l
 ---
 
