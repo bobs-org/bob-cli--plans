@@ -1,139 +1,127 @@
 ---
 tier: epic
-title:
-  "Task dependency links: one Depends-On line, a vault-wide Ctrl+Shift+P picker, and
-  live chips"
-goal: "A task's prerequisites live as plain task dependency links on one managed `⛓️
-  **DEPENDS ON:**` first-child line. That line is the source of truth, and the
+title: 'Task dependency links: one Depends-On line, a vault-wide Ctrl+Shift+P picker,
+  and live chips'
+goal: 'A task''s prerequisites live as plain task dependency links on one managed
+  `⛓️ **DEPENDS ON:**` first-child line. That line is the source of truth, and the
   `[dependsOn::]` / `[id::]` fields are derived from it. Ctrl+Shift+P adds and removes
-  prerequisites by fuzzy-searching every open task in the vault. bob-ledger-tools draws
-  each link as a live status chip. The vault no longer uses transcluded dependency
+  prerequisites by fuzzy-searching every open task in the vault. bob-ledger-tools
+  draws each link as a live status chip. The vault no longer uses transcluded dependency
   bullets. The glossary, docs, and decision records describe the new contract.
 
-  "
+  '
 phases:
-  - id: contract
-    title: Dependency-line contract doc and conformance vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write docs/task-dependencies.md (grammar, identity, R1-R10
-      reconciliation, semantics, stage, chips, nav api v1, legacy window) with
-      DP/DW/DR/DK/DC vectors, and pin DK ranking vectors against the capture ranker in
-      Rust."
-  - id: hooks-edges
-    title: Rust dependency-line parser, promotion edges, and parser guards
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "hooks-edges: add the bob-cli task_dependencies module (parse, canonical format,
-      link form, shared id encoder, legacy children). Promotion edges come from
-      Depends-On links plus legacy children, and #^ref embeds stop being edges. Guard
-      the capture close, section, log, and placement parsers, and fix move-done-tasks
-      pathless links."
-  - id: hooks-reconcile
-    title: R1-R10 reconciliation in bob task-status-hooks
-    depends_on:
-      - hooks-edges
-    size: medium
-    description:
-      "hooks-reconcile: before Blocked derivation, project Depends-On lines into the
-      dependsOn/id fields and adopt, heal, canonicalize, and warn. Projection-only notes
-      are written through the guarded pipeline and quiet interval. Add JSON and human
-      output, docs, and tests, then verify with a read-only dry run against the vault."
-  - id: chips
-    title: bob-ledger-tools live dependency chips
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "chips: render Depends-On lines as live status chips in Live Preview and Reading
-      view, built from the Tasks cache memo with native click and hover, x and + actions
-      through the nav api when present, a summary, accessible CSS on the task-status
-      tokens, and tests."
-  - id: compat
-    title: task-status-cycler and block-id-prompt compatibility
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "compat: the cycler skips strike, restore, and tree close on Depends-On lines;
-      Ctrl+Enter closes or reopens the target only; Alt+] and Alt+[ cycle the link under
-      the cursor; the normalizer never edits the line. block-id-prompt's
-      Ctrl+Shift+Enter refuses the line. Tests, bumps, and deploy."
-  - id: nav-model
-    title: Navigation-hotkeys dependency model, single-transaction writer, and api v1
-    depends_on:
-      - contract
-      - chips
-      - compat
-    size: medium
-    description:
-      "nav-model: add the Depends-On grammar and pure planner, a writer that prepares
-      targets and then commits the parent in one transaction (status effects, commitment
-      transfer, immediate recovery on removal, legacy fold), switch the existing picker
-      paths and recovery edges to it, and add api v1."
-  - id: nav-stage
-    title: Vault-wide Ctrl+Shift+P Depends on stage
-    depends_on:
-      - nav-model
-    size: medium
-    description:
-      "nav-stage: add the vault-wide candidate pool from the Tasks cache and open
-      buffers, a port of the capture ranker, the CURRENT/RESULTS/BLOCKED layout, guards
-      (self, cycle, unencodable, stale), the + id flow, every entry point including Task
-      Link mode and the line itself, the summary pill, and notices."
-  - id: nav-gestures
-    title: Gesture cleanup, hand-edit mirror, and legacy writer removal
-    depends_on:
-      - nav-stage
-    size: medium
-    description:
-      "nav-gestures: ! becomes a pure transclusion toggle and is refused on the line;
-      Ctrl+D removes the line and the field with recovery; add the editor hand-edit
-      mirror; delete the embed-writing code, the consolidate command, and the old
-      migration scripts; add Ctrl+Shift+M tests and update the README."
-  - id: fleet-rollout
-    title: Install bob and sync plugins on every machine
-    depends_on:
-      - hooks-reconcile
-      - chips
-      - compat
-      - nav-stage
-      - nav-gestures
-    size: small
-    description:
-      "fleet-rollout: install bob from master and sync the four plugins on this host,
-      then on the MacBook (best effort), and record each machine's bob commit, hooks
-      capability, and plugin versions."
-  - id: vault-migrate
-    title: Migrate the vault to Depends-On lines
-    depends_on:
-      - fleet-rollout
-    size: medium
-    description:
-      "vault-migrate: preflight the fleet (ask Bryan only if the Mac is unverified), add
-      a tested dry-run-first migration script, rehearse on a vault copy with
-      before/after hooks checks, run it live, prove idempotence, update the CSS comment,
-      and sync."
-  - id: publish
-    title: Publish glossary, decision record, and final docs
-    depends_on:
-      - vault-migrate
-    size: small
-    description:
-      "publish: add glossary:task-dependency-link, amend glossary:task-link, add the
-      Depends-On decision record and mark task-status-is-derived, republish memory,
-      sweep docs for stale transclusion wording, and record follow-ups and Bryan's
-      checklist."
+- id: contract
+  title: Dependency-line contract doc and conformance vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write docs/task-dependencies.md (grammar, identity, R1-R10
+    reconciliation, semantics, stage, chips, nav api v1, legacy window) with DP/DW/DR/DK/DC
+    vectors, and pin DK ranking vectors against the capture ranker in Rust.'
+- id: hooks-edges
+  title: Rust dependency-line parser, promotion edges, and parser guards
+  depends_on:
+  - contract
+  size: medium
+  description: 'hooks-edges: add the bob-cli task_dependencies module (parse, canonical
+    format, link form, shared id encoder, legacy children). Promotion edges come from
+    Depends-On links plus legacy children, and #^ref embeds stop being edges. Guard
+    the capture close, section, log, and placement parsers, and fix move-done-tasks
+    pathless links.'
+- id: hooks-reconcile
+  title: R1-R10 reconciliation in bob task-status-hooks
+  depends_on:
+  - hooks-edges
+  size: medium
+  description: 'hooks-reconcile: before Blocked derivation, project Depends-On lines
+    into the dependsOn/id fields and adopt, heal, canonicalize, and warn. Projection-only
+    notes are written through the guarded pipeline and quiet interval. Add JSON and
+    human output, docs, and tests, then verify with a read-only dry run against the
+    vault.'
+- id: chips
+  title: bob-ledger-tools live dependency chips
+  depends_on:
+  - contract
+  size: medium
+  description: 'chips: render Depends-On lines as live status chips in Live Preview
+    and Reading view, built from the Tasks cache memo with native click and hover,
+    x and + actions through the nav api when present, a summary, accessible CSS on
+    the task-status tokens, and tests.'
+- id: compat
+  title: task-status-cycler and block-id-prompt compatibility
+  depends_on:
+  - contract
+  size: medium
+  description: 'compat: the cycler skips strike, restore, and tree close on Depends-On
+    lines; Ctrl+Enter closes or reopens the target only; Alt+] and Alt+[ cycle the
+    link under the cursor; the normalizer never edits the line. block-id-prompt''s
+    Ctrl+Shift+Enter refuses the line. Tests, bumps, and deploy.'
+- id: nav-model
+  title: Navigation-hotkeys dependency model, single-transaction writer, and api v1
+  depends_on:
+  - contract
+  - chips
+  - compat
+  size: medium
+  description: 'nav-model: add the Depends-On grammar and pure planner, a writer that
+    prepares targets and then commits the parent in one transaction (status effects,
+    commitment transfer, immediate recovery on removal, legacy fold), switch the existing
+    picker paths and recovery edges to it, and add api v1.'
+- id: nav-stage
+  title: Vault-wide Ctrl+Shift+P Depends on stage
+  depends_on:
+  - nav-model
+  size: medium
+  description: 'nav-stage: add the vault-wide candidate pool from the Tasks cache
+    and open buffers, a port of the capture ranker, the CURRENT/RESULTS/BLOCKED layout,
+    guards (self, cycle, unencodable, stale), the + id flow, every entry point including
+    Task Link mode and the line itself, the summary pill, and notices.'
+- id: nav-gestures
+  title: Gesture cleanup, hand-edit mirror, and legacy writer removal
+  depends_on:
+  - nav-stage
+  size: medium
+  description: 'nav-gestures: ! becomes a pure transclusion toggle and is refused
+    on the line; Ctrl+D removes the line and the field with recovery; add the editor
+    hand-edit mirror; delete the embed-writing code, the consolidate command, and
+    the old migration scripts; add Ctrl+Shift+M tests and update the README.'
+- id: fleet-rollout
+  title: Install bob and sync plugins on every machine
+  depends_on:
+  - hooks-reconcile
+  - chips
+  - compat
+  - nav-stage
+  - nav-gestures
+  size: small
+  description: 'fleet-rollout: install bob from master and sync the four plugins on
+    this host, then on the MacBook (best effort), and record each machine''s bob commit,
+    hooks capability, and plugin versions.'
+- id: vault-migrate
+  title: Migrate the vault to Depends-On lines
+  depends_on:
+  - fleet-rollout
+  size: medium
+  description: 'vault-migrate: preflight the fleet (ask Bryan only if the Mac is unverified),
+    add a tested dry-run-first migration script, rehearse on a vault copy with before/after
+    hooks checks, run it live, prove idempotence, update the CSS comment, and sync.'
+- id: publish
+  title: Publish glossary, decision record, and final docs
+  depends_on:
+  - vault-migrate
+  size: small
+  description: 'publish: add glossary:task-dependency-link, amend glossary:task-link,
+    add the Depends-On decision record and mark task-status-is-derived, republish
+    memory, sweep docs for stale transclusion wording, and record follow-ups and Bryan''s
+    checklist.'
 proposed_by: bbugyi200.athena.0vl
 create_time: 2026-10-02 16:54:33
 status: wip
+bead_id: bob-cli-3n
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_dep_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links.md)
+- **PROMPT:** [prompts/202610/task_dep_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links.md)
+- **BEAD:** [bob-cli-3n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3n/README.md)
 
 # Plan: Task dependency links on one Depends-On line
 
