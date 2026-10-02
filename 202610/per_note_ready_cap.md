@@ -58,7 +58,7 @@ phases:
     verification evidence.'
 proposed_by: bbugyi200.athena.0v5
 create_time: 2026-10-01 17:55:46
-status: wip
+status: done
 bead_id: bob-cli-3f
 ---
 
