@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Capture close shortcuts with clear task defaults
-goal: Support =* and =! close aliases with task 1 defaults consistently across Bob
-  capture, editor interfaces, and the Mac app's live preview and submission.
+goal:
+  Support =* and =! close aliases with task 1 defaults consistently across Bob capture,
+  editor interfaces, and the Mac app's live preview and submission.
 size: medium
 proposed_by: bbugyi200.athena.0vf
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vf](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vf.md)
+- **COMMITS:**
+  - [f589d07](https://github.com/bobs-org/bob-cli/commit/f589d0783cb1d63a2194d5a8e6b8da7e8282d512)
+    — feat(capture): add =\* and =\! close shorthands defaulting to task 1
 
 # Capture close shortcuts with clear task defaults
 
