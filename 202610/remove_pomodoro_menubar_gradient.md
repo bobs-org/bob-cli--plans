@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Remove the Pomodoro menu-bar color gradient
-goal:
-  The running countdown stays in the system foreground, turns red when overdue, and
-  flashes red on OVERDUE.
+goal: The running countdown stays in the system foreground, turns red when overdue,
+  and flashes red on OVERDUE.
 size: medium
 proposed_by: bbugyi200.apollo.4b
-create_time: 2026-10-02 17:02:30
-status: wip
+status: done
 ---
 
 # Remove the Pomodoro menu-bar color gradient
