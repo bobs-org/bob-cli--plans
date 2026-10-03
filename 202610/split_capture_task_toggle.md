@@ -1,17 +1,15 @@
 ---
 tier: tale
 title: Split capture task toggle planners into focused modules
-goal: "Split src/native/capture_task_toggle.rs into a small facade and focused child
-  modules so every resulting Rust file is at most 1500 lines, while pure-planner
-  behavior, the existing capture_task_toggle entry points, and current test coverage
-  stay intact.
+goal: 'Split src/native/capture_task_toggle.rs into a small facade and focused child
+  modules so every resulting Rust file is at most 1500 lines, while pure-planner behavior,
+  the existing capture_task_toggle entry points, and current test coverage stay intact.
 
-  "
+  '
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.2
 bead: bob-cli-3s.2
-create_time: 2026-10-03 05:57:25
-status: wip
+status: done
 ---
 
 - **PARENT:**
