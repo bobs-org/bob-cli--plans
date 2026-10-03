@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Preserve spacing when inserting a Pomodoro Task Link
-goal:
-  Insert new Pomodoro Task Links beside existing children while preserving separators
+goal: Insert new Pomodoro Task Links beside existing children while preserving separators
   and line endings, with regression coverage and plugin deployment.
 size: small
 proposed_by: bbugyi200.apollo.4q
-create_time: 2026-10-03 10:54:39
-status: wip
+status: done
 ---
 
 # Preserve spacing when inserting a Pomodoro Task Link
