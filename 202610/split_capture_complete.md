@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split capture completion into focused modules
-goal:
-  Refactor capture completion into cohesive Rust modules of at most 1500 lines while
-  preserving all completion behavior and test coverage, then close only bob-cli-3s.1.
+goal: Refactor capture completion into cohesive Rust modules of at most 1500 lines
+  while preserving all completion behavior and test coverage, then close only bob-cli-3s.1.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.1
 bead: bob-cli-3s.1
-create_time: 2026-10-03 05:25:47
-status: wip
+status: done
 ---
 
 - **PARENT:**
