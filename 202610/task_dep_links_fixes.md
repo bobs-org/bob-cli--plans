@@ -1,107 +1,98 @@
 ---
 tier: epic
-title:
-  "Finish task dependency links: fix the hooks reconcile, chips, nav writer, mirror, and
-  stage defects found at landing"
-goal: "Every defect the bob-cli-3n landing found in the shipped Depends-On contract is
-  fixed and pinned by a test: the hooks reconcile never corrupts notes, chips act on the
-  right task, the nav writer works across notes, the hand-edit mirror works in the live
-  editor, the stage matches its design, the legacy writers are gone, the docs and
-  decision record are accurate, and the fixed bob and plugins are installed across the
-  fleet.
+title: 'Finish task dependency links: fix the hooks reconcile, chips, nav writer,
+  mirror, and stage defects found at landing'
+goal: 'Every defect the bob-cli-3n landing found in the shipped Depends-On contract
+  is fixed and pinned by a test: the hooks reconcile never corrupts notes, chips act
+  on the right task, the nav writer works across notes, the hand-edit mirror works
+  in the live editor, the stage matches its design, the legacy writers are gone, the
+  docs and decision record are accurate, and the fixed bob and plugins are installed
+  across the fleet.
 
-  "
+  '
 parent_bead: bob-cli-3n
 phases:
-  - id: hooks-correctness
-    title: Fix R1-R10 reconcile correctness bugs in bob task-status-hooks
-    depends_on: []
-    size: medium
-    description:
-      "hooks-correctness: fix the reconcile edit ordering that duplicates task lines,
-      the task-line rewrite merge, dropped current-daily edits, previous-daily writes,
-      field placement before trailing tags, archived legacy children, and the silent
-      unencodable target, and add the regression and missing CLI tests."
-  - id: hooks-docs-cleanup
-    title: Hooks dependency docs, Summary line, helper dedupe, and reconcile split
-    depends_on:
-      - hooks-correctness
-    size: medium
-    description:
-      "hooks-docs-cleanup: add the Dependency lines, guarded-write, and Output docs,
-      README and long_about, append the counts to Summary, dedupe the copied link
-      helpers, split reconcile.rs, remove per-run whole-vault copies, and fill the DW/DR
-      unit-test gaps."
-  - id: chips-compat-fix
-    title: Fix dependency chips and align the Depends-On recognisers
-    depends_on: []
-    size: medium
-    description:
-      "chips-compat-fix: pin api v1 ref.line as 0-based and fix the chip off-by-one and
-      stale widget meta, restrict chips to real Depends-On lines, fix Reading view,
-      hover, and the lookup cache, align the ledger-tools, cycler, and block-id-prompt
-      recognisers with new DP vectors, and add the missing tests."
-  - id: nav-writer-fix
-    title: Fix the navigation-hotkeys dependency writer across notes
-    depends_on: []
-    size: medium
-    description:
-      "nav-writer-fix: await cross-note preparation, load or tolerate every linked note,
-      check link uniqueness vault-wide, fix the same-note +id batch, ADJ-8 recovery,
-      counted line shifts, undo grouping, and stale checks, and add async plugin-level
-      tests."
-  - id: nav-mirror-gestures
-    title: Rebuild the hand-edit mirror and finish gesture cleanup and legacy removal
-    depends_on:
-      - nav-writer-fix
-    size: medium
-    description:
-      "nav-mirror-gestures: move the hand-edit mirror to a CM6 update listener with
-      correct ownership, guards, and status effects; fix field-only and counted Ctrl+D
-      and counted N!; delete the leftover legacy writers and identity migration script;
-      fix README claims."
-  - id: nav-stage-polish
-    title: Bring the Depends on stage to its design
-    depends_on:
-      - nav-mirror-gestures
-    size: medium
-    description:
-      "nav-stage-polish: fix ranker tie order, empty-query order, and the row cap hint;
-      finish badges, tooltips, muting, classes, and colours; reopen stale stages; fix
-      notices and Task Link batches; and add the missing harness tests."
-  - id: docs-memory-fix
-    title: Correct the decision record and sweep stale dependency docs
-    depends_on:
-      - hooks-docs-cleanup
-      - chips-compat-fix
-      - nav-stage-polish
-    size: small
-    description:
-      "docs-memory-fix: add the missing rejected alternative, decided date, and plugin
-      evidence to the decision record; fix stale docs/projects.md, freshness.md,
-      capture.md, and today.rs wording; settle the DC7/DC8 and archive-link contract
-      gaps."
-  - id: rollout
-    title: Reinstall bob and resync plugins across the fleet with the fixes
-    depends_on:
-      - hooks-docs-cleanup
-      - chips-compat-fix
-      - nav-stage-polish
-    size: small
-    description:
-      "rollout: reinstall bob from master and sync the plugins on athena and apollo,
-      update the MacBook on a best-effort basis now that the hooks are safe, dry-run the
-      fixed hooks against the real vault, and record versions and what is left for
-      Bryan."
+- id: hooks-correctness
+  title: Fix R1-R10 reconcile correctness bugs in bob task-status-hooks
+  depends_on: []
+  size: medium
+  description: 'hooks-correctness: fix the reconcile edit ordering that duplicates
+    task lines, the task-line rewrite merge, dropped current-daily edits, previous-daily
+    writes, field placement before trailing tags, archived legacy children, and the
+    silent unencodable target, and add the regression and missing CLI tests.'
+- id: hooks-docs-cleanup
+  title: Hooks dependency docs, Summary line, helper dedupe, and reconcile split
+  depends_on:
+  - hooks-correctness
+  size: medium
+  description: 'hooks-docs-cleanup: add the Dependency lines, guarded-write, and Output
+    docs, README and long_about, append the counts to Summary, dedupe the copied link
+    helpers, split reconcile.rs, remove per-run whole-vault copies, and fill the DW/DR
+    unit-test gaps.'
+- id: chips-compat-fix
+  title: Fix dependency chips and align the Depends-On recognisers
+  depends_on: []
+  size: medium
+  description: 'chips-compat-fix: pin api v1 ref.line as 0-based and fix the chip
+    off-by-one and stale widget meta, restrict chips to real Depends-On lines, fix
+    Reading view, hover, and the lookup cache, align the ledger-tools, cycler, and
+    block-id-prompt recognisers with new DP vectors, and add the missing tests.'
+- id: nav-writer-fix
+  title: Fix the navigation-hotkeys dependency writer across notes
+  depends_on: []
+  size: medium
+  description: 'nav-writer-fix: await cross-note preparation, load or tolerate every
+    linked note, check link uniqueness vault-wide, fix the same-note +id batch, ADJ-8
+    recovery, counted line shifts, undo grouping, and stale checks, and add async
+    plugin-level tests.'
+- id: nav-mirror-gestures
+  title: Rebuild the hand-edit mirror and finish gesture cleanup and legacy removal
+  depends_on:
+  - nav-writer-fix
+  size: medium
+  description: 'nav-mirror-gestures: move the hand-edit mirror to a CM6 update listener
+    with correct ownership, guards, and status effects; fix field-only and counted
+    Ctrl+D and counted N!; delete the leftover legacy writers and identity migration
+    script; fix README claims.'
+- id: nav-stage-polish
+  title: Bring the Depends on stage to its design
+  depends_on:
+  - nav-mirror-gestures
+  size: medium
+  description: 'nav-stage-polish: fix ranker tie order, empty-query order, and the
+    row cap hint; finish badges, tooltips, muting, classes, and colours; reopen stale
+    stages; fix notices and Task Link batches; and add the missing harness tests.'
+- id: docs-memory-fix
+  title: Correct the decision record and sweep stale dependency docs
+  depends_on:
+  - hooks-docs-cleanup
+  - chips-compat-fix
+  - nav-stage-polish
+  size: small
+  description: 'docs-memory-fix: add the missing rejected alternative, decided date,
+    and plugin evidence to the decision record; fix stale docs/projects.md, freshness.md,
+    capture.md, and today.rs wording; settle the DC7/DC8 and archive-link contract
+    gaps.'
+- id: rollout
+  title: Reinstall bob and resync plugins across the fleet with the fixes
+  depends_on:
+  - hooks-docs-cleanup
+  - chips-compat-fix
+  - nav-stage-polish
+  size: small
+  description: 'rollout: reinstall bob from master and sync the plugins on athena
+    and apollo, update the MacBook on a best-effort basis now that the hooks are safe,
+    dry-run the fixed hooks against the real vault, and record versions and what is
+    left for Bryan.'
 proposed_by: bbugyi200.athena.bob-cli-3n.land
 create_time: 2026-10-02 23:24:07
 status: wip
+bead_id: bob-cli-3n.12
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_dep_links_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_fixes.md)
-- **PARENT:**
-  [202610/task_dep_links.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links.md)
+- **PROMPT:** [prompts/202610/task_dep_links_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_fixes.md)
+- **PARENT:** [202610/task_dep_links.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links.md)
+- **BEAD:** [bob-cli-3n.12](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3n/bob-cli-3n.12.md)
 
 # Plan: Finish task dependency links (bob-cli-3n remaining work)
 
