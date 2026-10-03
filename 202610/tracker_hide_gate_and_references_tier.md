@@ -1,16 +1,23 @@
 ---
 tier: tale
-title: 'Gate ^prj review on #hide, fix scheduled-project surfacing, add a REFERENCES
-  review group'
-goal: '`bob projects sync` unhides an empty, non-future-scheduled project''s ^prj
-  (so sase_sites.md surfaces); the freshness walk reviews ^prj only when it has no
-  #hide and reviews every ^ref (hidden or not) on a 7-day cadence in its own REFERENCES
-  group right before ROTTEN, identically in `bob freshness` and the Obsidian `]s`
-  walk.'
+title:
+  "Gate ^prj review on #hide, fix scheduled-project surfacing, add a REFERENCES review
+  group"
+goal:
+  "`bob projects sync` unhides an empty, non-future-scheduled project's ^prj (so
+  sase_sites.md surfaces); the freshness walk reviews ^prj only when it has no #hide and
+  reviews every ^ref (hidden or not) on a 7-day cadence in its own REFERENCES group
+  right before ROTTEN, identically in `bob freshness` and the Obsidian `]s` walk."
 size: medium
 proposed_by: bbugyi200.athena.0vp
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vp](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vp.md)
+- **COMMITS:**
+  - [79d5975](https://github.com/bobs-org/bob-plugins/commit/79d597559435484bcbdcd9d04778859ccdd117ce)
+    — feat(freshness): mirror the hide gate and REFERENCES tier in JS
 
 # Gate `^prj` review on `#hide`, fix scheduled-project surfacing, and give `^ref` its own review group
 
