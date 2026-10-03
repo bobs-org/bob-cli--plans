@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split capture completion into focused modules
-goal: Refactor capture completion into cohesive Rust modules of at most 1500 lines
-  while preserving all completion behavior and test coverage, then close only bob-cli-3s.1.
+goal:
+  Refactor capture completion into cohesive Rust modules of at most 1500 lines while
+  preserving all completion behavior and test coverage, then close only bob-cli-3s.1.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.1
 bead: bob-cli-3s.1
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/bob-cli-3s.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.1.md)
+- **COMMITS:**
+  - [fa71773](https://github.com/bobs-org/bob-cli/commit/fa717730d2211f07c1d60253e897c87e3d3d03d2)
+    — refactor(capture-complete): split 4656-line module into focused submodules
 
 # Split capture completion into focused modules
 
