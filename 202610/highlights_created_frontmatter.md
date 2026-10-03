@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Set creation datetimes on Highlights reference notes
-goal: Every new Highlights reference note records its creation datetime in frontmatter
-  and preserves it on subsequent syncs.
+goal:
+  Every new Highlights reference note records its creation datetime in frontmatter and
+  preserves it on subsequent syncs.
 size: small
 proposed_by: bbugyi200.athena.0vr
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vr](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vr.md)
+- **COMMITS:**
+  - [f3e64a6](https://github.com/bobs-org/bob-cli/commit/f3e64a68391aa7f61020b780b179571cafa16f1f)
+    — feat(highlights): stamp created frontmatter on new reference notes
 
 # Set creation datetimes on Highlights reference notes
 
