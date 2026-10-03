@@ -1,17 +1,16 @@
 ---
 tier: tale
 title: Split guarded task status writes into focused modules
-goal: "Split src/native/task_status_hooks_write.rs into a small facade and focused child
-  modules so every resulting Rust file is at most 1500 lines, while guarded-write
+goal: 'Split src/native/task_status_hooks_write.rs into a small facade and focused
+  child modules so every resulting Rust file is at most 1500 lines, while guarded-write
   sequencing, platform behavior, the existing entry points, and current test coverage
   stay intact.
 
-  "
+  '
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.3
 bead: bob-cli-3s.3
-create_time: 2026-10-03 06:27:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
