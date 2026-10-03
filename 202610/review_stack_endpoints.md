@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Add first and last review-stack keymaps in Obsidian
-goal: Add normal-mode [S and ]S mappings that jump to the first and last entries of
-  the shared review queue while preserving existing review navigation and task content.
+goal:
+  Add normal-mode [S and ]S mappings that jump to the first and last entries of the
+  shared review queue while preserving existing review navigation and task content.
 size: small
 proposed_by: bbugyi200.apollo.4n
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4n](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4n.md)
+- **COMMITS:**
+  - [6b64231](https://github.com/bobs-org/bob-cli/commit/6b6423186314af3a8e7f70a3d61ee7fe0763f856)
+    — docs(freshness): document \[S/\]S first/last review-stack jumps
 
 # Jump to the first and last Obsidian review entries with [S and ]S
 
