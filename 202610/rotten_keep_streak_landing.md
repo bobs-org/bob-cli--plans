@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Finish and land the rotten keep-streak epic (bob-cli-3v)
-goal: The decision card rejects stale child-log and priority-config inputs, its commit
-  paths are covered by real-handler tests, the freshness docs and plugin README describe
-  what shipped, and epic bob-cli-3v is closed with its plan marked done.
+goal:
+  The decision card rejects stale child-log and priority-config inputs, its commit paths
+  are covered by real-handler tests, the freshness docs and plugin README describe what
+  shipped, and epic bob-cli-3v is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-3v.land
 bead: bob-cli-3v
 status: done
@@ -14,6 +15,11 @@ status: done
   [202610/rotten_keep_streak.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/rotten_keep_streak.md)
 - **BEAD:**
   [bob-cli-3v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3v/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-3v.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-3v.land.md)
+- **COMMITS:**
+  - [ee9063e](https://github.com/bobs-org/bob-cli--plans/commit/ee9063e9d7b5bb8f65854f2ae1a8f561e2d72da1)
+    — chore(plan): mark rotten_keep_streak done
 
 # Finish and land epic bob-cli-3v (rotten keep streaks and approved decay)
 
