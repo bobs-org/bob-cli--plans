@@ -1,72 +1,67 @@
 ---
 tier: epic
 title: Split the five largest Rust files into maintainable modules
-goal:
-  Refactor the five Rust files identified in this plan, in sequence, into cohesive
+goal: Refactor the five Rust files identified in this plan, in sequence, into cohesive
   modules whose production and test files each contain at most 1500 physical lines,
   preserving existing behavior, interfaces, and test coverage. Each large phase owns
   planning its final split against the code present when it starts.
 phases:
-  - id: split-capture-complete
-    title: Split capture completion into focused modules
-    size: large
-    depends_on: []
-    description:
-      "split-capture-complete: Reinspect src/native/capture_complete.rs and plan its
-      final split; consider CLI/model, shell completion, candidate providers, rendering,
-      and test modules. Implement the split with every resulting Rust file at most 1500
-      lines and preserve completion behavior and coverage."
-  - id: split-capture-task-toggle
-    title: Split task toggle and link planners into focused modules
-    size: large
-    depends_on:
-      - split-capture-complete
-    description:
-      "split-capture-task-toggle: After split-capture-complete, reinspect
-      src/native/capture_task_toggle.rs and plan its final split; consider task updates,
-      link insertion/removal, relocation, ledger planning, text edits, and tests. Keep
-      every resulting Rust file at most 1500 lines and preserve pure-planner behavior
-      and coverage."
-  - id: split-task-status-hooks-write
-    title: Split guarded task status writes into focused modules
-    size: large
-    depends_on:
-      - split-capture-task-toggle
-    description:
-      "split-task-status-hooks-write: After split-capture-task-toggle, reinspect
-      src/native/task_status_hooks_write.rs and plan its final split; consider model,
-      snapshots/preflight, apply orchestration, recovery, filesystem staging, and tests.
-      Keep every resulting Rust file at most 1500 lines and preserve guarded-write
-      sequencing, platform behavior, and coverage."
-  - id: split-capture-clip
-    title: Split clipboard capture into focused modules
-    size: large
-    depends_on:
-      - split-task-status-hooks-write
-    description:
-      "split-capture-clip: After split-task-status-hooks-write, reinspect
-      src/native/capture_clip.rs and plan its final split; consider clipboard
-      providers/history, content planning/rendering, attachment reservations,
-      persistence, and tests. Keep every resulting Rust file at most 1500 lines and
-      preserve platform gates, rollback behavior, and coverage."
-  - id: split-plugins
-    title: Split plugin management into focused modules
-    size: large
-    depends_on:
-      - split-capture-clip
-    description:
-      "split-plugins: After split-capture-clip, reinspect src/native/plugins.rs and plan
-      its final split; consider CLI, discovery/models, Git refresh, sync,
-      diff/rendering, and tests. Keep every resulting Rust file at most 1500 lines,
-      preserve plugin management behavior and coverage, and verify the cumulative
-      file-size and test results for all five refactors."
+- id: split-capture-complete
+  title: Split capture completion into focused modules
+  size: large
+  depends_on: []
+  description: 'split-capture-complete: Reinspect src/native/capture_complete.rs and
+    plan its final split; consider CLI/model, shell completion, candidate providers,
+    rendering, and test modules. Implement the split with every resulting Rust file
+    at most 1500 lines and preserve completion behavior and coverage.'
+- id: split-capture-task-toggle
+  title: Split task toggle and link planners into focused modules
+  size: large
+  depends_on:
+  - split-capture-complete
+  description: 'split-capture-task-toggle: After split-capture-complete, reinspect
+    src/native/capture_task_toggle.rs and plan its final split; consider task updates,
+    link insertion/removal, relocation, ledger planning, text edits, and tests. Keep
+    every resulting Rust file at most 1500 lines and preserve pure-planner behavior
+    and coverage.'
+- id: split-task-status-hooks-write
+  title: Split guarded task status writes into focused modules
+  size: large
+  depends_on:
+  - split-capture-task-toggle
+  description: 'split-task-status-hooks-write: After split-capture-task-toggle, reinspect
+    src/native/task_status_hooks_write.rs and plan its final split; consider model,
+    snapshots/preflight, apply orchestration, recovery, filesystem staging, and tests.
+    Keep every resulting Rust file at most 1500 lines and preserve guarded-write sequencing,
+    platform behavior, and coverage.'
+- id: split-capture-clip
+  title: Split clipboard capture into focused modules
+  size: large
+  depends_on:
+  - split-task-status-hooks-write
+  description: 'split-capture-clip: After split-task-status-hooks-write, reinspect
+    src/native/capture_clip.rs and plan its final split; consider clipboard providers/history,
+    content planning/rendering, attachment reservations, persistence, and tests. Keep
+    every resulting Rust file at most 1500 lines and preserve platform gates, rollback
+    behavior, and coverage.'
+- id: split-plugins
+  title: Split plugin management into focused modules
+  size: large
+  depends_on:
+  - split-capture-clip
+  description: 'split-plugins: After split-capture-clip, reinspect src/native/plugins.rs
+    and plan its final split; consider CLI, discovery/models, Git refresh, sync, diff/rendering,
+    and tests. Keep every resulting Rust file at most 1500 lines, preserve plugin
+    management behavior and coverage, and verify the cumulative file-size and test
+    results for all five refactors.'
 proposed_by: bbugyi200.athena.0vn
 create_time: 2026-10-03 05:16:49
 status: wip
+bead_id: bob-cli-3s
 ---
 
-- **PROMPT:**
-  [prompts/202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_rust_files.md)
+- **PROMPT:** [prompts/202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_rust_files.md)
+- **BEAD:** [bob-cli-3s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/README.md)
 
 # Split the five largest Rust files
 
