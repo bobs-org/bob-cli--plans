@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Define project and reference notes and their status tasks
-goal: Add four concise glossary strands with the requested aliases, accurate lifecycle
+goal:
+  Add four concise glossary strands with the requested aliases, accurate lifecycle
   meanings, resolving links, and regenerated memory indexes.
 size: small
 proposed_by: bbugyi200.athena.0vs
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vs](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vs.md)
+- **COMMITS:**
+  - [5a37873](https://github.com/bobs-org/bob-cli/commit/5a3787320e16c37bef6ca6701c38b7f1274b1bba)
+    — docs(memory): add project and reference note/task glossary terms
 
 # Define project and reference notes and their status tasks
 
