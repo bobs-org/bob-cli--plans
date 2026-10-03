@@ -1,14 +1,20 @@
 ---
 tier: tale
 title: Count [s and ]s review-queue jumps
-goal: 'Make N]s and N[s jump N entries along the existing freshness review queue in
-  one landing, while a bare chord stays a one-step jump.
+goal: "Make N]s and N[s jump N entries along the existing freshness review queue in one
+  landing, while a bare chord stays a one-step jump.
 
-  '
+  "
 size: medium
 proposed_by: bbugyi200.apollo.4x
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4x](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4x.md)
+- **COMMITS:**
+  - [10cfee3](https://github.com/bobs-org/bob-plugins/commit/10cfee33df7d8d1ea84a91358362dba0037cd79b)
+    — feat(navigation): jump N review-queue entries with N\]s
 
 # Count the Obsidian `[s` / `]s` review jumps
 
