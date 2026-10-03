@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Stop native Dataview FLATTEN queries from exhausting host memory
-goal: Eliminate deep page and group copies during native query evaluation, bound FLATTEN
+goal:
+  Eliminate deep page and group copies during native query evaluation, bound FLATTEN
   expansion, and verify the apollo census pattern under a memory cap.
 size: medium
 proposed_by: bbugyi200.athena.0vu
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vu](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vu.md)
+- **COMMITS:**
+  - [2ab5961](https://github.com/bobs-org/bob-cli/commit/2ab5961f1f3a95b077edcf69d13c14d6e0541709)
+    — fix(dataview): share container values and cap FLATTEN expansion
 
 # Native Dataview OOM remediation
 
