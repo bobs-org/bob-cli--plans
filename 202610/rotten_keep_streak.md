@@ -52,7 +52,7 @@ phases:
     and calibration checks.'
 proposed_by: bbugyi200.apollo.4o
 create_time: 2026-10-03 10:36:58
-status: wip
+status: done
 bead_id: bob-cli-3v
 ---
 
