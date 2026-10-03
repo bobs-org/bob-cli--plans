@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Add project and reference tracker freshness review
-goal: Review empty projects after NEW and review reference tasks from creation using
-  the existing freshness intervals in the CLI and Obsidian.
+goal:
+  Review empty projects after NEW and review reference tasks from creation using the
+  existing freshness intervals in the CLI and Obsidian.
 size: medium
 proposed_by: bbugyi200.apollo.4r
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4r](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4r.md)
+- **COMMITS:**
+  - [86f5eaf](https://github.com/bobs-org/bob-cli/commit/86f5eaf4afd01abb13d89f4fc9657a2b2ed12b21)
+    — feat(freshness): review project and reference tracking tasks in PROJECTS tier
 
 # Review project and reference tracking tasks
 
