@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Set creation datetimes on Highlights reference notes
-goal:
-  Every new Highlights reference note records its creation datetime in frontmatter and
-  preserves it on subsequent syncs.
+goal: Every new Highlights reference note records its creation datetime in frontmatter
+  and preserves it on subsequent syncs.
 size: small
 proposed_by: bbugyi200.athena.0vr
-create_time: 2026-10-03 14:45:48
-status: wip
+status: done
 ---
 
 # Set creation datetimes on Highlights reference notes
