@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Make Obsidian Enter link jumps work with Vim Ctrl+O and Ctrl+I
-goal:
-  Restore the originating note and cursor with Ctrl+O after an Enter link jump, support
-  Ctrl+I forward traversal, and preserve ordinary Vim jumps.
+goal: Restore the originating note and cursor with Ctrl+O after an Enter link jump,
+  support Ctrl+I forward traversal, and preserve ordinary Vim jumps.
 size: medium
 proposed_by: bbugyi200.apollo.4k
-create_time: 2026-10-03 08:15:29
-status: wip
+status: done
 ---
 
 # Make Obsidian Enter link jumps work with Vim Ctrl+O and Ctrl+I
