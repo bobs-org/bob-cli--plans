@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split clipboard capture into focused Rust modules
-goal: Complete bob-cli-3s.4 with cohesive clipboard capture modules under 1500 lines
-  while preserving behavior and existing coverage.
+goal:
+  Complete bob-cli-3s.4 with cohesive clipboard capture modules under 1500 lines while
+  preserving behavior and existing coverage.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.4
 bead: bob-cli-3s.4
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/bob-cli-3s.4.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.4.md)
+- **COMMITS:**
+  - [c2c54a4](https://github.com/bobs-org/bob-cli/commit/c2c54a4b5da85a67555f5f7d085ad84d37630400)
+    — refactor(capture-clip): split capture_clip into focused modules
 
 # Split clipboard capture into focused Rust modules
 
