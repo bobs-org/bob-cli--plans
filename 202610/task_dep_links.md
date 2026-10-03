@@ -116,7 +116,7 @@ phases:
     checklist.'
 proposed_by: bbugyi200.athena.0vl
 create_time: 2026-10-02 16:54:33
-status: wip
+status: done
 bead_id: bob-cli-3n
 ---
 
