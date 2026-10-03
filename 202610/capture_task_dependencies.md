@@ -1,64 +1,60 @@
 ---
 tier: epic
 title: Capture task dependencies with an ampersand picker
-goal: "Bryan can add prerequisite links to new or explicitly selected existing tasks
-  with &note:block-id in bob capture and use a beautiful, responsive vault-wide
-  dependency picker and accurate preview in Bob Mac Capture.
+goal: 'Bryan can add prerequisite links to new or explicitly selected existing tasks
+  with &note:block-id in bob capture and use a beautiful, responsive vault-wide dependency
+  picker and accurate preview in Bob Mac Capture.
 
-  "
+  '
 phases:
-  - id: dependency-contract
-    title: Define dependency capture grammar and the additive JSON contract
-    size: medium
-    depends_on: []
-    description:
-      "dependency-contract: implement shared lexical ownership, incomplete states,
-      spans, and documented additive dependency wire types."
-  - id: dependency-discovery
-    title: Discover prerequisite tasks throughout the vault
-    size: medium
-    depends_on:
-      - dependency-contract
-    description:
-      "dependency-discovery: add vault-wide prerequisite discovery, fuzzy ranking, exact
-      note identities, and safe block-ID assignment support."
-  - id: dependency-writes
-    title: Apply dependency captures with staged multi-note writes
-    size: medium
-    depends_on:
-      - dependency-contract
-      - dependency-discovery
-    description:
-      "dependency-writes: merge managed dependency lines and derived effects through the
-      capture batch planner with validation, rollback, and final task previews."
-  - id: dependency-mac
-    title: Present the dependency picker and preview in Bob Mac Capture
-    size: medium
-    depends_on:
-      - dependency-contract
-      - dependency-discovery
-      - dependency-writes
-    description:
-      "dependency-mac: consume Bob's contract in a dependency picker, block-ID flow,
-      semantic highlighting, and accessible task preview."
-  - id: dependency-verification
-    title: Verify the integrated contract and finish the visual review
-    size: small
-    depends_on:
-      - dependency-contract
-      - dependency-discovery
-      - dependency-writes
-      - dependency-mac
-    description:
-      "dependency-verification: exercise real CLI-to-app fixtures, inspect rendered
-      picker states on macOS, and finish coordinated compatibility documentation."
+- id: dependency-contract
+  title: Define dependency capture grammar and the additive JSON contract
+  size: medium
+  depends_on: []
+  description: 'dependency-contract: implement shared lexical ownership, incomplete
+    states, spans, and documented additive dependency wire types.'
+- id: dependency-discovery
+  title: Discover prerequisite tasks throughout the vault
+  size: medium
+  depends_on:
+  - dependency-contract
+  description: 'dependency-discovery: add vault-wide prerequisite discovery, fuzzy
+    ranking, exact note identities, and safe block-ID assignment support.'
+- id: dependency-writes
+  title: Apply dependency captures with staged multi-note writes
+  size: medium
+  depends_on:
+  - dependency-contract
+  - dependency-discovery
+  description: 'dependency-writes: merge managed dependency lines and derived effects
+    through the capture batch planner with validation, rollback, and final task previews.'
+- id: dependency-mac
+  title: Present the dependency picker and preview in Bob Mac Capture
+  size: medium
+  depends_on:
+  - dependency-contract
+  - dependency-discovery
+  - dependency-writes
+  description: 'dependency-mac: consume Bob''s contract in a dependency picker, block-ID
+    flow, semantic highlighting, and accessible task preview.'
+- id: dependency-verification
+  title: Verify the integrated contract and finish the visual review
+  size: small
+  depends_on:
+  - dependency-contract
+  - dependency-discovery
+  - dependency-writes
+  - dependency-mac
+  description: 'dependency-verification: exercise real CLI-to-app fixtures, inspect
+    rendered picker states on macOS, and finish coordinated compatibility documentation.'
 proposed_by: bbugyi200.apollo.4m
 create_time: 2026-10-03 09:11:55
 status: wip
+bead_id: bob-cli-3u
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_task_dependencies.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_task_dependencies.md)
+- **PROMPT:** [prompts/202610/capture_task_dependencies.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_task_dependencies.md)
+- **BEAD:** [bob-cli-3u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3u/README.md)
 
 # Capture task dependencies with &
 
