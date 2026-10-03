@@ -31,7 +31,7 @@ phases:
     accessibility on macOS, and correct feature-specific integration issues.'
 proposed_by: bbugyi200.athena.0vw
 create_time: 2026-10-03 16:24:16
-status: wip
+status: done
 bead_id: bob-cli-41
 ---
 
