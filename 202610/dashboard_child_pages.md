@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Dashboard child pages and grouped navigation
-goal: Give Projects and References their own Dashboard child pages with reliable live
-  count badges in a clear Work, Review, and Browse navigation layout.
+goal:
+  Give Projects and References their own Dashboard child pages with reliable live count
+  badges in a clear Work, Review, and Browse navigation layout.
 size: medium
 proposed_by: bbugyi200.athena.0vq
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0vq](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0vq.md)
+- **COMMITS:**
+  - [f292382](https://github.com/bobs-org/bob-plugins/commit/f292382939100d3cf22cecb74bf8042b393bf448)
+    — feat(ledger-tools): add dashboardCollections PROJECTS/REFERENCES badges
 
 # Dashboard child pages and grouped navigation
 
