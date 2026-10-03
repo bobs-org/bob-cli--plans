@@ -1,93 +1,91 @@
 ---
 tier: epic
 title: Ctrl+Shift+P Task Card with fast actions and full property-panel parity
-goal: "Replace the property picker's first screen with a beautiful, reliable Task Card
-  that reduces common priority actions to one key after opening, preserves every
+goal: 'Replace the property picker''s first screen with a beautiful, reliable Task
+  Card that reduces common priority actions to one key after opening, preserves every
   existing editing capability and stored side effect, and protects the October freshness
   trial with a staged rollout.
 
-  "
+  '
 phases:
-  - id: repair-refresh
-    title: Repair refresh rendering and establish a real modal harness
-    depends_on: []
-    size: small
-    description: "repair-refresh: fix the confirmed malformed footer crash, verify the
-      decay card's Less often path, and ship the independent patch before the trial.
+- id: repair-refresh
+  title: Repair refresh rendering and establish a real modal harness
+  depends_on: []
+  size: small
+  description: 'repair-refresh: fix the confirmed malformed footer crash, verify the
+    decay card''s Less often path, and ship the independent patch before the trial.
 
-      "
-  - id: card-model
-    title: Plan card actions and frozen priority previews
-    depends_on:
-      - repair-refresh
-    size: medium
-    description: "card-model: add pure context-aware card and key models with
-      independent per-target priority previews, availability reasons, and table tests.
+    '
+- id: card-model
+  title: Plan card actions and frozen priority previews
+  depends_on:
+  - repair-refresh
+  size: medium
+  description: 'card-model: add pure context-aware card and key models with independent
+    per-target priority previews, availability reasons, and table tests.
 
-      "
-  - id: card-view
-    title: Render the compact Task Card and its accessible visual states
-    depends_on:
-      - card-model
-    size: medium
-    description: "card-view: add the task header, recommendation timeline, priority
-      strip, stable action rows, theme-native styles, and permanent classic search mode.
+    '
+- id: card-view
+  title: Render the compact Task Card and its accessible visual states
+  depends_on:
+  - card-model
+  size: medium
+  description: 'card-view: add the task header, recommendation timeline, priority
+    strip, stable action rows, theme-native styles, and permanent classic search mode.
 
-      "
-  - id: card-dispatch
-    title: Connect safe keyboard actions and synchronous linked-task shells
-    depends_on:
-      - card-view
-    size: medium
-    description: "card-dispatch: route card gestures through existing stages and
-      writers, guarantee immediate focus and safe asynchronous resolution, and add a
-      pilot setting.
+    '
+- id: card-dispatch
+  title: Connect safe keyboard actions and synchronous linked-task shells
+  depends_on:
+  - card-view
+  size: medium
+  description: 'card-dispatch: route card gestures through existing stages and writers,
+    guarantee immediate focus and safe asynchronous resolution, and add a pilot setting.
 
-      "
-  - id: schedule-input
-    title: Add concise date input and inline scheduling reasons
-    depends_on:
-      - card-dispatch
-    size: medium
-    description: "schedule-input: extend date input with bare day offsets, unsigned
-      units, weekdays, exact previews, inline reasons, and Shift+Enter reason skipping.
+    '
+- id: schedule-input
+  title: Add concise date input and inline scheduling reasons
+  depends_on:
+  - card-dispatch
+  size: medium
+  description: 'schedule-input: extend date input with bare day offsets, unsigned
+    units, weekdays, exact previews, inline reasons, and Shift+Enter reason skipping.
 
-      "
-  - id: schedule-review
-    title: Combine scheduling reason and Work Log review
-    depends_on:
-      - schedule-input
-    size: medium
-    description: "schedule-review: replace serial reason and work-summary prompts with
-      one optional review while preserving every existing per-target log rule and
-      writer.
+    '
+- id: schedule-review
+  title: Combine scheduling reason and Work Log review
+  depends_on:
+  - schedule-input
+  size: medium
+  description: 'schedule-review: replace serial reason and work-summary prompts with
+    one optional review while preserving every existing per-target log rule and writer.
 
-      "
-  - id: parity-rollout
-    title: Verify full parity and prepare the dated default rollout
-    depends_on:
-      - schedule-review
-    size: medium
-    description: "parity-rollout: complete interaction and writer regression coverage,
-      validate performance and themes, align the decay-card cancel alias, and release
-      version 2 with a default activation boundary of October 19.
+    '
+- id: parity-rollout
+  title: Verify full parity and prepare the dated default rollout
+  depends_on:
+  - schedule-review
+  size: medium
+  description: 'parity-rollout: complete interaction and writer regression coverage,
+    validate performance and themes, align the decay-card cancel alias, and release
+    version 2 with a default activation boundary of October 19.
 
-      "
-  - id: docs-hints
-    title: Document the new actions, compatibility paths, and rollback
-    depends_on:
-      - parity-rollout
-    size: small
-    description:
-      "docs-hints: update plugin and CLI documentation, date-aware ready hints, and the
-      Schedule Log glossary, then verify deployment from the source repository."
+    '
+- id: docs-hints
+  title: Document the new actions, compatibility paths, and rollback
+  depends_on:
+  - parity-rollout
+  size: small
+  description: 'docs-hints: update plugin and CLI documentation, date-aware ready
+    hints, and the Schedule Log glossary, then verify deployment from the source repository.'
 proposed_by: bbugyi200.apollo.research.05.linker.w0
 create_time: 2026-10-03 16:27:18
 status: wip
+bead_id: bob-cli-42
 ---
 
-- **PROMPT:**
-  [prompts/202610/ctrl_shift_p_task_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_shift_p_task_card.md)
+- **PROMPT:** [prompts/202610/ctrl_shift_p_task_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_shift_p_task_card.md)
+- **BEAD:** [bob-cli-42](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-42/README.md)
 
 # Ctrl+Shift+P Task Card
 
