@@ -4,8 +4,7 @@ title: Restore the original idle Pomodoro green and remove the idle tomato
 goal: Display NO POMODORO in the original green without a tomato when no session exists.
 size: small
 proposed_by: bbugyi200.apollo.4d
-create_time: 2026-10-03 07:04:09
-status: wip
+status: done
 ---
 
 # Restore the original idle Pomodoro green and remove the idle tomato
