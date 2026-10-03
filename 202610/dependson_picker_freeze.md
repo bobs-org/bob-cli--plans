@@ -1,19 +1,12 @@
 ---
 tier: tale
 title: Fix the Depends on picker freezing Obsidian
-goal:
-  Eliminate repeated whole-note parsing and keep dependency picker opening and fallback
-  loading responsive without changing dependency semantics.
+goal: Eliminate repeated whole-note parsing and keep dependency picker opening and
+  fallback loading responsive without changing dependency semantics.
 size: medium
 proposed_by: bbugyi200.apollo.4g
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.4g](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4g.md)
-- **COMMITS:**
-  - [2b99de6](https://github.com/bobs-org/bob-cli/commit/2b99de6a1ea7481dcbe6eb8248bb79b45a78127d)
-    — docs(deps): document Warm-empty ready and cancellable chunked fallback
 
 # Fix the Depends on picker freezing Obsidian
 
