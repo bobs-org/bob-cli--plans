@@ -1,10 +1,11 @@
 ---
 tier: tale
 title: Finish landing bob-cli-3s by dropping unused facade re-exports
-goal: The split facades for capture_task_toggle, task_status_hooks_write, and capture_complete
-  re-export only what callers use, so the lib builds show no epic-introduced unused-import
-  warnings or suppressions. Epic bob-cli-3s is closed and its plan file is marked
-  done.
+goal:
+  The split facades for capture_task_toggle, task_status_hooks_write, and
+  capture_complete re-export only what callers use, so the lib builds show no
+  epic-introduced unused-import warnings or suppressions. Epic bob-cli-3s is closed and
+  its plan file is marked done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-3s.land
 bead: bob-cli-3s
@@ -15,6 +16,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.land.md)
+- **COMMITS:**
+  - [1305af5](https://github.com/bobs-org/bob-cli/commit/1305af5b48be78dbe0c7f5b5bc05657dac5483b4)
+    — refactor(native): drop unused facade re-exports to land bob-cli-3s
 
 # Finish landing epic bob-cli-3s: drop unused facade re-exports, then close the epic
 
