@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Fix cross-machine password-store recipient selection
-goal: Make ordinary pass inserts on the Mac and Apollo decryptable on both machines
-  using their existing shared GPG key.
+goal:
+  Make ordinary pass inserts on the Mac and Apollo decryptable on both machines using
+  their existing shared GPG key.
 size: small
 proposed_by: bbugyi200.apollo.4f
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4f](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4f.md)
+- **COMMITS:**
+  - [16a0c61](https://github.com/bbugyi200/password-store/commit/16a0c61849145c481633cfea6c23da528438c551)
+    — fix: pin password-store recipient to shared primary fingerprint
 
 # Make Mac and Apollo password-store inserts use the same GPG key
 
