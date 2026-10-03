@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Fix cross-machine password-store recipient selection
-goal:
-  Make ordinary pass inserts on the Mac and Apollo decryptable on both machines using
-  their existing shared GPG key.
+goal: Make ordinary pass inserts on the Mac and Apollo decryptable on both machines
+  using their existing shared GPG key.
 size: small
 proposed_by: bbugyi200.apollo.4f
-create_time: 2026-10-03 07:27:57
-status: wip
+status: done
 ---
 
 # Make Mac and Apollo password-store inserts use the same GPG key
