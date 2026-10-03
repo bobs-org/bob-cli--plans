@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Finish landing bob-cli-3s by dropping unused facade re-exports
-goal:
-  The split facades for capture_task_toggle, task_status_hooks_write, and
-  capture_complete re-export only what callers use, so the lib builds show no
-  epic-introduced unused-import warnings or suppressions. Epic bob-cli-3s is closed and
-  its plan file is marked done.
+goal: The split facades for capture_task_toggle, task_status_hooks_write, and capture_complete
+  re-export only what callers use, so the lib builds show no epic-introduced unused-import
+  warnings or suppressions. Epic bob-cli-3s is closed and its plan file is marked
+  done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-3s.land
 bead: bob-cli-3s
-create_time: 2026-10-03 07:39:49
-status: wip
+status: done
 ---
 
 - **PARENT:**
