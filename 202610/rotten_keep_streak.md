@@ -1,68 +1,63 @@
 ---
 tier: epic
 title: Rotten keep streaks and user-approved decay
-goal: "Explicit due-Ready keeps have a trustworthy streak and a quiet freshness-mark
+goal: 'Explicit due-Ready keeps have a trustworthy streak and a quiet freshness-mark
   display; repeated keeps offer an approved decision that enters the existing priority
   ladder, with no silent decay or change to the freshness trial.
 
-  "
+  '
 phases:
-  - id: contract-rust
-    title: Keep-streak contract and Rust support
-    depends_on: []
-    size: medium
-    description:
-      "contract-rust: specify the shared behavior, implement reading and reset
-      semantics, preserve seed behavior, and publish schema 4 with parity vectors."
-  - id: ledger-marks
-    title: Ledger keep helper and folded marks
-    depends_on:
-      - contract-rust
-    size: medium
-    description:
-      "ledger-marks: mirror the contract in freshness namespace v5, add the sole
-      increment helper, and render accessible folded pips with truthful decision
-      annotations."
-  - id: nav-counting
-    title: Exact explicit-keep counting
-    depends_on:
-      - ledger-marks
-    size: medium
-    description:
-      "nav-counting: wire single, counted, and Task Link refreshes through exact
-      pre-write matching, atomic writes, accurate notices, and cache-lag regressions."
-  - id: decay-planner
-    title: Shared approved-decay action planner
-    depends_on:
-      - nav-counting
-    size: medium
-    description:
-      "decay-planner: compose existing priority and log planners into stable previewed
-      decisions, including implicit P0 entry and a non-cancelling default."
-  - id: decision-card
-    title: Decision card and review-walk integration
-    depends_on:
-      - decay-planner
-    size: medium
-    description:
-      "decision-card: add the consent interaction, guarded action application, batch
-      skipping, leaf signal, and trial activation guard."
-  - id: rollout
-    title: Integrated verification, documentation, and rollout
-    depends_on:
-      - decision-card
-    size: medium
-    description:
-      "rollout: verify cross-repository reset and rendering behavior, publish the
-      accepted memory changes, deploy from the linked source, and document trial and
-      calibration checks."
+- id: contract-rust
+  title: Keep-streak contract and Rust support
+  depends_on: []
+  size: medium
+  description: 'contract-rust: specify the shared behavior, implement reading and
+    reset semantics, preserve seed behavior, and publish schema 4 with parity vectors.'
+- id: ledger-marks
+  title: Ledger keep helper and folded marks
+  depends_on:
+  - contract-rust
+  size: medium
+  description: 'ledger-marks: mirror the contract in freshness namespace v5, add the
+    sole increment helper, and render accessible folded pips with truthful decision
+    annotations.'
+- id: nav-counting
+  title: Exact explicit-keep counting
+  depends_on:
+  - ledger-marks
+  size: medium
+  description: 'nav-counting: wire single, counted, and Task Link refreshes through
+    exact pre-write matching, atomic writes, accurate notices, and cache-lag regressions.'
+- id: decay-planner
+  title: Shared approved-decay action planner
+  depends_on:
+  - nav-counting
+  size: medium
+  description: 'decay-planner: compose existing priority and log planners into stable
+    previewed decisions, including implicit P0 entry and a non-cancelling default.'
+- id: decision-card
+  title: Decision card and review-walk integration
+  depends_on:
+  - decay-planner
+  size: medium
+  description: 'decision-card: add the consent interaction, guarded action application,
+    batch skipping, leaf signal, and trial activation guard.'
+- id: rollout
+  title: Integrated verification, documentation, and rollout
+  depends_on:
+  - decision-card
+  size: medium
+  description: 'rollout: verify cross-repository reset and rendering behavior, publish
+    the accepted memory changes, deploy from the linked source, and document trial
+    and calibration checks.'
 proposed_by: bbugyi200.apollo.4o
 create_time: 2026-10-03 10:36:58
 status: wip
+bead_id: bob-cli-3v
 ---
 
-- **PROMPT:**
-  [prompts/202610/rotten_keep_streak.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/rotten_keep_streak.md)
+- **PROMPT:** [prompts/202610/rotten_keep_streak.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/rotten_keep_streak.md)
+- **BEAD:** [bob-cli-3v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3v/README.md)
 
 # Rotten keep streaks and approved decay
 
