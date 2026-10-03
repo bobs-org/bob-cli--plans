@@ -1,18 +1,16 @@
 ---
 tier: tale
 title: Close the remaining bob-cli-3n.12.9.6 gaps and land the task dependency epics
-goal:
-  "The landing gaps the bob-cli-3n.12.9.6 audit confirmed are fixed and pinned by tests
-  that fail on the pre-fix source: stale stage writes refuse with one notice, counted
-  adds read no vault snapshot, comments and contract section 7.4 match the code, and the
-  stage tests drive the real flows. The fixes are deployed. bob-cli-3n.12.9.6 is closed,
-  and so is each complete ancestor (bob-cli-3n.12.9, bob-cli-3n.12, bob-cli-3n), with
-  its plan file marked done."
+goal: 'The landing gaps the bob-cli-3n.12.9.6 audit confirmed are fixed and pinned
+  by tests that fail on the pre-fix source: stale stage writes refuse with one notice,
+  counted adds read no vault snapshot, comments and contract section 7.4 match the
+  code, and the stage tests drive the real flows. The fixes are deployed. bob-cli-3n.12.9.6
+  is closed, and so is each complete ancestor (bob-cli-3n.12.9, bob-cli-3n.12, bob-cli-3n),
+  with its plan file marked done.'
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3n.12.9.6.land
 bead: bob-cli-3n.12.9.6
-create_time: 2026-10-03 04:37:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
