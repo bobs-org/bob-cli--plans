@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Define project and reference notes and their status tasks
-goal:
-  Add four concise glossary strands with the requested aliases, accurate lifecycle
+goal: Add four concise glossary strands with the requested aliases, accurate lifecycle
   meanings, resolving links, and regenerated memory indexes.
 size: small
 proposed_by: bbugyi200.athena.0vs
-create_time: 2026-10-03 14:50:30
-status: wip
+status: done
 ---
 
 # Define project and reference notes and their status tasks
