@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Optional Work Log when Alt+F refreshes a Pending task
-goal: Ask for an optional work summary before Alt+F or Alt+Shift+F refreshes a Pending
-  task, and save a nonblank summary in that task's Work Log in the same write as the
-  freshness stamp.
+goal:
+  Ask for an optional work summary before Alt+F or Alt+Shift+F refreshes a Pending task,
+  and save a nonblank summary in that task's Work Log in the same write as the freshness
+  stamp.
 size: medium
 proposed_by: bbugyi200.apollo.4v
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4v](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4v.md)
+- **COMMITS:**
+  - [e4aa7d0](https://github.com/bobs-org/bob-plugins/commit/e4aa7d08911bfa2d8b7af5caf018b150dcfa7379)
+    — feat(navigation): prompt for Pending refresh Work Logs
 
 # Optional Work Log when Alt+F refreshes a Pending task
 
