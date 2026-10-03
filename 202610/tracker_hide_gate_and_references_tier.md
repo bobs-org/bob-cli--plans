@@ -1,17 +1,15 @@
 ---
 tier: tale
-title:
-  "Gate ^prj review on #hide, fix scheduled-project surfacing, add a REFERENCES review
-  group"
-goal:
-  "`bob projects sync` unhides an empty, non-future-scheduled project's ^prj (so
-  sase_sites.md surfaces); the freshness walk reviews ^prj only when it has no #hide and
-  reviews every ^ref (hidden or not) on a 7-day cadence in its own REFERENCES group
-  right before ROTTEN, identically in `bob freshness` and the Obsidian `]s` walk."
+title: 'Gate ^prj review on #hide, fix scheduled-project surfacing, add a REFERENCES
+  review group'
+goal: '`bob projects sync` unhides an empty, non-future-scheduled project''s ^prj
+  (so sase_sites.md surfaces); the freshness walk reviews ^prj only when it has no
+  #hide and reviews every ^ref (hidden or not) on a 7-day cadence in its own REFERENCES
+  group right before ROTTEN, identically in `bob freshness` and the Obsidian `]s`
+  walk.'
 size: medium
 proposed_by: bbugyi200.athena.0vp
-create_time: 2026-10-03 14:27:40
-status: wip
+status: done
 ---
 
 # Gate `^prj` review on `#hide`, fix scheduled-project surfacing, and give `^ref` its own review group
