@@ -7,6 +7,12 @@ proposed_by: bbugyi200.apollo.4d
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.apollo.4d](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4d.md)
+- **COMMITS:**
+  - [f345f46](https://github.com/bbugyi200/dotfiles/commit/f345f46c8b4f4e67165392dfc3eba15644bc7ac3)
+    — feat(hammerspoon): restore original idle green and drop idle tomato
+
 # Restore the original idle Pomodoro green and remove the idle tomato
 
 ## Outcome
