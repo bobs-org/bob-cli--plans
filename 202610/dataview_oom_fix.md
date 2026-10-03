@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Stop native Dataview FLATTEN queries from exhausting host memory
-goal:
-  Eliminate deep page and group copies during native query evaluation, bound FLATTEN
+goal: Eliminate deep page and group copies during native query evaluation, bound FLATTEN
   expansion, and verify the apollo census pattern under a memory cap.
 size: medium
 proposed_by: bbugyi200.athena.0vu
-create_time: 2026-10-03 15:07:43
-status: wip
+status: done
 ---
 
 # Native Dataview OOM remediation
