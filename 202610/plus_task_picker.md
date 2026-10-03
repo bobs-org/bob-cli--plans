@@ -1,45 +1,42 @@
 ---
 tier: epic
 title: Fuzzy task pickers for scoped and vault-wide plus capture
-goal:
-  Scoped @file+ and leading or prose-terminal + gestures open the shared native fuzzy
-  task picker, insert the correct @file+id marker, and preserve existing capture
+goal: Scoped @file+ and leading or prose-terminal + gestures open the shared native
+  fuzzy task picker, insert the correct @file+id marker, and preserve existing capture
   semantics, Pomodoro operators, and stale-safe task identity.
 phases:
-  - id: plus_completion_contract
-    title: Define plus task discovery and cursor contract in bob-cli
-    size: medium
-    depends_on: []
-    description:
-      "plus_completion_contract: add the shared selector classifier, additive completion
-      metadata, vault-wide discovery adapter, backend-authored ID assignment
-      replacement, and Rust contract/regression tests."
-  - id: plus_picker_mac
-    title: Present scoped and vault-wide plus task pickers in Bob Mac Capture
-    size: medium
-    depends_on:
-      - plus_completion_contract
-    description:
-      "plus_picker_mac: connect both plus scopes to the shared picker lifecycle and
-      fuzzy presentation, including keys, focus, snapshot guards, ID naming,
-      compatibility fallback, accessible visuals, and macOS tests."
-  - id: plus_picker_integration
-    title: Verify the combined feature and polish the picker on macOS
-    size: small
-    depends_on:
-      - plus_completion_contract
-      - plus_picker_mac
-    description:
-      "plus_picker_integration: exercise backend and app together in a fixture vault,
-      verify operator and compatibility behavior, inspect native visuals and
-      accessibility on macOS, and correct feature-specific integration issues."
+- id: plus_completion_contract
+  title: Define plus task discovery and cursor contract in bob-cli
+  size: medium
+  depends_on: []
+  description: 'plus_completion_contract: add the shared selector classifier, additive
+    completion metadata, vault-wide discovery adapter, backend-authored ID assignment
+    replacement, and Rust contract/regression tests.'
+- id: plus_picker_mac
+  title: Present scoped and vault-wide plus task pickers in Bob Mac Capture
+  size: medium
+  depends_on:
+  - plus_completion_contract
+  description: 'plus_picker_mac: connect both plus scopes to the shared picker lifecycle
+    and fuzzy presentation, including keys, focus, snapshot guards, ID naming, compatibility
+    fallback, accessible visuals, and macOS tests.'
+- id: plus_picker_integration
+  title: Verify the combined feature and polish the picker on macOS
+  size: small
+  depends_on:
+  - plus_completion_contract
+  - plus_picker_mac
+  description: 'plus_picker_integration: exercise backend and app together in a fixture
+    vault, verify operator and compatibility behavior, inspect native visuals and
+    accessibility on macOS, and correct feature-specific integration issues.'
 proposed_by: bbugyi200.athena.0vw
 create_time: 2026-10-03 16:24:16
 status: wip
+bead_id: bob-cli-41
 ---
 
-- **PROMPT:**
-  [prompts/202610/plus_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/plus_task_picker.md)
+- **PROMPT:** [prompts/202610/plus_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/plus_task_picker.md)
+- **BEAD:** [bob-cli-41](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-41/README.md)
 
 # Fuzzy task selection for capture's plus syntax
 
