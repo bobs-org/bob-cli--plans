@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Add project and reference tracker freshness review
-goal:
-  Review empty projects after NEW and review reference tasks from creation using the
-  existing freshness intervals in the CLI and Obsidian.
+goal: Review empty projects after NEW and review reference tasks from creation using
+  the existing freshness intervals in the CLI and Obsidian.
 size: medium
 proposed_by: bbugyi200.apollo.4r
-create_time: 2026-10-03 11:16:23
-status: wip
+status: done
 ---
 
 # Review project and reference tracking tasks
