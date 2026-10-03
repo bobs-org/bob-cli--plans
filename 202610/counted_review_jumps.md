@@ -1,14 +1,13 @@
 ---
 tier: tale
 title: Count [s and ]s review-queue jumps
-goal: "Make N]s and N[s jump N entries along the existing freshness review queue in one
-  landing, while a bare chord stays a one-step jump.
+goal: 'Make N]s and N[s jump N entries along the existing freshness review queue in
+  one landing, while a bare chord stays a one-step jump.
 
-  "
+  '
 size: medium
 proposed_by: bbugyi200.apollo.4x
-create_time: 2026-10-03 18:31:16
-status: wip
+status: done
 ---
 
 # Count the Obsidian `[s` / `]s` review jumps
