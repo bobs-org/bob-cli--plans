@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: A quiet, persistent review footer for Obsidian
-goal:
-  Show nonempty review groups and persistent task context in a compact native footer
-  that disappears when no review tasks remain.
+goal: Show nonempty review groups and persistent task context in a compact native
+  footer that disappears when no review tasks remain.
 size: medium
 proposed_by: bbugyi200.apollo.4w
-create_time: 2026-10-03 17:38:06
-status: wip
+status: done
 ---
 
 # A quiet, persistent review footer for Obsidian
