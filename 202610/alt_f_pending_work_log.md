@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Optional Work Log when Alt+F refreshes a Pending task
-goal:
-  Ask for an optional work summary before Alt+F or Alt+Shift+F refreshes a Pending task,
-  and save a nonblank summary in that task's Work Log in the same write as the freshness
-  stamp.
+goal: Ask for an optional work summary before Alt+F or Alt+Shift+F refreshes a Pending
+  task, and save a nonblank summary in that task's Work Log in the same write as the
+  freshness stamp.
 size: medium
 proposed_by: bbugyi200.apollo.4v
-create_time: 2026-10-03 16:53:50
-status: wip
+status: done
 ---
 
 # Optional Work Log when Alt+F refreshes a Pending task
