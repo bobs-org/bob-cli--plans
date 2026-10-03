@@ -1,78 +1,72 @@
 ---
 tier: epic
-title:
-  "Finish the task dependency landing fixes: nav regressions, mirror owner, stage badge,
-  DP30 chips, Reading-view line, R9 hooks, rollout"
-goal:
-  'Every gap and regression the bob-cli-3n.12.9 landing audit confirmed is fixed and
-  pinned by a test that fails on the pre-fix source: nav recovers, refuses, and commits
-  correctly on every writer path; the mirror edits the right task; the stage never shows
-  "waits on 0"; chips render on DP30 and act on the right Reading-view row; the hooks
-  apply R9 to label-only lines; and the fixed bob and plugins are installed across the
-  fleet.'
+title: 'Finish the task dependency landing fixes: nav regressions, mirror owner, stage
+  badge, DP30 chips, Reading-view line, R9 hooks, rollout'
+goal: 'Every gap and regression the bob-cli-3n.12.9 landing audit confirmed is fixed
+  and pinned by a test that fails on the pre-fix source: nav recovers, refuses, and
+  commits correctly on every writer path; the mirror edits the right task; the stage
+  never shows "waits on 0"; chips render on DP30 and act on the right Reading-view
+  row; the hooks apply R9 to label-only lines; and the fixed bob and plugins are installed
+  across the fleet.'
 parent_bead: bob-cli-3n.12.9
 phases:
-  - id: nav-writer-regressions
-    title: Fix the nav writer regressions and finish its missing tests
-    depends_on: []
-    size: medium
-    description:
-      "nav-writer-regressions: build the recovery snapshot for field-only clears and
-      gate the hand-edit clear read, load source-linked notes in the counted vault path,
-      make counted remove one transaction with the blockquote notice on every Ctrl+D
-      path, align nav with DP30, and add the plugin-level writer tests the previous
-      phase left out."
-  - id: nav-mirror-stage-fixes
-    title:
-      Fix the mirror owner lookup, the waits-on badge, and the remaining stale refusals
-    depends_on:
-      - nav-writer-regressions
-    size: medium
-    description:
-      'nav-mirror-stage-fixes: resolve the hand-edit mirror owner in baseline
-      coordinates, stop the stage showing "waits on 0", route the cross-note batch and
-      counted vault stale paths through refuseDependencyStale, and make the stage tests
-      drive the real write and marking paths.'
-  - id: chips-dp30-reading
-    title:
-      Render chips on DP30, pick the right Reading-view row, and finish the DP tables
-    depends_on: []
-    size: medium
-    description:
-      'chips-dp30-reading: drop the ledger-tools "Work Log anywhere above" rule so DP30
-      renders and the ancestor scan stays bounded, map each Reading-view row to its own
-      line, add DP31 (prose-only line, malformed) to the contract and every recogniser,
-      and add the DP19/DP20 rows to the cycler and block-id-prompt tables.'
-  - id: hooks-r9-split
-    title:
-      Apply R9 to label-only lines in the hooks and bring the touched files under size
-    depends_on: []
-    size: small
-    description:
-      "hooks-r9-split: stop the hooks re-adopting a label-only Depends-On line
-      (R9/DW5/DR16), pin it with an adoptable-id test, correct the DW3/DW6 comments, and
-      bring reconcile.rs and dependency_lines.rs back under about 1500 lines."
-  - id: rollout
-    title: Reinstall bob and resync the plugins with the remaining fixes
-    depends_on:
-      - nav-writer-regressions
-      - nav-mirror-stage-fixes
-      - chips-dp30-reading
-      - hooks-r9-split
-    size: small
-    description:
-      "rollout: reinstall bob and sync the plugins on athena and apollo, update the
-      MacBook best effort, dry-run the hooks against the real vault and explain every
-      dependency count, and record versions and what is left for Bryan."
+- id: nav-writer-regressions
+  title: Fix the nav writer regressions and finish its missing tests
+  depends_on: []
+  size: medium
+  description: 'nav-writer-regressions: build the recovery snapshot for field-only
+    clears and gate the hand-edit clear read, load source-linked notes in the counted
+    vault path, make counted remove one transaction with the blockquote notice on
+    every Ctrl+D path, align nav with DP30, and add the plugin-level writer tests
+    the previous phase left out.'
+- id: nav-mirror-stage-fixes
+  title: Fix the mirror owner lookup, the waits-on badge, and the remaining stale
+    refusals
+  depends_on:
+  - nav-writer-regressions
+  size: medium
+  description: 'nav-mirror-stage-fixes: resolve the hand-edit mirror owner in baseline
+    coordinates, stop the stage showing "waits on 0", route the cross-note batch and
+    counted vault stale paths through refuseDependencyStale, and make the stage tests
+    drive the real write and marking paths.'
+- id: chips-dp30-reading
+  title: Render chips on DP30, pick the right Reading-view row, and finish the DP
+    tables
+  depends_on: []
+  size: medium
+  description: 'chips-dp30-reading: drop the ledger-tools "Work Log anywhere above"
+    rule so DP30 renders and the ancestor scan stays bounded, map each Reading-view
+    row to its own line, add DP31 (prose-only line, malformed) to the contract and
+    every recogniser, and add the DP19/DP20 rows to the cycler and block-id-prompt
+    tables.'
+- id: hooks-r9-split
+  title: Apply R9 to label-only lines in the hooks and bring the touched files under
+    size
+  depends_on: []
+  size: small
+  description: 'hooks-r9-split: stop the hooks re-adopting a label-only Depends-On
+    line (R9/DW5/DR16), pin it with an adoptable-id test, correct the DW3/DW6 comments,
+    and bring reconcile.rs and dependency_lines.rs back under about 1500 lines.'
+- id: rollout
+  title: Reinstall bob and resync the plugins with the remaining fixes
+  depends_on:
+  - nav-writer-regressions
+  - nav-mirror-stage-fixes
+  - chips-dp30-reading
+  - hooks-r9-split
+  size: small
+  description: 'rollout: reinstall bob and sync the plugins on athena and apollo,
+    update the MacBook best effort, dry-run the hooks against the real vault and explain
+    every dependency count, and record versions and what is left for Bryan.'
 proposed_by: bbugyi200.athena.bob-cli-3n.12.9.land
 create_time: 2026-10-03 02:54:23
 status: wip
+bead_id: bob-cli-3n.12.9.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_dep_links_landing_remaining.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_landing_remaining.md)
-- **PARENT:**
-  [202610/task_dep_links_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links_landing_fixes.md)
+- **PROMPT:** [prompts/202610/task_dep_links_landing_remaining.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_landing_remaining.md)
+- **PARENT:** [202610/task_dep_links_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links_landing_fixes.md)
+- **BEAD:** [bob-cli-3n.12.9.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3n/bob-cli-3n.12.9.6.md)
 
 # Plan: Finish the task dependency landing fixes (bob-cli-3n.12.9 remaining work)
 
