@@ -1,12 +1,12 @@
 ---
 tier: tale
 title: Split guarded task status writes into focused modules
-goal: 'Split src/native/task_status_hooks_write.rs into a small facade and focused
-  child modules so every resulting Rust file is at most 1500 lines, while guarded-write
+goal: "Split src/native/task_status_hooks_write.rs into a small facade and focused child
+  modules so every resulting Rust file is at most 1500 lines, while guarded-write
   sequencing, platform behavior, the existing entry points, and current test coverage
   stay intact.
 
-  '
+  "
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.3
 bead: bob-cli-3s.3
@@ -17,6 +17,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/bob-cli-3s.3.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.3.md)
+- **COMMITS:**
+  - [b4a5022](https://github.com/bobs-org/bob-cli/commit/b4a5022515e08c764299614c1c473a5199867608)
+    — refactor(native): split task_status_hooks_write into focused modules
 
 # Plan: Split guarded task status writes into focused modules
 
