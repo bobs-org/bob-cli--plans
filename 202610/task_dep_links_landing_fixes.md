@@ -1,74 +1,68 @@
 ---
 tier: epic
-title:
-  "Land task dependency link fixes: nav writer and mirror bugs, Reading-view chips,
-  DP29, hooks test gaps, rollout"
-goal:
-  "Every gap the bob-cli-3n.12 landing audit confirmed is fixed and pinned by a test:
-  nav writes the right ids and one undo step per gesture, the hand-edit mirror and stage
-  match their design, Reading-view chips act on the right task, all five recognisers
-  agree on every DP vector including DP29, the hooks DW/DP/Summary tests are real, and
-  the fixed bob and plugins are installed across the fleet."
+title: 'Land task dependency link fixes: nav writer and mirror bugs, Reading-view
+  chips, DP29, hooks test gaps, rollout'
+goal: 'Every gap the bob-cli-3n.12 landing audit confirmed is fixed and pinned by
+  a test: nav writes the right ids and one undo step per gesture, the hand-edit mirror
+  and stage match their design, Reading-view chips act on the right task, all five
+  recognisers agree on every DP vector including DP29, the hooks DW/DP/Summary tests
+  are real, and the fixed bob and plugins are installed across the fleet.'
 parent_bead: bob-cli-3n.12
 phases:
-  - id: chips-reading-align
-    title: Reading-view chips, recogniser alignment, and the DP29/DP30 contract
-    depends_on: []
-    size: medium
-    description:
-      "chips-reading-align: settle DP29 (blockquote is not-a-line everywhere) and add
-      DP30 in the contract and Rust DP test, give Reading view the owning-line rules and
-      a section-derived line, make cycler/bip agree with every DP vector, stop
-      full-document copies in Live Preview, cache the lookup index through
-      freshnessEnsureMemo, and make the vacuous chip tests real."
-  - id: nav-writer-bugs
-    title: Fix the nav dependency writer bugs the landing audit confirmed
-    depends_on: []
-    size: medium
-    description:
-      "nav-writer-bugs: reject blockquoted Depends-On lines in nav (DP29), fix the
-      kept-link field id lookup and the dropped same-note target id write, make counted
-      add/remove one transaction, stop whole-vault reads on every writer call, and give
-      the hand-edit clear path vault-snapshot recovery."
-  - id: nav-mirror-stage
-    title: Finish the hand-edit mirror baseline and the Depends on stage
-    depends_on:
-      - nav-writer-bugs
-    size: medium
-    description:
-      "nav-mirror-stage: seed the mirror from the CM6 start state and map the owner
-      through later changes, delete the dead scheduleDependencyHandEditMirror path,
-      count only open prerequisites in the waits-on badge, show readable cycle tooltips,
-      reopen on every stale refusal, and add the missing stage harness tests."
-  - id: hooks-gaps
-    title: Close the hooks DW, DP, Summary, docs, and per-run copy gaps
-    depends_on: []
-    size: medium
-    description:
-      "hooks-gaps: replace the hollow DW1/DW2/DW3/DW5/DW6 tests, pin the Summary
-      dependency counts, fix the task-status-hooks JSON example, narrow a needless
-      pub(crate), and stop ReconcileWorker::new copying every vault note per run."
-  - id: rollout
-    title: Reinstall bob and resync plugins across the fleet with the landing fixes
-    depends_on:
-      - chips-reading-align
-      - nav-writer-bugs
-      - nav-mirror-stage
-      - hooks-gaps
-    size: small
-    description:
-      "rollout: reinstall bob from master and sync the plugins on athena and apollo,
-      update the MacBook best effort, dry-run the hooks against the real vault and
-      explain every dependency count, and record versions and what is left for Bryan."
+- id: chips-reading-align
+  title: Reading-view chips, recogniser alignment, and the DP29/DP30 contract
+  depends_on: []
+  size: medium
+  description: 'chips-reading-align: settle DP29 (blockquote is not-a-line everywhere)
+    and add DP30 in the contract and Rust DP test, give Reading view the owning-line
+    rules and a section-derived line, make cycler/bip agree with every DP vector,
+    stop full-document copies in Live Preview, cache the lookup index through freshnessEnsureMemo,
+    and make the vacuous chip tests real.'
+- id: nav-writer-bugs
+  title: Fix the nav dependency writer bugs the landing audit confirmed
+  depends_on: []
+  size: medium
+  description: 'nav-writer-bugs: reject blockquoted Depends-On lines in nav (DP29),
+    fix the kept-link field id lookup and the dropped same-note target id write, make
+    counted add/remove one transaction, stop whole-vault reads on every writer call,
+    and give the hand-edit clear path vault-snapshot recovery.'
+- id: nav-mirror-stage
+  title: Finish the hand-edit mirror baseline and the Depends on stage
+  depends_on:
+  - nav-writer-bugs
+  size: medium
+  description: 'nav-mirror-stage: seed the mirror from the CM6 start state and map
+    the owner through later changes, delete the dead scheduleDependencyHandEditMirror
+    path, count only open prerequisites in the waits-on badge, show readable cycle
+    tooltips, reopen on every stale refusal, and add the missing stage harness tests.'
+- id: hooks-gaps
+  title: Close the hooks DW, DP, Summary, docs, and per-run copy gaps
+  depends_on: []
+  size: medium
+  description: 'hooks-gaps: replace the hollow DW1/DW2/DW3/DW5/DW6 tests, pin the
+    Summary dependency counts, fix the task-status-hooks JSON example, narrow a needless
+    pub(crate), and stop ReconcileWorker::new copying every vault note per run.'
+- id: rollout
+  title: Reinstall bob and resync plugins across the fleet with the landing fixes
+  depends_on:
+  - chips-reading-align
+  - nav-writer-bugs
+  - nav-mirror-stage
+  - hooks-gaps
+  size: small
+  description: 'rollout: reinstall bob from master and sync the plugins on athena
+    and apollo, update the MacBook best effort, dry-run the hooks against the real
+    vault and explain every dependency count, and record versions and what is left
+    for Bryan.'
 proposed_by: bbugyi200.athena.bob-cli-3n.12.land
 create_time: 2026-10-03 01:27:47
 status: wip
+bead_id: bob-cli-3n.12.9
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_dep_links_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_landing_fixes.md)
-- **PARENT:**
-  [202610/task_dep_links_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links_fixes.md)
+- **PROMPT:** [prompts/202610/task_dep_links_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_dep_links_landing_fixes.md)
+- **PARENT:** [202610/task_dep_links_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links_fixes.md)
+- **BEAD:** [bob-cli-3n.12.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3n/bob-cli-3n.12.9.md)
 
 # Plan: Land task dependency link fixes (bob-cli-3n.12 remaining work)
 
