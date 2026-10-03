@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split plugin management into focused Rust modules
-goal: Complete bob-cli-3s.5 by splitting plugin management into cohesive modules of
-  at most 1500 lines while preserving behavior, coverage, and the five-file size audit.
+goal:
+  Complete bob-cli-3s.5 by splitting plugin management into cohesive modules of at most
+  1500 lines while preserving behavior, coverage, and the five-file size audit.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.5
 bead: bob-cli-3s.5
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/bob-cli-3s.5.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.5.md)
+- **COMMITS:**
+  - [bfa3ac9](https://github.com/bobs-org/bob-cli/commit/bfa3ac904d194fc26e92c9c70706f510a552eccd)
+    — refactor(plugins): split plugin management into focused modules
 
 # Split plugin management into focused Rust modules
 
