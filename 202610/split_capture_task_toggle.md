@@ -1,11 +1,12 @@
 ---
 tier: tale
 title: Split capture task toggle planners into focused modules
-goal: 'Split src/native/capture_task_toggle.rs into a small facade and focused child
-  modules so every resulting Rust file is at most 1500 lines, while pure-planner behavior,
-  the existing capture_task_toggle entry points, and current test coverage stay intact.
+goal: "Split src/native/capture_task_toggle.rs into a small facade and focused child
+  modules so every resulting Rust file is at most 1500 lines, while pure-planner
+  behavior, the existing capture_task_toggle entry points, and current test coverage
+  stay intact.
 
-  '
+  "
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.2
 bead: bob-cli-3s.2
@@ -16,6 +17,11 @@ status: done
   [202610/split_largest_rust_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_rust_files.md)
 - **BEAD:**
   [bob-cli-3s.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3s/bob-cli-3s.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3s.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3s.2.md)
+- **COMMITS:**
+  - [c9a6f1b](https://github.com/bobs-org/bob-cli/commit/c9a6f1b453b12730f1a64b4d2b16a2314e383c1d)
+    — refactor(capture): split capture_task_toggle into focused modules
 
 # Plan: Split capture task toggle planners into focused modules
 
