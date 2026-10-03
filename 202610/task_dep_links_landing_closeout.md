@@ -1,12 +1,13 @@
 ---
 tier: tale
 title: Close the remaining bob-cli-3n.12.9.6 gaps and land the task dependency epics
-goal: 'The landing gaps the bob-cli-3n.12.9.6 audit confirmed are fixed and pinned
-  by tests that fail on the pre-fix source: stale stage writes refuse with one notice,
-  counted adds read no vault snapshot, comments and contract section 7.4 match the
-  code, and the stage tests drive the real flows. The fixes are deployed. bob-cli-3n.12.9.6
-  is closed, and so is each complete ancestor (bob-cli-3n.12.9, bob-cli-3n.12, bob-cli-3n),
-  with its plan file marked done.'
+goal:
+  "The landing gaps the bob-cli-3n.12.9.6 audit confirmed are fixed and pinned by tests
+  that fail on the pre-fix source: stale stage writes refuse with one notice, counted
+  adds read no vault snapshot, comments and contract section 7.4 match the code, and the
+  stage tests drive the real flows. The fixes are deployed. bob-cli-3n.12.9.6 is closed,
+  and so is each complete ancestor (bob-cli-3n.12.9, bob-cli-3n.12, bob-cli-3n), with
+  its plan file marked done."
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3n.12.9.6.land
 bead: bob-cli-3n.12.9.6
@@ -17,6 +18,11 @@ status: done
   [202610/task_dep_links_landing_remaining.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_dep_links_landing_remaining.md)
 - **BEAD:**
   [bob-cli-3n.12.9.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-3n/bob-cli-3n.12.9.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-3n.12.9.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-3n.12.9.6.land.md)
+- **COMMITS:**
+  - [6192017](https://github.com/bobs-org/bob-cli/commit/619201720934e641db800d7d2e86a8f6ac714193)
+    — docs(task-deps): DP30 Reading rows in 7.4; drop unreachable legacy branch
 
 # Plan: Close the gaps left in bob-cli-3n.12.9.6, then land it and its ancestors
 
