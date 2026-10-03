@@ -49,7 +49,7 @@ phases:
     rendered picker states on macOS, and finish coordinated compatibility documentation.'
 proposed_by: bbugyi200.apollo.4m
 create_time: 2026-10-03 09:11:55
-status: wip
+status: done
 bead_id: bob-cli-3u
 ---
 
