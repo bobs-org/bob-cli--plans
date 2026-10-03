@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Add moved-task destinations to Vim Ctrl+O/Ctrl+I history
-goal:
-  After Ctrl+Shift+M moves tasks, Ctrl+O and Ctrl+I round-trip between the surviving
+goal: After Ctrl+Shift+M moves tasks, Ctrl+O and Ctrl+I round-trip between the surviving
   source position and the settled destination through the existing shared Vim history.
 size: medium
 proposed_by: bbugyi200.apollo.4p
-create_time: 2026-10-03 10:42:00
-status: wip
+status: done
 ---
 
 # Add moved-task destinations to Vim Ctrl+O/Ctrl+I history
