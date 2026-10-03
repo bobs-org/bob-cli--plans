@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Correct tracker review eligibility, cadence, and the old-reference backlog
-goal: Review projects only without other open tasks, configure project/reference reviews
-  to 1/3 days, and complete references proven older than the seven-day cutoff.
+goal:
+  Review projects only without other open tasks, configure project/reference reviews to
+  1/3 days, and complete references proven older than the seven-day cutoff.
 size: medium
 proposed_by: bbugyi200.apollo.4r.f1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.4r.f1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.4r.f1.md)
+- **COMMITS:**
+  - [855a98e](https://github.com/bbugyi200/dotfiles/commit/855a98ef6aa35df2dd10bff6563f7a697952da9a)
+    — feat(bob): add personal project and reference review cadences
 
 # Correct tracker review eligibility, cadence, and the old-reference backlog
 
