@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split clipboard capture into focused Rust modules
-goal:
-  Complete bob-cli-3s.4 with cohesive clipboard capture modules under 1500 lines while
-  preserving behavior and existing coverage.
+goal: Complete bob-cli-3s.4 with cohesive clipboard capture modules under 1500 lines
+  while preserving behavior and existing coverage.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-3s.4
 bead: bob-cli-3s.4
-create_time: 2026-10-03 06:48:47
-status: wip
+status: done
 ---
 
 - **PARENT:**
