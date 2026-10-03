@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish and land the rotten keep-streak epic (bob-cli-3v)
-goal:
-  The decision card rejects stale child-log and priority-config inputs, its commit paths
-  are covered by real-handler tests, the freshness docs and plugin README describe what
-  shipped, and epic bob-cli-3v is closed with its plan marked done.
+goal: The decision card rejects stale child-log and priority-config inputs, its commit
+  paths are covered by real-handler tests, the freshness docs and plugin README describe
+  what shipped, and epic bob-cli-3v is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-3v.land
 bead: bob-cli-3v
-create_time: 2026-10-03 12:42:05
-status: wip
+status: done
 ---
 
 - **PARENT:**
