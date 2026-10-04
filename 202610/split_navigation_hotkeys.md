@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Split bob-navigation-hotkeys onto the plugin source build
-goal:
-  Complete bob-cli-47.3 by moving bob-navigation-hotkeys into ordered source fragments
-  under the existing build contract, preserving helper and prototype parity, and
-  deploying the generated plugin.
+goal: Complete bob-cli-47.3 by moving bob-navigation-hotkeys into ordered source fragments
+  under the existing build contract, preserving helper and prototype parity, and deploying
+  the generated plugin.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.3
 bead: bob-cli-47.3
-create_time: 2026-10-04 08:31:42
-status: wip
+status: done
 ---
 
 - **PARENT:**
