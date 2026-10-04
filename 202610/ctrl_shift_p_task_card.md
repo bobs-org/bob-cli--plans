@@ -80,7 +80,7 @@ phases:
     hints, and the Schedule Log glossary, then verify deployment from the source repository.'
 proposed_by: bbugyi200.apollo.research.05.linker.w0
 create_time: 2026-10-03 16:27:18
-status: wip
+status: done
 bead_id: bob-cli-42
 ---
 
