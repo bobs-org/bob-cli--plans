@@ -2,8 +2,9 @@
 tier: tale
 size: small
 title: Finish canonical nightly documentation and land bob-cli-46
-goal: Correct the last current-use old command name, recheck readiness, and close
-  bob-cli-46 with its plan marked done.
+goal:
+  Correct the last current-use old command name, recheck readiness, and close bob-cli-46
+  with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-46.land
 bead: bob-cli-46
 status: done
@@ -13,6 +14,11 @@ status: done
   [202610/bob_command_tree.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_command_tree.md)
 - **BEAD:**
   [bob-cli-46](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-46/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-46.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-46.land.md)
+- **COMMITS:**
+  - [76df6b6](https://github.com/bobs-org/bob-cli/commit/76df6b656a963e1defaaf1fa9c83caeb20ffb8aa)
+    — docs(cli): correct nightly archive command and land bob-cli-46
 
 # Remaining work
 
