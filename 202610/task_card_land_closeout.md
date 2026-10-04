@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish and land the Ctrl+Shift+P Task Card epic
-goal:
-  Task Card deletions, focus, and review counts behave per the epic contract, the date
-  grammar is documented, navigation-hotkeys 2.0.1 is deployed, and epic bob-cli-42 is
-  closed with its plan marked done.
+goal: Task Card deletions, focus, and review counts behave per the epic contract,
+  the date grammar is documented, navigation-hotkeys 2.0.1 is deployed, and epic bob-cli-42
+  is closed with its plan marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-42.land
 bead: bob-cli-42
-create_time: 2026-10-03 20:36:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
