@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split the Task Status Cycler test suite
-goal: Preserve all 185 cycler tests in per-area files and a shared harness under 1000
-  lines, verify the refactor, and close only bob-cli-47.5.
+goal:
+  Preserve all 185 cycler tests in per-area files and a shared harness under 1000 lines,
+  verify the refactor, and close only bob-cli-47.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.5
 bead: bob-cli-47.5
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files.md)
 - **BEAD:**
   [bob-cli-47.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/bob-cli-47.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-47.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-47.5.md)
+- **COMMITS:**
+  - [b854201](https://github.com/bobs-org/bob-plugins/commit/b8542019284ca72e2dfe36b60c523edbe47b36ed)
+    — refactor(test): split task-status-cycler suite
 
 # Split the Task Status Cycler test suite for bob-cli-47.5
 
