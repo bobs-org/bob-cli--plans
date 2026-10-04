@@ -52,7 +52,7 @@ phases:
     classes shared through the harness.'
 proposed_by: bbugyi200.apollo.4z
 create_time: 2026-10-04 07:13:44
-status: wip
+status: done
 bead_id: bob-cli-47
 ---
 
