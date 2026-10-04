@@ -47,7 +47,7 @@ phases:
     the rollout so no host runs new spellings on an old bob.'
 proposed_by: bbugyi200.apollo.4y
 create_time: 2026-10-04 07:02:04
-status: wip
+status: done
 bead_id: bob-cli-46
 ---
 
