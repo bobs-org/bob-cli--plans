@@ -1,80 +1,75 @@
 ---
 tier: epic
-title:
-  PRE and POST checklist tiers around the ]s morning walk, with the freshness trial
-  removed
-goal: "The ]s walk opens with every open, actionable-today #gtd #pre task (the
-  gtd_daily.md chores) and closes with the #gtd #post Morning review. Bryan resolves
-  each of those rows by completing it in the walk, and checking Morning review last
-  certifies the review. No doc, vault note, decision record, or bead waits on a
-  freshness trial any more.
+title: PRE and POST checklist tiers around the ]s morning walk, with the freshness
+  trial removed
+goal: 'The ]s walk opens with every open, actionable-today #gtd #pre task (the gtd_daily.md
+  chores) and closes with the #gtd #post Morning review. Bryan resolves each of those
+  rows by completing it in the walk, and checking Morning review last certifies the
+  review. No doc, vault note, decision record, or bead waits on a freshness trial
+  any more.
 
-  "
+  '
 phases:
-  - id: prep
-    title: Remove the freshness trial and tag the gtd_daily.md chores
-    depends_on: []
-    size: small
-    description:
-      "prep: delete every trial gate, window, and keep rule from docs/freshness.md,
-      rotten.md, the decision records (edited inline), and bead bob-cli-3h, then add the
-      inert #gtd #pre / #gtd #post tags to the eight live gtd_daily.md chores."
-  - id: cycler
-    title: task-status-cycler completion API v2
-    depends_on: []
-    size: small
-    description:
-      "cycler: add completeTaskAtCursor(editor) to the cycler's cross-plugin API (v2).
-      It closes the task through the Tasks command so recurrence fires, never stamps,
-      refuses rather than writing [x] raw, and reports lineDelta."
-  - id: rust
-    title: Checklist tier contract and the Rust evaluator (schema 9)
-    depends_on:
-      - prep
-    size: medium
-    description:
-      "rust: land the checklist contract and CL vectors in docs/freshness.md, implement
-      Tier::Pre/Post, checklist scope, [?] admission, counts, lints, and schema 9 in bob
-      freshness, and amend the review-walk decision and the freshness glossary strand
-      inline."
-  - id: ledger
-    title: bob-ledger-tools checklist tiers (freshness namespace v7)
-    depends_on:
-      - rust
-    size: medium
-    description:
-      "ledger: mirror the checklist contract in the ledger-tools fragments (evaluate,
-      row adapter, queue, counts, footer, status view, marks), publish checklistTiers on
-      freshness namespace v7, and port the CL vectors."
-  - id: nav
-    title: Navigation walk support, complete-and-advance, and text-first cursor identity
-    depends_on:
-      - ledger
-      - cycler
-    size: medium
-    description:
-      "nav: teach navigation-hotkeys the PRE/POST tiers and notices, route Alt+F /
-      Alt+Shift+F on checklist rows to cycler completion, skip them in counted and Task
-      Link batches, match the cursor by text first, and drop a previous-day walk anchor."
-  - id: rollout
-    title: Ritual rewrite, deploy, and live verification
-    depends_on:
-      - rust
-      - ledger
-      - cycler
-      - nav
-    size: small
-    description:
-      "rollout: rewrite the Morning review chore as a closeout, update the ritual docs
-      and rollout log, install bob, confirm the synced plugins, verify the live walk,
-      and record any GUI checks that cannot run as a verification gate."
+- id: prep
+  title: Remove the freshness trial and tag the gtd_daily.md chores
+  depends_on: []
+  size: small
+  description: 'prep: delete every trial gate, window, and keep rule from docs/freshness.md,
+    rotten.md, the decision records (edited inline), and bead bob-cli-3h, then add
+    the inert #gtd #pre / #gtd #post tags to the eight live gtd_daily.md chores.'
+- id: cycler
+  title: task-status-cycler completion API v2
+  depends_on: []
+  size: small
+  description: 'cycler: add completeTaskAtCursor(editor) to the cycler''s cross-plugin
+    API (v2). It closes the task through the Tasks command so recurrence fires, never
+    stamps, refuses rather than writing [x] raw, and reports lineDelta.'
+- id: rust
+  title: Checklist tier contract and the Rust evaluator (schema 9)
+  depends_on:
+  - prep
+  size: medium
+  description: 'rust: land the checklist contract and CL vectors in docs/freshness.md,
+    implement Tier::Pre/Post, checklist scope, [?] admission, counts, lints, and schema
+    9 in bob freshness, and amend the review-walk decision and the freshness glossary
+    strand inline.'
+- id: ledger
+  title: bob-ledger-tools checklist tiers (freshness namespace v7)
+  depends_on:
+  - rust
+  size: medium
+  description: 'ledger: mirror the checklist contract in the ledger-tools fragments
+    (evaluate, row adapter, queue, counts, footer, status view, marks), publish checklistTiers
+    on freshness namespace v7, and port the CL vectors.'
+- id: nav
+  title: Navigation walk support, complete-and-advance, and text-first cursor identity
+  depends_on:
+  - ledger
+  - cycler
+  size: medium
+  description: 'nav: teach navigation-hotkeys the PRE/POST tiers and notices, route
+    Alt+F / Alt+Shift+F on checklist rows to cycler completion, skip them in counted
+    and Task Link batches, match the cursor by text first, and drop a previous-day
+    walk anchor.'
+- id: rollout
+  title: Ritual rewrite, deploy, and live verification
+  depends_on:
+  - rust
+  - ledger
+  - cycler
+  - nav
+  size: small
+  description: 'rollout: rewrite the Morning review chore as a closeout, update the
+    ritual docs and rollout log, install bob, confirm the synced plugins, verify the
+    live walk, and record any GUI checks that cannot run as a verification gate.'
 proposed_by: bbugyi200.apollo.research.07.linker.w1
 create_time: 2026-10-04 09:05:21
 status: wip
+bead_id: bob-cli-48
 ---
 
-- **PROMPT:**
-  [prompts/202610/gtd_pre_post_review_tiers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gtd_pre_post_review_tiers.md)
+- **PROMPT:** [prompts/202610/gtd_pre_post_review_tiers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gtd_pre_post_review_tiers.md)
+- **BEAD:** [bob-cli-48](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-48/README.md)
 
 # Plan: PRE and POST checklist tiers around the `]s` morning walk
 
