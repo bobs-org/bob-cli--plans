@@ -64,7 +64,7 @@ phases:
     live walk, and record any GUI checks that cannot run as a verification gate.'
 proposed_by: bbugyi200.apollo.research.07.linker.w1
 create_time: 2026-10-04 09:05:21
-status: wip
+status: done
 bead_id: bob-cli-48
 ---
 
