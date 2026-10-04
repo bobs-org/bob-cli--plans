@@ -1,66 +1,63 @@
 ---
 tier: epic
-title:
-  Split the five largest bob-plugins JavaScript files into files of at most 1000 lines
-goal: "The five largest JavaScript files in the bob-plugins linked repo are each split
-  into multiple hand-edited files of at most 1000 lines. Plugin runtime behavior, the
-  `helpers` test surface, `bob plugins sync`, and the full `npm test` / `npm run
+title: Split the five largest bob-plugins JavaScript files into files of at most 1000
+  lines
+goal: 'The five largest JavaScript files in the bob-plugins linked repo are each split
+  into multiple hand-edited files of at most 1000 lines. Plugin runtime behavior,
+  the `helpers` test surface, `bob plugins sync`, and the full `npm test` / `npm run
   validate` suite stay unchanged.
 
-  "
+  '
 phases:
-  - id: split-task-status-cycler
-    title: Split task-status-cycler main.js and establish the plugin source build
-    depends_on: []
-    size: large
-    description:
-      "split-task-status-cycler: pilot the src/ fragment build, staleness check, and
-      parity check on the smallest target plugin. Document the new contract and split
-      plugins/task-status-cycler/main.js into fragments plus plugin-class mixins."
-  - id: split-ledger-tools
-    title: Split bob-ledger-tools main.js
-    depends_on:
-      - split-task-status-cycler
-    size: large
-    description:
-      "split-ledger-tools: apply the established build contract to
-      plugins/bob-ledger-tools/main.js. Preserve its load-time CodeMirror let/try setup
-      and widget classes, and repoint keep-in-sync comments in other plugins."
-  - id: split-navigation-hotkeys
-    title: Split bob-navigation-hotkeys main.js
-    depends_on:
-      - split-ledger-tools
-    size: large
-    description:
-      "split-navigation-hotkeys: apply the build contract to the 52k-line
-      plugins/bob-navigation-hotkeys/main.js. This includes mixin splits of both the
-      plugin class and the 6.4k-line BulletPropertyPickerModal, with its super calls and
-      duplicate onClose."
-  - id: split-navigation-hotkeys-tests
-    title: Split scripts/test-navigation-hotkeys.cjs
-    depends_on:
-      - split-navigation-hotkeys
-    size: large
-    description:
-      "split-navigation-hotkeys-tests: move the shared preamble and file-wide helpers
-      into a harness module, and split the 500 tests into per-area test files listed in
-      package.json. The same 500 names must still pass."
-  - id: split-task-status-cycler-tests
-    title: Split scripts/test-task-status-cycler.cjs
-    depends_on:
-      - split-navigation-hotkeys-tests
-    size: large
-    description:
-      "split-task-status-cycler-tests: reuse the harness convention to split the 179
-      cycler tests into per-area files. Keep the stub-assigned MarkdownView/TestModal
-      classes shared through the harness."
+- id: split-task-status-cycler
+  title: Split task-status-cycler main.js and establish the plugin source build
+  depends_on: []
+  size: large
+  description: 'split-task-status-cycler: pilot the src/ fragment build, staleness
+    check, and parity check on the smallest target plugin. Document the new contract
+    and split plugins/task-status-cycler/main.js into fragments plus plugin-class
+    mixins.'
+- id: split-ledger-tools
+  title: Split bob-ledger-tools main.js
+  depends_on:
+  - split-task-status-cycler
+  size: large
+  description: 'split-ledger-tools: apply the established build contract to plugins/bob-ledger-tools/main.js.
+    Preserve its load-time CodeMirror let/try setup and widget classes, and repoint
+    keep-in-sync comments in other plugins.'
+- id: split-navigation-hotkeys
+  title: Split bob-navigation-hotkeys main.js
+  depends_on:
+  - split-ledger-tools
+  size: large
+  description: 'split-navigation-hotkeys: apply the build contract to the 52k-line
+    plugins/bob-navigation-hotkeys/main.js. This includes mixin splits of both the
+    plugin class and the 6.4k-line BulletPropertyPickerModal, with its super calls
+    and duplicate onClose.'
+- id: split-navigation-hotkeys-tests
+  title: Split scripts/test-navigation-hotkeys.cjs
+  depends_on:
+  - split-navigation-hotkeys
+  size: large
+  description: 'split-navigation-hotkeys-tests: move the shared preamble and file-wide
+    helpers into a harness module, and split the 500 tests into per-area test files
+    listed in package.json. The same 500 names must still pass.'
+- id: split-task-status-cycler-tests
+  title: Split scripts/test-task-status-cycler.cjs
+  depends_on:
+  - split-navigation-hotkeys-tests
+  size: large
+  description: 'split-task-status-cycler-tests: reuse the harness convention to split
+    the 179 cycler tests into per-area files. Keep the stub-assigned MarkdownView/TestModal
+    classes shared through the harness.'
 proposed_by: bbugyi200.apollo.4z
 create_time: 2026-10-04 07:13:44
 status: wip
+bead_id: bob-cli-47
 ---
 
-- **PROMPT:**
-  [prompts/202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_bob_plugins_js_files.md)
+- **PROMPT:** [prompts/202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_bob_plugins_js_files.md)
+- **BEAD:** [bob-cli-47](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/README.md)
 
 # Plan: Split the five largest bob-plugins JavaScript files
 
