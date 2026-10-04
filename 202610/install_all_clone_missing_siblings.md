@@ -1,13 +1,21 @@
 ---
 tier: tale
 title: install-all offers to clone missing sibling checkouts over SSH
-goal: When run from a terminal, just install-all asks [y/N] before the bob-cli build
-  whether to clone a missing bob-plugins or bob-mac-capture sibling from git@github.com:bobs-org/<repo>.git,
-  then installs the fresh clone; declined or non-interactive runs skip it as today.
+goal:
+  When run from a terminal, just install-all asks [y/N] before the bob-cli build whether
+  to clone a missing bob-plugins or bob-mac-capture sibling from
+  git@github.com:bobs-org/<repo>.git, then installs the fresh clone; declined or
+  non-interactive runs skip it as today.
 size: medium
 proposed_by: bbugyi200.athena.0wh.f0.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0wh.f0.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0wh.f0.f0.md)
+- **COMMITS:**
+  - [19230d3](https://github.com/bobs-org/bob-cli/commit/19230d37b40f731b0f65b8caccd6c62ed2ad2968)
+    — feat(install-all): offer to clone missing sibling checkouts over SSH
 
 # Plan: `just install-all` offers to clone missing sibling checkouts over SSH
 
