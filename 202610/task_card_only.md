@@ -9,8 +9,7 @@ goal: 'Ctrl+Shift+P always opens the Task Card. Remove the pilot setting, the 20
   '
 size: medium
 proposed_by: bbugyi200.athena.0w4
-create_time: 2026-10-04 05:43:34
-status: wip
+status: done
 ---
 
 # Make the Task Card the only Ctrl+Shift+P surface
