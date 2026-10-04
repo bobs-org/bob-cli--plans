@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Make Task Card keys work and close the card after a write
-goal:
-  Every Task Card key works from open, every writing gesture closes the card,
+goal: Every Task Card key works from open, every writing gesture closes the card,
   Next/Pending P-level picks show the Work summary stage, and the test harness models
   Obsidian's real Modal lifecycle.
 size: medium
 proposed_by: bbugyi200.athena.0w4.f1
-create_time: 2026-10-04 06:35:10
-status: wip
+status: done
 ---
 
 # Make Task Card keys work and close the card after a write
