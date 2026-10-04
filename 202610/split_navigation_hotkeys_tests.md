@@ -2,14 +2,12 @@
 tier: tale
 title: Split navigation-hotkeys tests into a harness and per-area files
 size: medium
-goal:
-  Replace scripts/test-navigation-hotkeys.cjs with one shared harness and per-area test
-  files of at most 1000 lines, listed explicitly in package.json. Test names and test
-  bodies stay unchanged, and the same 500 names pass.
+goal: Replace scripts/test-navigation-hotkeys.cjs with one shared harness and per-area
+  test files of at most 1000 lines, listed explicitly in package.json. Test names
+  and test bodies stay unchanged, and the same 500 names pass.
 proposed_by: bbugyi200.apollo.bob-cli-47.4
 bead: bob-cli-47.4
-create_time: 2026-10-04 09:37:17
-status: wip
+status: done
 ---
 
 - **PARENT:**
