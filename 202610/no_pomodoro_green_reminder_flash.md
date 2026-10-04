@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Flash NO POMODORO green for one minute in every ten
-goal: The Hammerspoon NO POMODORO menu-bar label flashes a green pill at 1 Hz for
-  its first 60 seconds on screen and for 60 seconds every 10 minutes after that, without
-  ever changing the item's width, and looks like today's steady green label otherwise.
+goal:
+  The Hammerspoon NO POMODORO menu-bar label flashes a green pill at 1 Hz for its first
+  60 seconds on screen and for 60 seconds every 10 minutes after that, without ever
+  changing the item's width, and looks like today's steady green label otherwise.
 size: medium
 proposed_by: bbugyi200.athena.0wk
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0wk](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0wk.md)
+- **COMMITS:**
+  - [69e9522](https://github.com/bbugyi200/dotfiles/commit/69e952203548819fd05d9dba47cafcba5f0ba013)
+    — feat(hammerspoon): flash NO POMODORO green one minute in ten
 
 # Plan: Flash `NO POMODORO` green for one minute in every ten
 
