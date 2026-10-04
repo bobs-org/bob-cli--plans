@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Merge install-all-and-restart into install-all, restarting only on plugin changes
-goal: just install-all restarts a running Obsidian only when bob plugins sync changed
-  the vault (or an earlier run's restart is still owed), and just install-all-and-restart
-  is gone.
+goal:
+  just install-all restarts a running Obsidian only when bob plugins sync changed the
+  vault (or an earlier run's restart is still owed), and just install-all-and-restart is
+  gone.
 size: medium
 proposed_by: bbugyi200.athena.0wh
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0wh](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0wh.md)
+- **COMMITS:**
+  - [54ff70a](https://github.com/bobs-org/bob-cli/commit/54ff70acf959abd46a30e728cd5e102862546157)
+    — feat(install-all): restart Obsidian when plugin sync copies files
 
 # Plan: Fold the Obsidian restart into `just install-all`, gated on plugin changes
 
