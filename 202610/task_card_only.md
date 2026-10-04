@@ -12,6 +12,13 @@ proposed_by: bbugyi200.athena.0w4
 status: done
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.0w4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0w4.md)
+- **COMMITS:**
+  - [6ba1969](https://github.com/bobs-org/bob-plugins/commit/6ba1969fece1357bb39623b1af3c30fb20450e11)
+    — feat(navigation-hotkeys): make the Task Card the only Ctrl+Shift+P surface in
+    2.1.0
+
 # Make the Task Card the only Ctrl+Shift+P surface
 
 ## Outcome
