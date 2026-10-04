@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Make Ctrl+[ close the Task Card and its stages
-goal:
-  Ctrl+[ dismisses the Task Card and its focused stages without writing, and the
+goal: Ctrl+[ dismisses the Task Card and its focused stages without writing, and the
   deployed plugin and documentation advertise the corrected chord.
 size: small
 proposed_by: bbugyi200.athena.0w4.f3
-create_time: 2026-10-04 10:29:43
-status: wip
+status: done
 ---
 
 # Make Ctrl+[ close the Task Card and its stages
