@@ -1,17 +1,14 @@
 ---
 tier: tale
-title:
-  Fix slow Obsidian startup (bob-ledger-tools noteReady rescans) and slow quit (QuickAdd
-  2.30.0 quit hook)
-goal:
-  Obsidian on the MacBook starts in about 2s instead of about 8s, and quits immediately
+title: Fix slow Obsidian startup (bob-ledger-tools noteReady rescans) and slow quit
+  (QuickAdd 2.30.0 quit hook)
+goal: Obsidian on the MacBook starts in about 2s instead of about 8s, and quits immediately
   without the "Saving..." overlay, because bob-ledger-tools stops rescanning the whole
-  vault on every vault event and snapshot read, and QuickAdd is rolled back to the last
-  version without the broken quit hook.
+  vault on every vault event and snapshot read, and QuickAdd is rolled back to the
+  last version without the broken quit hook.
 size: medium
 proposed_by: bbugyi200.athena.0wc
-create_time: 2026-10-04 09:25:29
-status: wip
+status: done
 ---
 
 # Plan: Fix slow Obsidian startup and slow quit
