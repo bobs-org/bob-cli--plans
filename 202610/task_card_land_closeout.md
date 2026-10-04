@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Finish and land the Ctrl+Shift+P Task Card epic
-goal: Task Card deletions, focus, and review counts behave per the epic contract,
-  the date grammar is documented, navigation-hotkeys 2.0.1 is deployed, and epic bob-cli-42
-  is closed with its plan marked done.
+goal:
+  Task Card deletions, focus, and review counts behave per the epic contract, the date
+  grammar is documented, navigation-hotkeys 2.0.1 is deployed, and epic bob-cli-42 is
+  closed with its plan marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-42.land
 bead: bob-cli-42
@@ -14,6 +15,11 @@ status: done
   [202610/ctrl_shift_p_task_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ctrl_shift_p_task_card.md)
 - **BEAD:**
   [bob-cli-42](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-42/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-42.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-42.land.md)
+- **COMMITS:**
+  - [c2898cc](https://github.com/bobs-org/bob-plugins/commit/c2898cca19f427185e2ab8b007c210a3ded87f21)
+    — fix(navigation-hotkeys): land Task Card closeout fixes in 2.0.1
 
 # Finish and land the Ctrl+Shift+P Task Card epic (bob-cli-42)
 
