@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Make Ctrl+[ close the Task Card and its stages
-goal: Ctrl+[ dismisses the Task Card and its focused stages without writing, and the
+goal:
+  Ctrl+[ dismisses the Task Card and its focused stages without writing, and the
   deployed plugin and documentation advertise the corrected chord.
 size: small
 proposed_by: bbugyi200.athena.0w4.f3
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0w4.f3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0w4.f3.md)
+- **COMMITS:**
+  - [31e5c0e](https://github.com/bobs-org/bob-plugins/commit/31e5c0e04aac38a80d83fba12d0f0006975fbfd7)
+    — fix(bob-navigation-hotkeys): close the Task Card with Ctrl+\[
 
 # Make Ctrl+[ close the Task Card and its stages
 
