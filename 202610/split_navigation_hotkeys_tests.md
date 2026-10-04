@@ -2,9 +2,10 @@
 tier: tale
 title: Split navigation-hotkeys tests into a harness and per-area files
 size: medium
-goal: Replace scripts/test-navigation-hotkeys.cjs with one shared harness and per-area
-  test files of at most 1000 lines, listed explicitly in package.json. Test names
-  and test bodies stay unchanged, and the same 500 names pass.
+goal:
+  Replace scripts/test-navigation-hotkeys.cjs with one shared harness and per-area test
+  files of at most 1000 lines, listed explicitly in package.json. Test names and test
+  bodies stay unchanged, and the same 500 names pass.
 proposed_by: bbugyi200.apollo.bob-cli-47.4
 bead: bob-cli-47.4
 status: done
@@ -14,6 +15,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files.md)
 - **BEAD:**
   [bob-cli-47.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/bob-cli-47.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-47.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-47.4.md)
+- **COMMITS:**
+  - [5d074dc](https://github.com/bobs-org/bob-plugins/commit/5d074dc340173f94cb9353f11a0241d9a8717af5)
+    — refactor(test): split navigation hotkeys suite
 
 # Split navigation-hotkeys tests into a harness and per-area files
 
