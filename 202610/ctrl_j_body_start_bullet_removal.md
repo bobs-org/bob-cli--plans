@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Ctrl-J removes a populated dash bullet from anywhere before its body
-goal:
-  In Bob Mac Capture, Ctrl-J with a collapsed caret anywhere from line start through the
-  first body character of a populated `- ` row deletes the bullet prefix into a blank
-  separator and keeps the body, instead of splitting the row into an empty bullet plus a
-  new one.
+goal: In Bob Mac Capture, Ctrl-J with a collapsed caret anywhere from line start through
+  the first body character of a populated `- ` row deletes the bullet prefix into
+  a blank separator and keeps the body, instead of splitting the row into an empty
+  bullet plus a new one.
 size: small
 proposed_by: bbugyi200.athena.0w5
-create_time: 2026-10-04 06:02:41
-status: wip
+status: done
 ---
 
 # Ctrl-J removes a populated dash bullet from anywhere before its body
