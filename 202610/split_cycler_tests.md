@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split the Task Status Cycler test suite
-goal:
-  Preserve all 185 cycler tests in per-area files and a shared harness under 1000 lines,
-  verify the refactor, and close only bob-cli-47.5.
+goal: Preserve all 185 cycler tests in per-area files and a shared harness under 1000
+  lines, verify the refactor, and close only bob-cli-47.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.5
 bead: bob-cli-47.5
-create_time: 2026-10-04 09:57:44
-status: wip
+status: done
 ---
 
 - **PARENT:**
