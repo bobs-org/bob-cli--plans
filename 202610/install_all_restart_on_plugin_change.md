@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Merge install-all-and-restart into install-all, restarting only on plugin changes
-goal:
-  just install-all restarts a running Obsidian only when bob plugins sync changed the
-  vault (or an earlier run's restart is still owed), and just install-all-and-restart is
-  gone.
+goal: just install-all restarts a running Obsidian only when bob plugins sync changed
+  the vault (or an earlier run's restart is still owed), and just install-all-and-restart
+  is gone.
 size: medium
 proposed_by: bbugyi200.athena.0wh
-create_time: 2026-10-04 13:58:15
-status: wip
+status: done
 ---
 
 # Plan: Fold the Obsidian restart into `just install-all`, gated on plugin changes
