@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Split task-status-cycler and establish the plugin source build
-goal: Complete bob-cli-47.1 with bounded source fragments, a deterministic build and
+goal:
+  Complete bob-cli-47.1 with bounded source fragments, a deterministic build and
   staleness check, verified code parity, and a safely deployed generated plugin.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.1
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files.md)
 - **BEAD:**
   [bob-cli-47.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/bob-cli-47.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-47.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-47.1.md)
+- **COMMITS:**
+  - [6f8aca0](https://github.com/bobs-org/bob-plugins/commit/6f8aca0beae21e66922ae61a6d865d642d056803)
+    — feat(plugins): add deterministic fragment build and split task status cycler
 
 # Split task-status-cycler and establish the plugin source build
 
