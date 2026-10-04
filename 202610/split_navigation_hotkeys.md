@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Split bob-navigation-hotkeys onto the plugin source build
-goal: Complete bob-cli-47.3 by moving bob-navigation-hotkeys into ordered source fragments
-  under the existing build contract, preserving helper and prototype parity, and deploying
-  the generated plugin.
+goal:
+  Complete bob-cli-47.3 by moving bob-navigation-hotkeys into ordered source fragments
+  under the existing build contract, preserving helper and prototype parity, and
+  deploying the generated plugin.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.3
 bead: bob-cli-47.3
@@ -14,6 +15,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files.md)
 - **BEAD:**
   [bob-cli-47.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/bob-cli-47.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-47.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-47.3.md)
+- **COMMITS:**
+  - [c1762af](https://github.com/bobs-org/bob-plugins/commit/c1762af3b757579d700dceb010e63a36bf8537b0)
+    — refactor(bob-navigation-hotkeys): split navigation source into fragments
 
 # Split bob-navigation-hotkeys onto the plugin source build
 
