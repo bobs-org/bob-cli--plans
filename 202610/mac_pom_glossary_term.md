@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Add the Mac Menu Bar Pomodoro Indicator (mac pom) glossary term
-goal: bob-cli's glossary web defines the Hammerspoon menu-bar Pomodoro indicator under
-  the keyword "Mac Menu Bar Pomodoro Indicator" with alias "mac pom", the roster advertises
+goal:
+  bob-cli's glossary web defines the Hammerspoon menu-bar Pomodoro indicator under the
+  keyword "Mac Menu Bar Pomodoro Indicator" with alias "mac pom", the roster advertises
   it, and reading it links only the Pomodoro term family.
 size: small
 proposed_by: bbugyi200.athena.0wk.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0wk.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0wk.f0.md)
+- **COMMITS:**
+  - [d8fc07a](https://github.com/bobs-org/bob-cli/commit/d8fc07a1f1ba8da828bbac8888ec25e196214d96)
+    — docs(memory): add Mac Menu Bar Pomodoro Indicator glossary term
 
 # Plan: Add the "Mac Menu Bar Pomodoro Indicator" (mac pom) glossary term
 
