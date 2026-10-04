@@ -12,12 +12,6 @@ proposed_by: bbugyi200.athena.0w4
 status: done
 ---
 
-- **AGENTS:**
-  - [bbugyi200.athena.0w4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0w4.md)
-- **COMMITS:**
-  - [b1332af](https://github.com/bobs-org/bob-cli/commit/b1332af2d23335be72d2827eb868193e289d0819)
-    — feat(ready): always advertise the Task Card keys in the crowded-note hint
-
 # Make the Task Card the only Ctrl+Shift+P surface
 
 ## Outcome
