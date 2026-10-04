@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split task-status-cycler and establish the plugin source build
-goal:
-  Complete bob-cli-47.1 with bounded source fragments, a deterministic build and
+goal: Complete bob-cli-47.1 with bounded source fragments, a deterministic build and
   staleness check, verified code parity, and a safely deployed generated plugin.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.1
 bead: bob-cli-47.1
-create_time: 2026-10-04 07:21:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
