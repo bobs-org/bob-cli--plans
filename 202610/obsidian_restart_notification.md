@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Notify on the Mac when install-all needs to restart Obsidian
-goal: just install-all posts one clear Notification Center banner on macOS when a
-  plugin change means a running Obsidian must restart, and a second banner when that
-  restart cannot finish. A stopped Obsidian, an unchanged vault, and Linux stay quiet.
+goal:
+  just install-all posts one clear Notification Center banner on macOS when a plugin
+  change means a running Obsidian must restart, and a second banner when that restart
+  cannot finish. A stopped Obsidian, an unchanged vault, and Linux stay quiet.
 size: small
 proposed_by: bbugyi200.athena.0wh.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0wh.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0wh.f0.md)
+- **COMMITS:**
+  - [cd2dd77](https://github.com/bobs-org/bob-cli/commit/cd2dd7789e8ebf5c02d5bb0b12f1db0f701955a8)
+    — feat(install-all): notify on macOS before Obsidian restart
 
 # Plan: Mac notification when `just install-all` needs to restart Obsidian
 
