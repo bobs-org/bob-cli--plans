@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Move freshness confirm-and-advance to Ctrl+Alt+F
-goal:
-  Ctrl+Alt+F confirms or completes the current Obsidian review task and advances through
-  the existing review queue, while Alt+F keeps its in-place behavior and Alt+Shift+F is
-  released.
+goal: Ctrl+Alt+F confirms or completes the current Obsidian review task and advances
+  through the existing review queue, while Alt+F keeps its in-place behavior and Alt+Shift+F
+  is released.
 size: small
 proposed_by: bbugyi200.apollo.53
-create_time: 2026-10-04 13:01:01
-status: wip
+status: done
 ---
 
 # Move freshness confirm-and-advance to Ctrl+Alt+F
