@@ -1,20 +1,19 @@
 ---
 tier: tale
 title: Split bob-ledger-tools onto the plugin source build
-goal:
-  Complete bob-cli-47.2 by moving bob-ledger-tools into ordered source fragments under
-  the existing build contract, with load-time behavior and export parity preserved and
-  the generated plugin deployed.
+goal: Complete bob-cli-47.2 by moving bob-ledger-tools into ordered source fragments
+  under the existing build contract, with load-time behavior and export parity preserved
+  and the generated plugin deployed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-47.2
 bead: bob-cli-47.2
-create_time: 2026-10-04 08:00:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
   [202610/split_largest_bob_plugins_js_files.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files.md)
-- **BEAD:** bob-cli-47.2
+- **BEAD:**
+  [bob-cli-47.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-47/bob-cli-47.2.md)
 
 # Split bob-ledger-tools onto the plugin source build
 
