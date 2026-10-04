@@ -1,61 +1,58 @@
 ---
 tier: epic
 title: Reorganize bob's command tree with sectioned help, bob task, and bob pomodoro
-goal: "`bob -h` and `bob <TAB>` present 14 workflow-ordered commands in five sections
-  plus a collapsed Capture protocol section; `bob task {archive,reconcile,reroll}` and
-  `bob pomodoro {notify,status,tmux}` replace five opaque top-level names; every old
-  spelling keeps working forever as a silent alias with byte-identical behavior; and the
-  README, docs, tests, chezmoi, and bob-plugins all teach the canonical names.
+goal: '`bob -h` and `bob <TAB>` present 14 workflow-ordered commands in five sections
+  plus a collapsed Capture protocol section; `bob task {archive,reconcile,reroll}`
+  and `bob pomodoro {notify,status,tmux}` replace five opaque top-level names; every
+  old spelling keeps working forever as a silent alias with byte-identical behavior;
+  and the README, docs, tests, chezmoi, and bob-plugins all teach the canonical names.
 
-  "
+  '
 phases:
-  - id: sectioned-help
-    title: Sectioned help, help routing, and completion parity
-    depends_on: []
-    size: medium
-    description:
-      "sectioned-help: replace CompletionTier with workflow Sections, render sectioned
-      root help (-h collapses the capture protocol, --help lists it), cut the examples,
-      add the argv alias-rewrite table and `bob help <path>` routing, hide `freshness
-      seed`, label defaults, group `bob <TAB>` by section, and amend cli_rules.md. No
-      command changes behavior."
-  - id: command-groups
-    title: bob task and bob pomodoro groups with permanent aliases
-    depends_on:
-      - sectioned-help
-    size: medium
-    description:
-      "command-groups: add Leaf/Group targets to the runner table, route `bob task` and
-      `bob pomodoro` (bare = status), map the five old names onto canonical paths as
-      silent aliases, print canonical names in every leaf's help, diagnostics, logs, and
-      commit subjects, mount the groups in completion, and add alias-parity, routing,
-      and help snapshot tests."
-  - id: canonical-docs
-    title: README, docs, and tests teach the canonical names
-    depends_on:
-      - command-groups
-    size: medium
-    description:
-      "canonical-docs: rewrite the README command reference, task and Pomodoro sections,
-      shims table, and migration notes; move docs/ to canonical spellings; migrate test
-      invocations to canonical paths; and record the proposed follow-ups."
-  - id: downstream-callers
-    title: chezmoi and bob-plugins callers move to canonical names
-    depends_on:
-      - command-groups
-    size: small
-    description:
-      "downstream-callers: switch the chezmoi shims, tmux.conf, and obsidian memory note
-      to canonical names, fix the stale highlights-ref message, retire the stale
-      bob_dataview skill copies, update the bob-plugins notice string, and guard the
-      rollout so no host runs new spellings on an old bob."
+- id: sectioned-help
+  title: Sectioned help, help routing, and completion parity
+  depends_on: []
+  size: medium
+  description: 'sectioned-help: replace CompletionTier with workflow Sections, render
+    sectioned root help (-h collapses the capture protocol, --help lists it), cut
+    the examples, add the argv alias-rewrite table and `bob help <path>` routing,
+    hide `freshness seed`, label defaults, group `bob <TAB>` by section, and amend
+    cli_rules.md. No command changes behavior.'
+- id: command-groups
+  title: bob task and bob pomodoro groups with permanent aliases
+  depends_on:
+  - sectioned-help
+  size: medium
+  description: 'command-groups: add Leaf/Group targets to the runner table, route
+    `bob task` and `bob pomodoro` (bare = status), map the five old names onto canonical
+    paths as silent aliases, print canonical names in every leaf''s help, diagnostics,
+    logs, and commit subjects, mount the groups in completion, and add alias-parity,
+    routing, and help snapshot tests.'
+- id: canonical-docs
+  title: README, docs, and tests teach the canonical names
+  depends_on:
+  - command-groups
+  size: medium
+  description: 'canonical-docs: rewrite the README command reference, task and Pomodoro
+    sections, shims table, and migration notes; move docs/ to canonical spellings;
+    migrate test invocations to canonical paths; and record the proposed follow-ups.'
+- id: downstream-callers
+  title: chezmoi and bob-plugins callers move to canonical names
+  depends_on:
+  - command-groups
+  size: small
+  description: 'downstream-callers: switch the chezmoi shims, tmux.conf, and obsidian
+    memory note to canonical names, fix the stale highlights-ref message, retire the
+    stale bob_dataview skill copies, update the bob-plugins notice string, and guard
+    the rollout so no host runs new spellings on an old bob.'
 proposed_by: bbugyi200.apollo.4y
 create_time: 2026-10-04 07:02:04
 status: wip
+bead_id: bob-cli-46
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_command_tree.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_command_tree.md)
+- **PROMPT:** [prompts/202610/bob_command_tree.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_command_tree.md)
+- **BEAD:** [bob-cli-46](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-46/README.md)
 
 # Plan: Reorganize bob's command tree
 
