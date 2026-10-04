@@ -2,13 +2,11 @@
 tier: tale
 size: small
 title: Finish canonical nightly documentation and land bob-cli-46
-goal:
-  Correct the last current-use old command name, recheck readiness, and close bob-cli-46
-  with its plan marked done.
+goal: Correct the last current-use old command name, recheck readiness, and close
+  bob-cli-46 with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-46.land
 bead: bob-cli-46
-create_time: 2026-10-04 09:53:30
-status: wip
+status: done
 ---
 
 - **PARENT:**
