@@ -1,83 +1,81 @@
 ---
 tier: epic
-title:
-  Finish `!note:block-id` completion — one tree traversal, contract-exact output, and
-  Mac picker polish
-goal: "Close the gaps the bob-cli-4i landing review found between the shipped
-  `!note:block-id` completion and its approved plan (plan:202610/bang_task_complete.md).
-  The `=x` close and `!` share one embedded-tree traversal. `!` only differs from `=x`
-  at the root. The Complete picker never offers a task capture refuses. `bob capture`
-  prints the contract's ledger lines and reports the entry names behind them. Docs and
-  tests match the shipped behavior. Bob Mac Capture shows the filtered Today and All
-  open tasks headers, the full detail strip, the Done capsule, and Bob's clean task text
+title: Finish `!note:block-id` completion — one tree traversal, contract-exact output,
+  and Mac picker polish
+goal: 'Close the gaps the bob-cli-4i landing review found between the shipped `!note:block-id`
+  completion and its approved plan (plan:202610/bang_task_complete.md). The `=x` close
+  and `!` share one embedded-tree traversal. `!` only differs from `=x` at the root.
+  The Complete picker never offers a task capture refuses. `bob capture` prints the
+  contract''s ledger lines and reports the entry names behind them. Docs and tests
+  match the shipped behavior. Bob Mac Capture shows the filtered Today and All open
+  tasks headers, the full detail strip, the Done capsule, and Bob''s clean task text
   and ledger names.
 
-  "
+  '
 parent_bead: bob-cli-4i
 phases:
-  - id: close_unify
-    title: Route the `=x` embedded-tree close through `complete_task_tree`
-    depends_on: []
-    size: medium
-    description: "close_unify: in bob-cli, make `ClosePlanner::apply_embedded_tree`
-      delegate its traversal to `task_complete::complete_task_tree` with `CloseLink` so
-      one traversal remains. Keep every close test unchanged and `=x!N` output
-      byte-identical. Make `Explicit` differ from `CloseLink` only at the root and in
-      reporting recurring descendants. Stop reporting Canceled or Done descendants as
-      left open. Remove unused `task_complete` re-exports.
+- id: close_unify
+  title: Route the `=x` embedded-tree close through `complete_task_tree`
+  depends_on: []
+  size: medium
+  description: 'close_unify: in bob-cli, make `ClosePlanner::apply_embedded_tree`
+    delegate its traversal to `task_complete::complete_task_tree` with `CloseLink`
+    so one traversal remains. Keep every close test unchanged and `=x!N` output byte-identical.
+    Make `Explicit` differ from `CloseLink` only at the root and in reporting recurring
+    descendants. Stop reporting Canceled or Done descendants as left open. Remove
+    unused `task_complete` re-exports.
 
-      "
-  - id: picker_parse
-    title: Picker status filter, today-section sinking, and parse/claim consistency
-    depends_on: []
-    size: small
-    description: "picker_parse: in bob-cli, limit the completable-task catalog to `
-      `/`?`/`*`/`/` tasks, sink hidden and recurring rows inside each today entry,
-      mirror the `task_complete` object at the top level of single-item capture-parse
-      JSON, and claim `!` before dependency scanning in execution. Fill the
-      grammar/picker test gaps. Fix the stale capture-parse and capture-complete
-      reference lists in docs/capture.md.
+    '
+- id: picker_parse
+  title: Picker status filter, today-section sinking, and parse/claim consistency
+  depends_on: []
+  size: small
+  description: 'picker_parse: in bob-cli, limit the completable-task catalog to `
+    `/`?`/`*`/`/` tasks, sink hidden and recurring rows inside each today entry, mirror
+    the `task_complete` object at the top level of single-item capture-parse JSON,
+    and claim `!` before dependency scanning in execution. Fill the grammar/picker
+    test gaps. Fix the stale capture-parse and capture-complete reference lists in
+    docs/capture.md.
 
-      "
-  - id: ledger_output
-    title:
-      Contract-exact ledger lines, clean task text, one vault walk, and execute tests
-    depends_on:
-      - close_unify
-      - picker_parse
-    size: medium
-    description: "ledger_output: in bob-cli, report `struck_in` and `dropped` ledger
-      entries plus a clean `task_complete.text`, print the contract's ledger lines, use
-      the configured global filter, build the recovery vault walk once per batch, drop
-      the dead preimage rechecks, fix new clippy warnings in the epic's files, fill the
-      execute CLI test gaps with exact human output, and rewrite the docs/capture.md `!`
-      execution docs.
+    '
+- id: ledger_output
+  title: Contract-exact ledger lines, clean task text, one vault walk, and execute
+    tests
+  depends_on:
+  - close_unify
+  - picker_parse
+  size: medium
+  description: 'ledger_output: in bob-cli, report `struck_in` and `dropped` ledger
+    entries plus a clean `task_complete.text`, print the contract''s ledger lines,
+    use the configured global filter, build the recovery vault walk once per batch,
+    drop the dead preimage rechecks, fix new clippy warnings in the epic''s files,
+    fill the execute CLI test gaps with exact human output, and rewrite the docs/capture.md
+    `!` execution docs.
 
-      "
-  - id: mac_followups
-    title:
-      Mac Complete picker headers, detail strip, Done capsule, and Bob's text and ledger
-      names
-    depends_on:
-      - ledger_output
-      - picker_parse
-    size: medium
-    description: "mac_followups: in bob-mac-capture, show the filtered Today / All open
-      tasks headers, use `TaskCompletePickerIndex.actionLine` in the detail strip, add
-      the Done capsule, render Bob's `task_complete.text` and `struck_in`/`dropped`
-      ledger names, show Bob's locator in the ID prompt, refresh real-bob fixtures, fill
-      the panel test gaps, then commit and get macOS CI green.
+    '
+- id: mac_followups
+  title: Mac Complete picker headers, detail strip, Done capsule, and Bob's text and
+    ledger names
+  depends_on:
+  - ledger_output
+  - picker_parse
+  size: medium
+  description: 'mac_followups: in bob-mac-capture, show the filtered Today / All open
+    tasks headers, use `TaskCompletePickerIndex.actionLine` in the detail strip, add
+    the Done capsule, render Bob''s `task_complete.text` and `struck_in`/`dropped`
+    ledger names, show Bob''s locator in the ID prompt, refresh real-bob fixtures,
+    fill the panel test gaps, then commit and get macOS CI green.
 
-      "
+    '
 proposed_by: bbugyi200.apollo.bob-cli-4i.land
 create_time: 2026-10-05 18:10:30
 status: wip
+bead_id: bob-cli-4i.7
 ---
 
-- **PROMPT:**
-  [prompts/202610/bang_task_complete_finish.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bang_task_complete_finish.md)
-- **PARENT:**
-  [202610/bang_task_complete.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bang_task_complete.md)
+- **PROMPT:** [prompts/202610/bang_task_complete_finish.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bang_task_complete_finish.md)
+- **PARENT:** [202610/bang_task_complete.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bang_task_complete.md)
+- **BEAD:** [bob-cli-4i.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4i/bob-cli-4i.7.md)
 
 # Context
 
