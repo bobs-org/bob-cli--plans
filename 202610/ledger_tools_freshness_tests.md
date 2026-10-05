@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split the ledger-tools freshness test suite
-goal: Preserve all 57 freshness tests in a shared harness and six focused files under
-  1000 lines, verify the split, and close only bob-cli-4f.3.
+goal:
+  Preserve all 57 freshness tests in a shared harness and six focused files under 1000
+  lines, verify the split, and close only bob-cli-4f.3.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.3
 bead: bob-cli-4f.3
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files_1.md)
 - **BEAD:**
   [bob-cli-4f.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4f/bob-cli-4f.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-4f.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4f.3.md)
+- **COMMITS:**
+  - [474d6fe](https://github.com/bobs-org/bob-plugins/commit/474d6fe063f0096296728b52702e4331d0371be6)
+    — refactor(test): split ledger-tools freshness suite
 
 # Split the ledger-tools freshness tests for bob-cli-4f.3
 
