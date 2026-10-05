@@ -1,48 +1,46 @@
 ---
 tier: epic
 title: Mac menu bar internet ping indicator sharing one ping stream with tmux_ping
-goal: "The MacBook menu bar shows the same last-20 ping count as the tmux status bar,
-  styled as a sibling of the Pomodoro item, while a single shared ping stream feeds both
-  displays: never more than one ping to 8.8.8.8 every 2 s, and none while the Mac is
-  locked.
+goal: 'The MacBook menu bar shows the same last-20 ping count as the tmux status bar,
+  styled as a sibling of the Pomodoro item, while a single shared ping stream feeds
+  both displays: never more than one ping to 8.8.8.8 every 2 s, and none while the
+  Mac is locked.
 
-  "
+  '
 phases:
-  - id: tmux-ping-state
-    title: tmux_ping becomes a shared-state reader with a fallback pinger
-    depends_on: []
-    size: medium
-    description:
-      "tmux-ping-state: rewrite tmux_ping as a fast, bugyi-free reader of
-      ~/tmp/tmux_ping_state that pings only when no fresh Hammerspoon heartbeat exists,
-      render the shared health tiers in tmux markup, and cover it with bashunit tests."
-  - id: ping-window-model
-    title: Pure Lua ping window model and presentation
-    depends_on: []
-    size: medium
-    description:
-      "ping-window-model: add the hs-free ping_window.lua module (state parse/serialize,
-      window append and gap reset, tier classification, fixed-width count, RTT parsing,
-      menu bar title and dropdown model) with a busted spec built on the shared contract
-      fixtures."
-  - id: ping-menubar
-    title: Hammerspoon ping menu bar runtime, init wiring, and README
-    depends_on:
-      - tmux-ping-state
-      - ping-window-model
-    size: medium
-    description:
-      "ping-menubar: add the ping_indicator.lua runtime that owns the 2 s cadence,
-      pauses while locked, claims and writes the shared state, and renders the styled
-      status item and lazy dropdown; wire it into init.lua behind an xpcall, extend the
-      specs, and document the feature in the README."
+- id: tmux-ping-state
+  title: tmux_ping becomes a shared-state reader with a fallback pinger
+  depends_on: []
+  size: medium
+  description: 'tmux-ping-state: rewrite tmux_ping as a fast, bugyi-free reader of
+    ~/tmp/tmux_ping_state that pings only when no fresh Hammerspoon heartbeat exists,
+    render the shared health tiers in tmux markup, and cover it with bashunit tests.'
+- id: ping-window-model
+  title: Pure Lua ping window model and presentation
+  depends_on: []
+  size: medium
+  description: 'ping-window-model: add the hs-free ping_window.lua module (state parse/serialize,
+    window append and gap reset, tier classification, fixed-width count, RTT parsing,
+    menu bar title and dropdown model) with a busted spec built on the shared contract
+    fixtures.'
+- id: ping-menubar
+  title: Hammerspoon ping menu bar runtime, init wiring, and README
+  depends_on:
+  - tmux-ping-state
+  - ping-window-model
+  size: medium
+  description: 'ping-menubar: add the ping_indicator.lua runtime that owns the 2 s
+    cadence, pauses while locked, claims and writes the shared state, and renders
+    the styled status item and lazy dropdown; wire it into init.lua behind an xpcall,
+    extend the specs, and document the feature in the README.'
 proposed_by: bbugyi200.apollo.57
 create_time: 2026-10-05 11:59:41
 status: wip
+bead_id: bob-cli-4h
 ---
 
-- **PROMPT:**
-  [prompts/202610/mac_menu_bar_ping_indicator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_menu_bar_ping_indicator.md)
+- **PROMPT:** [prompts/202610/mac_menu_bar_ping_indicator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_menu_bar_ping_indicator.md)
+- **BEAD:** [bob-cli-4h](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4h/README.md)
 
 # Plan: Mac menu bar internet ping indicator sharing one ping stream with tmux_ping
 
