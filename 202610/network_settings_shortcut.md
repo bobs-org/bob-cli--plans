@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Repair the ping indicator's Network Settings shortcut
-goal:
-  Open macOS System Settings at Network from the ping dropdown and report launch
+goal: Open macOS System Settings at Network from the ping dropdown and report launch
   failures.
 size: small
 proposed_by: bbugyi200.apollo.59.f0
-create_time: 2026-10-05 15:08:21
-status: wip
+status: done
 ---
 
 # Repair the ping indicator's Network Settings shortcut
