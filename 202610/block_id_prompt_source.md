@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Split block-id-prompt main.js onto the fragment source build
-goal: Move the hand-edited block-id-prompt plugin onto the existing fragment source
-  build so every hand-edited fragment is at most 1000 lines, the generated main.js
-  keeps the same exports and method sources, and the existing test file still passes.
+goal:
+  Move the hand-edited block-id-prompt plugin onto the existing fragment source build so
+  every hand-edited fragment is at most 1000 lines, the generated main.js keeps the same
+  exports and method sources, and the existing test file still passes.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.1
 bead: bob-cli-4f.1
@@ -14,6 +15,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files_1.md)
 - **BEAD:**
   [bob-cli-4f.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4f/bob-cli-4f.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-4f.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4f.1.md)
+- **COMMITS:**
+  - [03f0c17](https://github.com/bobs-org/bob-plugins/commit/03f0c177989871805561e84cd16f7310cdbed32f)
+    — refactor(block-id-prompt): split main.js onto the fragment source build
 
 # Split block-id-prompt main.js onto the fragment source build
 
