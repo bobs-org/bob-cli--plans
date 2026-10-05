@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Repair the ping indicator's Network Settings shortcut
-goal: Open macOS System Settings at Network from the ping dropdown and report launch
+goal:
+  Open macOS System Settings at Network from the ping dropdown and report launch
   failures.
 size: small
 proposed_by: bbugyi200.apollo.59.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.59.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.59.f0.md)
+- **COMMITS:**
+  - [d821962](https://github.com/bbugyi200/dotfiles/commit/d821962c21dbe60abfc8d5d6b836cdea2f8499a5)
+    — fix(hammerspoon): repair Network Settings shortcut via openURLWithBundle
 
 # Repair the ping indicator's Network Settings shortcut
 
