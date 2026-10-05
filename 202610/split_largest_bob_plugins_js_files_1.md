@@ -45,7 +45,7 @@ phases:
     and losing no tests; the agent plans the final split.'
 proposed_by: bbugyi200.apollo.54
 create_time: 2026-10-04 21:42:01
-status: wip
+status: done
 bead_id: bob-cli-4f
 ---
 
