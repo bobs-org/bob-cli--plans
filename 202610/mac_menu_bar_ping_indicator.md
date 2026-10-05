@@ -35,7 +35,7 @@ phases:
     extend the specs, and document the feature in the README.'
 proposed_by: bbugyi200.apollo.57
 create_time: 2026-10-05 11:59:41
-status: wip
+status: done
 bead_id: bob-cli-4h
 ---
 
