@@ -2,9 +2,9 @@
 tier: tale
 size: small
 title: Guard completion writes against stale preimages and land both completion epics
-goal:
-  Add the missing commit-time disk-preimage validation required by bob-cli-4i.7, verify
-  it, then close bob-cli-4i.7 and its complete parent bob-cli-4i in this coder turn.
+goal: Add the missing commit-time disk-preimage validation required by bob-cli-4i.7,
+  verify it, then close bob-cli-4i.7 and its complete parent bob-cli-4i in this coder
+  turn.
 status: done
 proposed_by: bbugyi200.apollo.bob-cli-4i.7.land
 bead: bob-cli-4i.7
@@ -14,11 +14,6 @@ bead: bob-cli-4i.7
   [202610/bang_task_complete_finish.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bang_task_complete_finish.md)
 - **BEAD:**
   [bob-cli-4i.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4i/bob-cli-4i.7.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-4i.7.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4i.7.land.md)
-- **COMMITS:**
-  - [1d4d9fd](https://github.com/bobs-org/bob-cli/commit/1d4d9fdc4bc28f3694358bbc39dadae781d8f170)
-    — feat(capture): guard batch commits against stale disk preimages
 
 # Context
 
