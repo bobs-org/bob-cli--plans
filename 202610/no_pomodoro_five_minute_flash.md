@@ -2,13 +2,11 @@
 tier: tale
 size: small
 title: Flash NO POMODORO green every five minutes
-goal:
-  Shorten the idle Hammerspoon NO POMODORO green-pill cycle from one minute every ten
-  minutes to one minute every five minutes, leaving the 60-second burst, the first
+goal: Shorten the idle Hammerspoon NO POMODORO green-pill cycle from one minute every
+  ten minutes to one minute every five minutes, leaving the 60-second burst, the first
   minute, the 1 Hz pill, and the ten-minute OVERDUE badge as they are.
 proposed_by: bbugyi200.athena.0wn
-create_time: 2026-10-05 07:42:37
-status: wip
+status: done
 ---
 
 # Plan: Flash NO POMODORO green every five minutes
