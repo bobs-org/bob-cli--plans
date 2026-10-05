@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split the ledger-tools freshness test suite
-goal:
-  Preserve all 57 freshness tests in a shared harness and six focused files under 1000
-  lines, verify the split, and close only bob-cli-4f.3.
+goal: Preserve all 57 freshness tests in a shared harness and six focused files under
+  1000 lines, verify the split, and close only bob-cli-4f.3.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.3
 bead: bob-cli-4f.3
-create_time: 2026-10-04 22:34:05
-status: wip
+status: done
 ---
 
 - **PARENT:**
