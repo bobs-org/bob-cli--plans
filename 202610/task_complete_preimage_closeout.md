@@ -2,13 +2,12 @@
 tier: tale
 size: small
 title: Guard completion writes against stale preimages and land both completion epics
-goal:
-  Add the missing commit-time disk-preimage validation required by bob-cli-4i.7, verify
-  it, then close bob-cli-4i.7 and its complete parent bob-cli-4i in this coder turn.
-status: wip
+goal: Add the missing commit-time disk-preimage validation required by bob-cli-4i.7,
+  verify it, then close bob-cli-4i.7 and its complete parent bob-cli-4i in this coder
+  turn.
+status: done
 proposed_by: bbugyi200.apollo.bob-cli-4i.7.land
 bead: bob-cli-4i.7
-create_time: 2026-10-05 19:44:28
 ---
 
 - **PARENT:**
