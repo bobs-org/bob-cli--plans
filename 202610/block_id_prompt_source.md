@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Split block-id-prompt main.js onto the fragment source build
-goal:
-  Move the hand-edited block-id-prompt plugin onto the existing fragment source build so
-  every hand-edited fragment is at most 1000 lines, the generated main.js keeps the same
-  exports and method sources, and the existing test file still passes.
+goal: Move the hand-edited block-id-prompt plugin onto the existing fragment source
+  build so every hand-edited fragment is at most 1000 lines, the generated main.js
+  keeps the same exports and method sources, and the existing test file still passes.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.1
 bead: bob-cli-4f.1
-create_time: 2026-10-04 21:50:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
