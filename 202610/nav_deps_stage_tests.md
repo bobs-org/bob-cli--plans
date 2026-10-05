@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Split the navigation dependencies-stage test suite
-goal: Split the 2701-line navigation dependencies-stage test file into a dedicated
-  harness and six per-area files of at most 1000 lines, with all 61 tests still passing.
+goal:
+  Split the 2701-line navigation dependencies-stage test file into a dedicated harness
+  and six per-area files of at most 1000 lines, with all 61 tests still passing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.4
 bead: bob-cli-4f.4
@@ -13,6 +14,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files_1.md)
 - **BEAD:**
   [bob-cli-4f.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4f/bob-cli-4f.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-4f.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4f.4.md)
+- **COMMITS:**
+  - [b662018](https://github.com/bobs-org/bob-plugins/commit/b66201867008d00d48c5535ca9ab2ea2ef197e12)
+    — refactor(test): split navigation dependencies-stage suite
 
 # Split the navigation dependencies-stage test suite
 
