@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Split the navigation dependencies-stage test suite
-goal:
-  Split the 2701-line navigation dependencies-stage test file into a dedicated harness
-  and six per-area files of at most 1000 lines, with all 61 tests still passing.
+goal: Split the 2701-line navigation dependencies-stage test file into a dedicated
+  harness and six per-area files of at most 1000 lines, with all 61 tests still passing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-4f.4
 bead: bob-cli-4f.4
-create_time: 2026-10-04 22:50:01
-status: wip
+status: done
 ---
 
 - **PARENT:**
