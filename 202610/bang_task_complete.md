@@ -93,7 +93,7 @@ phases:
     '
 proposed_by: bbugyi200.apollo.5a
 create_time: 2026-10-05 15:13:22
-status: wip
+status: done
 bead_id: bob-cli-4i
 ---
 

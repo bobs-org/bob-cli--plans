@@ -69,7 +69,7 @@ phases:
     '
 proposed_by: bbugyi200.apollo.bob-cli-4i.land
 create_time: 2026-10-05 18:10:30
-status: wip
+status: done
 bead_id: bob-cli-4i.7
 ---
 
