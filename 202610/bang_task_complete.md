@@ -2,105 +2,103 @@
 tier: epic
 title: Complete any open task from capture with a whole-item `!note:block-id`
 goal: 'A capture item that is exactly `!note:block-id` marks that existing open task
-  Done, exactly as `=x!N` would, but without closing a Pomodoro. In one atomic write it
-  also closes the task''s embedded subtasks, retires its Task Links in today''s ledger
-  the way `bob task reconcile` would, and unblocks dependents the way Obsidian''s
+  Done, exactly as `=x!N` would, but without closing a Pomodoro. In one atomic write
+  it also closes the task''s embedded subtasks, retires its Task Links in today''s
+  ledger the way `bob task reconcile` would, and unblocks dependents the way Obsidian''s
   Ctrl+Enter does. Bulk works one item per blank-line-separated block. In Bob Mac
-  Capture, typing `!` at the start of an item opens a "Complete" task picker over every
-  open task in the vault. Tasks with Task Links in today''s daily note come first,
-  grouped by the Pomodoro they live in. A completion preview shows the struck task, its
-  ledger effect, and the tasks it unblocks before Return writes anything.
+  Capture, typing `!` at the start of an item opens a "Complete" task picker over
+  every open task in the vault. Tasks with Task Links in today''s daily note come
+  first, grouped by the Pomodoro they live in. A completion preview shows the struck
+  task, its ledger effect, and the tasks it unblocks before Return writes anything.
 
   '
 phases:
-  - id: engine
-    title: Extract a shared task-completion engine (no new syntax)
-    depends_on: []
-    size: medium
-    description: "engine: in bob-cli, add `src/native/task_complete/`. Extract the =x
-      embedded tree close into a reusable `complete_task_tree`, keeping =x
-      byte-identical. Expose a scoped completed-reference retirement built on
-      reconcile's structural planner, with an opt-in dedupe that avoids the bob-cli-2l
-      duplicate. Add an immediate Blocked-dependent recovery matching Ctrl+Enter, built
-      on reconcile's dependency-state definition. Unit tests only; no user-visible
-      change.
+- id: engine
+  title: Extract a shared task-completion engine (no new syntax)
+  depends_on: []
+  size: medium
+  description: 'engine: in bob-cli, add `src/native/task_complete/`. Extract the =x
+    embedded tree close into a reusable `complete_task_tree`, keeping =x byte-identical.
+    Expose a scoped completed-reference retirement built on reconcile''s structural
+    planner, with an opt-in dedupe that avoids the bob-cli-2l duplicate. Add an immediate
+    Blocked-dependent recovery matching Ctrl+Enter, built on reconcile''s dependency-state
+    definition. Unit tests only; no user-visible change.
 
-      "
-  - id: grammar
-    title: Lex, claim, and parse whole-item `!note:block-id`
-    depends_on: []
-    size: medium
-    description: "grammar: in bob-cli, generalize the `&` note-locator lexer and
-      `replacement_for` over a sigil. Claim whole-item `!` tokens in execution and
-      editor parsing. Add `CaptureKind::TaskComplete`, capture-parse mode/need
-      `task_complete`, `task_complete_*` spans, the per-item `task_complete` object, the
-      `invalid_task_complete` diagnostic, and teaching refusals for queries and padded
-      items. Execution of a complete token returns a temporary refusal until `execute`
-      lands. Grammar docs.
+    '
+- id: grammar
+  title: Lex, claim, and parse whole-item `!note:block-id`
+  depends_on: []
+  size: medium
+  description: 'grammar: in bob-cli, generalize the `&` note-locator lexer and `replacement_for`
+    over a sigil. Claim whole-item `!` tokens in execution and editor parsing. Add
+    `CaptureKind::TaskComplete`, capture-parse mode/need `task_complete`, `task_complete_*`
+    spans, the per-item `task_complete` object, the `invalid_task_complete` diagnostic,
+    and teaching refusals for queries and padded items. Execution of a complete token
+    returns a temporary refusal until `execute` lands. Grammar docs.
 
-      "
-  - id: picker_contract
-    title: Serve the `task_complete` picker from capture-complete
-    depends_on:
-      - grammar
-    size: medium
-    description: "picker_contract: in bob-cli, add the vault-wide completable-task
-      catalog with today's Task Link annotations (running/worked/queued/noted), the
-      today-first ordering and ranking, the `task_complete` capture-complete context
-      with `picker` descriptor and continuation keys, `already_selected` and recurring
-      guards, `complete_replacement` on capture-task-id, shell completion for `!`,
-      tests, and docs.
+    '
+- id: picker_contract
+  title: Serve the `task_complete` picker from capture-complete
+  depends_on:
+  - grammar
+  size: medium
+  description: 'picker_contract: in bob-cli, add the vault-wide completable-task catalog
+    with today''s Task Link annotations (running/worked/queued/noted), the today-first
+    ordering and ranking, the `task_complete` capture-complete context with `picker`
+    descriptor and continuation keys, `already_selected` and recurring guards, `complete_replacement`
+    on capture-task-id, shell completion for `!`, tests, and docs.
 
-      "
-  - id: execute
-    title: Execute `!note:block-id` through the engine with rich JSON and human output
-    depends_on:
-      - engine
-      - grammar
-    size: medium
-    description: "execute: in bob-cli, plan `TaskComplete` items through the staged
-      batch writer. Resolve the note vault-wide, validate status and recurrence, then
-      run the engine (tree close, scoped ledger retirement, dependent recovery). Emit
-      kind `task_complete` with the `task_complete` object and placement `completed`,
-      report task_blocks roles `completed`/`unblocked`, and print green human output.
-      Update `bob capture --help`, docs/capture.md, README, and CLI tests.
+    '
+- id: execute
+  title: Execute `!note:block-id` through the engine with rich JSON and human output
+  depends_on:
+  - engine
+  - grammar
+  size: medium
+  description: 'execute: in bob-cli, plan `TaskComplete` items through the staged
+    batch writer. Resolve the note vault-wide, validate status and recurrence, then
+    run the engine (tree close, scoped ledger retirement, dependent recovery). Emit
+    kind `task_complete` with the `task_complete` object and placement `completed`,
+    report task_blocks roles `completed`/`unblocked`, and print green human output.
+    Update `bob capture --help`, docs/capture.md, README, and CLI tests.
 
-      "
-  - id: mac_preview
-    title: Highlight `!` tokens and preview completions in Bob Mac Capture
-    depends_on:
-      - execute
-    size: medium
-    description: "mac_preview: in bob-mac-capture, map the `task_complete_*` spans to
-      the shared complete-green and the route/block-ID colors, decode the
-      `task_complete` result, add a pure CaptureTaskCompletePresentation and the
-      completion preview card (struck task, transition, subtasks, ledger, unblocked),
-      and update footer, notification, and VoiceOver copy. Add real-bob fixtures, tests,
-      and README. Commit, then get macOS CI green.
+    '
+- id: mac_preview
+  title: Highlight `!` tokens and preview completions in Bob Mac Capture
+  depends_on:
+  - execute
+  size: medium
+  description: 'mac_preview: in bob-mac-capture, map the `task_complete_*` spans to
+    the shared complete-green and the route/block-ID colors, decode the `task_complete`
+    result, add a pure CaptureTaskCompletePresentation and the completion preview
+    card (struck task, transition, subtasks, ledger, unblocked), and update footer,
+    notification, and VoiceOver copy. Add real-bob fixtures, tests, and README. Commit,
+    then get macOS CI green.
 
-      "
-  - id: mac_picker
-    title: Open the Complete picker on `!` with Today first
-    depends_on:
-      - picker_contract
-      - mac_preview
-    size: medium
-    description: "mac_picker: in bob-mac-capture, add the `.taskComplete` picker source
-      and need. Add a TaskCompletePickerIndex with per-Pomodoro Today sections, then In
-      Progress, Next, and per-note sections, and Today-then-All sections while
-      filtering. Rows show disabled reasons and a 🍅 session count. Return inserts,
-      Shift-Return inserts and starts the next `!`, Command-Return completes; Bob's
-      continuation keys apply. The Add block ID flow splices `complete_replacement`.
-      Tests, design render, README, green macOS CI.
+    '
+- id: mac_picker
+  title: Open the Complete picker on `!` with Today first
+  depends_on:
+  - picker_contract
+  - mac_preview
+  size: medium
+  description: 'mac_picker: in bob-mac-capture, add the `.taskComplete` picker source
+    and need. Add a TaskCompletePickerIndex with per-Pomodoro Today sections, then
+    In Progress, Next, and per-note sections, and Today-then-All sections while filtering.
+    Rows show disabled reasons and a 🍅 session count. Return inserts, Shift-Return
+    inserts and starts the next `!`, Command-Return completes; Bob''s continuation
+    keys apply. The Add block ID flow splices `complete_replacement`. Tests, design
+    render, README, green macOS CI.
 
-      "
+    '
 proposed_by: bbugyi200.apollo.5a
 create_time: 2026-10-05 15:13:22
 status: wip
+bead_id: bob-cli-4i
 ---
 
-- **PROMPT:**
-  [prompts/202610/bang_task_complete.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bang_task_complete.md)
+- **PROMPT:** [prompts/202610/bang_task_complete.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bang_task_complete.md)
+- **BEAD:** [bob-cli-4i](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4i/README.md)
 
 # Problem
 
