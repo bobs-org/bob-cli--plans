@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Split the block-id-prompt test suite while preserving all 179 tests
-goal: Replace the block-id-prompt test monolith with a shared harness and ten cohesive
-  test files of at most 1000 lines each, preserving every test body and assertion,
+goal:
+  Replace the block-id-prompt test monolith with a shared harness and ten cohesive test
+  files of at most 1000 lines each, preserving every test body and assertion,
   registering all files in npm test, and completing only phase bob-cli-4f.2.
 proposed_by: bbugyi200.apollo.bob-cli-4f.2
 bead: bob-cli-4f.2
@@ -14,6 +15,11 @@ status: done
   [202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/split_largest_bob_plugins_js_files_1.md)
 - **BEAD:**
   [bob-cli-4f.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4f/bob-cli-4f.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-4f.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4f.2.md)
+- **COMMITS:**
+  - [2486da9](https://github.com/bobs-org/bob-plugins/commit/2486da9c17b3fdade1a954ecf31e2e88acef5751)
+    — refactor(test): split block-id-prompt suite
 
 # Scope and ownership
 
