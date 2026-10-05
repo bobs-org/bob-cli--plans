@@ -1,56 +1,56 @@
 ---
 tier: epic
 title: Split the four largest hand-edited bob-plugins JavaScript files
-goal: "The four largest hand-edited JavaScript files in bob-plugins are each split into
-  behavior-identical files of at most 1000 lines, with every test still running.
+goal: 'The four largest hand-edited JavaScript files in bob-plugins are each split
+  into behavior-identical files of at most 1000 lines, with every test still running.
 
-  "
+  '
 phases:
-  - id: block-id-prompt-source
-    title: Split block-id-prompt main.js onto the fragment source build
-    depends_on: []
-    size: large
-    description: "block-id-prompt-source: move the 6880-line hand-edited block-id-prompt
-      plugin onto src/fragments.json, with mixin-split plugin methods and every fragment
-      at most 1000 lines, verified by parity checks; the agent plans the final split.
+- id: block-id-prompt-source
+  title: Split block-id-prompt main.js onto the fragment source build
+  depends_on: []
+  size: large
+  description: 'block-id-prompt-source: move the 6880-line hand-edited block-id-prompt
+    plugin onto src/fragments.json, with mixin-split plugin methods and every fragment
+    at most 1000 lines, verified by parity checks; the agent plans the final split.
 
-      "
-  - id: block-id-prompt-tests
-    title: Split the block-id-prompt test suite
-    depends_on:
-      - block-id-prompt-source
-    size: large
-    description: "block-id-prompt-tests: split the 4945-line test-block-id-prompt.cjs
-      into a shared harness and per-area test files of at most 1000 lines each, losing
-      no tests; the agent plans the final split.
+    '
+- id: block-id-prompt-tests
+  title: Split the block-id-prompt test suite
+  depends_on:
+  - block-id-prompt-source
+  size: large
+  description: 'block-id-prompt-tests: split the 4945-line test-block-id-prompt.cjs
+    into a shared harness and per-area test files of at most 1000 lines each, losing
+    no tests; the agent plans the final split.
 
-      "
-  - id: ledger-freshness-tests
-    title: Split the ledger-tools freshness test suite
-    depends_on:
-      - block-id-prompt-tests
-    size: large
-    description: "ledger-freshness-tests: split the 2895-line
-      test-ledger-tools-freshness.cjs into a shared harness and per-area test files of
-      at most 1000 lines each, losing no tests; the agent plans the final split.
+    '
+- id: ledger-freshness-tests
+  title: Split the ledger-tools freshness test suite
+  depends_on:
+  - block-id-prompt-tests
+  size: large
+  description: 'ledger-freshness-tests: split the 2895-line test-ledger-tools-freshness.cjs
+    into a shared harness and per-area test files of at most 1000 lines each, losing
+    no tests; the agent plans the final split.
 
-      "
-  - id: nav-deps-stage-tests
-    title: Split the navigation dependencies-stage test suite
-    depends_on:
-      - ledger-freshness-tests
-    size: large
-    description:
-      "nav-deps-stage-tests: split the 2701-line test-navigation-dependencies-stage.cjs
-      into per-area test files of at most 1000 lines each, reusing or adding a harness
-      and losing no tests; the agent plans the final split."
+    '
+- id: nav-deps-stage-tests
+  title: Split the navigation dependencies-stage test suite
+  depends_on:
+  - ledger-freshness-tests
+  size: large
+  description: 'nav-deps-stage-tests: split the 2701-line test-navigation-dependencies-stage.cjs
+    into per-area test files of at most 1000 lines each, reusing or adding a harness
+    and losing no tests; the agent plans the final split.'
 proposed_by: bbugyi200.apollo.54
 create_time: 2026-10-04 21:42:01
 status: wip
+bead_id: bob-cli-4f
 ---
 
-- **PROMPT:**
-  [prompts/202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_bob_plugins_js_files_1.md)
+- **PROMPT:** [prompts/202610/split_largest_bob_plugins_js_files_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/split_largest_bob_plugins_js_files_1.md)
+- **BEAD:** [bob-cli-4f](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4f/README.md)
 
 # Split the four largest hand-edited JavaScript files in bob-plugins
 
