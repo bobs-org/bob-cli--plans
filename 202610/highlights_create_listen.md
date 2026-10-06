@@ -66,7 +66,7 @@ phases:
     vault to prove the ref note gets the player, fix what breaks, and record follow-ups.'
 proposed_by: bbugyi200.athena.research.3r.linker.w0
 create_time: 2026-10-06 15:45:25
-status: wip
+status: done
 bead_id: bob-cli-4s
 ---
 
