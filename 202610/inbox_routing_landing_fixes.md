@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Finish inbox routing guards, prompted review settlement, and epic closeout
-goal: Fix the verified remaining inbox-routing defects, exercise the real actions
-  and moves, and close bob-cli-4q in this coding turn.
+goal:
+  Fix the verified remaining inbox-routing defects, exercise the real actions and moves,
+  and close bob-cli-4q in this coding turn.
 proposed_by: bbugyi200.athena.bob-cli-4q.land
 bead: bob-cli-4q
 status: done
@@ -13,6 +14,12 @@ status: done
   [202610/inbox_routing.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/inbox_routing.md)
 - **BEAD:**
   [bob-cli-4q](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4q/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-4q.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-4q.land.md)
+- **COMMITS:**
+  - [a46ce9b](https://github.com/bobs-org/bob-plugins/commit/a46ce9b397e9ddd0de4fa148a6e3c368049d153e)
+    — fix(inbox-routing): guard no-op moves, cancel pending routes, revalidate toggle
+    source (nav 2.10.1, block-id-prompt 1.23.1)
 
 # Plan: Remaining inbox-routing work and landing
 
