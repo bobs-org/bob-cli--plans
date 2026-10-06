@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Ctrl+Shift+M never advances the review walk
-goal:
-  A Ctrl+Shift+M task move, including from the row the ]s review walk just landed on,
-  follows the moved task to its destination note and never advances the walk. The next
-  ]s / [s resumes exactly at the moved row's walk neighbour, even after the line shift
-  in the source note. Docs, README, and the decision record agree.
+goal: A Ctrl+Shift+M task move, including from the row the ]s review walk just landed
+  on, follows the moved task to its destination note and never advances the walk.
+  The next ]s / [s resumes exactly at the moved row's walk neighbour, even after the
+  line shift in the source note. Docs, README, and the decision record agree.
 size: medium
 proposed_by: bbugyi200.athena.0x9
-create_time: 2026-10-06 09:36:56
-status: wip
+status: done
 ---
 
 # Plan: Ctrl+Shift+M never advances the review walk
