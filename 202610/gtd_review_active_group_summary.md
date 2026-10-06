@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Omit the active group from the GTD review footer summary
-goal:
-  Show the current review group once in Obsidian's footer while preserving other group
-  counts and review behavior.
+goal: Show the current review group once in Obsidian's footer while preserving other
+  group counts and review behavior.
 size: small
 proposed_by: bbugyi200.apollo.5g
-create_time: 2026-10-06 12:32:28
-status: wip
+status: done
 ---
 
 # Omit the active group from the GTD review footer summary
