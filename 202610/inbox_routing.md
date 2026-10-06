@@ -1,59 +1,57 @@
 ---
 tier: epic
 title: Inbox routing for Ctrl+Shift+P and Ctrl+Shift+Enter
-goal: "On an open task that lives in an inbox note, every Ctrl+Shift+P Task Card commit
+goal: 'On an open task that lives in an inbox note, every Ctrl+Shift+P Task Card commit
   and every Ctrl+Shift+Enter toggle first asks where the task goes. Nothing is written
   until a destination is chosen. The task then lands in its new home with the action
-  applied, and a review-walk landing advances to the next item, so morning triage never
-  needs a separate Ctrl+Shift+M.
+  applied, and a review-walk landing advances to the next item, so morning triage
+  never needs a separate Ctrl+Shift+M.
 
-  "
+  '
 phases:
-  - id: route-core
-    title: Inbox routing core in bob-navigation-hotkeys
-    depends_on: []
-    size: medium
-    description:
-      "route-core: add the inbox-note classifier, the route picker modal, the preflight,
-      the routed move commit (no focus, no park), the walk's new `route` outcome kind,
-      and the nav api `inboxRoute` v1 namespace, with unit and runtime tests; nav 2.9.0."
-  - id: task-card-gate
-    title: Route gate on Ctrl+Shift+P Task Card commits
-    depends_on:
-      - route-core
-    size: medium
-    description:
-      "task-card-gate: route every non-closing single and counted Task Card commit on an
-      inbox task through one picker gate (prompt, write, move, settle the walk once),
-      show the Inbox header chip, and add the action-by-action conformance matrix; nav
-      2.10.0."
-  - id: link-toggle-gate
-    title: Route gate on Ctrl+Shift+Enter in block-id-prompt
-    depends_on:
-      - route-core
-    size: small
-    description:
-      "link-toggle-gate: have block-id-prompt's link and unlink paths ask through nav
-      `inboxRoute` before writing, move after a committed toggle, and compose one toast
-      with a `route` walk outcome. Fall back to today's behavior when nav lacks the api;
-      block-id-prompt 1.23.0."
-  - id: docs-and-rollout
-    title: Docs, rollout log, and decision-record follow-up
-    depends_on:
-      - task-card-gate
-      - link-toggle-gate
-    size: small
-    description:
-      "docs-and-rollout: document inbox routing in bob-cli docs (projects, freshness
-      ritual and rollout log, getting-started, nav api §9), run the full plugin suite,
-      deploy, and file a memory bead for a decisions strand."
+- id: route-core
+  title: Inbox routing core in bob-navigation-hotkeys
+  depends_on: []
+  size: medium
+  description: 'route-core: add the inbox-note classifier, the route picker modal,
+    the preflight, the routed move commit (no focus, no park), the walk''s new `route`
+    outcome kind, and the nav api `inboxRoute` v1 namespace, with unit and runtime
+    tests; nav 2.9.0.'
+- id: task-card-gate
+  title: Route gate on Ctrl+Shift+P Task Card commits
+  depends_on:
+  - route-core
+  size: medium
+  description: 'task-card-gate: route every non-closing single and counted Task Card
+    commit on an inbox task through one picker gate (prompt, write, move, settle the
+    walk once), show the Inbox header chip, and add the action-by-action conformance
+    matrix; nav 2.10.0.'
+- id: link-toggle-gate
+  title: Route gate on Ctrl+Shift+Enter in block-id-prompt
+  depends_on:
+  - route-core
+  size: small
+  description: 'link-toggle-gate: have block-id-prompt''s link and unlink paths ask
+    through nav `inboxRoute` before writing, move after a committed toggle, and compose
+    one toast with a `route` walk outcome. Fall back to today''s behavior when nav
+    lacks the api; block-id-prompt 1.23.0.'
+- id: docs-and-rollout
+  title: Docs, rollout log, and decision-record follow-up
+  depends_on:
+  - task-card-gate
+  - link-toggle-gate
+  size: small
+  description: 'docs-and-rollout: document inbox routing in bob-cli docs (projects,
+    freshness ritual and rollout log, getting-started, nav api §9), run the full plugin
+    suite, deploy, and file a memory bead for a decisions strand.'
 proposed_by: bbugyi200.athena.0xh
 create_time: 2026-10-06 14:57:17
 status: wip
+bead_id: bob-cli-4q
 ---
 
-- **PROMPT:**
-  [prompts/202610/inbox_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/inbox_routing.md)
+- **PROMPT:** [prompts/202610/inbox_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/inbox_routing.md)
+- **BEAD:** [bob-cli-4q](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4q/README.md)
 
 # Plan: Inbox routing for Ctrl+Shift+P and Ctrl+Shift+Enter
 
