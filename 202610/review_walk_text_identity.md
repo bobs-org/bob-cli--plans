@@ -1,20 +1,13 @@
 ---
 tier: tale
 title: Keep the ]s review walk in queue order across line shifts
-goal:
-  Every review-walk answer and every Ctrl+Shift+M park continue at the true next
+goal: Every review-walk answer and every Ctrl+Shift+M park continue at the true next
   remaining review item. A stale path:line key no longer jumps the walk ahead or skips
   rows, so the walk stays in queue order.
 size: medium
 proposed_by: bbugyi200.athena.0x9.f0
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.athena.0x9.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0x9.f0.md)
-- **COMMITS:**
-  - [a3427dc](https://github.com/bobs-org/bob-cli/commit/a3427dc201f3cf5ea5dfbbaa89a317f259658a4b)
-    — docs(freshness): review walk keeps queue order across line shifts (nav 2.7.1)
 
 # Plan: Keep the `]s` review walk in queue order across line shifts
 
