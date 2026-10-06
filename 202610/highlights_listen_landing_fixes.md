@@ -1,17 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Finish bob-cli-4s — fix the create/clip --listen landing defects, then close the epic
-goal:
-  Every epic-caused defect and spec gap from the bob-cli-4s land audit is fixed with
-  regression tests; listen, attach, PDF, arXiv, and article routes are all-or-nothing as
-  specified, create's TARGET completes in bash and zsh, the epic leaves no dead code,
-  and epic bob-cli-4s is closed with its plan marked done.
+title: Finish bob-cli-4s — fix the create/clip --listen landing defects, then close
+  the epic
+goal: Every epic-caused defect and spec gap from the bob-cli-4s land audit is fixed
+  with regression tests; listen, attach, PDF, arXiv, and article routes are all-or-nothing
+  as specified, create's TARGET completes in bash and zsh, the epic leaves no dead
+  code, and epic bob-cli-4s is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-4s.land
 bead: bob-cli-4s
-create_time: 2026-10-06 19:25:26
-status: wip
+status: done
 ---
 
 - **PARENT:**
