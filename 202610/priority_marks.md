@@ -34,7 +34,7 @@ phases:
     document, build, and sync.'
 proposed_by: bbugyi200.athena.0xf
 create_time: 2026-10-06 13:50:50
-status: wip
+status: done
 bead_id: bob-cli-4p
 ---
 
