@@ -1,13 +1,21 @@
 ---
 tier: tale
 title: Define area notes and the area-or-project task containment rule
-goal: The glossary web defines Area Note, including the rule that every task lives
-  in exactly one area or project note and its machine-owned exceptions, and the term
+goal:
+  The glossary web defines Area Note, including the rule that every task lives in
+  exactly one area or project note and its machine-owned exceptions, and the term
   resolves from published memory.
 size: small
 proposed_by: bbugyi200.apollo.5c
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5c](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5c.md)
+- **COMMITS:**
+  - [ea92b38](https://github.com/bobs-org/bob-cli/commit/ea92b38c73e0bd0a942d785348e75e5c655aa20d)
+    — docs(memory): define Area Note glossary strand with area-or-project containment
+    rule
 
 # Define area notes and the area-or-project task containment rule
 
