@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Fix dead Ctrl+Shift+M/P on Obsidian 1.14 and land bob-cli-4l
-goal:
-  Ctrl+Shift+M and Ctrl+Shift+P open their pickers again on Obsidian 1.14+, and epic
-  bob-cli-4l is closed with its plan marked done.
+goal: Ctrl+Shift+M and Ctrl+Shift+P open their pickers again on Obsidian 1.14+, and
+  epic bob-cli-4l is closed with its plan marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-4l.land
 bead: bob-cli-4l
-create_time: 2026-10-06 08:22:07
-status: wip
+status: done
 ---
 
 - **BEAD:**
