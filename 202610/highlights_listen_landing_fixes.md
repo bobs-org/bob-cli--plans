@@ -1,13 +1,12 @@
 ---
 tier: tale
 size: medium
-title:
-  Finish bob-cli-4s — fix the create/clip --listen landing defects, then close the epic
-goal:
-  Every epic-caused defect and spec gap from the bob-cli-4s land audit is fixed with
-  regression tests; listen, attach, PDF, arXiv, and article routes are all-or-nothing as
-  specified, create's TARGET completes in bash and zsh, the epic leaves no dead code,
-  and epic bob-cli-4s is closed with its plan marked done.
+title: Finish bob-cli-4s — fix the create/clip --listen landing defects, then close
+  the epic
+goal: Every epic-caused defect and spec gap from the bob-cli-4s land audit is fixed
+  with regression tests; listen, attach, PDF, arXiv, and article routes are all-or-nothing
+  as specified, create's TARGET completes in bash and zsh, the epic leaves no dead
+  code, and epic bob-cli-4s is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-4s.land
 bead: bob-cli-4s
 status: done
@@ -17,11 +16,6 @@ status: done
   [202610/highlights_create_listen.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/highlights_create_listen.md)
 - **BEAD:**
   [bob-cli-4s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4s/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-4s.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-4s.land.md)
-- **COMMITS:**
-  - [f5e7c78](https://github.com/bobs-org/bob-cli/commit/f5e7c782ba6e9663867c59dbbba4612315ff82c7)
-    — feat(highlights): finish bob-cli-4s listen landing fixes
 
 # Finish epic bob-cli-4s: highlights create/clip `--listen` landing fixes
 
