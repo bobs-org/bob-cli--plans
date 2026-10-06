@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Preserve blank-line separation before the first moved task
-goal: Ctrl+Shift+M separates the first task from the Tasks heading or count preamble
-  while preserving content and destination focus.
+goal:
+  Ctrl+Shift+M separates the first task from the Tasks heading or count preamble while
+  preserving content and destination focus.
 size: small
 proposed_by: bbugyi200.apollo.5f
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5f](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5f.md)
+- **COMMITS:**
+  - [1c3ebe4](https://github.com/bobs-org/bob-plugins/commit/1c3ebe414235ff9597f5b0bf3b9a60035989e877)
+    — feat(nav): separate the first moved task from preamble with a blank line
 
 # Preserve a blank line before the first moved task in Tasks
 
