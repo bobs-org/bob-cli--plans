@@ -2,13 +2,11 @@
 tier: tale
 size: medium
 title: Finish inbox routing guards, prompted review settlement, and epic closeout
-goal:
-  Fix the verified remaining inbox-routing defects, exercise the real actions and moves,
-  and close bob-cli-4q in this coding turn.
+goal: Fix the verified remaining inbox-routing defects, exercise the real actions
+  and moves, and close bob-cli-4q in this coding turn.
 proposed_by: bbugyi200.athena.bob-cli-4q.land
 bead: bob-cli-4q
-create_time: 2026-10-06 16:01:55
-status: wip
+status: done
 ---
 
 - **PARENT:**
