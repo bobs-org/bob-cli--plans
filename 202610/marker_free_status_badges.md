@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Marker-free task status badge rows
-goal:
-  Area/project Tasks sections keep their generated status-count badge row without any
-  hidden <!-- bob:task-status-badges:v1 --> comment, and existing comments are stripped
-  by the next reconcile.
+goal: Area/project Tasks sections keep their generated status-count badge row without
+  any hidden <!-- bob:task-status-badges:v1 --> comment, and existing comments are
+  stripped by the next reconcile.
 size: medium
 proposed_by: bbugyi200.apollo.5d
-create_time: 2026-10-06 10:29:04
-status: wip
+status: done
 ---
 
 # Drop the `<!-- bob:task-status-badges:v1 -->` marker: the badge row identifies itself
