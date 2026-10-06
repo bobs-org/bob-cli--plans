@@ -1,5 +1,6 @@
 ---
 tier: epic
+status: done
 title: Inbox routing for Ctrl+Shift+P and Ctrl+Shift+Enter
 goal: 'On an open task that lives in an inbox note, every Ctrl+Shift+P Task Card commit
   and every Ctrl+Shift+Enter toggle first asks where the task goes. Nothing is written
