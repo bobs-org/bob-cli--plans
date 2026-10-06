@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Define the Inbox File glossary term
-goal: Agents can read glossary:inbox-file (alias inbox note) to learn exactly which
-  vault files are inboxes, how tasks enter and leave them, and which other uses of
-  "inbox" in code and docs they must not confuse it with.
+goal:
+  Agents can read glossary:inbox-file (alias inbox note) to learn exactly which vault
+  files are inboxes, how tasks enter and leave them, and which other uses of "inbox" in
+  code and docs they must not confuse it with.
 size: small
 proposed_by: bbugyi200.athena.0xi
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0xi](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0xi.md)
+- **COMMITS:**
+  - [16aba77](https://github.com/bobs-org/bob-cli/commit/16aba77ca975f9acc833300b7628291250bbe9bc)
+    — docs(memory): add Inbox File glossary term
 
 # Define the Inbox File glossary term
 
