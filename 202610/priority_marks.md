@@ -1,45 +1,45 @@
 ---
 tier: epic
 title: Priority marks - render the task priority field as a signal-bar icon
-goal: "In Obsidian, every canonical `[priority:: …]` task field (Live Preview, reading
+goal: 'In Obsidian, every canonical `[priority:: …]` task field (Live Preview, reading
   view, embeds, hover previews, Dataview task views, and Tasks query results) is shown
   as one compact signal-bar glyph that reads the priority at a glance. The stored
   Markdown never changes, the cursor reveals the raw field for editing, and broken
-  priority fields get a visible repair flag. The Task Card and priority notices use the
-  same glyph, so you learn it where you pick a priority.
+  priority fields get a visible repair flag. The Task Card and priority notices use
+  the same glyph, so you learn it where you pick a priority.
 
-  "
+  '
 phases:
-  - id: ledger-marks
-    title: Priority marks in bob-ledger-tools
-    depends_on: []
-    size: medium
-    description: "ledger-marks: build the display-only priority mark in
-      bob-ledger-tools. That covers the canonical-field parser, the lenient
-      ladder-config reader, the mark model and tooltip, a single CSS-mask glyph set, the
-      Live Preview decoration, the rendered-view post-processor, CSS-only Tasks-result
-      replacement, the repair flag, the session toggle, and the additive
-      `api.priorityMarks` v1 namespace. Also write the bob-cli display contract with
-      conformance vectors, then test, build, and sync.
+- id: ledger-marks
+  title: Priority marks in bob-ledger-tools
+  depends_on: []
+  size: medium
+  description: 'ledger-marks: build the display-only priority mark in bob-ledger-tools.
+    That covers the canonical-field parser, the lenient ladder-config reader, the
+    mark model and tooltip, a single CSS-mask glyph set, the Live Preview decoration,
+    the rendered-view post-processor, CSS-only Tasks-result replacement, the repair
+    flag, the session toggle, and the additive `api.priorityMarks` v1 namespace. Also
+    write the bob-cli display contract with conformance vectors, then test, build,
+    and sync.
 
-      "
-  - id: card-glyph
-    title: Task Card and priority notices reuse the glyph
-    depends_on:
-      - ledger-marks
-    size: small
-    description:
-      "card-glyph: bob-navigation-hotkeys renders the shared mark through
-      `api.priorityMarks` v1 in the Task Card level chips and in the priority notice
-      header, and falls back to today's rendering when the api is absent. Then test,
-      document, build, and sync."
+    '
+- id: card-glyph
+  title: Task Card and priority notices reuse the glyph
+  depends_on:
+  - ledger-marks
+  size: small
+  description: 'card-glyph: bob-navigation-hotkeys renders the shared mark through
+    `api.priorityMarks` v1 in the Task Card level chips and in the priority notice
+    header, and falls back to today''s rendering when the api is absent. Then test,
+    document, build, and sync.'
 proposed_by: bbugyi200.athena.0xf
 create_time: 2026-10-06 13:50:50
 status: wip
+bead_id: bob-cli-4p
 ---
 
-- **PROMPT:**
-  [prompts/202610/priority_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/priority_marks.md)
+- **PROMPT:** [prompts/202610/priority_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/priority_marks.md)
+- **BEAD:** [bob-cli-4p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4p/README.md)
 
 # Plan: Priority marks
 
