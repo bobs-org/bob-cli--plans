@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Preserve blank-line separation before the first moved task
-goal:
-  Ctrl+Shift+M separates the first task from the Tasks heading or count preamble while
-  preserving content and destination focus.
+goal: Ctrl+Shift+M separates the first task from the Tasks heading or count preamble
+  while preserving content and destination focus.
 size: small
 proposed_by: bbugyi200.apollo.5f
-create_time: 2026-10-06 11:08:08
-status: wip
+status: done
 ---
 
 # Preserve a blank line before the first moved task in Tasks
