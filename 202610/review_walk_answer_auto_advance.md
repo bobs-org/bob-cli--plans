@@ -1,81 +1,81 @@
 ---
 tier: epic
-title: "Answer once, advance once: review-walk auto-advance"
-goal: 'During the `]s` morning review, every gesture that answers the row the walk just
-  landed on moves to the next remaining review item in the same keystroke, and shows one
-  toast that says what you did and where you are now. Today only Ctrl+Alt+F (and the
-  PRE/POST Ctrl+Enter claim) does this. Alt+F stays the one explicit "stay" answer. `]s`
-  stays the skip key. Ordinary daytime use of the same keys does not change.
+title: 'Answer once, advance once: review-walk auto-advance'
+goal: 'During the `]s` morning review, every gesture that answers the row the walk
+  just landed on moves to the next remaining review item in the same keystroke, and
+  shows one toast that says what you did and where you are now. Today only Ctrl+Alt+F
+  (and the PRE/POST Ctrl+Enter claim) does this. Alt+F stays the one explicit "stay"
+  answer. `]s` stays the skip key. Ordinary daytime use of the same keys does not
+  change.
 
   '
 phases:
-  - id: nav-core
-    title: Nav review-advance core, shared advance tail, and nav api v3
-    depends_on: []
-    size: medium
-    description: "nav-core: add the landing-scoped capture/continue helper and its
-      gesture lock, settle window, landing epoch and lifetime, and the pure outcome
-      predicate. Add one shared advance tail that plans from the anchor, records a Vim
-      jump, and composes one toast. Move Ctrl+Alt+F, the decay card, and the checklist
-      claim onto that tail, and expose `reviewWalk` on nav api v3 (nav 2.5.0).
+- id: nav-core
+  title: Nav review-advance core, shared advance tail, and nav api v3
+  depends_on: []
+  size: medium
+  description: 'nav-core: add the landing-scoped capture/continue helper and its gesture
+    lock, settle window, landing epoch and lifetime, and the pure outcome predicate.
+    Add one shared advance tail that plans from the anchor, records a Vim jump, and
+    composes one toast. Move Ctrl+Alt+F, the decay card, and the checklist claim onto
+    that tail, and expose `reviewWalk` on nav api v3 (nav 2.5.0).
 
-      "
-  - id: nav-gestures
-    title: Alt+N, Task Card, and Ctrl+Shift+M advance from a landing
-    depends_on:
-      - nav-core
-    size: medium
-    description: "nav-gestures: wire nav's own answering gestures through the core. This
-      covers Alt+N commit/release (single, counted, and the Pending Work Log prompt),
-      every committing Task Card stage (decided from the line after the write, with the
-      cancel route's late notice handled), and Ctrl+Shift+M move, which advances instead
-      of focusing the destination (nav 2.6.0).
+    '
+- id: nav-gestures
+  title: Alt+N, Task Card, and Ctrl+Shift+M advance from a landing
+  depends_on:
+  - nav-core
+  size: medium
+  description: 'nav-gestures: wire nav''s own answering gestures through the core.
+    This covers Alt+N commit/release (single, counted, and the Pending Work Log prompt),
+    every committing Task Card stage (decided from the line after the write, with
+    the cancel route''s late notice handled), and Ctrl+Shift+M move, which advances
+    instead of focusing the destination (nav 2.6.0).
 
-      "
-  - id: cycler-ctrl-enter
-    title: Ctrl+Enter completes and advances on non-checklist landings
-    depends_on:
-      - nav-core
-    size: small
-    description: "cycler-ctrl-enter: in task-status-cycler's Vim Ctrl+Enter handler,
-      after the checklist claim declines, capture before the ordinary close and continue
-      with `complete` once it has propagated and finalized. Reopen and other branches
-      settle without advancing, and a double press is swallowed (cycler 1.26.0).
+    '
+- id: cycler-ctrl-enter
+  title: Ctrl+Enter completes and advances on non-checklist landings
+  depends_on:
+  - nav-core
+  size: small
+  description: 'cycler-ctrl-enter: in task-status-cycler''s Vim Ctrl+Enter handler,
+    after the checklist claim declines, capture before the ordinary close and continue
+    with `complete` once it has propagated and finalized. Reopen and other branches
+    settle without advancing, and a double press is swallowed (cycler 1.26.0).
 
-      "
-  - id: bip-link-today
-    title: Ctrl+Shift+Enter link advances from a landing
-    depends_on:
-      - nav-core
-    size: small
-    description: 'bip-link-today: in block-id-prompt, capture at the top of the
-      Ctrl+Shift+Enter toggle and carry the origin on the link source through the
-      block-ID prompt. Only a successful link continues, and its "Linked · …" text
-      becomes the first line of the composed toast. Unlink, Work-summary unlink, prompt
-      cancel, and failures stay (block-id-prompt 1.22.0).
+    '
+- id: bip-link-today
+  title: Ctrl+Shift+Enter link advances from a landing
+  depends_on:
+  - nav-core
+  size: small
+  description: 'bip-link-today: in block-id-prompt, capture at the top of the Ctrl+Shift+Enter
+    toggle and carry the origin on the link source through the block-ID prompt. Only
+    a successful link continues, and its "Linked · …" text becomes the first line
+    of the composed toast. Unlink, Work-summary unlink, prompt cancel, and failures
+    stay (block-id-prompt 1.22.0).
 
-      '
-  - id: copy-docs-record
-    title: Hints, docs, README, decision record, and rollout
-    depends_on:
-      - nav-gestures
-      - cycler-ctrl-enter
-      - bip-link-today
-    size: small
-    description:
-      "copy-docs-record: fix the PRE/POST/lane action hints in ledger-tools and the nav
-      fallback. Update bob-cli `docs/freshness.md` §6/§13, getting-started,
-      task-dependencies §9 (nav api v3), the projects Task Card note, and the
-      bob-plugins README. Write the accepted decision record through /sase_memory_write,
-      then run the full test suite and `bob plugins sync`, and hand Bryan a manual smoke
-      checklist."
+    '
+- id: copy-docs-record
+  title: Hints, docs, README, decision record, and rollout
+  depends_on:
+  - nav-gestures
+  - cycler-ctrl-enter
+  - bip-link-today
+  size: small
+  description: 'copy-docs-record: fix the PRE/POST/lane action hints in ledger-tools
+    and the nav fallback. Update bob-cli `docs/freshness.md` §6/§13, getting-started,
+    task-dependencies §9 (nav api v3), the projects Task Card note, and the bob-plugins
+    README. Write the accepted decision record through /sase_memory_write, then run
+    the full test suite and `bob plugins sync`, and hand Bryan a manual smoke checklist.'
 proposed_by: bbugyi200.apollo.research.0d.linker.w0
 create_time: 2026-10-06 07:01:39
 status: wip
+bead_id: bob-cli-4l
 ---
 
-- **PROMPT:**
-  [prompts/202610/review_walk_answer_auto_advance.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/review_walk_answer_auto_advance.md)
+- **PROMPT:** [prompts/202610/review_walk_answer_auto_advance.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/review_walk_answer_auto_advance.md)
+- **BEAD:** [bob-cli-4l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4l/README.md)
 
 # Plan: Answer once, advance once — review-walk auto-advance
 
