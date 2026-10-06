@@ -70,7 +70,7 @@ phases:
     the full test suite and `bob plugins sync`, and hand Bryan a manual smoke checklist.'
 proposed_by: bbugyi200.apollo.research.0d.linker.w0
 create_time: 2026-10-06 07:01:39
-status: wip
+status: done
 bead_id: bob-cli-4l
 ---
 
