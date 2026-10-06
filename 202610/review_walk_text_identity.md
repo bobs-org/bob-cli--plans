@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Keep the ]s review walk in queue order across line shifts
-goal:
-  Every review-walk answer and every Ctrl+Shift+M park continue at the true next
+goal: Every review-walk answer and every Ctrl+Shift+M park continue at the true next
   remaining review item. A stale path:line key no longer jumps the walk ahead or skips
   rows, so the walk stays in queue order.
 size: medium
 proposed_by: bbugyi200.athena.0x9.f0
-create_time: 2026-10-06 10:33:12
-status: wip
+status: done
 ---
 
 # Plan: Keep the `]s` review walk in queue order across line shifts
