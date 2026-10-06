@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Define area notes and the area-or-project task containment rule
-goal:
-  The glossary web defines Area Note, including the rule that every task lives in
-  exactly one area or project note and its machine-owned exceptions, and the term
+goal: The glossary web defines Area Note, including the rule that every task lives
+  in exactly one area or project note and its machine-owned exceptions, and the term
   resolves from published memory.
 size: small
 proposed_by: bbugyi200.apollo.5c
-create_time: 2026-10-06 10:31:10
-status: wip
+status: done
 ---
 
 # Define area notes and the area-or-project task containment rule
