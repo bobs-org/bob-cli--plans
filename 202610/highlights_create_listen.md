@@ -1,82 +1,77 @@
 ---
 tier: epic
 title: bob highlights create --listen and every sase-listen target
-goal: "`bob highlights create <TARGET>` accepts every document target that `sase-listen
-  render -e full` accepts (Markdown files, local PDFs, PDF URLs, arXiv paper URLs, and
-  web article URLs) and installs one marker-stamped PDF into the Highlights intake. A
-  PDF is stamped as-is, never re-rendered. `--listen` runs the configured
-  `highlights.listen_command` (Bryan's chezmoi config sets `sase-listen render {target}
-  -e full -o {audio}`) with its output streamed unchanged, and binds the published
-  episode as the PDF's companion audio. `bob highlights scan` then writes a ref note
-  with an audio player. When the target is already captured, `--listen` attaches the new
-  episode to the existing ref note instead. Every article or paper Bryan listens to ends
-  up tracked in his Obsidian ref system. Nothing is ever written to the vault unless
-  every step succeeded.
+goal: '`bob highlights create <TARGET>` accepts every document target that `sase-listen
+  render -e full` accepts (Markdown files, local PDFs, PDF URLs, arXiv paper URLs,
+  and web article URLs) and installs one marker-stamped PDF into the Highlights intake.
+  A PDF is stamped as-is, never re-rendered. `--listen` runs the configured `highlights.listen_command`
+  (Bryan''s chezmoi config sets `sase-listen render {target} -e full -o {audio}`)
+  with its output streamed unchanged, and binds the published episode as the PDF''s
+  companion audio. `bob highlights scan` then writes a ref note with an audio player.
+  When the target is already captured, `--listen` attaches the new episode to the
+  existing ref note instead. Every article or paper Bryan listens to ends up tracked
+  in his Obsidian ref system. Nothing is ever written to the vault unless every step
+  succeeded.
 
-  "
+  '
 phases:
-  - id: listen-command
-    title: Configurable listen command contract and runner
-    depends_on: []
-    size: small
-    description:
-      "listen-command: add highlights.listen_command plus its env override, a template
-      parser with shell-quoted {target}/{pdf}/{audio}/{title} placeholders, a runner
-      that streams output unchanged and verifies the MP3 written to {audio}, and a
-      doctor row."
-  - id: fetch-arxiv
-    title: URL fetcher, arXiv identity and metadata, and shared dedupe
-    depends_on: []
-    size: small
-    description:
-      "fetch-arxiv: add a curl-based fetcher that validates every redirect hop, arXiv
-      URL parsing that mirrors sase-listen, arXiv API metadata, the short-title stem
-      rule, and a shared dedupe module with arXiv and legacy url keys."
-  - id: pdf-targets
-    title: create accepts local PDFs, PDF URLs, and arXiv papers
-    depends_on:
-      - fetch-arxiv
-    size: medium
-    description:
-      "pdf-targets: add TARGET classification to create, a stamp-as-is PDF route with
-      title, stem, and validation rules, private scratch staging, the new -N/-T flags
-      and per-kind ref-type defaults, explicit --audio on every route, CLI tests with a
-      fake curl, and docs/highlights-create.md."
-  - id: article-targets
-    title: create routes web article URLs through the clip engine
-    depends_on:
-      - pdf-targets
-    size: small
-    description:
-      "article-targets: refactor clip into a callable engine and route create's HTML and
-      bot-walled URL targets through it with create's options, explicit companion audio
-      support, and tests."
-  - id: create-listen
-    title: Wire --listen into create and clip, with attach mode
-    depends_on:
-      - listen-command
-      - article-targets
-    size: medium
-    description:
-      "create-listen: add -L/--listen to create and clip on every route with
-      all-or-nothing ordering, attach mode for already-captured targets, dry-run and
-      reports, fake-listen CLI tests, docs, and the chezmoi listen_command line."
-  - id: live-verify
-    title: Live end-to-end verification on athena
-    depends_on:
-      - create-listen
-    size: small
-    description:
-      "live-verify: build bob and exercise every target kind into a scratch vault, run
-      one real unpublished sase-listen render under a TTY, scan the scratch vault to
-      prove the ref note gets the player, fix what breaks, and record follow-ups."
+- id: listen-command
+  title: Configurable listen command contract and runner
+  depends_on: []
+  size: small
+  description: 'listen-command: add highlights.listen_command plus its env override,
+    a template parser with shell-quoted {target}/{pdf}/{audio}/{title} placeholders,
+    a runner that streams output unchanged and verifies the MP3 written to {audio},
+    and a doctor row.'
+- id: fetch-arxiv
+  title: URL fetcher, arXiv identity and metadata, and shared dedupe
+  depends_on: []
+  size: small
+  description: 'fetch-arxiv: add a curl-based fetcher that validates every redirect
+    hop, arXiv URL parsing that mirrors sase-listen, arXiv API metadata, the short-title
+    stem rule, and a shared dedupe module with arXiv and legacy url keys.'
+- id: pdf-targets
+  title: create accepts local PDFs, PDF URLs, and arXiv papers
+  depends_on:
+  - fetch-arxiv
+  size: medium
+  description: 'pdf-targets: add TARGET classification to create, a stamp-as-is PDF
+    route with title, stem, and validation rules, private scratch staging, the new
+    -N/-T flags and per-kind ref-type defaults, explicit --audio on every route, CLI
+    tests with a fake curl, and docs/highlights-create.md.'
+- id: article-targets
+  title: create routes web article URLs through the clip engine
+  depends_on:
+  - pdf-targets
+  size: small
+  description: 'article-targets: refactor clip into a callable engine and route create''s
+    HTML and bot-walled URL targets through it with create''s options, explicit companion
+    audio support, and tests.'
+- id: create-listen
+  title: Wire --listen into create and clip, with attach mode
+  depends_on:
+  - listen-command
+  - article-targets
+  size: medium
+  description: 'create-listen: add -L/--listen to create and clip on every route with
+    all-or-nothing ordering, attach mode for already-captured targets, dry-run and
+    reports, fake-listen CLI tests, docs, and the chezmoi listen_command line.'
+- id: live-verify
+  title: Live end-to-end verification on athena
+  depends_on:
+  - create-listen
+  size: small
+  description: 'live-verify: build bob and exercise every target kind into a scratch
+    vault, run one real unpublished sase-listen render under a TTY, scan the scratch
+    vault to prove the ref note gets the player, fix what breaks, and record follow-ups.'
 proposed_by: bbugyi200.athena.research.3r.linker.w0
 create_time: 2026-10-06 15:45:25
 status: wip
+bead_id: bob-cli-4s
 ---
 
-- **PROMPT:**
-  [prompts/202610/highlights_create_listen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_create_listen.md)
+- **PROMPT:** [prompts/202610/highlights_create_listen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_create_listen.md)
+- **BEAD:** [bob-cli-4s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4s/README.md)
 
 # Plan: `bob highlights create --listen` and every sase-listen target
 
