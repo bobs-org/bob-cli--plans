@@ -1,15 +1,13 @@
 ---
 tier: tale
-title: "Mac pom: Fibonacci NO POMODORO reminders with a φ rest label"
-goal:
-  The idle NO POMODORO label rests 1, 1, 2, 3, 5, 8, … minutes between 60-second flash
-  steps, and each step shows the rest just taken as `NO POMODORO φ Nm` in one green
-  pill. The width changes only at step boundaries, and a dropdown row previews the next
-  reminder.
+title: 'Mac pom: Fibonacci NO POMODORO reminders with a φ rest label'
+goal: The idle NO POMODORO label rests 1, 1, 2, 3, 5, 8, … minutes between 60-second
+  flash steps, and each step shows the rest just taken as `NO POMODORO φ Nm` in one
+  green pill. The width changes only at step boundaries, and a dropdown row previews
+  the next reminder.
 size: medium
 proposed_by: bbugyi200.athena.0xl
-create_time: 2026-10-06 18:30:26
-status: wip
+status: done
 ---
 
 # Mac pom: Fibonacci `NO POMODORO` reminders with a φ rest label
