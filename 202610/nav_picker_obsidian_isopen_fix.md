@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Fix dead Ctrl+Shift+M/P on Obsidian 1.14 and land bob-cli-4l
-goal: Ctrl+Shift+M and Ctrl+Shift+P open their pickers again on Obsidian 1.14+, and
-  epic bob-cli-4l is closed with its plan marked done.
+goal:
+  Ctrl+Shift+M and Ctrl+Shift+P open their pickers again on Obsidian 1.14+, and epic
+  bob-cli-4l is closed with its plan marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-4l.land
 bead: bob-cli-4l
@@ -11,6 +12,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-4l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4l/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-4l.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-4l.land.md)
+- **COMMITS:**
+  - [7828567](https://github.com/bobs-org/bob-cli--plans/commit/78285670908896f18770e66ee5fe7cad986129c2)
+    — chore(plan): mark review-walk auto-advance plan done for bob-cli-4l
 
 # Fix dead Ctrl+Shift+M/P on Obsidian 1.14 (FilteredPickerModal `isOpen` collision), then land bob-cli-4l
 
