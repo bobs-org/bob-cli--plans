@@ -1,14 +1,22 @@
 ---
 tier: tale
 title: Ctrl+Shift+M never advances the review walk
-goal: A Ctrl+Shift+M task move, including from the row the ]s review walk just landed
-  on, follows the moved task to its destination note and never advances the walk.
-  The next ]s / [s resumes exactly at the moved row's walk neighbour, even after the
-  line shift in the source note. Docs, README, and the decision record agree.
+goal:
+  A Ctrl+Shift+M task move, including from the row the ]s review walk just landed on,
+  follows the moved task to its destination note and never advances the walk. The next
+  ]s / [s resumes exactly at the moved row's walk neighbour, even after the line shift
+  in the source note. Docs, README, and the decision record agree.
 size: medium
 proposed_by: bbugyi200.athena.0x9
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0x9](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0x9.md)
+- **COMMITS:**
+  - [53e3300](https://github.com/bobs-org/bob-plugins/commit/53e33003c511f9eeb8a4887727d73d7ab4a31f58)
+    — feat(nav): Ctrl+Shift+M never advances the review walk; park on text-identified
+    resume (nav 2.7.0)
 
 # Plan: Ctrl+Shift+M never advances the review walk
 
