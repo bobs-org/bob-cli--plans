@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Define the Inbox File glossary term
-goal:
-  Agents can read glossary:inbox-file (alias inbox note) to learn exactly which vault
-  files are inboxes, how tasks enter and leave them, and which other uses of "inbox" in
-  code and docs they must not confuse it with.
+goal: Agents can read glossary:inbox-file (alias inbox note) to learn exactly which
+  vault files are inboxes, how tasks enter and leave them, and which other uses of
+  "inbox" in code and docs they must not confuse it with.
 size: small
 proposed_by: bbugyi200.athena.0xi
-create_time: 2026-10-06 16:17:42
-status: wip
+status: done
 ---
 
 # Define the Inbox File glossary term
