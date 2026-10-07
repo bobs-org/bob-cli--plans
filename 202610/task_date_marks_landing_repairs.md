@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Repair Tasks date marks and finish bob-cli-53 landing
-goal:
-  Tasks date marks work with real DOM collections, queued frames stop after shutdown,
+goal: Tasks date marks work with real DOM collections, queued frames stop after shutdown,
   and verified epic bob-cli-53 is closed with its original plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-53.land
 bead: bob-cli-53
-create_time: 2026-10-07 09:27:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
