@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Finish paired return links and land bob-cli-5j
-goal:
-  Correct rendered link pairing and atomic highlight cleanup, verify the remaining
+goal: Correct rendered link pairing and atomic highlight cleanup, verify the remaining
   acceptance cases, and close bob-cli-5j normally in the coding turn.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-5j.land
 bead: bob-cli-5j
-create_time: 2026-10-07 16:32:32
-status: wip
+status: done
 ---
 
 - **PARENT:**
