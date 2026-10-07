@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Repair the colliding artifact-link events
-goal:
-  Make sase artifact doctor healthy, let typed links write again, and backfill the
-  relations this outage kept as free text
+goal: Make sase artifact doctor healthy, let typed links write again, and backfill
+  the relations this outage kept as free text
 size: medium
 bead: bob-cli-5k.4
 proposed_by: bbugyi200.athena.bob-cli-5k.4
-create_time: 2026-10-07 15:09:02
-status: wip
+status: done
 ---
 
 - **PARENT:**
