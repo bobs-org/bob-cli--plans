@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Show only the green check mark when the full ping window is perfect
-goal:
-  When every one of the last window_size pings answered, the Hammerspoon menu bar item
-  and the tmux status line show just the green check mark instead of a 30/30 count,
-  while every other state, the tooltip, and the dropdown stay unchanged.
+goal: When every one of the last window_size pings answered, the Hammerspoon menu
+  bar item and the tmux status line show just the green check mark instead of a 30/30
+  count, while every other state, the tooltip, and the dropdown stay unchanged.
 size: small
 proposed_by: bbugyi200.apollo.5l.f0
-create_time: 2026-10-07 12:30:31
-status: wip
+status: done
 ---
 
 # Plan: Show only the green check mark when the full ping window is perfect
