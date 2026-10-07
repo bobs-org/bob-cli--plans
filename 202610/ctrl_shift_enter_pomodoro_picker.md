@@ -40,7 +40,7 @@ phases:
     to 1.24.0, update docs in both repos, and sync.'
 proposed_by: bbugyi200.apollo.5h
 create_time: 2026-10-07 09:22:14
-status: wip
+status: done
 bead_id: bob-cli-54
 ---
 
