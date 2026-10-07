@@ -28,7 +28,7 @@ phases:
     for those PDFs.'
 proposed_by: bbugyi200.athena.research.3x.linker.w0
 create_time: 2026-10-07 14:27:21
-status: wip
+status: done
 bead_id: bob-cli-5j
 ---
 
