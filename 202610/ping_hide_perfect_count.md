@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Show only the green check mark when the full ping window is perfect
-goal: When every one of the last window_size pings answered, the Hammerspoon menu
-  bar item and the tmux status line show just the green check mark instead of a 30/30
-  count, while every other state, the tooltip, and the dropdown stay unchanged.
+goal:
+  When every one of the last window_size pings answered, the Hammerspoon menu bar item
+  and the tmux status line show just the green check mark instead of a 30/30 count,
+  while every other state, the tooltip, and the dropdown stay unchanged.
 size: small
 proposed_by: bbugyi200.apollo.5l.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5l.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5l.f0.md)
+- **COMMITS:**
+  - [dfd262b](https://github.com/bbugyi200/dotfiles/commit/dfd262b7188791faad7eeed48ce306ee69931c7f)
+    — feat(ping): show only the green check for a perfect window
 
 # Plan: Show only the green check mark when the full ping window is perfect
 
