@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fold bob ref clip into bob ref create
-goal: bob ref create covers everything bob ref clip did (--html replay, --author and
-  --published overrides), clip disappears from help, completion, and docs, and bob
-  ref clip survives only as a permanent hidden alias of create.
+goal:
+  bob ref create covers everything bob ref clip did (--html replay, --author and
+  --published overrides), clip disappears from help, completion, and docs, and bob ref
+  clip survives only as a permanent hidden alias of create.
 size: medium
 proposed_by: bbugyi200.athena.0xs
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0xs](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0xs.md)
+- **COMMITS:**
+  - [84a8a31](https://github.com/bobs-org/bob-cli/commit/84a8a31e27de4b23a7aaeca77dd544d670810f26)
+    — feat(ref): fold bob ref clip into bob ref create as hidden alias
 
 # Fold `bob ref clip` into `bob ref create`
 
