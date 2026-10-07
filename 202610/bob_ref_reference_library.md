@@ -109,7 +109,7 @@ phases:
     deploy the skill; and record bead hygiene and follow-ups.'
 proposed_by: bbugyi200.athena.research.3s.linker.w0
 create_time: 2026-10-06 20:15:51
-status: wip
+status: done
 bead_id: bob-cli-4w
 ---
 
