@@ -1,130 +1,120 @@
 ---
 tier: epic
-title: "bob ref: a reference library for agents and Bryan"
+title: 'bob ref: a reference library for agents and Bryan'
 goal: '`bob ref` is the canonical command for Bob''s reference library. `find`, `list`,
-  and `show` answer "is this already in my library, what am I reading or planning to
-  read, what have I finished, and what did I note?" correctly on the real vault. Each
-  answer comes in beautiful human output, Markdown, or versioned JSON, and is honest
-  about coverage. The six Highlights pipeline verbs work unchanged under `bob ref` and
-  under the permanent `bob highlights` and `bob highlights-ref` aliases. Annotations no
-  longer carry the leaked marker mirror, and a URL that only a legacy note records can
-  be captured again. A deployed `bob_ref` skill makes "check the library first" the
-  default step for agents that recommend reading.
+  and `show` answer "is this already in my library, what am I reading or planning
+  to read, what have I finished, and what did I note?" correctly on the real vault.
+  Each answer comes in beautiful human output, Markdown, or versioned JSON, and is
+  honest about coverage. The six Highlights pipeline verbs work unchanged under `bob
+  ref` and under the permanent `bob highlights` and `bob highlights-ref` aliases.
+  Annotations no longer carry the leaked marker mirror, and a URL that only a legacy
+  note records can be captured again. A deployed `bob_ref` skill makes "check the
+  library first" the default step for agents that recommend reading.
 
   '
 phases:
-  - id: rename
-    title: Promote bob ref to the canonical command
-    depends_on: []
-    size: medium
-    description:
-      "rename: make `ref` the canonical Vault command with permanent `highlights` and
-      `highlights-ref` aliases, grouped help, canonical diagnostics, completion paths,
-      fixtures, docs, and alias-equivalence tests."
-  - id: region
-    title: Managed-region and note-anatomy parser
-    depends_on: []
-    size: small
-    description:
-      "region: a read-only parser for rendered ref-note bodies (annotation blocks with
-      quote and comment kept apart, tombstones, mirror and preamble detection, the
-      user's own notes, and the Tasks section), round-tripped against the renderer."
-  - id: index
-    title: Read-only ref index, reading state, and identity
-    depends_on:
-      - region
-    size: medium
-    description:
-      "index: a new `ref_library` module that builds one read-only row per ref note
-      (status precedence, derived reading state, identity keys, dates, origin,
-      supersession, diagnostics, coverage) plus query resolution and title scoring, over
-      a mixed-corpus fixture vault."
-  - id: find
-    title: bob ref find and the library CLI plumbing
-    depends_on:
-      - rename
-      - index
-    size: medium
-    description:
-      "find: add the Library help group, shared output plumbing and JSON envelope,
-      `docs/ref.md`, and batch identity lookup with verdicts, optional intake checks,
-      and human, Markdown, and JSON output."
-  - id: list
-    title: bob ref list
-    depends_on:
-      - find
-    size: medium
-    description:
-      "list: the reading queue by default and filtered library views (reading state,
-      status, type, origin, parent, since), with a consistent cap, opt-in Git dates, and
-      grouped human output."
-  - id: show
-    title: bob ref show
-    depends_on:
-      - list
-    size: medium
-    description:
-      "show: exact resolution of one or more references and their metadata, annotations
-      (quote and comment kept apart), the user's own notes, and tasks, as human,
-      Markdown digest, or JSON."
-  - id: doctor
-    title: Library health and coverage rows in doctor
-    depends_on:
-      - rename
-      - index
-    size: small
-    description:
-      "doctor: add warning-level library rows to `bob ref doctor`: index totals,
-      diagnostics, duplicate identities, leaked mirrors, and the count of unindexed
-      zorg-era reading records outside the ref directory."
-  - id: sync-fixes
-    title: Remove leaked marker mirrors and stamp completion dates
-    depends_on:
-      - rename
-      - region
-    size: medium
-    description:
-      "sync-fixes: fix bob-cli-4r so neither sidecar preambles nor marker mirrors render
-      as annotations, drop previously leaked blocks without tombstones while keeping
-      every genuine block ID stable, and stamp completion or cancellation dates when
-      sync closes a `^ref` task."
-  - id: legacy-capture
-    title: Capture URLs that only a legacy note records
-    depends_on:
-      - rename
-    size: small
-    description:
-      "legacy-capture: shared dedupe refuses only PDF-backed note hits, so a URL
-      recorded only by a legacy note captures with a warning instead of hitting the dead
-      end introduced by the bob-cli-4s legacy `url:` dedupe."
-  - id: skill
-    title: The bob_ref agent skill
-    depends_on:
-      - show
-      - legacy-capture
-    size: small
-    description:
-      "skill: author the `bob_ref` skill source in the linked chezmoi repo so
-      reading-recommendation agents check the library first, label what they find
-      honestly, and never write to the vault."
-  - id: verify
-    title: Live verification, install, and skill deployment on athena
-    depends_on:
-      - doctor
-      - sync-fixes
-      - skill
-    size: small
-    description:
-      "verify: run the acceptance exercise and the counts, performance, alias, and
-      dry-run scan checks against the real vault; install the new bob on athena; deploy
-      the skill; and record bead hygiene and follow-ups."
+- id: rename
+  title: Promote bob ref to the canonical command
+  depends_on: []
+  size: medium
+  description: 'rename: make `ref` the canonical Vault command with permanent `highlights`
+    and `highlights-ref` aliases, grouped help, canonical diagnostics, completion
+    paths, fixtures, docs, and alias-equivalence tests.'
+- id: region
+  title: Managed-region and note-anatomy parser
+  depends_on: []
+  size: small
+  description: 'region: a read-only parser for rendered ref-note bodies (annotation
+    blocks with quote and comment kept apart, tombstones, mirror and preamble detection,
+    the user''s own notes, and the Tasks section), round-tripped against the renderer.'
+- id: index
+  title: Read-only ref index, reading state, and identity
+  depends_on:
+  - region
+  size: medium
+  description: 'index: a new `ref_library` module that builds one read-only row per
+    ref note (status precedence, derived reading state, identity keys, dates, origin,
+    supersession, diagnostics, coverage) plus query resolution and title scoring,
+    over a mixed-corpus fixture vault.'
+- id: find
+  title: bob ref find and the library CLI plumbing
+  depends_on:
+  - rename
+  - index
+  size: medium
+  description: 'find: add the Library help group, shared output plumbing and JSON
+    envelope, `docs/ref.md`, and batch identity lookup with verdicts, optional intake
+    checks, and human, Markdown, and JSON output.'
+- id: list
+  title: bob ref list
+  depends_on:
+  - find
+  size: medium
+  description: 'list: the reading queue by default and filtered library views (reading
+    state, status, type, origin, parent, since), with a consistent cap, opt-in Git
+    dates, and grouped human output.'
+- id: show
+  title: bob ref show
+  depends_on:
+  - list
+  size: medium
+  description: 'show: exact resolution of one or more references and their metadata,
+    annotations (quote and comment kept apart), the user''s own notes, and tasks,
+    as human, Markdown digest, or JSON.'
+- id: doctor
+  title: Library health and coverage rows in doctor
+  depends_on:
+  - rename
+  - index
+  size: small
+  description: 'doctor: add warning-level library rows to `bob ref doctor`: index
+    totals, diagnostics, duplicate identities, leaked mirrors, and the count of unindexed
+    zorg-era reading records outside the ref directory.'
+- id: sync-fixes
+  title: Remove leaked marker mirrors and stamp completion dates
+  depends_on:
+  - rename
+  - region
+  size: medium
+  description: 'sync-fixes: fix bob-cli-4r so neither sidecar preambles nor marker
+    mirrors render as annotations, drop previously leaked blocks without tombstones
+    while keeping every genuine block ID stable, and stamp completion or cancellation
+    dates when sync closes a `^ref` task.'
+- id: legacy-capture
+  title: Capture URLs that only a legacy note records
+  depends_on:
+  - rename
+  size: small
+  description: 'legacy-capture: shared dedupe refuses only PDF-backed note hits, so
+    a URL recorded only by a legacy note captures with a warning instead of hitting
+    the dead end introduced by the bob-cli-4s legacy `url:` dedupe.'
+- id: skill
+  title: The bob_ref agent skill
+  depends_on:
+  - show
+  - legacy-capture
+  size: small
+  description: 'skill: author the `bob_ref` skill source in the linked chezmoi repo
+    so reading-recommendation agents check the library first, label what they find
+    honestly, and never write to the vault.'
+- id: verify
+  title: Live verification, install, and skill deployment on athena
+  depends_on:
+  - doctor
+  - sync-fixes
+  - skill
+  size: small
+  description: 'verify: run the acceptance exercise and the counts, performance, alias,
+    and dry-run scan checks against the real vault; install the new bob on athena;
+    deploy the skill; and record bead hygiene and follow-ups.'
 proposed_by: bbugyi200.athena.research.3s.linker.w0
 create_time: 2026-10-06 20:15:51
 status: wip
+bead_id: bob-cli-4w
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_ref_reference_library.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_ref_reference_library.md)
+- **PROMPT:** [prompts/202610/bob_ref_reference_library.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_ref_reference_library.md)
+- **BEAD:** [bob-cli-4w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4w/README.md)
 
 # Plan: `bob ref`, a reference library for agents and Bryan
 
