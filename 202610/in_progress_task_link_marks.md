@@ -45,7 +45,7 @@ phases:
     memory updates.'
 proposed_by: bbugyi200.apollo.5j
 create_time: 2026-10-07 10:18:27
-status: wip
+status: done
 bead_id: bob-cli-56
 ---
 
