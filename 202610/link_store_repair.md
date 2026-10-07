@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair the colliding artifact-link events
-goal: Make sase artifact doctor healthy, let typed links write again, and backfill
-  the relations this outage kept as free text
+goal:
+  Make sase artifact doctor healthy, let typed links write again, and backfill the
+  relations this outage kept as free text
 size: medium
 bead: bob-cli-5k.4
 proposed_by: bbugyi200.athena.bob-cli-5k.4
@@ -13,6 +14,11 @@ status: done
   [202610/close_top_ten_impact_beads.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/close_top_ten_impact_beads.md)
 - **BEAD:**
   [bob-cli-5k.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5k/bob-cli-5k.4.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-5k.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-5k.4.md)
+- **COMMITS:**
+  - [81b3f88](https://github.com/bobs-org/bob-cli--plans/commit/81b3f880841807b1d5a00d54de05888ca2c12813)
+    — fix(artifact-links): drop replayed derived link events that reused operation ids
 
 # Plan: Repair the colliding artifact-link events
 
