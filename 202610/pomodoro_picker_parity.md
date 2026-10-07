@@ -2,14 +2,12 @@
 tier: tale
 title: Pomodoro picker parity fixes
 size: small
-goal:
-  "Fix three capture-parity bugs in the Link to today picker, then close epic
+goal: 'Fix three capture-parity bugs in the Link to today picker, then close epic
   bob-cli-54. Per-cap plan meters stay independent, an exact canonical Pomodoro name
-  never offers a duplicate, and a #N query does not match a shorter position token."
+  never offers a duplicate, and a #N query does not match a shorter position token.'
 proposed_by: bbugyi200.apollo.bob-cli-54.land
 bead: bob-cli-54
-create_time: 2026-10-07 10:27:36
-status: wip
+status: done
 ---
 
 - **PARENT:**
