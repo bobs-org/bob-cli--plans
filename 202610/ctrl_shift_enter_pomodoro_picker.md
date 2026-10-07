@@ -1,48 +1,50 @@
 ---
 tier: epic
 title: Ctrl+Shift+Enter Pomodoro picker
-goal: "Ctrl+Shift+Enter on an unlinked task asks which of today's Pomodoros to link it
-  into: Enter takes the current/first future Pomodoro, typing filters, and a new name
-  creates a Pomodoro with bob capture's rules, in a reliable, stale-safe, and polished
-  picker.
+goal: 'Ctrl+Shift+Enter on an unlinked task asks which of today''s Pomodoros to link
+  it into: Enter takes the current/first future Pomodoro, typing filters, and a new
+  name creates a Pomodoro with bob capture''s rules, in a reliable, stale-safe, and
+  polished picker.
 
-  "
+  '
 phases:
-  - id: core
-    title: Pomodoro target core (pure model and explicit-target planner)
-    depends_on: []
-    size: medium
-    description: "core: add pure block-id-prompt helpers for capture-parity Pomodoro
-      names, today's open-entry model, ranked picker rows, the create intent, and an
-      explicit-target link planner (existing or new named entry), with unit tests; no
-      behavior change yet.
+- id: core
+  title: Pomodoro target core (pure model and explicit-target planner)
+  depends_on: []
+  size: medium
+  description: 'core: add pure block-id-prompt helpers for capture-parity Pomodoro
+    names, today''s open-entry model, ranked picker rows, the create intent, and an
+    explicit-target link planner (existing or new named entry), with unit tests; no
+    behavior change yet.
 
-      "
-  - id: picker-ui
-    title: Pomodoro link picker modal and styles
-    depends_on:
-      - core
-    size: medium
-    description: 'picker-ui: build the promise-based "Link to today" modal with timeline
-      rows, progress ring, create/invalid/blocked rows, plan-meter footer, keys,
-      accessibility, bid-ppk styles, and DOM-stub view tests; not yet wired.
+    '
+- id: picker-ui
+  title: Pomodoro link picker modal and styles
+  depends_on:
+  - core
+  size: medium
+  description: 'picker-ui: build the promise-based "Link to today" modal with timeline
+    rows, progress ring, create/invalid/blocked rows, plan-meter footer, keys, accessibility,
+    bid-ppk styles, and DOM-stub view tests; not yet wired.
 
-      '
-  - id: gesture
-    title: Wire the picker into Ctrl+Shift+Enter, notices, docs, release
-    depends_on:
-      - core
-      - picker-ui
-    size: medium
-    description:
-      "gesture: move the inbox-route helpers out of the full fragment, add the picker
-      mixin and preflight, route the choice through the link flow, name the destination
-      in Notices, update the harness and tests, add runtime tests, bump to 1.24.0,
-      update docs in both repos, and sync."
+    '
+- id: gesture
+  title: Wire the picker into Ctrl+Shift+Enter, notices, docs, release
+  depends_on:
+  - core
+  - picker-ui
+  size: medium
+  description: 'gesture: move the inbox-route helpers out of the full fragment, add
+    the picker mixin and preflight, route the choice through the link flow, name the
+    destination in Notices, update the harness and tests, add runtime tests, bump
+    to 1.24.0, update docs in both repos, and sync.'
 proposed_by: bbugyi200.apollo.5h
 create_time: 2026-10-07 09:22:14
 status: wip
+bead_id: bob-cli-54
 ---
+
+- **BEAD:** [bob-cli-54](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-54/README.md)
 
 # Ctrl+Shift+Enter asks which Pomodoro: the "Link to today" picker
 
