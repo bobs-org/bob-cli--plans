@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Fold bob ref clip into bob ref create
-goal:
-  bob ref create covers everything bob ref clip did (--html replay, --author and
-  --published overrides), clip disappears from help, completion, and docs, and bob ref
-  clip survives only as a permanent hidden alias of create.
+goal: bob ref create covers everything bob ref clip did (--html replay, --author and
+  --published overrides), clip disappears from help, completion, and docs, and bob
+  ref clip survives only as a permanent hidden alias of create.
 size: medium
 proposed_by: bbugyi200.athena.0xs
-create_time: 2026-10-07 10:10:28
-status: wip
+status: done
 ---
 
 # Fold `bob ref clip` into `bob ref create`
