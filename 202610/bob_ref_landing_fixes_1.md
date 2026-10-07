@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: 'Finish landing bob-cli-4w: bob ref output, identity, hygiene, and docs fixes,
-  then close the epic'
-goal: 'The epic-caused defects found at land time are fixed and tested: bob ref Markdown
+title:
+  "Finish landing bob-cli-4w: bob ref output, identity, hygiene, and docs fixes, then
+  close the epic"
+goal:
+  "The epic-caused defects found at land time are fixed and tested: bob ref Markdown
   tables, list alignment, show tasks, help, DOI query keys, find -i, the YAML fallback,
   dead code, and docs. just all shows only the tracked pre-existing failures. Epic
-  bob-cli-4w is closed, and its plan file is marked done.'
+  bob-cli-4w is closed, and its plan file is marked done."
 proposed_by: bbugyi200.athena.bob-cli-4w.land
 bead: bob-cli-4w
 status: done
@@ -16,6 +18,11 @@ status: done
   [202610/bob_ref_reference_library.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_ref_reference_library.md)
 - **BEAD:**
   [bob-cli-4w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-4w/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-4w.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-4w.land.md)
+- **COMMITS:**
+  - [6d2911c](https://github.com/bobs-org/bob-cli/commit/6d2911ce416ad2898f5791ea2e602eb4c40aed54)
+    — fix(ref): land bob-cli-4w with output, identity, hygiene, and docs fixes
 
 # Plan: finish landing epic bob-cli-4w (`bob ref` reference library)
 
