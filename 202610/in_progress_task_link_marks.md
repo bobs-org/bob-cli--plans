@@ -1,59 +1,56 @@
 ---
 tier: epic
 title: In Progress marks and the Alt+[ / Alt+] lane toggle for Pomodoro Task Links
-goal: "In today's daily note, every Task Link under an open Pomodoro whose task is In
-  Progress `[/]` shows a rendered amber half-ring mark (Next shows none), and Alt+[ /
-  Alt+] on any Pomodoro Task Link toggles its task between Next and In Progress,
+goal: 'In today''s daily note, every Task Link under an open Pomodoro whose task is
+  In Progress `[/]` shows a rendered amber half-ring mark (Next shows none), and Alt+[
+  / Alt+] on any Pomodoro Task Link toggles its task between Next and In Progress,
   offering an optional Work Log entry when it goes back to Next. Nothing new is ever
   written into the daily note.
 
-  "
+  '
 phases:
-  - id: progress-marks
-    title: bob-ledger-tools In Progress marks
-    depends_on: []
-    size: medium
-    description:
-      "progress-marks: add a display-only half-ring mark before In Progress Task Links
-      under today's open Pomodoros (Live Preview widget, Reading view post-processor,
-      CSS, toggle command, refresh wiring) plus the `api.progressMarks` v1 hint
-      namespace, with conformance tests P1-P14."
-  - id: link-lane-toggle
-    title: bob-navigation-hotkeys Task Link lane toggle and api.taskLinkLane
-    depends_on: []
-    size: medium
-    description:
-      "link-lane-toggle: build the two-state Next <-> In Progress toggle for Pomodoro
-      Task Links on the Alt+N link pipeline (matcher, start-wins batch planner, a styled
-      optional Work Log prompt, preimage-checked commit, notices, progressMarks hint)
-      and expose it as nav `api.taskLinkLane` v1, with tests L1-L15."
-  - id: cycler-keys
-    title: task-status-cycler delegates Alt+[ / Alt+] on Task Links
-    depends_on:
-      - link-lane-toggle
-    size: small
-    description:
-      "cycler-keys: route single and counted Alt+[ / Alt+] presses on Pomodoro Task
-      Links to nav `api.taskLinkLane`, skip those lines in counted ranges that start
-      elsewhere, and keep every other line's behavior unchanged."
-  - id: docs-verify
-    title: Docs, end-to-end verification, and memory follow-up
-    depends_on:
-      - progress-marks
-      - cycler-keys
-    size: small
-    description:
-      "docs-verify: document the mark and toggle contract in bob-cli `docs/plan.md`
-      (vectors, live checklist, Surfaces/Notices rows), cross-check the plugin README
-      rows, run the full plugin suite and sync, and record a PROPOSED FOLLOW-UP for
-      memory updates."
+- id: progress-marks
+  title: bob-ledger-tools In Progress marks
+  depends_on: []
+  size: medium
+  description: 'progress-marks: add a display-only half-ring mark before In Progress
+    Task Links under today''s open Pomodoros (Live Preview widget, Reading view post-processor,
+    CSS, toggle command, refresh wiring) plus the `api.progressMarks` v1 hint namespace,
+    with conformance tests P1-P14.'
+- id: link-lane-toggle
+  title: bob-navigation-hotkeys Task Link lane toggle and api.taskLinkLane
+  depends_on: []
+  size: medium
+  description: 'link-lane-toggle: build the two-state Next <-> In Progress toggle
+    for Pomodoro Task Links on the Alt+N link pipeline (matcher, start-wins batch
+    planner, a styled optional Work Log prompt, preimage-checked commit, notices,
+    progressMarks hint) and expose it as nav `api.taskLinkLane` v1, with tests L1-L15.'
+- id: cycler-keys
+  title: task-status-cycler delegates Alt+[ / Alt+] on Task Links
+  depends_on:
+  - link-lane-toggle
+  size: small
+  description: 'cycler-keys: route single and counted Alt+[ / Alt+] presses on Pomodoro
+    Task Links to nav `api.taskLinkLane`, skip those lines in counted ranges that
+    start elsewhere, and keep every other line''s behavior unchanged.'
+- id: docs-verify
+  title: Docs, end-to-end verification, and memory follow-up
+  depends_on:
+  - progress-marks
+  - cycler-keys
+  size: small
+  description: 'docs-verify: document the mark and toggle contract in bob-cli `docs/plan.md`
+    (vectors, live checklist, Surfaces/Notices rows), cross-check the plugin README
+    rows, run the full plugin suite and sync, and record a PROPOSED FOLLOW-UP for
+    memory updates.'
 proposed_by: bbugyi200.apollo.5j
 create_time: 2026-10-07 10:18:27
 status: wip
+bead_id: bob-cli-56
 ---
 
-- **PROMPT:**
-  [prompts/202610/in_progress_task_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/in_progress_task_link_marks.md)
+- **PROMPT:** [prompts/202610/in_progress_task_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/in_progress_task_link_marks.md)
+- **BEAD:** [bob-cli-56](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-56/README.md)
 
 # Plan: In Progress marks and the Alt+[ / Alt+] lane toggle for Pomodoro Task Links
 
