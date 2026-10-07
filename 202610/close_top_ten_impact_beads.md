@@ -1,91 +1,85 @@
 ---
 tier: epic
 title: Close the ten highest-impact bob-cli task beads
-goal: "Every bead in the 48-hour impact ranking (bob-cli-4j, 2e, 21, 33, 59, 4m, 4x, 4r,
-  4u, 3c) is implemented, verified on the final master tree, and closed before this epic
-  lands. As a result, master's test gate is honest and green: `just check` runs every
-  test binary and passes twice in a row on athena. The artifact-link store accepts
-  writes again. Native Tasks queries no longer fail on the 2 s sandbox deadline. A bare
-  plugin sync can no longer roll back the vault. The zorg-era reading records are in the
-  reference library.
+goal: 'Every bead in the 48-hour impact ranking (bob-cli-4j, 2e, 21, 33, 59, 4m, 4x,
+  4r, 4u, 3c) is implemented, verified on the final master tree, and closed before
+  this epic lands. As a result, master''s test gate is honest and green: `just check`
+  runs every test binary and passes twice in a row on athena. The artifact-link store
+  accepts writes again. Native Tasks queries no longer fail on the 2 s sandbox deadline.
+  A bare plugin sync can no longer roll back the vault. The zorg-era reading records
+  are in the reference library.
 
-  "
+  '
 phases:
-  - id: red-tests
-    title: Fix the deterministic red tests
-    depends_on: []
-    size: small
-    description:
-      "red-tests: give `ref create --audio` a completion decision (bob-cli-4j), confirm
-      the stale `clip` help snapshot is fixed (bob-cli-5i), and make the listen-card
-      test accept both Pandoc ampersand escapings without losing URI coverage
-      (bob-cli-4u); close all three."
-  - id: env-isolation
-    title: Stop lib tests from racing on process environment
-    depends_on: []
-    size: medium
-    description:
-      "env-isolation: replace every module-private env-mutating test helper with one
-      shared isolation mechanism that never lets a test see another test's BOB_DAY_FILE
-      or BOB_NOW, enforce it with clippy, stress-test it, and close bob-cli-2e,
-      bob-cli-40 (superseded) and bob-cli-5c."
-  - id: check-gate
-    title: Add the canonical just check gate
-    depends_on:
-      - red-tests
-      - env-isolation
-    size: small
-    description:
-      "check-gate: add `just check` (fmt, clippy, and every test binary with
-      --no-fail-fast), make `just test` stop masking binaries, clear any remaining
-      clippy deny or environment-dependent CLI test, document the gate, prove it green
-      twice, and close bob-cli-3c."
-  - id: link-store
-    title: Repair the artifact-link event store
-    depends_on: []
-    size: large
-    description:
-      "link-store: plan and run a backed-up data repair of the colliding operation_id
-      events in the plans sidecar so `sase artifact doctor` is healthy and typed links
-      write again, backfill the relations kept as free text, propose the sase hardening
-      as follow-ups, and close bob-cli-21."
-  - id: tasks-sandbox
-    title: Build the Tasks JS sandbox only when a query needs it
-    depends_on:
-      - check-gate
-    size: medium
-    description:
-      "tasks-sandbox: construct the Tasks JavaScript sandbox lazily and give its
-      initialization its own budget apart from the 2 s per-expression deadline, add
-      regression tests, measure before/after latency on the live read path, and close
-      bob-cli-33."
-  - id: plugins-sync-guard
-    title: Refuse bare plugin syncs from a different bob-plugins checkout
-    depends_on:
-      - check-gate
-    size: small
-    description:
-      "plugins-sync-guard: make `bob plugins sync` without `--repo` abort before any
-      pull or copy when run from inside a bob-plugins checkout other than the resolved
-      repo, test it, document the rule in bob-cli and bob-plugins AGENTS.md, and close
-      bob-cli-59."
-  - id: ref-migration
-    title: Migrate zorg-era reading records into the reference library
-    depends_on:
-      - check-gate
-    size: xlarge
-    description:
-      "ref-migration: settle the migration design with Bryan, author and drive a nested
-      epic that moves the ~424 unindexed zorg-era reading records into `ref/` through a
-      dry-run-first, idempotent, reversible vault write, and close bob-cli-4x once `bob
-      ref doctor` coverage confirms it."
+- id: red-tests
+  title: Fix the deterministic red tests
+  depends_on: []
+  size: small
+  description: 'red-tests: give `ref create --audio` a completion decision (bob-cli-4j),
+    confirm the stale `clip` help snapshot is fixed (bob-cli-5i), and make the listen-card
+    test accept both Pandoc ampersand escapings without losing URI coverage (bob-cli-4u);
+    close all three.'
+- id: env-isolation
+  title: Stop lib tests from racing on process environment
+  depends_on: []
+  size: medium
+  description: 'env-isolation: replace every module-private env-mutating test helper
+    with one shared isolation mechanism that never lets a test see another test''s
+    BOB_DAY_FILE or BOB_NOW, enforce it with clippy, stress-test it, and close bob-cli-2e,
+    bob-cli-40 (superseded) and bob-cli-5c.'
+- id: check-gate
+  title: Add the canonical just check gate
+  depends_on:
+  - red-tests
+  - env-isolation
+  size: small
+  description: 'check-gate: add `just check` (fmt, clippy, and every test binary with
+    --no-fail-fast), make `just test` stop masking binaries, clear any remaining clippy
+    deny or environment-dependent CLI test, document the gate, prove it green twice,
+    and close bob-cli-3c.'
+- id: link-store
+  title: Repair the artifact-link event store
+  depends_on: []
+  size: large
+  description: 'link-store: plan and run a backed-up data repair of the colliding
+    operation_id events in the plans sidecar so `sase artifact doctor` is healthy
+    and typed links write again, backfill the relations kept as free text, propose
+    the sase hardening as follow-ups, and close bob-cli-21.'
+- id: tasks-sandbox
+  title: Build the Tasks JS sandbox only when a query needs it
+  depends_on:
+  - check-gate
+  size: medium
+  description: 'tasks-sandbox: construct the Tasks JavaScript sandbox lazily and give
+    its initialization its own budget apart from the 2 s per-expression deadline,
+    add regression tests, measure before/after latency on the live read path, and
+    close bob-cli-33.'
+- id: plugins-sync-guard
+  title: Refuse bare plugin syncs from a different bob-plugins checkout
+  depends_on:
+  - check-gate
+  size: small
+  description: 'plugins-sync-guard: make `bob plugins sync` without `--repo` abort
+    before any pull or copy when run from inside a bob-plugins checkout other than
+    the resolved repo, test it, document the rule in bob-cli and bob-plugins AGENTS.md,
+    and close bob-cli-59.'
+- id: ref-migration
+  title: Migrate zorg-era reading records into the reference library
+  depends_on:
+  - check-gate
+  size: xlarge
+  description: 'ref-migration: settle the migration design with Bryan, author and
+    drive a nested epic that moves the ~424 unindexed zorg-era reading records into
+    `ref/` through a dry-run-first, idempotent, reversible vault write, and close
+    bob-cli-4x once `bob ref doctor` coverage confirms it.'
 proposed_by: bbugyi200.athena.0y2
 create_time: 2026-10-07 14:38:39
 status: wip
+bead_id: bob-cli-5k
 ---
 
-- **PROMPT:**
-  [prompts/202610/close_top_ten_impact_beads.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/close_top_ten_impact_beads.md)
+- **PROMPT:** [prompts/202610/close_top_ten_impact_beads.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/close_top_ten_impact_beads.md)
+- **BEAD:** [bob-cli-5k](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5k/README.md)
 
 # Plan: Close the ten highest-impact bob-cli task beads
 
