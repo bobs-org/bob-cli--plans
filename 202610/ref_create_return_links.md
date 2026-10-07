@@ -1,40 +1,39 @@
 ---
 tier: epic
 title: Paired return links for bob ref create Markdown PDFs
-goal: "Every same-document link in a Markdown PDF rendered by `bob ref create` carries a
-  small raised letter tag, and its target shows a matching `↩ p. N` return pill that
-  jumps back to the passage the reader left. Link targets resolve robustly, dead links
-  are visible instead of silent, and the tags and pills never leak into highlights
+goal: 'Every same-document link in a Markdown PDF rendered by `bob ref create` carries
+  a small raised letter tag, and its target shows a matching `↩ p. N` return pill
+  that jumps back to the passage the reader left. Link targets resolve robustly, dead
+  links are visible instead of silent, and the tags and pills never leak into highlights
   synced into the vault.
 
-  "
+  '
 phases:
-  - id: render
-    title: Render paired return links in Markdown PDFs
-    depends_on: []
-    size: medium
-    description:
-      "render: add a second pandoc Lua filter plus TeX macros that resolve, tag, and
-      pair every eligible same-document link with a return-pill row at its target, unify
-      the link ink, report pairing counts and dead-link warnings from bob, and cover it
-      with filter, XeLaTeX, and CLI tests plus docs."
-  - id: export
-    title: Keep return-link glyphs out of synced highlights
-    depends_on:
-      - render
-    size: medium
-    description:
-      "export: stamp a `return_links: true` marker key on PDFs that actually carry
-      return links, register it as a standard synced field, and strip tag glyphs and
-      pill text from highlight text when `bob ref sync` renders the note region for
-      those PDFs."
+- id: render
+  title: Render paired return links in Markdown PDFs
+  depends_on: []
+  size: medium
+  description: 'render: add a second pandoc Lua filter plus TeX macros that resolve,
+    tag, and pair every eligible same-document link with a return-pill row at its
+    target, unify the link ink, report pairing counts and dead-link warnings from
+    bob, and cover it with filter, XeLaTeX, and CLI tests plus docs.'
+- id: export
+  title: Keep return-link glyphs out of synced highlights
+  depends_on:
+  - render
+  size: medium
+  description: 'export: stamp a `return_links: true` marker key on PDFs that actually
+    carry return links, register it as a standard synced field, and strip tag glyphs
+    and pill text from highlight text when `bob ref sync` renders the note region
+    for those PDFs.'
 proposed_by: bbugyi200.athena.research.3x.linker.w0
 create_time: 2026-10-07 14:27:21
 status: wip
+bead_id: bob-cli-5j
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_create_return_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_return_links.md)
+- **PROMPT:** [prompts/202610/ref_create_return_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_return_links.md)
+- **BEAD:** [bob-cli-5j](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5j/README.md)
 
 # Plan: Paired return links for `bob ref create` Markdown PDFs
 
