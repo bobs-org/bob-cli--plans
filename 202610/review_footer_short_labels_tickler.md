@@ -38,7 +38,7 @@ phases:
     for leftover references.'
 proposed_by: bbugyi200.apollo.5i
 create_time: 2026-10-07 09:55:35
-status: wip
+status: done
 bead_id: bob-cli-55
 ---
 
