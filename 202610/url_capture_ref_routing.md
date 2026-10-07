@@ -1,125 +1,116 @@
 ---
 tier: epic
-title:
-  "Links go to the reading queue: URL routing for bob capture, Bob Mac Capture, and bob
-  gkeep pull"
-goal: "A bare public link lands in Bob's reading queue instead of becoming an inbox
+title: 'Links go to the reading queue: URL routing for bob capture, Bob Mac Capture,
+  and bob gkeep pull'
+goal: 'A bare public link lands in Bob''s reading queue instead of becoming an inbox
   task. This covers a link captured with `bob capture` or Bob Mac Capture, whether
   alone, in a pasted list, or mixed with ordinary tasks, and a link shared to Google
-  Keep and pulled with `bob gkeep pull`. Every path uses the same ingest engine as `bob
-  ref create`. Capture stays instant, works offline, and never loses a link. The preview
-  says honestly, without touching the network, whether the link is new or already in the
-  library. Submit queues a durable ref job, and a detached background worker clips it.
-  If a clip fails, the link falls back to exactly today's inbox task, plus a ⚠️ reason
-  and a retry command. Keep pull clips inline and archives a note only after a terminal
-  outcome. Bob Mac Capture presents the new reference item beautifully and parses
-  nothing itself. Every path has an opt-out.
+  Keep and pulled with `bob gkeep pull`. Every path uses the same ingest engine as
+  `bob ref create`. Capture stays instant, works offline, and never loses a link.
+  The preview says honestly, without touching the network, whether the link is new
+  or already in the library. Submit queues a durable ref job, and a detached background
+  worker clips it. If a clip fails, the link falls back to exactly today''s inbox
+  task, plus a ⚠️ reason and a retry command. Keep pull clips inline and archives
+  a note only after a terminal outcome. Bob Mac Capture presents the new reference
+  item beautifully and parses nothing itself. Every path has an opt-out.
 
-  "
+  '
 phases:
-  - id: ingest
-    title: Typed, non-printing URL ingest extracted from bob ref create
-    depends_on: []
-    size: medium
-    description:
-      "ingest: extract a typed URL ingest API from `ref create`. It returns created,
-      already-in-library, and already-queued outcomes, or a typed error kind with a
-      retryable flag. It uses fixed reading-queue defaults, a machine-wide ingest lock,
-      and fsync on install. `ref create` output and exit codes stay byte-identical. Also
-      add the shared ⚠️ fallback-note helper."
-  - id: hardening
-    title: uv resolution, URL safety, and doctor rows
-    depends_on: []
-    size: small
-    description:
-      "hardening: one shared `resolve_uv()` for the clip adapter, the Keep adapter, and
-      gkeep doctor, with uv rows in both doctors. Also the bob-cli-4v IPv4-mapped IPv6
-      fix, a resolved-address check that pins every curl hop, and the `--max-time` doc
-      drift fix."
-  - id: intent
-    title: URL-intent classifier, routing policy, and offline library verdict
-    depends_on: []
-    size: small
-    description:
-      "intent: a new `url_routing` module with the strict bare-URL classifier, display
-      formatting, the `highlights.url_routing` config policy (per-entry-point toggles
-      and `exclude_hosts`), an offline library verdict that agrees exactly with create's
-      dedupe, and a doctor routing row."
-  - id: grammar
-    title: Capture grammar for reference items and URL lists
-    depends_on:
-      - intent
-    size: small
-    description:
-      "grammar: the whole-item bare-URL claim and `CaptureKind::Ref`, the lexical
-      URL-list split in shared draft splitting, the editor `ref` mode and `ref_url`
-      span, and routing-option plumbing. Every production caller keeps routing off until
-      phase capture."
-  - id: jobs
-    title: Ref job spool, background worker, and bob ref jobs
-    depends_on:
-      - ingest
-      - intent
-    size: medium
-    description:
-      "jobs: the durable job spool under the bob-cli state directory; a single-flight
-      worker that is crash-safe and has no lost wakeups; its fully detached kick; the
-      lossless inbox-task fallback writer; `bob ref jobs` (bare = list) and `bob ref
-      jobs run`; doctor rows; and `docs/ref-jobs.md`."
-  - id: gkeep
-    title: bob gkeep pull clips URL-only Keep notes
-    depends_on:
-      - ingest
-      - hardening
-      - intent
-    size: medium
-    description:
-      "gkeep: the adapter emits shared-link annotations; the R5 URL-only rule becomes a
-      `create_ref` plan action; a clip pre-pass runs before the vault lock; a
-      `ref_created` journal event; retryable failures stay in Keep and permanent ones
-      are written as tasks with a ⚠️ note; the archive guard checks attachment counts.
-      Also covers dry-run, list, JSON, `-R`, and docs."
-  - id: capture
-    title: bob capture queues bare links for the reading queue
-    depends_on:
-      - grammar
-      - jobs
-    size: medium
-    description:
-      "capture: turn routing on in `capture` and `capture-parse`. Plan reference items
-      with the offline verdict (including clipping and duplicate links), emit the
-      additive JSON and the human wording, enqueue job files as rolled-back staged side
-      effects, kick the worker after commit, add `-R/--no-ref`, and write the docs."
-  - id: mac
-    title: Bob Mac Capture presents reference items
-    depends_on:
-      - capture
-    size: medium
-    description:
-      "mac: in the linked bob-mac-capture repo, tolerantly decode the `ref` object; add
-      a reference card, status text, notification, and a link-colored `ref_url` span;
-      open only targets that really exist; add `~/.local/bin` to PATH; and add fixtures
-      recorded from real bob output, tests, README, and green macOS CI."
-  - id: verify
-    title: Live verification, install, and follow-ups
-    depends_on:
-      - hardening
-      - gkeep
-      - capture
-      - mac
-    size: small
-    description:
-      "verify: on athena, run the live article, PDF, arXiv, blocked, corporate link,
-      list, duplicate, and already-in-library exercises against a scratch vault; time a
-      read-only dry run on the real vault; install; run read-only Mac probes or write
-      Bryan's Mac checklist; and record follow-ups."
+- id: ingest
+  title: Typed, non-printing URL ingest extracted from bob ref create
+  depends_on: []
+  size: medium
+  description: 'ingest: extract a typed URL ingest API from `ref create`. It returns
+    created, already-in-library, and already-queued outcomes, or a typed error kind
+    with a retryable flag. It uses fixed reading-queue defaults, a machine-wide ingest
+    lock, and fsync on install. `ref create` output and exit codes stay byte-identical.
+    Also add the shared ⚠️ fallback-note helper.'
+- id: hardening
+  title: uv resolution, URL safety, and doctor rows
+  depends_on: []
+  size: small
+  description: 'hardening: one shared `resolve_uv()` for the clip adapter, the Keep
+    adapter, and gkeep doctor, with uv rows in both doctors. Also the bob-cli-4v IPv4-mapped
+    IPv6 fix, a resolved-address check that pins every curl hop, and the `--max-time`
+    doc drift fix.'
+- id: intent
+  title: URL-intent classifier, routing policy, and offline library verdict
+  depends_on: []
+  size: small
+  description: 'intent: a new `url_routing` module with the strict bare-URL classifier,
+    display formatting, the `highlights.url_routing` config policy (per-entry-point
+    toggles and `exclude_hosts`), an offline library verdict that agrees exactly with
+    create''s dedupe, and a doctor routing row.'
+- id: grammar
+  title: Capture grammar for reference items and URL lists
+  depends_on:
+  - intent
+  size: small
+  description: 'grammar: the whole-item bare-URL claim and `CaptureKind::Ref`, the
+    lexical URL-list split in shared draft splitting, the editor `ref` mode and `ref_url`
+    span, and routing-option plumbing. Every production caller keeps routing off until
+    phase capture.'
+- id: jobs
+  title: Ref job spool, background worker, and bob ref jobs
+  depends_on:
+  - ingest
+  - intent
+  size: medium
+  description: 'jobs: the durable job spool under the bob-cli state directory; a single-flight
+    worker that is crash-safe and has no lost wakeups; its fully detached kick; the
+    lossless inbox-task fallback writer; `bob ref jobs` (bare = list) and `bob ref
+    jobs run`; doctor rows; and `docs/ref-jobs.md`.'
+- id: gkeep
+  title: bob gkeep pull clips URL-only Keep notes
+  depends_on:
+  - ingest
+  - hardening
+  - intent
+  size: medium
+  description: 'gkeep: the adapter emits shared-link annotations; the R5 URL-only
+    rule becomes a `create_ref` plan action; a clip pre-pass runs before the vault
+    lock; a `ref_created` journal event; retryable failures stay in Keep and permanent
+    ones are written as tasks with a ⚠️ note; the archive guard checks attachment
+    counts. Also covers dry-run, list, JSON, `-R`, and docs.'
+- id: capture
+  title: bob capture queues bare links for the reading queue
+  depends_on:
+  - grammar
+  - jobs
+  size: medium
+  description: 'capture: turn routing on in `capture` and `capture-parse`. Plan reference
+    items with the offline verdict (including clipping and duplicate links), emit
+    the additive JSON and the human wording, enqueue job files as rolled-back staged
+    side effects, kick the worker after commit, add `-R/--no-ref`, and write the docs.'
+- id: mac
+  title: Bob Mac Capture presents reference items
+  depends_on:
+  - capture
+  size: medium
+  description: 'mac: in the linked bob-mac-capture repo, tolerantly decode the `ref`
+    object; add a reference card, status text, notification, and a link-colored `ref_url`
+    span; open only targets that really exist; add `~/.local/bin` to PATH; and add
+    fixtures recorded from real bob output, tests, README, and green macOS CI.'
+- id: verify
+  title: Live verification, install, and follow-ups
+  depends_on:
+  - hardening
+  - gkeep
+  - capture
+  - mac
+  size: small
+  description: 'verify: on athena, run the live article, PDF, arXiv, blocked, corporate
+    link, list, duplicate, and already-in-library exercises against a scratch vault;
+    time a read-only dry run on the real vault; install; run read-only Mac probes
+    or write Bryan''s Mac checklist; and record follow-ups.'
 proposed_by: bbugyi200.athena.research.3w.linker.w1
 create_time: 2026-10-07 08:11:15
 status: wip
+bead_id: bob-cli-52
 ---
 
-- **PROMPT:**
-  [prompts/202610/url_capture_ref_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/url_capture_ref_routing.md)
+- **PROMPT:** [prompts/202610/url_capture_ref_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/url_capture_ref_routing.md)
+- **BEAD:** [bob-cli-52](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-52/README.md)
 
 # Plan: Links go to the reading queue
 
