@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Keep the cursor out of folded date-mark whitespace
-goal:
-  Editing next to a Live Preview date mark (vim cw, Backspace, a cursor between Tasks'
-  double spaces) types text in order, before the mark, because no date-mark replace
-  range ever hides a selection endpoint.
+goal: Editing next to a Live Preview date mark (vim cw, Backspace, a cursor between
+  Tasks' double spaces) types text in order, before the mark, because no date-mark
+  replace range ever hides a selection endpoint.
 size: small
 proposed_by: bbugyi200.athena.0xt
-create_time: 2026-10-07 10:52:44
-status: wip
+status: done
 ---
 
 # Plan: Keep the cursor out of folded date-mark whitespace
