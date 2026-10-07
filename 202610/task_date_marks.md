@@ -1,46 +1,46 @@
 ---
 tier: epic
 title: Task date marks
-goal: "In Obsidian, every canonical `created`, `scheduled`, `completion`, and
-  `cancelled` task date renders as a small monochrome icon plus a calendar label
-  (`today`, `tomorrow`, `Fri`, `Oct 22`) instead of a `KEY | YYYY-MM-DD` Dataview pill.
-  This works in Live Preview, reading view, embeds, hover previews, Dataview task views,
-  and Tasks query results. The stored Markdown never changes, the cursor still reveals
-  the raw field for editing, and malformed date fields get a visible repair flag.
+goal: 'In Obsidian, every canonical `created`, `scheduled`, `completion`, and `cancelled`
+  task date renders as a small monochrome icon plus a calendar label (`today`, `tomorrow`,
+  `Fri`, `Oct 22`) instead of a `KEY | YYYY-MM-DD` Dataview pill. This works in Live
+  Preview, reading view, embeds, hover previews, Dataview task views, and Tasks query
+  results. The stored Markdown never changes, the cursor still reveals the raw field
+  for editing, and malformed date fields get a visible repair flag.
 
-  "
+  '
 phases:
-  - id: date-marks
-    title: Date marks in bob-ledger-tools
-    depends_on: []
-    size: medium
-    description: "date-marks: add the pure date-mark core (a parser for several
-      canonical date fields per line, the calendar label grammar, tooltips, the element,
-      and the widget). Add the Live Preview extension with whitespace-run folding and
-      per-field reveal, the rendered-view post-processor, the midnight rollover relabel,
-      the session toggle, `api.dateMarks` v1, and the CSS glyph set, tones, and repair
-      flag. Add the conformance tests and the authoritative `docs/date-marks.md`
-      contract, then deploy with `bob plugins sync`.
+- id: date-marks
+  title: Date marks in bob-ledger-tools
+  depends_on: []
+  size: medium
+  description: 'date-marks: add the pure date-mark core (a parser for several canonical
+    date fields per line, the calendar label grammar, tooltips, the element, and the
+    widget). Add the Live Preview extension with whitespace-run folding and per-field
+    reveal, the rendered-view post-processor, the midnight rollover relabel, the session
+    toggle, `api.dateMarks` v1, and the CSS glyph set, tones, and repair flag. Add
+    the conformance tests and the authoritative `docs/date-marks.md` contract, then
+    deploy with `bob plugins sync`.
 
-      "
-  - id: tasks-results
-    title: Date marks in Tasks query results
-    depends_on:
-      - date-marks
-    size: small
-    description:
-      "tasks-results: in full-mode Tasks query results, add the same mark to each date
-      component through a bounded per-row frame pass. The date-mark post-processor
-      triggers the pass, and it falls back to Tasks' native emoji dates. In short-mode
-      results, CSS swaps the emoji for the glyph. Extend the tests, contract, README,
-      and manifest, then deploy."
+    '
+- id: tasks-results
+  title: Date marks in Tasks query results
+  depends_on:
+  - date-marks
+  size: small
+  description: 'tasks-results: in full-mode Tasks query results, add the same mark
+    to each date component through a bounded per-row frame pass. The date-mark post-processor
+    triggers the pass, and it falls back to Tasks'' native emoji dates. In short-mode
+    results, CSS swaps the emoji for the glyph. Extend the tests, contract, README,
+    and manifest, then deploy.'
 proposed_by: bbugyi200.athena.0xq
 create_time: 2026-10-07 08:19:04
 status: wip
+bead_id: bob-cli-53
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_date_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_date_marks.md)
+- **PROMPT:** [prompts/202610/task_date_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_date_marks.md)
+- **BEAD:** [bob-cli-53](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-53/README.md)
 
 # Plan: Task date marks
 
