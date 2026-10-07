@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish paired return links and land bob-cli-5j
-goal: Correct rendered link pairing and atomic highlight cleanup, verify the remaining
+goal:
+  Correct rendered link pairing and atomic highlight cleanup, verify the remaining
   acceptance cases, and close bob-cli-5j normally in the coding turn.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-5j.land
@@ -13,6 +14,11 @@ status: done
   [202610/ref_create_return_links.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_return_links.md)
 - **BEAD:**
   [bob-cli-5j](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5j/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-5j.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-5j.land.md)
+- **COMMITS:**
+  - [39915c5](https://github.com/bobs-org/bob-cli/commit/39915c5c96cf1d640bd0feae2cffd6d4a18911c1)
+    — feat(highlights): finish paired return links and land bob-cli-5j
 
 # Finish paired return links and land bob-cli-5j
 
