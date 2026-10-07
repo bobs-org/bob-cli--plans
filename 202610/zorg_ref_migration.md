@@ -1,69 +1,65 @@
 ---
 tier: epic
 title: Migrate zorg-era reading records into the reference library
-goal: "`bob ref migrate-zorg` moves every unindexed zorg-era reading record (424 on
-  2026-10-07) into legacy reference notes under `ref/zorg/<hub>/`. It runs as a
-  dry-run-first, idempotent vault write: one sync-sandwiched commit that a single `git
-  revert` undoes. Book chapters fold into their book's note. On athena, `bob ref doctor`
-  then reports `coverage: ok`, `bob ref find` / `bob ref list` return the migrated
-  records, the JSON `coverage.scope` caveat no longer claims that zorg history is
-  invisible, and bob-cli-4x is closed.
+goal: '`bob ref migrate-zorg` moves every unindexed zorg-era reading record (424 on
+  2026-10-07) into legacy reference notes under `ref/zorg/<hub>/`. It runs as a dry-run-first,
+  idempotent vault write: one sync-sandwiched commit that a single `git revert` undoes.
+  Book chapters fold into their book''s note. On athena, `bob ref doctor` then reports
+  `coverage: ok`, `bob ref find` / `bob ref list` return the migrated records, the
+  JSON `coverage.scope` caveat no longer claims that zorg history is invisible, and
+  bob-cli-4x is closed.
 
-  "
+  '
 phases:
-  - id: record-model
-    title: Shared zorg record parser, multi-block mirroring, and book reading state
-    depends_on: []
-    size: medium
-    description:
-      "record-model: turn coverage.rs's counter into a shared zorg record parser (owner
-      block, ID/LID, block range, fields). Make mirroring id-aware and let one note
-      mirror several blocks (`source_blocks`). Derive a legacy book's reading state from
-      `legacy_chapter_statuses`. Keep doctor's live count at 424, then test and document
-      the rules."
-  - id: planner
-    title: bob ref migrate-zorg dry-run planner and report
-    depends_on:
-      - record-model
-    size: medium
-    description:
-      "planner: add `bob ref migrate-zorg` (dry run by default). It plans one legacy
-      note per record, with books folding their chapters. It picks collision-free stems,
-      ref_type, title, URLs, and tags, renders the notes exactly, and prints a human or
-      JSON report: counts by file and status, renamed targets, records without a URL,
-      identity hits, already migrated, and skipped. Add CLI tests, help and completion
-      updates, and docs."
-  - id: writer
-    title: Reversible --write path, rollback runbook, and scope caveat
-    depends_on:
-      - planner
-    size: medium
-    description:
-      "writer: add `-w/--write`. Under bob_sync.lock it pre-syncs, re-plans, and refuses
-      existing targets. It then writes new files only, verifies them through the index
-      and coverage, and deletes its own files on any failure. Then one scoped commit and
-      a post-sync. Test it against temp git vaults, document the rollback, and update
-      the coverage.scope caveat."
-  - id: live-run
-    title: Run the migration on athena and verify coverage
-    depends_on:
-      - writer
-    size: small
-    description:
-      "live-run: build the landed master on athena and dry-run against ~/bob. Check
-      every number against the expected table and stop for Bryan on any deviation. Run
-      --write, verify doctor, find, list, and show plus an idempotent rerun, install the
-      build, and record the evidence and rollback sha on the bead."
+- id: record-model
+  title: Shared zorg record parser, multi-block mirroring, and book reading state
+  depends_on: []
+  size: medium
+  description: 'record-model: turn coverage.rs''s counter into a shared zorg record
+    parser (owner block, ID/LID, block range, fields). Make mirroring id-aware and
+    let one note mirror several blocks (`source_blocks`). Derive a legacy book''s
+    reading state from `legacy_chapter_statuses`. Keep doctor''s live count at 424,
+    then test and document the rules.'
+- id: planner
+  title: bob ref migrate-zorg dry-run planner and report
+  depends_on:
+  - record-model
+  size: medium
+  description: 'planner: add `bob ref migrate-zorg` (dry run by default). It plans
+    one legacy note per record, with books folding their chapters. It picks collision-free
+    stems, ref_type, title, URLs, and tags, renders the notes exactly, and prints
+    a human or JSON report: counts by file and status, renamed targets, records without
+    a URL, identity hits, already migrated, and skipped. Add CLI tests, help and completion
+    updates, and docs.'
+- id: writer
+  title: Reversible --write path, rollback runbook, and scope caveat
+  depends_on:
+  - planner
+  size: medium
+  description: 'writer: add `-w/--write`. Under bob_sync.lock it pre-syncs, re-plans,
+    and refuses existing targets. It then writes new files only, verifies them through
+    the index and coverage, and deletes its own files on any failure. Then one scoped
+    commit and a post-sync. Test it against temp git vaults, document the rollback,
+    and update the coverage.scope caveat.'
+- id: live-run
+  title: Run the migration on athena and verify coverage
+  depends_on:
+  - writer
+  size: small
+  description: 'live-run: build the landed master on athena and dry-run against ~/bob.
+    Check every number against the expected table and stop for Bryan on any deviation.
+    Run --write, verify doctor, find, list, and show plus an idempotent rerun, install
+    the build, and record the evidence and rollback sha on the bead.'
 proposed_by: bbugyi200.athena.bob-cli-5k.7
 parent_bead: bob-cli-5k.7
 create_time: 2026-10-07 16:17:59
 status: wip
+bead_id: bob-cli-5k.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/zorg_ref_migration.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/zorg_ref_migration.md)
-- **PARENT:**
-  [202610/close_top_ten_impact_beads.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/close_top_ten_impact_beads.md)
+- **PROMPT:** [prompts/202610/zorg_ref_migration.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/zorg_ref_migration.md)
+- **PARENT:** [202610/close_top_ten_impact_beads.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/close_top_ten_impact_beads.md)
+- **BEAD:** [bob-cli-5k.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5k/bob-cli-5k.7.1.md)
 
 # Plan: Migrate zorg-era reading records into the reference library
 
