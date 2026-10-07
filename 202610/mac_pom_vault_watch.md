@@ -1,13 +1,19 @@
 ---
 tier: tale
 title: Mac pom re-syncs on daily-note change
-goal: The Hammerspoon Pomodoro menu item reflects a changed current Pomodoro within
-  about a second of the daily note being written, while polling bob less often than
-  today.
+goal:
+  The Hammerspoon Pomodoro menu item reflects a changed current Pomodoro within about a
+  second of the daily note being written, while polling bob less often than today.
 size: medium
 proposed_by: bbugyi200.apollo.5k
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5k](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5k.md)
+- **COMMITS:**
+  - [b0b4dcb](https://github.com/bbugyi200/dotfiles/commit/b0b4dcba1f5d93ad26d61e2848c6a5d1e5ca6b90)
+    — feat(hammerspoon): re-sync pomodoro menu on daily-note change
 
 # Mac Pom: Re-sync On Daily-Note Change Instead Of Waiting For The 15s Poll
 
