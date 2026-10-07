@@ -1,51 +1,49 @@
 ---
 tier: epic
 title: Shorter review footer labels and the Returned → Tickler rename
-goal: "The morning GTD review footer shows WIP, TICKS, and REFS instead of PENDING,
+goal: 'The morning GTD review footer shows WIP, TICKS, and REFS instead of PENDING,
   RETURNED, and REFERENCES; the Returned walk tier is renamed Tickler across bob-cli,
   bob-plugins, the Bob vault, and SASE memory; and a new glossary term defines the
   review footer.
 
-  "
+  '
 phases:
-  - id: cli-tickler
-    title: bob-cli rename, schema 10, and docs
-    depends_on: []
-    size: medium
-    description:
-      "cli-tickler: rename the Rust returned walk tier to tickler (TICKLER in human
-      output), bump bob freshness JSON to schema 10, update tests and the D4 fixture
-      vector, and document the tickler tier, the WIP alias, and the footer short labels
-      in bob-cli docs and README."
-  - id: plugins-tickler-footer
-    title: bob-plugins rename, footer short labels, and deploy
-    depends_on: []
-    size: medium
-    description:
-      "plugins-tickler-footer: in linked bob-plugins, rename the returned tier to
-      tickler in bob-ledger-tools and bob-navigation-hotkeys (freshness namespace v8,
-      nav legacy read), add WIP/TICKS/REFS footer labels with a legend tooltip, update
-      tests and README, bump both plugin versions, build, test, and run bob plugins
-      sync."
-  - id: vault-and-memory
-    title: Vault notes, glossary term, memory updates, and final sweep
-    depends_on:
-      - cli-tickler
-      - plugins-tickler-footer
-    size: small
-    description:
-      "vault-and-memory: rename RETURNED to TICKLER on live Bob vault surfaces
-      (rotten.md heading and links included), add the Morning GTD Review Footer glossary
-      term, update the task-freshness and keep-streak strands and four decision records
-      in place, regenerate memory with sase memory init, and sweep all three
-      repositories for leftover references."
+- id: cli-tickler
+  title: bob-cli rename, schema 10, and docs
+  depends_on: []
+  size: medium
+  description: 'cli-tickler: rename the Rust returned walk tier to tickler (TICKLER
+    in human output), bump bob freshness JSON to schema 10, update tests and the D4
+    fixture vector, and document the tickler tier, the WIP alias, and the footer short
+    labels in bob-cli docs and README.'
+- id: plugins-tickler-footer
+  title: bob-plugins rename, footer short labels, and deploy
+  depends_on: []
+  size: medium
+  description: 'plugins-tickler-footer: in linked bob-plugins, rename the returned
+    tier to tickler in bob-ledger-tools and bob-navigation-hotkeys (freshness namespace
+    v8, nav legacy read), add WIP/TICKS/REFS footer labels with a legend tooltip,
+    update tests and README, bump both plugin versions, build, test, and run bob plugins
+    sync.'
+- id: vault-and-memory
+  title: Vault notes, glossary term, memory updates, and final sweep
+  depends_on:
+  - cli-tickler
+  - plugins-tickler-footer
+  size: small
+  description: 'vault-and-memory: rename RETURNED to TICKLER on live Bob vault surfaces
+    (rotten.md heading and links included), add the Morning GTD Review Footer glossary
+    term, update the task-freshness and keep-streak strands and four decision records
+    in place, regenerate memory with sase memory init, and sweep all three repositories
+    for leftover references.'
 proposed_by: bbugyi200.apollo.5i
 create_time: 2026-10-07 09:55:35
 status: wip
+bead_id: bob-cli-55
 ---
 
-- **PROMPT:**
-  [prompts/202610/review_footer_short_labels_tickler.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/review_footer_short_labels_tickler.md)
+- **PROMPT:** [prompts/202610/review_footer_short_labels_tickler.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/review_footer_short_labels_tickler.md)
+- **BEAD:** [bob-cli-55](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-55/README.md)
 
 # Shorter review footer labels (WIP / TICKS / REFS) and Returned → Tickler
 
