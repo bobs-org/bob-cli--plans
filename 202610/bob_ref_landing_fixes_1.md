@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish landing bob-cli-4w: bob ref output, identity, hygiene, and docs fixes, then
-  close the epic"
-goal:
-  "The epic-caused defects found at land time are fixed and tested: bob ref Markdown
+title: 'Finish landing bob-cli-4w: bob ref output, identity, hygiene, and docs fixes,
+  then close the epic'
+goal: 'The epic-caused defects found at land time are fixed and tested: bob ref Markdown
   tables, list alignment, show tasks, help, DOI query keys, find -i, the YAML fallback,
   dead code, and docs. just all shows only the tracked pre-existing failures. Epic
-  bob-cli-4w is closed, and its plan file is marked done."
+  bob-cli-4w is closed, and its plan file is marked done.'
 proposed_by: bbugyi200.athena.bob-cli-4w.land
 bead: bob-cli-4w
-create_time: 2026-10-07 00:41:35
-status: wip
+status: done
 ---
 
 - **PARENT:**
