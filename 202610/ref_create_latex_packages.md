@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix bob ref create Markdown renders failing on missing LaTeX packages
-goal: Markdown PDF renders succeed on apollo again, and bob reports any missing LaTeX
+goal:
+  Markdown PDF renders succeed on apollo again, and bob reports any missing LaTeX
   package up front in bob ref doctor, and on render failure, with the exact install
   command.
 size: medium
 proposed_by: bbugyi200.apollo.5o
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5o](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5o.md)
+- **COMMITS:**
+  - [73f9cc4](https://github.com/bobs-org/bob-cli/commit/73f9cc40b74d3af942482ac4e4615ebe5e2979e9)
+    — feat(ref): declare and check Markdown render LaTeX packages
 
 # Plan: Fix `bob ref create` Markdown renders failing on apollo (missing LaTeX packages)
 
