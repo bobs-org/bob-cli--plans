@@ -1,20 +1,13 @@
 ---
 tier: tale
 title: Bob Mac Capture bullet-b menu-bar mark
-goal:
-  Bob Mac Capture's menu-bar item shows a code-drawn bullet-b template glyph instead of
-  the `Bob` text, with a same-footprint "!" variant and an Open Settings menu row when
-  bob is unresolved, plus a Reduce-Motion-aware pulse when a capture lands.
+goal: Bob Mac Capture's menu-bar item shows a code-drawn bullet-b template glyph instead
+  of the `Bob` text, with a same-footprint "!" variant and an Open Settings menu row
+  when bob is unresolved, plus a Reduce-Motion-aware pulse when a capture lands.
 size: medium
 proposed_by: bbugyi200.apollo.5m
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.5m](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5m.md)
-- **COMMITS:**
-  - [d08df0e](https://github.com/bobs-org/bob-cli/commit/d08df0ebbdbd02c05c14661289fa956c56fcf69b)
-    — fix(install): restart hint names the menu-bar icon, not the \`Bob\` title
 
 <!-- sase:links:start -->
 
