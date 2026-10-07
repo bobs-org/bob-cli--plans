@@ -1,13 +1,15 @@
 ---
 tier: tale
 size: medium
-title: 'Finish and land bob-cli-52: URL routing correctness, hermetic tests, and the
-  ref clip fold'
-goal: 'The URL-routing epic bob-cli-52 meets its plan contract: ref jobs recover and
-  never spin, capture honors inline @@ and prints clean warnings, Keep pull needs
-  the inbox note only for task writes, ingest classifies and stays silent, the tests
-  are hermetic, the build is warning-free, and integration with the ref clip fold
-  is green. The epic is then closed and its plan marked done.'
+title:
+  "Finish and land bob-cli-52: URL routing correctness, hermetic tests, and the ref clip
+  fold"
+goal:
+  "The URL-routing epic bob-cli-52 meets its plan contract: ref jobs recover and never
+  spin, capture honors inline @@ and prints clean warnings, Keep pull needs the inbox
+  note only for task writes, ingest classifies and stays silent, the tests are hermetic,
+  the build is warning-free, and integration with the ref clip fold is green. The epic
+  is then closed and its plan marked done."
 proposed_by: bbugyi200.athena.bob-cli-52.land
 bead: bob-cli-52
 status: done
@@ -17,6 +19,11 @@ status: done
   [202610/url_capture_ref_routing.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/url_capture_ref_routing.md)
 - **BEAD:**
   [bob-cli-52](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-52/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-52.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-52.land.md)
+- **COMMITS:**
+  - [6244ddd](https://github.com/bobs-org/bob-cli/commit/6244dddd931982a598920cdc0fdc69a752c462c8)
+    — feat(landing): implement bob-cli-52 landing per 202610/bob_cli_52_landing.md
 
 # Finish and land bob-cli-52 (links go to the reading queue)
 
