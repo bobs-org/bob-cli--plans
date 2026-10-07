@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish and land bob-cli-52: URL routing correctness, hermetic tests, and the ref clip
-  fold"
-goal:
-  "The URL-routing epic bob-cli-52 meets its plan contract: ref jobs recover and never
-  spin, capture honors inline @@ and prints clean warnings, Keep pull needs the inbox
-  note only for task writes, ingest classifies and stays silent, the tests are hermetic,
-  the build is warning-free, and integration with the ref clip fold is green. The epic
-  is then closed and its plan marked done."
+title: 'Finish and land bob-cli-52: URL routing correctness, hermetic tests, and the
+  ref clip fold'
+goal: 'The URL-routing epic bob-cli-52 meets its plan contract: ref jobs recover and
+  never spin, capture honors inline @@ and prints clean warnings, Keep pull needs
+  the inbox note only for task writes, ingest classifies and stays silent, the tests
+  are hermetic, the build is warning-free, and integration with the ref clip fold
+  is green. The epic is then closed and its plan marked done.'
 proposed_by: bbugyi200.athena.bob-cli-52.land
 bead: bob-cli-52
-create_time: 2026-10-07 12:20:00
-status: wip
+status: done
 ---
 
 - **PARENT:**
