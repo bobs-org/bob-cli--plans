@@ -1,31 +1,34 @@
 ---
 tier: tale
-title: 'Mac pom: pulse the overdue count red for the first seconds of each minute'
-goal: While a Pomodoro is less than ten minutes overdue, the mac pom's red +MM:SS
-  count flashes like the OVERDUE badge for the first seconds of every overdue minute
-  and holds steady red for the rest of the minute.
+title: "Mac pom: pulse the overdue count red for the first seconds of each minute"
+goal:
+  While a Pomodoro is less than ten minutes overdue, the mac pom's red +MM:SS count
+  flashes like the OVERDUE badge for the first seconds of every overdue minute and holds
+  steady red for the rest of the minute.
 size: small
 decisions:
   pulse_window:
     ask: Which overdue labels should flash in each minute's pulse?
     choices:
-      through_05: +MM:00 to +MM:05 (+00:01 to +00:05 at first), matching your +00:00
-        to +00:05
-      through_04: +MM:00 to +MM:04, exactly five seconds a minute (+00:01 to +00:04
-        at first)
+      through_05:
+        +MM:00 to +MM:05 (+00:01 to +00:05 at first), matching your +00:00 to +00:05
+      through_04:
+        +MM:00 to +MM:04, exactly five seconds a minute (+00:01 to +00:04 at first)
     default: through_05
-    why: Honors the literal +00:05 endpoint and flashes five full seconds in the first
+    why:
+      Honors the literal +00:05 endpoint and flashes five full seconds in the first
       minute
     answer: through_05
   count_padding:
     ask: How should the overdue +MM:SS count be padded so its flash reads as a pill?
     choices:
-      always: One NBSP each side in every overdue frame, like OVERDUE; item width
-        never shifts
-      pulse_only: Pad only during pulses; steady count unchanged, but the item shifts
-        twice a minute
-      none: No padding; the pill hugs the digits and the steady count looks exactly
-        as today
+      always:
+        One NBSP each side in every overdue frame, like OVERDUE; item width never shifts
+      pulse_only:
+        Pad only during pulses; steady count unchanged, but the item shifts twice a
+        minute
+      none:
+        No padding; the pill hugs the digits and the steady count looks exactly as today
     default: always
     why: Matches the OVERDUE badge and keeps the menu bar from jumping twice a minute
     answer: always
@@ -33,6 +36,12 @@ proposed_by: bbugyi200.athena.0yc
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0yc](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0yc.md)
+- **COMMITS:**
+  - [851c665](https://github.com/bbugyi200/dotfiles/commit/851c665d160653afb65c4688569bfdb914889c6f)
+    — feat(hammerspoon): pulse the overdue count for the first seconds of each minute
 
 # Mac pom: pulse the overdue count red for the first seconds of each minute
 
