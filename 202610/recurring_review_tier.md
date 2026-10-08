@@ -1,92 +1,87 @@
 ---
 tier: epic
 title: RECURRING walk tier so due recurring tasks reach the ]s morning review
-goal: "Every open, visible, non-checklist recurring task whose occurrence date has
+goal: 'Every open, visible, non-checklist recurring task whose occurrence date has
   arrived walks in a new RECURRING commitment tier of the ]s review (CLI, ledger footer,
-  and nav notices alike), is never stamped, and leaves the walk only when it is
-  completed, rescheduled past today, linked to Today, or cancelled through Obsidian
-  Tasks, with no change to stamps, buckets, chips, READY, the ready cap, or PRE/POST
-  checklist rows.
+  and nav notices alike), is never stamped, and leaves the walk only when it is completed,
+  rescheduled past today, linked to Today, or cancelled through Obsidian Tasks, with
+  no change to stamps, buckets, chips, READY, the ready cap, or PRE/POST checklist
+  rows.
 
-  "
+  '
 decisions:
   tier_position:
     ask: Where should the new RECURRING tier sit in the walk?
     choices:
-      before_tickler:
-        "… NEXT → RECURRING → TICKLER …: both date-driven arrival tiers together"
-      after_pre:
-        "PRE → RECURRING → NEW …: due recurring obligations right after the PRE chores"
+      before_tickler: '… NEXT → RECURRING → TICKLER …: both date-driven arrival tiers
+        together'
+      after_pre: 'PRE → RECURRING → NEW …: due recurring obligations right after the
+        PRE chores'
     default: before_tickler
     why: Groups the date-driven arrivals; NEW stays the first tier after the PRE chores
     answer: before_tickler
   ctrl_alt_f:
     ask: What should Ctrl+Alt+F do on a landed RECURRING row?
     choices:
-      refuse:
-        Write nothing and stay; the notice names the real answers (Ctrl+Enter, link,
-        reschedule)
+      refuse: Write nothing and stay; the notice names the real answers (Ctrl+Enter,
+        link, reschedule)
       skip: Write nothing and advance to the next row, exactly like ]s
     default: refuse
-    why:
-      A due recurring obligation should get an explicit answer, never a reflexive keep
+    why: A due recurring obligation should get an explicit answer, never a reflexive
+      keep
     answer: refuse
   memory_records:
-    ask:
-      Add a decision record, mark review-walk-is-tiered superseded in part, and edit the
-      freshness glossary term?
+    ask: Add a decision record, mark review-walk-is-tiered superseded in part, and
+      edit the freshness glossary term?
     memory:
-      - decisions
-      - decisions:review-walk-is-tiered
-      - glossary:task-freshness
+    - decisions
+    - decisions:review-walk-is-tiered
+    - glossary:task-freshness
     default: false
     answer: false
 phases:
-  - id: rust
-    title: Contract, Rust evaluator, and bob freshness CLI
-    depends_on: []
-    size: medium
-    description:
-      "rust: write the RECURRING contract and RC vectors into docs/freshness.md, add
-      due/start to the Rust rows, apply the recurring overlay, queue order, counts,
-      schema 11 CLI output, the recurring_undated lint, and tests."
-  - id: ledger
-    title: bob-ledger-tools evaluator, footer, and freshness namespace v9
-    depends_on:
-      - rust
-    size: medium
-    description:
-      "ledger: mirror the RECURRING overlay, ordering, and counts in bob-ledger-tools,
-      add the RECUR footer group and entry view, publish freshness namespace v9 with
-      recurringTier, and pin the RC vectors in JS tests."
-  - id: nav
-    title: Navigation Hotkeys tier handling and recurring answers
-    depends_on:
-      - ledger
-    size: medium
-    description:
-      "nav: teach bob-navigation-hotkeys the recurring tier (labels, commitment set,
-      notices), the Alt+F / Ctrl+Alt+F recurring answer, and which gestures resolve a
-      recurring landing, with tests."
-  - id: rollout
-    title: Install, deploy, vault closeout text, memory, and live check
-    depends_on:
-      - rust
-      - ledger
-      - nav
-    size: small
-    description:
-      "rollout: install bob, sync plugins, verify the live vault's overdue recurring
-      rows walk in RECURRING, adjust the Morning review text, apply or defer the memory
-      changes, and leave Bryan a checklist."
+- id: rust
+  title: Contract, Rust evaluator, and bob freshness CLI
+  depends_on: []
+  size: medium
+  description: 'rust: write the RECURRING contract and RC vectors into docs/freshness.md,
+    add due/start to the Rust rows, apply the recurring overlay, queue order, counts,
+    schema 11 CLI output, the recurring_undated lint, and tests.'
+- id: ledger
+  title: bob-ledger-tools evaluator, footer, and freshness namespace v9
+  depends_on:
+  - rust
+  size: medium
+  description: 'ledger: mirror the RECURRING overlay, ordering, and counts in bob-ledger-tools,
+    add the RECUR footer group and entry view, publish freshness namespace v9 with
+    recurringTier, and pin the RC vectors in JS tests.'
+- id: nav
+  title: Navigation Hotkeys tier handling and recurring answers
+  depends_on:
+  - ledger
+  size: medium
+  description: 'nav: teach bob-navigation-hotkeys the recurring tier (labels, commitment
+    set, notices), the Alt+F / Ctrl+Alt+F recurring answer, and which gestures resolve
+    a recurring landing, with tests.'
+- id: rollout
+  title: Install, deploy, vault closeout text, memory, and live check
+  depends_on:
+  - rust
+  - ledger
+  - nav
+  size: small
+  description: 'rollout: install bob, sync plugins, verify the live vault''s overdue
+    recurring rows walk in RECURRING, adjust the Morning review text, apply or defer
+    the memory changes, and leave Bryan a checklist.'
 proposed_by: bbugyi200.athena.0yb
 decided_by: auto
 create_time: 2026-10-08 11:03:13
 status: wip
+bead_id: bob-cli-5p
 ---
 
-- **PROMPT:**
-  [prompts/202610/recurring_review_tier.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/recurring_review_tier.md)
+- **PROMPT:** [prompts/202610/recurring_review_tier.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/recurring_review_tier.md)
+- **BEAD:** [bob-cli-5p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5p/README.md)
 
 # Plan: a RECURRING walk tier so due recurring tasks are never missed
 
