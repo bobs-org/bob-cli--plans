@@ -1,135 +1,126 @@
 ---
 tier: epic
-title:
-  "Bob Refs: a quick-open panel in Bob Mac Capture that opens reference PDFs in
-  Highlights"
-goal: "One keystroke (⌃⇧⌘R anywhere, or the Open… key while Highlights is frontmost)
-  shows a prewarmed glass panel listing every PDF-backed reference note from `bob ref
-  list`, with kind and reading state on every row, the working set first when the query
-  is empty, tiered relevance when it is not, rows that never move under the cursor, and
-  a kind-adaptive inspector. Return opens the original PDF in Highlights and changes
-  nothing in the vault.
+title: 'Bob Refs: a quick-open panel in Bob Mac Capture that opens reference PDFs
+  in Highlights'
+goal: 'One keystroke (⌃⇧⌘R anywhere, or the Open… key while Highlights is frontmost)
+  shows a prewarmed glass panel listing every PDF-backed reference note from `bob
+  ref list`, with kind and reading state on every row, the working set first when
+  the query is empty, tiered relevance when it is not, rows that never move under
+  the cursor, and a kind-adaptive inspector. Return opens the original PDF in Highlights
+  and changes nothing in the vault.
 
-  "
+  '
 decisions:
   highlights_open_key:
     ask: Which key should open Bob Refs while Highlights is the frontmost app?
     choices:
-      cmd_o: Take over ⌘O, Highlights' stock Open… key; File › Open… stays in its menu
-      ctrl_o:
-        Take over ⌃O, exactly as written in the request; ⌘O keeps Highlights' dialog
+      cmd_o: Take over ⌘O, Highlights' stock Open… key; File › Open… stays in its
+        menu
+      ctrl_o: Take over ⌃O, exactly as written in the request; ⌘O keeps Highlights'
+        dialog
       global_only: No takeover; only the global ⌃⇧⌘R opens Bob Refs
     default: cmd_o
-    why:
-      Highlights' Open… is ⌘O and the dotfiles remap neither key; Settings can change it
-      anytime
+    why: Highlights' Open… is ⌘O and the dotfiles remap neither key; Settings can
+      change it anytime
     answer: cmd_o
   refs_decision_memory:
-    ask:
-      Add a decision record extending the thin-client rule to Bob Refs (opening never
-      mutates the vault)?
+    ask: Add a decision record extending the thin-client rule to Bob Refs (opening
+      never mutates the vault)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: cli-blocked
-    title: bob-cli exposes Blocked on ref rows
-    depends_on: []
-    size: small
-    description:
-      "cli-blocked: add an always-present `blocked` boolean to `bob ref list/show/find`
-      rows (true when the note's single ^ref tracker is Blocked [?]), document it in
-      docs/ref.md as an overlay on the reading lane, and test it."
-  - id: mac-groundwork
-    title: Hotkey registry and CI render artifacts in Bob Mac Capture
-    depends_on: []
-    size: small
-    description:
-      "mac-groundwork: replace the single-key HotKeyManager with a HotKeyRegistry that
-      routes by EventHotKeyID, keep Capture's hotkey working through it, add a shared
-      PNG render helper for design tests, and make CI render and upload design fixtures
-      as an artifact."
-  - id: refs-core-model
-    title: RefsCore target — decoding, item model, fetcher, and stores
-    depends_on:
-      - cli-blocked
-    size: medium
-    description:
-      "refs-core-model: add the Foundation-only RefsCore target with lossy decoding of
-      `bob ref list` and `bob plan` JSON, the RefItem/RefKind/RefState/RefScope model,
-      the BobRefsFetcher over BobProcessClient, the snapshot cache and open log stores,
-      fake-bob ref/plan branches, synthetic fixtures, and tests."
-  - id: refs-core-ranking
-    title: RefsCore ranking — browse sections, search tiers, stability, explanations
-    depends_on:
-      - refs-core-model
-    size: medium
-    description:
-      "refs-core-ranking: implement browse sections, tiered search scoring with named
-      constants, captions, the why-here explanation, content-only refresh of a frozen
-      listing, golden tests over a synthetic library, and the refs-rank tuning CLI."
-  - id: refs-panel-model
-    title: Refs library service and panel model
-    depends_on:
-      - refs-core-ranking
-    size: medium
-    description:
-      "refs-panel-model: build the RefsLibrary refresh service (cache, watcher, git-date
-      pass, Today, Spotlight sweep, missing PDFs, open log) and the RefsPanelModel
-      (query, scope, frozen listing, selection, commands, open dispatch, banners) with
-      fake-bob tests."
-  - id: refs-panel-ui
-    title: Refs panel window, list, basic inspector, and keyboard
-    depends_on:
-      - refs-panel-model
-      - mac-groundwork
-    size: medium
-    description:
-      "refs-panel-ui: build the borderless non-activating glass panel, search bar,
-      two-line rows, section headers, basic inspector, footer, empty and error states,
-      key router, motion and accessibility, with geometry, router, and rendered design
-      tests checked from the CI artifact."
-  - id: refs-entry-points
-    title: Hotkeys, Highlights takeover, menu, settings, and coexistence with Capture
-    depends_on:
-      - refs-panel-ui
-      - mac-groundwork
-    size: medium
-    description:
-      "refs-entry-points: wire the library and panel into AppDelegate, register the
-      global ⌃⇧⌘R hotkey and the Highlights-frontmost takeover, add the References
-      status-menu item and Settings section, keep only one Bob panel visible, refresh
-      Today after captures, and test it all."
-  - id: refs-inspector
-    title: Kind-adaptive inspector and actions menu
-    depends_on:
-      - refs-panel-ui
-    size: medium
-    description:
-      "refs-inspector: upgrade the inspector with PDFKit thumbnails or outlines by kind,
-      Bottom-line and abstract excerpts, reading-time estimates, commented highlights
-      from `bob ref show -c`, open history, and a ⌘K actions menu, all lazy,
-      cancellable, and cached."
-  - id: refs-closeout
-    title: README coherence, optional memory record, final CI, and Bryan's checklist
-    depends_on:
-      - cli-blocked
-      - refs-entry-points
-      - refs-inspector
-    size: small
-    description:
-      "refs-closeout: make the README's Bob Refs section coherent, apply or record the
-      memory decision, confirm final CI and render fixtures, record proposed follow-ups,
-      and leave Bryan a Mac verification checklist."
+- id: cli-blocked
+  title: bob-cli exposes Blocked on ref rows
+  depends_on: []
+  size: small
+  description: 'cli-blocked: add an always-present `blocked` boolean to `bob ref list/show/find`
+    rows (true when the note''s single ^ref tracker is Blocked [?]), document it in
+    docs/ref.md as an overlay on the reading lane, and test it.'
+- id: mac-groundwork
+  title: Hotkey registry and CI render artifacts in Bob Mac Capture
+  depends_on: []
+  size: small
+  description: 'mac-groundwork: replace the single-key HotKeyManager with a HotKeyRegistry
+    that routes by EventHotKeyID, keep Capture''s hotkey working through it, add a
+    shared PNG render helper for design tests, and make CI render and upload design
+    fixtures as an artifact.'
+- id: refs-core-model
+  title: RefsCore target — decoding, item model, fetcher, and stores
+  depends_on:
+  - cli-blocked
+  size: medium
+  description: 'refs-core-model: add the Foundation-only RefsCore target with lossy
+    decoding of `bob ref list` and `bob plan` JSON, the RefItem/RefKind/RefState/RefScope
+    model, the BobRefsFetcher over BobProcessClient, the snapshot cache and open log
+    stores, fake-bob ref/plan branches, synthetic fixtures, and tests.'
+- id: refs-core-ranking
+  title: RefsCore ranking — browse sections, search tiers, stability, explanations
+  depends_on:
+  - refs-core-model
+  size: medium
+  description: 'refs-core-ranking: implement browse sections, tiered search scoring
+    with named constants, captions, the why-here explanation, content-only refresh
+    of a frozen listing, golden tests over a synthetic library, and the refs-rank
+    tuning CLI.'
+- id: refs-panel-model
+  title: Refs library service and panel model
+  depends_on:
+  - refs-core-ranking
+  size: medium
+  description: 'refs-panel-model: build the RefsLibrary refresh service (cache, watcher,
+    git-date pass, Today, Spotlight sweep, missing PDFs, open log) and the RefsPanelModel
+    (query, scope, frozen listing, selection, commands, open dispatch, banners) with
+    fake-bob tests.'
+- id: refs-panel-ui
+  title: Refs panel window, list, basic inspector, and keyboard
+  depends_on:
+  - refs-panel-model
+  - mac-groundwork
+  size: medium
+  description: 'refs-panel-ui: build the borderless non-activating glass panel, search
+    bar, two-line rows, section headers, basic inspector, footer, empty and error
+    states, key router, motion and accessibility, with geometry, router, and rendered
+    design tests checked from the CI artifact.'
+- id: refs-entry-points
+  title: Hotkeys, Highlights takeover, menu, settings, and coexistence with Capture
+  depends_on:
+  - refs-panel-ui
+  - mac-groundwork
+  size: medium
+  description: 'refs-entry-points: wire the library and panel into AppDelegate, register
+    the global ⌃⇧⌘R hotkey and the Highlights-frontmost takeover, add the References
+    status-menu item and Settings section, keep only one Bob panel visible, refresh
+    Today after captures, and test it all.'
+- id: refs-inspector
+  title: Kind-adaptive inspector and actions menu
+  depends_on:
+  - refs-panel-ui
+  size: medium
+  description: 'refs-inspector: upgrade the inspector with PDFKit thumbnails or outlines
+    by kind, Bottom-line and abstract excerpts, reading-time estimates, commented
+    highlights from `bob ref show -c`, open history, and a ⌘K actions menu, all lazy,
+    cancellable, and cached.'
+- id: refs-closeout
+  title: README coherence, optional memory record, final CI, and Bryan's checklist
+  depends_on:
+  - cli-blocked
+  - refs-entry-points
+  - refs-inspector
+  size: small
+  description: 'refs-closeout: make the README''s Bob Refs section coherent, apply
+    or record the memory decision, confirm final CI and render fixtures, record proposed
+    follow-ups, and leave Bryan a Mac verification checklist.'
 proposed_by: bbugyi200.apollo.5z
 decided_by: auto
 create_time: 2026-10-08 19:32:39
 status: wip
+bead_id: bob-cli-5s
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_refs_panel.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_panel.md)
+- **PROMPT:** [prompts/202610/bob_refs_panel.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_panel.md)
+- **BEAD:** [bob-cli-5s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5s/README.md)
 
 # Bob Refs: a quick-open panel that opens reference PDFs in Highlights
 
