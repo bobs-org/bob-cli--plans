@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "What should happen to the broken ~/.hammerspoon pathwatcher in init.lua?",
+      "choices": [
+        {
+          "key": "remove",
+          "label": "Delete it; the chezmoi hook is the only restart path (one restart per apply)"
+        },
+        {
+          "key": "repair",
+          "label": "Keep a fixed copy (global, armed first, .lua-only, debounced) as a second path"
+        }
+      ],
+      "default": "remove",
+      "effective_default": "remove",
+      "id": "config_watcher",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Every deploy goes through chezmoi apply; a second watcher only adds a racing reload"
+    }
+  ]
+}
