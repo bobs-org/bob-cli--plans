@@ -74,7 +74,7 @@ phases:
     bob-cli-4x once `bob ref doctor` coverage confirms it.'
 proposed_by: bbugyi200.athena.0y2
 create_time: 2026-10-07 14:38:39
-status: wip
+status: done
 bead_id: bob-cli-5k
 ---
 
