@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Restart Hammerspoon from chezmoi when its Lua config changes
-goal: A full chezmoi apply on the Mac that changes any Hammerspoon Lua file reliably
+goal:
+  A full chezmoi apply on the Mac that changes any Hammerspoon Lua file reliably
   restarts Hammerspoon so the new config is live, even when the running config is
   broken.
 size: medium
@@ -9,18 +10,25 @@ decisions:
   config_watcher:
     ask: What should happen to the broken ~/.hammerspoon pathwatcher in init.lua?
     choices:
-      remove: Delete it; the chezmoi hook is the only restart path (one restart per
-        apply)
-      repair: Keep a fixed copy (global, armed first, .lua-only, debounced) as a second
-        path
+      remove:
+        Delete it; the chezmoi hook is the only restart path (one restart per apply)
+      repair:
+        Keep a fixed copy (global, armed first, .lua-only, debounced) as a second path
     default: remove
-    why: Every deploy goes through chezmoi apply; a second watcher only adds a racing
+    why:
+      Every deploy goes through chezmoi apply; a second watcher only adds a racing
       reload
     answer: remove
 proposed_by: bbugyi200.athena.0yd
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0yd](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0yd.md)
+- **COMMITS:**
+  - [fbb5663](https://github.com/bbugyi200/dotfiles/commit/fbb566302806eb95132e7263b695403792ad0dce)
+    — feat(hammerspoon): restart Hammerspoon from chezmoi when Lua config changes
 
 # Restart Hammerspoon From chezmoi When Its Lua Config Changes
 
