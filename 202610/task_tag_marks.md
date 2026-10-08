@@ -1,26 +1,37 @@
 ---
 tier: tale
-title: 'Task tag marks: render #task as a quiet hash glyph'
-goal: 'Every #task tag on an Obsidian task line renders as one faint, slanted-hash
-  task tag mark (display-only, reversible, cursor-revealed), plain checkboxes stay
-  unmarked, and Tasks query results follow the chosen treatment, so task lists lose
-  the repeated accent pill without losing the tracked-versus-plain signal.'
+title: "Task tag marks: render #task as a quiet hash glyph"
+goal:
+  "Every #task tag on an Obsidian task line renders as one faint, slanted-hash task tag
+  mark (display-only, reversible, cursor-revealed), plain checkboxes stay unmarked, and
+  Tasks query results follow the chosen treatment, so task lists lose the repeated
+  accent pill without losing the tracked-versus-plain signal."
 size: medium
 decisions:
   tasks_results:
-    ask: 'How should #task look in Tasks query results, where every row is already
-      a #task task?'
+    ask:
+      "How should #task look in Tasks query results, where every row is already a #task
+      task?"
     default: hide
-    why: 'The #task global filter makes every result row a task, so a glyph there
-      says nothing.'
+    why:
+      "The #task global filter makes every result row a task, so a glyph there says
+      nothing."
     choices:
       hide: Drop the tag entirely in Tasks results (CSS only); quietest dashboards
-      glyph: Show the same faint hash glyph as every other surface (CSS only, no tooltip)
+      glyph:
+        Show the same faint hash glyph as every other surface (CSS only, no tooltip)
     answer: hide
 proposed_by: bbugyi200.apollo.5t
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.5t](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.5t.md)
+- **COMMITS:**
+  - [665bb83](https://github.com/bobs-org/bob-plugins/commit/665bb83607da241e5e56f393be6c94a511bbda6a)
+    — feat(ledger-tools): render exact \#task tags as faint slanted-hash glyph, hide in
+    Tasks results
 
 # Task tag marks: render `#task` as a quiet hash glyph
 
