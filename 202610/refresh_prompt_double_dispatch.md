@@ -1,22 +1,19 @@
 ---
 tier: tale
 title: Stop Ctrl+Alt+F from leaving a duplicate Work Log prompt open
-goal:
-  One Alt+F / Ctrl+Alt+F press in Vim normal mode opens exactly one Refresh Work Log
-  prompt, and answering it leaves no prompt behind after the walk jumps.
+goal: One Alt+F / Ctrl+Alt+F press in Vim normal mode opens exactly one Refresh Work
+  Log prompt, and answering it leaves no prompt behind after the walk jumps.
 size: small
 decisions:
   fix_alt_n:
     ask: Also guard the Alt+N lane-toggle fallback against the same double dispatch?
     default: true
-    why:
-      Same root cause; off-landing In Progress releases can stack two Release task
+    why: Same root cause; off-landing In Progress releases can stack two Release task
       prompts.
     answer: true
 proposed_by: bbugyi200.apollo.5u
 decided_by: auto
-create_time: 2026-10-08 07:19:55
-status: wip
+status: done
 ---
 
 # Fix the duplicate Work Log prompt left open after Ctrl+Alt+F (double-dispatched refresh)
