@@ -1,15 +1,22 @@
 ---
 tier: tale
 title: Locate ref reading tasks anywhere in the vault and expose them read-side
-goal: '`bob ref list/show/find/doctor` and `bob capture-complete` read the reading
-  state, parent, finished date, and task identity of every reference from its located
-  `#task #ref` line (live or archived in `done/`), with v1 in-note `^ref` trackers
-  unchanged. Phase bead bob-cli-5y.5 (`ref-locator`) is then closed so `ref-sync-v2`
-  (bob-cli-5y.7) and `mac-refs-v2` (bob-cli-5y.8) can start.'
+goal:
+  "`bob ref list/show/find/doctor` and `bob capture-complete` read the reading state,
+  parent, finished date, and task identity of every reference from its located `#task
+  #ref` line (live or archived in `done/`), with v1 in-note `^ref` trackers unchanged.
+  Phase bead bob-cli-5y.5 (`ref-locator`) is then closed so `ref-sync-v2` (bob-cli-5y.7)
+  and `mac-refs-v2` (bob-cli-5y.8) can start."
 size: medium
 proposed_by: bbugyi200.athena.0z5
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0z5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0z5.md)
+- **COMMITS:**
+  - [9041927](https://github.com/bobs-org/bob-cli/commit/9041927833d63d4f2068019c95392d9a8f0529f3)
+    — feat(ref-tasks): add done-aware ref-task locator and read-side contracts
 
 # Plan: the done/-aware ref-task locator and read-side contracts (bob-cli-5y.5)
 
