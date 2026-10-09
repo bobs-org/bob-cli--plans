@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Auto-insert commas between close task numbers in Bob Mac Capture
-goal: Typing 1-9 right after a task number in an =x/=*/=! close list inserts the comma
+goal:
+  Typing 1-9 right after a task number in an =x/=*/=! close list inserts the comma
   itself when the running Pomodoro has fewer than 10 numbered Task Links.
 size: medium
 proposed_by: bbugyi200.apollo.61.w1
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.61.w1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.61.w1.md)
+- **COMMITS:**
+  - [5601235](https://github.com/bobs-org/bob-cli/commit/56012352f4cdec6e00e4c163b6c953c69ae4f62b)
+    — feat(capture): report task_link_count in capture-pomodoros JSON output
 
 # Auto-insert commas between close task numbers in Bob Mac Capture
 
