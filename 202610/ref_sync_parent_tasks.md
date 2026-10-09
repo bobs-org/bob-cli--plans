@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Scan writes reference reading tasks into parent notes
-goal: Complete bob-cli-5y.7 with guarded v2 births, located-task sync, parent projection,
+goal:
+  Complete bob-cli-5y.7 with guarded v2 births, located-task sync, parent projection,
   follow-ups, verification, and phase closure.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-5y.7
@@ -13,6 +14,11 @@ status: done
   [202610/ref_tasks_live_with_parent.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_tasks_live_with_parent.md)
 - **BEAD:**
   [bob-cli-5y.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5y/bob-cli-5y.7.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-5y.7](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-5y.7.md)
+- **COMMITS:**
+  - [4016229](https://github.com/bobs-org/bob-cli/commit/40162297a54caf743a177d85266a41e8bfe1a838)
+    — feat(ref-tasks): add shared v2 reading-task rendering and guarded insertion
 
 # Complete bob-cli-5y.7: scan writes reading tasks into parent notes
 
