@@ -46,7 +46,7 @@ phases:
     check fixture parity with the real bob envelope, and review light and dark renders.'
 proposed_by: bbugyi200.athena.0z1
 create_time: 2026-10-09 12:26:27
-status: wip
+status: done
 bead_id: bob-cli-5x
 ---
 
