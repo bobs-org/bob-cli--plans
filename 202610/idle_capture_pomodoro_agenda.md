@@ -1,118 +1,108 @@
 ---
 tier: epic
-title:
-  "Idle Pomodoro agenda: an empty Bob Mac Capture panel shows the running Pomodoro and
-  everything queued after it"
-goal: "When the capture panel opens with an empty draft, it already shows today's
+title: 'Idle Pomodoro agenda: an empty Bob Mac Capture panel shows the running Pomodoro
+  and everything queued after it'
+goal: 'When the capture panel opens with an empty draft, it already shows today''s
   agenda, painted from memory in the first frame: the running Pomodoro and every future
-  Pomodoro, each with its linked tasks at the most detail that fits below a fixed eye
-  line without scrolling. The `=x` and `=` numbers match the ones bob will use. Detail
-  folds per Pomodoro, farthest first: logs, then one-line tasks, then one row per
-  Pomodoro, then a name strip. bob owns every fact; the app owns caching, fitting, and
-  pixels.
+  Pomodoro, each with its linked tasks at the most detail that fits below a fixed
+  eye line without scrolling. The `=x` and `=` numbers match the ones bob will use.
+  Detail folds per Pomodoro, farthest first: logs, then one-line tasks, then one row
+  per Pomodoro, then a name strip. bob owns every fact; the app owns caching, fitting,
+  and pixels.
 
-  "
+  '
 decisions:
   agenda_decision_memory:
-    ask:
-      Add a `decisions` memory record for the idle agenda's caching, folding, and
+    ask: Add a `decisions` memory record for the idle agenda's caching, folding, and
       eye-line policy?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Review the idle_capture_pomodoro_agenda.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    requested: Review the idle_capture_pomodoro_agenda.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file.
     answer: true
 phases:
-  - id: cli-agenda
-    title: bob capture-pomodoros --tasks returns the resolved agenda
-    depends_on: []
-    size: medium
-    description:
-      "cli-agenda: add the additive `-t/--tasks` flag to `bob capture-pomodoros`. It
-      returns roles, role-specific operator numbers, resolved Task Links with clean
-      titles, statuses, and log-tagged block lines, plus ledger notes, session notes,
-      retired counts, the date, and a completed summary. One memoized pass,
-      deterministic bytes, colored human output, docs, golden fixtures, and a read-count
-      perf gate."
-  - id: mac-agenda-models
-    title: Agenda JSON models, client call, fake-bob branch, and fixtures
-    depends_on:
-      - cli-agenda
-    size: small
-    description:
-      "mac-agenda-models: add the CaptureCore `CaptureAgendaSnapshot` decoders
-      (decodeIfPresent everywhere), `BobProcessClient.captureAgenda(previous:)` with a
-      byte-compare short circuit and old-bob detection, a fake-bob `--tasks` branch, and
-      fixtures copied from bob-cli goldens, all with tests."
-  - id: mac-agenda-store
-    title:
-      In-memory agenda store, refresh triggers, path-filtered watcher, count from
-      snapshot
-    depends_on:
-      - mac-agenda-models
-    size: medium
-    description:
-      "mac-agenda-store: add the pure refresh state machine and relevance filter in
-      CaptureCore, and the @MainActor `CaptureAgendaStore` that refreshes on launch,
-      filtered vault events, show, submit, wake, unlock, and midnight. It replaces the
-      per-show capture-pomodoros spawn, derives the close-comma count from the snapshot,
-      passes FSEvents paths through the watcher, and falls back for an old bob."
-  - id: mac-agenda-planner
-    title: Agenda presentation, inline text, and the focus-gradient fit planner
-    depends_on:
-      - mac-agenda-models
-    size: medium
-    description:
-      "mac-agenda-planner: add the pure CaptureCore `CaptureAgendaPresentation` (groups,
-      rows, row keys, duplicates, chips, strings), `CaptureAgendaInlineText`,
-      `CaptureAgendaLayoutMetrics`, `CaptureAgendaBudget`, the countdown wording, and
-      `CaptureAgendaFitPlanner` (the seven-step farthest-first ladder with manual
-      expansions). Table-driven tests run on Linux."
-  - id: mac-agenda-view
-    title: Agenda view, row measurer, panel integration, and fixed eye line
-    depends_on:
-      - mac-agenda-store
-      - mac-agenda-planner
-    size: medium
-    description:
-      "mac-agenda-view: build `CaptureAgendaView` and its row views, the offscreen
-      `CaptureAgendaRowMeasurer`, model wiring (visibility, plan, expansions, settle
-      while hidden), auxiliary-region integration with a height cap, fixed eye-line
-      placement instead of re-centring, and the Settings toggle. Add height-consistency
-      and rendered design tests, checked from the CI artifact."
-  - id: mac-agenda-polish
-    title:
-      Transitions, countdown, stale and error states, accessibility, signposts, README
-    depends_on:
-      - mac-agenda-view
-    size: medium
-    description:
-      "mac-agenda-polish: add the first-keystroke dim-hold, the in-place cross-fade, the
-      Now countdown, stale, loading, unsupported, and multiple-timed states, a Settings
-      diagnostic, accessibility containers and values, `agenda-*` signposts, a show-path
-      spawn guard test, and the README rewrite of the no-dead-space principle plus a new
-      `## Idle agenda` section."
-  - id: closeout
-    title: Decisions record, final verification, follow-ups, and Bryan's checklist
-    depends_on:
-      - mac-agenda-polish
-    size: small
-    description:
-      "closeout: write the accepted `decisions` record for the idle agenda (if the
-      memory decision is on), confirm docs and README coherence across both repos,
-      re-run the final checks, record proposed follow-ups, and leave Bryan the manual
-      Mac checklist."
+- id: cli-agenda
+  title: bob capture-pomodoros --tasks returns the resolved agenda
+  depends_on: []
+  size: medium
+  description: 'cli-agenda: add the additive `-t/--tasks` flag to `bob capture-pomodoros`.
+    It returns roles, role-specific operator numbers, resolved Task Links with clean
+    titles, statuses, and log-tagged block lines, plus ledger notes, session notes,
+    retired counts, the date, and a completed summary. One memoized pass, deterministic
+    bytes, colored human output, docs, golden fixtures, and a read-count perf gate.'
+- id: mac-agenda-models
+  title: Agenda JSON models, client call, fake-bob branch, and fixtures
+  depends_on:
+  - cli-agenda
+  size: small
+  description: 'mac-agenda-models: add the CaptureCore `CaptureAgendaSnapshot` decoders
+    (decodeIfPresent everywhere), `BobProcessClient.captureAgenda(previous:)` with
+    a byte-compare short circuit and old-bob detection, a fake-bob `--tasks` branch,
+    and fixtures copied from bob-cli goldens, all with tests.'
+- id: mac-agenda-store
+  title: In-memory agenda store, refresh triggers, path-filtered watcher, count from
+    snapshot
+  depends_on:
+  - mac-agenda-models
+  size: medium
+  description: 'mac-agenda-store: add the pure refresh state machine and relevance
+    filter in CaptureCore, and the @MainActor `CaptureAgendaStore` that refreshes
+    on launch, filtered vault events, show, submit, wake, unlock, and midnight. It
+    replaces the per-show capture-pomodoros spawn, derives the close-comma count from
+    the snapshot, passes FSEvents paths through the watcher, and falls back for an
+    old bob.'
+- id: mac-agenda-planner
+  title: Agenda presentation, inline text, and the focus-gradient fit planner
+  depends_on:
+  - mac-agenda-models
+  size: medium
+  description: 'mac-agenda-planner: add the pure CaptureCore `CaptureAgendaPresentation`
+    (groups, rows, row keys, duplicates, chips, strings), `CaptureAgendaInlineText`,
+    `CaptureAgendaLayoutMetrics`, `CaptureAgendaBudget`, the countdown wording, and
+    `CaptureAgendaFitPlanner` (the seven-step farthest-first ladder with manual expansions).
+    Table-driven tests run on Linux.'
+- id: mac-agenda-view
+  title: Agenda view, row measurer, panel integration, and fixed eye line
+  depends_on:
+  - mac-agenda-store
+  - mac-agenda-planner
+  size: medium
+  description: 'mac-agenda-view: build `CaptureAgendaView` and its row views, the
+    offscreen `CaptureAgendaRowMeasurer`, model wiring (visibility, plan, expansions,
+    settle while hidden), auxiliary-region integration with a height cap, fixed eye-line
+    placement instead of re-centring, and the Settings toggle. Add height-consistency
+    and rendered design tests, checked from the CI artifact.'
+- id: mac-agenda-polish
+  title: Transitions, countdown, stale and error states, accessibility, signposts,
+    README
+  depends_on:
+  - mac-agenda-view
+  size: medium
+  description: 'mac-agenda-polish: add the first-keystroke dim-hold, the in-place
+    cross-fade, the Now countdown, stale, loading, unsupported, and multiple-timed
+    states, a Settings diagnostic, accessibility containers and values, `agenda-*`
+    signposts, a show-path spawn guard test, and the README rewrite of the no-dead-space
+    principle plus a new `## Idle agenda` section.'
+- id: closeout
+  title: Decisions record, final verification, follow-ups, and Bryan's checklist
+  depends_on:
+  - mac-agenda-polish
+  size: small
+  description: 'closeout: write the accepted `decisions` record for the idle agenda
+    (if the memory decision is on), confirm docs and README coherence across both
+    repos, re-run the final checks, record proposed follow-ups, and leave Bryan the
+    manual Mac checklist.'
 proposed_by: bbugyi200.athena.research.48.linker.w0
 decided_by: auto
 create_time: 2026-10-09 17:42:21
 status: wip
+bead_id: bob-cli-66
 ---
 
-- **PROMPT:**
-  [prompts/202610/idle_capture_pomodoro_agenda.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/idle_capture_pomodoro_agenda.md)
+- **PROMPT:** [prompts/202610/idle_capture_pomodoro_agenda.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/idle_capture_pomodoro_agenda.md)
+- **BEAD:** [bob-cli-66](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-66/README.md)
 
 # Idle Pomodoro agenda in Bob Mac Capture
 
