@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Scan writes reference reading tasks into parent notes
-goal:
-  Complete bob-cli-5y.7 with guarded v2 births, located-task sync, parent projection,
+goal: Complete bob-cli-5y.7 with guarded v2 births, located-task sync, parent projection,
   follow-ups, verification, and phase closure.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-5y.7
 bead: bob-cli-5y.7
-create_time: 2026-10-09 15:06:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
