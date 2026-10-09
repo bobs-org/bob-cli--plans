@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Locate ref reading tasks anywhere in the vault and expose them read-side
-goal:
-  "`bob ref list/show/find/doctor` and `bob capture-complete` read the reading state,
-  parent, finished date, and task identity of every reference from its located `#task
-  #ref` line (live or archived in `done/`), with v1 in-note `^ref` trackers unchanged.
-  Phase bead bob-cli-5y.5 (`ref-locator`) is then closed so `ref-sync-v2` (bob-cli-5y.7)
-  and `mac-refs-v2` (bob-cli-5y.8) can start."
+goal: '`bob ref list/show/find/doctor` and `bob capture-complete` read the reading
+  state, parent, finished date, and task identity of every reference from its located
+  `#task #ref` line (live or archived in `done/`), with v1 in-note `^ref` trackers
+  unchanged. Phase bead bob-cli-5y.5 (`ref-locator`) is then closed so `ref-sync-v2`
+  (bob-cli-5y.7) and `mac-refs-v2` (bob-cli-5y.8) can start.'
 size: medium
 proposed_by: bbugyi200.athena.0z5
-create_time: 2026-10-09 14:24:42
-status: wip
+status: done
 ---
 
 # Plan: the done/-aware ref-task locator and read-side contracts (bob-cli-5y.5)
