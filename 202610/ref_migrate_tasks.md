@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Add bob ref migrate-tasks
-goal: Open v1 ref tasks move into parent notes through a dry-run-first command that
-  rewrites their links and dependency ids and commits as one revertible change.
+goal:
+  Open v1 ref tasks move into parent notes through a dry-run-first command that rewrites
+  their links and dependency ids and commits as one revertible change.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-5y.11
 bead: bob-cli-5y.11
@@ -13,6 +14,11 @@ status: done
   [202610/ref_tasks_live_with_parent.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_tasks_live_with_parent.md)
 - **BEAD:**
   [bob-cli-5y.11](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5y/bob-cli-5y.11.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-5y.11](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-5y.11.md)
+- **COMMITS:**
+  - [8905153](https://github.com/bobs-org/bob-cli/commit/89051533fbf1820e8aa89c6355cac883d6621ded)
+    — feat(ref): add bob ref migrate-tasks dry-run-first migration
 
 # Plan: Add bob ref migrate-tasks
 
