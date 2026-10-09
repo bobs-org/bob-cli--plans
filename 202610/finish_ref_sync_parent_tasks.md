@@ -1,55 +1,54 @@
 ---
 tier: epic
 title: Finish parent-note reference sync and close bob-cli-5y.7
-goal: "Complete the remaining ref-sync-v2 work on bob-cli-5y.7, verify safe births,
-  cross-file status sync, residence projection, archived reopens, and annotation
-  routing, then close that phase with concrete verification evidence.
+goal: 'Complete the remaining ref-sync-v2 work on bob-cli-5y.7, verify safe births,
+  cross-file status sync, residence projection, archived reopens, and annotation routing,
+  then close that phase with concrete verification evidence.
 
-  "
+  '
 phases:
-  - id: v2-planning
-    title: Model located reading-task actions and v2 note projection
-    depends_on: []
-    size: medium
-    description: "v2-planning: add pure v1/v2/birth/reopen planning, parent-free sync
-      snapshots, status conflict handling, and managed-embed rendering with focused
-      tests.
+- id: v2-planning
+  title: Model located reading-task actions and v2 note projection
+  depends_on: []
+  size: medium
+  description: 'v2-planning: add pure v1/v2/birth/reopen planning, parent-free sync
+    snapshots, status conflict handling, and managed-embed rendering with focused
+    tests.
 
-      "
-  - id: v2-execution
-    title: Execute reading-task writes safely across files
-    depends_on:
-      - v2-planning
-    size: medium
-    description: "v2-execution: implement guarded insertion, adoption, line edits, and
-      archive reopen execution before PDF/ref-note writes, preserving destination edits.
+    '
+- id: v2-execution
+  title: Execute reading-task writes safely across files
+  depends_on:
+  - v2-planning
+  size: medium
+  description: 'v2-execution: implement guarded insertion, adoption, line edits, and
+    archive reopen execution before PDF/ref-note writes, preserving destination edits.
 
-      "
-  - id: scan-integration
-    title: Connect all scan entrypoints and route annotation follow-ups
-    depends_on:
-      - v2-execution
-    size: medium
-    description: "scan-integration: share one locator index across parallel planning,
-      activate v2 sync in human and JSON scans, and rebase annotation writes at
-      execution.
+    '
+- id: scan-integration
+  title: Connect all scan entrypoints and route annotation follow-ups
+  depends_on:
+  - v2-execution
+  size: medium
+  description: 'scan-integration: share one locator index across parallel planning,
+    activate v2 sync in human and JSON scans, and rebase annotation writes at execution.
 
-      "
-  - id: verify-ref-sync
-    title: Finish reports, documentation, and acceptance verification
-    depends_on:
-      - scan-integration
-    size: medium
-    description:
-      "verify-ref-sync: complete human reports and docs, cover the full acceptance
-      matrix, run the repository checks, and give the land agent closure evidence."
+    '
+- id: verify-ref-sync
+  title: Finish reports, documentation, and acceptance verification
+  depends_on:
+  - scan-integration
+  size: medium
+  description: 'verify-ref-sync: complete human reports and docs, cover the full acceptance
+    matrix, run the repository checks, and give the land agent closure evidence.'
 proposed_by: bbugyi200.athena.0z7
 create_time: 2026-10-09 15:45:01
 status: wip
+bead_id: bob-cli-62
 ---
 
-- **PROMPT:**
-  [prompts/202610/finish_ref_sync_parent_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/finish_ref_sync_parent_tasks.md)
+- **PROMPT:** [prompts/202610/finish_ref_sync_parent_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/finish_ref_sync_parent_tasks.md)
+- **BEAD:** [bob-cli-62](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-62/README.md)
 
 # Finish parent-note reference sync and close bob-cli-5y.7
 
