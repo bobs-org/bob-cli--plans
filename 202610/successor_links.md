@@ -1,157 +1,146 @@
 ---
 tier: epic
-title: "Successor Links: a closed planned task hands its slot to the tasks it unblocks"
-goal:
-  "When a Bob close gesture completes a task planned in today's ledger, every direct
-  dependent that this close fully unblocked is linked into the predecessor's slot and
-  becomes Next in the same write. Bob close gestures are Obsidian Ctrl+Enter, `bob
-  capture` `!note:id`, and the `=x…` / `=!` Pomodoro closes. The slot is right after the
-  predecessor's Task Link, or the same-name continuation when the whole session closed.
-  One grouped notice says what was linked, where, and why: a card in Obsidian, the live
-  preview plus one notification line in Bob Mac Capture, and rows in the CLI. Capture
-  gets faster, not slower: on apollo, plain and `=x` previews take ≤ 40 ms, and closing
-  a real prerequisite takes ≤ 70 ms."
+title: 'Successor Links: a closed planned task hands its slot to the tasks it unblocks'
+goal: 'When a Bob close gesture completes a task planned in today''s ledger, every
+  direct dependent that this close fully unblocked is linked into the predecessor''s
+  slot and becomes Next in the same write. Bob close gestures are Obsidian Ctrl+Enter,
+  `bob capture` `!note:id`, and the `=x…` / `=!` Pomodoro closes. The slot is right
+  after the predecessor''s Task Link, or the same-name continuation when the whole
+  session closed. One grouped notice says what was linked, where, and why: a card
+  in Obsidian, the live preview plus one notification line in Bob Mac Capture, and
+  rows in the CLI. Capture gets faster, not slower: on apollo, plain and `=x` previews
+  take ≤ 40 ms, and closing a real prerequisite takes ≤ 70 ms.'
 phases:
-  - id: snapshot
-    title: Lazy, shared, prefiltered vault snapshot for capture (bob-cli-5v)
-    depends_on: []
-    size: medium
-    description:
-      "snapshot: in bob-cli, fix bead bob-cli-5v. Make DependencyContext lazy and
-      resolve `!` and `&` notes from a walk-only index. Replace the full-vault recovery
-      base with one batch-scoped, parallel, prefiltered dependents snapshot overlaid
-      with staged text, and gate `!` recovery on `[id::]`. Output is unchanged apart
-      from the documented gate edge. Ships guard tests and apollo timings."
-  - id: contract
-    title: Specify Successor Links once, in docs and vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: in bob-cli docs, add task-dependencies §12 (rule, anchors, placement,
-      writes, reporting model, copy) plus §11.6 SL and SB vectors, with SB pinned by a
-      Rust unit test. Rewrite the capture.md `!`, close, JSON, and human-output
-      contracts. Document `plan.link_unblocked` and nav `api.notice`."
-  - id: capture_complete
-    title: Successor planner and `!note:id` wiring in bob capture
-    depends_on:
-      - snapshot
-      - contract
-    size: medium
-    description:
-      "capture_complete: in bob-cli, add the pure successor planner (graph-transition
-      eligibility, anchors, ordering, breaker, minting, link form, placement) and the
-      `plan.link_unblocked` config key. Wire the planner into `!note:id` before ledger
-      retirement. Extend `unblocked[]`, add `still_blocked` and `unblocked_check` plus
-      the top-level `day_file`. Add human rows, help text, and SL tests."
-  - id: capture_close
-    title: Recovery and successor links inside Pomodoro closes
-    depends_on:
-      - capture_complete
-    size: medium
-    description:
-      "capture_close: in bob-cli, run recovery and successor linking in every close that
-      completes tasks: `=x` embeds, `=x!M`, `=!`, and `^route:id=x…`. Successors go into
-      the same-name continuation, created when needed. Add `pomodoro_close.unblocked`
-      and the `pomodoro_blocks` line `reason`, report the net batch result, and update
-      help text and tests."
-  - id: mac
-    title: Successor Links in Bob Mac Capture previews and notifications
-    depends_on:
-      - capture_close
-    size: medium
-    description:
-      "mac: in bob-mac-capture, decode the additive successor JSON defensively. Render
-      successors in the `!` and close previews: destination capsule, minted-ID caption,
-      reasons, and muted still-blocked rows. Badge unblocked lines in block diffs, add
-      one notification line, and fix Open Note(s). Ships real-bob fixtures, tests, a
-      README update, and green macOS CI."
-  - id: nav_card
-    title: The Unblocked notice card and nav `api.notice`
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "nav_card: in bob-navigation-hotkeys, add the Unblocked notice card in a new
-      fragment: `is-unblock` styles on existing tokens, clickable rows, chips, and
-      breaker and failure variants. Expose it as the additive `api.notice` v1. Ships
-      tests, a version bump, a README update, and a sync."
-  - id: cycler_engine
-    title: Pure successor helpers in task-status-cycler
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cycler_engine: in task-status-cycler, add pure helpers that mirror the Rust
-      planner: a dependents index built from the Tasks cache or from documents,
-      eligibility, anchors, ordering, the breaker, the ported block-ID suggester, link
-      form, placement edits, notice text, and config and today-path loaders. Ships SL
-      and SB vector tests and no wiring."
-  - id: cycler_wiring
-    title: Recover-and-link on every Ctrl+Enter close, with one notice
-    depends_on:
-      - nav_card
-      - cycler_engine
-    size: medium
-    description:
-      "cycler_wiring: in task-status-cycler, run the gated recover-and-link pass inside
-      finalizeClosedTasks, with a closing-entry hint from Pomodoro-line closes. Write
-      through open editors or through preimage-checked vault.process. Show the nav card,
-      or compose the text into the walk toast and nav's completeTaskAtCursor caller, and
-      report failures. Ships guard tests, version bumps, a README update, and a sync."
-  - id: ledger_glyph
-    title: Read-time 🔓 hand-off glyph in today's ledger
-    depends_on:
-      - contract
-    size: small
-    description:
-      "ledger_glyph: in bob-ledger-tools, draw a faint read-time 🔓 after a live Task
-      Link under today's open Pomodoros whose task had a prerequisite completed today,
-      with a tooltip naming it. It is derived from the Tasks cache and never stored.
-      Ships tests, a version bump, a README update, and a sync."
-  - id: cycler_polish
-    title: Reopen takes successors back; Alt+] closes join the pass
-    depends_on:
-      - cycler_wiring
-    size: medium
-    description:
-      "cycler_polish: in task-status-cycler, add an in-memory reopen receipt: reopening
-      a predecessor removes its untouched successor links and restores their status.
-      Route Alt+]/Alt+[ closes through finalizeClosedTasks (bead bob-cli-3k); cancels
-      recover only. Ships tests, versions, a README update, and a sync."
-  - id: closeout
-    title: End-to-end verification and memory
-    depends_on:
-      - mac
-      - cycler_polish
-      - ledger_glyph
-    size: small
-    description:
-      "closeout: verify end to end across the repos: CLI sandbox, plugin harness,
-      deployed plugins, Mac CI, and apollo timings. Apply the accepted memory decisions,
-      then summarize the shipped behavior on the epic."
+- id: snapshot
+  title: Lazy, shared, prefiltered vault snapshot for capture (bob-cli-5v)
+  depends_on: []
+  size: medium
+  description: 'snapshot: in bob-cli, fix bead bob-cli-5v. Make DependencyContext
+    lazy and resolve `!` and `&` notes from a walk-only index. Replace the full-vault
+    recovery base with one batch-scoped, parallel, prefiltered dependents snapshot
+    overlaid with staged text, and gate `!` recovery on `[id::]`. Output is unchanged
+    apart from the documented gate edge. Ships guard tests and apollo timings.'
+- id: contract
+  title: Specify Successor Links once, in docs and vectors
+  depends_on: []
+  size: medium
+  description: 'contract: in bob-cli docs, add task-dependencies §12 (rule, anchors,
+    placement, writes, reporting model, copy) plus §11.6 SL and SB vectors, with SB
+    pinned by a Rust unit test. Rewrite the capture.md `!`, close, JSON, and human-output
+    contracts. Document `plan.link_unblocked` and nav `api.notice`.'
+- id: capture_complete
+  title: Successor planner and `!note:id` wiring in bob capture
+  depends_on:
+  - snapshot
+  - contract
+  size: medium
+  description: 'capture_complete: in bob-cli, add the pure successor planner (graph-transition
+    eligibility, anchors, ordering, breaker, minting, link form, placement) and the
+    `plan.link_unblocked` config key. Wire the planner into `!note:id` before ledger
+    retirement. Extend `unblocked[]`, add `still_blocked` and `unblocked_check` plus
+    the top-level `day_file`. Add human rows, help text, and SL tests.'
+- id: capture_close
+  title: Recovery and successor links inside Pomodoro closes
+  depends_on:
+  - capture_complete
+  size: medium
+  description: 'capture_close: in bob-cli, run recovery and successor linking in every
+    close that completes tasks: `=x` embeds, `=x!M`, `=!`, and `^route:id=x…`. Successors
+    go into the same-name continuation, created when needed. Add `pomodoro_close.unblocked`
+    and the `pomodoro_blocks` line `reason`, report the net batch result, and update
+    help text and tests.'
+- id: mac
+  title: Successor Links in Bob Mac Capture previews and notifications
+  depends_on:
+  - capture_close
+  size: medium
+  description: 'mac: in bob-mac-capture, decode the additive successor JSON defensively.
+    Render successors in the `!` and close previews: destination capsule, minted-ID
+    caption, reasons, and muted still-blocked rows. Badge unblocked lines in block
+    diffs, add one notification line, and fix Open Note(s). Ships real-bob fixtures,
+    tests, a README update, and green macOS CI.'
+- id: nav_card
+  title: The Unblocked notice card and nav `api.notice`
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav_card: in bob-navigation-hotkeys, add the Unblocked notice card
+    in a new fragment: `is-unblock` styles on existing tokens, clickable rows, chips,
+    and breaker and failure variants. Expose it as the additive `api.notice` v1. Ships
+    tests, a version bump, a README update, and a sync.'
+- id: cycler_engine
+  title: Pure successor helpers in task-status-cycler
+  depends_on:
+  - contract
+  size: medium
+  description: 'cycler_engine: in task-status-cycler, add pure helpers that mirror
+    the Rust planner: a dependents index built from the Tasks cache or from documents,
+    eligibility, anchors, ordering, the breaker, the ported block-ID suggester, link
+    form, placement edits, notice text, and config and today-path loaders. Ships SL
+    and SB vector tests and no wiring.'
+- id: cycler_wiring
+  title: Recover-and-link on every Ctrl+Enter close, with one notice
+  depends_on:
+  - nav_card
+  - cycler_engine
+  size: medium
+  description: 'cycler_wiring: in task-status-cycler, run the gated recover-and-link
+    pass inside finalizeClosedTasks, with a closing-entry hint from Pomodoro-line
+    closes. Write through open editors or through preimage-checked vault.process.
+    Show the nav card, or compose the text into the walk toast and nav''s completeTaskAtCursor
+    caller, and report failures. Ships guard tests, version bumps, a README update,
+    and a sync.'
+- id: ledger_glyph
+  title: Read-time 🔓 hand-off glyph in today's ledger
+  depends_on:
+  - contract
+  size: small
+  description: 'ledger_glyph: in bob-ledger-tools, draw a faint read-time 🔓 after
+    a live Task Link under today''s open Pomodoros whose task had a prerequisite completed
+    today, with a tooltip naming it. It is derived from the Tasks cache and never
+    stored. Ships tests, a version bump, a README update, and a sync.'
+- id: cycler_polish
+  title: Reopen takes successors back; Alt+] closes join the pass
+  depends_on:
+  - cycler_wiring
+  size: medium
+  description: 'cycler_polish: in task-status-cycler, add an in-memory reopen receipt:
+    reopening a predecessor removes its untouched successor links and restores their
+    status. Route Alt+]/Alt+[ closes through finalizeClosedTasks (bead bob-cli-3k);
+    cancels recover only. Ships tests, versions, a README update, and a sync.'
+- id: closeout
+  title: End-to-end verification and memory
+  depends_on:
+  - mac
+  - cycler_polish
+  - ledger_glyph
+  size: small
+  description: 'closeout: verify end to end across the repos: CLI sandbox, plugin
+    harness, deployed plugins, Mac CI, and apollo timings. Apply the accepted memory
+    decisions, then summarize the shipped behavior on the epic.'
 decisions:
   decision_record:
-    ask:
-      After landing, record "a closed planned task hands its slot to its successors" as
-      a decisions strand?
+    ask: After landing, record "a closed planned task hands its slot to its successors"
+      as a decisions strand?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   glossary_term:
     ask: After landing, add a "Successor Link" glossary term?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.0p.linker.w0
 decided_by: auto
 create_time: 2026-10-09 11:54:13
 status: wip
+bead_id: bob-cli-5w
 ---
 
-- **PROMPT:**
-  [prompts/202610/successor_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/successor_links.md)
+- **PROMPT:** [prompts/202610/successor_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/successor_links.md)
+- **BEAD:** [bob-cli-5w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5w/README.md)
 
 # Plan: Successor Links — a closed planned task hands its slot to the tasks it unblocks
 
