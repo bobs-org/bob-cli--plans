@@ -1,72 +1,67 @@
 ---
 tier: epic
-title:
-  "Bob Refs landing fixes: make search, error recovery, refresh, ranking, and the
-  inspector match the bob_refs_panel spec"
-goal: "Finish epic bob-cli-5s. Close every gap its land audit found between the shipped
-  Bob Refs panel and plan:202610/bob_refs_panel.md: typed queries reach the model, an
-  open error re-shows the panel with its state and working buttons, unavailable rows
-  stay in place dimmed, refresh fires on wake and every open, ranking follows the spec
-  tables in local days, the inspector tells the truth, the ⌘K menu anchors at the row,
-  and bob-cli drops stray Swift build files and finishes the blocked-field contract.
+title: 'Bob Refs landing fixes: make search, error recovery, refresh, ranking, and
+  the inspector match the bob_refs_panel spec'
+goal: 'Finish epic bob-cli-5s. Close every gap its land audit found between the shipped
+  Bob Refs panel and plan:202610/bob_refs_panel.md: typed queries reach the model,
+  an open error re-shows the panel with its state and working buttons, unavailable
+  rows stay in place dimmed, refresh fires on wake and every open, ranking follows
+  the spec tables in local days, the inspector tells the truth, the ⌘K menu anchors
+  at the row, and bob-cli drops stray Swift build files and finishes the blocked-field
+  contract.
 
-  "
+  '
 phases:
-  - id: cli-blocked-polish
-    title: bob-cli blocked-field polish and stray .build cleanup
-    depends_on: []
-    size: small
-    description:
-      "cli-blocked-polish: untrack the stray `.build/` files and ignore `/.build/`,
-      serialize `blocked` directly after `reading_state_source`, add a
-      several-trackers-with-one-[?] fixture test, and finish the docs/ref.md contract
-      (client note, additive under schema_version 1)."
-  - id: refs-core-fixes
-    title: RefsCore ranking, captions, dates, and refs-rank fixes
-    depends_on: []
-    size: medium
-    description:
-      "refs-core-fixes: in bob-mac-capture RefsCore, keep vanished ids in
-      refreshingContent as unavailable, let 2-character word prefixes reach T1, compute
-      days in signals.calendar instead of UTC, sort Ready by added desc, mark git dates
-      approximate, fix the weekday range, wire frecencyHalfLifeDays, cache prepared
-      items per snapshot, and make refs-rank --now accept the documented form; with
-      tests."
-  - id: refs-model-fixes
-    title:
-      Search binding, open-error re-show, unavailable rows, refresh triggers, and live
-      settings
-    depends_on:
-      - refs-core-fixes
-    size: medium
-    description:
-      "refs-model-fixes: in bob-mac-capture, send typed text to the model, re-show the
-      panel after an open error without resetting it and through BobPanelCoordinator,
-      render unavailable rows per spec §5.5, refresh on wake, Today on every open, git
-      dates in their own lane, ⌘R and Recheck Bob refreshes that re-rank, and live
-      settings re-registration that reads the new value; with tests."
-  - id: refs-ui-fixes
-    title: Panel visuals, inspector honesty, ⌘K anchor, cleanup, README, and final CI
-    depends_on:
-      - refs-model-fixes
-      - cli-blocked-polish
-    size: medium
-    description:
-      "refs-ui-fixes: in bob-mac-capture, add the content well, Reduce Transparency
-      base, and per-show scale-in; fix inspector honesty rules, the 3 s intrinsics
-      timeout, and the ⌘K anchor; render stem/secondary caption ranges; fix row
-      VoiceOver labels; remove dead symbols and debug renders; make the README's Bob
-      Refs section coherent; confirm final CI and render fixtures."
+- id: cli-blocked-polish
+  title: bob-cli blocked-field polish and stray .build cleanup
+  depends_on: []
+  size: small
+  description: 'cli-blocked-polish: untrack the stray `.build/` files and ignore `/.build/`,
+    serialize `blocked` directly after `reading_state_source`, add a several-trackers-with-one-[?]
+    fixture test, and finish the docs/ref.md contract (client note, additive under
+    schema_version 1).'
+- id: refs-core-fixes
+  title: RefsCore ranking, captions, dates, and refs-rank fixes
+  depends_on: []
+  size: medium
+  description: 'refs-core-fixes: in bob-mac-capture RefsCore, keep vanished ids in
+    refreshingContent as unavailable, let 2-character word prefixes reach T1, compute
+    days in signals.calendar instead of UTC, sort Ready by added desc, mark git dates
+    approximate, fix the weekday range, wire frecencyHalfLifeDays, cache prepared
+    items per snapshot, and make refs-rank --now accept the documented form; with
+    tests.'
+- id: refs-model-fixes
+  title: Search binding, open-error re-show, unavailable rows, refresh triggers, and
+    live settings
+  depends_on:
+  - refs-core-fixes
+  size: medium
+  description: 'refs-model-fixes: in bob-mac-capture, send typed text to the model,
+    re-show the panel after an open error without resetting it and through BobPanelCoordinator,
+    render unavailable rows per spec §5.5, refresh on wake, Today on every open, git
+    dates in their own lane, ⌘R and Recheck Bob refreshes that re-rank, and live settings
+    re-registration that reads the new value; with tests.'
+- id: refs-ui-fixes
+  title: Panel visuals, inspector honesty, ⌘K anchor, cleanup, README, and final CI
+  depends_on:
+  - refs-model-fixes
+  - cli-blocked-polish
+  size: medium
+  description: 'refs-ui-fixes: in bob-mac-capture, add the content well, Reduce Transparency
+    base, and per-show scale-in; fix inspector honesty rules, the 3 s intrinsics timeout,
+    and the ⌘K anchor; render stem/secondary caption ranges; fix row VoiceOver labels;
+    remove dead symbols and debug renders; make the README''s Bob Refs section coherent;
+    confirm final CI and render fixtures.'
 proposed_by: bbugyi200.apollo.bob-cli-5s.land
 parent_bead: bob-cli-5s
 create_time: 2026-10-09 08:04:25
 status: wip
+bead_id: bob-cli-5s.10
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_refs_land_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_land_fixes.md)
-- **PARENT:**
-  [202610/bob_refs_panel.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_refs_panel.md)
+- **PROMPT:** [prompts/202610/bob_refs_land_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_land_fixes.md)
+- **PARENT:** [202610/bob_refs_panel.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_refs_panel.md)
+- **BEAD:** [bob-cli-5s.10](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5s/bob-cli-5s.10.md)
 
 # Bob Refs landing fixes
 
