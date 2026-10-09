@@ -1,176 +1,162 @@
 ---
 tier: epic
 title: Ref tasks live with the work they serve
-goal: "Every open reference has exactly one ordinary reading task, `#task #ref` with a
-  unique `^ref-<slug>` block ID, in the `## Tasks` section of a real area, project, or
-  inbox note, and that note is the reference's parent. Capture paths ask for, or
-  receive, the parent. A done/-aware locator keeps ref-note status in sync wherever the
-  task moves or is archived. The `#hide` and residence special cases are gone, and the
-  29 open refs are migrated without losing a field, link, or dependency.
+goal: 'Every open reference has exactly one ordinary reading task, `#task #ref` with
+  a unique `^ref-<slug>` block ID, in the `## Tasks` section of a real area, project,
+  or inbox note, and that note is the reference''s parent. Capture paths ask for,
+  or receive, the parent. A done/-aware locator keeps ref-note status in sync wherever
+  the task moves or is archived. The `#hide` and residence special cases are gone,
+  and the 29 open refs are migrated without losing a field, link, or dependency.
 
-  "
+  '
 decisions:
   cancel_dropped_wrapper_refs:
-    ask:
-      During the live migration, cancel the 4 ref tasks whose hand-written wrapper tasks
-      you already cancelled?
+    ask: During the live migration, cancel the 4 ref tasks whose hand-written wrapper
+      tasks you already cancelled?
     default: false
-    why:
-      Migration stays structural; you triage with Alt+N or cancel once they sit in their
-      notes
+    why: Migration stays structural; you triage with Alt+N or cancel once they sit
+      in their notes
     answer: false
   memory_ref_parent_decision:
     ask: Add a decisions strand recording that ref tasks live with their parent note?
     memory:
-      - decisions:ref-tasks-live-with-their-parent
+    - decisions:ref-tasks-live-with-their-parent
     default: false
     answer: false
   memory_glossary_ref_terms:
-    ask:
-      Update the reference-task, reference-note, and area-note glossary strands for the
-      new model?
+    ask: Update the reference-task, reference-note, and area-note glossary strands
+      for the new model?
     memory:
-      - glossary:reference-task
-      - glossary:reference-note
-      - glossary:area-note
+    - glossary:reference-task
+    - glossary:reference-note
+    - glossary:area-note
     default: false
     answer: false
 phases:
-  - id: sase-hook-env
-    title: "sase: file hooks export SASE_FILE_HOOK_PROJECT"
-    depends_on: []
-    size: small
-    description:
-      "sase-hook-env: the sase file-hook runner exports the producing project's name to
-      every hook command as an environment variable, with docs and dispatch tests."
-  - id: parent-resolver
-    title: One strict parent resolver and project_name_aliases
-    depends_on: []
-    size: medium
-    description:
-      "parent-resolver: add the shared area/project/inbox resolver with
-      project_name_aliases, expose aliases in capture-targets, and resolve an explicit
-      bob ref create -P."
-  - id: freshness-rekey
-    title: "Freshness keys refs on the #ref tag, with the lane split"
-    depends_on: []
-    size: medium
-    description:
-      "freshness-rekey: re-key ref review identity from the ^ref block ID to the #ref
-      tag in Rust and bob-ledger-tools; Ready refs keep REFERENCES while Next/Pending
-      refs walk their lanes."
-  - id: hook-config
-    title: Live alias, install, and the hook passes -P
-    depends_on:
-      - sase-hook-env
-      - parent-resolver
-    size: small
-    description:
-      "hook-config: install bob, add project_name_aliases to bob.md, confirm the live
-      sase exports the variable, then switch the chezmoi hook command to pass -P."
-  - id: ref-locator
-    title: The done/-aware ref-task locator and read-side contracts
-    depends_on:
-      - parent-resolver
-    size: large
-    description:
-      "ref-locator: build the read-only locator, derive status/parent/dates from the
-      located task, add the task object, diagnostics, ref list -P aliases, and
-      capture-complete task_kind."
-  - id: ref-glyph
-    title: The open-book identity glyph and picker text
-    depends_on:
-      - freshness-rekey
-    size: medium
-    description:
-      "ref-glyph: specify and implement the #task #ref open-book glyph with conformance
-      vectors, and show reading tasks cleanly in plugin pickers."
-  - id: ref-sync-v2
-    title: Scan writes reading tasks into parent notes
-    depends_on:
-      - ref-locator
-    size: large
-    description:
-      "ref-sync-v2: births insert the v2 line into the parent's Tasks section, ref notes
-      carry the managed embed, status syncs to the located line across files, and
-      annotation follow-ups go to the parent."
-  - id: mac-refs-v2
-    title: Bob Mac Capture reads located ref tasks
-    depends_on:
-      - ref-locator
-    size: medium
-    description:
-      "mac-refs-v2: decode the task object, join Today on path and block ID, refresh on
-      root-note changes, and show the book symbol for ref tasks in pickers and the
-      inspector."
-  - id: ref-create-parent
-    title: bob ref create requires -P; ingest, jobs, and fallbacks carry the parent
-    depends_on:
-      - hook-config
-      - ref-sync-v2
-    size: medium
-    description:
-      "ref-create-parent: make -P required with no default, thread the resolved parent
-      through typed ingest, ref jobs, and clip-failure fallbacks, and delete the
-      obsidian_ref defaults."
-  - id: capture-gkeep-parent
-    title: Capture URL @route and gkeep pull choose the parent
-    depends_on:
-      - ref-create-parent
-    size: large
-    description:
-      "capture-gkeep-parent: a bare URL plus one @route becomes a ref filed there,
-      previews and parse report the parent, and gkeep pull honors note routes, -P, and a
-      TTY prompt."
-  - id: migrate-tasks
-    title: bob ref migrate-tasks
-    depends_on:
-      - ref-sync-v2
-    size: large
-    description:
-      "migrate-tasks: add the dry-run-first, reversible command that moves open v1 ref
-      tasks into parent notes and rewrites every link and dependency ID that pointed at
-      them."
-  - id: mac-file-under
-    title: Bob Mac Capture asks where a captured link belongs
-    depends_on:
-      - capture-gkeep-parent
-      - mac-refs-v2
-    size: medium
-    description:
-      "mac-file-under: open a File under picker for a bare URL, insert the chosen
-      @route, preview the destination, and match project_name_aliases."
-  - id: live-migration
-    title: Migrate the live vault
-    depends_on:
-      - hook-config
-      - freshness-rekey
-      - ref-glyph
-      - mac-refs-v2
-      - capture-gkeep-parent
-      - migrate-tasks
-    size: medium
-    description:
-      "live-migration: confirm the Mac runs the new bob, run migrate-tasks against the
-      live vault with the confirmed parent map, reconcile, and verify every invariant."
-  - id: closeout
-    title: Retire the transitional bypass, docs coherence, memory, final report
-    depends_on:
-      - mac-file-under
-      - live-migration
-    size: medium
-    description:
-      "closeout: remove the transitional hidden ^ref review bypass, read the docs end to
-      end, apply the accepted memory decisions, and leave Bryan the verification
-      checklist."
+- id: sase-hook-env
+  title: 'sase: file hooks export SASE_FILE_HOOK_PROJECT'
+  depends_on: []
+  size: small
+  description: 'sase-hook-env: the sase file-hook runner exports the producing project''s
+    name to every hook command as an environment variable, with docs and dispatch
+    tests.'
+- id: parent-resolver
+  title: One strict parent resolver and project_name_aliases
+  depends_on: []
+  size: medium
+  description: 'parent-resolver: add the shared area/project/inbox resolver with project_name_aliases,
+    expose aliases in capture-targets, and resolve an explicit bob ref create -P.'
+- id: freshness-rekey
+  title: 'Freshness keys refs on the #ref tag, with the lane split'
+  depends_on: []
+  size: medium
+  description: 'freshness-rekey: re-key ref review identity from the ^ref block ID
+    to the #ref tag in Rust and bob-ledger-tools; Ready refs keep REFERENCES while
+    Next/Pending refs walk their lanes.'
+- id: hook-config
+  title: Live alias, install, and the hook passes -P
+  depends_on:
+  - sase-hook-env
+  - parent-resolver
+  size: small
+  description: 'hook-config: install bob, add project_name_aliases to bob.md, confirm
+    the live sase exports the variable, then switch the chezmoi hook command to pass
+    -P.'
+- id: ref-locator
+  title: The done/-aware ref-task locator and read-side contracts
+  depends_on:
+  - parent-resolver
+  size: large
+  description: 'ref-locator: build the read-only locator, derive status/parent/dates
+    from the located task, add the task object, diagnostics, ref list -P aliases,
+    and capture-complete task_kind.'
+- id: ref-glyph
+  title: The open-book identity glyph and picker text
+  depends_on:
+  - freshness-rekey
+  size: medium
+  description: 'ref-glyph: specify and implement the #task #ref open-book glyph with
+    conformance vectors, and show reading tasks cleanly in plugin pickers.'
+- id: ref-sync-v2
+  title: Scan writes reading tasks into parent notes
+  depends_on:
+  - ref-locator
+  size: large
+  description: 'ref-sync-v2: births insert the v2 line into the parent''s Tasks section,
+    ref notes carry the managed embed, status syncs to the located line across files,
+    and annotation follow-ups go to the parent.'
+- id: mac-refs-v2
+  title: Bob Mac Capture reads located ref tasks
+  depends_on:
+  - ref-locator
+  size: medium
+  description: 'mac-refs-v2: decode the task object, join Today on path and block
+    ID, refresh on root-note changes, and show the book symbol for ref tasks in pickers
+    and the inspector.'
+- id: ref-create-parent
+  title: bob ref create requires -P; ingest, jobs, and fallbacks carry the parent
+  depends_on:
+  - hook-config
+  - ref-sync-v2
+  size: medium
+  description: 'ref-create-parent: make -P required with no default, thread the resolved
+    parent through typed ingest, ref jobs, and clip-failure fallbacks, and delete
+    the obsidian_ref defaults.'
+- id: capture-gkeep-parent
+  title: Capture URL @route and gkeep pull choose the parent
+  depends_on:
+  - ref-create-parent
+  size: large
+  description: 'capture-gkeep-parent: a bare URL plus one @route becomes a ref filed
+    there, previews and parse report the parent, and gkeep pull honors note routes,
+    -P, and a TTY prompt.'
+- id: migrate-tasks
+  title: bob ref migrate-tasks
+  depends_on:
+  - ref-sync-v2
+  size: large
+  description: 'migrate-tasks: add the dry-run-first, reversible command that moves
+    open v1 ref tasks into parent notes and rewrites every link and dependency ID
+    that pointed at them.'
+- id: mac-file-under
+  title: Bob Mac Capture asks where a captured link belongs
+  depends_on:
+  - capture-gkeep-parent
+  - mac-refs-v2
+  size: medium
+  description: 'mac-file-under: open a File under picker for a bare URL, insert the
+    chosen @route, preview the destination, and match project_name_aliases.'
+- id: live-migration
+  title: Migrate the live vault
+  depends_on:
+  - hook-config
+  - freshness-rekey
+  - ref-glyph
+  - mac-refs-v2
+  - capture-gkeep-parent
+  - migrate-tasks
+  size: medium
+  description: 'live-migration: confirm the Mac runs the new bob, run migrate-tasks
+    against the live vault with the confirmed parent map, reconcile, and verify every
+    invariant.'
+- id: closeout
+  title: Retire the transitional bypass, docs coherence, memory, final report
+  depends_on:
+  - mac-file-under
+  - live-migration
+  size: medium
+  description: 'closeout: remove the transitional hidden ^ref review bypass, read
+    the docs end to end, apply the accepted memory decisions, and leave Bryan the
+    verification checklist.'
 proposed_by: bbugyi200.athena.0z0
 decided_by: auto
 create_time: 2026-10-09 12:29:33
 status: wip
+bead_id: bob-cli-5y
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_tasks_live_with_parent.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_tasks_live_with_parent.md)
+- **PROMPT:** [prompts/202610/ref_tasks_live_with_parent.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_tasks_live_with_parent.md)
+- **BEAD:** [bob-cli-5y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5y/README.md)
 
 # Ref tasks live with the work they serve
 
