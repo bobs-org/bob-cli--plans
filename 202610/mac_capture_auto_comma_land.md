@@ -1,38 +1,37 @@
 ---
 tier: epic
 title: Land the Bob Mac Capture close-task auto-comma on master
-goal: "Bob Mac Capture's master carries a compiling, CI-green close-task auto-comma
-  (typing `=x12` in a sub-10-link Pomodoro shows `=x1,2`), salvaged from the failed PR
-  #4, and PR #4 is closed as superseded.
+goal: 'Bob Mac Capture''s master carries a compiling, CI-green close-task auto-comma
+  (typing `=x12` in a sub-10-link Pomodoro shows `=x1,2`), salvaged from the failed
+  PR #4, and PR #4 is closed as superseded.
 
-  "
+  '
 phases:
-  - id: land-assist
-    title: Salvage PR
-    size: medium
-    depends_on: []
-    description:
-      "land-assist: cherry-pick PR #4 (3842ee9) without committing onto fresh master,
-      rename the colliding CapturePomodoroEntry model, trigger the assist parse from the
-      digit key event, prefetch the count in CapturePanelController.show(), guard
-      refresh races, extend fake-bob and tests, and land it through the /sase_final
-      commit decision rather than a branch or PR."
-  - id: ci-green
-    title: Drive the macOS 26 SwiftPM CI run green for the landed assist and close PR
-    size: small
-    depends_on:
-      - land-assist
-    description:
-      "ci-green: watch the CI run for the landed commit via /sase_monitor, fix
-      feature-caused failures until green, close PR #4 with --delete-branch, and give
-      Bryan the bob and app reinstall steps plus the manual check."
+- id: land-assist
+  title: Salvage PR
+  size: medium
+  depends_on: []
+  description: 'land-assist: cherry-pick PR #4 (3842ee9) without committing onto fresh
+    master, rename the colliding CapturePomodoroEntry model, trigger the assist parse
+    from the digit key event, prefetch the count in CapturePanelController.show(),
+    guard refresh races, extend fake-bob and tests, and land it through the /sase_final
+    commit decision rather than a branch or PR.'
+- id: ci-green
+  title: Drive the macOS 26 SwiftPM CI run green for the landed assist and close PR
+  size: small
+  depends_on:
+  - land-assist
+  description: 'ci-green: watch the CI run for the landed commit via /sase_monitor,
+    fix feature-caused failures until green, close PR #4 with --delete-branch, and
+    give Bryan the bob and app reinstall steps plus the manual check.'
 proposed_by: bbugyi200.apollo.61.w1.f0
 create_time: 2026-10-09 14:19:58
 status: wip
+bead_id: bob-cli-60
 ---
 
-- **PROMPT:**
-  [prompts/202610/mac_capture_auto_comma_land.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_auto_comma_land.md)
+- **PROMPT:** [prompts/202610/mac_capture_auto_comma_land.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_auto_comma_land.md)
+- **BEAD:** [bob-cli-60](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-60/README.md)
 
 # Land the Bob Mac Capture close-task auto-comma on master
 
