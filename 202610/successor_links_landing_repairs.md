@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair successor-link edge cases and finish bob-cli-5w landing
-goal: Successor closes preserve task and ledger edits, match across engines, satisfy
-  the read budget, and close bob-cli-5w with verified integration.
+goal:
+  Successor closes preserve task and ledger edits, match across engines, satisfy the
+  read budget, and close bob-cli-5w with verified integration.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-5w.land
 bead: bob-cli-5w
@@ -11,6 +12,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-5w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5w/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-5w.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-5w.land.md)
+- **COMMITS:**
+  - [fa3d427](https://github.com/bobs-org/bob-plugins/commit/fa3d427de52822c71508e37ac95bbae2e9b1e82a)
+    — fix(task-status-cycler): single-pass finalize with rootKey anchors and parity
 
 # Finish successor-links writes, parity, and landing
 
