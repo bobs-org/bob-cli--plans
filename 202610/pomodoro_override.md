@@ -1,90 +1,85 @@
 ---
 tier: epic
-title: "`==` Pomodoro override: restart the running session or swap another in"
-goal: "`bob capture` and Bob Mac Capture accept `==`, the override twin of every
-  whole-item `=` start: `==<X>` restarts the running Pomodoro with fresh `se<X>` timing,
-  and `==[<X>]#name` swaps a different Pomodoro in as the running one (taking over the
-  running session ledger unless a timing is given) while the old one returns, intact, to
-  first future. Every path is atomic, dry-run exact, byte-preserving, and explained in
-  both the CLI and the Mac preview.
+title: '`==` Pomodoro override: restart the running session or swap another in'
+goal: '`bob capture` and Bob Mac Capture accept `==`, the override twin of every whole-item
+  `=` start: `==<X>` restarts the running Pomodoro with fresh `se<X>` timing, and
+  `==[<X>]#name` swaps a different Pomodoro in as the running one (taking over the
+  running session ledger unless a timing is given) while the old one returns, intact,
+  to first future. Every path is atomic, dry-run exact, byte-preserving, and explained
+  in both the CLI and the Mac preview.
 
-  "
+  '
 decisions:
   idle_fallback:
-    ask:
-      When nothing is running, should every `==` token act exactly like its `=` twin
-      instead of refusing?
+    ask: When nothing is running, should every `==` token act exactly like its `=`
+      twin instead of refusing?
     default: true
     why: '`==` then always means "make this the current session" and never dead-ends'
     answer: true
 phases:
-  - id: override-grammar
-    title: Lex, parse, and describe the `==` token family
-    depends_on: []
-    size: medium
-    description:
-      "override-grammar: teach the capture language the `==` family (`==`, `==<X>`,
-      `==[<X>]#name`, `…~<K>`) with `=`-identical claim rules, prose protection for
-      Obsidian highlights, teaching near-miss errors, chain support, the additive
-      capture-parse `override: true` spec flag, editor needs, and `==#` name-completion
-      offsets."
-  - id: override-restart
-    title: Execute restarts and the idle fallback, with the override JSON contract
-    depends_on:
-      - override-grammar
-    size: medium
-    description:
-      "override-restart: route override starts in the executor, run the idle fallback,
-      restart the running session in place with fresh `se<X>` timing, introduce the full
-      `pomodoro_start.override` JSON object and `restarted` human output, and start the
-      new docs section."
-  - id: override-swap
-    title: Execute swaps with ledger takeover and first-future demotion
-    depends_on:
-      - override-restart
-    size: medium
-    description:
-      "override-swap: implement `==[<X>]#name` (resolve exactly like `=#name`, transfer
-      or re-time the session ledger, demote the old running block to first future with
-      contents intact), fill the `demoted` JSON, `swapped` human output, `=x0`
-      equivalence tests, updated teaching errors, and finish every bob-cli doc surface."
-  - id: override-complete
-    title: Give the `==#` name picker its override context
-    depends_on:
-      - override-grammar
-    size: small
-    description:
-      "override-complete: add the additive top-level `override` object (keeps_ledger
-      plus the running session) to `bob capture-complete` for `==` name fields, with
-      tests and the capture-complete docs."
-  - id: mac-override-card
-    title: Bob Mac Capture restart and swap preview, footer, and notifications
-    depends_on:
-      - override-swap
-    size: medium
-    description:
-      "mac-override-card: decode the parse flag and `pomodoro_start.override`, extend
-      the start presentation with restart/swap/idle variants, render the before→after
-      and demoted rows on the start card, retitle the footer and notifications, and add
-      real-bob fixtures, tests, and README rows."
-  - id: mac-override-picker
-    title: Bob Mac Capture `==#` picker status and row hints
-    depends_on:
-      - override-complete
-      - mac-override-card
-    size: small
-    description:
-      "mac-override-picker: decode the capture-complete `override` object and use it for
-      the `==#` picker status line and the running/open row hints, fix the `=#`
-      running-row hint to teach `==`, with fixtures and tests."
+- id: override-grammar
+  title: Lex, parse, and describe the `==` token family
+  depends_on: []
+  size: medium
+  description: 'override-grammar: teach the capture language the `==` family (`==`,
+    `==<X>`, `==[<X>]#name`, `…~<K>`) with `=`-identical claim rules, prose protection
+    for Obsidian highlights, teaching near-miss errors, chain support, the additive
+    capture-parse `override: true` spec flag, editor needs, and `==#` name-completion
+    offsets.'
+- id: override-restart
+  title: Execute restarts and the idle fallback, with the override JSON contract
+  depends_on:
+  - override-grammar
+  size: medium
+  description: 'override-restart: route override starts in the executor, run the idle
+    fallback, restart the running session in place with fresh `se<X>` timing, introduce
+    the full `pomodoro_start.override` JSON object and `restarted` human output, and
+    start the new docs section.'
+- id: override-swap
+  title: Execute swaps with ledger takeover and first-future demotion
+  depends_on:
+  - override-restart
+  size: medium
+  description: 'override-swap: implement `==[<X>]#name` (resolve exactly like `=#name`,
+    transfer or re-time the session ledger, demote the old running block to first
+    future with contents intact), fill the `demoted` JSON, `swapped` human output,
+    `=x0` equivalence tests, updated teaching errors, and finish every bob-cli doc
+    surface.'
+- id: override-complete
+  title: Give the `==#` name picker its override context
+  depends_on:
+  - override-grammar
+  size: small
+  description: 'override-complete: add the additive top-level `override` object (keeps_ledger
+    plus the running session) to `bob capture-complete` for `==` name fields, with
+    tests and the capture-complete docs.'
+- id: mac-override-card
+  title: Bob Mac Capture restart and swap preview, footer, and notifications
+  depends_on:
+  - override-swap
+  size: medium
+  description: 'mac-override-card: decode the parse flag and `pomodoro_start.override`,
+    extend the start presentation with restart/swap/idle variants, render the before→after
+    and demoted rows on the start card, retitle the footer and notifications, and
+    add real-bob fixtures, tests, and README rows.'
+- id: mac-override-picker
+  title: Bob Mac Capture `==#` picker status and row hints
+  depends_on:
+  - override-complete
+  - mac-override-card
+  size: small
+  description: 'mac-override-picker: decode the capture-complete `override` object
+    and use it for the `==#` picker status line and the running/open row hints, fix
+    the `=#` running-row hint to teach `==`, with fixtures and tests.'
 proposed_by: bbugyi200.apollo.61.w1.w0
 decided_by: auto
 create_time: 2026-10-09 13:24:47
 status: wip
+bead_id: bob-cli-5z
 ---
 
-- **PROMPT:**
-  [prompts/202610/pomodoro_override.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_override.md)
+- **PROMPT:** [prompts/202610/pomodoro_override.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_override.md)
+- **BEAD:** [bob-cli-5z](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5z/README.md)
 
 # Plan: `==` Pomodoro override
 
