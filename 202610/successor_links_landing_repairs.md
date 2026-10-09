@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Repair successor-link edge cases and finish bob-cli-5w landing
-goal:
-  Successor closes preserve task and ledger edits, match across engines, satisfy the
-  read budget, and close bob-cli-5w with verified integration.
+goal: Successor closes preserve task and ledger edits, match across engines, satisfy
+  the read budget, and close bob-cli-5w with verified integration.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-5w.land
 bead: bob-cli-5w
-create_time: 2026-10-09 15:54:16
-status: wip
+status: done
 ---
 
 - **BEAD:**
