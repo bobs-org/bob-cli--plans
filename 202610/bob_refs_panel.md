@@ -115,7 +115,7 @@ phases:
 proposed_by: bbugyi200.apollo.5z
 decided_by: auto
 create_time: 2026-10-08 19:32:39
-status: wip
+status: done
 bead_id: bob-cli-5s
 ---
 
