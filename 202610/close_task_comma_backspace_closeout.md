@@ -2,10 +2,9 @@
 tier: tale
 title: Finish auto-comma Backspace and retire bob-cli-60
 size: medium
-goal:
-  Backspace removes an assist-generated comma together with its task index, stale
-  clients cannot re-arm the assist, and the verified epic bob-cli-60 closes normally in
-  this coding turn.
+goal: Backspace removes an assist-generated comma together with its task index, stale
+  clients cannot re-arm the assist, and the verified epic bob-cli-60 closes normally
+  in this coding turn.
 proposed_by: bbugyi200.apollo.bob-cli-60.land
 bead: bob-cli-60
 status: done
@@ -15,11 +14,6 @@ status: done
   [202610/mac_capture_auto_comma_land.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/mac_capture_auto_comma_land.md)
 - **BEAD:**
   [bob-cli-60](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-60/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-60.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-60.land.md)
-- **COMMITS:**
-  - [1b522df](https://github.com/bobs-org/bob-mac-capture/commit/1b522df0a34688f9b2df504d8c153b7f974359ec)
-    — feat(close): provenance-aware Backspace and client-generation invalidation
 
 # Finish the remaining auto-comma work and close bob-cli-60
 
