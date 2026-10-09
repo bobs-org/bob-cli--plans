@@ -26,7 +26,7 @@ phases:
     give Bryan the bob and app reinstall steps plus the manual check.'
 proposed_by: bbugyi200.apollo.61.w1.f0
 create_time: 2026-10-09 14:19:58
-status: wip
+status: done
 bead_id: bob-cli-60
 ---
 
