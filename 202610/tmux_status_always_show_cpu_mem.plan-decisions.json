@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should the right side's width cap scale with the terminal width so the window list keeps its room?",
+      "choices": [
+        {
+          "key": "relative",
+          "label": "Width minus 60 (min 20): full line on wide screens; window list kept on narrow ones"
+        },
+        {
+          "key": "fixed",
+          "label": "Fixed 120 columns: simpler, but the window list shrinks first under ~160 columns"
+        }
+      ],
+      "default": "relative",
+      "effective_default": "relative",
+      "id": "right_cap",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Keeps today's narrow-terminal window list and never wastes free columns on wide screens"
+    }
+  ]
+}
