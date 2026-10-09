@@ -1,60 +1,57 @@
 ---
 tier: epic
-title: "Bob Refs ⌘S: scan for new references from the panel"
-goal: "Pressing ⌘S in the Bob Refs panel runs `bob ref scan -w` in the background,
-  reports exactly which references the scan added, and puts those references at the top
-  of the panel, selected. The panel stays usable, the scan survives the panel hiding,
-  and every outcome (added, nothing new, partial, failed) is reported calmly and
-  honestly.
+title: 'Bob Refs ⌘S: scan for new references from the panel'
+goal: 'Pressing ⌘S in the Bob Refs panel runs `bob ref scan -w` in the background,
+  reports exactly which references the scan added, and puts those references at the
+  top of the panel, selected. The panel stays usable, the scan survives the panel
+  hiding, and every outcome (added, nothing new, partial, failed) is reported calmly
+  and honestly.
 
-  "
+  '
 phases:
-  - id: cli-scan-json
-    title: bob ref scan gains a JSON report and a writer lock
-    depends_on: []
-    size: medium
-    description:
-      "cli-scan-json: add `-f/--format human|json` to `bob ref scan` with a versioned
-      envelope that names every created and updated note, a pure-JSON stdout (hook
-      chatter goes to stderr), coded hard-failure envelopes, and an exclusive lock that
-      serializes writing scans; document it and cover it with CLI tests."
-  - id: refs-scan-core
-    title: RefsCore scan contract, report decoding, and the Just scanned section
-    depends_on: []
-    size: medium
-    description:
-      "refs-scan-core: decode the scan envelope, build a RefsScanOutcome and its exact
-      presentation strings, add BobProcessClient.decodeReport, add RefsFetching.scan,
-      and add the time-windowed Just scanned browse section with its caption and
-      why-here line, all Linux-testable."
-  - id: refs-scan-service
-    title: Scan lane in RefsLibrary and scan behavior in RefsPanelModel
-    depends_on:
-      - refs-scan-core
-    size: medium
-    description:
-      "refs-scan-service: run the scan on its own lane with a long timeout, defer
-      watcher refreshes while it runs, publish the outcome only after a post-scan
-      snapshot pass, then re-rank, select the first new reference, raise banners, and
-      queue hidden notices in the panel model, with fake-bob coverage."
-  - id: refs-scan-ui
-    title: ⌘S key, footer status, banners, notifications, docs, and renders
-    depends_on:
-      - refs-scan-service
-      - cli-scan-json
-    size: medium
-    description:
-      "refs-scan-ui: route ⌘S and the ⌘K item, draw the footer scan status, the Just
-      scanned header, the no-match hint, and the Scan Again banner action, post
-      notifications when the panel is hidden, document the feature in the README, check
-      fixture parity with the real bob envelope, and review light and dark renders."
+- id: cli-scan-json
+  title: bob ref scan gains a JSON report and a writer lock
+  depends_on: []
+  size: medium
+  description: 'cli-scan-json: add `-f/--format human|json` to `bob ref scan` with
+    a versioned envelope that names every created and updated note, a pure-JSON stdout
+    (hook chatter goes to stderr), coded hard-failure envelopes, and an exclusive
+    lock that serializes writing scans; document it and cover it with CLI tests.'
+- id: refs-scan-core
+  title: RefsCore scan contract, report decoding, and the Just scanned section
+  depends_on: []
+  size: medium
+  description: 'refs-scan-core: decode the scan envelope, build a RefsScanOutcome
+    and its exact presentation strings, add BobProcessClient.decodeReport, add RefsFetching.scan,
+    and add the time-windowed Just scanned browse section with its caption and why-here
+    line, all Linux-testable.'
+- id: refs-scan-service
+  title: Scan lane in RefsLibrary and scan behavior in RefsPanelModel
+  depends_on:
+  - refs-scan-core
+  size: medium
+  description: 'refs-scan-service: run the scan on its own lane with a long timeout,
+    defer watcher refreshes while it runs, publish the outcome only after a post-scan
+    snapshot pass, then re-rank, select the first new reference, raise banners, and
+    queue hidden notices in the panel model, with fake-bob coverage.'
+- id: refs-scan-ui
+  title: ⌘S key, footer status, banners, notifications, docs, and renders
+  depends_on:
+  - refs-scan-service
+  - cli-scan-json
+  size: medium
+  description: 'refs-scan-ui: route ⌘S and the ⌘K item, draw the footer scan status,
+    the Just scanned header, the no-match hint, and the Scan Again banner action,
+    post notifications when the panel is hidden, document the feature in the README,
+    check fixture parity with the real bob envelope, and review light and dark renders.'
 proposed_by: bbugyi200.athena.0z1
 create_time: 2026-10-09 12:26:27
 status: wip
+bead_id: bob-cli-5x
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_refs_scan_keymap.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_scan_keymap.md)
+- **PROMPT:** [prompts/202610/bob_refs_scan_keymap.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_refs_scan_keymap.md)
+- **BEAD:** [bob-cli-5x](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-5x/README.md)
 
 # Bob Refs ⌘S: scan for new references from the panel
 
