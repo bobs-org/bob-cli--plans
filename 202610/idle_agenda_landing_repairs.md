@@ -1,17 +1,14 @@
 ---
 tier: tale
 size: medium
-title:
-  "Idle agenda landing repairs: fix the verified agenda bugs in bob-mac-capture and
-  bob-cli, then close epic bob-cli-66"
-goal:
-  The idle Pomodoro agenda shows the current snapshot and refresh state. The panel opens
-  centred where the compact bar always opened. The bob --tasks contract matches the epic
-  spec. Epic bob-cli-66 is then closed with its plan file marked done.
+title: 'Idle agenda landing repairs: fix the verified agenda bugs in bob-mac-capture
+  and bob-cli, then close epic bob-cli-66'
+goal: The idle Pomodoro agenda shows the current snapshot and refresh state. The panel
+  opens centred where the compact bar always opened. The bob --tasks contract matches
+  the epic spec. Epic bob-cli-66 is then closed with its plan file marked done.
 proposed_by: bbugyi200.athena.bob-cli-66.land
 bead: bob-cli-66
-create_time: 2026-10-09 22:12:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
