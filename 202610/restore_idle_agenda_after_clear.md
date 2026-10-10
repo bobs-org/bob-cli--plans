@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Restore the idle Pomodoro agenda after clearing capture input
-goal: Clearing capture input immediately restores the cached agenda and prevents obsolete
+goal:
+  Clearing capture input immediately restores the cached agenda and prevents obsolete
   preview responses from hiding it again.
 size: medium
 proposed_by: bbugyi200.apollo.6g.w1.w0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.6g.w1.w0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6g.w1.w0.md)
+- **COMMITS:**
+  - [63840fe](https://github.com/bobs-org/bob-mac-capture/commit/63840fe879fcea6d565de7739cb2f2b2596d917a)
+    — fix(capture): restore the idle agenda after clearing the draft
 
 # Restore the idle Pomodoro agenda when capture input is cleared
 
