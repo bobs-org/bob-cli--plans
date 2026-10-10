@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Scroll the Bob Refs preview with Ctrl+D and Ctrl+U
-goal: Make Ctrl+D and Ctrl+U scroll the reference preview down and up by half its
-  visible height while preserving search focus, query, and list selection.
+goal:
+  Make Ctrl+D and Ctrl+U scroll the reference preview down and up by half its visible
+  height while preserving search focus, query, and list selection.
 size: medium
 proposed_by: bbugyi200.apollo.66
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.66](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.66.md)
+- **COMMITS:**
+  - [4c22d09](https://github.com/bobs-org/bob-mac-capture/commit/4c22d09022dcecbfcce448a945b82583034c0c54)
+    — feat(refs): scroll the inspector preview with Ctrl+D and Ctrl+U
 
 # Scroll the Bob Refs preview with Ctrl+D and Ctrl+U
 
