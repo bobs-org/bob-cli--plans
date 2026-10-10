@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should dashboard NEXT and PENDING turn red only when their displayed section count exceeds the cap?",
+      "choices": [
+        {
+          "key": "section",
+          "label": "Yes: color section/cap; retain whole-lane pressure in tooltips and daily/CLI warnings."
+        },
+        {
+          "key": "whole_lane",
+          "label": "No: show and color whole-lane count/cap; move the section count into the tooltip."
+        }
+      ],
+      "default": "section",
+      "effective_default": "section",
+      "id": "lane_warning_scope",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Makes NEXT 10/15 non-red as requested and keeps badge counts aligned with their sections."
+    }
+  ]
+}
