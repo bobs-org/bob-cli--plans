@@ -1,37 +1,26 @@
 ---
 tier: tale
 title: Make dashboard badge warnings match their counts
-goal:
-  Make BLOCKED informational and align NEXT and PENDING warning colors with their
+goal: Make BLOCKED informational and align NEXT and PENDING warning colors with their
   displayed counts.
 size: medium
 decisions:
   lane_warning_scope:
-    ask:
-      Should dashboard NEXT and PENDING turn red only when their displayed section count
-      exceeds the cap?
+    ask: Should dashboard NEXT and PENDING turn red only when their displayed section
+      count exceeds the cap?
     choices:
-      section:
-        "Yes: color section/cap; retain whole-lane pressure in tooltips and daily/CLI
-        warnings."
-      whole_lane:
-        "No: show and color whole-lane count/cap; move the section count into the
-        tooltip."
+      section: 'Yes: color section/cap; retain whole-lane pressure in tooltips and
+        daily/CLI warnings.'
+      whole_lane: 'No: show and color whole-lane count/cap; move the section count
+        into the tooltip.'
     default: section
-    why:
-      Makes NEXT 10/15 non-red as requested and keeps badge counts aligned with their
-      sections.
+    why: Makes NEXT 10/15 non-red as requested and keeps badge counts aligned with
+      their sections.
     answer: section
 proposed_by: bbugyi200.apollo.68
 decided_by: auto
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.68](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.68.md)
-- **COMMITS:**
-  - [2725e01](https://github.com/bobs-org/bob/commit/2725e01baeb0d45672b7c7a040e554e2e30671bb)
-    — feat(dashboard): align lane warning colors with section counts
 
 # Make dashboard badge warnings trustworthy
 
