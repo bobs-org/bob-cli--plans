@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Show only the lightbulb for Keep source links in the idle agenda
-goal: Render Keep source links as lightbulbs throughout the current and future Pomodoro
+goal:
+  Render Keep source links as lightbulbs throughout the current and future Pomodoro
   agenda.
 size: small
 proposed_by: bbugyi200.apollo.6g.w1.w0.f0.w0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.6g.w1.w0.f0.w0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6g.w1.w0.f0.w0.md)
+- **COMMITS:**
+  - [4999fb7](https://github.com/bobs-org/bob-mac-capture/commit/4999fb749dbffa232fb75913b25e727b897a9417)
+    — fix(agenda): show Keep source links as a lightbulb
 
 # Show only the lightbulb for Keep source links in the idle agenda
 
