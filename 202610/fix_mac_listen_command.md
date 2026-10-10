@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Fix Bob narration on the Mac with the installed SASE plugin
-goal:
-  Make Bob's managed listen command launch the existing SASE plugin on the Mac and
-  verify the repair.
+goal: Make Bob's managed listen command launch the existing SASE plugin on the Mac
+  and verify the repair.
 size: small
 proposed_by: bbugyi200.apollo.6m
-create_time: 2026-10-10 16:10:49
-status: wip
+status: done
 ---
 
 # Fix Bob narration on the Mac by using the installed SASE command plugin
