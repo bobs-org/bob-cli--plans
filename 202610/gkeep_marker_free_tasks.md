@@ -1,12 +1,20 @@
 ---
 tier: tale
 title: Remove Google Keep bookkeeping from task Markdown
-goal: Emit and migrate marker-free GKeep tasks while preserving durable import history,
+goal:
+  Emit and migrate marker-free GKeep tasks while preserving durable import history,
   revision detection, and safe archive recovery across hosts.
 size: medium
 proposed_by: bbugyi200.apollo.6a.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.6a.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6a.f0.md)
+- **COMMITS:**
+  - [bc303b1](https://github.com/bobs-org/bob-cli/commit/bc303b14239fa43cb07b2d1f2cf41a00dbfadde8)
+    — feat(gkeep): emit marker-free tasks with vault import history and offline
+    migration
 
 # Remove Google Keep bookkeeping from task Markdown
 
