@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Toggle capture block-ID markers with the opposite separator
-goal:
-  Let typing an adjacent caret or colon switch plain capture markers in Bob Mac Capture
-  while preserving the ID, caret, and native editing behavior.
+goal: Let typing an adjacent caret or colon switch plain capture markers in Bob Mac
+  Capture while preserving the ID, caret, and native editing behavior.
 size: medium
 proposed_by: bbugyi200.apollo.6g
-create_time: 2026-10-10 12:40:00
-status: wip
+status: done
 ---
 
 # Toggle capture block-ID markers by typing the other separator
