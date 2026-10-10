@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Show only the lightbulb for Keep source links in the idle agenda
-goal:
-  Render Keep source links as lightbulbs throughout the current and future Pomodoro
+goal: Render Keep source links as lightbulbs throughout the current and future Pomodoro
   agenda.
 size: small
 proposed_by: bbugyi200.apollo.6g.w1.w0.f0.w0
-create_time: 2026-10-10 14:37:08
-status: wip
+status: done
 ---
 
 # Show only the lightbulb for Keep source links in the idle agenda
