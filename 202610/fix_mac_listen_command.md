@@ -1,19 +1,12 @@
 ---
 tier: tale
 title: Fix Bob narration on the Mac with the installed SASE plugin
-goal:
-  Make Bob's managed listen command launch the existing SASE plugin on the Mac and
-  verify the repair.
+goal: Make Bob's managed listen command launch the existing SASE plugin on the Mac
+  and verify the repair.
 size: small
 proposed_by: bbugyi200.apollo.6m
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.6m](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6m.md)
-- **COMMITS:**
-  - [14e6125](https://github.com/bobs-org/bob-cli/commit/14e6125cdd8dad1ab0b01f1a4240a040d03e6fae)
-    — docs(highlights): document sase listen plugin vs standalone sase-listen
 
 # Fix Bob narration on the Mac by using the installed SASE command plugin
 
