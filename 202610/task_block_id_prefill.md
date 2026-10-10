@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Prefill Obsidian task block-ID prompts with useful names
-goal: Every task block-ID assignment prompt offers a meaningful, editable, collision-aware
+goal:
+  Every task block-ID assignment prompt offers a meaningful, editable, collision-aware
   default without writing before confirmation.
 size: medium
 proposed_by: bbugyi200.apollo.67
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.67](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.67.md)
+- **COMMITS:**
+  - [b1b1144](https://github.com/bobs-org/bob-plugins/commit/b1b114412fedf22f79eb65ea00ff3ed20df6cab6)
+    — feat(prompts): prefill task block-ID prompts with useful names
 
 # Prefill Obsidian task block-ID prompts with useful names
 
