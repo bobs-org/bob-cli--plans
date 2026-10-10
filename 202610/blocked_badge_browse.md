@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Move the dashboard BLOCKED badge to Browse
-goal: Place BLOCKED after PROJECTS and REFERENCES in the live dashboard Browse row,
-  with matching styling and preserved count and navigation behavior.
+goal:
+  Place BLOCKED after PROJECTS and REFERENCES in the live dashboard Browse row, with
+  matching styling and preserved count and navigation behavior.
 size: small
 proposed_by: bbugyi200.apollo.6b
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.6b](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6b.md)
+- **COMMITS:**
+  - [6c1969d](https://github.com/bobs-org/bob-cli/commit/6c1969de4744ccdf9e4b974bc088d32aecc6e364)
+    — docs(dashboard): move BLOCKED into the Browse row
 
 # Move the dashboard BLOCKED badge to Browse
 
