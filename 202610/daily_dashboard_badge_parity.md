@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Align daily NEXT and PENDING badges with the dashboard
-goal: Daily NEXT and PENDING badges share the dashboard's live section counts, warning
+goal:
+  Daily NEXT and PENDING badges share the dashboard's live section counts, warning
   colors, and unavailable states while preserving clearly labeled whole-lane warnings.
 size: medium
 proposed_by: bbugyi200.apollo.68.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.68.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.68.f0.md)
+- **COMMITS:**
+  - [b9fb9b8](https://github.com/bobs-org/bob-cli/commit/b9fb9b8978d5d2c4908a78babea4b482cc1d4b6b)
+    — docs(plan): document daily PENDING/NEXT dashboard section badges
 
 # Align daily NEXT and PENDING badges with the dashboard
 
