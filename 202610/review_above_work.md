@@ -2,12 +2,18 @@
 tier: tale
 size: small
 title: Move the Dashboard Review row above Work
-goal: Put the Review badge row above Work on the live dashboard so morning review
-  is the first navigation row, with Browse still last and every badge's membership
-  unchanged.
+goal:
+  Put the Review badge row above Work on the live dashboard so morning review is the
+  first navigation row, with Browse still last and every badge's membership unchanged.
 proposed_by: bbugyi200.apollo.6e
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.6e](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.6e.md)
+- **COMMITS:**
+  - [559e45b](https://github.com/bobs-org/bob-cli/commit/559e45bd6b7dc3c9e17aeb71feaff76485c1f160)
+    — docs(dashboard): put Review above Work in navigation order
 
 # Move the Dashboard Review row above Work
 
