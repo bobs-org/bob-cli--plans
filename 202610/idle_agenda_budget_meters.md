@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Show saved theme and Task Link budgets on the idle agenda
-goal:
-  Paint bob's saved daily theme and Task Link counts and caps on Bob Mac Capture's
+goal: Paint bob's saved daily theme and Task Link counts and caps on Bob Mac Capture's
   empty-draft agenda, using the plan_budget object capture-pomodoros --tasks already
   returns.
 size: medium
 proposed_by: bbugyi200.apollo.6i
-create_time: 2026-10-10 15:13:23
-status: wip
+status: done
 ---
 
 # Show saved theme and Task Link budgets on the idle agenda
