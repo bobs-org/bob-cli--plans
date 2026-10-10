@@ -22,6 +22,8 @@ status: done
 - **COMMITS:**
   - [06b2bda](https://github.com/bobs-org/bob-mac-capture/commit/06b2bda06be5670c74871b66ceabf42ed6415328)
     — fix(agenda): repair idle agenda landing bugs B1-B9
+  - [5a5681e](https://github.com/bobs-org/bob-mac-capture/commit/5a5681e4339be24661eec4bc40de2fdde06570cf)
+    — fix(agenda): measure eye line outside pinned content limits
   - [ce42822](https://github.com/bobs-org/bob-mac-capture/commit/ce42822bb056964f2820af6d3433bcd2a8503922)
     — test(agenda): repair settle-hook and eye-line tests against CI failures
 
