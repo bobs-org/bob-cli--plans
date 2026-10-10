@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Restore the idle Pomodoro agenda after clearing capture input
-goal:
-  Clearing capture input immediately restores the cached agenda and prevents obsolete
+goal: Clearing capture input immediately restores the cached agenda and prevents obsolete
   preview responses from hiding it again.
 size: medium
 proposed_by: bbugyi200.apollo.6g.w1.w0
-create_time: 2026-10-10 13:40:15
-status: wip
+status: done
 ---
 
 # Restore the idle Pomodoro agenda when capture input is cleared
