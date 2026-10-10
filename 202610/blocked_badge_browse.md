@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Move the dashboard BLOCKED badge to Browse
-goal:
-  Place BLOCKED after PROJECTS and REFERENCES in the live dashboard Browse row, with
-  matching styling and preserved count and navigation behavior.
+goal: Place BLOCKED after PROJECTS and REFERENCES in the live dashboard Browse row,
+  with matching styling and preserved count and navigation behavior.
 size: small
 proposed_by: bbugyi200.apollo.6b
-create_time: 2026-10-10 09:44:42
-status: wip
+status: done
 ---
 
 # Move the dashboard BLOCKED badge to Browse
