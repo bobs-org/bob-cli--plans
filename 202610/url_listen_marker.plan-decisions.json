@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Which standalone marker should request listening immediately after a URL?",
+      "choices": [
+        {
+          "key": "at",
+          "label": "Use @ as requested in the prose; URL @ means listen, while @route still selects a parent."
+        },
+        {
+          "key": "percent",
+          "label": "Use % from the example; URL % means listen, overriding clipboard syntax for eligible refs."
+        }
+      ],
+      "default": "at",
+      "effective_default": "at",
+      "id": "listen_marker",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "The request explicitly names @; the % example conflicts with the existing clipboard shortcut."
+    }
+  ]
+}
