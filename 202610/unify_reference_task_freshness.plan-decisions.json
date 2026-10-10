@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Record the ordinary reference-task freshness policy in a new decision note?",
+      "default": false,
+      "effective_default": false,
+      "id": "memory_reference_policy",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "decisions:reference-tasks-use-ordinary-freshness"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "exists": false,
+          "kind": "strand",
+          "path": "sase/memory/decisions/reference-tasks-use-ordinary-freshness.md",
+          "scope": "project",
+          "selector": "decisions:reference-tasks-use-ordinary-freshness",
+          "type": "strand"
+        }
+      ]
+    },
+    {
+      "ask": "Mark the review-walk decision partly superseded for REFERENCES, linking the new policy?",
+      "default": false,
+      "effective_default": false,
+      "id": "memory_walk_supersession",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "decisions:review-walk-is-tiered"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/decisions.md",
+          "scope": "project",
+          "selector": "decisions:review-walk-is-tiered",
+          "strands": [
+            "Review Walk Is Tiered With Daily Lane Review"
+          ],
+          "type": "web"
+        }
+      ]
+    },
+    {
+      "ask": "Update the task-freshness glossary for ordinary ref freshness and the resulting review order?",
+      "default": false,
+      "effective_default": false,
+      "id": "memory_freshness_glossary",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:task-freshness"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/glossary.md",
+          "scope": "project",
+          "selector": "glossary:task-freshness",
+          "strands": [
+            "Task Freshness"
+          ],
+          "type": "web"
+        }
+      ]
+    }
+  ]
+}
