@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Remove Google Keep bookkeeping from task Markdown
-goal:
-  Emit and migrate marker-free GKeep tasks while preserving durable import history,
+goal: Emit and migrate marker-free GKeep tasks while preserving durable import history,
   revision detection, and safe archive recovery across hosts.
 size: medium
 proposed_by: bbugyi200.apollo.6a.f0
-create_time: 2026-10-10 09:52:22
-status: wip
+status: done
 ---
 
 # Remove Google Keep bookkeeping from task Markdown
