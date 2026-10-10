@@ -2,12 +2,11 @@
 tier: tale
 size: small
 title: Move the Dashboard Review row above Work
-goal:
-  Put the Review badge row above Work on the live dashboard so morning review is the
-  first navigation row, with Browse still last and every badge's membership unchanged.
+goal: Put the Review badge row above Work on the live dashboard so morning review
+  is the first navigation row, with Browse still last and every badge's membership
+  unchanged.
 proposed_by: bbugyi200.apollo.6e
-create_time: 2026-10-10 12:33:38
-status: wip
+status: done
 ---
 
 # Move the Dashboard Review row above Work
