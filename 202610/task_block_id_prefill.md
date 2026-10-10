@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Prefill Obsidian task block-ID prompts with useful names
-goal:
-  Every task block-ID assignment prompt offers a meaningful, editable, collision-aware
+goal: Every task block-ID assignment prompt offers a meaningful, editable, collision-aware
   default without writing before confirmation.
 size: medium
 proposed_by: bbugyi200.apollo.67
-create_time: 2026-10-10 08:26:21
-status: wip
+status: done
 ---
 
 # Prefill Obsidian task block-ID prompts with useful names
