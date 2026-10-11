@@ -1,26 +1,37 @@
 ---
 tier: tale
 title: Fix the latent test failures behind bob-mac-capture's red CI
-goal: The macOS 26 SwiftPM CI job passes again, with all five latent test failures
-  fixed at their root causes.
+goal:
+  The macOS 26 SwiftPM CI job passes again, with all five latent test failures fixed at
+  their root causes.
 size: medium
 decisions:
   inspector_scroll:
-    ask: Should Ctrl+D/U scroll the inspector's NSScrollView from the panel controller
+    ask:
+      Should Ctrl+D/U scroll the inspector's NSScrollView from the panel controller
       instead of SwiftUI?
     choices:
-      appkit: Yes; synchronous AppKit scroll, passes on the Mac, reverses the original
+      appkit:
+        Yes; synchronous AppKit scroll, passes on the Mac, reverses the original
         SwiftUI-only design
-      swiftui: No; keep SwiftUI, fix only lookup and diagnostics; CI likely stays
-        red another round
+      swiftui:
+        No; keep SwiftUI, fix only lookup and diagnostics; CI likely stays red another
+        round
     default: appkit
-    why: Removes the CI-only SwiftUI dependency instead of waiting on another red
-      CI round
+    why:
+      Removes the CI-only SwiftUI dependency instead of waiting on another red CI round
     answer: appkit
 proposed_by: bbugyi200.athena.0zk.f0
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0zk.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0zk.f0.md)
+- **COMMITS:**
+  - [eed300d](https://github.com/bobs-org/bob-mac-capture/commit/eed300d33e5296336f5b24fb56a762f283aa9048)
+    — fix(bob-mac-capture): resolve latent CI failures in capture, panel, inspector
+    scroll, and refs library
 
 # Fix the latent test failures behind bob-mac-capture's red CI
 
