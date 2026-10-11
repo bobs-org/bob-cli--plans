@@ -1,52 +1,48 @@
 ---
 tier: epic
 title: Complete Daily Stats charts, context panels, and interaction
-goal:
-  Ship and visually verify the remaining Stats page work, then close bob-cli-6l.5 with
-  evidence while leaving bob-cli-6l open.
+goal: Ship and visually verify the remaining Stats page work, then close bob-cli-6l.5
+  with evidence while leaving bob-cli-6l open.
 phases:
-  - id: chart_data
-    title: Supply chart and calendar presentation data
-    size: medium
-    depends_on: []
-    description:
-      "chart_data: add schema-1 presentation metadata for grouped chart bands, daily
-      drill-down, checklist states, and chore summaries without changing existing metric
-      values."
-  - id: focus_interaction
-    title: Build the focus chart and accessible interactions
-    size: medium
-    depends_on:
-      - chart_data
-    description:
-      "focus_interaction: implement pure SVG geometry, focus chart marks, responsive
-      lifecycle, definitions, day detail, keyboard control, and session-only local
-      redraws in bob-ledger-tools."
-  - id: context_panels
-    title: Render metric-family context panels
-    size: medium
-    depends_on:
-      - focus_interaction
-    description:
-      "context_panels: add theme and task breakdowns, task flow, review counterweights,
-      calendar and chore grids using the shared chart and interaction helpers."
-  - id: rendered_verification
-    title: Verify the real renderer in light and dark
-    size: medium
-    depends_on:
-      - context_panels
-    description:
-      "rendered_verification: add a fixture-driven browser preview, inspect light/dark
-      and narrow/wide screenshots, fix visual and interaction defects, run integration
-      checks, and deploy the completed plugin."
+- id: chart_data
+  title: Supply chart and calendar presentation data
+  size: medium
+  depends_on: []
+  description: 'chart_data: add schema-1 presentation metadata for grouped chart bands,
+    daily drill-down, checklist states, and chore summaries without changing existing
+    metric values.'
+- id: focus_interaction
+  title: Build the focus chart and accessible interactions
+  size: medium
+  depends_on:
+  - chart_data
+  description: 'focus_interaction: implement pure SVG geometry, focus chart marks,
+    responsive lifecycle, definitions, day detail, keyboard control, and session-only
+    local redraws in bob-ledger-tools.'
+- id: context_panels
+  title: Render metric-family context panels
+  size: medium
+  depends_on:
+  - focus_interaction
+  description: 'context_panels: add theme and task breakdowns, task flow, review counterweights,
+    calendar and chore grids using the shared chart and interaction helpers.'
+- id: rendered_verification
+  title: Verify the real renderer in light and dark
+  size: medium
+  depends_on:
+  - context_panels
+  description: 'rendered_verification: add a fixture-driven browser preview, inspect
+    light/dark and narrow/wide screenshots, fix visual and interaction defects, run
+    integration checks, and deploy the completed plugin.'
 proposed_by: bbugyi200.apollo.bob-cli-6l.5
 parent_bead: bob-cli-6l.5
 create_time: 2026-10-11 14:15:45
 status: wip
+bead_id: bob-cli-6l.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/stats_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/stats_charts.md)
+- **PROMPT:** [prompts/202610/stats_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/stats_charts.md)
+- **BEAD:** [bob-cli-6l.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6l/bob-cli-6l.5.1.md)
 
 # Complete the Daily Stats chart phase
 
