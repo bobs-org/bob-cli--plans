@@ -91,7 +91,7 @@ proposed_by: bbugyi200.apollo.research.0u.linker.w0
 decided_by: agent
 decided_via: cli
 create_time: 2026-10-11 07:01:04
-status: wip
+status: done
 bead_id: bob-cli-6l
 ---
 
