@@ -1,14 +1,13 @@
 ---
 tier: tale
 title: Restore auto-opening pickers after a typed colon or caret in Bob Mac Capture
-goal:
-  Typing `@route:`, `@route^`, or a whole-item `^` in Bob Mac Capture opens its picker
-  or completion again without Tab. The `@route:id` / `@route^id` separator toggle keeps
-  working with no picker flash, and regression tests drive the real key-intent path.
+goal: Typing `@route:`, `@route^`, or a whole-item `^` in Bob Mac Capture opens its
+  picker or completion again without Tab. The `@route:id` / `@route^id` separator
+  toggle keeps working with no picker flash, and regression tests drive the real key-intent
+  path.
 size: small
 proposed_by: bbugyi200.apollo.6o
-create_time: 2026-10-11 06:21:10
-status: wip
+status: done
 ---
 
 # Plan: Restore auto-opening pickers after a typed `:` / `^` in Bob Mac Capture
