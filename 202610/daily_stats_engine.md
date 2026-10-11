@@ -1,78 +1,72 @@
 ---
 tier: epic
 title: Daily Stats engine for bob-cli-6l.2
-goal:
-  Complete bob-cli-6l.2 with a single-pass read-only stats engine, six configurable
-  metric kinds, all eleven built-ins, honest schema-1 reports, tested aggregation, and
-  engine documentation; the child epic land agent closes only that outer phase.
+goal: Complete bob-cli-6l.2 with a single-pass read-only stats engine, six configurable
+  metric kinds, all eleven built-ins, honest schema-1 reports, tested aggregation,
+  and engine documentation; the child epic land agent closes only that outer phase.
 phases:
-  - id: contracts
-    title: Define the stats model and configurable metric registry
-    size: medium
-    depends_on: []
-    description:
-      "contracts: implement the schema-1 report and request types, isolated stats
-      configuration, eleven built-ins through the same entry validator as custom
-      metrics, and formula parsing and dependency validation. Establish the interfaces
-      below; do not add a CLI or a placeholder compute implementation."
-  - id: inputs
-    title: Build the single-pass vault and journal index
-    size: medium
-    depends_on:
-      - contracts
-    description:
-      "inputs: reuse the Tasks per-file parser and Pomodoro scanner to read each
-      Markdown file once, include archives with source residence, preserve date
-      diagnostics, resolve parent links from the same walk, and index every host journal
-      with deterministic ordering and health counters."
-  - id: series
-    title: Implement ranges, grouping, summaries, and display strings
-    size: medium
-    depends_on:
-      - contracts
-    description:
-      "series: implement pure range and prior-window resolution, ISO/calendar grouping,
-      pooled ratios, boolean day counts, rolling medians, summaries, deltas, and shared
-      formatting over synthetic daily series. Today never enters summaries."
-  - id: vault_metrics
-    title: Evaluate Pomodoro, task, checklist, and field metrics
-    size: medium
-    depends_on:
-      - inputs
-    description:
-      "vault_metrics: evaluate four derived metric kinds from the shared index,
-      including since, quality, parts, archive-invariant task filters, checklist
-      outstanding intervals, and typed daily fields. Add hand-calculated tests per kind."
-  - id: journal_formulas
-    title: Evaluate review answers and formulas
-    size: medium
-    depends_on:
-      - vault_metrics
-    description:
-      "journal_formulas: implement journal distinct-row and last-answer selectors,
-      recorded-writer compatibility, review-close gap detection, and checked formula
-      evaluation with null and quality propagation. Test multi-host reader vectors and
-      the existing R1-R19 writer vectors without changing the journal writer."
-  - id: integration
-    title: Assemble compute, prove the schema, and document the engine
-    size: medium
-    depends_on:
-      - series
-      - journal_formulas
-    description:
-      "integration: wire the completed components into compute(&StatsRequest), add the
-      golden fixture vault and independent expected report values, document all engine
-      contracts and limitations in docs/stats.md, and verify read-only behavior,
-      deterministic output, and the repository checks. Leave the enclosing phase and all
-      ancestor closure to the child epic land agent."
+- id: contracts
+  title: Define the stats model and configurable metric registry
+  size: medium
+  depends_on: []
+  description: 'contracts: implement the schema-1 report and request types, isolated
+    stats configuration, eleven built-ins through the same entry validator as custom
+    metrics, and formula parsing and dependency validation. Establish the interfaces
+    below; do not add a CLI or a placeholder compute implementation.'
+- id: inputs
+  title: Build the single-pass vault and journal index
+  size: medium
+  depends_on:
+  - contracts
+  description: 'inputs: reuse the Tasks per-file parser and Pomodoro scanner to read
+    each Markdown file once, include archives with source residence, preserve date
+    diagnostics, resolve parent links from the same walk, and index every host journal
+    with deterministic ordering and health counters.'
+- id: series
+  title: Implement ranges, grouping, summaries, and display strings
+  size: medium
+  depends_on:
+  - contracts
+  description: 'series: implement pure range and prior-window resolution, ISO/calendar
+    grouping, pooled ratios, boolean day counts, rolling medians, summaries, deltas,
+    and shared formatting over synthetic daily series. Today never enters summaries.'
+- id: vault_metrics
+  title: Evaluate Pomodoro, task, checklist, and field metrics
+  size: medium
+  depends_on:
+  - inputs
+  description: 'vault_metrics: evaluate four derived metric kinds from the shared
+    index, including since, quality, parts, archive-invariant task filters, checklist
+    outstanding intervals, and typed daily fields. Add hand-calculated tests per kind.'
+- id: journal_formulas
+  title: Evaluate review answers and formulas
+  size: medium
+  depends_on:
+  - vault_metrics
+  description: 'journal_formulas: implement journal distinct-row and last-answer selectors,
+    recorded-writer compatibility, review-close gap detection, and checked formula
+    evaluation with null and quality propagation. Test multi-host reader vectors and
+    the existing R1-R19 writer vectors without changing the journal writer.'
+- id: integration
+  title: Assemble compute, prove the schema, and document the engine
+  size: medium
+  depends_on:
+  - series
+  - journal_formulas
+  description: 'integration: wire the completed components into compute(&StatsRequest),
+    add the golden fixture vault and independent expected report values, document
+    all engine contracts and limitations in docs/stats.md, and verify read-only behavior,
+    deterministic output, and the repository checks. Leave the enclosing phase and
+    all ancestor closure to the child epic land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-6l.2
 parent_bead: bob-cli-6l.2
 create_time: 2026-10-11 07:36:40
 status: wip
+bead_id: bob-cli-6l.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/daily_stats_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/daily_stats_engine.md)
+- **PROMPT:** [prompts/202610/daily_stats_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/daily_stats_engine.md)
+- **BEAD:** [bob-cli-6l.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6l/bob-cli-6l.2.1.md)
 
 # Daily Stats engine for bob-cli-6l.2
 
