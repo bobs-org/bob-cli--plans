@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Repair bob-mac-capture CI test compilation
-goal:
-  Restore passing macOS tests and the complete CI job while preserving
-  inspector-scrolling coverage.
+goal: Restore passing macOS tests and the complete CI job while preserving inspector-scrolling
+  coverage.
 size: small
 proposed_by: bbugyi200.athena.0zk
-create_time: 2026-10-11 07:03:33
-status: wip
+status: done
 ---
 
 # Repair bob-mac-capture CI test compilation
