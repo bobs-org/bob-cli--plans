@@ -1,30 +1,25 @@
 ---
 tier: tale
 title: Fix the latent test failures behind bob-mac-capture's red CI
-goal:
-  The macOS 26 SwiftPM CI job passes again, with all five latent test failures fixed at
-  their root causes.
+goal: The macOS 26 SwiftPM CI job passes again, with all five latent test failures
+  fixed at their root causes.
 size: medium
 decisions:
   inspector_scroll:
-    ask:
-      Should Ctrl+D/U scroll the inspector's NSScrollView from the panel controller
+    ask: Should Ctrl+D/U scroll the inspector's NSScrollView from the panel controller
       instead of SwiftUI?
     choices:
-      appkit:
-        Yes; synchronous AppKit scroll, passes on the Mac, reverses the original
+      appkit: Yes; synchronous AppKit scroll, passes on the Mac, reverses the original
         SwiftUI-only design
-      swiftui:
-        No; keep SwiftUI, fix only lookup and diagnostics; CI likely stays red another
-        round
+      swiftui: No; keep SwiftUI, fix only lookup and diagnostics; CI likely stays
+        red another round
     default: appkit
-    why:
-      Removes the CI-only SwiftUI dependency instead of waiting on another red CI round
+    why: Removes the CI-only SwiftUI dependency instead of waiting on another red
+      CI round
     answer: appkit
 proposed_by: bbugyi200.athena.0zk.f0
 decided_by: auto
-create_time: 2026-10-11 08:32:57
-status: wip
+status: done
 ---
 
 # Fix the latent test failures behind bob-mac-capture's red CI
