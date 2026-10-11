@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Finish the Daily Stats engine landing (bob-cli-6l.2.1) and close it out
-goal:
-  The Daily Stats engine computes correct values on the real vault (checklist chores,
-  journal gaps, since rules, deltas, grouping, rolling medians) with the required
+goal: The Daily Stats engine computes correct values on the real vault (checklist
+  chores, journal gaps, since rules, deltas, grouping, rolling medians) with the required
   fixture, parity, and doc evidence, and epic bob-cli-6l.2.1 plus its parent phase
   bob-cli-6l.2 are closed.
 proposed_by: bbugyi200.apollo.bob-cli-6l.2.1.land
 bead: bob-cli-6l.2.1
-create_time: 2026-10-11 11:30:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
