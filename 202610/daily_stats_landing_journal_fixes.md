@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Daily Stats landing — bring the review-journal writer up to its contract, then
-  close bob-cli-6l
-goal: Every counted ]s answer journals the outcome, host, and writer version the Daily
-  Stats plan specified, journal failures notify once instead of every 15 seconds,
-  and epic bob-cli-6l is closed with its plan marked done.
+title:
+  Daily Stats landing — bring the review-journal writer up to its contract, then close
+  bob-cli-6l
+goal:
+  Every counted ]s answer journals the outcome, host, and writer version the Daily Stats
+  plan specified, journal failures notify once instead of every 15 seconds, and epic
+  bob-cli-6l is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-6l.land
 bead: bob-cli-6l
 status: done
@@ -15,6 +17,11 @@ status: done
   [202610/daily_stats.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/daily_stats.md)
 - **BEAD:**
   [bob-cli-6l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6l/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-6l.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-6l.land.md)
+- **COMMITS:**
+  - [3888525](https://github.com/bobs-org/bob-cli--plans/commit/3888525eef3e04633b5ea76f0d0cac1d4b945431)
+    — docs(daily-stats): mark parent plan done
 
 # Daily Stats landing — review-journal writer fixes and epic closeout
 
