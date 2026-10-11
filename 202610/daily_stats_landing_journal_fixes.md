@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Daily Stats landing — bring the review-journal writer up to its contract, then
-  close bob-cli-6l
-goal: Every counted ]s answer journals the outcome, host, and writer version the Daily
-  Stats plan specified, journal failures notify once instead of every 15 seconds,
-  and epic bob-cli-6l is closed with its plan marked done.
+title:
+  Daily Stats landing — bring the review-journal writer up to its contract, then close
+  bob-cli-6l
+goal:
+  Every counted ]s answer journals the outcome, host, and writer version the Daily Stats
+  plan specified, journal failures notify once instead of every 15 seconds, and epic
+  bob-cli-6l is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-6l.land
 bead: bob-cli-6l
 status: done
@@ -15,6 +17,11 @@ status: done
   [202610/daily_stats.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/daily_stats.md)
 - **BEAD:**
   [bob-cli-6l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6l/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-6l.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-6l.land.md)
+- **COMMITS:**
+  - [7f6fdf9](https://github.com/bobs-org/bob-plugins/commit/7f6fdf9d0aea35ddd8ed83b200c0ba4c3ec54c71)
+    — feat(stats): land review-journal writer contract
 
 # Daily Stats landing — review-journal writer fixes and epic closeout
 
