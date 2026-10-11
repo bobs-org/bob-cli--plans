@@ -1,17 +1,14 @@
 ---
 tier: tale
 size: medium
-title:
-  Daily Stats landing — bring the review-journal writer up to its contract, then close
-  bob-cli-6l
-goal:
-  Every counted ]s answer journals the outcome, host, and writer version the Daily Stats
-  plan specified, journal failures notify once instead of every 15 seconds, and epic
-  bob-cli-6l is closed with its plan marked done.
+title: Daily Stats landing — bring the review-journal writer up to its contract, then
+  close bob-cli-6l
+goal: Every counted ]s answer journals the outcome, host, and writer version the Daily
+  Stats plan specified, journal failures notify once instead of every 15 seconds,
+  and epic bob-cli-6l is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-6l.land
 bead: bob-cli-6l
-create_time: 2026-10-11 17:35:03
-status: wip
+status: done
 ---
 
 - **PARENT:**
