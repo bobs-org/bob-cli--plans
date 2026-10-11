@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Repair bob-mac-capture CI test compilation
-goal: Restore passing macOS tests and the complete CI job while preserving inspector-scrolling
-  coverage.
+goal:
+  Restore passing macOS tests and the complete CI job while preserving
+  inspector-scrolling coverage.
 size: small
 proposed_by: bbugyi200.athena.0zk
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.0zk](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.0zk.md)
+- **COMMITS:**
+  - [37250d9](https://github.com/bobs-org/bob-mac-capture/commit/37250d9633f117d2fdccb3848f0af35267e05ef3)
+    — fix(tests): repair inspector-scroll test compilation
 
 # Repair bob-mac-capture CI test compilation
 
