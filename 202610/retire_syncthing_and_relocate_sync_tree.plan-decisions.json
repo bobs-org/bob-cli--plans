@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Where should the relocated legacy tree (formerly ~/Sync) live?",
+      "choices": [
+        {
+          "key": "db",
+          "label": "~/db: matches the existing $DB/$DBB/$DBH variables in ~/.profile"
+        },
+        {
+          "key": "legacy",
+          "label": "~/legacy: names it as the pre-chezmoi legacy tree; $DB is repointed at it"
+        }
+      ],
+      "default": "db",
+      "effective_default": "db",
+      "id": "root",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "~/.profile already calls this root $DB, and a ~/ sibling makes link retargets one-component swaps"
+    },
+    {
+      "ask": "Should the ~70 stow-style dotfile symlinks into the tree become real files in ~?",
+      "choices": [
+        {
+          "key": "repoint",
+          "label": "No: keep them as symlinks retargeted into the tree (pure rename, lowest risk)"
+        },
+        {
+          "key": "materialize",
+          "label": "Yes: move each linked file into ~ and rewrite its references; more invasive"
+        }
+      ],
+      "default": "repoint",
+      "effective_default": "repoint",
+      "id": "dotfiles",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "a pure rename fixes everything with one verifiable substitution; de-stowing can come later"
+    },
+    {
+      "ask": "Should all ~400 Syncthing *.sync-conflict-* files under ~ (2020-2022) be deleted?",
+      "choices": [
+        {
+          "key": "delete",
+          "label": "Yes: delete after writing a manifest; copies remain in hercules monthly/yearly backups"
+        },
+        {
+          "key": "keep",
+          "label": "No: keep them (links retargeted); only markers, config, and the package are removed"
+        }
+      ],
+      "default": "delete",
+      "effective_default": "delete",
+      "id": "conflicts",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "they are Syncthing artifacts by definition, years stale, and still recoverable from hercules"
+    },
+    {
+      "ask": "Should the old 33 GB ~/tmp contents (reachable only via ~/bar) move to ~/tmp/old_tmp?",
+      "choices": [
+        {
+          "key": "nest",
+          "label": "Yes: move them to ~/tmp/old_tmp and delete ~/bar, as the Oct 9 history attempted"
+        },
+        {
+          "key": "keep",
+          "label": "No: leave them inside the relocated tree and just delete the ~/bar link"
+        }
+      ],
+      "default": "nest",
+      "effective_default": "nest",
+      "id": "old_tmp",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "zsh history shows `mv ~/old_tmp ~/tmp/` on Oct 9 and `ls ~/tmp/old_tmp` on Oct 12"
+    }
+  ]
+}
