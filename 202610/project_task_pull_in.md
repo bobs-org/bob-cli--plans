@@ -1,82 +1,76 @@
 ---
 tier: epic
 title: Pull an emptied project's ^prj task in as a successor link
-goal: "When a close gesture completes the last open task in a project note through its
-  Task Link, the project's ^prj task is linked right after that link, becomes Next [*],
-  and loses #hide in the same write, in both bob capture and Obsidian, so Bryan
-  immediately sees that the project needs a decision: close it, or add its next task.
+goal: 'When a close gesture completes the last open task in a project note through
+  its Task Link, the project''s ^prj task is linked right after that link, becomes
+  Next [*], and loses #hide in the same write, in both bob capture and Obsidian, so
+  Bryan immediately sees that the project needs a decision: close it, or add its next
+  task.
 
-  "
+  '
 decisions:
   unblocked_prj:
-    ask:
-      Also pull in a ^prj that the close fully unblocks when its project has no open
-      tasks left?
+    ask: Also pull in a ^prj that the close fully unblocks when its project has no
+      open tasks left?
     default: true
-    why:
-      Same "nothing workable left" state, reached by closing the project's last
+    why: Same "nothing workable left" state, reached by closing the project's last
       prerequisite
     answer: true
   subproject_cascade:
-    ask:
-      Pull in a parent's ^prj when closing a sub-project's ^prj leaves the parent with
-      no open work?
+    ask: Pull in a parent's ^prj when closing a sub-project's ^prj leaves the parent
+      with no open work?
     default: false
-    why:
-      Matches bob-cli-6s's residence-only stance; projects sync still surfaces the
-      parent
+    why: Matches bob-cli-6s's residence-only stance; projects sync still surfaces
+      the parent
     answer: false
   decision_record:
-    ask:
-      "Add a decisions-web record for the project pull-in rule (links ^prj as Next,
-      drops #hide)?"
+    ask: 'Add a decisions-web record for the project pull-in rule (links ^prj as Next,
+      drops #hide)?'
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Project pull-in contract and PP vectors
-    depends_on: []
-    size: small
-    description:
-      "contract: add docs/task-dependencies.md §12.10 (trigger, rule, gate, writes,
-      reporting, copy, undo, interplay) with PP vectors, and amend §12, §13.4,
-      projects/plan/capture docs, and README."
-  - id: cli
-    title: Project pull-in in bob capture closes
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli: after bob-cli-6s.5 lands, add the pure pull-in planner, wire it into
-      plan_successors and the ! and =x close paths, extend JSON and human output, and
-      test the PP vectors."
-  - id: plugins
-    title: Project pull-in in the cycler and the Unblocked notice
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "plugins: mirror the pull-in in task-status-cycler (new fragments, gate, receipt)
-      and render pull-in rows plus the missing project labels in nav's Unblocked notice."
-  - id: rollout
-    title: Install, deploy, verify, and record
-    depends_on:
-      - cli
-      - plugins
-    size: small
-    description:
-      "rollout: install bob and deploy both plugins here, reach the MacBook only after
-      bob-cli-6s.12 closes, verify on a vault copy, and record the result."
+- id: contract
+  title: Project pull-in contract and PP vectors
+  depends_on: []
+  size: small
+  description: 'contract: add docs/task-dependencies.md §12.10 (trigger, rule, gate,
+    writes, reporting, copy, undo, interplay) with PP vectors, and amend §12, §13.4,
+    projects/plan/capture docs, and README.'
+- id: cli
+  title: Project pull-in in bob capture closes
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli: after bob-cli-6s.5 lands, add the pure pull-in planner, wire
+    it into plan_successors and the ! and =x close paths, extend JSON and human output,
+    and test the PP vectors.'
+- id: plugins
+  title: Project pull-in in the cycler and the Unblocked notice
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugins: mirror the pull-in in task-status-cycler (new fragments,
+    gate, receipt) and render pull-in rows plus the missing project labels in nav''s
+    Unblocked notice.'
+- id: rollout
+  title: Install, deploy, verify, and record
+  depends_on:
+  - cli
+  - plugins
+  size: small
+  description: 'rollout: install bob and deploy both plugins here, reach the MacBook
+    only after bob-cli-6s.12 closes, verify on a vault copy, and record the result.'
 proposed_by: bbugyi200.apollo.6z
 decided_by: auto
 create_time: 2026-10-12 10:07:28
 status: wip
+bead_id: bob-cli-6t
 ---
 
-- **PROMPT:**
-  [prompts/202610/project_task_pull_in.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_task_pull_in.md)
+- **PROMPT:** [prompts/202610/project_task_pull_in.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_task_pull_in.md)
+- **BEAD:** [bob-cli-6t](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6t/README.md)
 
 # Plan: Pull an emptied project's `^prj` task in as a successor link
 
