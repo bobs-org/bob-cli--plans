@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should the whole sase-core target/ build tree be deleted, not just its stale debug and release profiles?",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Delete all of target/ (~22G); the next sase-core dev-update rebuilds once from scratch"
+        },
+        {
+          "key": "stale",
+          "label": "Delete only target/debug and target/release (~5G); keep the warm 16G dev-update caches"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "id": "sase_core_target",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Everything under target/ is rebuildable; the 16G dev-update caches are mostly stale artifacts"
+    },
+    {
+      "ask": "Delete the three superseded Swift 6.1.2 toolchain copies (~7.8G)?",
+      "default": true,
+      "effective_default": true,
+      "id": "old_swift",
+      "kind": "toggle",
+      "requested_verified": false,
+      "why": "swiftly reports 6.4.0 in use and nothing on apollo references the 6.1.2 copies"
+    }
+  ]
+}
