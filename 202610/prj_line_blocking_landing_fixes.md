@@ -1,97 +1,88 @@
 ---
 tier: epic
 title: Finish landing ^prj project blocking — fix the defects the land audit found
-goal:
-  "Every defect that bob-cli-6u (project blocking from the ^prj line, #prj_is_blocked,
+goal: 'Every defect that bob-cli-6u (project blocking from the ^prj line, #prj_is_blocked,
   and [unblocked::]) introduced is fixed in bob-cli and bob-plugins. bob-cli `just
   check` fails only the bob-cli-6m percent-listen tests. bob-plugins `npm test` fails
   only the known pre-epic failures (bob-cli-6v, bob-cli-6w, plus the bob-cli-3w timing
-  flake). The fixed bob and plugins are installed on the MacBook and on this host."
+  flake). The fixed bob and plugins are installed on the MacBook and on this host.'
 phases:
-  - id: cli-reconcile-close
-    title: Reconcile and close-path fixes plus the two epic-caused CLI test failures
-    depends_on: []
-    size: medium
-    description:
-      "cli-reconcile-close: fix the two failing CLI fixtures, strip #prj_is_blocked from
-      every resident when ^prj recovers (PDC3), guard internal ^prj targets on the
-      adoption/legacy paths, stop marking status-only flips structural, recurring and
-      CRLF fixes, the direct-link ^prj rule, dead code, and missing reconcile tests."
-  - id: cli-projects-sync
-    title: Projects sync hoist, Sub-projects placement, and inline ^prj schedule issues
-    depends_on:
-      - cli-reconcile-close
-    size: small
-    description:
-      "cli-projects-sync: gate the hoist on an open ^prj, insert Sub-projects after the
-      whole Cancel Log / Depends-On subtree, match only direct Depends-On children,
-      report invalid or duplicate inline ^prj dates, skip fenced lines, tag-helper
-      tests."
-  - id: cli-capture
-    title: Capture link-guard, & on ^prj, and output-compatibility fixes
-    depends_on: []
-    size: medium
-    description:
-      "cli-capture: restore pull-forward for residents of unblocked projects, stop
-      claiming links in existing capture JSON fields, resident cycle edges and id-less
-      residents on & to ^prj, never raise Blocked seeds, struck links, `+` residents,
-      keep-link consumption, and no whole-vault read for non-Blocked link targets."
-  - id: nav-fixes
-    title: Navigation-hotkeys project-blocking fixes
-    depends_on: []
-    size: medium
-    description:
-      "nav-fixes: resident recovery only from a blocked ^prj, resident cycle edges when
-      ^prj gains a prerequisite, tag drift in schedule and move paths, [unblocked::] and
-      emptied-entry cleanup on counted/batch paths, conversion and move gaps, lenient
-      frontmatter scheduled, out-of-scope skip flags, docs."
-  - id: cycler-blockid
-    title: Task-status-cycler and block-id-prompt project-blocking fixes
-    depends_on: []
-    size: small
-    description:
-      "cycler-blockid: strip the tag from every resident when the project recovers,
-      recover without [unblocked::] when ledger freshness v12 is missing, pass the
-      out-of-scope skip flags, collapse redundant inline-date checks, block-id-prompt
-      refusal scope and order, README rows."
-  - id: rollout
-    title: Install the fixed bob and plugins on the MacBook, then this host
-    depends_on:
-      - cli-reconcile-close
-      - cli-projects-sync
-      - cli-capture
-      - nav-fixes
-      - cycler-blockid
-    size: small
-    description:
-      "rollout: bob on the MacBook first, then this host, then plugins on both; dry-run
-      verification only; record versions and what Bryan still has to do."
+- id: cli-reconcile-close
+  title: Reconcile and close-path fixes plus the two epic-caused CLI test failures
+  depends_on: []
+  size: medium
+  description: 'cli-reconcile-close: fix the two failing CLI fixtures, strip #prj_is_blocked
+    from every resident when ^prj recovers (PDC3), guard internal ^prj targets on
+    the adoption/legacy paths, stop marking status-only flips structural, recurring
+    and CRLF fixes, the direct-link ^prj rule, dead code, and missing reconcile tests.'
+- id: cli-projects-sync
+  title: Projects sync hoist, Sub-projects placement, and inline ^prj schedule issues
+  depends_on:
+  - cli-reconcile-close
+  size: small
+  description: 'cli-projects-sync: gate the hoist on an open ^prj, insert Sub-projects
+    after the whole Cancel Log / Depends-On subtree, match only direct Depends-On
+    children, report invalid or duplicate inline ^prj dates, skip fenced lines, tag-helper
+    tests.'
+- id: cli-capture
+  title: Capture link-guard, & on ^prj, and output-compatibility fixes
+  depends_on: []
+  size: medium
+  description: 'cli-capture: restore pull-forward for residents of unblocked projects,
+    stop claiming links in existing capture JSON fields, resident cycle edges and
+    id-less residents on & to ^prj, never raise Blocked seeds, struck links, `+` residents,
+    keep-link consumption, and no whole-vault read for non-Blocked link targets.'
+- id: nav-fixes
+  title: Navigation-hotkeys project-blocking fixes
+  depends_on: []
+  size: medium
+  description: 'nav-fixes: resident recovery only from a blocked ^prj, resident cycle
+    edges when ^prj gains a prerequisite, tag drift in schedule and move paths, [unblocked::]
+    and emptied-entry cleanup on counted/batch paths, conversion and move gaps, lenient
+    frontmatter scheduled, out-of-scope skip flags, docs.'
+- id: cycler-blockid
+  title: Task-status-cycler and block-id-prompt project-blocking fixes
+  depends_on: []
+  size: small
+  description: 'cycler-blockid: strip the tag from every resident when the project
+    recovers, recover without [unblocked::] when ledger freshness v12 is missing,
+    pass the out-of-scope skip flags, collapse redundant inline-date checks, block-id-prompt
+    refusal scope and order, README rows.'
+- id: rollout
+  title: Install the fixed bob and plugins on the MacBook, then this host
+  depends_on:
+  - cli-reconcile-close
+  - cli-projects-sync
+  - cli-capture
+  - nav-fixes
+  - cycler-blockid
+  size: small
+  description: 'rollout: bob on the MacBook first, then this host, then plugins on
+    both; dry-run verification only; record versions and what Bryan still has to do.'
 decisions:
   direct_prj_link:
-    ask:
-      Should a ^prj with its own live Task Link today rise to Next like any linked task?
+    ask: Should a ^prj with its own live Task Link today rise to Next like any linked
+      task?
     choices:
-      raise:
-        ADJ-11 limits only dependency promotion; a directly linked ^prj rises to Next
-        everywhere
-      never:
-        No engine raises ^prj; the close path changes to recover a linked ^prj to Ready
+      raise: ADJ-11 limits only dependency promotion; a directly linked ^prj rises
+        to Next everywhere
+      never: No engine raises ^prj; the close path changes to recover a linked ^prj
+        to Ready
     default: raise
-    why:
-      6u Design §2 scopes ADJ-11 to ^prj targets; the close path already lands a linked
-      ^prj in Next
+    why: 6u Design §2 scopes ADJ-11 to ^prj targets; the close path already lands
+      a linked ^prj in Next
     answer: raise
 proposed_by: bbugyi200.apollo.bob-cli-6u.land
 parent_bead: bob-cli-6u
 decided_by: auto
 create_time: 2026-10-12 18:07:05
 status: wip
+bead_id: bob-cli-6u.18
 ---
 
-- **PROMPT:**
-  [prompts/202610/prj_line_blocking_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_landing_fixes.md)
-- **PARENT:**
-  [202610/prj_line_project_blocking.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_project_blocking.md)
+- **PROMPT:** [prompts/202610/prj_line_blocking_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_landing_fixes.md)
+- **PARENT:** [202610/prj_line_project_blocking.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_project_blocking.md)
+- **BEAD:** [bob-cli-6u.18](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6u/bob-cli-6u.18.md)
 
 # Plan: finish landing ^prj project blocking (bob-cli-6u remaining work)
 
