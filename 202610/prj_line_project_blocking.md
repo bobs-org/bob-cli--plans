@@ -1,262 +1,253 @@
 ---
 tier: epic
 title: Project blocking from the ^prj line,
-goal: "A project's prerequisites live on its `^prj` task's ordinary Depends-On line and
-  its date as an inline `[scheduled::]` on `^prj`; no project frontmatter `depends_on`
-  or `scheduled` remains. While `^prj` has its own reason to be Blocked, every open task
-  in its note is Blocked `[?]` and tagged `#prj_is_blocked`, and no Blocked task keeps a
-  Task Link under today's open Pomodoros. Every automatic Blocked → Ready recovery
-  writes `[unblocked:: D]`, so the task is a TICKLER in the next morning review. The
-  YAML-storage code, docs, and deployed bundle left behind by the canceled epic
-  bob-cli-6s are removed or salvaged.
+goal: 'A project''s prerequisites live on its `^prj` task''s ordinary Depends-On line
+  and its date as an inline `[scheduled::]` on `^prj`; no project frontmatter `depends_on`
+  or `scheduled` remains. While `^prj` has its own reason to be Blocked, every open
+  task in its note is Blocked `[?]` and tagged `#prj_is_blocked`, and no Blocked task
+  keeps a Task Link under today''s open Pomodoros. Every automatic Blocked → Ready
+  recovery writes `[unblocked:: D]`, so the task is a TICKLER in the next morning
+  review. The YAML-storage code, docs, and deployed bundle left behind by the canceled
+  epic bob-cli-6s are removed or salvaged.
 
-  "
+  '
 phases:
-  - id: contract
-    title: Line-model project contract, PDT tag vectors, and UB unblock vectors
-    depends_on: []
-    size: medium
-    description: "contract: rewrite docs/task-dependencies.md §13 for the ^prj line
-      model (drop the YAML storage, R0 hoist, property R-rules, PDP/PDW), repair the
-      other sections 75e323b made false, and add the #prj_is_blocked and [unblocked::]
-      contracts with PDT and UB vectors.
+- id: contract
+  title: Line-model project contract, PDT tag vectors, and UB unblock vectors
+  depends_on: []
+  size: medium
+  description: 'contract: rewrite docs/task-dependencies.md §13 for the ^prj line
+    model (drop the YAML storage, R0 hoist, property R-rules, PDP/PDW), repair the
+    other sections 75e323b made false, and add the #prj_is_blocked and [unblocked::]
+    contracts with PDT and UB vectors.
 
-      "
-  - id: cli-model
-    title: Remove the YAML model and rebuild project reasons from the ^prj line
-    depends_on:
-      - contract
-    size: medium
-    description: "cli-model: delete 54a54bf's frontmatter reader, depends_on
-      parse/splice, and target resolution; revert its incidental changes; rebuild
-      ProjectContext and project reasons from the ^prj line; add the #prj_is_blocked
-      line helper.
+    '
+- id: cli-model
+  title: Remove the YAML model and rebuild project reasons from the ^prj line
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-model: delete 54a54bf''s frontmatter reader, depends_on parse/splice,
+    and target resolution; revert its incidental changes; rebuild ProjectContext and
+    project reasons from the ^prj line; add the #prj_is_blocked line helper.
 
-      "
-  - id: cli-freshness
-    title: Rust freshness reads and writes [unblocked::]
-    depends_on:
-      - contract
-    size: medium
-    description: "cli-freshness: placement (run-extending key, mark/clear/prune helpers,
-      stamps clear it, lint), evaluator (RESURFACED from scheduled or unblocked, TICKLER
-      due_on, tie order, keeps), bob freshness output and schema bump, UB vectors.
+    '
+- id: cli-freshness
+  title: Rust freshness reads and writes [unblocked::]
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-freshness: placement (run-extending key, mark/clear/prune helpers,
+    stamps clear it, lint), evaluator (RESURFACED from scheduled or unblocked, TICKLER
+    due_on, tie order, keeps), bob freshness output and schema bump, UB vectors.
 
-      "
-  - id: cli-projects
-    title: Projects sync and capture + use the inline ^prj date
-    depends_on:
-      - cli-model
-    size: medium
-    description: "cli-projects: sync hoists frontmatter scheduled onto ^prj, stops
-      deleting inline ^prj dates, reads propagation/#hide/marker from ^prj, places
-      Sub-projects after Depends-On; capture + writes the date inline; help, docs, and
-      tests.
+    '
+- id: cli-projects
+  title: Projects sync and capture + use the inline ^prj date
+  depends_on:
+  - cli-model
+  size: medium
+  description: 'cli-projects: sync hoists frontmatter scheduled onto ^prj, stops deleting
+    inline ^prj dates, reads propagation/#hide/marker from ^prj, places Sub-projects
+    after Depends-On; capture + writes the date inline; help, docs, and tests.
 
-      "
-  - id: cli-reconcile-block
-    title:
-      Reconcile derives project blocking, maintains the tag, and writes [unblocked::]
-    depends_on:
-      - cli-model
-      - cli-freshness
-    size: medium
-    description: "cli-reconcile-block: project reasons in the transition loop,
-      internal-target guard, implicit edges and ADJ-11, #prj_is_blocked maintenance,
-      [unblocked::] on Unblock plus prune, line-rewrite plans, outputs, help text, live
-      dry run.
+    '
+- id: cli-reconcile-block
+  title: Reconcile derives project blocking, maintains the tag, and writes [unblocked::]
+  depends_on:
+  - cli-model
+  - cli-freshness
+  size: medium
+  description: 'cli-reconcile-block: project reasons in the transition loop, internal-target
+    guard, implicit edges and ADJ-11, #prj_is_blocked maintenance, [unblocked::] on
+    Unblock plus prune, line-rewrite plans, outputs, help text, live dry run.
 
-      "
-  - id: cli-reconcile-consume
-    title: Reconcile consumes Task Links to Blocked tasks
-    depends_on:
-      - cli-reconcile-block
-    size: medium
-    description: "cli-reconcile-consume: remove live links to effectively Blocked tasks
-      under today's open Pomodoros after seeding promotion, then emptied Pomodoros;
-      consumed_blocked_references output, docs, PDL tests, live dry run.
+    '
+- id: cli-reconcile-consume
+  title: Reconcile consumes Task Links to Blocked tasks
+  depends_on:
+  - cli-reconcile-block
+  size: medium
+  description: 'cli-reconcile-consume: remove live links to effectively Blocked tasks
+    under today''s open Pomodoros after seeding promotion, then emptied Pomodoros;
+    consumed_blocked_references output, docs, PDL tests, live dry run.
 
-      "
-  - id: cli-close
-    title: Close and recovery paths respect project blocking and write [unblocked::]
-    depends_on:
-      - cli-model
-      - cli-freshness
-    size: medium
-    description: "cli-close: StillBlockedProject verdict, residents recover with their
-      ^prj (tag stripped), Ready recoveries write [unblocked::], recovery parity, PDC
-      and UB close tests.
+    '
+- id: cli-close
+  title: Close and recovery paths respect project blocking and write [unblocked::]
+  depends_on:
+  - cli-model
+  - cli-freshness
+  size: medium
+  description: 'cli-close: StillBlockedProject verdict, residents recover with their
+    ^prj (tag stripped), Ready recoveries write [unblocked::], recovery parity, PDC
+    and UB close tests.
 
-      "
-  - id: cli-capture-deps
-    title: Capture & on ^prj blocks residents; project graph edges and promotion guards
-    depends_on:
-      - cli-model
-    size: medium
-    description: "cli-capture-deps: & with a ^prj dependent refuses same-note targets
-      and blocks, tags, and unlinks residents; implicit resident edges in cycle checks;
-      plan_promotions never raises ^prj.
+    '
+- id: cli-capture-deps
+  title: Capture & on ^prj blocks residents; project graph edges and promotion guards
+  depends_on:
+  - cli-model
+  size: medium
+  description: 'cli-capture-deps: & with a ^prj dependent refuses same-note targets
+    and blocks, tags, and unlinks residents; implicit resident edges in cycle checks;
+    plan_promotions never raises ^prj.
 
-      "
-  - id: cli-capture-links
-    title: Capture never links a Blocked task
-    depends_on:
-      - cli-capture-deps
-      - cli-projects
-    size: medium
-    description: "cli-capture-links: link-toggle consumption at every plan_task_link
-      caller, the gesture rule (date-blocked ^prj refused), and unlinked tagged [?]
-      results for new tasks in blocked projects, @route:id s:N, and blocked + projects.
+    '
+- id: cli-capture-links
+  title: Capture never links a Blocked task
+  depends_on:
+  - cli-capture-deps
+  - cli-projects
+  size: medium
+  description: 'cli-capture-links: link-toggle consumption at every plan_task_link
+    caller, the gesture rule (date-blocked ^prj refused), and unlinked tagged [?]
+    results for new tasks in blocked projects, @route:id s:N, and blocked + projects.
 
-      "
-  - id: ledger-freshness
-    title: bob-ledger-tools evaluator and api.freshness learn [unblocked::]
-    depends_on:
-      - contract
-      - cli-freshness
-    size: medium
-    description: "ledger-freshness: JS evaluator mirror, placement and stamp helpers
-      clear the field, markUnblockedLine writer, keepLine rule, api.freshness namespace
-      bump, TICKLER copy and tie order, UB vectors.
+    '
+- id: ledger-freshness
+  title: bob-ledger-tools evaluator and api.freshness learn [unblocked::]
+  depends_on:
+  - contract
+  - cli-freshness
+  size: medium
+  description: 'ledger-freshness: JS evaluator mirror, placement and stamp helpers
+    clear the field, markUnblockedLine writer, keepLine rule, api.freshness namespace
+    bump, TICKLER copy and tie order, UB vectors.
 
-      "
-  - id: nav-model
-    title: Salvage the stranded nav-model work onto the ^prj line model
-    depends_on:
-      - contract
-      - ledger-freshness
-    size: medium
-    description: "nav-model: port the reusable parts of the uncommitted bob-cli-6s.8
-      bundle (project block state, recovery gate, ADJ-11, removeEmptiedEntries) to the
-      ^prj line, add tag and [unblocked::] recovery writers, release as 2.21.0.
+    '
+- id: nav-model
+  title: Salvage the stranded nav-model work onto the ^prj line model
+  depends_on:
+  - contract
+  - ledger-freshness
+  size: medium
+  description: 'nav-model: port the reusable parts of the uncommitted bob-cli-6s.8
+    bundle (project block state, recovery gate, ADJ-11, removeEmptiedEntries) to the
+    ^prj line, add tag and [unblocked::] recovery writers, release as 2.21.0.
 
-      "
-  - id: nav-schedule
-    title: ^prj Schedule uses the inline path with project side effects
-    depends_on:
-      - nav-model
-    size: medium
-    description: "nav-schedule: retire project-frontmatter routing for scheduled, stop
-      stripping inline ^prj dates, keep propagation (plus the move-earlier fix) and
-      #hide, block or recover residents, child-picker chip from ^prj.
+    '
+- id: nav-schedule
+  title: ^prj Schedule uses the inline path with project side effects
+  depends_on:
+  - nav-model
+  size: medium
+  description: 'nav-schedule: retire project-frontmatter routing for scheduled, stop
+    stripping inline ^prj dates, keep propagation (plus the move-earlier fix) and
+    #hide, block or recover residents, child-picker chip from ^prj.
 
-      "
-  - id: nav-deps-stage
-    title: Ctrl+Shift+P Depends on for ^prj blocks residents
-    depends_on:
-      - nav-schedule
-    size: medium
-    description: "nav-deps-stage: on ^prj the ordinary Depends on writer also blocks,
-      tags, and unlinks residents with commitment transfer; removal recovers them with
-      [unblocked::]; same-note and cycle guards; api routes and notices.
+    '
+- id: nav-deps-stage
+  title: Ctrl+Shift+P Depends on for ^prj blocks residents
+  depends_on:
+  - nav-schedule
+  size: medium
+  description: 'nav-deps-stage: on ^prj the ordinary Depends on writer also blocks,
+    tags, and unlinks residents with commitment transfer; removal recovers them with
+    [unblocked::]; same-note and cycle guards; api routes and notices.
 
-      "
-  - id: nav-convert-move
-    title: Project conversion and task moves on the line model
-    depends_on:
-      - nav-deps-stage
-    size: medium
-    description: "nav-convert-move: create-project-note-from-task keeps the Depends-On
-      line and inline date on ^prj both ways (accepts [?], rebases links, skips
-      Sub-projects); Ctrl+Shift+M into or out of a blocked project tags or recovers.
+    '
+- id: nav-convert-move
+  title: Project conversion and task moves on the line model
+  depends_on:
+  - nav-deps-stage
+  size: medium
+  description: 'nav-convert-move: create-project-note-from-task keeps the Depends-On
+    line and inline date on ^prj both ways (accepts [?], rebases links, skips Sub-projects);
+    Ctrl+Shift+M into or out of a blocked project tags or recovers.
 
-      "
-  - id: plugins-compat
-    title: Fix the cycler and block-id-prompt for the line model
-    depends_on:
-      - contract
-      - ledger-freshness
-    size: medium
-    description: "plugins-compat: 3208e8c follow-up: read ^prj inline scheduled, use the
-      resident tag as the project-blocked signal, write tag strips and [unblocked::] on
-      recovery, refuse linking a date-blocked ^prj, drop the whole-vault read.
+    '
+- id: plugins-compat
+  title: Fix the cycler and block-id-prompt for the line model
+  depends_on:
+  - contract
+  - ledger-freshness
+  size: medium
+  description: 'plugins-compat: 3208e8c follow-up: read ^prj inline scheduled, use
+    the resident tag as the project-blocked signal, write tag strips and [unblocked::]
+    on recovery, refuse linking a date-blocked ^prj, drop the whole-vault read.
 
-      "
-  - id: rollout
-    title: Install bob on the MacBook before plugins, verify, and update the vault
-    depends_on:
-      - cli-projects
-      - cli-reconcile-consume
-      - cli-close
-      - cli-capture-links
-      - nav-convert-move
-      - plugins-compat
-    size: small
-    description: "rollout: bob on the MacBook first, verify the hoist and reconcile,
-      then this host, then MacBook plugins; blocked.md PROJECT section and [unblocked::]
-      CSS mute.
+    '
+- id: rollout
+  title: Install bob on the MacBook before plugins, verify, and update the vault
+  depends_on:
+  - cli-projects
+  - cli-reconcile-consume
+  - cli-close
+  - cli-capture-links
+  - nav-convert-move
+  - plugins-compat
+  size: small
+  description: 'rollout: bob on the MacBook first, verify the hoist and reconcile,
+    then this host, then MacBook plugins; blocked.md PROJECT section and [unblocked::]
+    CSS mute.
 
-      "
-  - id: publish
-    title: Decision records, supersession marks, glossary, and docs sweep
-    depends_on:
-      - cli-projects
-      - cli-reconcile-consume
-      - cli-close
-      - cli-capture-links
-      - nav-convert-move
-      - plugins-compat
-    size: small
-    description: "publish: write the project-blocking and unblocked-ticklers decision
-      records, mark the records they partly supersede, update four glossary terms, sweep
-      docs, and record follow-ups.
+    '
+- id: publish
+  title: Decision records, supersession marks, glossary, and docs sweep
+  depends_on:
+  - cli-projects
+  - cli-reconcile-consume
+  - cli-close
+  - cli-capture-links
+  - nav-convert-move
+  - plugins-compat
+  size: small
+  description: 'publish: write the project-blocking and unblocked-ticklers decision
+    records, mark the records they partly supersede, update four glossary terms, sweep
+    docs, and record follow-ups.
 
-      "
+    '
 decisions:
   tag_scope:
-    ask: "Which open tasks in a blocked project carry the #prj_is_blocked tag?"
+    ask: 'Which open tasks in a blocked project carry the #prj_is_blocked tag?'
     choices:
-      every_resident:
-        Every open resident; only project-level writers maintain it (the report's ADJ-3)
-      sole_reason:
-        Only residents blocked solely by the project; every resident writer must
-        recompute it
+      every_resident: Every open resident; only project-level writers maintain it
+        (the report's ADJ-3)
+      sole_reason: Only residents blocked solely by the project; every resident writer
+        must recompute it
     default: every_resident
-    why:
-      States a fact about the project, needs far fewer writers, keeps blocked.md exact
+    why: States a fact about the project, needs far fewer writers, keeps blocked.md
+      exact
     answer: every_resident
   unblock_keeps:
-    ask:
-      Should a keep on an unblock TICKLER row leave the keep streak unchanged instead of
-      counting it?
+    ask: Should a keep on an unblock TICKLER row leave the keep streak unchanged instead
+      of counting it?
     default: true
-    why:
-      A newly unblocked task is not evidence of procrastination (report open question 5)
+    why: A newly unblocked task is not evidence of procrastination (report open question
+      5)
     answer: true
   memory_decisions:
-    ask:
-      Write the two new decision records and mark the four records they partly
+    ask: Write the two new decision records and mark the four records they partly
       supersede?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Can you help me re-plan the work we originally launched via the bob-cli-6s epic
-      bead to account for the changes in requirements described in the
-      prj_task_inline_schedule_and_deps.md file in the research sidecar repo?
+    requested: Can you help me re-plan the work we originally launched via the bob-cli-6s
+      epic bead to account for the changes in requirements described in the prj_task_inline_schedule_and_deps.md
+      file in the research sidecar repo?
     answer: true
   memory_glossary:
-    ask:
-      Update the Task Dependency Link, Project Task, Task Freshness, and Keep Streak
+    ask: Update the Task Dependency Link, Project Task, Task Freshness, and Keep Streak
       glossary terms?
     memory:
-      - glossary:task-dependency-link
-      - glossary:project-task
-      - glossary:task-freshness
-      - glossary:keep-streak
+    - glossary:task-dependency-link
+    - glossary:project-task
+    - glossary:task-freshness
+    - glossary:keep-streak
     default: true
-    corrects:
-      a tickler (its `scheduled` date arrived after the stamp; machine state
+    corrects: a tickler (its `scheduled` date arrived after the stamp; machine state
       `resurfaced`)
     answer: true
 proposed_by: bbugyi200.apollo.70
 decided_by: auto
 create_time: 2026-10-12 10:25:41
 status: wip
+bead_id: bob-cli-6u
 ---
 
-- **PROMPT:**
-  [prompts/202610/prj_line_project_blocking.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_project_blocking.md)
+- **PROMPT:** [prompts/202610/prj_line_project_blocking.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_project_blocking.md)
+- **BEAD:** [bob-cli-6u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6u/README.md)
 
 # Plan: Project blocking from the ^prj line, #prj_is_blocked, and unblocked-task review
 
