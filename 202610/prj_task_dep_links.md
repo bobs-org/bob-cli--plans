@@ -1,171 +1,155 @@
 ---
 tier: epic
-title:
-  Project task dependency links, project-inherited Blocked, and blocked-link consumption
-goal: "A project's (`^prj`) dependency links live in its note's `depends_on` frontmatter
+title: Project task dependency links, project-inherited Blocked, and blocked-link
+  consumption
+goal: 'A project''s (`^prj`) dependency links live in its note''s `depends_on` frontmatter
   list. While a project has an open prerequisite or a future `scheduled` date, `^prj`
-  and every open task in its note are Blocked `[?]`. No Blocked task keeps a Task Link
-  under today's open Pomodoros: links are consumed (prerequisites promoted, link
-  removed, emptied Pomodoro deleted). `bob task reconcile` auto-fixes existing notes
-  such as `job_apply_to_databricks.md`, and the Ctrl+Shift+P and
-  `create-project-note-from-task` keymaps write the new model.
+  and every open task in its note are Blocked `[?]`. No Blocked task keeps a Task
+  Link under today''s open Pomodoros: links are consumed (prerequisites promoted,
+  link removed, emptied Pomodoro deleted). `bob task reconcile` auto-fixes existing
+  notes such as `job_apply_to_databricks.md`, and the Ctrl+Shift+P and `create-project-note-from-task`
+  keymaps write the new model.
 
-  "
+  '
 phases:
-  - id: contract
-    title: Project-dependency contract and PD vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: add docs/task-dependencies.md §13 (storage, R0 hoist, ^prj R-rules,
-      inherited Blocked, consumption, guards) with PD vectors, and amend the sections it
-      makes false."
-  - id: cli-model
-    title: Shared Rust project-dependency model
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-model: depends_on reader and splice writer, project recognition, openness
-      split, and pure project/effective block reasons in bob-cli, with PDP/PDW unit
-      vectors."
-  - id: cli-reconcile-deps
-    title: depends_on reconciliation in bob task reconcile
-    depends_on:
-      - cli-model
-    size: medium
-    description:
-      "cli-reconcile-deps: R0 hoist of ^prj Depends-On lines, ^prj R-rules driven by the
-      property (R2 exception, D3 drop), implicit edges in R7 and promotion, outputs and
-      PDR tests."
-  - id: cli-reconcile-block
-    title: Project-inherited Blocked and blocked-link consumption in reconcile
-    depends_on:
-      - cli-reconcile-deps
-    size: medium
-    description:
-      "cli-reconcile-block: project reasons in the transition loop, ^prj never promoted,
-      consumption of links to Blocked tasks plus empty-Pomodoro removal, outputs, help
-      text, and a read-only live dry run."
-  - id: cli-close
-    title: Close and recovery paths respect project blocking
-    depends_on:
-      - cli-model
-    size: small
-    description:
-      "cli-close: successors keep residents of a still-blocked project Blocked and
-      recover residents when their ^prj recovers; recovery parity and PDC tests."
-  - id: cli-capture-deps
-    title: Capture & on ^prj, project graph edges, and promotion guards
-    depends_on:
-      - cli-model
-    size: medium
-    description:
-      "cli-capture-deps: capture & with a ^prj dependent writes depends_on and blocks
-      the project, implicit member edges in cycle checks, and plan_promotions never
-      raises ^prj."
-  - id: cli-capture-links
-    title: Capture never links a Blocked task
-    depends_on:
-      - cli-capture-deps
-    size: medium
-    description:
-      "cli-capture-links: link-toggle consumption at every plan_task_link caller and
-      unlinked [?] results for new tasks in blocked projects, scheduled @route:id, and
-      blocked + projects."
-  - id: nav-model
-    title: Navigation-hotkeys project-dependency model and recovery gate
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "nav-model: JS depends_on reader/splice, project block state, project-aware
-      recovery index, ^prj never promoted, and opt-in empty-entry removal in the
-      deferred Pomodoro cleanup."
-  - id: nav-stage
-    title: Ctrl+Shift+P Depends on for ^prj
-    depends_on:
-      - nav-model
-    size: medium
-    description:
-      "nav-stage: project-dependencies descriptor and stage on ^prj, one-transaction
-      writer that blocks residents and removes their links, commitment transfer, removal
-      recovery, and API routes."
-  - id: nav-convert-move
-    title: Project conversion, project schedules, and task moves
-    depends_on:
-      - nav-stage
-    size: medium
-    description:
-      "nav-convert-move: create-project-note-from-task maps Depends-On to depends_on
-      both ways, project schedule paths apply the project rule, and Ctrl+Shift+M into or
-      out of a blocked project."
-  - id: plugins-compat
-    title: task-status-cycler and block-id-prompt
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "plugins-compat: cycler member recovery and refusal to hand-unblock
-      project-blocked tasks; block-id-prompt consumes instead of force-linking
-      dependency- or project-blocked targets."
-  - id: rollout
-    title: Install bob before plugins, verify the auto-fix, and blocked.md
-    depends_on:
-      - cli-reconcile-block
-      - cli-close
-      - cli-capture-links
-      - nav-convert-move
-      - plugins-compat
-    size: small
-    description:
-      "rollout: install bob on this host and the MacBook before syncing plugins there,
-      verify the Databricks auto-fix, and add blocked.md's PROJECT section."
-  - id: publish
-    title: Glossary, decision record, supersession marks, and docs sweep
-    depends_on:
-      - cli-reconcile-block
-      - cli-close
-      - cli-capture-links
-      - nav-convert-move
-      - plugins-compat
-    size: small
-    description:
-      "publish: update the task-dependency-link and project-task glossary terms, add the
-      project-deps decision record, mark the two records it partly supersedes, and sweep
-      docs."
+- id: contract
+  title: Project-dependency contract and PD vectors
+  depends_on: []
+  size: medium
+  description: 'contract: add docs/task-dependencies.md §13 (storage, R0 hoist, ^prj
+    R-rules, inherited Blocked, consumption, guards) with PD vectors, and amend the
+    sections it makes false.'
+- id: cli-model
+  title: Shared Rust project-dependency model
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-model: depends_on reader and splice writer, project recognition,
+    openness split, and pure project/effective block reasons in bob-cli, with PDP/PDW
+    unit vectors.'
+- id: cli-reconcile-deps
+  title: depends_on reconciliation in bob task reconcile
+  depends_on:
+  - cli-model
+  size: medium
+  description: 'cli-reconcile-deps: R0 hoist of ^prj Depends-On lines, ^prj R-rules
+    driven by the property (R2 exception, D3 drop), implicit edges in R7 and promotion,
+    outputs and PDR tests.'
+- id: cli-reconcile-block
+  title: Project-inherited Blocked and blocked-link consumption in reconcile
+  depends_on:
+  - cli-reconcile-deps
+  size: medium
+  description: 'cli-reconcile-block: project reasons in the transition loop, ^prj
+    never promoted, consumption of links to Blocked tasks plus empty-Pomodoro removal,
+    outputs, help text, and a read-only live dry run.'
+- id: cli-close
+  title: Close and recovery paths respect project blocking
+  depends_on:
+  - cli-model
+  size: small
+  description: 'cli-close: successors keep residents of a still-blocked project Blocked
+    and recover residents when their ^prj recovers; recovery parity and PDC tests.'
+- id: cli-capture-deps
+  title: Capture & on ^prj, project graph edges, and promotion guards
+  depends_on:
+  - cli-model
+  size: medium
+  description: 'cli-capture-deps: capture & with a ^prj dependent writes depends_on
+    and blocks the project, implicit member edges in cycle checks, and plan_promotions
+    never raises ^prj.'
+- id: cli-capture-links
+  title: Capture never links a Blocked task
+  depends_on:
+  - cli-capture-deps
+  size: medium
+  description: 'cli-capture-links: link-toggle consumption at every plan_task_link
+    caller and unlinked [?] results for new tasks in blocked projects, scheduled @route:id,
+    and blocked + projects.'
+- id: nav-model
+  title: Navigation-hotkeys project-dependency model and recovery gate
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav-model: JS depends_on reader/splice, project block state, project-aware
+    recovery index, ^prj never promoted, and opt-in empty-entry removal in the deferred
+    Pomodoro cleanup.'
+- id: nav-stage
+  title: Ctrl+Shift+P Depends on for ^prj
+  depends_on:
+  - nav-model
+  size: medium
+  description: 'nav-stage: project-dependencies descriptor and stage on ^prj, one-transaction
+    writer that blocks residents and removes their links, commitment transfer, removal
+    recovery, and API routes.'
+- id: nav-convert-move
+  title: Project conversion, project schedules, and task moves
+  depends_on:
+  - nav-stage
+  size: medium
+  description: 'nav-convert-move: create-project-note-from-task maps Depends-On to
+    depends_on both ways, project schedule paths apply the project rule, and Ctrl+Shift+M
+    into or out of a blocked project.'
+- id: plugins-compat
+  title: task-status-cycler and block-id-prompt
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugins-compat: cycler member recovery and refusal to hand-unblock
+    project-blocked tasks; block-id-prompt consumes instead of force-linking dependency-
+    or project-blocked targets.'
+- id: rollout
+  title: Install bob before plugins, verify the auto-fix, and blocked.md
+  depends_on:
+  - cli-reconcile-block
+  - cli-close
+  - cli-capture-links
+  - nav-convert-move
+  - plugins-compat
+  size: small
+  description: 'rollout: install bob on this host and the MacBook before syncing plugins
+    there, verify the Databricks auto-fix, and add blocked.md''s PROJECT section.'
+- id: publish
+  title: Glossary, decision record, supersession marks, and docs sweep
+  depends_on:
+  - cli-reconcile-block
+  - cli-close
+  - cli-capture-links
+  - nav-convert-move
+  - plugins-compat
+  size: small
+  description: 'publish: update the task-dependency-link and project-task glossary
+    terms, add the project-deps decision record, mark the two records it partly supersedes,
+    and sweep docs.'
 decisions:
   glossary_terms:
-    ask:
-      Update the Task Dependency Link and Project Task glossary terms for depends_on and
-      consumption?
+    ask: Update the Task Dependency Link and Project Task glossary terms for depends_on
+      and consumption?
     memory:
-      - glossary
+    - glossary
     default: true
-    requested:
-      The "task dep links" glossary memory web term should be updated accordingly.
+    requested: The "task dep links" glossary memory web term should be updated accordingly.
     answer: true
   decision_records:
-    ask:
-      Write the project-deps decision record and mark the two decision records it partly
-      supersedes?
+    ask: Write the project-deps decision record and mark the two decision records
+      it partly supersedes?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 proposed_by: bbugyi200.apollo.research.0z.linker.w0
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-12 08:34:38
 status: wip
+bead_id: bob-cli-6s
 ---
 
-- **PROMPT:**
-  [prompts/202610/prj_task_dep_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_task_dep_links.md)
+- **PROMPT:** [prompts/202610/prj_task_dep_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_task_dep_links.md)
+- **BEAD:** [bob-cli-6s](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6s/README.md)
 
 # Plan: Project task dependency links, project-inherited Blocked, and blocked-link consumption
 
