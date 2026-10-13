@@ -5,22 +5,19 @@ goal: just install builds again on the Mac, and the test target compiles in CI.
 size: medium
 decisions:
   test_typecheck_gate:
-    ask:
-      Should we add a `just typecheck-tests` gate so agents can type-check test targets
-      on the no-Xcode Mac?
+    ask: Should we add a `just typecheck-tests` gate so agents can type-check test
+      targets on the no-Xcode Mac?
     choices:
       add: Test compile errors are caught on the Mac before landing, not only in CI
-      skip:
-        Only the five errors get fixed; future test compile errors still reach master
+      skip: Only the five errors get fixed; future test compile errors still reach
+        master
     default: add
-    why:
-      No local recipe compiles the tests, so 395c521, 76faeb6 and b377146 shipped test
-      errors
+    why: No local recipe compiles the tests, so 395c521, 76faeb6 and b377146 shipped
+      test errors
     answer: add
 proposed_by: bbugyi200.apollo.7g.f0.f0
 decided_by: auto
-create_time: 2026-10-13 19:34:00
-status: wip
+status: done
 ---
 
 # Plan: Fix the Mac capture build broken by the pull-in card redesign
