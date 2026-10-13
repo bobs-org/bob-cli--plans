@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Redesign the Mac successor pull-in choice card
-goal: The Bob Mac Capture successor choice card becomes a full-width, picker-style
-  card with two-line offer rows, live "what Return pulls in" cues, a keycap and action-button
+goal:
+  The Bob Mac Capture successor choice card becomes a full-width, picker-style card with
+  two-line offer rows, live "what Return pulls in" cues, a keycap and action-button
   footer, and reviewable render fixtures, with keys and Bob contract unchanged.
 size: medium
 proposed_by: bbugyi200.apollo.7g.f0
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7g.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7g.f0.md)
+- **COMMITS:**
+  - [b377146](https://github.com/bobs-org/bob-mac-capture/commit/b377146f9845ab214d3891a2b6cb739ab184be6f)
+    — feat(pull-in): redesign successor pull-in choice card as picker sibling
 
 # Plan: Redesign the Mac successor pull-in choice card
 
