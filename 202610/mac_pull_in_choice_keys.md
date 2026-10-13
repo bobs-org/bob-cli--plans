@@ -1,26 +1,25 @@
 ---
 tier: tale
-title: Ctrl-N/Ctrl-P navigation and dependable Space marking in the Mac successor choice
-goal:
-  In Bob Mac Capture's successor pull-in choice card, Ctrl-N/Ctrl-P move to the
+title: Ctrl-N/Ctrl-P navigation and dependable Space marking in the Mac successor
+  choice
+goal: In Bob Mac Capture's successor pull-in choice card, Ctrl-N/Ctrl-P move to the
   next/previous offer like Down/Up, and Space marks the highlighted offer from the
   moment the card opens.
 size: small
 decisions:
   empty_filter_space:
-    ask:
-      Should Space mark the highlighted offer even while the empty filter holds focus?
+    ask: Should Space mark the highlighted offer even while the empty filter holds
+      focus?
     choices:
       toggle: Space marks unless the focused filter already holds text
       type: Space types into a focused filter even when it is empty, as it does today
     default: toggle
-    why:
-      A leading space never filters usefully, and Space then works wherever focus lands
+    why: A leading space never filters usefully, and Space then works wherever focus
+      lands
     answer: toggle
 proposed_by: bbugyi200.apollo.7g
 decided_by: auto
-create_time: 2026-10-13 17:39:58
-status: wip
+status: done
 ---
 
 # Plan: Ctrl-N/Ctrl-P and Space in the Mac successor pull-in choice
