@@ -78,7 +78,7 @@ decisions:
 proposed_by: bbugyi200.apollo.73
 decided_by: auto
 create_time: 2026-10-12 23:40:10
-status: wip
+status: done
 bead_id: bob-cli-74
 ---
 
