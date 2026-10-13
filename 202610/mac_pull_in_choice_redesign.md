@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Redesign the Mac successor pull-in choice card
-goal:
-  The Bob Mac Capture successor choice card becomes a full-width, picker-style card with
-  two-line offer rows, live "what Return pulls in" cues, a keycap and action-button
+goal: The Bob Mac Capture successor choice card becomes a full-width, picker-style
+  card with two-line offer rows, live "what Return pulls in" cues, a keycap and action-button
   footer, and reviewable render fixtures, with keys and Bob contract unchanged.
 size: medium
 proposed_by: bbugyi200.apollo.7g.f0
-create_time: 2026-10-13 18:04:57
-status: wip
+status: done
 ---
 
 # Plan: Redesign the Mac successor pull-in choice card
