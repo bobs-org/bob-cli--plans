@@ -1,10 +1,9 @@
 ---
 tier: tale
 title: Correct the named fenced-index regression and finish the project-blocking landing
-goal:
-  The named capture regression uses a valid Depends-On child, proves the staged-context
-  rebuild, and bob-cli-6u.18.7.6 plus every ready directly parented plan ancestor close
-  normally with their linked plans marked done.
+goal: The named capture regression uses a valid Depends-On child, proves the staged-context
+  rebuild, and bob-cli-6u.18.7.6 plus every ready directly parented plan ancestor
+  close normally with their linked plans marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-6u.18.7.6.land
 bead: bob-cli-6u.18.7.6
@@ -15,11 +14,6 @@ status: done
   [202610/prj_line_blocking_final_audit_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_blocking_final_audit_fixes.md)
 - **BEAD:**
   [bob-cli-6u.18.7.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6u/bob-cli-6u.18.7.6.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-6u.18.7.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-6u.18.7.6.land.md)
-- **COMMITS:**
-  - [08d9e1f](https://github.com/bobs-org/bob-cli/commit/08d9e1f054db96f2351e483d61547d6e36af395a)
-    — test(capture): insert Depends-On after ^prj in fenced-index fixture
 
 # Correct the remaining regression fixture and finish the landing
 
