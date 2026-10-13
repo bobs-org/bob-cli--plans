@@ -1,18 +1,19 @@
 ---
 tier: tale
 title: Stop the macOS bob background-activity alert
-goal: The Mac vault-sync LaunchAgent starts bob through Apple-signed /bin/sh, vault-sync
-  still runs, and chezmoi source matches that plist so later installs do not register
-  a new Background Task Management item.
+goal:
+  The Mac vault-sync LaunchAgent starts bob through Apple-signed /bin/sh, vault-sync
+  still runs, and chezmoi source matches that plist so later installs do not register a
+  new Background Task Management item.
 size: small
 decisions:
   cdhash_probe:
-    ask: Re-sign the Mac's bob ad-hoc to prove a new cdhash does not raise another
-      alert?
+    ask:
+      Re-sign the Mac's bob ad-hoc to prove a new cdhash does not raise another alert?
     choices:
       probe: Re-sign bob ad-hoc and require that no new bob advisory appears
-      skip: Confirm program=/bin/sh and a successful sync, and leave bob's signature
-        alone
+      skip:
+        Confirm program=/bin/sh and a successful sync, and leave bob's signature alone
     default: probe
     why: The wrapper is untested until a new bob cdhash stays quiet
     answer: probe
@@ -20,6 +21,12 @@ proposed_by: bbugyi200.apollo.7a.f0
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7a.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7a.f0.md)
+- **COMMITS:**
+  - [7f3aff2](https://github.com/bbugyi200/dotfiles/commit/7f3aff2d89a0a6fb88448f9b5b356331fe7cf630)
+    — fix: wrap bob-vault-sync LaunchAgent through /bin/sh
 
 <!-- sase:links:start -->
 
