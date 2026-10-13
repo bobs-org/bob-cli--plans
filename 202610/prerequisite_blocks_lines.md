@@ -1,141 +1,133 @@
 ---
 tier: epic
-title: "🧱 BLOCKS lines: show on every prerequisite what waits on it"
-goal: "Every open task that other open tasks depend on carries one machine-owned `🧱
-  **BLOCKS:**` child line that mirrors its dependents' Depends-On links. The line is
-  kept exact by `bob task reconcile`, updated immediately by every dependency writer
+title: '🧱 BLOCKS lines: show on every prerequisite what waits on it'
+goal: 'Every open task that other open tasks depend on carries one machine-owned `🧱
+  **BLOCKS:**` child line that mirrors its dependents'' Depends-On links. The line
+  is kept exact by `bob task reconcile`, updated immediately by every dependency writer
   (Ctrl+Shift+P, chip ×, hand edits and undo, capture `&`, capture dependency drops),
-  rendered in Obsidian as chips that show what finishing the task would free, and never
-  read back as dependency input.
+  rendered in Obsidian as chips that show what finishing the task would free, and
+  never read back as dependency input.
 
-  "
+  '
 decisions:
   glyph:
     ask: Which glyph should the generated BLOCKS line use?
     choices:
-      brick: "🧱 BLOCKS: a distinct mark that makes bottlenecks visible while scrolling"
-      chain:
-        "⛓️ BLOCKS: pairs with ⛓️ DEPENDS ON, but you must read the label for direction"
+      brick: '🧱 BLOCKS: a distinct mark that makes bottlenecks visible while scrolling'
+      chain: '⛓️ BLOCKS: pairs with ⛓️ DEPENDS ON, but you must read the label for
+        direction'
     default: brick
-    why:
-      One code point, unused by any plugin, and unmistakable beside the Depends-On line
+    why: One code point, unused by any plugin, and unmistakable beside the Depends-On
+      line
     answer: brick
   memory_decision_record:
-    ask:
-      Should rollout add a decision record for BLOCKS lines as a never-read-back mirror?
+    ask: Should rollout add a decision record for BLOCKS lines as a never-read-back
+      mirror?
     memory:
-      - decisions:blocks-lines-mirror-depends-on
+    - decisions:blocks-lines-mirror-depends-on
     default: false
     answer: false
   memory_glossary:
-    ask:
-      Should rollout add one sentence about the BLOCKS mirror to the Task Dependency
+    ask: Should rollout add one sentence about the BLOCKS mirror to the Task Dependency
       Link term?
     memory:
-      - glossary:task-dependency-link
+    - glossary:task-dependency-link
     default: false
     answer: true
 phases:
-  - id: contract
-    title: The BLOCKS-line contract, managed-line registry, and vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write docs/task-dependencies.md §14 (grammar, membership, minting,
-      order, position, authority, writers, gestures, chips, kill switch, outputs), grow
-      §2.4 into the managed-child-line registry, add the BK/BR/BW/BC/MC vectors, and
-      align projects.md, capture.md, and getting-started.md."
-  - id: cli-core
-    title: Rust grammar, shared planner, guards, projects-sync anchor, and config
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-core: add task_dependencies::blocks (parser, formatter, canonical sort, slot,
-      and the one shared line planner), guard every Rust Task Link and tree-close
-      scanner against both managed dependency lines, anchor Sub-projects after BLOCKS,
-      and load dependencies.blocks_lines."
-  - id: plugin-guards
-    title: Recognisers and gesture guards in nav, cycler, and block-id-prompt
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "plugin-guards: teach bob-navigation-hotkeys, task-status-cycler, and
-      block-id-prompt to recognise and ignore BLOCKS lines (Pomodoro scanners,
-      strike/restore, tree close, conversion, the hand-edit mirror) and route or refuse
-      gestures on them, then deploy on this host."
-  - id: chips
-    title: bob-ledger-tools BLOCKS chips with the 🔑 last-blocker badge
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "chips: render BLOCKS lines in Live Preview and Reading view from a live reverse
-      index of the Tasks memo, with the 🔑 badge, `frees N` summaries, past-tense frozen
-      rows, and stale-entry styling; guard the plan-budget link counter; deploy on this
-      host."
-  - id: cli-reconcile
-    title: bob task reconcile owns the BLOCKS projection
-    depends_on:
-      - cli-core
-      - plugin-guards
-      - chips
-    size: medium
-    description:
-      "cli-reconcile: export the accepted explicit edges from R1–R10, add the BLOCKS
-      pass (mint, insert, rewrite, canonicalise, deduplicate, delete, warn, never prune
-      on uncertainty, honour the kill switch), report it additively, and dry-run it
-      against the live vault."
-  - id: cli-capture
-    title: Capture `&` and dependency drops keep the mirror current
-    depends_on:
-      - cli-core
-      - cli-reconcile
-    size: medium
-    description:
-      "cli-capture: stage each added prerequisite's BLOCKS entry (and the dependent's
-      minted id) in the same capture batch, remove entries on dependency drops, report
-      rows additively, and keep Bob Mac Capture working without Swift changes."
-  - id: nav-writer
-    title: Nav planner seam, minting, and cross-note follow-ups
-    depends_on:
-      - plugin-guards
-      - cli-reconcile
-    size: medium
-    description:
-      "nav-writer: add the JS twin of the shared planner and the SB mint, make
-      planDependencyEdit emit same-note BLOCKS edits plus cross-note follow-ups, add the
-      preimage-checked follow-up writer, and wire the shared writer and the single
-      same-note path."
-  - id: nav-paths
-    title: Every remaining nav writer, the hand-edit mirror, and undo
-    depends_on:
-      - nav-writer
-    size: medium
-    description:
-      "nav-paths: route counted, marked, and batch Depends-On writers, counted Ctrl+D,
-      the hand-edit mirror (including undo), project conversion, and Ctrl+Shift+M
-      through the BLOCKS seam, with a test for every path."
-  - id: rollout
-    title: Install, verify, reach the MacBook, record
-    depends_on:
-      - cli-capture
-      - nav-paths
-    size: small
-    description:
-      "rollout: install bob on this host, review the live dry-run, verify the pilot
-      script on a vault copy, sync plugins, update the MacBook on a best-effort basis,
-      apply the accepted memory decisions, and record follow-ups."
+- id: contract
+  title: The BLOCKS-line contract, managed-line registry, and vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write docs/task-dependencies.md §14 (grammar, membership,
+    minting, order, position, authority, writers, gestures, chips, kill switch, outputs),
+    grow §2.4 into the managed-child-line registry, add the BK/BR/BW/BC/MC vectors,
+    and align projects.md, capture.md, and getting-started.md.'
+- id: cli-core
+  title: Rust grammar, shared planner, guards, projects-sync anchor, and config
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-core: add task_dependencies::blocks (parser, formatter, canonical
+    sort, slot, and the one shared line planner), guard every Rust Task Link and tree-close
+    scanner against both managed dependency lines, anchor Sub-projects after BLOCKS,
+    and load dependencies.blocks_lines.'
+- id: plugin-guards
+  title: Recognisers and gesture guards in nav, cycler, and block-id-prompt
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugin-guards: teach bob-navigation-hotkeys, task-status-cycler, and
+    block-id-prompt to recognise and ignore BLOCKS lines (Pomodoro scanners, strike/restore,
+    tree close, conversion, the hand-edit mirror) and route or refuse gestures on
+    them, then deploy on this host.'
+- id: chips
+  title: bob-ledger-tools BLOCKS chips with the 🔑 last-blocker badge
+  depends_on:
+  - contract
+  size: medium
+  description: 'chips: render BLOCKS lines in Live Preview and Reading view from a
+    live reverse index of the Tasks memo, with the 🔑 badge, `frees N` summaries, past-tense
+    frozen rows, and stale-entry styling; guard the plan-budget link counter; deploy
+    on this host.'
+- id: cli-reconcile
+  title: bob task reconcile owns the BLOCKS projection
+  depends_on:
+  - cli-core
+  - plugin-guards
+  - chips
+  size: medium
+  description: 'cli-reconcile: export the accepted explicit edges from R1–R10, add
+    the BLOCKS pass (mint, insert, rewrite, canonicalise, deduplicate, delete, warn,
+    never prune on uncertainty, honour the kill switch), report it additively, and
+    dry-run it against the live vault.'
+- id: cli-capture
+  title: Capture `&` and dependency drops keep the mirror current
+  depends_on:
+  - cli-core
+  - cli-reconcile
+  size: medium
+  description: 'cli-capture: stage each added prerequisite''s BLOCKS entry (and the
+    dependent''s minted id) in the same capture batch, remove entries on dependency
+    drops, report rows additively, and keep Bob Mac Capture working without Swift
+    changes.'
+- id: nav-writer
+  title: Nav planner seam, minting, and cross-note follow-ups
+  depends_on:
+  - plugin-guards
+  - cli-reconcile
+  size: medium
+  description: 'nav-writer: add the JS twin of the shared planner and the SB mint,
+    make planDependencyEdit emit same-note BLOCKS edits plus cross-note follow-ups,
+    add the preimage-checked follow-up writer, and wire the shared writer and the
+    single same-note path.'
+- id: nav-paths
+  title: Every remaining nav writer, the hand-edit mirror, and undo
+  depends_on:
+  - nav-writer
+  size: medium
+  description: 'nav-paths: route counted, marked, and batch Depends-On writers, counted
+    Ctrl+D, the hand-edit mirror (including undo), project conversion, and Ctrl+Shift+M
+    through the BLOCKS seam, with a test for every path.'
+- id: rollout
+  title: Install, verify, reach the MacBook, record
+  depends_on:
+  - cli-capture
+  - nav-paths
+  size: small
+  description: 'rollout: install bob on this host, review the live dry-run, verify
+    the pilot script on a vault copy, sync plugins, update the MacBook on a best-effort
+    basis, apply the accepted memory decisions, and record follow-ups.'
 proposed_by: bbugyi200.athena.research.4d.linker.w0
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-13 11:09:48
 status: wip
+bead_id: bob-cli-7e
 ---
 
-- **PROMPT:**
-  [prompts/202610/prerequisite_blocks_lines.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prerequisite_blocks_lines.md)
+- **PROMPT:** [prompts/202610/prerequisite_blocks_lines.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prerequisite_blocks_lines.md)
+- **BEAD:** [bob-cli-7e](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7e/README.md)
 
 # Plan: 🧱 BLOCKS lines, a generated mirror of Depends-On on every prerequisite
 
