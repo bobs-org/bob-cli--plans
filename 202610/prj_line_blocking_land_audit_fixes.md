@@ -1,70 +1,66 @@
 ---
 tier: epic
 title: Finish ^prj project blocking — fix what the bob-cli-6u.18 land audit found
-goal:
-  Every defect the bob-cli-6u.18 land audit found in the ^prj project-blocking fixes is
-  fixed in bob-cli and bob-plugins, with regression tests that fail on the old code.
-  bob-cli `just check` fails only the bob-cli-6m percent-listen tests. bob-plugins `npm
-  test` fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w cases. The fixed bob
-  and plugins are installed on this host and, when it is reachable, on the MacBook.
+goal: Every defect the bob-cli-6u.18 land audit found in the ^prj project-blocking
+  fixes is fixed in bob-cli and bob-plugins, with regression tests that fail on the
+  old code. bob-cli `just check` fails only the bob-cli-6m percent-listen tests. bob-plugins
+  `npm test` fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w cases. The
+  fixed bob and plugins are installed on this host and, when it is reachable, on the
+  MacBook.
 parent_bead: bob-cli-6u.18
 phases:
-  - id: cli-reconcile-projects
-    title: Reconcile internal-id, warning, and projects-sync hoist fixes
-    depends_on: []
-    size: medium
-    description:
-      "cli-reconcile-projects: filter same-note ids from inherited resident edges, warn
-      only for field-named internal targets, scope the internal-id filter to recognised
-      projects and to [id::] values, stop the frontmatter scheduled bypass of the hoist
-      gate, revert ^prj matching to exact, CRLF and test-strength fixes, and the stale
-      direct-^prj-link docs."
-  - id: cli-capture
-    title: Capture struck-link insert, closed-status, and consumed-link output fixes
-    depends_on: []
-    size: small
-    description:
-      "cli-capture: the toggle insert ignores struck links, + rendering uses configured
-      closed statuses, consumed @r:id gets honest human and JSON output, a fenced-index
-      regression test that fails on the old code, and complete capture docs."
-  - id: nav-fixes
-    title: Navigation-hotkeys reversal order, schedule tag, and move promotion fixes
-    depends_on: []
-    size: medium
-    description:
-      "nav-fixes: write nothing before the reversal parent write, make the schedule tag
-      follow ^prj status, never raise ^prj on move promotion, add the missing
-      plugin-level tests, nav README row and bob-cli docs."
-  - id: cycler-blockid
-    title: Task-status-cycler and block-id-prompt residual project-blocking fixes
-    depends_on: []
-    size: small
-    description:
-      "cycler-blockid: never strip the tag from closed lines on recovery, recover
-      without [unblocked::] on the successor path when ledger v12 is missing, keep
-      residents in step when Alt+] clears a ^prj date, restore lost block-id tests,
-      restore the cycler README row."
-  - id: rollout
-    title: Install the fixed bob and plugins on this host and the MacBook
-    depends_on:
-      - cli-reconcile-projects
-      - cli-capture
-      - nav-fixes
-      - cycler-blockid
-    size: small
-    description:
-      "rollout: bob then plugins on this host, then best-effort on the MacBook with a
-      detached install; dry-run verification only; record versions and what Bryan still
-      has to do."
+- id: cli-reconcile-projects
+  title: Reconcile internal-id, warning, and projects-sync hoist fixes
+  depends_on: []
+  size: medium
+  description: 'cli-reconcile-projects: filter same-note ids from inherited resident
+    edges, warn only for field-named internal targets, scope the internal-id filter
+    to recognised projects and to [id::] values, stop the frontmatter scheduled bypass
+    of the hoist gate, revert ^prj matching to exact, CRLF and test-strength fixes,
+    and the stale direct-^prj-link docs.'
+- id: cli-capture
+  title: Capture struck-link insert, closed-status, and consumed-link output fixes
+  depends_on: []
+  size: small
+  description: 'cli-capture: the toggle insert ignores struck links, + rendering uses
+    configured closed statuses, consumed @r:id gets honest human and JSON output,
+    a fenced-index regression test that fails on the old code, and complete capture
+    docs.'
+- id: nav-fixes
+  title: Navigation-hotkeys reversal order, schedule tag, and move promotion fixes
+  depends_on: []
+  size: medium
+  description: 'nav-fixes: write nothing before the reversal parent write, make the
+    schedule tag follow ^prj status, never raise ^prj on move promotion, add the missing
+    plugin-level tests, nav README row and bob-cli docs.'
+- id: cycler-blockid
+  title: Task-status-cycler and block-id-prompt residual project-blocking fixes
+  depends_on: []
+  size: small
+  description: 'cycler-blockid: never strip the tag from closed lines on recovery,
+    recover without [unblocked::] on the successor path when ledger v12 is missing,
+    keep residents in step when Alt+] clears a ^prj date, restore lost block-id tests,
+    restore the cycler README row.'
+- id: rollout
+  title: Install the fixed bob and plugins on this host and the MacBook
+  depends_on:
+  - cli-reconcile-projects
+  - cli-capture
+  - nav-fixes
+  - cycler-blockid
+  size: small
+  description: 'rollout: bob then plugins on this host, then best-effort on the MacBook
+    with a detached install; dry-run verification only; record versions and what Bryan
+    still has to do.'
 proposed_by: bbugyi200.apollo.bob-cli-6u.18.land
 create_time: 2026-10-12 20:32:24
 status: wip
+bead_id: bob-cli-6u.18.7
 ---
 
-- **PROMPT:**
-  [prompts/202610/prj_line_blocking_land_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_land_audit_fixes.md)
-- **PARENT:**
-  [202610/prj_line_blocking_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_blocking_landing_fixes.md)
+- **PROMPT:** [prompts/202610/prj_line_blocking_land_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_land_audit_fixes.md)
+- **PARENT:** [202610/prj_line_blocking_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_blocking_landing_fixes.md)
+- **BEAD:** [bob-cli-6u.18.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6u/bob-cli-6u.18.7.md)
 
 # Plan: fix what the bob-cli-6u.18 land audit found
 
