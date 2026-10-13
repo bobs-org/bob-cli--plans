@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Choose successor offers in Task Status Cycler
-goal:
-  Complete bob-cli-7c.4 with explicit picks, fresh-text revalidation, guarded insertion,
-  reversible freshness writes, and verified plugin deployment.
+goal: Complete bob-cli-7c.4 with explicit picks, fresh-text revalidation, guarded
+  insertion, reversible freshness writes, and verified plugin deployment.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-7c.4
 bead: bob-cli-7c.4
-create_time: 2026-10-13 10:49:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
