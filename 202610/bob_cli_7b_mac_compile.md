@@ -1,16 +1,15 @@
 ---
 tier: tale
 title: Repair the dependency-drop Mac compile and close bob-cli-7b
-goal: "Rename the illegal Swift `guard` bindings and repair the three toggle-test string
-  literals that keep bob-mac-capture from compiling, then close epic bob-cli-7b. The
-  bob-cli feature is already on master and is not part of this change.
+goal: 'Rename the illegal Swift `guard` bindings and repair the three toggle-test
+  string literals that keep bob-mac-capture from compiling, then close epic bob-cli-7b.
+  The bob-cli feature is already on master and is not part of this change.
 
-  "
+  '
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-7b.land
 bead: bob-cli-7b
-create_time: 2026-10-13 10:59:36
-status: wip
+status: done
 ---
 
 - **PLAN:**
