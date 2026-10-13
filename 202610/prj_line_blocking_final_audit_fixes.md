@@ -1,62 +1,58 @@
 ---
 tier: epic
 title: Finish ^prj project blocking — fix what the bob-cli-6u.18.7 land audit found
-goal:
-  Every defect the bob-cli-6u.18.7 land audit found in the ^prj project-blocking fixes
-  is fixed in bob-cli and bob-plugins, each with a regression test that fails on the old
-  code. bob-cli `just check` fails only the bob-cli-6m percent-listen tests. bob-plugins
-  `npm test` fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w cases. The fixed
-  bob and plugins are installed on this host and, when it is reachable, on the MacBook.
+goal: Every defect the bob-cli-6u.18.7 land audit found in the ^prj project-blocking
+  fixes is fixed in bob-cli and bob-plugins, each with a regression test that fails
+  on the old code. bob-cli `just check` fails only the bob-cli-6m percent-listen tests.
+  bob-plugins `npm test` fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w
+  cases. The fixed bob and plugins are installed on this host and, when it is reachable,
+  on the MacBook.
 parent_bead: bob-cli-6u.18.7
 phases:
-  - id: cli-fixes
-    title: Reconcile PDR7 warning, exact close-path ^prj, capture output and docs fixes
-    depends_on: []
-    size: medium
-    description:
-      "cli-fixes: restore the PDR7 warning for internal Depends-On line links, match
-      ^prj exactly in the close paths, keep removal fields out of the nested link_guard
-      object, test consumed @r:id human output, use the configured-open check in +
-      rendering, restore lost PDB4/PDB6 and CRLF coverage, and correct docs/capture.md."
-  - id: nav-fixes
-    title:
-      Navigation-hotkeys move walk-through, reversal rewrite failures, and wiring tests
-    depends_on: []
-    size: medium
-    description:
-      "nav-fixes: walk through a [?] ^prj on move promotion, report post-write reversal
-      link-rewrite failures and keep the project note, add schedule-tag and
-      recovery-writer wiring tests that fail on the old code, drop dead exports."
-  - id: cycler-fixes
-    title:
-      Task-status-cycler cross-note project reasons, Alt+[ and transcluded ^prj recovery
-    depends_on: []
-    size: medium
-    description:
-      "cycler-fixes: resolve cross-note Depends-On ids when deciding whether a ^prj
-      still blocks, recover residents when ^prj leaves Blocked for any status and when
-      it is cycled through a transclusion, split the block-id resident test, tighten the
-      notice-order test, and restore the cycler README row."
-  - id: rollout
-    title: Install the fixed bob and plugins on this host and the MacBook
-    depends_on:
-      - cli-fixes
-      - nav-fixes
-      - cycler-fixes
-    size: small
-    description:
-      "rollout: bob then plugins on this host, then best-effort on the MacBook with a
-      detached install; dry-run verification only; record versions and what Bryan still
-      has to do."
+- id: cli-fixes
+  title: Reconcile PDR7 warning, exact close-path ^prj, capture output and docs fixes
+  depends_on: []
+  size: medium
+  description: 'cli-fixes: restore the PDR7 warning for internal Depends-On line links,
+    match ^prj exactly in the close paths, keep removal fields out of the nested link_guard
+    object, test consumed @r:id human output, use the configured-open check in + rendering,
+    restore lost PDB4/PDB6 and CRLF coverage, and correct docs/capture.md.'
+- id: nav-fixes
+  title: Navigation-hotkeys move walk-through, reversal rewrite failures, and wiring
+    tests
+  depends_on: []
+  size: medium
+  description: 'nav-fixes: walk through a [?] ^prj on move promotion, report post-write
+    reversal link-rewrite failures and keep the project note, add schedule-tag and
+    recovery-writer wiring tests that fail on the old code, drop dead exports.'
+- id: cycler-fixes
+  title: Task-status-cycler cross-note project reasons, Alt+[ and transcluded ^prj
+    recovery
+  depends_on: []
+  size: medium
+  description: 'cycler-fixes: resolve cross-note Depends-On ids when deciding whether
+    a ^prj still blocks, recover residents when ^prj leaves Blocked for any status
+    and when it is cycled through a transclusion, split the block-id resident test,
+    tighten the notice-order test, and restore the cycler README row.'
+- id: rollout
+  title: Install the fixed bob and plugins on this host and the MacBook
+  depends_on:
+  - cli-fixes
+  - nav-fixes
+  - cycler-fixes
+  size: small
+  description: 'rollout: bob then plugins on this host, then best-effort on the MacBook
+    with a detached install; dry-run verification only; record versions and what Bryan
+    still has to do.'
 proposed_by: bbugyi200.apollo.bob-cli-6u.18.7.land
 create_time: 2026-10-12 22:09:25
 status: wip
+bead_id: bob-cli-6u.18.7.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/prj_line_blocking_final_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_final_audit_fixes.md)
-- **PARENT:**
-  [202610/prj_line_blocking_land_audit_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_blocking_land_audit_fixes.md)
+- **PROMPT:** [prompts/202610/prj_line_blocking_final_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/prj_line_blocking_final_audit_fixes.md)
+- **PARENT:** [202610/prj_line_blocking_land_audit_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/prj_line_blocking_land_audit_fixes.md)
+- **BEAD:** [bob-cli-6u.18.7.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-6u/bob-cli-6u.18.7.6.md)
 
 # Plan: fix what the bob-cli-6u.18.7 land audit found
 
