@@ -1,136 +1,126 @@
 ---
 tier: epic
 title: Sub-project cascade for project blocking and the project pull-in
-goal: "A blocked project's sub-projects (project notes whose `parent:` names it,
+goal: 'A blocked project''s sub-projects (project notes whose `parent:` names it,
   recursively) are Blocked too: their `^prj` and every open resident are `[?]` and
-  tagged `#prj_is_blocked`. `bob task reconcile` derives this and reverses it when the
-  ancestor's reasons clear. The Task Card (Ctrl+Shift+P) applies and reverses it in the
-  same gesture. Every other engine reads a tagged `^prj` as an inherited reason, so
-  nothing links, recovers, or pulls in a cascade-blocked task. Closing a sub-project's
-  `^prj` that leaves its parent with no open work pulls the parent's `^prj` in as Next
-  (§12.10 trigger (c)), both in bob capture and in Obsidian.
+  tagged `#prj_is_blocked`. `bob task reconcile` derives this and reverses it when
+  the ancestor''s reasons clear. The Task Card (Ctrl+Shift+P) applies and reverses
+  it in the same gesture. Every other engine reads a tagged `^prj` as an inherited
+  reason, so nothing links, recovers, or pulls in a cascade-blocked task. Closing
+  a sub-project''s `^prj` that leaves its parent with no open work pulls the parent''s
+  `^prj` in as Next (§12.10 trigger (c)), both in bob capture and in Obsidian.
 
-  "
+  '
 decisions:
   schedule_cascade:
-    ask:
-      Should the Task Card Schedule action on a ^prj (future date, due date, Ctrl+D)
+    ask: Should the Task Card Schedule action on a ^prj (future date, due date, Ctrl+D)
       also cascade to sub-projects?
     default: true
     why: A future ^prj date blocks a project exactly like an open prerequisite does
     answer: true
   close_recovers_subprojects:
-    ask:
-      Should closes and Alt+]/Alt+[ that unblock a project also recover its sub-projects
+    ask: Should closes and Alt+]/Alt+[ that unblock a project also recover its sub-projects
       at once?
     default: false
-    why:
-      The request scoped reversal to reconcile and Ctrl+Shift+P; closes keep their §12.7
-      cost
+    why: The request scoped reversal to reconcile and Ctrl+Shift+P; closes keep their
+      §12.7 cost
     answer: false
   memory_decision_record:
-    ask:
-      Add a decisions record for the cascade and mark projects-block-from-prj-line
+    ask: Add a decisions record for the cascade and mark projects-block-from-prj-line
       superseded in part?
     memory:
-      - decisions:projects-block-from-prj-line
-      - decisions:subprojects-inherit-project-blocking
+    - decisions:projects-block-from-prj-line
+    - decisions:subprojects-inherit-project-blocking
     default: true
-    corrects: "There is no sub-project cascade: blocking is by residence only."
+    corrects: 'There is no sub-project cascade: blocking is by residence only.'
     answer: true
   memory_glossary:
-    ask:
-      Update the Project Task glossary term to say sub-projects inherit their ancestors'
+    ask: Update the Project Task glossary term to say sub-projects inherit their ancestors'
       blocking?
     memory:
-      - glossary:project-task
+    - glossary:project-task
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Sub-project cascade contract and vectors
-    depends_on: []
-    size: small
-    description:
-      "contract: rewrite §13's residence-only rule into the cascade (parent, ancestors,
-      inherited reasons, ^prj tag, descendant-internal targets), add §12.10 trigger (c)
-      and a real step 3, and add the PDS, PDG, PDC and PP vectors plus doc pointers."
-  - id: cli-reconcile
-    title: Reconcile derives, tags, and reverses the cascade
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-reconcile: add a shared Rust project-tree module (parent resolution,
-      ancestors, descendants, tag predicate) and make reconcile block, tag, consume,
-      promote, cycle-check, deproject descendant targets, and recover sub-projects per
-      PDS1–PDS15."
-  - id: cli-close
-    title: Close paths honour the tag proxy and pull in parents
-    depends_on:
-      - cli-reconcile
-    size: medium
-    description:
-      "cli-close: make capture ! and =x closes read a tagged ^prj as an inherited reason
-      (PDC4/PDC5), implement pull-in step 3 and trigger (c) with their rows, and add the
-      close-path subtree recovery only under close_recovers_subprojects."
-  - id: cli-guards
-    title: Capture link guard, destinations, and & refuse cascade-blocked targets
-    depends_on:
-      - cli-reconcile
-    size: medium
-    description:
-      "cli-guards: make the capture link guard, new-task destinations, and & on ^prj
-      honour the tag proxy and descendant-internal targets (PDG13, PDG15, PDG16), with
-      ancestor prerequisite promotion."
-  - id: nav-model
-    title: Navigation sub-project discovery, tag proxy, and subtree planner
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "nav-model: add bob-navigation-hotkeys sub-project discovery and a pure top-down
-      subtree planner, make existing project-blocking helpers treat a tagged ^prj as
-      still blocked, and refuse descendant targets in the Depends on stage."
-  - id: nav-gestures
-    title: Task Card Depends on and Schedule apply and reverse the cascade
-    depends_on:
-      - nav-model
-    size: medium
-    description:
-      "nav-gestures: wire the subtree pass into every Task Card Depends on writer and,
-      under schedule_cascade, every ^prj Schedule writer, with descendant writes, link
-      consumption, commitment transfer, notices, and deploy."
-  - id: cycler
-    title: Cycler and block-id-prompt honour the cascade and pull in parents
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cycler: make task-status-cycler and block-id-prompt read a tagged ^prj as an
-      inherited reason, refuse Alt+]/Alt+[ on it, implement pull-in step 3 and trigger
-      (c), and add subtree recovery only under close_recovers_subprojects."
-  - id: rollout
-    title: Install, verify on a vault copy, reach the MacBook, and record
-    depends_on:
-      - cli-reconcile
-      - cli-close
-      - cli-guards
-      - nav-gestures
-      - cycler
-    size: small
-    description:
-      "rollout: install bob and the plugins here, verify the cascade and trigger (c) end
-      to end on a vault copy, install on the MacBook (bob before plugins), apply the
-      memory decisions, and leave coordination notes."
+- id: contract
+  title: Sub-project cascade contract and vectors
+  depends_on: []
+  size: small
+  description: 'contract: rewrite §13''s residence-only rule into the cascade (parent,
+    ancestors, inherited reasons, ^prj tag, descendant-internal targets), add §12.10
+    trigger (c) and a real step 3, and add the PDS, PDG, PDC and PP vectors plus doc
+    pointers.'
+- id: cli-reconcile
+  title: Reconcile derives, tags, and reverses the cascade
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-reconcile: add a shared Rust project-tree module (parent resolution,
+    ancestors, descendants, tag predicate) and make reconcile block, tag, consume,
+    promote, cycle-check, deproject descendant targets, and recover sub-projects per
+    PDS1–PDS15.'
+- id: cli-close
+  title: Close paths honour the tag proxy and pull in parents
+  depends_on:
+  - cli-reconcile
+  size: medium
+  description: 'cli-close: make capture ! and =x closes read a tagged ^prj as an inherited
+    reason (PDC4/PDC5), implement pull-in step 3 and trigger (c) with their rows,
+    and add the close-path subtree recovery only under close_recovers_subprojects.'
+- id: cli-guards
+  title: Capture link guard, destinations, and & refuse cascade-blocked targets
+  depends_on:
+  - cli-reconcile
+  size: medium
+  description: 'cli-guards: make the capture link guard, new-task destinations, and
+    & on ^prj honour the tag proxy and descendant-internal targets (PDG13, PDG15,
+    PDG16), with ancestor prerequisite promotion.'
+- id: nav-model
+  title: Navigation sub-project discovery, tag proxy, and subtree planner
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav-model: add bob-navigation-hotkeys sub-project discovery and a
+    pure top-down subtree planner, make existing project-blocking helpers treat a
+    tagged ^prj as still blocked, and refuse descendant targets in the Depends on
+    stage.'
+- id: nav-gestures
+  title: Task Card Depends on and Schedule apply and reverse the cascade
+  depends_on:
+  - nav-model
+  size: medium
+  description: 'nav-gestures: wire the subtree pass into every Task Card Depends on
+    writer and, under schedule_cascade, every ^prj Schedule writer, with descendant
+    writes, link consumption, commitment transfer, notices, and deploy.'
+- id: cycler
+  title: Cycler and block-id-prompt honour the cascade and pull in parents
+  depends_on:
+  - contract
+  size: medium
+  description: 'cycler: make task-status-cycler and block-id-prompt read a tagged
+    ^prj as an inherited reason, refuse Alt+]/Alt+[ on it, implement pull-in step
+    3 and trigger (c), and add subtree recovery only under close_recovers_subprojects.'
+- id: rollout
+  title: Install, verify on a vault copy, reach the MacBook, and record
+  depends_on:
+  - cli-reconcile
+  - cli-close
+  - cli-guards
+  - nav-gestures
+  - cycler
+  size: small
+  description: 'rollout: install bob and the plugins here, verify the cascade and
+    trigger (c) end to end on a vault copy, install on the MacBook (bob before plugins),
+    apply the memory decisions, and leave coordination notes.'
 proposed_by: bbugyi200.apollo.71
 decided_by: auto
 create_time: 2026-10-13 03:14:26
 status: wip
+bead_id: bob-cli-78
 ---
 
-- **PROMPT:**
-  [prompts/202610/subproject_cascade.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/subproject_cascade.md)
+- **PROMPT:** [prompts/202610/subproject_cascade.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/subproject_cascade.md)
+- **BEAD:** [bob-cli-78](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-78/README.md)
 
 # Plan: Sub-project cascade for project blocking and the project pull-in
 
