@@ -64,7 +64,7 @@ phases:
 proposed_by: bbugyi200.apollo.7c.w0
 decided_by: auto
 create_time: 2026-10-13 08:12:06
-status: wip
+status: done
 bead_id: bob-cli-7b
 ---
 
