@@ -1,115 +1,108 @@
 ---
 tier: epic
 title: Successor Offers — pick which unblocked tasks to pull in after a close
-goal: "Closing a task that unblocks other tasks (in Obsidian, bob capture, or Bob Mac
-  Capture) still recovers everything immediately, but no successor Task Link is created
-  automatically. Instead one grouped picker per gesture offers the direct dependents,
-  every available task of a project whose ^prj the close unblocked (the sase.md ^bar →
-  sase_foo.md case), and the emptied-project / parent-project ^prj pull-ins, with no
-  5-successor limit. Only the picked tasks are linked, raised to Next, and stamped
-  fresh.
+goal: 'Closing a task that unblocks other tasks (in Obsidian, bob capture, or Bob
+  Mac Capture) still recovers everything immediately, but no successor Task Link is
+  created automatically. Instead one grouped picker per gesture offers the direct
+  dependents, every available task of a project whose ^prj the close unblocked (the
+  sase.md ^bar → sase_foo.md case), and the emptied-project / parent-project ^prj
+  pull-ins, with no 5-successor limit. Only the picked tasks are linked, raised to
+  Next, and stamped fresh.
 
-  "
+  '
 phases:
-  - id: contract
-    title: Successor Offers contract, vectors, and docs
-    depends_on: []
-    size: medium
-    description:
-      "contract: rewrite task-dependencies §12 as Successor Offers (offer ladder,
-      project offers, pull-in offers, breaker deletion, selection, pick writes, keys,
-      JSON, CLI flags, nav picker API), add the SO vector table, retire SL17/PP15/PDC2,
-      and update capture/plan/freshness docs plus the README, getting-started, and hooks
-      mentions."
-  - id: rust_offers
-    title: Rust planner emits offers and applies a selection
-    depends_on:
-      - contract
-    size: large
-    description:
-      "rust_offers: change plan_successors, project_close, and project_pull_in so every
-      would-be link becomes a keyed offer, project residents are offered, the breaker is
-      deleted, unplanned predecessors use the implicit destination, and a selection
-      input drives link, mint, Next, and freshness writes; port the SO vectors as unit
-      tests."
-  - id: rust_capture
-    title: bob capture --pull-in, offer JSON, and the Mac guard
-    depends_on:
-      - rust_offers
-    size: large
-    description:
-      "rust_capture: add -p/--pull-in and the hidden --require-pull-in-choice to bob
-      capture, thread the selection through every close path and the batch net pass,
-      emit offer/pull_in JSON and numbered human rows, and cover the sase_foo case and
-      the SO vectors with integration tests."
-  - id: cycler_offers
-    title: task-status-cycler plans offers, awaits the picker, then applies
-    depends_on:
-      - contract
-    size: large
-    description:
-      "cycler_offers: port the offer rule to the cycler, delete SUCCESSOR_BREAKER_LIMIT,
-      await nav's picker between plan and apply, re-plan with the selection against
-      fresh text, stamp picks, guard the editor insertion branch, extend the reopen
-      receipt, and fall back to a no-link notice without nav."
-  - id: nav_picker
-    title: Navigation hotkeys successor picker modal and walk integration
-    depends_on:
-      - contract
-    size: large
-    description:
-      "nav_picker: add the api.successors v1 multi-select picker (groups, muted rows,
-      filter, Tab/Ctrl+A marks, double-press guard, plan meter), hold the review-walk
-      gesture through the picker so the walk advances once after it settles, and update
-      the unblocked notice copy."
-  - id: obsidian_destination
-    title: Per-row destination override in the Obsidian picker
-    depends_on:
-      - cycler_offers
-      - nav_picker
-    size: medium
-    description:
-      "obsidian_destination: expose block-id-prompt's Pomodoro link picker as a
-      versioned api, chain it from the successor picker's Ctrl+Shift+Enter to retarget
-      rows, and make the cycler insert picks at an overridden existing or new entry."
-  - id: mac_choice
-    title: Bob Mac Capture in-panel pull-in choice step
-    depends_on:
-      - rust_capture
-    size: large
-    description:
-      "mac_choice: decode offer/pull_in fields, number offer rows on the preview cards,
-      add a keyboard multi-select choice step on Return, pass --pull-in on submit, use
-      the --require-pull-in-choice race guard, fix missing copy, and verify on macOS CI."
-  - id: decision_record
-    title: Decision record, supersession marks, and epic acceptance
-    depends_on:
-      - rust_capture
-      - cycler_offers
-      - nav_picker
-      - obsidian_destination
-      - mac_choice
-    size: small
-    description:
-      "decision_record: record the accepted Successor Offers decision, mark the records
-      it partly supersedes, optionally add the glossary term, re-run the cross-repo
-      acceptance checks, and record the deferred follow-ups."
+- id: contract
+  title: Successor Offers contract, vectors, and docs
+  depends_on: []
+  size: medium
+  description: 'contract: rewrite task-dependencies §12 as Successor Offers (offer
+    ladder, project offers, pull-in offers, breaker deletion, selection, pick writes,
+    keys, JSON, CLI flags, nav picker API), add the SO vector table, retire SL17/PP15/PDC2,
+    and update capture/plan/freshness docs plus the README, getting-started, and hooks
+    mentions.'
+- id: rust_offers
+  title: Rust planner emits offers and applies a selection
+  depends_on:
+  - contract
+  size: large
+  description: 'rust_offers: change plan_successors, project_close, and project_pull_in
+    so every would-be link becomes a keyed offer, project residents are offered, the
+    breaker is deleted, unplanned predecessors use the implicit destination, and a
+    selection input drives link, mint, Next, and freshness writes; port the SO vectors
+    as unit tests.'
+- id: rust_capture
+  title: bob capture --pull-in, offer JSON, and the Mac guard
+  depends_on:
+  - rust_offers
+  size: large
+  description: 'rust_capture: add -p/--pull-in and the hidden --require-pull-in-choice
+    to bob capture, thread the selection through every close path and the batch net
+    pass, emit offer/pull_in JSON and numbered human rows, and cover the sase_foo
+    case and the SO vectors with integration tests.'
+- id: cycler_offers
+  title: task-status-cycler plans offers, awaits the picker, then applies
+  depends_on:
+  - contract
+  size: large
+  description: 'cycler_offers: port the offer rule to the cycler, delete SUCCESSOR_BREAKER_LIMIT,
+    await nav''s picker between plan and apply, re-plan with the selection against
+    fresh text, stamp picks, guard the editor insertion branch, extend the reopen
+    receipt, and fall back to a no-link notice without nav.'
+- id: nav_picker
+  title: Navigation hotkeys successor picker modal and walk integration
+  depends_on:
+  - contract
+  size: large
+  description: 'nav_picker: add the api.successors v1 multi-select picker (groups,
+    muted rows, filter, Tab/Ctrl+A marks, double-press guard, plan meter), hold the
+    review-walk gesture through the picker so the walk advances once after it settles,
+    and update the unblocked notice copy.'
+- id: obsidian_destination
+  title: Per-row destination override in the Obsidian picker
+  depends_on:
+  - cycler_offers
+  - nav_picker
+  size: medium
+  description: 'obsidian_destination: expose block-id-prompt''s Pomodoro link picker
+    as a versioned api, chain it from the successor picker''s Ctrl+Shift+Enter to
+    retarget rows, and make the cycler insert picks at an overridden existing or new
+    entry.'
+- id: mac_choice
+  title: Bob Mac Capture in-panel pull-in choice step
+  depends_on:
+  - rust_capture
+  size: large
+  description: 'mac_choice: decode offer/pull_in fields, number offer rows on the
+    preview cards, add a keyboard multi-select choice step on Return, pass --pull-in
+    on submit, use the --require-pull-in-choice race guard, fix missing copy, and
+    verify on macOS CI.'
+- id: decision_record
+  title: Decision record, supersession marks, and epic acceptance
+  depends_on:
+  - rust_capture
+  - cycler_offers
+  - nav_picker
+  - obsidian_destination
+  - mac_choice
+  size: small
+  description: 'decision_record: record the accepted Successor Offers decision, mark
+    the records it partly supersedes, optionally add the glossary term, re-run the
+    cross-repo acceptance checks, and record the deferred follow-ups.'
 decisions:
   memory_offers_record:
-    ask:
-      Record "Unblocked tasks are offered, never auto-linked" and mark the two records
-      it partly supersedes?
+    ask: Record "Unblocked tasks are offered, never auto-linked" and mark the two
+      records it partly supersedes?
     memory:
-      - decisions
-      - decisions:unblocked-tasks-are-offered
+    - decisions
+    - decisions:unblocked-tasks-are-offered
     default: true
-    corrects:
-      "`^prj` is pulled in as Next (`docs/task-dependencies.md` §12.10 trigger (c))."
+    corrects: '`^prj` is pulled in as Next (`docs/task-dependencies.md` §12.10 trigger
+      (c)).'
     answer: true
   memory_glossary_offer:
     ask: Add a "Successor Offer" glossary term?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: true
 proposed_by: bbugyi200.apollo.research.11.linker.w0
@@ -117,10 +110,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-13 09:48:08
 status: wip
+bead_id: bob-cli-7c
 ---
 
-- **PROMPT:**
-  [prompts/202610/successor_offers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/successor_offers.md)
+- **PROMPT:** [prompts/202610/successor_offers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/successor_offers.md)
+- **BEAD:** [bob-cli-7c](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7c/README.md)
 
 # Plan: Successor Offers — pick which unblocked tasks to pull in after a close
 
