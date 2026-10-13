@@ -1,18 +1,22 @@
 ---
 tier: tale
 title: Bob Refs inspector notes paging with Ctrl+D
-goal: Ctrl+D at the bottom of the Bob Refs preview reveals the next configurable page
-  of your notes until all show.
+goal:
+  Ctrl+D at the bottom of the Bob Refs preview reveals the next configurable page of
+  your notes until all show.
 size: medium
 decisions:
   reveal_memory:
-    ask: Should revealed notes stay revealed when you reselect a reference while the
-      panel stays open?
+    ask:
+      Should revealed notes stay revealed when you reselect a reference while the panel
+      stays open?
     choices:
-      reset: Every selection opens on the first page of notes, like the preview scroll
-        resets to top
-      keep: Each reference remembers its revealed notes until the panel hides; scroll
-        still resets
+      reset:
+        Every selection opens on the first page of notes, like the preview scroll resets
+        to top
+      keep:
+        Each reference remembers its revealed notes until the panel hides; scroll still
+        resets
     default: reset
     why: The inspector already rebuilds at the top on every selection
     answer: reset
@@ -20,6 +24,12 @@ proposed_by: bbugyi200.apollo.7e
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7e](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7e.md)
+- **COMMITS:**
+  - [2837025](https://github.com/bobs-org/bob-mac-capture/commit/283702598f8200993ee4a1dc66a38b2d1dbaede9)
+    — feat(refs-inspector): page revealed notes with reveal-memory reset
 
 # Bob Refs inspector: Ctrl+D at the bottom shows the next page of your notes
 
