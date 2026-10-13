@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Correct the named fenced-index regression and finish the project-blocking landing
-goal:
-  The named capture regression uses a valid Depends-On child, proves the staged-context
-  rebuild, and bob-cli-6u.18.7.6 plus every ready directly parented plan ancestor close
-  normally with their linked plans marked done.
+goal: The named capture regression uses a valid Depends-On child, proves the staged-context
+  rebuild, and bob-cli-6u.18.7.6 plus every ready directly parented plan ancestor
+  close normally with their linked plans marked done.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-6u.18.7.6.land
 bead: bob-cli-6u.18.7.6
-create_time: 2026-10-12 23:06:00
-status: wip
+status: done
 ---
 
 - **PARENT:**
