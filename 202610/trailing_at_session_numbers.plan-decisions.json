@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should `@<X>` also follow an unnamed start's drop list, so `=~2@3` works like `=3~2`?",
+      "choices": [
+        {
+          "key": "accept",
+          "label": "`=~2@3` and `==~2@3` start exactly like `=3~2` and `==3~2`; a bare `=@3` stays prose"
+        },
+        {
+          "key": "reject",
+          "label": "Only named starts take `@<X>`; `=~2@3` stays an error, now one that teaches `=3~2`"
+        }
+      ],
+      "default": "accept",
+      "effective_default": "accept",
+      "id": "unnamed_drop_starts",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Same cursor-saving win as the named form; the drop-part lexer change is shared anyway."
+    }
+  ]
+}
