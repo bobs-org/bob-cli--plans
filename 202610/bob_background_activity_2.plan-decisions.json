@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Re-sign the Mac's bob ad-hoc to prove a new cdhash does not raise another alert?",
+      "choices": [
+        {
+          "key": "probe",
+          "label": "Re-sign bob ad-hoc and require that no new bob advisory appears"
+        },
+        {
+          "key": "skip",
+          "label": "Confirm program=/bin/sh and a successful sync, and leave bob's signature alone"
+        }
+      ],
+      "default": "probe",
+      "effective_default": "probe",
+      "id": "cdhash_probe",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "The wrapper is untested until a new bob cdhash stays quiet"
+    }
+  ]
+}
