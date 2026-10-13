@@ -1,81 +1,75 @@
 ---
 tier: epic
 title: Capture links a dependency-blocked task by dropping its open prerequisites
-goal: "Typing an existing-task link gesture (`@route:id`, `^route:id`, `@route+id`,
-  `@route+id!`, `@route:id=x…`) in `bob capture` or Bob Mac Capture on a task that is
-  Blocked only by its own open prerequisites removes those prerequisites from its
+goal: 'Typing an existing-task link gesture (`@route:id`, `^route:id`, `@route+id`,
+  `@route+id!`, `@route:id=x…`) in `bob capture` or Bob Mac Capture on a task that
+  is Blocked only by its own open prerequisites removes those prerequisites from its
   Depends-On line and then performs the gesture, while every case where dropping is
-  unsafe keeps today's consumption and says why.
+  unsafe keeps today''s consumption and says why.
 
-  "
+  '
 decisions:
   mac_guard_detail:
-    ask:
-      Should Bob Mac Capture also show bob's not-linked sentence when a link gesture
+    ask: Should Bob Mac Capture also show bob's not-linked sentence when a link gesture
       still cannot link?
     default: true
-    why:
-      a refused link renders as a generic preview today, which reads as "nothing
+    why: a refused link renders as a generic preview today, which reads as "nothing
       happened"
     answer: true
   memory_supersede:
-    ask:
-      Should publish add the capture dependency-drop decision record and mark the two
-      records it partly supersedes?
+    ask: Should publish add the capture dependency-drop decision record and mark the
+      two records it partly supersedes?
     memory:
-      - decisions:projects-block-from-prj-line
-      - decisions:task-deps-are-depends-on-links
-      - decisions:capture-link-drops-blocking-deps
+    - decisions:projects-block-from-prj-line
+    - decisions:task-deps-are-depends-on-links
+    - decisions:capture-link-drops-blocking-deps
     default: true
-    corrects:
-      a gesture that would link one raises its open prerequisites instead (or reports a
-      project date)
+    corrects: a gesture that would link one raises its open prerequisites instead
+      (or reports a project date)
     answer: true
 phases:
-  - id: cli-core
-    title: Contract, dependency-drop writer, and the solo link gesture
-    depends_on: []
-    size: medium
-    description:
-      "cli-core: write the §13.5 dependency-drop contract and PDG18–PDG27 vectors first,
-      then add the drop verdict, the staged drop writer, the shared guard helper,
-      JSON/human output, and wire `@route:id` / `^route:id` (with `#name` and `=<X>`)."
-  - id: cli-gestures
-    title: Toggle, Ensure Next, and link-then-close adopt the drop
-    depends_on:
-      - cli-core
-    size: medium
-    description:
-      "cli-gestures: route `@route+id!`, `@route+id[#name]`, and `@route:id=x…` through
-      the shared guard helper, print the drop line in their human output, and convert
-      their PDG1 tests into drop tests plus refused-drop consumption tests."
-  - id: mac
-    title: Bob Mac Capture presents dropped and refused prerequisites
-    depends_on:
-      - cli-core
-    size: medium
-    description:
-      "mac: decode `dropped_dependencies` and `link_guard`, add the dropped-dependency
-      chip to the link, toggle, Ensure Next, and close presentations, and (per
-      mac_guard_detail) render bob's not-linked sentence; verify through macOS CI."
-  - id: publish
-    title: Decision record, supersession marks, and docs sweep
-    depends_on:
-      - cli-gestures
-      - mac
-    size: small
-    description:
-      "publish: sweep the docs for stale consumption wording and, under
-      memory_supersede, add the new decisions record, mark the two records it partly
-      supersedes, and run `sase memory init`."
+- id: cli-core
+  title: Contract, dependency-drop writer, and the solo link gesture
+  depends_on: []
+  size: medium
+  description: 'cli-core: write the §13.5 dependency-drop contract and PDG18–PDG27
+    vectors first, then add the drop verdict, the staged drop writer, the shared guard
+    helper, JSON/human output, and wire `@route:id` / `^route:id` (with `#name` and
+    `=<X>`).'
+- id: cli-gestures
+  title: Toggle, Ensure Next, and link-then-close adopt the drop
+  depends_on:
+  - cli-core
+  size: medium
+  description: 'cli-gestures: route `@route+id!`, `@route+id[#name]`, and `@route:id=x…`
+    through the shared guard helper, print the drop line in their human output, and
+    convert their PDG1 tests into drop tests plus refused-drop consumption tests.'
+- id: mac
+  title: Bob Mac Capture presents dropped and refused prerequisites
+  depends_on:
+  - cli-core
+  size: medium
+  description: 'mac: decode `dropped_dependencies` and `link_guard`, add the dropped-dependency
+    chip to the link, toggle, Ensure Next, and close presentations, and (per mac_guard_detail)
+    render bob''s not-linked sentence; verify through macOS CI.'
+- id: publish
+  title: Decision record, supersession marks, and docs sweep
+  depends_on:
+  - cli-gestures
+  - mac
+  size: small
+  description: 'publish: sweep the docs for stale consumption wording and, under memory_supersede,
+    add the new decisions record, mark the two records it partly supersedes, and run
+    `sase memory init`.'
 proposed_by: bbugyi200.apollo.7c.w0
 decided_by: auto
 create_time: 2026-10-13 08:12:06
 status: wip
+bead_id: bob-cli-7b
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_link_drops_blocking_deps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_link_drops_blocking_deps.md)
+- **PROMPT:** [prompts/202610/capture_link_drops_blocking_deps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_link_drops_blocking_deps.md)
+- **BEAD:** [bob-cli-7b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7b/README.md)
 
 # Plan: Capture links a dependency-blocked task by dropping its open prerequisites
 
