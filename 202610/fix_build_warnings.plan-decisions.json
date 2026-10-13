@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should `just lint` and `just check` fail when bob-cli emits rustc unused or private-interface warnings?",
+      "choices": [
+        {
+          "key": "gate",
+          "label": "Both clippy runs deny rustc unused/private-interface lints; clippy style lints stay warnings"
+        },
+        {
+          "key": "none",
+          "label": "Only fix today's warnings; nothing stops new ones from piling up silently"
+        }
+      ],
+      "default": "gate",
+      "effective_default": "gate",
+      "id": "guard",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Nothing fails on these warnings today, which is how 40-plus of them piled up unnoticed"
+    }
+  ]
+}
