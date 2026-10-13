@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Choose successor offers in Task Status Cycler
-goal: Complete bob-cli-7c.4 with explicit picks, fresh-text revalidation, guarded
-  insertion, reversible freshness writes, and verified plugin deployment.
+goal:
+  Complete bob-cli-7c.4 with explicit picks, fresh-text revalidation, guarded insertion,
+  reversible freshness writes, and verified plugin deployment.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-7c.4
 bead: bob-cli-7c.4
@@ -13,6 +14,11 @@ status: done
   [202610/successor_offers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/successor_offers.md)
 - **BEAD:**
   [bob-cli-7c.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7c/bob-cli-7c.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-7c.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-7c.4.md)
+- **COMMITS:**
+  - [310739d](https://github.com/bobs-org/bob-plugins/commit/310739dd72d70856d89a7fc1a3eb0c03d24ca048)
+    — feat(cycler): offer successors and await picker before applying (bob-cli-7c.4)
 
 # Plan: Complete bob-cli-7c.4 — choose successor offers in Task Status Cycler
 
