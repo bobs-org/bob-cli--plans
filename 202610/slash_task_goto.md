@@ -1,66 +1,70 @@
 ---
 tier: epic
 title: Slash Go To — open any open task in Obsidian from Bob Mac Capture
-goal: 'Typing `/` as the whole capture draft opens a Go To picker over exactly the
-  `:` task catalog; picking a row hides the panel, clears the draft, and lands Obsidian''s
-  caret on that task in its home area/project/inbox note (centred, with a `<C-o>`
-  jump) without writing anything to the vault.
+goal: "Typing `/` as the whole capture draft opens a Go To picker over exactly the `:`
+  task catalog; picking a row hides the panel, clears the draft, and lands Obsidian's
+  caret on that task in its home area/project/inbox note (centred, with a `<C-o>` jump)
+  without writing anything to the vault.
 
-  '
+  "
 decisions:
   memory_goto_record:
-    ask: Should the last phase add a `decisions:task-goto-never-writes` record for
-      this feature?
+    ask:
+      Should the last phase add a `decisions:task-goto-never-writes` record for this
+      feature?
     memory:
-    - decisions:task-goto-never-writes
+      - decisions:task-goto-never-writes
     default: false
     answer: false
 phases:
-- id: cli-goto
-  title: bob-cli task_goto grammar, candidates, docs, and digest vectors
-  depends_on: []
-  size: medium
-  description: 'cli-goto: add the whole-draft `/query` claim (parse need `task_goto`,
-    capture refusal, `task_goto` completion with `note_path`/`target` candidates over
-    the `:` catalog), help, docs/capture.md, CLI tests, and the shared line-digest
-    vector fixture.'
-- id: plugin-goto-uri
-  title: bob-navigation-hotkeys obsidian://bob-goto-task handler
-  depends_on: []
-  size: medium
-  description: 'plugin-goto-uri: register the read-only `bob-goto-task` protocol handler
-    that maps the absolute path into the vault, re-finds the task by ref digest /
-    block ID, and lands through a neutral helper factored out of the task-move landing;
-    tests, README, version, build, sync.'
-- id: mac-goto-core
-  title: CaptureCore Go To source, goto-mode index, URL builder
-  depends_on:
-  - cli-goto
-  size: medium
-  description: 'mac-goto-core: add `.taskGoto` source/need strings, decode `target`,
-    give `TaskLinkPickerIndex` a goto mode (ID-less rows selectable, destinations,
-    action lines), add `ObsidianOpenURL.taskGotoURL`, picker-view strings, compile-only
-    switch arms, fixtures, and CaptureCore tests; green macOS CI.'
-- id: mac-goto-panel
-  title: Panel wiring, dispatch, keys, README, and closeout
-  depends_on:
-  - mac-goto-core
-  - plugin-goto-uri
-  size: medium
-  description: 'mac-goto-panel: route `task_goto` needs and completions into the picker,
-    accept through a separate dispatch branch (injectable opener, in-flight lock,
-    hide and clear on success, picker stays on failure), key mapping, Ctrl-C discard,
-    README, panel tests, green macOS CI, and the optional decision record.'
+  - id: cli-goto
+    title: bob-cli task_goto grammar, candidates, docs, and digest vectors
+    depends_on: []
+    size: medium
+    description:
+      "cli-goto: add the whole-draft `/query` claim (parse need `task_goto`, capture
+      refusal, `task_goto` completion with `note_path`/`target` candidates over the `:`
+      catalog), help, docs/capture.md, CLI tests, and the shared line-digest vector
+      fixture."
+  - id: plugin-goto-uri
+    title: bob-navigation-hotkeys obsidian://bob-goto-task handler
+    depends_on: []
+    size: medium
+    description:
+      "plugin-goto-uri: register the read-only `bob-goto-task` protocol handler that
+      maps the absolute path into the vault, re-finds the task by ref digest / block ID,
+      and lands through a neutral helper factored out of the task-move landing; tests,
+      README, version, build, sync."
+  - id: mac-goto-core
+    title: CaptureCore Go To source, goto-mode index, URL builder
+    depends_on:
+      - cli-goto
+    size: medium
+    description:
+      "mac-goto-core: add `.taskGoto` source/need strings, decode `target`, give
+      `TaskLinkPickerIndex` a goto mode (ID-less rows selectable, destinations, action
+      lines), add `ObsidianOpenURL.taskGotoURL`, picker-view strings, compile-only
+      switch arms, fixtures, and CaptureCore tests; green macOS CI."
+  - id: mac-goto-panel
+    title: Panel wiring, dispatch, keys, README, and closeout
+    depends_on:
+      - mac-goto-core
+      - plugin-goto-uri
+    size: medium
+    description:
+      "mac-goto-panel: route `task_goto` needs and completions into the picker, accept
+      through a separate dispatch branch (injectable opener, in-flight lock, hide and
+      clear on success, picker stays on failure), key mapping, Ctrl-C discard, README,
+      panel tests, green macOS CI, and the optional decision record."
 proposed_by: bbugyi200.athena.research.4b.linker.w0
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-13 09:49:11
 status: wip
-bead_id: bob-cli-7c
 ---
 
-- **PROMPT:** [prompts/202610/slash_task_goto.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/slash_task_goto.md)
-- **BEAD:** [bob-cli-7c](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7c/README.md)
+- **PROMPT:**
+  [prompts/202610/slash_task_goto.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/slash_task_goto.md)
 
 # Slash Go To in Bob Mac Capture
 
