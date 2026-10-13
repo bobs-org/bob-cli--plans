@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should revealed notes stay revealed when you reselect a reference while the panel stays open?",
+      "choices": [
+        {
+          "key": "reset",
+          "label": "Every selection opens on the first page of notes, like the preview scroll resets to top"
+        },
+        {
+          "key": "keep",
+          "label": "Each reference remembers its revealed notes until the panel hides; scroll still resets"
+        }
+      ],
+      "default": "reset",
+      "effective_default": "reset",
+      "id": "reveal_memory",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "The inspector already rebuilds at the top on every selection"
+    }
+  ]
+}
