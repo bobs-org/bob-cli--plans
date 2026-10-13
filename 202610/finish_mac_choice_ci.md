@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Finish mac_choice on macOS CI and close bob-cli-7c.7
-goal:
-  bob-mac-capture's pull-in tests compile and pass on macOS CI, and bob-cli-7c.7 is
-  closed with evidence.
+goal: bob-mac-capture's pull-in tests compile and pass on macOS CI, and bob-cli-7c.7
+  is closed with evidence.
 size: medium
 proposed_by: bbugyi200.apollo.7f
-create_time: 2026-10-13 16:13:33
-status: wip
+status: done
 ---
 
 # Plan: Get mac_choice (bob-cli-7c.7) green on macOS CI, then close it
