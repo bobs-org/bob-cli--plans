@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should the coder compile a scratch copy of the fix on the MacBook over Tailscale SSH before landing?",
+      "choices": [
+        {
+          "key": "mac_scratch",
+          "label": "Builds app, helper, and tests in a temp copy on `mac`; your checkout and installed app are untouched"
+        },
+        {
+          "key": "linux_only",
+          "label": "Lands on Linux checks alone; macOS targets stay unverified until you rerun `just install`"
+        }
+      ],
+      "default": "mac_scratch",
+      "effective_default": "mac_scratch",
+      "id": "mac_verify",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Linux cannot type-check BobMacCapture, which is the target that broke `just install`"
+    },
+    {
+      "ask": "Should the fix also add a `just portable-check` recipe and an AGENTS.md rule to compile Swift before landing?",
+      "choices": [
+        {
+          "key": "add",
+          "label": "Adds one justfile recipe, two README sentences, and an AGENTS.md that `sase repo open` shows"
+        },
+        {
+          "key": "skip",
+          "label": "Lands only the compile fixes; the next agent without Swift can ship uncompiled code again"
+        }
+      ],
+      "default": "add",
+      "effective_default": "add",
+      "id": "agents_gate",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "The last four red CI runs all came from commits whose agents never compiled the Swift they changed"
+    }
+  ]
+}
