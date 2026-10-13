@@ -1,47 +1,37 @@
 ---
 tier: tale
 title: Make bob-mac-capture's just install compile again
-goal:
-  bob-mac-capture builds, tests, lints, and installs again after the Go To and
+goal: bob-mac-capture builds, tests, lints, and installs again after the Go To and
   link-guard commits.
 size: medium
 decisions:
   mac_verify:
-    ask:
-      Should the coder compile a scratch copy of the fix on the MacBook over Tailscale
+    ask: Should the coder compile a scratch copy of the fix on the MacBook over Tailscale
       SSH before landing?
     choices:
-      mac_scratch:
-        Builds app, helper, and tests in a temp copy on `mac`; your checkout and
-        installed app are untouched
-      linux_only:
-        Lands on Linux checks alone; macOS targets stay unverified until you rerun `just
-        install`
+      mac_scratch: Builds app, helper, and tests in a temp copy on `mac`; your checkout
+        and installed app are untouched
+      linux_only: Lands on Linux checks alone; macOS targets stay unverified until
+        you rerun `just install`
     default: mac_scratch
-    why:
-      Linux cannot type-check BobMacCapture, which is the target that broke `just
+    why: Linux cannot type-check BobMacCapture, which is the target that broke `just
       install`
     answer: mac_scratch
   agents_gate:
-    ask:
-      Should the fix also add a `just portable-check` recipe and an AGENTS.md rule to
-      compile Swift before landing?
+    ask: Should the fix also add a `just portable-check` recipe and an AGENTS.md rule
+      to compile Swift before landing?
     choices:
-      add:
-        Adds one justfile recipe, two README sentences, and an AGENTS.md that `sase repo
-        open` shows
-      skip:
-        Lands only the compile fixes; the next agent without Swift can ship uncompiled
+      add: Adds one justfile recipe, two README sentences, and an AGENTS.md that `sase
+        repo open` shows
+      skip: Lands only the compile fixes; the next agent without Swift can ship uncompiled
         code again
     default: add
-    why:
-      The last four red CI runs all came from commits whose agents never compiled the
-      Swift they changed
+    why: The last four red CI runs all came from commits whose agents never compiled
+      the Swift they changed
     answer: add
 proposed_by: bbugyi200.athena.101
 decided_by: auto
-create_time: 2026-10-13 11:26:33
-status: wip
+status: done
 ---
 
 # Plan: Make bob-mac-capture's `just install` compile again
