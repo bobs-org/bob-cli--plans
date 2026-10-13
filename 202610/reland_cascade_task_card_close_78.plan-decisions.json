@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Commit and push bob-plugins via /sase_git_commit once tests pass, before deploy and the epic close?",
+      "default": true,
+      "effective_default": true,
+      "id": "early_commit",
+      "kind": "toggle",
+      "requested_verified": false,
+      "why": "Both losses came from work left uncommitted in the linked checkout when the turn chain broke"
+    }
+  ]
+}
