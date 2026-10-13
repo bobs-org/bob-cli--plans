@@ -2,21 +2,30 @@
 tier: tale
 size: medium
 title: Re-land the twice-lost Task Card cascade (nav 2.31.0) and close epic bob-cli-78
-goal: bob-plugins origin/master carries bob-cli-78.6's Task Card subtree pass (nav
-  2.31.0, byte-exact with the plugin backup, with its 15-case gestures test), both
-  vaults run it, and epic bob-cli-78 is closed with its plan marked done.
+goal:
+  bob-plugins origin/master carries bob-cli-78.6's Task Card subtree pass (nav 2.31.0,
+  byte-exact with the plugin backup, with its 15-case gestures test), both vaults run
+  it, and epic bob-cli-78 is closed with its plan marked done.
 decisions:
   early_commit:
-    ask: Commit and push bob-plugins via /sase_git_commit once tests pass, before
-      deploy and the epic close?
+    ask:
+      Commit and push bob-plugins via /sase_git_commit once tests pass, before deploy
+      and the epic close?
     default: true
-    why: Both losses came from work left uncommitted in the linked checkout when the
-      turn chain broke
+    why:
+      Both losses came from work left uncommitted in the linked checkout when the turn
+      chain broke
     answer: true
 proposed_by: bbugyi200.apollo.7c
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7c](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7c.md)
+- **COMMITS:**
+  - [4f0cc94](https://github.com/bobs-org/bob-plugins/commit/4f0cc94231556c5058030187da02b827a9ba8b93)
+    — feat(nav): restore Task Card sub-project cascade (2.31.0)
 
 # Re-land the twice-lost Task Card cascade (nav 2.31.0) and close epic bob-cli-78
 
