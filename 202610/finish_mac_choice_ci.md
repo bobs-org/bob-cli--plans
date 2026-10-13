@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Finish mac_choice on macOS CI and close bob-cli-7c.7
-goal: bob-mac-capture's pull-in tests compile and pass on macOS CI, and bob-cli-7c.7
-  is closed with evidence.
+goal:
+  bob-mac-capture's pull-in tests compile and pass on macOS CI, and bob-cli-7c.7 is
+  closed with evidence.
 size: medium
 proposed_by: bbugyi200.apollo.7f
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7f](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7f.md)
+- **COMMITS:**
+  - [b0e2ff2](https://github.com/bobs-org/bob-mac-capture/commit/b0e2ff277d3de360232499b092b11ed1dfbd6a75)
+    — test(capture): fix pull-in choice keyEvent optional String compile error
 
 # Plan: Get mac_choice (bob-cli-7c.7) green on macOS CI, then close it
 
