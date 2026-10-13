@@ -1,12 +1,12 @@
 ---
 tier: tale
 size: medium
-title: Repair bob-cli-74's project pull-in defects in both engines, then close the epic
-goal:
-  Rust and the task-status-cycler agree with each other and with
-  docs/task-dependencies.md §12.10 / §12.11 on every case listed below. Each fix is
-  pinned by a test, the fixed bob and plugins are installed on this host, and epic
-  bob-cli-74 is closed with its plan file marked done.
+title: Repair bob-cli-74's project pull-in defects in both engines, then close the
+  epic
+goal: Rust and the task-status-cycler agree with each other and with docs/task-dependencies.md
+  §12.10 / §12.11 on every case listed below. Each fix is pinned by a test, the fixed
+  bob and plugins are installed on this host, and epic bob-cli-74 is closed with its
+  plan file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-74.land
 bead: bob-cli-74
 status: done
@@ -16,11 +16,6 @@ status: done
   [202610/project_pull_in_line_model.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/project_pull_in_line_model.md)
 - **BEAD:**
   [bob-cli-74](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-74/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-74.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-74.land.md)
-- **COMMITS:**
-  - [db03ce6](https://github.com/bobs-org/bob-cli/commit/db03ce6d2f008a85b9bd72d899792e99a0be5ffd)
-    — fix(pull-in): land project pull-in repairs R1-R4 with tests
 
 # Plan: finish landing bob-cli-74 (project pull-in repairs + closeout)
 
