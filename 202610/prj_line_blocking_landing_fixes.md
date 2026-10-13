@@ -76,7 +76,7 @@ proposed_by: bbugyi200.apollo.bob-cli-6u.land
 parent_bead: bob-cli-6u
 decided_by: auto
 create_time: 2026-10-12 18:07:05
-status: wip
+status: done
 bead_id: bob-cli-6u.18
 ---
 
