@@ -1,16 +1,15 @@
 ---
 tier: tale
 size: medium
-title: Repair bob-cli-74's project pull-in defects in both engines, then close the epic
-goal:
-  Rust and the task-status-cycler agree with each other and with
-  docs/task-dependencies.md §12.10 / §12.11 on every case listed below. Each fix is
-  pinned by a test, the fixed bob and plugins are installed on this host, and epic
-  bob-cli-74 is closed with its plan file marked done.
+title: Repair bob-cli-74's project pull-in defects in both engines, then close the
+  epic
+goal: Rust and the task-status-cycler agree with each other and with docs/task-dependencies.md
+  §12.10 / §12.11 on every case listed below. Each fix is pinned by a test, the fixed
+  bob and plugins are installed on this host, and epic bob-cli-74 is closed with its
+  plan file marked done.
 proposed_by: bbugyi200.apollo.bob-cli-74.land
 bead: bob-cli-74
-create_time: 2026-10-13 02:19:13
-status: wip
+status: done
 ---
 
 - **PARENT:**
