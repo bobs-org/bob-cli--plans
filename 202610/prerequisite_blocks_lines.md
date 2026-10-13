@@ -122,7 +122,7 @@ proposed_by: bbugyi200.athena.research.4d.linker.w0
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-13 11:09:48
-status: wip
+status: done
 bead_id: bob-cli-7e
 ---
 
