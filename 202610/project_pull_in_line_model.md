@@ -1,96 +1,89 @@
 ---
 tier: epic
 title: Pull an emptied project's ^prj in as a successor link, on the ^prj line model
-goal:
-  When a close gesture completes the last remaining task of a project note, its ^prj
-  task is linked right after the closed task's link, becomes Next, and loses its hide
-  tag in the same write. This works in bob capture (! and =x) and in Obsidian
-  (Ctrl+Enter, Alt+]). "Empty" is exactly bob projects sync's surface predicate, so sync
-  never re-hides a pulled-in ^prj. docs/task-dependencies.md §12.10/§12.11 become true
-  (resolving bob-cli-6x). bob-cli just check fails only the bob-cli-6m tests, and
-  bob-plugins npm test fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w cases.
-  The new bob and plugins are installed on this host and, when reachable, on the
-  MacBook.
+goal: When a close gesture completes the last remaining task of a project note, its
+  ^prj task is linked right after the closed task's link, becomes Next, and loses
+  its hide tag in the same write. This works in bob capture (! and =x) and in Obsidian
+  (Ctrl+Enter, Alt+]). "Empty" is exactly bob projects sync's surface predicate, so
+  sync never re-hides a pulled-in ^prj. docs/task-dependencies.md §12.10/§12.11 become
+  true (resolving bob-cli-6x). bob-cli just check fails only the bob-cli-6m tests,
+  and bob-plugins npm test fails only the known bob-cli-6v, bob-cli-6w and bob-cli-3w
+  cases. The new bob and plugins are installed on this host and, when reachable, on
+  the MacBook.
 phases:
-  - id: contract
-    title: Reconcile the §12.10 pull-in contract with sync and the shipped line model
-    depends_on: []
-    size: small
-    description:
-      "contract: make §12.10 EMPTY exactly bob projects sync's surface predicate (dated
-      recount, plannable recognition, marker-line sub-project states, sync's schedule),
-      specify the recover-rank [unblocked::] ordering, the PROJECT RECOVERY cascade,
-      surfaced rows, SL20 and the still-blocked reason shape, fix the freshness §5
-      cross-refs, and add PP25–PP28."
-  - id: cli-model
-    title: Shared sync surface predicate and the Rust pull-in planner
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-model: factor sync's surface predicate into one crate-visible projects
-      helper, widen normalize_task_hide_tag, add the pure
-      task_complete/project_pull_in.rs planner, wire it into plan_successors (gate,
-      merge, breaker, #hide edit, [unblocked::], cascade, row fields), and pin the
-      planner-level PP vectors."
-  - id: cli-capture
-    title: Project pull-in in bob capture ! and =x closes, JSON and human output
-    depends_on:
-      - cli-model
-    size: medium
-    description:
-      "cli-capture: keep id-less C in the ! and =x close paths, feed staged project-note
-      text to the planner, build the dependents snapshot only per the Gate, extend SL20,
-      add trigger/hide_removed JSON and surfaced/project-empty human rows, add CLI PP
-      tests including PP23, and measure performance."
-  - id: cycler
-    title: Project pull-in in task-status-cycler, with whole-line undo
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cycler: add 089-successor-project.js (surface predicate, #hide strip, pull-in
-      planner) and the 137 mixin, relax the gate, integrate in 085, store whole-line
-      receipts in 136, add notice copy in 087, emit reason project for still-blocked
-      residents, test the PP vectors, bump, and deploy on this host."
-  - id: nav
-    title: Render pull-in and project rows in nav's Unblocked card
-    depends_on:
-      - contract
-    size: small
-    description:
-      "nav: in 285-unblocked-notice.js add the no-open-tasks chip, the Project empty
-      title, the still-blocked pull-in suffix, the project member label and
-      blocked-by-project copy (also for legacy project_dependency/project_schedule
-      reasons), mirror the fallback text, test, bump, and deploy on this host."
-  - id: rollout
-    title: Install, verify on a vault copy, reach the MacBook, and record
-    depends_on:
-      - cli-capture
-      - cycler
-      - nav
-    size: small
-    description:
-      "rollout: install bob and sync plugins on this host, verify a pull-in on a
-      temporary vault copy (including sync agreement), install bob and then plugins on
-      the MacBook best-effort, close bob-cli-6x, and record versions and Bryan's pilot
-      steps."
+- id: contract
+  title: Reconcile the §12.10 pull-in contract with sync and the shipped line model
+  depends_on: []
+  size: small
+  description: 'contract: make §12.10 EMPTY exactly bob projects sync''s surface predicate
+    (dated recount, plannable recognition, marker-line sub-project states, sync''s
+    schedule), specify the recover-rank [unblocked::] ordering, the PROJECT RECOVERY
+    cascade, surfaced rows, SL20 and the still-blocked reason shape, fix the freshness
+    §5 cross-refs, and add PP25–PP28.'
+- id: cli-model
+  title: Shared sync surface predicate and the Rust pull-in planner
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-model: factor sync''s surface predicate into one crate-visible
+    projects helper, widen normalize_task_hide_tag, add the pure task_complete/project_pull_in.rs
+    planner, wire it into plan_successors (gate, merge, breaker, #hide edit, [unblocked::],
+    cascade, row fields), and pin the planner-level PP vectors.'
+- id: cli-capture
+  title: Project pull-in in bob capture ! and =x closes, JSON and human output
+  depends_on:
+  - cli-model
+  size: medium
+  description: 'cli-capture: keep id-less C in the ! and =x close paths, feed staged
+    project-note text to the planner, build the dependents snapshot only per the Gate,
+    extend SL20, add trigger/hide_removed JSON and surfaced/project-empty human rows,
+    add CLI PP tests including PP23, and measure performance.'
+- id: cycler
+  title: Project pull-in in task-status-cycler, with whole-line undo
+  depends_on:
+  - contract
+  size: medium
+  description: 'cycler: add 089-successor-project.js (surface predicate, #hide strip,
+    pull-in planner) and the 137 mixin, relax the gate, integrate in 085, store whole-line
+    receipts in 136, add notice copy in 087, emit reason project for still-blocked
+    residents, test the PP vectors, bump, and deploy on this host.'
+- id: nav
+  title: Render pull-in and project rows in nav's Unblocked card
+  depends_on:
+  - contract
+  size: small
+  description: 'nav: in 285-unblocked-notice.js add the no-open-tasks chip, the Project
+    empty title, the still-blocked pull-in suffix, the project member label and blocked-by-project
+    copy (also for legacy project_dependency/project_schedule reasons), mirror the
+    fallback text, test, bump, and deploy on this host.'
+- id: rollout
+  title: Install, verify on a vault copy, reach the MacBook, and record
+  depends_on:
+  - cli-capture
+  - cycler
+  - nav
+  size: small
+  description: 'rollout: install bob and sync plugins on this host, verify a pull-in
+    on a temporary vault copy (including sync agreement), install bob and then plugins
+    on the MacBook best-effort, close bob-cli-6x, and record versions and Bryan''s
+    pilot steps.'
 decisions:
   decision_record:
-    ask:
-      Add a decisions-web record project-pull-in-on-empty for the project pull-in rule?
+    ask: Add a decisions-web record project-pull-in-on-empty for the project pull-in
+      rule?
     default: false
     memory:
-      - decisions
+    - decisions
     answer: false
 proposed_by: bbugyi200.apollo.73
 decided_by: auto
 create_time: 2026-10-12 23:40:10
 status: wip
+bead_id: bob-cli-74
 ---
 
-- **PROMPT:**
-  [prompts/202610/project_pull_in_line_model.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_pull_in_line_model.md)
+- **PROMPT:** [prompts/202610/project_pull_in_line_model.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_pull_in_line_model.md)
+- **BEAD:** [bob-cli-74](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-74/README.md)
 
 # Plan: pull an emptied project's `^prj` in as a successor link (re-plan of bob-cli-6t)
 
