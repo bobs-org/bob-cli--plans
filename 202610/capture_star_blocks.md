@@ -1,113 +1,101 @@
 ---
 tier: epic
 title: Capture `*` makes the new task block an existing task
-goal: "`bob capture` and Bob Mac Capture accept `*note:block-id`, which makes the
-  captured (or explicitly selected) task a prerequisite of an existing open task. The
-  edge is written to the blocked task's Depends-On line. That task's live Task Links
-  under today's open Pomodoros are consumed by identity, with any notes under them kept.
-  A Pomodoro entry is deleted only when this capture emptied it, and every removal is
-  visible in the preview before submit.
+goal: '`bob capture` and Bob Mac Capture accept `*note:block-id`, which makes the
+  captured (or explicitly selected) task a prerequisite of an existing open task.
+  The edge is written to the blocked task''s Depends-On line. That task''s live Task
+  Links under today''s open Pomodoros are consumed by identity, with any notes under
+  them kept. A Pomodoro entry is deleted only when this capture emptied it, and every
+  removal is visible in the preview before submit.
 
-  "
+  '
 decisions:
   decision_record:
-    ask:
-      Record the accepted capture `*` design as a new strand in the decisions memory
+    ask: Record the accepted capture `*` design as a new strand in the decisions memory
       web?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: contract
-    title: Docs contract, grammar, wire names, and vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the `*` grammar, consumption amendments (PDL8–PDL11), wire
-      fields, human output, and ST/STP vectors into docs/capture.md,
-      docs/task-dependencies.md, docs/completion.md, docs/freshness.md, and README.md
-      before any code."
-  - id: consume
-    title: Shared capture consumption by identity, keeping notes, and reported
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "consume: make every capture consumption path match Task Links by identity, keep
-      authored notes under consumed link bullets, delete only entries this capture
-      emptied, and report consumed_links[] plus removed pomodoro_blocks; resolves
-      bob-cli-7l."
-  - id: parse
-    title: Two-direction lexer, Markdown guards, and capture-parse wire
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "parse: generalize the `&` scanner to a Blocks direction with the `*` Markdown
-      guards, carry blocked_tasks[] through the execution and editor models, add spans
-      and the blocked_task need, mirror every `&` rejection, and fix the leading-run bug
-      bob-cli-7m."
-  - id: writer
-    title: Path-addressed existing-dependent writer with star guards
-    depends_on:
-      - consume
-    size: medium
-    description:
-      "writer: address the existing-dependent writer by vault path plus block ID, add
-      the `*` target resolver and A8 guards, the Next cap option, always-mint for a new
-      blocker, and relocate-by-ID; `&` stays byte-identical."
-  - id: complete
-    title: Blocked-task completion pool and capture-task-id replacement
-    depends_on:
-      - parse
-    size: medium
-    description:
-      "complete: add the blocked_task completion context with an open-editable pool
-      ranked today-linked first, already_blocked and disabled_reason rows, shell
-      completion, and capture-task-id blocked_task_replacement."
-  - id: execute
-    title: Execute `*` captures and report them
-    depends_on:
-      - parse
-      - writer
-    size: medium
-    description:
-      "execute: wire parsed blocked_tasks into new-task, sub-bullet, dependency-only,
-      and forced --task captures in the link-then-consume order, and emit
-      dependency_updates[], minted_blocker_block_id, and the human lines, with ST vector
-      tests."
-  - id: mac
-    title: Bob Mac Capture direction-aware picker and blocks preview
-    depends_on:
-      - complete
-      - execute
-    size: medium
-    description:
-      "mac: parameterize the dependency picker by direction for `*`, add span kinds,
-      Backspace and Add-ID support, and render dependency_updates[], consumed_links[],
-      and deleted sessions from real-bob fixtures."
-  - id: publish
-    title: Decision record and final docs sweep
-    depends_on:
-      - mac
-    size: small
-    description:
-      "publish: write the capture `*` decision record citing the epic's commits,
-      republish memory, and reconcile the docs' JSON examples with real output from the
-      final binary."
+- id: contract
+  title: Docs contract, grammar, wire names, and vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write the `*` grammar, consumption amendments (PDL8–PDL11),
+    wire fields, human output, and ST/STP vectors into docs/capture.md, docs/task-dependencies.md,
+    docs/completion.md, docs/freshness.md, and README.md before any code.'
+- id: consume
+  title: Shared capture consumption by identity, keeping notes, and reported
+  depends_on:
+  - contract
+  size: medium
+  description: 'consume: make every capture consumption path match Task Links by identity,
+    keep authored notes under consumed link bullets, delete only entries this capture
+    emptied, and report consumed_links[] plus removed pomodoro_blocks; resolves bob-cli-7l.'
+- id: parse
+  title: Two-direction lexer, Markdown guards, and capture-parse wire
+  depends_on:
+  - contract
+  size: medium
+  description: 'parse: generalize the `&` scanner to a Blocks direction with the `*`
+    Markdown guards, carry blocked_tasks[] through the execution and editor models,
+    add spans and the blocked_task need, mirror every `&` rejection, and fix the leading-run
+    bug bob-cli-7m.'
+- id: writer
+  title: Path-addressed existing-dependent writer with star guards
+  depends_on:
+  - consume
+  size: medium
+  description: 'writer: address the existing-dependent writer by vault path plus block
+    ID, add the `*` target resolver and A8 guards, the Next cap option, always-mint
+    for a new blocker, and relocate-by-ID; `&` stays byte-identical.'
+- id: complete
+  title: Blocked-task completion pool and capture-task-id replacement
+  depends_on:
+  - parse
+  size: medium
+  description: 'complete: add the blocked_task completion context with an open-editable
+    pool ranked today-linked first, already_blocked and disabled_reason rows, shell
+    completion, and capture-task-id blocked_task_replacement.'
+- id: execute
+  title: Execute `*` captures and report them
+  depends_on:
+  - parse
+  - writer
+  size: medium
+  description: 'execute: wire parsed blocked_tasks into new-task, sub-bullet, dependency-only,
+    and forced --task captures in the link-then-consume order, and emit dependency_updates[],
+    minted_blocker_block_id, and the human lines, with ST vector tests.'
+- id: mac
+  title: Bob Mac Capture direction-aware picker and blocks preview
+  depends_on:
+  - complete
+  - execute
+  size: medium
+  description: 'mac: parameterize the dependency picker by direction for `*`, add
+    span kinds, Backspace and Add-ID support, and render dependency_updates[], consumed_links[],
+    and deleted sessions from real-bob fixtures.'
+- id: publish
+  title: Decision record and final docs sweep
+  depends_on:
+  - mac
+  size: small
+  description: 'publish: write the capture `*` decision record citing the epic''s
+    commits, republish memory, and reconcile the docs'' JSON examples with real output
+    from the final binary.'
 proposed_by: bbugyi200.athena.research.4g.linker.w1
 decided_by: auto
 create_time: 2026-10-14 11:27:18
 status: wip
+bead_id: bob-cli-7n
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_star_blocks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_star_blocks.md)
+- **PROMPT:** [prompts/202610/capture_star_blocks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_star_blocks.md)
+- **BEAD:** [bob-cli-7n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7n/README.md)
 
 # Plan: Capture `*` makes the new task block an existing task
 
