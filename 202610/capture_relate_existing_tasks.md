@@ -1,109 +1,102 @@
 ---
 tier: epic
 title: Capture `&` and `*` relate existing `@route+id` tasks, first-class
-goal: 'In `bob capture` and Bob Mac Capture, an existing task named with
-  `@route+block-id` (or another existing-task spelling) can own `&` and `*`. A draft can
-  be built from either end. Each one either writes exactly the stated relationship or
-  refuses with a single accurate message, and the parse and execute steps agree on it.
-  Both the terminal and the Mac preview say "<task> now depends on / now blocks <task>",
-  with the status changes and no raw wire words or duplicated lines.
+goal: 'In `bob capture` and Bob Mac Capture, an existing task named with `@route+block-id`
+  (or another existing-task spelling) can own `&` and `*`. A draft can be built from
+  either end. Each one either writes exactly the stated relationship or refuses with
+  a single accurate message, and the parse and execute steps agree on it. Both the
+  terminal and the Mac preview say "<task> now depends on / now blocks <task>", with
+  the status changes and no raw wire words or duplicated lines.
 
   '
 phases:
-  - id: contract
-    title: Docs contract, wording, and RX/RXC vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the docs/capture.md section for relating existing tasks. It
-      covers the owner rule, every spelling, the three authoring flows, the refusals and
-      their exact messages, the CLI layout, the additive capture-complete wire fields,
-      and the RX and RXC vectors. Also update grammar-table and README rows. No code."
-  - id: grammar
-    title:
-      Owner grammar, `^route:id` alias, `+` selector with modifiers, agreeing refusals
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "grammar: in capture_language, accept bare `^route:id` as an owner alias in the
-      leading and trailing positions. Classify `+`/`+query` beside modifiers as the
-      incomplete parent selector, not a junk task. Drop the bogus Pomodoro-ledger-link
-      diagnostic. Give parse and execute one shared relationship-only refusal for
-      `p:`/`s:`/`%` and child lines. Update capture-parse help."
-  - id: execute
-    title: Reliable existing-owner execution and the relationship CLI layout
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "execute: route inherited `@@route+id` relationship-only items through the
-      dependency-only path, so no empty bullet is written. Refuse a Done or Canceled `*`
-      owner instead of reopening it. Fix the cycle path text. Replace the existing-owner
-      and `⛓` human output with the owner status row and one row per relationship. Fix
-      sub-bullet row order. Add RX CLI tests."
-  - id: complete
-    title: Owner-aware completion wire and guarded owner pickers
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "complete: add `text`, `note_path`, and status fields to capture-complete's
-      `owner`. Add a `picker.relationship` descriptor to `+` and `@route+` pickers
-      inside relationship drafts, with their `disabled_reason` rows (self, cycle,
-      internal `^prj`). Shell completion skips disabled rows. Add RXC tests and update
-      capture-complete help."
-  - id: mac_pickers
-    title: Bob Mac Capture owner-aware pickers and the calm owner hint
-    depends_on:
-      - complete
-    size: medium
-    description:
-      'mac_pickers: give the `&`/`*` picker headers the owner''s name and direction, fix
-      the nil new-task header, and add the "This note" group. Add an owner mode to the
-      `+`/`@route+` picker with copy and disabled rows. Add a calm `dependency_target`
-      hint in place of the red preview error. Fixtures, tests, and the README picker
-      docs.'
-  - id: mac_preview
-    title: Bob Mac Capture relationship preview rows, owner header, and notifications
-    depends_on:
-      - execute
-      - mac_pickers
-    size: medium
-    description:
-      "mac_preview: give `task_dependency` items an owner header. Render one `⛓`/`🧱`
-      row per relationship for every owner kind, in place of the headline and literal
-      DEPENDS ON row. Stop printing the owner line twice, put the owner card first, and
-      write relationship notification copy. Fixtures, tests, and README."
-  - id: publish
-    title: Final docs sweep, end-to-end verification, optional decision record
-    depends_on:
-      - execute
-      - complete
-      - mac_preview
-    size: small
-    description:
-      "publish: check every RX/RXC vector against the shipped binaries. Reconcile
-      docs/capture.md, README, and help text with what landed. Run a scratch-vault
-      walkthrough of all three authoring flows. Write the decision strand only if the
-      memory decision says yes."
+- id: contract
+  title: Docs contract, wording, and RX/RXC vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write the docs/capture.md section for relating existing
+    tasks. It covers the owner rule, every spelling, the three authoring flows, the
+    refusals and their exact messages, the CLI layout, the additive capture-complete
+    wire fields, and the RX and RXC vectors. Also update grammar-table and README
+    rows. No code.'
+- id: grammar
+  title: Owner grammar, `^route:id` alias, `+` selector with modifiers, agreeing refusals
+  depends_on:
+  - contract
+  size: medium
+  description: 'grammar: in capture_language, accept bare `^route:id` as an owner
+    alias in the leading and trailing positions. Classify `+`/`+query` beside modifiers
+    as the incomplete parent selector, not a junk task. Drop the bogus Pomodoro-ledger-link
+    diagnostic. Give parse and execute one shared relationship-only refusal for `p:`/`s:`/`%`
+    and child lines. Update capture-parse help.'
+- id: execute
+  title: Reliable existing-owner execution and the relationship CLI layout
+  depends_on:
+  - grammar
+  size: medium
+  description: 'execute: route inherited `@@route+id` relationship-only items through
+    the dependency-only path, so no empty bullet is written. Refuse a Done or Canceled
+    `*` owner instead of reopening it. Fix the cycle path text. Replace the existing-owner
+    and `⛓` human output with the owner status row and one row per relationship. Fix
+    sub-bullet row order. Add RX CLI tests.'
+- id: complete
+  title: Owner-aware completion wire and guarded owner pickers
+  depends_on:
+  - grammar
+  size: medium
+  description: 'complete: add `text`, `note_path`, and status fields to capture-complete''s
+    `owner`. Add a `picker.relationship` descriptor to `+` and `@route+` pickers inside
+    relationship drafts, with their `disabled_reason` rows (self, cycle, internal
+    `^prj`). Shell completion skips disabled rows. Add RXC tests and update capture-complete
+    help.'
+- id: mac_pickers
+  title: Bob Mac Capture owner-aware pickers and the calm owner hint
+  depends_on:
+  - complete
+  size: medium
+  description: 'mac_pickers: give the `&`/`*` picker headers the owner''s name and
+    direction, fix the nil new-task header, and add the "This note" group. Add an
+    owner mode to the `+`/`@route+` picker with copy and disabled rows. Add a calm
+    `dependency_target` hint in place of the red preview error. Fixtures, tests, and
+    the README picker docs.'
+- id: mac_preview
+  title: Bob Mac Capture relationship preview rows, owner header, and notifications
+  depends_on:
+  - execute
+  - mac_pickers
+  size: medium
+  description: 'mac_preview: give `task_dependency` items an owner header. Render
+    one `⛓`/`🧱` row per relationship for every owner kind, in place of the headline
+    and literal DEPENDS ON row. Stop printing the owner line twice, put the owner
+    card first, and write relationship notification copy. Fixtures, tests, and README.'
+- id: publish
+  title: Final docs sweep, end-to-end verification, optional decision record
+  depends_on:
+  - execute
+  - complete
+  - mac_preview
+  size: small
+  description: 'publish: check every RX/RXC vector against the shipped binaries. Reconcile
+    docs/capture.md, README, and help text with what landed. Run a scratch-vault walkthrough
+    of all three authoring flows. Write the decision strand only if the memory decision
+    says yes.'
 decisions:
   decision_record:
-    ask:
-      Record the existing-owner relationship rules as a new strand in the decisions
+    ask: Record the existing-owner relationship rules as a new strand in the decisions
       memory web?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.athena.research.4g.linker.w1.w0
 decided_by: auto
 create_time: 2026-10-14 16:21:10
 status: wip
+bead_id: bob-cli-7r
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_relate_existing_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_relate_existing_tasks.md)
+- **PROMPT:** [prompts/202610/capture_relate_existing_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_relate_existing_tasks.md)
+- **BEAD:** [bob-cli-7r](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7r/README.md)
 
 # Plan: `&` and `*` on existing `@route+id` tasks, first-class
 
