@@ -1,22 +1,31 @@
 ---
 tier: tale
 title: Ctrl+Shift+P dependency adds unlink the task from today's Pomodoros
-goal: Adding an open prerequisite through the Ctrl+Shift+P Task Card immediately removes
-  the newly Blocked task's live Task Links from today's open Pomodoros, deleting any
+goal:
+  Adding an open prerequisite through the Ctrl+Shift+P Task Card immediately removes the
+  newly Blocked task's live Task Links from today's open Pomodoros, deleting any
   Pomodoro entry the removal empties.
 size: medium
 decisions:
   hand_edits:
-    ask: Should hand-typed Depends-On links also unlink the task from today's open
+    ask:
+      Should hand-typed Depends-On links also unlink the task from today's open
       Pomodoros right away?
     default: false
-    why: You named the Ctrl+Shift+P keymap; the existing ^prj consumption also skips
-      hand edits
+    why:
+      You named the Ctrl+Shift+P keymap; the existing ^prj consumption also skips hand
+      edits
     answer: false
 proposed_by: bbugyi200.apollo.7j
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7j](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7j.md)
+- **COMMITS:**
+  - [5e4bfae](https://github.com/bobs-org/bob-plugins/commit/5e4bfaeab1a1ad55a04bf8a3de5662ea18ffdb4d)
+    — feat(nav): consume today's Pomodoro links when Depends-On add blocks
 
 # Plan: Ctrl+Shift+P Depends-On adds unlink the newly Blocked task from today's Pomodoros
 
