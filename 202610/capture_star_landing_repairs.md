@@ -2,17 +2,19 @@
 tier: tale
 size: medium
 title: Finish the capture `*` epic (bob-cli-7n) landing repairs and close it out
-goal: Fix the epic-caused bugs and contract deviations that landing verification found
-  in capture `*`, add the missing vector tests, correct the docs examples against
-  the real binary, then close epic bob-cli-7n.
+goal:
+  Fix the epic-caused bugs and contract deviations that landing verification found in
+  capture `*`, add the missing vector tests, correct the docs examples against the real
+  binary, then close epic bob-cli-7n.
 decisions:
   fix_star_decision_evidence_sha:
-    ask: Correct the writer commit SHA that the capture-star decision record cites
-      as evidence?
+    ask:
+      Correct the writer commit SHA that the capture-star decision record cites as
+      evidence?
     memory:
-    - decisions:capture-star-blocks-existing-tasks
+      - decisions:capture-star-blocks-existing-tasks
     default: true
-    corrects: '`1a074c6` (consumption), `8774e89` (parser), `158f6de` (writer),'
+    corrects: "`1a074c6` (consumption), `8774e89` (parser), `158f6de` (writer),"
     answer: true
 proposed_by: bbugyi200.athena.bob-cli-7n.land
 bead: bob-cli-7n
@@ -24,6 +26,11 @@ status: done
   [202610/capture_star_blocks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_star_blocks.md)
 - **BEAD:**
   [bob-cli-7n](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7n/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-7n.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-7n.land.md)
+- **COMMITS:**
+  - [0519826](https://github.com/bobs-org/bob-cli--plans/commit/05198262f1c0aee261b530491bfff8f01df679e0)
+    — docs(plans): mark capture-star epic and landing tale done
 
 # Plan: finish the capture `*` epic (bob-cli-7n) landing repairs and close it out
 
