@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should the count in N<Ctrl+Shift+]> count sibling list items rather than physical lines?",
+      "choices": [
+        {
+          "key": "items",
+          "label": "N counts sibling items below the cursor item; children ride along without using up the count"
+        },
+        {
+          "key": "lines",
+          "label": "N counts physical lines like counted Alt+[/] and N#, so child lines use up the count"
+        }
+      ],
+      "default": "items",
+      "effective_default": "items",
+      "id": "count_unit",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Matches \"the current task and the 3 below it\" even when tasks carry child lines"
+    }
+  ]
+}
