@@ -2,25 +2,22 @@
 tier: tale
 size: medium
 title: Finish the capture `*` epic (bob-cli-7n) landing repairs and close it out
-goal:
-  Fix the epic-caused bugs and contract deviations that landing verification found in
-  capture `*`, add the missing vector tests, correct the docs examples against the real
-  binary, then close epic bob-cli-7n.
+goal: Fix the epic-caused bugs and contract deviations that landing verification found
+  in capture `*`, add the missing vector tests, correct the docs examples against
+  the real binary, then close epic bob-cli-7n.
 decisions:
   fix_star_decision_evidence_sha:
-    ask:
-      Correct the writer commit SHA that the capture-star decision record cites as
-      evidence?
+    ask: Correct the writer commit SHA that the capture-star decision record cites
+      as evidence?
     memory:
-      - decisions:capture-star-blocks-existing-tasks
+    - decisions:capture-star-blocks-existing-tasks
     default: true
-    corrects: "`1a074c6` (consumption), `8774e89` (parser), `158f6de` (writer),"
+    corrects: '`1a074c6` (consumption), `8774e89` (parser), `158f6de` (writer),'
     answer: true
 proposed_by: bbugyi200.athena.bob-cli-7n.land
 bead: bob-cli-7n
 decided_by: auto
-create_time: 2026-10-14 15:25:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
