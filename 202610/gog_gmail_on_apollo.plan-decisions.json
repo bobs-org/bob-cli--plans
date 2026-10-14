@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "How should the gog binary be installed?",
+      "choices": [
+        {
+          "key": "pinned",
+          "label": "A chezmoi installer pinned to v0.44.0 with an embedded sha256; upgrades are deliberate commits"
+        },
+        {
+          "key": "latest",
+          "label": "Chezmoi installer tracks the newest GitHub release weekly, like lazygit; machines auto-upgrade"
+        },
+        {
+          "key": "manual",
+          "label": "A one-off install on apollo only; no chezmoi change, so the next fresh machine repeats this breakage"
+        }
+      ],
+      "default": "pinned",
+      "effective_default": "pinned",
+      "id": "install",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "gog holds Gmail credentials and sase_gmail relies on its safety flags; upgrades deserve review"
+    },
+    {
+      "ask": "How should apollo get its Gmail authorization?",
+      "choices": [
+        {
+          "key": "copy",
+          "label": "Copy athena's encrypted gog state over SSH; no browser, but both machines share one refresh token"
+        },
+        {
+          "key": "fresh",
+          "label": "Copy only the OAuth client; Bryan approves a new read-only consent and pastes back one redirect URL"
+        }
+      ],
+      "default": "copy",
+      "effective_default": "copy",
+      "id": "auth",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "athena's read-only token is healthy and copying it needs no interactive OAuth round trip"
+    },
+    {
+      "ask": "Should the installer also replace athena's May source build now?",
+      "choices": [
+        {
+          "key": "upgrade",
+          "label": "Run the installer on athena now and verify it with auth doctor; both machines run one release"
+        },
+        {
+          "key": "keep",
+          "label": "The installer skips source builds (git-describe versions), so athena stays on v0.16.0-18"
+        }
+      ],
+      "default": "upgrade",
+      "effective_default": "upgrade",
+      "id": "athena",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "one verified release beats silent drift, and v0.44.0 reads athena's existing state unchanged"
+    }
+  ]
+}
