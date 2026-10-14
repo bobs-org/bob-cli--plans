@@ -1,86 +1,81 @@
 ---
 tier: epic
 title: Bob Refs ⌃Y Copy card
-goal: "In Bob Mac Capture's Refs panel, ⌃Y turns the inspector column into a Copy card
-  where one keypress copies a precise handle for the selected reference (marker ID,
-  title, wiki link, sources, paths, the PDF file, the reading task, research ref, or one
-  or all of your notes). The copy is checked, Refs hides so the next ⌘V lands where you
-  came from, and a glass HUD confirms what was copied. A highlight picker and ⌥
-  alternates follow.
+goal: 'In Bob Mac Capture''s Refs panel, ⌃Y turns the inspector column into a Copy
+  card where one keypress copies a precise handle for the selected reference (marker
+  ID, title, wiki link, sources, paths, the PDF file, the reading task, research ref,
+  or one or all of your notes). The copy is checked, Refs hides so the next ⌘V lands
+  where you came from, and a glass HUD confirms what was copied. A highlight picker
+  and ⌥ alternates follow.
 
-  "
+  '
 decisions:
   return_to_capture:
-    ask:
-      When Refs was opened over a Capture draft, should a copy reopen Capture so ⌘V
-      pastes into the draft?
+    ask: When Refs was opened over a Capture draft, should a copy reopen Capture so
+      ⌘V pastes into the draft?
     default: true
-    why: Opening Refs from Capture is a lookup for the draft, so the paste belongs there
+    why: Opening Refs from Capture is a lookup for the draft, so the paste belongs
+      there
     answer: true
 phases:
-  - id: bob-marker-id
-    title: bob-cli serializes the frontmatter id as marker_id
-    depends_on: []
-    size: small
-    description:
-      "bob-marker-id: make `bob ref list/show/find` JSON rows carry the frontmatter `id`
-      as an additive `marker_id` field (null when absent), with tests and docs/ref.md
-      updated."
-  - id: refs-copy-core
-    title: RefsCore decoding, copy catalog, formats, key map, and card state machine
-    depends_on: []
-    size: medium
-    description:
-      "refs-copy-core: in bob-mac-capture's portable RefsCore, decode marker_id,
-      research_ref, annotation block_id/link, and own_notes; build the pure fixed-letter
-      copy catalog, payload formatters, card layout capacity, key map, and the
-      RefsCopyCard state machine, all Linux-tested."
-  - id: refs-copy-components
-    title: App building blocks for the Copy card and HUD (not yet wired)
-    depends_on:
-      - refs-copy-core
-    size: medium
-    description:
-      "refs-copy-components: in the app target, add the checked pasteboard write, the
-      single-flight exact-path ref-show cache, the RefsCopyCardView, and the glass copy
-      HUD with design fixtures, without wiring ⌃Y yet."
-  - id: refs-copy-integration
-    title: Wire ⌃Y, the card lifecycle, hide-on-copy, ⌘K, footer, and README
-    depends_on:
-      - bob-marker-id
-      - refs-copy-components
-    size: medium
-    description:
-      "refs-copy-integration: route ⌃Y and every card key, own the card lifecycle in
-      RefsPanelModel, copy then hide Refs (or return to Capture) and show the HUD, fold
-      ⌘K's copy items into Copy…, update the footer, the Esc ladder, and the README, and
-      add tests."
-  - id: refs-copy-highlight-picker
-    title: H highlight picker layer
-    depends_on:
-      - refs-copy-integration
-    size: medium
-    description:
-      "refs-copy-highlight-picker: drop `-c` from the inspector's ref-show fetch and add
-      the H layer that reaches every highlight and standalone note (digits for the
-      visible window, arrows for the rest, A for all highlights)."
-  - id: refs-copy-alternates
-    title: ⌥ alternates and the Obsidian link row
-    depends_on:
-      - refs-copy-highlight-picker
-    size: medium
-    description:
-      "refs-copy-alternates: holding ⌥ swaps previews in place for alternate payloads
-      (titled wiki link, ~ path, absolute note path, quote only, narration file), and
-      add the O Obsidian URI row."
+- id: bob-marker-id
+  title: bob-cli serializes the frontmatter id as marker_id
+  depends_on: []
+  size: small
+  description: 'bob-marker-id: make `bob ref list/show/find` JSON rows carry the frontmatter
+    `id` as an additive `marker_id` field (null when absent), with tests and docs/ref.md
+    updated.'
+- id: refs-copy-core
+  title: RefsCore decoding, copy catalog, formats, key map, and card state machine
+  depends_on: []
+  size: medium
+  description: 'refs-copy-core: in bob-mac-capture''s portable RefsCore, decode marker_id,
+    research_ref, annotation block_id/link, and own_notes; build the pure fixed-letter
+    copy catalog, payload formatters, card layout capacity, key map, and the RefsCopyCard
+    state machine, all Linux-tested.'
+- id: refs-copy-components
+  title: App building blocks for the Copy card and HUD (not yet wired)
+  depends_on:
+  - refs-copy-core
+  size: medium
+  description: 'refs-copy-components: in the app target, add the checked pasteboard
+    write, the single-flight exact-path ref-show cache, the RefsCopyCardView, and
+    the glass copy HUD with design fixtures, without wiring ⌃Y yet.'
+- id: refs-copy-integration
+  title: Wire ⌃Y, the card lifecycle, hide-on-copy, ⌘K, footer, and README
+  depends_on:
+  - bob-marker-id
+  - refs-copy-components
+  size: medium
+  description: 'refs-copy-integration: route ⌃Y and every card key, own the card lifecycle
+    in RefsPanelModel, copy then hide Refs (or return to Capture) and show the HUD,
+    fold ⌘K''s copy items into Copy…, update the footer, the Esc ladder, and the README,
+    and add tests.'
+- id: refs-copy-highlight-picker
+  title: H highlight picker layer
+  depends_on:
+  - refs-copy-integration
+  size: medium
+  description: 'refs-copy-highlight-picker: drop `-c` from the inspector''s ref-show
+    fetch and add the H layer that reaches every highlight and standalone note (digits
+    for the visible window, arrows for the rest, A for all highlights).'
+- id: refs-copy-alternates
+  title: ⌥ alternates and the Obsidian link row
+  depends_on:
+  - refs-copy-highlight-picker
+  size: medium
+  description: 'refs-copy-alternates: holding ⌥ swaps previews in place for alternate
+    payloads (titled wiki link, ~ path, absolute note path, quote only, narration
+    file), and add the O Obsidian URI row.'
 proposed_by: bbugyi200.apollo.research.19.linker.w0
 decided_by: auto
 create_time: 2026-10-14 09:32:29
 status: wip
+bead_id: bob-cli-7k
 ---
 
-- **PROMPT:**
-  [prompts/202610/refs_ctrl_y_copy_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_ctrl_y_copy_card.md)
+- **PROMPT:** [prompts/202610/refs_ctrl_y_copy_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_ctrl_y_copy_card.md)
+- **BEAD:** [bob-cli-7k](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7k/README.md)
 
 # Plan: Bob Refs ⌃Y Copy card
 
