@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should hand-typed Depends-On links also unlink the task from today's open Pomodoros right away?",
+      "default": false,
+      "effective_default": false,
+      "id": "hand_edits",
+      "kind": "toggle",
+      "requested_verified": false,
+      "why": "You named the Ctrl+Shift+P keymap; the existing ^prj consumption also skips hand edits"
+    }
+  ]
+}
