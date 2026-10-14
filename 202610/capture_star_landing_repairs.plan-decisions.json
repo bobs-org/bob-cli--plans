@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Correct the writer commit SHA that the capture-star decision record cites as evidence?",
+      "corrects": "`1a074c6` (consumption), `8774e89` (parser), `158f6de` (writer),",
+      "default": true,
+      "effective_default": true,
+      "id": "fix_star_decision_evidence_sha",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "decisions:capture-star-blocks-existing-tasks"
+        ]
+      },
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/decisions.md",
+          "scope": "project",
+          "selector": "decisions:capture-star-blocks-existing-tasks",
+          "strands": [
+            "Capture Star Blocks Existing Tasks"
+          ],
+          "type": "web"
+        }
+      ]
+    }
+  ]
+}
