@@ -1,49 +1,66 @@
 ---
 tier: tale
 title: Install and authorize gog on apollo for read-only Gmail
-goal: gog and the sase_gmail skill can read Bryan's Gmail (read-only) on apollo, with
-  the gog binary install managed so it cannot silently go missing again.
+goal:
+  gog and the sase_gmail skill can read Bryan's Gmail (read-only) on apollo, with the
+  gog binary install managed so it cannot silently go missing again.
 size: small
 decisions:
   install:
     ask: How should the gog binary be installed?
     choices:
-      pinned: A chezmoi installer pinned to v0.44.0 with an embedded sha256; upgrades
-        are deliberate commits
-      latest: Chezmoi installer tracks the newest GitHub release weekly, like lazygit;
+      pinned:
+        A chezmoi installer pinned to v0.44.0 with an embedded sha256; upgrades are
+        deliberate commits
+      latest:
+        Chezmoi installer tracks the newest GitHub release weekly, like lazygit;
         machines auto-upgrade
-      manual: A one-off install on apollo only; no chezmoi change, so the next fresh
-        machine repeats this breakage
+      manual:
+        A one-off install on apollo only; no chezmoi change, so the next fresh machine
+        repeats this breakage
     default: pinned
-    why: gog holds Gmail credentials and sase_gmail relies on its safety flags; upgrades
+    why:
+      gog holds Gmail credentials and sase_gmail relies on its safety flags; upgrades
       deserve review
     answer: pinned
   auth:
     ask: How should apollo get its Gmail authorization?
     choices:
-      copy: Copy athena's encrypted gog state over SSH; no browser, but both machines
-        share one refresh token
-      fresh: Copy only the OAuth client; Bryan approves a new read-only consent and
-        pastes back one redirect URL
+      copy:
+        Copy athena's encrypted gog state over SSH; no browser, but both machines share
+        one refresh token
+      fresh:
+        Copy only the OAuth client; Bryan approves a new read-only consent and pastes
+        back one redirect URL
     default: copy
-    why: athena's read-only token is healthy and copying it needs no interactive OAuth
+    why:
+      athena's read-only token is healthy and copying it needs no interactive OAuth
       round trip
     answer: copy
   athena:
     ask: Should the installer also replace athena's May source build now?
     choices:
-      upgrade: Run the installer on athena now and verify it with auth doctor; both
-        machines run one release
-      keep: The installer skips source builds (git-describe versions), so athena stays
-        on v0.16.0-18
+      upgrade:
+        Run the installer on athena now and verify it with auth doctor; both machines
+        run one release
+      keep:
+        The installer skips source builds (git-describe versions), so athena stays on
+        v0.16.0-18
     default: upgrade
-    why: one verified release beats silent drift, and v0.44.0 reads athena's existing
-      state unchanged
+    why:
+      one verified release beats silent drift, and v0.44.0 reads athena's existing state
+      unchanged
     answer: upgrade
 proposed_by: bbugyi200.apollo.7n
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7n](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7n.md)
+- **COMMITS:**
+  - [f33fed9](https://github.com/bbugyi200/dotfiles/commit/f33fed9c14a2e597fced0ea5c2cf92a755222104)
+    — feat(gog): install pinned gogcli release on Linux machines
 
 # Plan: Install and authorize `gog` on apollo for read-only Gmail
 
