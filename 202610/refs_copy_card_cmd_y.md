@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Move the Bob Refs Copy card shortcut from ⌃Y to ⌘Y
-goal:
-  In Bob Refs, ⌘Y opens the Copy card and copies its selected row, ⌘K shows "Copy… ⌘Y",
-  and ⌃Y no longer belongs to the card.
+goal: In Bob Refs, ⌘Y opens the Copy card and copies its selected row, ⌘K shows "Copy…
+  ⌘Y", and ⌃Y no longer belongs to the card.
 size: small
 proposed_by: bbugyi200.apollo.7m
-create_time: 2026-10-14 13:45:42
-status: wip
+status: done
 ---
 
 # Plan: move the Bob Refs Copy card shortcut from ⌃Y to ⌘Y
