@@ -9,7 +9,7 @@ goal: "Fix the Copy card contract deviations the bob-cli-7k landing review confi
 proposed_by: bbugyi200.apollo.bob-cli-7k.land
 bead: bob-cli-7k
 create_time: 2026-10-14 13:12:32
-status: wip
+status: done
 ---
 
 - **PARENT:**

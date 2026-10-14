@@ -1,5 +1,6 @@
 ---
 tier: epic
+status: done
 title: Bob Refs ⌃Y Copy card
 goal: 'In Bob Mac Capture''s Refs panel, ⌃Y turns the inspector column into a Copy
   card where one keypress copies a precise handle for the selected reference (marker
