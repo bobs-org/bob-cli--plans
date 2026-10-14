@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should Ctrl+Shift+B get its own new command instead of rebinding `edit-task-dependencies`?",
+      "choices": [
+        {
+          "key": "new",
+          "label": "New `task-card-depends-on` command; `edit-task-dependencies` stays an unbound direct stage"
+        },
+        {
+          "key": "reuse",
+          "label": "Rebind `edit-task-dependencies` to the Task Card `b` route; its palette behavior changes"
+        }
+      ],
+      "default": "new",
+      "effective_default": "new",
+      "id": "command",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Additive; leaves the documented, tested palette direct-entry contract alone"
+    },
+    {
+      "ask": "If `b` is unavailable (e.g. a non-#task bullet), keep the Task Card open after the notice, as `b` does?",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Show the notice and leave the Task Card open, exactly as pressing `b` does"
+        },
+        {
+          "key": "close",
+          "label": "Show the same notice and close the card, so a refused chord leaves no modal open"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "id": "refusal",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Bryan asked for Ctrl+Shift+B to behave just like Ctrl+Shift+P then `b`"
+    }
+  ]
+}
