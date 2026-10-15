@@ -1,17 +1,14 @@
 ---
 tier: tale
-title:
-  Finish landing bob-cli-7x — rename help, title stems, plugin README, and Mac
+title: Finish landing bob-cli-7x — rename help, title stems, plugin README, and Mac
   rename-card fixes
-goal:
-  The epic-caused defects found while landing bob-cli-7x are fixed in bob-cli,
+goal: The epic-caused defects found while landing bob-cli-7x are fixed in bob-cli,
   bob-plugins, and bob-mac-capture, and epic bob-cli-7x is closed with its plan file
   marked done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-7x.land
 bead: bob-cli-7x
-create_time: 2026-10-15 19:18:04
-status: wip
+status: done
 ---
 
 - **PARENT:**
