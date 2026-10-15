@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Add the glossary strand glossary/capture.md defining Capture?",
+      "default": true,
+      "effective_default": true,
+      "id": "memory_capture_term",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:capture"
+        ]
+      },
+      "provenance": "asked",
+      "requested": "When you are done thinking, add excellent (but concise) new glossary terms for \"capture\" and \"bulk capture\".",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": false,
+          "kind": "strand",
+          "path": "sase/memory/glossary/capture.md",
+          "scope": "project",
+          "selector": "glossary:capture",
+          "type": "strand"
+        }
+      ]
+    },
+    {
+      "ask": "Add the glossary strand glossary/bulk-capture.md defining Bulk Capture (aliases multi-item, batch capture)?",
+      "default": true,
+      "effective_default": true,
+      "id": "memory_bulk_capture_term",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:bulk-capture"
+        ]
+      },
+      "provenance": "asked",
+      "requested": "When you are done thinking, add excellent (but concise) new glossary terms for \"capture\" and \"bulk capture\".",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": false,
+          "kind": "strand",
+          "path": "sase/memory/glossary/bulk-capture.md",
+          "scope": "project",
+          "selector": "glossary:bulk-capture",
+          "type": "strand"
+        }
+      ]
+    }
+  ]
+}
