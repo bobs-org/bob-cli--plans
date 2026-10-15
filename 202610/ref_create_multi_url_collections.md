@@ -91,7 +91,7 @@ proposed_by: bbugyi200.athena.10k
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-15 12:30:27
-status: wip
+status: done
 bead_id: bob-cli-7v
 ---
 
