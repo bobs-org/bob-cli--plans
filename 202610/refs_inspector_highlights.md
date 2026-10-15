@@ -1,13 +1,11 @@
 ---
 tier: tale
 title: Bob Refs inspector shows highlights that have no notes
-goal:
-  The Bob Refs inspector shows every highlight with no comment in a HIGHLIGHTS section
-  after YOUR NOTES. Both sections page together with Ctrl+D.
+goal: The Bob Refs inspector shows every highlight with no comment in a HIGHLIGHTS
+  section after YOUR NOTES. Both sections page together with Ctrl+D.
 size: medium
 proposed_by: bbugyi200.apollo.7s
-create_time: 2026-10-15 09:24:22
-status: wip
+status: done
 ---
 
 # Bob Refs inspector: show highlights that have no notes
