@@ -91,7 +91,7 @@ decisions:
 proposed_by: bbugyi200.athena.research.4g.linker.w1.w0
 decided_by: auto
 create_time: 2026-10-14 16:21:10
-status: wip
+status: done
 bead_id: bob-cli-7r
 ---
 
