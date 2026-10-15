@@ -2,17 +2,15 @@
 tier: tale
 size: medium
 title: Finish and land epic bob-cli-7r (capture `&`/`*` on existing tasks)
-goal:
-  Fix the defects that epic bob-cli-7r's own commits left in bob-cli and Bob Mac
+goal: Fix the defects that epic bob-cli-7r's own commits left in bob-cli and Bob Mac
   Capture. Afterwards, parse and execute name the same offending token, every ⛓ row
-  reports its own "already" state and the prerequisite's real post-write status, a `*`
-  sub-bullet's `under` row shows its arrow, the `+` owner picker disables only rows the
-  writer refuses, the Mac preview never repeats an unchanged owner line, and the epic's
-  macOS CI regressions are gone. Then close the epic.
+  reports its own "already" state and the prerequisite's real post-write status, a
+  `*` sub-bullet's `under` row shows its arrow, the `+` owner picker disables only
+  rows the writer refuses, the Mac preview never repeats an unchanged owner line,
+  and the epic's macOS CI regressions are gone. Then close the epic.
 proposed_by: bbugyi200.athena.bob-cli-7r.land
 bead: bob-cli-7r
-create_time: 2026-10-14 20:47:56
-status: wip
+status: done
 ---
 
 - **PARENT:**
