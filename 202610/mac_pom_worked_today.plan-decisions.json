@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "How should the idle label format the minutes part?",
+      "choices": [
+        {
+          "key": "literal",
+          "label": "Unpadded as requested (0h0m, 0h45m, 3h5m); the label widens by one digit as minutes pass 9"
+        },
+        {
+          "key": "padded",
+          "label": "Two-digit minutes (0h00m, 0h45m, 3h05m); the label width holds steady within each hour"
+        }
+      ],
+      "default": "literal",
+      "effective_default": "literal",
+      "id": "minutes_padding",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "literal matches the requested <H>h<M>m format exactly"
+    },
+    {
+      "ask": "How should the mac pom behave on a Mac whose installed bob predates --worked?",
+      "choices": [
+        {
+          "key": "strict",
+          "label": "Older bob exits 2 on --worked and the item hides until bob is reinstalled"
+        },
+        {
+          "key": "fallback",
+          "label": "Retry without --worked so an older bob shows NO POMODORO; keeps a permanent compat branch"
+        }
+      ],
+      "default": "strict",
+      "effective_default": "strict",
+      "id": "old_bob_fallback",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "a hidden item is a loud reinstall signal and no compat shim lingers"
+    },
+    {
+      "ask": "Should the Mac Menu Bar Pomodoro Indicator glossary strand be corrected to describe the worked-total idle label?",
+      "corrects": "Empty output shows a green `NO POMODORO` with no tomato, which flashes as a green pill for its first minute on screen and then for one minute in every ten, restarting that cycle whenever the label reappears or the Mac wakes or unlocks.",
+      "default": true,
+      "effective_default": true,
+      "id": "memory_mac_pom_glossary",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:mac-menu-bar-pomodoro-indicator"
+        ]
+      },
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/glossary.md",
+          "scope": "project",
+          "selector": "glossary:mac-menu-bar-pomodoro-indicator",
+          "strands": [
+            "Mac Menu Bar Pomodoro Indicator",
+            "Pomodoro",
+            "Task Link"
+          ],
+          "type": "web"
+        }
+      ]
+    }
+  ]
+}
