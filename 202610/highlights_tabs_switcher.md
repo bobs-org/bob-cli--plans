@@ -3,116 +3,107 @@ tier: epic
 title: Bob Refs Tabs filter — a Highlights tab switcher
 goal: 'In Bob Mac Capture''s Bob Refs panel, ⇧⌘O pressed while Highlights is frontmost
   (or ⌘T inside the panel) shows a "Tabs" filter. It lists every document open in
-  Highlights, matched to its reference note where one exists, with the current tab first
-  and the previous tab pre-selected. ↵ switches to that existing tab without touching
-  the vault or the open log. Bob Mac Capture installs with a stable signing identity, so
-  the Accessibility grant the feature needs survives every `just install`.
+  Highlights, matched to its reference note where one exists, with the current tab
+  first and the previous tab pre-selected. ↵ switches to that existing tab without
+  touching the vault or the open log. Bob Mac Capture installs with a stable signing
+  identity, so the Accessibility grant the feature needs survives every `just install`.
 
   '
 decisions:
   identity_setup:
-    ask:
-      How should Bryan create the stable "Bob Mac Capture Local" code-signing identity?
+    ask: How should Bryan create the stable "Bob Mac Capture Local" code-signing identity?
     choices:
-      manual:
-        README walks through Keychain Access › Certificate Assistant; no keychain script
-      script:
-        Also ship a one-time Scripts/create-signing-identity.sh for Bryan to run in
-        Terminal
+      manual: README walks through Keychain Access › Certificate Assistant; no keychain
+        script
+      script: Also ship a one-time Scripts/create-signing-identity.sh for Bryan to
+        run in Terminal
     default: manual
-    why:
-      The research verified the Certificate Assistant path; agents cannot test a
-      keychain script
+    why: The research verified the Certificate Assistant path; agents cannot test
+      a keychain script
     answer: manual
   decision_record:
-    ask:
-      Add a decisions record saying Bob Mac Capture uses Accessibility only to read and
-      select Highlights tabs?
+    ask: Add a decisions record saying Bob Mac Capture uses Accessibility only to
+      read and select Highlights tabs?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: signing
-    title: Stable signing identity and Accessibility status
-    depends_on: []
-    size: small
-    description:
-      'signing: `just install` signs with a stable self-signed "Bob Mac Capture Local"
-      identity when it exists, and otherwise falls back to ad-hoc with a loud warning.
-      `bundle.sh` keeps its ad-hoc default for agent scratch builds. The ad-hoc warning
-      now mentions Accessibility. Settings › References shows "Highlights tabs: Allowed
-      / Not allowed" through a small AccessibilityTrust helper. The README documents
-      creating the identity.'
-  - id: tabs-core
-    title: RefsCore tab snapshot, matcher, ordering, and session
-    depends_on: []
-    size: medium
-    description:
-      'tabs-core: pure Foundation types in RefsCore. They cover the snapshot, the reader
-      protocol and its results, the full-path → unique-file-name → collision → none
-      matcher, the A5 ordering and pre-selection, the stale-target locator, tab recency,
-      the scoped and searchable tabs listing, the "N tabs" count text, the
-      `.inHighlights` section, and a main-actor session that owns generations and
-      recency. Golden tests run with `just portable-check`.'
-  - id: ax-reader
-    title: Highlights-only Accessibility reader
-    depends_on:
-      - signing
-      - tabs-core
-    size: medium
-    description:
-      "ax-reader: `AXHighlightsTabsReader` in BobMacCapture implements the RefsCore
-      reader protocol, using only public AX API against Highlights' process. It never
-      launches Highlights, never prompts, and works off the main actor with messaging
-      timeouts and a time budget. It reads window AXDocument and the native tab bar, and
-      presses one verified tab button for select. Tab names stay in memory only. An
-      optional read-only probe runs on the Mac."
-  - id: tabs-model
-    title: Panel model Tabs filter, switching, and states
-    depends_on:
-      - tabs-core
-    size: medium
-    description:
-      "tabs-model: RefsPanelModel gains the presentation source, the `tabsFilter` flag,
-      the tabs state, and the tab-row map. It handles ⌘T and ⌘R re-snapshots, the Esc/⌫
-      ladder, and a ↵ held until the first snapshot lands. Matched rows switch through
-      `openInHighlights` without `recordOpen`; collision and unmatched rows switch
-      through the session's select, with a stale-tab banner. Synthetic rows survive
-      library publications. Preview hooks and model tests use a fake reader."
-  - id: tabs-views
-    title: Tabs rendering, keys, and design tests
-    depends_on:
-      - tabs-model
-    size: medium
-    description:
-      'tabs-views: the Tabs token and "9 tabs" count in the search bar, the In
-      Highlights header, the "Current · p. N/M" pill, dim file-name rows for collision
-      and unmatched tabs, minimal inspector cards, and cards for every Tabs state. Also
-      the "↵ Switch" footer, VoiceOver labels, and router bindings for ⌘T and the ⌫
-      context, plus design fixtures and router tests.'
-  - id: tabs-entry
-    title: ⇧⌘O entry point, live wiring, settings, and docs
-    depends_on:
-      - signing
-      - ax-reader
-      - tabs-views
-    size: medium
-    description:
-      "tabs-entry: adds `HotKeyAction.refsHighlightsTabs = 4` with a configurable
-      ⇧⌘O/⌘E/Off key that registers only while Highlights is frontmost, and splits the
-      hotkey dispatch so ⌘O and ⌃⇧⌘O are unchanged. Adds coordinator toggle-to-Tabs
-      semantics, wires the live AX reader, session, and ad-hoc flag, and samples recency
-      when Highlights deactivates. Adds the Settings key picker and the README Tabs,
-      keyboard, privacy, and troubleshooting docs, plus the optional decision record."
+- id: signing
+  title: Stable signing identity and Accessibility status
+  depends_on: []
+  size: small
+  description: 'signing: `just install` signs with a stable self-signed "Bob Mac Capture
+    Local" identity when it exists, and otherwise falls back to ad-hoc with a loud
+    warning. `bundle.sh` keeps its ad-hoc default for agent scratch builds. The ad-hoc
+    warning now mentions Accessibility. Settings › References shows "Highlights tabs:
+    Allowed / Not allowed" through a small AccessibilityTrust helper. The README documents
+    creating the identity.'
+- id: tabs-core
+  title: RefsCore tab snapshot, matcher, ordering, and session
+  depends_on: []
+  size: medium
+  description: 'tabs-core: pure Foundation types in RefsCore. They cover the snapshot,
+    the reader protocol and its results, the full-path → unique-file-name → collision
+    → none matcher, the A5 ordering and pre-selection, the stale-target locator, tab
+    recency, the scoped and searchable tabs listing, the "N tabs" count text, the
+    `.inHighlights` section, and a main-actor session that owns generations and recency.
+    Golden tests run with `just portable-check`.'
+- id: ax-reader
+  title: Highlights-only Accessibility reader
+  depends_on:
+  - signing
+  - tabs-core
+  size: medium
+  description: 'ax-reader: `AXHighlightsTabsReader` in BobMacCapture implements the
+    RefsCore reader protocol, using only public AX API against Highlights'' process.
+    It never launches Highlights, never prompts, and works off the main actor with
+    messaging timeouts and a time budget. It reads window AXDocument and the native
+    tab bar, and presses one verified tab button for select. Tab names stay in memory
+    only. An optional read-only probe runs on the Mac.'
+- id: tabs-model
+  title: Panel model Tabs filter, switching, and states
+  depends_on:
+  - tabs-core
+  size: medium
+  description: 'tabs-model: RefsPanelModel gains the presentation source, the `tabsFilter`
+    flag, the tabs state, and the tab-row map. It handles ⌘T and ⌘R re-snapshots,
+    the Esc/⌫ ladder, and a ↵ held until the first snapshot lands. Matched rows switch
+    through `openInHighlights` without `recordOpen`; collision and unmatched rows
+    switch through the session''s select, with a stale-tab banner. Synthetic rows
+    survive library publications. Preview hooks and model tests use a fake reader.'
+- id: tabs-views
+  title: Tabs rendering, keys, and design tests
+  depends_on:
+  - tabs-model
+  size: medium
+  description: 'tabs-views: the Tabs token and "9 tabs" count in the search bar, the
+    In Highlights header, the "Current · p. N/M" pill, dim file-name rows for collision
+    and unmatched tabs, minimal inspector cards, and cards for every Tabs state. Also
+    the "↵ Switch" footer, VoiceOver labels, and router bindings for ⌘T and the ⌫
+    context, plus design fixtures and router tests.'
+- id: tabs-entry
+  title: ⇧⌘O entry point, live wiring, settings, and docs
+  depends_on:
+  - signing
+  - ax-reader
+  - tabs-views
+  size: medium
+  description: 'tabs-entry: adds `HotKeyAction.refsHighlightsTabs = 4` with a configurable
+    ⇧⌘O/⌘E/Off key that registers only while Highlights is frontmost, and splits the
+    hotkey dispatch so ⌘O and ⌃⇧⌘O are unchanged. Adds coordinator toggle-to-Tabs
+    semantics, wires the live AX reader, session, and ad-hoc flag, and samples recency
+    when Highlights deactivates. Adds the Settings key picker and the README Tabs,
+    keyboard, privacy, and troubleshooting docs, plus the optional decision record.'
 proposed_by: bbugyi200.apollo.7w
 decided_by: auto
 create_time: 2026-10-15 17:50:47
 status: wip
+bead_id: bob-cli-84
 ---
 
-- **PROMPT:**
-  [prompts/202610/highlights_tabs_switcher.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_tabs_switcher.md)
+- **PROMPT:** [prompts/202610/highlights_tabs_switcher.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_tabs_switcher.md)
+- **BEAD:** [bob-cli-84](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-84/README.md)
 
 # Plan: Bob Refs Tabs filter — a Highlights tab switcher
 
