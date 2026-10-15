@@ -1,94 +1,86 @@
 ---
 tier: epic
 title: Bulk capture templates (@@template:)
-goal: "A draft that starts with `@@template:` captures one item per row from a
-  `{0}`-style template, exactly as if the expanded items had been typed, all or nothing;
-  `bob capture`, the `capture-*` editor protocol, and Bob Mac Capture make templates
-  easy to write, easy to check, and pleasant to read.
+goal: 'A draft that starts with `@@template:` captures one item per row from a `{0}`-style
+  template, exactly as if the expanded items had been typed, all or nothing; `bob
+  capture`, the `capture-*` editor protocol, and Bob Mac Capture make templates easy
+  to write, easy to check, and pleasant to read.
 
-  "
+  '
 decisions:
   mac_expand_action:
-    ask:
-      Should the Mac phase also add an "Expand template" editor action backed by `bob
-      capture -E`?
+    ask: Should the Mac phase also add an "Expand template" editor action backed by
+      `bob capture -E`?
     default: false
     why: v1 stays small; -E ships now, so the action is a cheap later add-on
     answer: false
   memory_bulk_capture_glossary:
-    ask:
-      Should the last bob-cli phase update the glossary's Bulk Capture strand to cover
-      template drafts?
+    ask: Should the last bob-cli phase update the glossary's Bulk Capture strand to
+      cover template drafts?
     memory:
-      - glossary:bulk-capture
+    - glossary:bulk-capture
     default: true
-    corrects:
-      "Only a `@@route` declaration spans items: it routes every item that lacks its own
-      route or mode marker."
+    corrects: 'Only a `@@route` declaration spans items: it routes every item that
+      lacks its own route or mode marker.'
     answer: true
   memory_template_decision:
-    ask:
-      Should the last bob-cli phase add a decision record that bulk templates are a
-      declared expansion before parsing?
+    ask: Should the last bob-cli phase add a decision record that bulk templates are
+      a declared expansion before parsing?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: language
-    title: Template language core and bob capture -E
-    depends_on: []
-    size: medium
-    description:
-      "language: add the pure template module (framing, placeholders, row lexer,
-      expansion, bounds, issue vocabulary) and its first consumer, `bob capture -E,
-      --expand`."
-  - id: execution
-    title: Template execution in bob capture
-    depends_on:
-      - language
-    size: medium
-    description:
-      "execution: run template drafts through the unchanged planner as N instances, with
-      row-scoped errors, refusals, additive JSON, human summary, help, docs, and the
-      equivalence oracle."
-  - id: parse
-    title: Template-aware capture-parse
-    depends_on:
-      - execution
-    size: medium
-    description:
-      "parse: teach `capture-parse` template drafts through the masked copy, with
-      placeholder and field spans, row items, mapped diagnostics, needs rules, the
-      template object, and the header-less hint."
-  - id: complete
-    title: Template-aware completion and rewrite
-    depends_on:
-      - parse
-    size: small
-    description:
-      "complete: gate `capture-complete` and `capture-rewrite` for template drafts,
-      offer the `template:` header candidate, finish the protocol docs, and apply the
-      memory decisions."
-  - id: mac
-    title: Bob Mac Capture template presentation
-    depends_on:
-      - execution
-      - parse
-      - complete
-    size: medium
-    description:
-      "mac: decode the additive template fields and present them in Bob Mac Capture:
-      slot-colored placeholders and fields, a calm no-rows state, in-place diagnostic
-      underlines, a template preview chip, and the header candidate row."
+- id: language
+  title: Template language core and bob capture -E
+  depends_on: []
+  size: medium
+  description: 'language: add the pure template module (framing, placeholders, row
+    lexer, expansion, bounds, issue vocabulary) and its first consumer, `bob capture
+    -E, --expand`.'
+- id: execution
+  title: Template execution in bob capture
+  depends_on:
+  - language
+  size: medium
+  description: 'execution: run template drafts through the unchanged planner as N
+    instances, with row-scoped errors, refusals, additive JSON, human summary, help,
+    docs, and the equivalence oracle.'
+- id: parse
+  title: Template-aware capture-parse
+  depends_on:
+  - execution
+  size: medium
+  description: 'parse: teach `capture-parse` template drafts through the masked copy,
+    with placeholder and field spans, row items, mapped diagnostics, needs rules,
+    the template object, and the header-less hint.'
+- id: complete
+  title: Template-aware completion and rewrite
+  depends_on:
+  - parse
+  size: small
+  description: 'complete: gate `capture-complete` and `capture-rewrite` for template
+    drafts, offer the `template:` header candidate, finish the protocol docs, and
+    apply the memory decisions.'
+- id: mac
+  title: Bob Mac Capture template presentation
+  depends_on:
+  - execution
+  - parse
+  - complete
+  size: medium
+  description: 'mac: decode the additive template fields and present them in Bob Mac
+    Capture: slot-colored placeholders and fields, a calm no-rows state, in-place
+    diagnostic underlines, a template preview chip, and the header candidate row.'
 proposed_by: bbugyi200.apollo.research.1j.linker.w0
 decided_by: auto
 create_time: 2026-10-15 14:04:16
 status: wip
+bead_id: bob-cli-7w
 ---
 
-- **PROMPT:**
-  [prompts/202610/bulk_capture_templates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bulk_capture_templates.md)
+- **PROMPT:** [prompts/202610/bulk_capture_templates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bulk_capture_templates.md)
+- **BEAD:** [bob-cli-7w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7w/README.md)
 
 # Plan: Bulk capture templates (`@@template:`)
 
