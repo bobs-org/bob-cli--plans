@@ -1,35 +1,30 @@
 ---
 tier: tale
 title: Define the Capture and Bulk Capture glossary terms
-goal:
-  Agents share one precise meaning of "capture" and "bulk capture" across bob capture
-  and Bob Mac Capture.
+goal: Agents share one precise meaning of "capture" and "bulk capture" across bob
+  capture and Bob Mac Capture.
 size: small
 decisions:
   memory_capture_term:
     ask: Add the glossary strand glossary/capture.md defining Capture?
     memory:
-      - glossary:capture
-    requested:
-      When you are done thinking, add excellent (but concise) new glossary terms for
-      "capture" and "bulk capture".
+    - glossary:capture
+    requested: When you are done thinking, add excellent (but concise) new glossary
+      terms for "capture" and "bulk capture".
     default: true
     answer: true
   memory_bulk_capture_term:
-    ask:
-      Add the glossary strand glossary/bulk-capture.md defining Bulk Capture (aliases
+    ask: Add the glossary strand glossary/bulk-capture.md defining Bulk Capture (aliases
       multi-item, batch capture)?
     memory:
-      - glossary:bulk-capture
-    requested:
-      When you are done thinking, add excellent (but concise) new glossary terms for
-      "capture" and "bulk capture".
+    - glossary:bulk-capture
+    requested: When you are done thinking, add excellent (but concise) new glossary
+      terms for "capture" and "bulk capture".
     default: true
     answer: true
 proposed_by: bbugyi200.apollo.7v
 decided_by: auto
-create_time: 2026-10-15 12:48:12
-status: wip
+status: done
 ---
 
 # Define the Capture and Bulk Capture glossary terms
