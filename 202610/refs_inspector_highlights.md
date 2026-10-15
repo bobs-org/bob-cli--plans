@@ -1,12 +1,19 @@
 ---
 tier: tale
 title: Bob Refs inspector shows highlights that have no notes
-goal: The Bob Refs inspector shows every highlight with no comment in a HIGHLIGHTS
-  section after YOUR NOTES. Both sections page together with Ctrl+D.
+goal:
+  The Bob Refs inspector shows every highlight with no comment in a HIGHLIGHTS section
+  after YOUR NOTES. Both sections page together with Ctrl+D.
 size: medium
 proposed_by: bbugyi200.apollo.7s
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7s](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7s.md)
+- **COMMITS:**
+  - [7533626](https://github.com/bobs-org/bob-mac-capture/commit/7533626537d1a51c8a78c220558ef646b33bd663)
+    — feat(refs): show uncommented highlights in the inspector
 
 # Bob Refs inspector: show highlights that have no notes
 
