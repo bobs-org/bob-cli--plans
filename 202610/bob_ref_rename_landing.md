@@ -1,8 +1,10 @@
 ---
 tier: tale
-title: Finish landing bob-cli-7x — rename help, title stems, plugin README, and Mac
+title:
+  Finish landing bob-cli-7x — rename help, title stems, plugin README, and Mac
   rename-card fixes
-goal: The epic-caused defects found while landing bob-cli-7x are fixed in bob-cli,
+goal:
+  The epic-caused defects found while landing bob-cli-7x are fixed in bob-cli,
   bob-plugins, and bob-mac-capture, and epic bob-cli-7x is closed with its plan file
   marked done.
 size: medium
@@ -15,6 +17,11 @@ status: done
   [202610/bob_ref_rename.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_ref_rename.md)
 - **BEAD:**
   [bob-cli-7x](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7x/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-7x.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-7x.land.md)
+- **COMMITS:**
+  - [1fbea74](https://github.com/bobs-org/bob-cli--plans/commit/1fbea741c6ccbd768bc7798941a8b7ae8f717b00)
+    — chore(plans): mark bob_ref_rename done
 
 # Plan: Finish landing epic `bob-cli-7x` (`bob ref rename` + Bob Refs rename card)
 
