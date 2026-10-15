@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should sase_blog's ^prj also require the post to be announced?",
+      "choices": [
+        {
+          "key": "live",
+          "label": "^prj reads \"My SASE post, in my own voice, is live on https://sase.sh!\""
+        },
+        {
+          "key": "announced",
+          "label": "^prj adds \"and announced\"; the project stays open until you announce the post"
+        }
+      ],
+      "default": "live",
+      "effective_default": "live",
+      "id": "prj_criterion",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Not already true (the July draft is live) and neutral on the open goodbye framing"
+    },
+    {
+      "ask": "Should job_2026's \"Release [[sase_blog]] post!\" task (^sase-blog) move into sase_blog?",
+      "choices": [
+        {
+          "key": "move",
+          "label": "Moves into sase_blog with its job_2026_apply_29 dependency; leaves the job-search view"
+        },
+        {
+          "key": "keep",
+          "label": "Stays in job_2026, so the release step keeps showing in the job-search view"
+        }
+      ],
+      "default": "move",
+      "effective_default": "move",
+      "id": "release_task",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "ADJ-5 gives the finish line one owner, as \"manage everything from sase_blog\" asks"
+    },
+    {
+      "ask": "Should the ^zk task (\"Launch agent to create ~/bob/zk/ notes\") be cancelled rather than rewritten?",
+      "choices": [
+        {
+          "key": "cancel",
+          "label": "Cancelled with a Cancel Log reason; it lands in Done & Canceled"
+        },
+        {
+          "key": "rewrite",
+          "label": "Stays Blocked until 10-17; its zettel bullet says ordinary notes, not project notes"
+        }
+      ],
+      "default": "cancel",
+      "effective_default": "cancel",
+      "id": "zk_task",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Rolled since 08-25, its sibling was cancelled as a duplicate, and it over-structures"
+    },
+    {
+      "ask": "Should the Databricks job-fit ref be refiled under job_2026?",
+      "choices": [
+        {
+          "key": "refile",
+          "label": "Its archived task moves to a new done/job_2026_done.md, so its parent stays job_2026"
+        },
+        {
+          "key": "stay",
+          "label": "Stays in the renamed blog archive; its parent becomes [[sase_blog]]"
+        }
+      ],
+      "default": "refile",
+      "effective_default": "refile",
+      "id": "databricks_ref",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "ADJ-8 wants job_2026; a ref's parent follows its task's archive, so only a refile sticks"
+    },
+    {
+      "ask": "Should sase_post_blog be gated on the post again?",
+      "choices": [
+        {
+          "key": "none",
+          "label": "No change; sase_post_blog's open tasks stay Ready"
+        },
+        {
+          "key": "gate",
+          "label": "Its ^prj depends on sase_blog#^prj; every open task, its bug fix too, waits for the post"
+        }
+      ],
+      "default": "none",
+      "effective_default": "none",
+      "id": "post_blog_gate",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "ADJ-7 keeps it separate; a gate would also park its \"Fix remote machines!\" task"
+    }
+  ]
+}
