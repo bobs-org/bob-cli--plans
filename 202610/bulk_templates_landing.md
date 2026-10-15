@@ -2,11 +2,11 @@
 tier: tale
 size: medium
 title: Finish and land bulk capture templates (bob-cli-7w)
-goal: 'Template drafts behave the same in capture-parse, completion, execution, and
-  Bob Mac Capture. Ctrl-J inserts a plain newline in a template draft. Epic bob-cli-7w
-  is closed.
+goal: "Template drafts behave the same in capture-parse, completion, execution, and Bob
+  Mac Capture. Ctrl-J inserts a plain newline in a template draft. Epic bob-cli-7w is
+  closed.
 
-  '
+  "
 proposed_by: bbugyi200.apollo.bob-cli-7w.land
 bead: bob-cli-7w
 status: done
@@ -16,6 +16,11 @@ status: done
   [202610/bulk_capture_templates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bulk_capture_templates.md)
 - **BEAD:**
   [bob-cli-7w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7w/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-7w.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-7w.land.md)
+- **COMMITS:**
+  - [9e3b739](https://github.com/bobs-org/bob-cli--plans/commit/9e3b73951e87573af125e5bdd732795d11a7923e)
+    — docs(plans): mark bulk_capture_templates done for bob-cli-7w landing
 
 # Plan: Finish and land bulk capture templates (bob-cli-7w)
 
