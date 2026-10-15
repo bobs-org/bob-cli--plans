@@ -2,13 +2,12 @@
 tier: tale
 size: medium
 title: Finish and land epic bob-cli-7r (capture `&`/`*` on existing tasks)
-goal:
-  Fix the defects that epic bob-cli-7r's own commits left in bob-cli and Bob Mac
+goal: Fix the defects that epic bob-cli-7r's own commits left in bob-cli and Bob Mac
   Capture. Afterwards, parse and execute name the same offending token, every ⛓ row
-  reports its own "already" state and the prerequisite's real post-write status, a `*`
-  sub-bullet's `under` row shows its arrow, the `+` owner picker disables only rows the
-  writer refuses, the Mac preview never repeats an unchanged owner line, and the epic's
-  macOS CI regressions are gone. Then close the epic.
+  reports its own "already" state and the prerequisite's real post-write status, a
+  `*` sub-bullet's `under` row shows its arrow, the `+` owner picker disables only
+  rows the writer refuses, the Mac preview never repeats an unchanged owner line,
+  and the epic's macOS CI regressions are gone. Then close the epic.
 proposed_by: bbugyi200.athena.bob-cli-7r.land
 bead: bob-cli-7r
 status: done
@@ -18,11 +17,6 @@ status: done
   [202610/capture_relate_existing_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_relate_existing_tasks.md)
 - **BEAD:**
   [bob-cli-7r](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7r/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-7r.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-7r.land.md)
-- **COMMITS:**
-  - [14505e5](https://github.com/bobs-org/bob-cli/commit/14505e5751dc4fea1c15e8ed87add9c89ceb574b)
-    — fix(capture): land remaining existing-owner relationship defects (A1-A7)
 
 # Finish and land epic bob-cli-7r
 
