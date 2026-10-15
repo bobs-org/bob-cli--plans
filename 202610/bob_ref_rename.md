@@ -1,141 +1,129 @@
 ---
 tier: epic
-title: bob ref rename — rename a reference's files safely, plus a Bob Refs rename card
-goal: "`bob ref rename <REF> <NAME>` renames the file stem of a modern, PDF-backed,
-  unannotated reference (note, PDF, sidecar, audio) and rewrites every inbound link in
-  one verified, scoped commit, while keeping its id, ^ref block ID, title, and PDF
-  bytes. Bob Refs gets a ⌘⇧R / ⌘K → Rename… card that calls it. The URL namer stops
-  minting opaque hex stems, and Obsidian's rename-current-file command refuses managed
-  ref notes. The misnamed 442a6bf555914893e9891c11519de94f gist ends up as
+title: bob ref rename — rename a reference's files safely, plus a Bob Refs rename
+  card
+goal: '`bob ref rename <REF> <NAME>` renames the file stem of a modern, PDF-backed,
+  unannotated reference (note, PDF, sidecar, audio) and rewrites every inbound link
+  in one verified, scoped commit, while keeping its id, ^ref block ID, title, and
+  PDF bytes. Bob Refs gets a ⌘⇧R / ⌘K → Rename… card that calls it. The URL namer
+  stops minting opaque hex stems, and Obsidian''s rename-current-file command refuses
+  managed ref notes. The misnamed 442a6bf555914893e9891c11519de94f gist ends up as
   karpathy_llm_wiki.
 
-  "
+  '
 decisions:
   highlights_fallback:
-    ask:
-      If Highlights recreates the old PDF path after a rename, how should the card guard
-      against it?
+    ask: If Highlights recreates the old PDF path after a rename, how should the card
+      guard against it?
     choices:
       confirm: Show a warning naming the file and require a second Return to submit
-      hold:
-        Hide ⌘⇧R and the ⌘K item behind a default-off setting until Highlights is fixed
+      hold: Hide ⌘⇧R and the ⌘K item behind a default-off setting until Highlights
+        is fixed
     default: confirm
-    why:
-      Renames are rare, Bryan knows if the PDF is open, and bob ref doctor flags
+    why: Renames are rare, Bryan knows if the PDF is open, and bob ref doctor flags
       duplicates
     answer: confirm
   rename_gist:
-    ask:
-      Should the acceptance phase rename the 442a6bf… gist to karpathy_llm_wiki in the
-      live vault?
+    ask: Should the acceptance phase rename the 442a6bf… gist to karpathy_llm_wiki
+      in the live vault?
     default: true
-    why:
-      Bryan named this file as the motivating case, and the result is one revertable
+    why: Bryan named this file as the motivating case, and the result is one revertable
       commit
     answer: true
   decision_record:
-    ask:
-      Should rename-write add a decisions strand saying a ref rename moves the stem but
-      keeps id and ^ref?
+    ask: Should rename-write add a decisions strand saying a ref rename moves the
+      stem but keeps id and ^ref?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: namer
-    title: Stop minting opaque URL stems
-    depends_on: []
-    size: small
-    description:
-      "namer: in bob-cli, make stem_from_url return None when the last non-skipped
-      segment is opaque (hex ID or UUID) and strip trailing opaque words, sharing
-      collection_name's is_hex_id_word; strip a trailing .md/.txt from titles before
-      title-derived stems; unit tests and docs."
-  - id: rename-links
-    title: Vault link rewrite engine for a renamed bundle
-    depends_on: []
-    size: medium
-    description:
-      "rename-links: in bob-cli, a pure module that, given old→new vault paths for a
-      reference bundle, finds and rewrites every inbound wikilink, embed, and Markdown
-      link across vault .md files (done/ and daily notes included), honoring the
-      bare-stem uniqueness rule and skipping code, and reports ^h- fragments and [h::]
-      follow-ups that cite the note."
-  - id: rename-plan
-    title: bob ref rename command, refusals, and dry run
-    depends_on:
-      - rename-links
-    size: medium
-    description:
-      "rename-plan: in bob-cli, register `bob ref rename` in the Library help group with
-      help, completion, and docs; resolve REF exactly; compute the full move, link, and
-      frontmatter plan; implement every scope, name, highlight-state, and precondition
-      refusal; print -d plans as human or JSON (schema 1); live mode still refuses until
-      rename-write."
-  - id: rename-write
-    title: bob ref rename live write flow
-    depends_on:
-      - rename-plan
-    size: medium
-    description:
-      "rename-write: in bob-cli, take bob_sync.lock then the scan lock, pre-sync,
-      re-plan, snapshot, move, rewrite, verify (no-op dry-run sync plus a clean index
-      row), roll back on failure, commit exactly the touched paths, post-sync;
-      --offline, already_renamed re-runs, docs runbook, and the decision record."
-  - id: obsidian-guard
-    title: Guard Obsidian rename-current-file for managed ref notes
-    depends_on:
-      - rename-write
-    size: small
-    description:
-      "obsidian-guard: in bob-plugins bob-navigation-hotkeys, refuse rename-current-file
-      (modal open and submit) when the active file is a managed ref note under ref/ with
-      source_pdf frontmatter, with a Notice pointing at `bob ref rename`; first tests
-      for the rename path; build, test, and bob plugins sync."
-  - id: acceptance
-    title: Highlights-open acceptance test and the gist rename
-    depends_on:
-      - rename-write
-    size: small
-    description:
-      "acceptance: prepare a scratch-vault script that renames a PDF while it is open in
-      Highlights, have Bryan run it on the Mac through /sase_questions, record the
-      verified behavior in docs/ref.md, then (if decided) rename the 442a6bf… gist to
-      karpathy_llm_wiki in the live vault."
-  - id: mac-rename-core
-    title: RefsCore rename contract, fetcher, stores, and card state
-    depends_on:
-      - rename-plan
-    size: medium
-    description:
-      "mac-rename-core: in bob-mac-capture RefsCore, decode the ref rename report, add
-      RefsFetching.rename on a non-cancelling refs-rename lane, map older-bob and error
-      envelopes, add RefsOpenLogStore.rename(from:to:), pure rename-card state, key map,
-      and presentation strings; fake-bob branch and portable tests."
-  - id: mac-rename-card
-    title: Bob Refs ⌘⇧R rename card
-    depends_on:
-      - mac-rename-core
-      - rename-write
-      - acceptance
-    size: medium
-    description:
-      "mac-rename-card: in bob-mac-capture, route ⌘⇧R and a ⌘K Rename… item to a rename
-      card with an editable stem field, pass text-editing keys through, run the rename
-      without cancelling on hide, select to.path and migrate history on success, render
-      errors inline, apply the acceptance outcome, README, tests."
+- id: namer
+  title: Stop minting opaque URL stems
+  depends_on: []
+  size: small
+  description: 'namer: in bob-cli, make stem_from_url return None when the last non-skipped
+    segment is opaque (hex ID or UUID) and strip trailing opaque words, sharing collection_name''s
+    is_hex_id_word; strip a trailing .md/.txt from titles before title-derived stems;
+    unit tests and docs.'
+- id: rename-links
+  title: Vault link rewrite engine for a renamed bundle
+  depends_on: []
+  size: medium
+  description: 'rename-links: in bob-cli, a pure module that, given old→new vault
+    paths for a reference bundle, finds and rewrites every inbound wikilink, embed,
+    and Markdown link across vault .md files (done/ and daily notes included), honoring
+    the bare-stem uniqueness rule and skipping code, and reports ^h- fragments and
+    [h::] follow-ups that cite the note.'
+- id: rename-plan
+  title: bob ref rename command, refusals, and dry run
+  depends_on:
+  - rename-links
+  size: medium
+  description: 'rename-plan: in bob-cli, register `bob ref rename` in the Library
+    help group with help, completion, and docs; resolve REF exactly; compute the full
+    move, link, and frontmatter plan; implement every scope, name, highlight-state,
+    and precondition refusal; print -d plans as human or JSON (schema 1); live mode
+    still refuses until rename-write.'
+- id: rename-write
+  title: bob ref rename live write flow
+  depends_on:
+  - rename-plan
+  size: medium
+  description: 'rename-write: in bob-cli, take bob_sync.lock then the scan lock, pre-sync,
+    re-plan, snapshot, move, rewrite, verify (no-op dry-run sync plus a clean index
+    row), roll back on failure, commit exactly the touched paths, post-sync; --offline,
+    already_renamed re-runs, docs runbook, and the decision record.'
+- id: obsidian-guard
+  title: Guard Obsidian rename-current-file for managed ref notes
+  depends_on:
+  - rename-write
+  size: small
+  description: 'obsidian-guard: in bob-plugins bob-navigation-hotkeys, refuse rename-current-file
+    (modal open and submit) when the active file is a managed ref note under ref/
+    with source_pdf frontmatter, with a Notice pointing at `bob ref rename`; first
+    tests for the rename path; build, test, and bob plugins sync.'
+- id: acceptance
+  title: Highlights-open acceptance test and the gist rename
+  depends_on:
+  - rename-write
+  size: small
+  description: 'acceptance: prepare a scratch-vault script that renames a PDF while
+    it is open in Highlights, have Bryan run it on the Mac through /sase_questions,
+    record the verified behavior in docs/ref.md, then (if decided) rename the 442a6bf…
+    gist to karpathy_llm_wiki in the live vault.'
+- id: mac-rename-core
+  title: RefsCore rename contract, fetcher, stores, and card state
+  depends_on:
+  - rename-plan
+  size: medium
+  description: 'mac-rename-core: in bob-mac-capture RefsCore, decode the ref rename
+    report, add RefsFetching.rename on a non-cancelling refs-rename lane, map older-bob
+    and error envelopes, add RefsOpenLogStore.rename(from:to:), pure rename-card state,
+    key map, and presentation strings; fake-bob branch and portable tests.'
+- id: mac-rename-card
+  title: Bob Refs ⌘⇧R rename card
+  depends_on:
+  - mac-rename-core
+  - rename-write
+  - acceptance
+  size: medium
+  description: 'mac-rename-card: in bob-mac-capture, route ⌘⇧R and a ⌘K Rename… item
+    to a rename card with an editable stem field, pass text-editing keys through,
+    run the rename without cancelling on hide, select to.path and migrate history
+    on success, render errors inline, apply the acceptance outcome, README, tests.'
 proposed_by: bbugyi200.apollo.research.1k.linker.w0
 decided_by: auto
 create_time: 2026-10-15 15:25:58
 status: wip
+bead_id: bob-cli-7x
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_ref_rename.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_ref_rename.md)
+- **PROMPT:** [prompts/202610/bob_ref_rename.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_ref_rename.md)
+- **BEAD:** [bob-cli-7x](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7x/README.md)
 
 # Plan: `bob ref rename` and a Bob Refs rename card
 
