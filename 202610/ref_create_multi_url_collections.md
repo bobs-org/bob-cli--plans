@@ -1,112 +1,102 @@
 ---
 tier: epic
-title: "Several URLs, one reference: multi-URL bob ref create collections"
-goal: "`bob ref create URL URL…` merges 2 to 20 web articles, in argument order, into
+title: 'Several URLs, one reference: multi-URL bob ref create collections'
+goal: '`bob ref create URL URL…` merges 2 to 20 web articles, in argument order, into
   one Highlights-ready PDF and one reference. The PDF has a contents page, one bookmark
   per article, and continuous page numbers. The name comes from `-N` or from the words
-  every URL's slug shares. The command is all-or-nothing and fails fast, before any
+  every URL''s slug shares. The command is all-or-nothing and fails fast, before any
   network call, whenever no trustworthy name exists.
 
-  "
+  '
 decisions:
   output_dir:
-    ask:
-      Also add a curl-style `-O, --output-directory DIR` option now, alongside the
-      unchanged `-o, --output PDF`?
+    ask: Also add a curl-style `-O, --output-directory DIR` option now, alongside
+      the unchanged `-o, --output PDF`?
     choices:
-      defer:
-        No directory option; `-N` plus `-t` already set the name and the intake folder
-        together
-      add:
-        The gate phase adds `-O DIR` (writes DIR/<name>.pdf), combinable with -N,
+      defer: No directory option; `-N` plus `-t` already set the name and the intake
+        folder together
+      add: The gate phase adds `-O DIR` (writes DIR/<name>.pdf), combinable with -N,
         conflicting with -o/-t
     default: defer
-    why:
-      All six recorded -o uses were intake paths that -N/-t express; repurposing -o
-      breaks `-o x.pdf`
+    why: All six recorded -o uses were intake paths that -N/-t express; repurposing
+      -o breaks `-o x.pdf`
     answer: defer
   decision_record:
-    ask:
-      Record this design as a new `decisions` memory strand when the docs phase lands?
+    ask: Record this design as a new `decisions` memory strand when the docs phase
+      lands?
     memory:
-      - decisions:ref-create-merges-several-urls
+    - decisions:ref-create-merges-several-urls
     default: false
     answer: false
 phases:
-  - id: dedupe
-    title: List-aware import dedupe for source_url and url lists
-    depends_on: []
-    size: small
-    description:
-      "dedupe: record one dedupe source per item of a list-valued source_url/url in ref
-      notes and intake markers, so create, ingest, capture routing, and find -i see
-      every URL of a list; delete the documented gap in docs/ref.md."
-  - id: naming
-    title: Pure collection naming and metadata rules
-    depends_on: []
-    size: medium
-    description:
-      "naming: add a network-free module implementing the slug-word naming rule with its
-      no-name reasons, the name waterfall, the part-order warning, and the collection
-      title/author/published derivation, all table-tested."
-  - id: adapter
-    title: Adapter render:false capture, compose op, and the collection layout
-    depends_on: []
-    size: medium
-    description:
-      "adapter: let capture skip printing, add a compose op that typesets ordered
-      article.json parts into one PDF (opening page, linked contents, a fresh page and
-      bookmark per part, namespaced ids and assets), plus the Rust client types;
-      single-capture requests stay byte-identical."
-  - id: gate
-    title: Variadic TARGET, fail-fast validation, and collection overlap policy
-    depends_on:
-      - dedupe
-      - naming
-    size: medium
-    description:
-      "gate: make TARGET variadic, route two or more targets into a new collection
-      module that runs every pre-network check (kinds, -H, duplicates, cap, name
-      waterfall, overlap, target plan) with polished errors, and rewrite the -N/TARGET
-      help; the route itself is a stub until the next phase."
-  - id: route
-    title: Collection route - classify, capture, compose, stamp, install, report
-    depends_on:
-      - gate
-      - adapter
-    size: medium
-    description:
-      "route: replace the stub with the all-or-nothing pipeline (per-part
-      classification, sequential render:false captures, metadata derivation, compose,
-      list-valued marker, stamp, guarded install), dry-run and success reports, explicit
-      --audio, and fake-adapter integration tests."
-  - id: listen
-    title: Narrate and attach collections with --listen
-    depends_on:
-      - route
-    size: small
-    description:
-      "listen: support -L for collections by narrating the staged collection PDF before
-      the guarded install, and attach a new episode when the exact same URL set is
-      already captured or queued."
-  - id: docs
-    title: Docs, live verification, and follow-ups
-    depends_on:
-      - listen
-    size: small
-    description:
-      "docs: document several-URL collections in the create, clip, and ref docs, run a
-      live end-to-end check in a scratch vault on athena, and record follow-ups (plus
-      the optional decisions strand)."
+- id: dedupe
+  title: List-aware import dedupe for source_url and url lists
+  depends_on: []
+  size: small
+  description: 'dedupe: record one dedupe source per item of a list-valued source_url/url
+    in ref notes and intake markers, so create, ingest, capture routing, and find
+    -i see every URL of a list; delete the documented gap in docs/ref.md.'
+- id: naming
+  title: Pure collection naming and metadata rules
+  depends_on: []
+  size: medium
+  description: 'naming: add a network-free module implementing the slug-word naming
+    rule with its no-name reasons, the name waterfall, the part-order warning, and
+    the collection title/author/published derivation, all table-tested.'
+- id: adapter
+  title: Adapter render:false capture, compose op, and the collection layout
+  depends_on: []
+  size: medium
+  description: 'adapter: let capture skip printing, add a compose op that typesets
+    ordered article.json parts into one PDF (opening page, linked contents, a fresh
+    page and bookmark per part, namespaced ids and assets), plus the Rust client types;
+    single-capture requests stay byte-identical.'
+- id: gate
+  title: Variadic TARGET, fail-fast validation, and collection overlap policy
+  depends_on:
+  - dedupe
+  - naming
+  size: medium
+  description: 'gate: make TARGET variadic, route two or more targets into a new collection
+    module that runs every pre-network check (kinds, -H, duplicates, cap, name waterfall,
+    overlap, target plan) with polished errors, and rewrite the -N/TARGET help; the
+    route itself is a stub until the next phase.'
+- id: route
+  title: Collection route - classify, capture, compose, stamp, install, report
+  depends_on:
+  - gate
+  - adapter
+  size: medium
+  description: 'route: replace the stub with the all-or-nothing pipeline (per-part
+    classification, sequential render:false captures, metadata derivation, compose,
+    list-valued marker, stamp, guarded install), dry-run and success reports, explicit
+    --audio, and fake-adapter integration tests.'
+- id: listen
+  title: Narrate and attach collections with --listen
+  depends_on:
+  - route
+  size: small
+  description: 'listen: support -L for collections by narrating the staged collection
+    PDF before the guarded install, and attach a new episode when the exact same URL
+    set is already captured or queued.'
+- id: docs
+  title: Docs, live verification, and follow-ups
+  depends_on:
+  - listen
+  size: small
+  description: 'docs: document several-URL collections in the create, clip, and ref
+    docs, run a live end-to-end check in a scratch vault on athena, and record follow-ups
+    (plus the optional decisions strand).'
 proposed_by: bbugyi200.athena.10k
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-15 12:30:27
 status: wip
+bead_id: bob-cli-7v
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_create_multi_url_collections.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_multi_url_collections.md)
+- **PROMPT:** [prompts/202610/ref_create_multi_url_collections.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_multi_url_collections.md)
+- **BEAD:** [bob-cli-7v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-7v/README.md)
 
 # Plan: Several URLs, one reference
 
