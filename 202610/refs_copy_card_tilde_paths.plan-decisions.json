@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Now that P copies the ~ PDF path, should Option-P copy the absolute PDF path?",
+      "choices": [
+        {
+          "key": "absolute",
+          "label": "Option-P copies the absolute /Users/\u2026 PDF path, keeping one opt-out from ~"
+        },
+        {
+          "key": "none",
+          "label": "Option-P copies the same ~ path; no card row copies an absolute home path as text"
+        }
+      ],
+      "default": "absolute",
+      "effective_default": "absolute",
+      "id": "pdf_option",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "P copies ~ either way; keeping the absolute form behind Option costs nothing"
+    }
+  ]
+}
