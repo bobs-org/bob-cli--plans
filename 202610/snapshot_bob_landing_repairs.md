@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Finish Bob snapshot projection and nested landing
-goal:
-  Repair the seven reproduced projection defects and close bob-cli-87.3.1 and parent
-  phase bob-cli-87.3 with verified evidence.
+goal: Repair the seven reproduced projection defects and close bob-cli-87.3.1 and
+  parent phase bob-cli-87.3 with verified evidence.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-87.3.1.land
 bead: bob-cli-87.3.1
-create_time: 2026-10-16 14:01:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
