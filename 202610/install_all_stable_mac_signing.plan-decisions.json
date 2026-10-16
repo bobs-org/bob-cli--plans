@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Add a one-time Scripts/create-signing-identity.sh so Bryan can create the signing identity with one command?",
+      "default": false,
+      "effective_default": false,
+      "id": "identity_script",
+      "kind": "toggle",
+      "requested_verified": false,
+      "why": "the GUI steps take two minutes, and no agent can test a keychain-mutating script"
+    }
+  ]
+}
