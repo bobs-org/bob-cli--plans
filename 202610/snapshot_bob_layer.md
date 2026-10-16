@@ -1,48 +1,45 @@
 ---
 tier: epic
 title: Bob area and project snapshot projection
-goal:
-  Area and project snapshots show a source-aware masthead, readable task rows and
-  history, accurate omission counts, and an optional linked closed-task appendix.
+goal: Area and project snapshots show a source-aware masthead, readable task rows
+  and history, accurate omission counts, and an optional linked closed-task appendix.
 phases:
-  - id: task-rows
-    title: Source-aware Bob task rows and relationship metadata
-    size: medium
-    depends_on: []
-    description:
-      "task-rows: add the Bob projection context and source attribution through the
-      existing Obsidian/transclusion pipeline; implement task chips and BLOCKS, WAITS
-      ON, and Sub-projects rows using shared parsers, with focused source and nesting
-      tests."
-  - id: logs-visibility
-    title: Managed logs, closed appendix, and self-snapshot filtering
-    size: medium
-    depends_on:
-      - task-rows
-    description:
-      "logs-visibility: condense managed logs, support full logs and a compact
-      closed-task appendix through include_closed, filter self-snapshot reference tasks,
-      and finalize omission accounting and visible anchors with read-only regression
-      tests."
-  - id: masthead-goldens
-    title: Bob masthead, document assembly, and synthetic golden coverage
-    size: medium
-    depends_on:
-      - logs-visibility
-    description:
-      "masthead-goldens: compose area/project mastheads, preserve intro prose, style and
-      prune lanes and sections, expose the complete Bob projection seam, and add the
-      required synthetic note goldens and integration checks for both reading modes."
+- id: task-rows
+  title: Source-aware Bob task rows and relationship metadata
+  size: medium
+  depends_on: []
+  description: 'task-rows: add the Bob projection context and source attribution through
+    the existing Obsidian/transclusion pipeline; implement task chips and BLOCKS,
+    WAITS ON, and Sub-projects rows using shared parsers, with focused source and
+    nesting tests.'
+- id: logs-visibility
+  title: Managed logs, closed appendix, and self-snapshot filtering
+  size: medium
+  depends_on:
+  - task-rows
+  description: 'logs-visibility: condense managed logs, support full logs and a compact
+    closed-task appendix through include_closed, filter self-snapshot reference tasks,
+    and finalize omission accounting and visible anchors with read-only regression
+    tests.'
+- id: masthead-goldens
+  title: Bob masthead, document assembly, and synthetic golden coverage
+  size: medium
+  depends_on:
+  - logs-visibility
+  description: 'masthead-goldens: compose area/project mastheads, preserve intro prose,
+    style and prune lanes and sections, expose the complete Bob projection seam, and
+    add the required synthetic note goldens and integration checks for both reading
+    modes.'
 proposed_by: bbugyi200.athena.bob-cli-87.3
 parent_bead: bob-cli-87.3
 create_time: 2026-10-16 11:43:17
 status: wip
+bead_id: bob-cli-87.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/snapshot_bob_layer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/snapshot_bob_layer.md)
-- **PARENT:**
-  [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **PROMPT:** [prompts/202610/snapshot_bob_layer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/snapshot_bob_layer.md)
+- **PARENT:** [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **BEAD:** [bob-cli-87.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-87/bob-cli-87.3.1.md)
 
 # Bob area/project snapshot projection
 
