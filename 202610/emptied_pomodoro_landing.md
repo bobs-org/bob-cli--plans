@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair emptied-Pomodoro edge cases and land bob-cli-88
-goal: The cleanup contract is correct across full entry blocks, newline and cursor
+goal:
+  The cleanup contract is correct across full entry blocks, newline and cursor
   semantics, the intended plugins are deployed, and bob-cli-88 is closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-88.land
@@ -13,6 +14,11 @@ status: done
   [202610/emptied_pomodoro_cleanup.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/emptied_pomodoro_cleanup.md)
 - **BEAD:**
   [bob-cli-88](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-88/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-88.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-88.land.md)
+- **COMMITS:**
+  - [d5d122c](https://github.com/bobs-org/bob-cli--plans/commit/d5d122c0388ef444423625e2a434c8caf5d5e6c5)
+    — docs(plans): mark emptied_pomodoro_cleanup done
 
 # Finish emptied-Pomodoro cleanup and land bob-cli-88
 
