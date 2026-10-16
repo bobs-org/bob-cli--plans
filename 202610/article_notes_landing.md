@@ -1,10 +1,11 @@
 ---
 tier: tale
 size: medium
-title: 'Land article notes (bob-cli-8g): fix verified spec gaps and close the epic'
-goal: The bob articles engine, CLI, capture selectors, docs, and the bob-articles
-  plugin match the article_notes spec on every gap the landing agent reproduced, and
-  epic bob-cli-8g is verified, closed, and its plan marked done.
+title: "Land article notes (bob-cli-8g): fix verified spec gaps and close the epic"
+goal:
+  The bob articles engine, CLI, capture selectors, docs, and the bob-articles plugin
+  match the article_notes spec on every gap the landing agent reproduced, and epic
+  bob-cli-8g is verified, closed, and its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-8g.land
 bead: bob-cli-8g
 status: done
@@ -14,6 +15,11 @@ status: done
   [202610/article_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/article_notes.md)
 - **BEAD:**
   [bob-cli-8g](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8g/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-8g.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-8g.land.md)
+- **COMMITS:**
+  - [cf7a0bd](https://github.com/bobs-org/bob-cli--plans/commit/cf7a0bdc691edf394e9430be9c275ead4b5685fc)
+    — docs(plans): mark article notes epic complete
 
 # Plan: Finish and land the article-notes epic (bob-cli-8g)
 
