@@ -1,74 +1,69 @@
 ---
 tier: epic
 title: Link a reference to today from the Bob Refs panel (⌘N)
-goal: "In Bob Mac Capture's Refs panel, ⌘N opens a Link to Today card with the current
-  or next Pomodoro preselected. Return (or a second ⌘N) sets the selected reference's
-  reading task Next and links it under that Pomodoro in today's daily note. Arrows or a
-  typed name pick another Pomodoro or create a new named one. A glass toast confirms
+goal: 'In Bob Mac Capture''s Refs panel, ⌘N opens a Link to Today card with the current
+  or next Pomodoro preselected. Return (or a second ⌘N) sets the selected reference''s
+  reading task Next and links it under that Pomodoro in today''s daily note. Arrows
+  or a typed name pick another Pomodoro or create a new named one. A glass toast confirms
   exactly what changed. A new `bob ref today` command owns every vault decision through
-  capture's existing-task link planner.
+  capture''s existing-task link planner.
 
-  "
+  '
 decisions:
   after_link:
     ask: Where should the Refs panel go after a ⌘N link lands?
     choices:
-      stay:
-        Panel stays open; the card closes, the row gains its pink Today pill, a toast
-        floats over it
+      stay: Panel stays open; the card closes, the row gains its pink Today pill,
+        a toast floats over it
       hide: Panel hides like Copy does; the toast shows centered where the panel was
     default: stay
-    why:
-      Planning several references is a browse task, and the row's new pill is the
+    why: Planning several references is a browse task, and the row's new pill is the
       confirmation
     answer: stay
 phases:
-  - id: cli
-    title: bob ref today
-    depends_on: []
-    size: medium
-    description:
-      "cli: add `bob ref today <REF>` to bob-cli. It resolves a reference and its v2
-      reading task, then reuses capture's existing-task Pomodoro link planner and atomic
-      commit. Capture's ledger selection gains exact-name and stale-safe entry-ref
-      targets. The command emits a schema-1 JSON envelope (open Pomodoros with
-      running/default/linked flags plus capture's own pomodoro_link item object) with
-      stable error codes. Ships docs, help text, and parity tests against `bob capture
-      '^route:block-id[#name]'`."
-  - id: mac_core
-    title: RefsCore decoding, fetcher, card state machine, and copy
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "mac_core: in bob-mac-capture's portable RefsCore/CaptureCore targets, decode the
-      `ref today` envelope (reusing CaptureCommandSuccess). Add
-      BobRefsFetcher.linkToToday with preview and write lanes, plus the pure
-      RefsTodayLinkCard state machine (ranking, selection-to-selector mapping,
-      stale-preview drop, running/failed/refused phases) and its key map. Add
-      RefsTodayLinkPresentation for every string, row meta, lane chip, preview line,
-      toast, notification, and announcement. Add a fake-bob `ref today` arm with
-      real-bob fixtures and tests."
-  - id: mac_ui
-    title: Refs panel card, ⌘N routing, toast, and docs
-    depends_on:
-      - mac_core
-    size: medium
-    description:
-      "mac_ui: wire ⌘N through RefsKeyRouter, RefsPanelModel, and RefsPanelController.
-      Build the RefsTodayLinkCardView in the rename card's slot. Generalize the copy HUD
-      into a reusable glass toast with a Today style and panel-anchored placement. Add
-      an optimistic Today-pill overlay, refresh, VoiceOver announcements, and system
-      notifications when the panel is hidden. Add the ⌘K action, footer hint, README
-      sections, and model, router, and design tests."
+- id: cli
+  title: bob ref today
+  depends_on: []
+  size: medium
+  description: 'cli: add `bob ref today <REF>` to bob-cli. It resolves a reference
+    and its v2 reading task, then reuses capture''s existing-task Pomodoro link planner
+    and atomic commit. Capture''s ledger selection gains exact-name and stale-safe
+    entry-ref targets. The command emits a schema-1 JSON envelope (open Pomodoros
+    with running/default/linked flags plus capture''s own pomodoro_link item object)
+    with stable error codes. Ships docs, help text, and parity tests against `bob
+    capture ''^route:block-id[#name]''`.'
+- id: mac_core
+  title: RefsCore decoding, fetcher, card state machine, and copy
+  depends_on:
+  - cli
+  size: medium
+  description: 'mac_core: in bob-mac-capture''s portable RefsCore/CaptureCore targets,
+    decode the `ref today` envelope (reusing CaptureCommandSuccess). Add BobRefsFetcher.linkToToday
+    with preview and write lanes, plus the pure RefsTodayLinkCard state machine (ranking,
+    selection-to-selector mapping, stale-preview drop, running/failed/refused phases)
+    and its key map. Add RefsTodayLinkPresentation for every string, row meta, lane
+    chip, preview line, toast, notification, and announcement. Add a fake-bob `ref
+    today` arm with real-bob fixtures and tests.'
+- id: mac_ui
+  title: Refs panel card, ⌘N routing, toast, and docs
+  depends_on:
+  - mac_core
+  size: medium
+  description: 'mac_ui: wire ⌘N through RefsKeyRouter, RefsPanelModel, and RefsPanelController.
+    Build the RefsTodayLinkCardView in the rename card''s slot. Generalize the copy
+    HUD into a reusable glass toast with a Today style and panel-anchored placement.
+    Add an optimistic Today-pill overlay, refresh, VoiceOver announcements, and system
+    notifications when the panel is hidden. Add the ⌘K action, footer hint, README
+    sections, and model, router, and design tests.'
 proposed_by: bbugyi200.apollo.7y
 decided_by: auto
 create_time: 2026-10-16 10:04:15
 status: wip
+bead_id: bob-cli-8f
 ---
 
-- **PROMPT:**
-  [prompts/202610/refs_link_to_today.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_link_to_today.md)
+- **PROMPT:** [prompts/202610/refs_link_to_today.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_link_to_today.md)
+- **BEAD:** [bob-cli-8f](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8f/README.md)
 
 # Plan: Link a reference to today from the Bob Refs panel (⌘N)
 
