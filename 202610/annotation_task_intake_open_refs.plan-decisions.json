@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions memory record saying annotation-task intake follows every open reference status?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Star Blocks Existing Tasks",
+            "Decay Decisions Are Available Immediately",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Note Ready Cap Counts The Lane",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Ref Rename Keeps Identity",
+            "Reference Renames Keep Identity",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Subprojects Inherit Project Blocking",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
