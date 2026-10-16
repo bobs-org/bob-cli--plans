@@ -1,103 +1,93 @@
 ---
 tier: epic
 title: Delete Pomodoros emptied by link-removing keymaps
-goal: "Every Obsidian keymap that removes a Task Link from a Pomodoro entry also deletes
+goal: 'Every Obsidian keymap that removes a Task Link from a Pomodoro entry also deletes
   that entry, in the same write, when the removal leaves it empty.
 
-  "
+  '
 decisions:
   emptiness:
     ask: When does removing a Pomodoro's last Task Link delete the entry?
     choices:
-      childless:
-        Only when no child bullet of any kind remains; prose note bullets keep the entry
-      linkless:
-        When no Task Link remains; leftover prose note bullets are deleted with the
-        entry
+      childless: Only when no child bullet of any kind remains; prose note bullets
+        keep the entry
+      linkless: When no Task Link remains; leftover prose note bullets are deleted
+        with the entry
     default: childless
-    why:
-      Same result for link-only entries; matches bob task reconcile and never discards
+    why: Same result for link-only entries; matches bob task reconcile and never discards
       notes
     answer: childless
   closed_entries:
-    ask: Should a gesture that empties a closed (past) Pomodoro delete that entry too?
+    ask: Should a gesture that empties a closed (past) Pomodoro delete that entry
+      too?
     choices:
-      delete:
-        Delete it, timespan and all, as reconcile already does for childless closed
-        entries
-      keep:
-        Delete only open entries; an emptied closed entry stays until reconcile removes
-        it
+      delete: Delete it, timespan and all, as reconcile already does for childless
+        closed entries
+      keep: Delete only open entries; an emptied closed entry stays until reconcile
+        removes it
     default: delete
-    why:
-      Reconcile already deletes childless closed entries in today's note; keeping them
-      only delays that
+    why: Reconcile already deletes childless closed entries in today's note; keeping
+      them only delays that
     answer: delete
   notices:
     ask: Should gesture notices report each deleted Pomodoro?
     choices:
-      silent:
-        Notices unchanged; the deletion shows in the note and undoes with the gesture
-      report:
-        Add "· deleted N empty Pomodoro(s)" wherever a notice already reports removed
-        links
+      silent: Notices unchanged; the deletion shows in the note and undoes with the
+        gesture
+      report: Add "· deleted N empty Pomodoro(s)" wherever a notice already reports
+        removed links
     default: silent
-    why:
-      Keeps the change to the write paths; about a dozen notice builders and chip
+    why: Keeps the change to the write paths; about a dozen notice builders and chip
       regexes stay as is
     answer: silent
   decision_record:
-    ask:
-      Add a decisions-web record making emptied-Pomodoro deletion a standing rule for
-      new keymaps?
+    ask: Add a decisions-web record making emptied-Pomodoro deletion a standing rule
+      for new keymaps?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: nav
-    title: bob-navigation-hotkeys deletes emptied entries on every cleanup
-    depends_on: []
-    size: medium
-    description:
-      "nav: make planDeferredPomodoroLinkCleanup always delete emptied open entries,
-      retire the removeEmptiedEntries flag, align its dedicated-bullet check, and cover
-      Alt+N release, Task Card cancel, single and Task Link schedule/priority, and
-      link-roll paths with tests."
-  - id: bip
-    title: block-id-prompt deletes emptied entries on unlink and Task Link removal
-    depends_on: []
-    size: medium
-    description:
-      "bip: add an emptied-entry pass to the block-id-prompt cleanup planner and the
-      Ctrl+Shift+Enter selected-link deletion, judged over all of a note's edits, and
-      align the dedicated-bullet check."
-  - id: cycler
-    title: task-status-cycler take-back and deferred-only close
-    depends_on: []
-    size: small
-    description:
-      "cycler: delete every entry the same-day successor take-back empties, and (per
-      closed_entries) the closed entry a deferred-only Pomodoro close empties."
-  - id: docs
-    title: bob-cli docs, optional decision record, and full deploy
-    depends_on:
-      - nav
-      - bip
-      - cycler
-    size: small
-    description:
-      "docs: document the plugin-side emptied-entry rule in bob-cli docs, write the
-      decision record if accepted, then run the full plugin suite and deploy all
-      plugins."
+- id: nav
+  title: bob-navigation-hotkeys deletes emptied entries on every cleanup
+  depends_on: []
+  size: medium
+  description: 'nav: make planDeferredPomodoroLinkCleanup always delete emptied open
+    entries, retire the removeEmptiedEntries flag, align its dedicated-bullet check,
+    and cover Alt+N release, Task Card cancel, single and Task Link schedule/priority,
+    and link-roll paths with tests.'
+- id: bip
+  title: block-id-prompt deletes emptied entries on unlink and Task Link removal
+  depends_on: []
+  size: medium
+  description: 'bip: add an emptied-entry pass to the block-id-prompt cleanup planner
+    and the Ctrl+Shift+Enter selected-link deletion, judged over all of a note''s
+    edits, and align the dedicated-bullet check.'
+- id: cycler
+  title: task-status-cycler take-back and deferred-only close
+  depends_on: []
+  size: small
+  description: 'cycler: delete every entry the same-day successor take-back empties,
+    and (per closed_entries) the closed entry a deferred-only Pomodoro close empties.'
+- id: docs
+  title: bob-cli docs, optional decision record, and full deploy
+  depends_on:
+  - nav
+  - bip
+  - cycler
+  size: small
+  description: 'docs: document the plugin-side emptied-entry rule in bob-cli docs,
+    write the decision record if accepted, then run the full plugin suite and deploy
+    all plugins.'
 proposed_by: bbugyi200.athena.10m
 decided_by: auto
 create_time: 2026-10-16 07:28:57
 status: wip
+bead_id: bob-cli-88
 ---
 
-- **PROMPT:**
-  [prompts/202610/emptied_pomodoro_cleanup.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/emptied_pomodoro_cleanup.md)
+- **PROMPT:** [prompts/202610/emptied_pomodoro_cleanup.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/emptied_pomodoro_cleanup.md)
+- **BEAD:** [bob-cli-88](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-88/README.md)
 
 # Plan: Delete Pomodoros emptied by link-removing keymaps
 
