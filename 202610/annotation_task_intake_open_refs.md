@@ -2,22 +2,19 @@
 tier: tale
 size: small
 title: Import Highlights annotation tasks from every open reference
-goal:
-  "Annotation #task bullets on ready, next, or wip references become Obsidian tasks,
-  including the run that closes them."
+goal: 'Annotation #task bullets on ready, next, or wip references become Obsidian
+  tasks, including the run that closes them.'
 decisions:
   decision_record:
-    ask:
-      Add a decisions memory record saying annotation-task intake follows every open
-      reference status?
+    ask: Add a decisions memory record saying annotation-task intake follows every
+      open reference status?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.8d
 decided_by: auto
-create_time: 2026-10-16 18:40:00
-status: wip
+status: done
 ---
 
 # Plan: Import Highlights Annotation Tasks From Every Open Reference
