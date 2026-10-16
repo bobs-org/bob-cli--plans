@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "How should a one-placeholder row keep a `URL %` listen marker on its URL now that rows split on spaces?",
+      "choices": [
+        {
+          "key": "quote",
+          "label": "Quote `\"URL %\"` or put `%` in the template; every row shares one lexer"
+        },
+        {
+          "key": "glue",
+          "label": "A lone `%` or `@` after a value joins it, so `URL %` rows work unquoted; adds a lexer rule"
+        }
+      ],
+      "default": "quote",
+      "effective_default": "quote",
+      "id": "url_listen_rows",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "One lexer for every row is easier to predict; `{0} %` covers the all-listen case"
+    },
+    {
+      "ask": "Should the Bulk Capture glossary say a `{0}`-only template takes one capture per value?",
+      "corrects": "Template rows are later nonblank physical lines, one capture per line, not blank-line-separated items",
+      "default": true,
+      "effective_default": true,
+      "id": "bulk_capture_glossary",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:bulk-capture"
+        ]
+      },
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/glossary.md",
+          "scope": "project",
+          "selector": "glossary:bulk-capture",
+          "strands": [
+            "Bulk Capture",
+            "Capture",
+            "Pomodoro",
+            "Project Note",
+            "Task Link"
+          ],
+          "type": "web"
+        }
+      ]
+    }
+  ]
+}
