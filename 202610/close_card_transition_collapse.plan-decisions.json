@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should close- and start-card task titles also hide wikilink markup, as the Task Link picker does?",
+      "choices": [
+        {
+          "key": "display",
+          "label": "`[[ref/x|Alias]]` titles read `Alias`, so long ref titles truncate less often"
+        },
+        {
+          "key": "raw",
+          "label": "Titles keep Bob's raw task text; only the column collapse is fixed"
+        }
+      ],
+      "default": "display",
+      "effective_default": "display",
+      "id": "wikilink_titles",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Matches the picker that chose these tasks; raw ref links pushed these rows past the width"
+    }
+  ]
+}
