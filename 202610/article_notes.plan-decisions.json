@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Add an \"Article Note\" glossary term once the feature ships?",
+      "default": false,
+      "effective_default": false,
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:article-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "exists": false,
+          "kind": "strand",
+          "path": "sase/memory/glossary/article-note.md",
+          "scope": "project",
+          "selector": "glossary:article-note",
+          "type": "strand"
+        }
+      ]
+    },
+    {
+      "ask": "Record a decision that article section numbers are bob-owned source text in house style?",
+      "default": false,
+      "effective_default": false,
+      "id": "memory_decision",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "decisions:article-numbers-are-bob-owned"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "exists": false,
+          "kind": "strand",
+          "path": "sase/memory/decisions/article-numbers-are-bob-owned.md",
+          "scope": "project",
+          "selector": "decisions:article-numbers-are-bob-owned",
+          "type": "strand"
+        }
+      ]
+    }
+  ]
+}
