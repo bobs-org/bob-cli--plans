@@ -1,13 +1,21 @@
 ---
 tier: tale
 title: Protect intraword underscores from Prettier in sase-formatted Markdown
-goal: sase's Prettier formatting never rewrites an intraword underscore such as `memory_glossary`
-  into `*`, formatting a plan twice gives the same text, and `sase plan propose` rejects
-  any plan that a second formatting pass, like the one archival runs, would make invalid.
+goal:
+  sase's Prettier formatting never rewrites an intraword underscore such as
+  `memory_glossary` into `*`, formatting a plan twice gives the same text, and `sase
+  plan propose` rejects any plan that a second formatting pass, like the one archival
+  runs, would make invalid.
 size: medium
 proposed_by: bbugyi200.apollo.81
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.81](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.81.md)
+- **COMMITS:**
+  - [a1fdc5d](https://github.com/sase-org/sase/commit/a1fdc5d2b9115533f852f4ff1e333063bb9e23c8)
+    — fix(markdown): protect CommonMark-invalid intraword underscores from Prettier
 
 # Plan: Stop Prettier from rewriting intraword underscores in sase-formatted Markdown
 
