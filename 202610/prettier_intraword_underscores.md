@@ -1,15 +1,12 @@
 ---
 tier: tale
 title: Protect intraword underscores from Prettier in sase-formatted Markdown
-goal:
-  sase's Prettier formatting never rewrites an intraword underscore such as
-  `memory_glossary` into `*`, formatting a plan twice gives the same text, and `sase
-  plan propose` rejects any plan that a second formatting pass, like the one archival
-  runs, would make invalid.
+goal: sase's Prettier formatting never rewrites an intraword underscore such as `memory_glossary`
+  into `*`, formatting a plan twice gives the same text, and `sase plan propose` rejects
+  any plan that a second formatting pass, like the one archival runs, would make invalid.
 size: medium
 proposed_by: bbugyi200.apollo.81
-create_time: 2026-10-16 11:11:06
-status: wip
+status: done
 ---
 
 # Plan: Stop Prettier from rewriting intraword underscores in sase-formatted Markdown
