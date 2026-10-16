@@ -1,159 +1,147 @@
 ---
 tier: epic
 title: Beautiful note snapshots in bob ref create
-goal: "`bob ref create sase_blog` turns any Bob vault note, and area/project notes
-  especially, into a calm, beautiful, Highlights-safe PDF: a dated reading snapshot of
-  the note's open work and prose, with resolved links, embeds, and images. It renders
-  the same on athena and the Mac, and every Highlights quote taken from it stays
-  byte-clean.
+goal: '`bob ref create sase_blog` turns any Bob vault note, and area/project notes
+  especially, into a calm, beautiful, Highlights-safe PDF: a dated reading snapshot
+  of the note''s open work and prose, with resolved links, embeds, and images. It
+  renders the same on athena and the Mac, and every Highlights quote taken from it
+  stays byte-clean.
 
-  "
+  '
 decisions:
   default_text_layer:
-    ask:
-      Also make today's research-report Markdown PDFs ragged-right with no hyphenation
+    ask: Also make today's research-report Markdown PDFs ragged-right with no hyphenation
       or ligatures?
     default: true
-    why: 6 of 395 real lib/chat quotes are hyphen-damaged; the fix is a few header lines
+    why: 6 of 395 real lib/chat quotes are hyphen-damaged; the fix is a few header
+      lines
     answer: true
   obsidian_command:
     ask: Add a desktop "Snapshot note to Highlights" command to bob-plugins?
     default: true
-    why:
-      You decide to snapshot while reading the note in Obsidian; the CLI shouldn't be
-      the only door
+    why: You decide to snapshot while reading the note in Obsidian; the CLI shouldn't
+      be the only door
     answer: true
   decision_record:
-    ask:
-      Record a decisions-web entry for the snapshot engine and text-layer policy
+    ask: Record a decisions-web entry for the snapshot engine and text-layer policy
       (xelatex, never Chromium)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: fonts
-    title: Bundled print fonts and glyph coverage
-    depends_on: []
-    size: medium
-    description:
-      "fonts: vendor pinned static Source Serif 4, Inter, JetBrains Mono, and monochrome
-      Noto Emoji faces, and expose a ttf-parser glyph-coverage API for the print
-      profile."
-  - id: view-core
-    title: Snapshot view model and Obsidian layer
-    depends_on: []
-    size: large
-    description:
-      "view-core: build the note_snapshot module. It classifies vault notes, resolves
-      notes and attachments with Obsidian semantics, rewrites Obsidian syntax into the
-      view model, and serializes the projected-Markdown contract with synthetic golden
-      tests."
-  - id: bob-layer
-    title: Bob layer for area and project notes
-    depends_on:
-      - view-core
-    size: large
-    description:
-      "bob-layer: add the masthead from frontmatter and the ^prj line, status rows and
-      chips, lane headings, BLOCKS and WAITS ON rows, condensed logs, closed-task
-      omission with the -C appendix, and self-snapshot filtering."
-  - id: print-profile
-    title: Note print profile and two-step xelatex render
-    depends_on:
-      - fonts
-    size: large
-    description:
-      "print-profile: implement note.tex (the design system), note.lua (contract to TeX,
-      AST-preserving), and a pandoc-to-.tex-then-xelatex render that surfaces missing
-      glyphs and errors, plus the doctor packages. Tested against a hand-written
-      contract fixture."
-  - id: create-wiring
-    title: bob ref create integration, provenance, help, and docs
-    depends_on:
-      - bob-layer
-      - print-profile
-    size: large
-    description:
-      "create-wiring: wire everything into create. Covers vault-note and route TARGETs,
-      -P default, dated stem and title, the notes ref type, -C and -M, dry-run and
-      success output, the source_note marker field, listen input, the help 'Vault notes'
-      block, docs, and CLI tests."
-  - id: images
-    title: Image embeds that print well
-    depends_on:
-      - create-wiring
-    size: small
-    description:
-      "images: copy embedded images into scratch, downscaled to at most 1600 px on the
-      long edge. Convert GIF and WebP, and give SVG and broken files a placeholder plus
-      a warning."
-  - id: scheduled-lane
-    title: Waiting-on and Scheduled lanes for tickler-heavy notes
-    depends_on:
-      - create-wiring
-    size: medium
-    description:
-      "scheduled-lane: split the Blocked lane into dependency-blocked 'Waiting on' rows
-      and date-blocked compact 'Scheduled' rows grouped by this week, this month, and
-      later."
-  - id: snapshot-options
-    title: Section filter and earlier-snapshot hints
-    depends_on:
-      - create-wiring
-    size: small
-    description:
-      "snapshot-options: add repeatable -S/--section and list earlier snapshots of the
-      same note in dry runs. Print a hint, never an action, when an earlier snapshot is
-      still unread with no highlights."
-  - id: markdown-text-layer
-    title: Text-layer rule for the default Markdown profile
-    depends_on: []
-    size: small
-    description:
-      "markdown-text-layer: gated on default_text_layer. Make the research-report route
-      ragged-right with no hyphenation and no common ligatures, and leave its reader and
-      fonts as they are."
-  - id: plugin-command
-    title: Obsidian command to snapshot the open note
-    depends_on:
-      - create-wiring
-    size: medium
-    description:
-      "plugin-command: gated on obsidian_command. Add a desktop-only bob-plugins command
-      that runs bob ref create on the active note, with a -C variant, progress and
-      result notices, then deploys with bob plugins sync."
-  - id: corpus-gate
-    title: Corpus gate on athena and long-tail fixes
-    depends_on:
-      - images
-      - scheduled-lane
-    size: medium
-    description:
-      "corpus-gate: add a dev script that renders every area/project note to scratch
-      with -o and dry-runs every vault note. Require zero failures, missing glyphs, and
-      Type 3 body fonts. Visually review representative pages and fix the long tail."
-  - id: mac-acceptance
-    title: Mac acceptance and the real Highlights round trip
-    depends_on:
-      - corpus-gate
-      - snapshot-options
-      - markdown-text-layer
-      - plugin-command
-    size: medium
-    description:
-      "mac-acceptance: deploy to the Mac and run the corpus gate under BasicTeX and the
-      PDFKit probe. Run Bryan's real Highlights round trip, record the verified results
-      in docs, and write the decision record if it was approved."
+- id: fonts
+  title: Bundled print fonts and glyph coverage
+  depends_on: []
+  size: medium
+  description: 'fonts: vendor pinned static Source Serif 4, Inter, JetBrains Mono,
+    and monochrome Noto Emoji faces, and expose a ttf-parser glyph-coverage API for
+    the print profile.'
+- id: view-core
+  title: Snapshot view model and Obsidian layer
+  depends_on: []
+  size: large
+  description: 'view-core: build the note_snapshot module. It classifies vault notes,
+    resolves notes and attachments with Obsidian semantics, rewrites Obsidian syntax
+    into the view model, and serializes the projected-Markdown contract with synthetic
+    golden tests.'
+- id: bob-layer
+  title: Bob layer for area and project notes
+  depends_on:
+  - view-core
+  size: large
+  description: 'bob-layer: add the masthead from frontmatter and the ^prj line, status
+    rows and chips, lane headings, BLOCKS and WAITS ON rows, condensed logs, closed-task
+    omission with the -C appendix, and self-snapshot filtering.'
+- id: print-profile
+  title: Note print profile and two-step xelatex render
+  depends_on:
+  - fonts
+  size: large
+  description: 'print-profile: implement note.tex (the design system), note.lua (contract
+    to TeX, AST-preserving), and a pandoc-to-.tex-then-xelatex render that surfaces
+    missing glyphs and errors, plus the doctor packages. Tested against a hand-written
+    contract fixture.'
+- id: create-wiring
+  title: bob ref create integration, provenance, help, and docs
+  depends_on:
+  - bob-layer
+  - print-profile
+  size: large
+  description: 'create-wiring: wire everything into create. Covers vault-note and
+    route TARGETs, -P default, dated stem and title, the notes ref type, -C and -M,
+    dry-run and success output, the source_note marker field, listen input, the help
+    ''Vault notes'' block, docs, and CLI tests.'
+- id: images
+  title: Image embeds that print well
+  depends_on:
+  - create-wiring
+  size: small
+  description: 'images: copy embedded images into scratch, downscaled to at most 1600
+    px on the long edge. Convert GIF and WebP, and give SVG and broken files a placeholder
+    plus a warning.'
+- id: scheduled-lane
+  title: Waiting-on and Scheduled lanes for tickler-heavy notes
+  depends_on:
+  - create-wiring
+  size: medium
+  description: 'scheduled-lane: split the Blocked lane into dependency-blocked ''Waiting
+    on'' rows and date-blocked compact ''Scheduled'' rows grouped by this week, this
+    month, and later.'
+- id: snapshot-options
+  title: Section filter and earlier-snapshot hints
+  depends_on:
+  - create-wiring
+  size: small
+  description: 'snapshot-options: add repeatable -S/--section and list earlier snapshots
+    of the same note in dry runs. Print a hint, never an action, when an earlier snapshot
+    is still unread with no highlights.'
+- id: markdown-text-layer
+  title: Text-layer rule for the default Markdown profile
+  depends_on: []
+  size: small
+  description: 'markdown-text-layer: gated on default_text_layer. Make the research-report
+    route ragged-right with no hyphenation and no common ligatures, and leave its
+    reader and fonts as they are.'
+- id: plugin-command
+  title: Obsidian command to snapshot the open note
+  depends_on:
+  - create-wiring
+  size: medium
+  description: 'plugin-command: gated on obsidian_command. Add a desktop-only bob-plugins
+    command that runs bob ref create on the active note, with a -C variant, progress
+    and result notices, then deploys with bob plugins sync.'
+- id: corpus-gate
+  title: Corpus gate on athena and long-tail fixes
+  depends_on:
+  - images
+  - scheduled-lane
+  size: medium
+  description: 'corpus-gate: add a dev script that renders every area/project note
+    to scratch with -o and dry-runs every vault note. Require zero failures, missing
+    glyphs, and Type 3 body fonts. Visually review representative pages and fix the
+    long tail.'
+- id: mac-acceptance
+  title: Mac acceptance and the real Highlights round trip
+  depends_on:
+  - corpus-gate
+  - snapshot-options
+  - markdown-text-layer
+  - plugin-command
+  size: medium
+  description: 'mac-acceptance: deploy to the Mac and run the corpus gate under BasicTeX
+    and the PDFKit probe. Run Bryan''s real Highlights round trip, record the verified
+    results in docs, and write the decision record if it was approved.'
 proposed_by: bbugyi200.athena.10l
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-16 07:13:17
 status: wip
+bead_id: bob-cli-87
 ---
 
-- **PROMPT:**
-  [prompts/202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/note_snapshots.md)
+- **PROMPT:** [prompts/202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/note_snapshots.md)
+- **BEAD:** [bob-cli-87](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-87/README.md)
 
 # Plan: Beautiful note snapshots in `bob ref create`
 
