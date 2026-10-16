@@ -1,30 +1,22 @@
 ---
 tier: tale
 title: Make just install-all keep Bob Mac Capture's Accessibility grant
-goal:
-  Bob Mac Capture installs with the stable signing identity from just install-all, so
-  the Highlights Tabs Accessibility grant survives reinstalls and the permission card
-  leads to a working grant.
+goal: Bob Mac Capture installs with the stable signing identity from just install-all,
+  so the Highlights Tabs Accessibility grant survives reinstalls and the permission
+  card leads to a working grant.
 size: small
 decisions:
   identity_script:
-    ask:
-      Add a one-time Scripts/create-signing-identity.sh so Bryan can create the signing
-      identity with one command?
+    ask: Add a one-time Scripts/create-signing-identity.sh so Bryan can create the
+      signing identity with one command?
     default: false
-    why:
-      the GUI steps take two minutes, and no agent can test a keychain-mutating script
+    why: the GUI steps take two minutes, and no agent can test a keychain-mutating
+      script
     answer: false
 proposed_by: bbugyi200.apollo.80
 decided_by: auto
 status: done
 ---
-
-- **AGENTS:**
-  - [bbugyi200.apollo.80](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.80.md)
-- **COMMITS:**
-  - [bc27d52](https://github.com/bobs-org/bob-cli/commit/bc27d5288f41667f4741417d16a0eb23b8e8c86c)
-    — fix: preserve stable Mac Capture signing from install-all
 
 # Plan: Make `just install-all` keep Bob Mac Capture's Accessibility grant
 
