@@ -82,7 +82,7 @@ phases:
 proposed_by: bbugyi200.athena.10m
 decided_by: auto
 create_time: 2026-10-16 07:28:57
-status: wip
+status: done
 bead_id: bob-cli-88
 ---
 
