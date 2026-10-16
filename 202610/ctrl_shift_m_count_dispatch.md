@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Fix N<Ctrl+Shift+M> dropping its count
-goal:
-  A counted Ctrl+Shift+M always moves the current task plus the next N tasks, on and off
-  a review-walk landing and with a cold or warm cache, because one physical key now
-  means one dispatch that reads the Vim count on the command route.
+goal: A counted Ctrl+Shift+M always moves the current task plus the next N tasks,
+  on and off a review-walk landing and with a cold or warm cache, because one physical
+  key now means one dispatch that reads the Vim count on the command route.
 size: small
 proposed_by: bbugyi200.apollo.7z
-create_time: 2026-10-16 07:26:24
-status: wip
+status: done
 ---
 
 # Plan: Fix `N<Ctrl+Shift+M>` dropping its count
