@@ -1,15 +1,13 @@
 ---
 tier: tale
 size: medium
-title: "Land article notes (bob-cli-8g): fix verified spec gaps and close the epic"
-goal:
-  The bob articles engine, CLI, capture selectors, docs, and the bob-articles plugin
-  match the article_notes spec on every gap the landing agent reproduced, and epic
-  bob-cli-8g is verified, closed, and its plan marked done.
+title: 'Land article notes (bob-cli-8g): fix verified spec gaps and close the epic'
+goal: The bob articles engine, CLI, capture selectors, docs, and the bob-articles
+  plugin match the article_notes spec on every gap the landing agent reproduced, and
+  epic bob-cli-8g is verified, closed, and its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-8g.land
 bead: bob-cli-8g
-create_time: 2026-10-16 16:37:54
-status: wip
+status: done
 ---
 
 - **PARENT:**
