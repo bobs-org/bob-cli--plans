@@ -1,31 +1,32 @@
 ---
 tier: tale
 title: Capture priority marker becomes $<N>
-goal: Replace the p:<N> capture priority marker with $<N>, where a bare $ means level
-  1.
+goal: Replace the p:<N> capture priority marker with $<N>, where a bare $ means level 1.
 size: medium
 decisions:
   legacy_p_token:
     ask: Should a typed `p:<N>` fail with a teaching error once `$<N>` replaces it?
     choices:
-      retire: Usage error `retired_priority_marker` teaching `$<N>`; never captured
-        as text
-      alias: '`p:<N>` keeps working as a silent synonym; docs teach only `$<N>`'
-      literal: '`p:<N>` becomes ordinary task text with no diagnostic'
+      retire:
+        Usage error `retired_priority_marker` teaching `$<N>`; never captured as text
+      alias: "`p:<N>` keeps working as a silent synonym; docs teach only `$<N>`"
+      literal: "`p:<N>` becomes ordinary task text with no diagnostic"
     default: retire
-    why: Muscle memory and saved templates would silently become task text; matches
-      retired `:` notes
+    why:
+      Muscle memory and saved templates would silently become task text; matches retired
+      `:` notes
     answer: retire
   dollar_escape:
     ask: Should `\$` / `\$<N>` keep a trailing dollar amount as literal task text?
     default: true
-    why: Trailing amounts (`Venmo Alex $3`) are common; `\&foo:bar` already sets the
+    why:
+      Trailing amounts (`Venmo Alex $3`) are common; `\&foo:bar` already sets the
       precedent
     answer: true
   memory_glossary_schedule_log:
     ask: Should the glossary `schedule-log` strand name `$<N>` instead of `p:<N>`?
     memory:
-    - glossary:schedule-log
+      - glossary:schedule-log
     default: true
     corrects: or when `bob capture` uses `p:<N>`, we add a `SCHEDULE LOG` bullet
     answer: true
@@ -33,6 +34,12 @@ proposed_by: bbugyi200.apollo.8b
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.8b](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.8b.md)
+- **COMMITS:**
+  - [df4e120](https://github.com/bobs-org/bob-cli/commit/df4e12088745da134b161e8becb61f31b34905bc)
+    — feat(capture): replace p:\<N\> priority marker with $\<N\>
 
 # Capture priority: migrate `p:<N>` to `$<N>`
 
