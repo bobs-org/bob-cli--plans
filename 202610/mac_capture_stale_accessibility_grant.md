@@ -1,31 +1,25 @@
 ---
 tier: tale
 title: Make Bob Mac Capture's Accessibility grant stick
-goal:
-  Bob Refs Tabs works once Bryan grants Accessibility, and the grant survives later
-  installs.
+goal: Bob Refs Tabs works once Bryan grants Accessibility, and the grant survives
+  later installs.
 size: medium
 decisions:
   identity_setup:
-    ask:
-      Should `just install` create the "Bob Mac Capture Local" signing identity itself
-      when the login keychain lacks it?
+    ask: Should `just install` create the "Bob Mac Capture Local" signing identity
+      itself when the login keychain lacks it?
     choices:
-      auto:
-        The first GUI-Terminal install creates it unattended, so install-all needs no
-        manual setup
-      command:
-        Installs never touch the keychain; Bryan runs `just signing-identity` once by
-        hand
+      auto: The first GUI-Terminal install creates it unattended, so install-all needs
+        no manual setup
+      command: Installs never touch the keychain; Bryan runs `just signing-identity`
+        once by hand
     default: auto
-    why:
-      the manual Keychain Access step never happened, and every ad-hoc install breaks
-      Tabs again
+    why: the manual Keychain Access step never happened, and every ad-hoc install
+      breaks Tabs again
     answer: auto
 proposed_by: bbugyi200.apollo.80.f0
 decided_by: auto
-create_time: 2026-10-16 11:03:21
-status: wip
+status: done
 ---
 
 # Plan: Make Bob Mac Capture's Accessibility grant actually stick
