@@ -1,102 +1,92 @@
 ---
 tier: epic
 title: Bob Refs ⌃D — close a Highlights tab from Tabs
-goal: "In Bob Mac Capture's Bob Refs panel, ⌃D on a Tabs row closes that Highlights tab
-  without leaving the panel. The row folds away, the selection moves to the row that
-  took its place, and a glass toast confirms the close, so ⌃D ⌃D ⌃D clears several tabs
-  in a row. Closing the last open document also quits Highlights. Every close is
-  verified against a fresh Accessibility read, and a failed close puts the row back with
-  a banner.
+goal: 'In Bob Mac Capture''s Bob Refs panel, ⌃D on a Tabs row closes that Highlights
+  tab without leaving the panel. The row folds away, the selection moves to the row
+  that took its place, and a glass toast confirms the close, so ⌃D ⌃D ⌃D clears several
+  tabs in a row. Closing the last open document also quits Highlights. Every close
+  is verified against a fresh Accessibility read, and a failed close puts the row
+  back with a banner.
 
-  "
+  '
 decisions:
   library_rows:
-    ask:
-      Should ⌃D also close tabs from the library view, on rows marked as open in
+    ask: Should ⌃D also close tabs from the library view, on rows marked as open in
       Highlights?
     choices:
-      tabs_only:
-        Close only in Tabs; library ⌃D keeps scrolling (⌘T then ⌃D closes a library
-        row's tab)
-      library_too:
-        Library rows open in Highlights get a glyph and close on ⌃D; costs a quiet read
-        per show
+      tabs_only: Close only in Tabs; library ⌃D keeps scrolling (⌘T then ⌃D closes
+        a library row's tab)
+      library_too: Library rows open in Highlights get a glyph and close on ⌃D; costs
+        a quiet read per show
     default: tabs_only
-    why:
-      The library never shows which rows are open, so ⌃D there would close tabs Bryan
-      can't see
+    why: The library never shows which rows are open, so ⌃D there would close tabs
+      Bryan can't see
     answer: tabs_only
   reopen:
     ask: Should ⇧⌘T reopen the most recently closed tab, like a browser?
     choices:
-      reopen:
-        ⇧⌘T reopens the newest of up to 20 closed tabs kept in memory; close toasts say
-        so
-      no_reopen:
-        No undo; recover an accidental close by searching the library and pressing ↵
+      reopen: ⇧⌘T reopens the newest of up to 20 closed tabs kept in memory; close
+        toasts say so
+      no_reopen: No undo; recover an accidental close by searching the library and
+        pressing ↵
     default: reopen
-    why:
-      ⌃D sits beside ⌃J/⌃K/⌃N/⌃P, so a slip should cost one chord; ⇧⌘T is browser habit
+    why: ⌃D sits beside ⌃J/⌃K/⌃N/⌃P, so a slip should cost one chord; ⇧⌘T is browser
+      habit
     answer: reopen
 phases:
-  - id: close-core
-    title: RefsCore close contracts, session close, and copy
-    depends_on: []
-    size: medium
-    description:
-      "close-core: pure Foundation additions to RefsCore. They add the close result and
-      outcome types, two new reader requirements with safe protocol-extension defaults
-      (so every existing conformer keeps compiling), and `HighlightsTabsSession.close`,
-      which decides the last-tab quit. They also add the closed-tab stack (reopen
-      decision), the after-removal selection rule, and all close copy (toasts,
-      announcement, failure banner). Golden tests run on Linux with `just
-      portable-check`."
-  - id: close-reader
-    title: Accessibility close ladder and graceful quit
-    depends_on:
-      - close-core
-    size: medium
-    description:
-      "close-reader: `AXHighlightsTabsReader` implements `close` and
-      `quitIfNoDocuments`. A close first tries the tab's own close button, then the
-      window's close button when the tab is visible, and only then selects the tab,
-      closes it, and restores the previously visible tab. Every close is verified by
-      bounded re-reads, and an unsaved-changes sheet is detected and handed to Bryan.
-      When no documents remain, Highlights quits through
-      `NSRunningApplication.terminate()`. The phase also runs a read-only Mac probe and
-      adds a CI test."
-  - id: close-model
-    title: Panel close commands, queue, outcomes, keys, and toasts
-    depends_on:
-      - close-core
-    size: medium
-    description:
-      "close-model: RefsPanelModel gains ⌃D close commands. A close removes the row
-      optimistically and moves the selection to its neighbour; closes run one at a time
-      in press order; each outcome maps to a toast, banner, state card, or hide. The
-      router sends ⌃D to close only while a tab row is selected (scroll otherwise) and
-      maps ⇧⌘T to reopen. The controller shows the glass toasts. ⌘K gains Close Tab.
-      Model, router, and actions-menu tests run against a fake reader."
-  - id: close-views
-    title: Row close button, footer, inspector hint, motion, design tests, and README
-    depends_on:
-      - close-model
-    size: medium
-    description:
-      'close-views: Tabs rows show a quiet close button on hover and selection in a
-      reserved trailing column, and the row exposes a VoiceOver "Close Tab" action.
-      Removals fold out with a short animation (fade only under Reduce Motion). The
-      footer reads "↵ Switch  ⌃D Close Tab", and the inspector card hint and the
-      closed-tab toast style are added, with design fixtures for each. The README covers
-      ⌃D, the last-tab quit, reopen, Privacy, and Troubleshooting.'
+- id: close-core
+  title: RefsCore close contracts, session close, and copy
+  depends_on: []
+  size: medium
+  description: 'close-core: pure Foundation additions to RefsCore. They add the close
+    result and outcome types, two new reader requirements with safe protocol-extension
+    defaults (so every existing conformer keeps compiling), and `HighlightsTabsSession.close`,
+    which decides the last-tab quit. They also add the closed-tab stack (reopen decision),
+    the after-removal selection rule, and all close copy (toasts, announcement, failure
+    banner). Golden tests run on Linux with `just portable-check`.'
+- id: close-reader
+  title: Accessibility close ladder and graceful quit
+  depends_on:
+  - close-core
+  size: medium
+  description: 'close-reader: `AXHighlightsTabsReader` implements `close` and `quitIfNoDocuments`.
+    A close first tries the tab''s own close button, then the window''s close button
+    when the tab is visible, and only then selects the tab, closes it, and restores
+    the previously visible tab. Every close is verified by bounded re-reads, and an
+    unsaved-changes sheet is detected and handed to Bryan. When no documents remain,
+    Highlights quits through `NSRunningApplication.terminate()`. The phase also runs
+    a read-only Mac probe and adds a CI test.'
+- id: close-model
+  title: Panel close commands, queue, outcomes, keys, and toasts
+  depends_on:
+  - close-core
+  size: medium
+  description: 'close-model: RefsPanelModel gains ⌃D close commands. A close removes
+    the row optimistically and moves the selection to its neighbour; closes run one
+    at a time in press order; each outcome maps to a toast, banner, state card, or
+    hide. The router sends ⌃D to close only while a tab row is selected (scroll otherwise)
+    and maps ⇧⌘T to reopen. The controller shows the glass toasts. ⌘K gains Close
+    Tab. Model, router, and actions-menu tests run against a fake reader.'
+- id: close-views
+  title: Row close button, footer, inspector hint, motion, design tests, and README
+  depends_on:
+  - close-model
+  size: medium
+  description: 'close-views: Tabs rows show a quiet close button on hover and selection
+    in a reserved trailing column, and the row exposes a VoiceOver "Close Tab" action.
+    Removals fold out with a short animation (fade only under Reduce Motion). The
+    footer reads "↵ Switch  ⌃D Close Tab", and the inspector card hint and the closed-tab
+    toast style are added, with design fixtures for each. The README covers ⌃D, the
+    last-tab quit, reopen, Privacy, and Troubleshooting.'
 proposed_by: bbugyi200.apollo.85
 decided_by: auto
 create_time: 2026-10-16 14:11:29
 status: wip
+bead_id: bob-cli-8l
 ---
 
-- **PROMPT:**
-  [prompts/202610/highlights_tab_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_tab_close.md)
+- **PROMPT:** [prompts/202610/highlights_tab_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_tab_close.md)
+- **BEAD:** [bob-cli-8l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8l/README.md)
 
 # Plan: Bob Refs ⌃D — close a Highlights tab from Tabs
 
