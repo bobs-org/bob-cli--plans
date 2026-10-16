@@ -1,39 +1,33 @@
 ---
 tier: tale
 title: One-line rows for one-placeholder capture templates
-goal:
-  A `{0}`-only `@@template:` accepts several space-separated values per row line, each
-  its own capture.
+goal: A `{0}`-only `@@template:` accepts several space-separated values per row line,
+  each its own capture.
 size: medium
 decisions:
   url_listen_rows:
-    ask:
-      How should a one-placeholder row keep a `URL %` listen marker on its URL now that
-      rows split on spaces?
+    ask: How should a one-placeholder row keep a `URL %` listen marker on its URL
+      now that rows split on spaces?
     choices:
       quote: Quote `"URL %"` or put `%` in the template; every row shares one lexer
-      glue:
-        A lone `%` or `@` after a value joins it, so `URL %` rows work unquoted; adds a
-        lexer rule
+      glue: A lone `%` or `@` after a value joins it, so `URL %` rows work unquoted;
+        adds a lexer rule
     default: quote
-    why:
-      One lexer for every row is easier to predict; `{0} %` covers the all-listen case
+    why: One lexer for every row is easier to predict; `{0} %` covers the all-listen
+      case
     answer: quote
   bulk_capture_glossary:
-    ask:
-      Should the Bulk Capture glossary say a `{0}`-only template takes one capture per
-      value?
+    ask: Should the Bulk Capture glossary say a `{0}`-only template takes one capture
+      per value?
     memory:
-      - glossary:bulk-capture
+    - glossary:bulk-capture
     default: true
-    corrects:
-      Template rows are later nonblank physical lines, one capture per line, not
-      blank-line-separated items
+    corrects: Template rows are later nonblank physical lines, one capture per line,
+      not blank-line-separated items
     answer: true
 proposed_by: bbugyi200.apollo.83
 decided_by: auto
-create_time: 2026-10-16 13:18:19
-status: wip
+status: done
 ---
 
 # One-line rows for one-placeholder capture templates
