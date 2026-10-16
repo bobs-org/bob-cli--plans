@@ -1,117 +1,109 @@
 ---
 tier: epic
-title: "Article notes: bob-owned section numbers and calm layout"
-goal: "Vault notes typed `[[article]]` get house-style section numbers (1. / 1.1 /
-  1.1.1) and a layout-only format from one bob engine. It runs from `bob articles`, from
-  agents, and from Obsidian on save. Heading links follow every renumber, no word ever
-  changes, and articles read like well-set documents. `sase_blog_contents.md` is the
-  first adopted article.
+title: 'Article notes: bob-owned section numbers and calm layout'
+goal: 'Vault notes typed `[[article]]` get house-style section numbers (1. / 1.1 /
+  1.1.1) and a layout-only format from one bob engine. It runs from `bob articles`,
+  from agents, and from Obsidian on save. Heading links follow every renumber, no
+  word ever changes, and articles read like well-set documents. `sase_blog_contents.md`
+  is the first adopted article.
 
-  "
+  '
 decisions:
   memory_glossary:
     ask: Add an "Article Note" glossary term once the feature ships?
     memory:
-      - glossary:article-note
+    - glossary:article-note
     default: false
     answer: false
   memory_decision:
-    ask:
-      Record a decision that article section numbers are bob-owned source text in house
-      style?
+    ask: Record a decision that article section numbers are bob-owned source text
+      in house style?
     memory:
-      - decisions:article-numbers-are-bob-owned
+    - decisions:article-numbers-are-bob-owned
     default: false
     answer: false
 phases:
-  - id: engine
-    title: Pure article formatter core
-    depends_on: []
-    size: medium
-    description:
-      "engine: bob-cli src/native/articles/ pure core: article marker and refusals,
-      block scanner, section levels and numbering with the ownership token, layout
-      rules, word invariant, idempotency, golden fixtures, and a read-only vault corpus
-      test."
-  - id: links
-    title: In-note links, findings, outline, and the plan contract
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "links: heading identity and in-note link refresh, the report-only findings, the
-      outline model (words, stubs, stale numbers), and the ArticlePlan JSON v1 model
-      with bob-owned notice text."
-  - id: capture
-    title: Number-aware capture section selectors in articles
-    depends_on:
-      - engine
-    size: small
-    description:
-      "capture: in article notes, `@route#prefix` and `--section` match headings by
-      de-numbered identity as well as raw title, so captures keep finding renumbered
-      sections."
-  - id: cli
-    title: bob articles group with format, list, and outline
-    depends_on:
-      - links
-    size: medium
-    description:
-      "cli: register the `bob articles` Vault group (bare = list) with format (check,
-      dry-run, stdin, json, all), list, and outline; vault discovery, preimage-checked
-      atomic writes, colored output, completion, help, docs/articles.md, and CLI tests."
-  - id: adopt
-    title: bob articles adopt with preview
-    depends_on:
-      - cli
-    size: small
-    description:
-      'adopt: `bob articles adopt NOTE` inserts `type: "[[article]]"` plus the first
-      format, previews by default with replaced-number reporting, writes with -w, and
-      serves the plugin through --stdin JSON.'
-  - id: inbound
-    title: Inbound heading links, nightly check, and memory
-    depends_on:
-      - adopt
-    size: medium
-    description:
-      "inbound: rewrite links from other notes when an article's headings change (CLI
-      writes, plugin plans), report unrepairable ones, add a report-only nightly step,
-      and apply any accepted memory decisions."
-  - id: vault
-    title: Vault type note, template, base, and first adoption
-    depends_on:
-      - inbound
-    size: small
-    description:
-      "vault: add article.md, articles.base, the type.md block, the new_article
-      template, and the vault AGENTS.md line, then adopt sase_blog_contents.md with bob
-      and commit the vault."
-  - id: plugin
-    title: bob-articles plugin that formats on save and leave
-    depends_on:
-      - inbound
-    size: medium
-    description:
-      "plugin: new bob-plugins bob-articles plugin: runtime article class, format on
-      save, leave, and command as one undoable transaction, inbound link application,
-      the convert-to-article preview modal, notices, settings, tests, deploy, and
-      enable."
-  - id: look
-    title: Article reading look and live section signals
-    depends_on:
-      - plugin
-    size: medium
-    description:
-      "look: scoped article typography, muted tabular section numbers in Live Preview
-      and Reading view, hanging numbers on wide panes, debounced stale-number hints, and
-      the section status-bar item."
+- id: engine
+  title: Pure article formatter core
+  depends_on: []
+  size: medium
+  description: 'engine: bob-cli src/native/articles/ pure core: article marker and
+    refusals, block scanner, section levels and numbering with the ownership token,
+    layout rules, word invariant, idempotency, golden fixtures, and a read-only vault
+    corpus test.'
+- id: links
+  title: In-note links, findings, outline, and the plan contract
+  depends_on:
+  - engine
+  size: medium
+  description: 'links: heading identity and in-note link refresh, the report-only
+    findings, the outline model (words, stubs, stale numbers), and the ArticlePlan
+    JSON v1 model with bob-owned notice text.'
+- id: capture
+  title: Number-aware capture section selectors in articles
+  depends_on:
+  - engine
+  size: small
+  description: 'capture: in article notes, `@route#prefix` and `--section` match headings
+    by de-numbered identity as well as raw title, so captures keep finding renumbered
+    sections.'
+- id: cli
+  title: bob articles group with format, list, and outline
+  depends_on:
+  - links
+  size: medium
+  description: 'cli: register the `bob articles` Vault group (bare = list) with format
+    (check, dry-run, stdin, json, all), list, and outline; vault discovery, preimage-checked
+    atomic writes, colored output, completion, help, docs/articles.md, and CLI tests.'
+- id: adopt
+  title: bob articles adopt with preview
+  depends_on:
+  - cli
+  size: small
+  description: 'adopt: `bob articles adopt NOTE` inserts `type: "[[article]]"` plus
+    the first format, previews by default with replaced-number reporting, writes with
+    -w, and serves the plugin through --stdin JSON.'
+- id: inbound
+  title: Inbound heading links, nightly check, and memory
+  depends_on:
+  - adopt
+  size: medium
+  description: 'inbound: rewrite links from other notes when an article''s headings
+    change (CLI writes, plugin plans), report unrepairable ones, add a report-only
+    nightly step, and apply any accepted memory decisions.'
+- id: vault
+  title: Vault type note, template, base, and first adoption
+  depends_on:
+  - inbound
+  size: small
+  description: 'vault: add article.md, articles.base, the type.md block, the new_article
+    template, and the vault AGENTS.md line, then adopt sase_blog_contents.md with
+    bob and commit the vault.'
+- id: plugin
+  title: bob-articles plugin that formats on save and leave
+  depends_on:
+  - inbound
+  size: medium
+  description: 'plugin: new bob-plugins bob-articles plugin: runtime article class,
+    format on save, leave, and command as one undoable transaction, inbound link application,
+    the convert-to-article preview modal, notices, settings, tests, deploy, and enable.'
+- id: look
+  title: Article reading look and live section signals
+  depends_on:
+  - plugin
+  size: medium
+  description: 'look: scoped article typography, muted tabular section numbers in
+    Live Preview and Reading view, hanging numbers on wide panes, debounced stale-number
+    hints, and the section status-bar item.'
 proposed_by: bbugyi200.apollo.research.1o.linker.w0
 decided_by: agent
 decided_via: cli
 create_time: 2026-10-16 10:53:01
 status: wip
+bead_id: bob-cli-8g
 ---
+
+- **BEAD:** [bob-cli-8g](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8g/README.md)
 
 # Plan: Article notes — bob-owned section numbers and calm layout
 
