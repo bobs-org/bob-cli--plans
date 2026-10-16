@@ -40,7 +40,7 @@ phases:
     summary accounting. Complete the end-to-end golden and read-once invariant suite.'
 proposed_by: bbugyi200.athena.bob-cli-87.2
 create_time: 2026-10-16 07:26:12
-status: wip
+status: done
 bead_id: bob-cli-87.2.1
 ---
 
