@@ -1,56 +1,52 @@
 ---
 tier: epic
 title: Obsidian snapshot view core
-goal:
-  Vault notes project into a tested engine-neutral view and the agreed Markdown
+goal: Vault notes project into a tested engine-neutral view and the agreed Markdown
   contract, with Obsidian resolution, bounded embeds, and consistent source reads.
 parent_bead: bob-cli-87.2
 phases:
-  - id: model-contract
-    title: Snapshot model and projected Markdown contract
-    size: medium
-    depends_on: []
-    description:
-      "model-contract: define the engine-neutral snapshot model, lossless source
-      metadata, serializer, and synthetic contract fixture. Establish the crate-visible
-      seams that the remaining child phases and the outer Bob-layer and print-profile
-      phases use."
-  - id: resolution
-    title: Snapshot classification and cached vault resolution
-    size: medium
-    depends_on:
-      - model-contract
-    description:
-      "resolution: implement vault membership and target classification, cached source
-      reads, note and attachment resolution, fragment indexes, and the shared Obsidian
-      URI builder. Preserve existing audio URI behavior while extracting its helper."
-  - id: syntax
-    title: Obsidian syntax and checkbox projection
-    size: medium
-    depends_on:
-      - resolution
-    description:
-      "syntax: implement protected-code-aware inline and block projection, resolved
-      links, images, comments, fields, tags, headings, checkboxes, callouts, and query
-      placeholders. Exercise each construct with synthetic golden fixtures."
-  - id: transclusions
-    title: Bounded transclusions and complete projection verification
-    size: medium
-    depends_on:
-      - syntax
-    description:
-      "transclusions: assemble one-level full-note, heading, and block transclusions;
-      enforce cycle and size guards; finalize source-aware anchors, diagnostics, and
-      summary accounting. Complete the end-to-end golden and read-once invariant suite."
+- id: model-contract
+  title: Snapshot model and projected Markdown contract
+  size: medium
+  depends_on: []
+  description: 'model-contract: define the engine-neutral snapshot model, lossless
+    source metadata, serializer, and synthetic contract fixture. Establish the crate-visible
+    seams that the remaining child phases and the outer Bob-layer and print-profile
+    phases use.'
+- id: resolution
+  title: Snapshot classification and cached vault resolution
+  size: medium
+  depends_on:
+  - model-contract
+  description: 'resolution: implement vault membership and target classification,
+    cached source reads, note and attachment resolution, fragment indexes, and the
+    shared Obsidian URI builder. Preserve existing audio URI behavior while extracting
+    its helper.'
+- id: syntax
+  title: Obsidian syntax and checkbox projection
+  size: medium
+  depends_on:
+  - resolution
+  description: 'syntax: implement protected-code-aware inline and block projection,
+    resolved links, images, comments, fields, tags, headings, checkboxes, callouts,
+    and query placeholders. Exercise each construct with synthetic golden fixtures.'
+- id: transclusions
+  title: Bounded transclusions and complete projection verification
+  size: medium
+  depends_on:
+  - syntax
+  description: 'transclusions: assemble one-level full-note, heading, and block transclusions;
+    enforce cycle and size guards; finalize source-aware anchors, diagnostics, and
+    summary accounting. Complete the end-to-end golden and read-once invariant suite.'
 proposed_by: bbugyi200.athena.bob-cli-87.2
 create_time: 2026-10-16 07:26:12
 status: wip
+bead_id: bob-cli-87.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/snapshot_view_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/snapshot_view_core.md)
-- **PARENT:**
-  [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **PROMPT:** [prompts/202610/snapshot_view_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/snapshot_view_core.md)
+- **PARENT:** [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **BEAD:** [bob-cli-87.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-87/bob-cli-87.2.1.md)
 
 # Snapshot view core for bob-cli-87.2
 
