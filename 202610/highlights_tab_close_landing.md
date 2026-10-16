@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair Bob Refs tab closing and finish bob-cli-8l landing
-goal:
-  Close Highlights tabs with Ctrl-X while Ctrl-D always scrolls, repair close-worker and
-  save-sheet handling, integrate write guards, and close epic bob-cli-8l after
+goal: Close Highlights tabs with Ctrl-X while Ctrl-D always scrolls, repair close-worker
+  and save-sheet handling, integrate write guards, and close epic bob-cli-8l after
   verification.
 proposed_by: bbugyi200.apollo.bob-cli-8l.land
 bead: bob-cli-8l
-create_time: 2026-10-16 15:52:08
-status: wip
+status: done
 ---
 
 - **PARENT:**
