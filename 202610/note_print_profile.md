@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Note snapshot print profile and observable XeLaTeX rendering
-goal:
-  Complete bob-cli-87.4 with an AST-preserving note print profile, two-step renderer,
+goal: Complete bob-cli-87.4 with an AST-preserving note print profile, two-step renderer,
   actionable diagnostics, and verified PDF appearance and text.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-87.4
 bead: bob-cli-87.4
-create_time: 2026-10-16 07:50:02
-status: wip
+status: done
 ---
 
 - **PARENT:**
