@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix the Bob Mac Capture install build by importing CaptureCore in SettingsView
-goal: '`just install` in bob-mac-capture builds and installs again on the Mac, because
-  SettingsView.swift imports CaptureCore for BobClientError and the CI Build step
-  on master is green again.'
+goal:
+  "`just install` in bob-mac-capture builds and installs again on the Mac, because
+  SettingsView.swift imports CaptureCore for BobClientError and the CI Build step on
+  master is green again."
 size: small
 proposed_by: bbugyi200.athena.10p
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.10p](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.10p.md)
+- **COMMITS:**
+  - [cd9055d](https://github.com/bobs-org/bob-mac-capture/commit/cd9055da066847e087456b58290719baff85fd4a)
+    — fix(settings): import CaptureCore for BobClientError
 
 # Fix the `just install` compile break: `SettingsView.swift` never imports `CaptureCore`
 
