@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Also fix the RefsInspectorTests async-assert compile error so `just typecheck-tests` passes?",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Hoist the three awaited asserts into locals; the mac type-check gate and CI test build pass"
+        },
+        {
+          "key": "skip",
+          "label": "Leave the test file; typecheck-tests still fails on lines 483-485 and the follow-up bead owns it"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "id": "fix_test_compile",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Without it the required mac type-check gate cannot pass"
+    }
+  ]
+}
