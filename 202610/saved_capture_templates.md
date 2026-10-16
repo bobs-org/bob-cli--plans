@@ -1,93 +1,88 @@
 ---
 tier: epic
 title: Saved capture templates (the Control-T template shelf)
-goal: "Every successful `@@template:` capture saves its template block to a bob-owned
-  shelf on disk, and Bob Mac Capture's Control-T opens a stash-style shelf of those
+goal: 'Every successful `@@template:` capture saves its template block to a bob-owned
+  shelf on disk, and Bob Mac Capture''s Control-T opens a stash-style shelf of those
   templates: picking one checks it out into the draft, capturing puts it back on top
-  (with your edits), abandoning leaves it untouched, and nothing is ever silently lost.
+  (with your edits), abandoning leaves it untouched, and nothing is ever silently
+  lost.
 
-  "
+  '
 decisions:
   pop_visible_in_count:
-    ask:
-      Should the Templates count leave out a checked-out template, so a pick visibly
+    ask: Should the Templates count leave out a checked-out template, so a pick visibly
       pops it until it settles?
     default: true
     why: it makes the requested pop feel literal while the copy on disk stays safe
     answer: true
   memory_saved_templates_decision:
-    ask:
-      Should the last phase add a decision record that saved capture templates are
-      bob-owned and checked out, not popped?
+    ask: Should the last phase add a decision record that saved capture templates
+      are bob-owned and checked out, not popped?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_saved_template_glossary:
-    ask:
-      Should the last phase add a glossary strand for Saved Template (alias template
+    ask: Should the last phase add a glossary strand for Saved Template (alias template
       shelf)?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 phases:
-  - id: store
-    title: Template shelf store and auto-save in bob capture
-    depends_on: []
-    size: medium
-    description:
-      "store: add the bob-owned template shelf (canonical block text, content-hash ids,
-      locked atomic JSON at $XDG_STATE_HOME/bob-cli/capture/templates.json), save after
-      every successful real template capture, the hidden --template-origin replace, the
-      capture.max_saved_templates config key, additive JSON and human output, the A10
-      missing-rows wording, and docs."
-  - id: protocol
-    title: bob capture-templates protocol command
-    depends_on:
-      - store
-    size: medium
-    description:
-      "protocol: add the `bob capture-templates` group (list default, show, save,
-      delete, clear) with ready-to-insert drafts, cursors, and capture-parse spans in
-      JSON, colored human output, definition-only validation for save, help, completion,
-      and docs."
-  - id: mac-core
-    title: Bob Mac Capture saved-template models, client, and fixtures
-    depends_on:
-      - protocol
-    size: medium
-    description:
-      "mac-core: decode the shelf protocol in CaptureCore, add BobProcessClient
-      list/save/delete/clear plus an identity-gated --template-origin, shared picker
-      helpers, the row presentation builder, the environment-key fix, recorded fixtures,
-      and fake-bob routes."
-  - id: mac-shelf
-    title: Bob Mac Capture Control-T template shelf
-    depends_on:
-      - mac-core
-    size: medium
-    description:
-      "mac-shelf: the Control-T shelf itself: cache, opening rules, keys, syntax-colored
-      rows with slot dots, one-undo-step insert (empty and rows-first drafts), two-press
-      delete, Control-T/Control-S switching, and the Templates footer button."
-  - id: mac-checkout
-    title: Template checkout lifecycle, Command-S save, Settings, and docs
-    depends_on:
-      - mac-shelf
-    size: medium
-    description:
-      "mac-checkout: track the checked-out origin, release it on every abandon path,
-      pass --template-origin on submit, announce save outcomes, add Command-S Save
-      template, the Settings section, README docs, and the memory decisions."
+- id: store
+  title: Template shelf store and auto-save in bob capture
+  depends_on: []
+  size: medium
+  description: 'store: add the bob-owned template shelf (canonical block text, content-hash
+    ids, locked atomic JSON at $XDG_STATE_HOME/bob-cli/capture/templates.json), save
+    after every successful real template capture, the hidden --template-origin replace,
+    the capture.max_saved_templates config key, additive JSON and human output, the
+    A10 missing-rows wording, and docs.'
+- id: protocol
+  title: bob capture-templates protocol command
+  depends_on:
+  - store
+  size: medium
+  description: 'protocol: add the `bob capture-templates` group (list default, show,
+    save, delete, clear) with ready-to-insert drafts, cursors, and capture-parse spans
+    in JSON, colored human output, definition-only validation for save, help, completion,
+    and docs.'
+- id: mac-core
+  title: Bob Mac Capture saved-template models, client, and fixtures
+  depends_on:
+  - protocol
+  size: medium
+  description: 'mac-core: decode the shelf protocol in CaptureCore, add BobProcessClient
+    list/save/delete/clear plus an identity-gated --template-origin, shared picker
+    helpers, the row presentation builder, the environment-key fix, recorded fixtures,
+    and fake-bob routes.'
+- id: mac-shelf
+  title: Bob Mac Capture Control-T template shelf
+  depends_on:
+  - mac-core
+  size: medium
+  description: 'mac-shelf: the Control-T shelf itself: cache, opening rules, keys,
+    syntax-colored rows with slot dots, one-undo-step insert (empty and rows-first
+    drafts), two-press delete, Control-T/Control-S switching, and the Templates footer
+    button.'
+- id: mac-checkout
+  title: Template checkout lifecycle, Command-S save, Settings, and docs
+  depends_on:
+  - mac-shelf
+  size: medium
+  description: 'mac-checkout: track the checked-out origin, release it on every abandon
+    path, pass --template-origin on submit, announce save outcomes, add Command-S
+    Save template, the Settings section, README docs, and the memory decisions.'
 proposed_by: bbugyi200.apollo.research.1n.linker.w0
 decided_by: auto
 create_time: 2026-10-16 08:18:35
 status: wip
+bead_id: bob-cli-8b
 ---
 
-- **PROMPT:**
-  [prompts/202610/saved_capture_templates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/saved_capture_templates.md)
+- **PROMPT:** [prompts/202610/saved_capture_templates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/saved_capture_templates.md)
+- **BEAD:** [bob-cli-8b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8b/README.md)
 
 # Plan: Saved capture templates (the Control-T template shelf)
 
