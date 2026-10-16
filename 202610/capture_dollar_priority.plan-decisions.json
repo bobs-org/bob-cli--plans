@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should a typed `p:<N>` fail with a teaching error once `$<N>` replaces it?",
+      "choices": [
+        {
+          "key": "retire",
+          "label": "Usage error `retired_priority_marker` teaching `$<N>`; never captured as text"
+        },
+        {
+          "key": "alias",
+          "label": "`p:<N>` keeps working as a silent synonym; docs teach only `$<N>`"
+        },
+        {
+          "key": "literal",
+          "label": "`p:<N>` becomes ordinary task text with no diagnostic"
+        }
+      ],
+      "default": "retire",
+      "effective_default": "retire",
+      "id": "legacy_p_token",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "Muscle memory and saved templates would silently become task text; matches retired `:` notes"
+    },
+    {
+      "ask": "Should `\\$` / `\\$<N>` keep a trailing dollar amount as literal task text?",
+      "default": true,
+      "effective_default": true,
+      "id": "dollar_escape",
+      "kind": "toggle",
+      "requested_verified": false,
+      "why": "Trailing amounts (`Venmo Alex $3`) are common; `\\&foo:bar` already sets the precedent"
+    },
+    {
+      "ask": "Should the glossary `schedule-log` strand name `$<N>` instead of `p:<N>`?",
+      "corrects": "or when `bob capture` uses `p:<N>`, we add a `SCHEDULE LOG` bullet",
+      "default": true,
+      "effective_default": true,
+      "id": "memory_glossary_schedule_log",
+      "kind": "toggle",
+      "memory": {
+        "selectors": [
+          "glossary:schedule-log"
+        ]
+      },
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "exists": true,
+          "kind": "web",
+          "path": "sase/memory/glossary.md",
+          "scope": "project",
+          "selector": "glossary:schedule-log",
+          "strands": [
+            "Schedule Log"
+          ],
+          "type": "web"
+        }
+      ]
+    }
+  ]
+}
