@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Repair Bob Refs tab closing and finish bob-cli-8l landing
-goal: Close Highlights tabs with Ctrl-X while Ctrl-D always scrolls, repair close-worker
-  and save-sheet handling, integrate write guards, and close epic bob-cli-8l after
+goal:
+  Close Highlights tabs with Ctrl-X while Ctrl-D always scrolls, repair close-worker and
+  save-sheet handling, integrate write guards, and close epic bob-cli-8l after
   verification.
 proposed_by: bbugyi200.apollo.bob-cli-8l.land
 bead: bob-cli-8l
@@ -14,6 +15,11 @@ status: done
   [202610/highlights_tab_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/highlights_tab_close.md)
 - **BEAD:**
   [bob-cli-8l](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8l/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-8l.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-8l.land.md)
+- **COMMITS:**
+  - [175153c](https://github.com/bobs-org/bob-mac-capture/commit/175153c8e7f5913a53f03d710c6f3b0c01f5ce74)
+    — feat(refs): close Highlights tabs with Ctrl-X, repair worker/sheet/guards
 
 # Finish the Bob Refs tab-close landing
 
