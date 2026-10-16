@@ -1,25 +1,34 @@
 ---
 tier: tale
 title: Stop the close-card transition column from collapsing in Bob Mac Capture
-goal: Long Task Link titles truncate on one line while the close card's status transitions
+goal:
+  Long Task Link titles truncate on one line while the close card's status transitions
   stay legible.
 size: small
 decisions:
   wikilink_titles:
-    ask: Should close- and start-card task titles also hide wikilink markup, as the
-      Task Link picker does?
+    ask:
+      Should close- and start-card task titles also hide wikilink markup, as the Task
+      Link picker does?
     choices:
-      display: '`[[ref/x|Alias]]` titles read `Alias`, so long ref titles truncate
-        less often'
+      display:
+        "`[[ref/x|Alias]]` titles read `Alias`, so long ref titles truncate less often"
       raw: Titles keep Bob's raw task text; only the column collapse is fixed
     default: display
-    why: Matches the picker that chose these tasks; raw ref links pushed these rows
-      past the width
+    why:
+      Matches the picker that chose these tasks; raw ref links pushed these rows past
+      the width
     answer: display
 proposed_by: bbugyi200.apollo.86
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.86](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.86.md)
+- **COMMITS:**
+  - [f996588](https://github.com/bobs-org/bob-mac-capture/commit/f996588008e98f22221aabe886e03a894a894110)
+    — fix(mac-capture): stop close-card transition column from collapsing
 
 # Stop the Close-Card Transition Column From Collapsing in Bob Mac Capture
 
