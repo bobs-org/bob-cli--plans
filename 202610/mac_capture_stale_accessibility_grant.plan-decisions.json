@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "ask": "Should `just install` create the \"Bob Mac Capture Local\" signing identity itself when the login keychain lacks it?",
+      "choices": [
+        {
+          "key": "auto",
+          "label": "The first GUI-Terminal install creates it unattended, so install-all needs no manual setup"
+        },
+        {
+          "key": "command",
+          "label": "Installs never touch the keychain; Bryan runs `just signing-identity` once by hand"
+        }
+      ],
+      "default": "auto",
+      "effective_default": "auto",
+      "id": "identity_setup",
+      "kind": "choice",
+      "requested_verified": false,
+      "why": "the manual Keychain Access step never happened, and every ad-hoc install breaks Tabs again"
+    }
+  ]
+}
