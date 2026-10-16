@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix N<Ctrl+Shift+M> dropping its count
-goal: A counted Ctrl+Shift+M always moves the current task plus the next N tasks,
-  on and off a review-walk landing and with a cold or warm cache, because one physical
-  key now means one dispatch that reads the Vim count on the command route.
+goal:
+  A counted Ctrl+Shift+M always moves the current task plus the next N tasks, on and off
+  a review-walk landing and with a cold or warm cache, because one physical key now
+  means one dispatch that reads the Vim count on the command route.
 size: small
 proposed_by: bbugyi200.apollo.7z
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.7z](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.7z.md)
+- **COMMITS:**
+  - [f5517b8](https://github.com/bobs-org/bob-plugins/commit/f5517b8d5480c11c815604c00a8f1e6dd238ef2e)
+    — fix(bob-navigation-hotkeys): preserve counted task moves
 
 # Plan: Fix `N<Ctrl+Shift+M>` dropping its count
 
