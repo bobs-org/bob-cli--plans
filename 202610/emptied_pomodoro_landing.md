@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Repair emptied-Pomodoro edge cases and land bob-cli-88
-goal:
-  The cleanup contract is correct across full entry blocks, newline and cursor
+goal: The cleanup contract is correct across full entry blocks, newline and cursor
   semantics, the intended plugins are deployed, and bob-cli-88 is closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-88.land
 bead: bob-cli-88
-create_time: 2026-10-16 09:13:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
