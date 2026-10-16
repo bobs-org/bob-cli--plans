@@ -2,9 +2,9 @@
 tier: tale
 size: medium
 title: Saved capture templates landing repairs and epic closeout (bob-cli-8b)
-goal: The saved-template shelf meets its contract in bob and Bob Mac Capture, both
-  repos build and pass their gates (bob just check, macOS CI), and epic bob-cli-8b
-  is closed.
+goal:
+  The saved-template shelf meets its contract in bob and Bob Mac Capture, both repos
+  build and pass their gates (bob just check, macOS CI), and epic bob-cli-8b is closed.
 proposed_by: bbugyi200.apollo.bob-cli-8b.land
 bead: bob-cli-8b
 status: done
@@ -14,6 +14,11 @@ status: done
   [202610/saved_capture_templates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/saved_capture_templates.md)
 - **BEAD:**
   [bob-cli-8b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8b/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-8b.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-8b.land.md)
+- **COMMITS:**
+  - [4034e19](https://github.com/bobs-org/bob-mac-capture/commit/4034e19d6fd411bed6f6ce57b395463d0168e0da)
+    — fix(saved-templates): shelf height expectation and undo window hosting
 
 # Saved capture templates: landing repairs and closeout
 
