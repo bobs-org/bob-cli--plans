@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "non_mac",
+      "kind": "choice",
+      "ask": "Off macOS, should Cmd+Enter on a reading task open the PDF in the system default viewer?",
+      "why": "Highlights is the annotation source bob ref scan reads; other viewers never sync",
+      "choices": [
+        {
+          "key": "notice",
+          "label": "Show a \"Highlights is macOS-only\" notice; nothing opens"
+        },
+        {
+          "key": "default_app",
+          "label": "Open the PDF in the system default viewer instead"
+        }
+      ],
+      "default": "notice",
+      "effective_default": "notice",
+      "requested_verified": false
+    },
+    {
+      "id": "ref_note_scope",
+      "kind": "choice",
+      "ask": "Should Cmd+Enter anywhere inside a managed reference note open that note's PDF?",
+      "why": "Matches the request and keeps built-in Cmd+Enter on links inside ref notes",
+      "choices": [
+        {
+          "key": "task_lines",
+          "label": "Only reading-task, managed-embed, v1-tracker, and Task Link lines open the PDF"
+        },
+        {
+          "key": "whole_note",
+          "label": "Any ref-note line opens its PDF; Cmd+Enter on links there stops opening new tabs"
+        }
+      ],
+      "default": "task_lines",
+      "effective_default": "task_lines",
+      "requested_verified": false
+    }
+  ]
+}
