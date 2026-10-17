@@ -1,32 +1,26 @@
 ---
 tier: tale
 title: Restore new_note.md on Cmd+N via Templater's device-local trigger
-goal:
-  Every device's new empty notes, including Cmd+N notes, expand _templates/new_note.md
+goal: Every device's new empty notes, including Cmd+N notes, expand _templates/new_note.md
   again.
 size: small
 decisions:
   trigger_policy:
-    ask:
-      Should bob-navigation-hotkeys turn on Templater's device-local new-file trigger
+    ask: Should bob-navigation-hotkeys turn on Templater's device-local new-file trigger
       itself when unset?
     choices:
-      enable:
-        Turn it on at startup with a notice; each device fixes itself after `bob plugins
-        sync`
-      warn:
-        Leave it off; show a sticky notice and a command, so each device needs one
-        manual step
+      enable: Turn it on at startup with a notice; each device fixes itself after
+        `bob plugins sync`
+      warn: Leave it off; show a sticky notice and a command, so each device needs
+        one manual step
     default: enable
-    why:
-      bob-* plugins deploy per device, so syncing them is already Templater's per-device
+    why: bob-* plugins deploy per device, so syncing them is already Templater's per-device
       trust step
     answer: enable
 proposed_by: bbugyi200.apollo.8o
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-17 13:29:37
-status: wip
+status: done
 ---
 
 # Plan: Restore `_templates/new_note.md` on Cmd+N (Templater device-local trigger)
