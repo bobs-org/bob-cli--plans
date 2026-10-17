@@ -1,17 +1,15 @@
 ---
 tier: tale
-title: "Finish landing bob-cli-8w: Control-Return open repairs, then close the epic"
-goal:
-  "Control-Return lands on the right line every time: bob picks the right task and day
-  note in every case, Obsidian opens tabs in order without replacing a sidebar, and Bob
-  Mac Capture handles keypad Enter, Caps Lock, template rows, and failures as the plan
-  specifies. Then epic bob-cli-8w is verified and closed."
+title: 'Finish landing bob-cli-8w: Control-Return open repairs, then close the epic'
+goal: 'Control-Return lands on the right line every time: bob picks the right task
+  and day note in every case, Obsidian opens tabs in order without replacing a sidebar,
+  and Bob Mac Capture handles keypad Enter, Caps Lock, template rows, and failures
+  as the plan specifies. Then epic bob-cli-8w is verified and closed.'
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-8w.land
 proposed_with: claude/opus
 bead: bob-cli-8w
-create_time: 2026-10-17 18:03:29
-status: wip
+status: done
 ---
 
 - **PARENT:**
