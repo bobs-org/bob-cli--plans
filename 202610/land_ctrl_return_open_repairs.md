@@ -1,10 +1,11 @@
 ---
 tier: tale
-title: 'Finish landing bob-cli-8w: Control-Return open repairs, then close the epic'
-goal: 'Control-Return lands on the right line every time: bob picks the right task
-  and day note in every case, Obsidian opens tabs in order without replacing a sidebar,
-  and Bob Mac Capture handles keypad Enter, Caps Lock, template rows, and failures
-  as the plan specifies. Then epic bob-cli-8w is verified and closed.'
+title: "Finish landing bob-cli-8w: Control-Return open repairs, then close the epic"
+goal:
+  "Control-Return lands on the right line every time: bob picks the right task and day
+  note in every case, Obsidian opens tabs in order without replacing a sidebar, and Bob
+  Mac Capture handles keypad Enter, Caps Lock, template rows, and failures as the plan
+  specifies. Then epic bob-cli-8w is verified and closed."
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-8w.land
 proposed_with: claude/opus
@@ -16,6 +17,11 @@ status: done
   [202610/ctrl_enter_capture_and_open.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ctrl_enter_capture_and_open.md)
 - **BEAD:**
   [bob-cli-8w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8w/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-8w.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-8w.land.md)
+- **COMMITS:**
+  - [2f18e05](https://github.com/bobs-org/bob-cli--plans/commit/2f18e05893d5fe6ce94572d4f71473534b9e5714)
+    — docs(plans): mark bob-cli-8w epic and landing tale done
 
 # Finish landing bob-cli-8w: Control-Return open repairs, then close the epic
 
