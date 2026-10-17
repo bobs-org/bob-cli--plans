@@ -1,71 +1,67 @@
 ---
 tier: epic
 title: Finish note snapshots so real area and project notes match the spec
-goal: "Every `bob ref create <area or project note>` snapshot matches the bob-cli-87
-  visual spec and content policy on the real vault: status glyphs sit on the first line
-  of their task text, no stale status-chip row or raw `^block-id` labels appear, links
-  to existing vault files resolve, images are framed, earlier-snapshot hints follow the
-  plan, and the docs record what was verified on athena and the Mac.
+goal: 'Every `bob ref create <area or project note>` snapshot matches the bob-cli-87
+  visual spec and content policy on the real vault: status glyphs sit on the first
+  line of their task text, no stale status-chip row or raw `^block-id` labels appear,
+  links to existing vault files resolve, images are framed, earlier-snapshot hints
+  follow the plan, and the docs record what was verified on athena and the Mac.
 
-  "
+  '
 parent_bead: bob-cli-87
 decisions:
   mac_rerun:
     ask: Rerun the Mac corpus gate and PDFKit probe after these fixes land?
     default: false
-    why:
-      No new TeX packages or fonts; the Mac passed at df4e120 and needs Bryan at the
-      keyboard
+    why: No new TeX packages or fonts; the Mac passed at df4e120 and needs Bryan at
+      the keyboard
     answer: false
 phases:
-  - id: projection-fixes
-    title: Projection fixes for badge rows, block-ref labels, file links, and kickers
-    depends_on: []
-    size: medium
-    description:
-      "projection-fixes: drop generated status-chip rows from real notes, label
-      same-note block refs with their task text, keep intraword underscores in excerpts,
-      resolve links to existing vault files outside the note set, and never print the
-      generic [[area]] parent in the kicker."
-  - id: profile-fixes
-    title: Print profile fixes for task-row layout and image frames
-    depends_on: []
-    size: medium
-    description:
-      "profile-fixes: put each status glyph on the first line of its task text with a
-      hanging indent, frame images with a hairline using no new packages, and make the
-      real-render tests skip cleanly when the note-profile TeX packages are missing."
-  - id: create-polish
-    title: Earlier-snapshot hints and Markdown text-layer leftovers
-    depends_on: []
-    size: small
-    description:
-      "create-polish: print earlier snapshots with status and highlight counts, hint per
-      unread snapshot on real creates, finish the Markdown text-layer font options, and
-      add the pdftotext hyphenation test."
-  - id: regate-docs
-    title: Corpus re-gate with residue checks, visual review, and docs
-    depends_on:
-      - projection-fixes
-      - profile-fixes
-      - create-polish
-    size: medium
-    description:
-      "regate-docs: teach the corpus gate to fail on badge-row, raw-block-id,
-      task-row-layout, and false-unresolved residue, rerun it on athena, look at the
-      pages, and complete docs/highlights-create.md including the athena and Mac
-      verification record."
+- id: projection-fixes
+  title: Projection fixes for badge rows, block-ref labels, file links, and kickers
+  depends_on: []
+  size: medium
+  description: 'projection-fixes: drop generated status-chip rows from real notes,
+    label same-note block refs with their task text, keep intraword underscores in
+    excerpts, resolve links to existing vault files outside the note set, and never
+    print the generic [[area]] parent in the kicker.'
+- id: profile-fixes
+  title: Print profile fixes for task-row layout and image frames
+  depends_on: []
+  size: medium
+  description: 'profile-fixes: put each status glyph on the first line of its task
+    text with a hanging indent, frame images with a hairline using no new packages,
+    and make the real-render tests skip cleanly when the note-profile TeX packages
+    are missing.'
+- id: create-polish
+  title: Earlier-snapshot hints and Markdown text-layer leftovers
+  depends_on: []
+  size: small
+  description: 'create-polish: print earlier snapshots with status and highlight counts,
+    hint per unread snapshot on real creates, finish the Markdown text-layer font
+    options, and add the pdftotext hyphenation test.'
+- id: regate-docs
+  title: Corpus re-gate with residue checks, visual review, and docs
+  depends_on:
+  - projection-fixes
+  - profile-fixes
+  - create-polish
+  size: medium
+  description: 'regate-docs: teach the corpus gate to fail on badge-row, raw-block-id,
+    task-row-layout, and false-unresolved residue, rerun it on athena, look at the
+    pages, and complete docs/highlights-create.md including the athena and Mac verification
+    record.'
 proposed_by: bbugyi200.athena.bob-cli-87.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-17 10:11:17
 status: wip
+bead_id: bob-cli-87.13
 ---
 
-- **PROMPT:**
-  [prompts/202610/note_snapshot_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/note_snapshot_landing_repairs.md)
-- **PARENT:**
-  [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **PROMPT:** [prompts/202610/note_snapshot_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/note_snapshot_landing_repairs.md)
+- **PARENT:** [202610/note_snapshots.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/note_snapshots.md)
+- **BEAD:** [bob-cli-87.13](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-87/bob-cli-87.13.md)
 
 # Plan: Finish note snapshots so real area and project notes match the spec
 
