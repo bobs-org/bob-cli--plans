@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "empty_tab",
+      "kind": "choice",
+      "ask": "If the first note isn't open but the active tab is an empty New tab, fill that tab instead of appending one?",
+      "why": "A blank tab holds nothing, and the usual one (all tabs closed) is already the far right",
+      "choices": [
+        {
+          "key": "reuse",
+          "label": "The note fills the blank tab in place; no stray blank tab, but it can land mid-strip"
+        },
+        {
+          "key": "end",
+          "label": "The note always opens at the far right; the blank tab stays where it was"
+        }
+      ],
+      "default": "reuse",
+      "effective_default": "reuse",
+      "requested_verified": false
+    }
+  ]
+}
