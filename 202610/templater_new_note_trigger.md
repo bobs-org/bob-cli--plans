@@ -1,20 +1,25 @@
 ---
 tier: tale
 title: Restore new_note.md on Cmd+N via Templater's device-local trigger
-goal: Every device's new empty notes, including Cmd+N notes, expand _templates/new_note.md
+goal:
+  Every device's new empty notes, including Cmd+N notes, expand _templates/new_note.md
   again.
 size: small
 decisions:
   trigger_policy:
-    ask: Should bob-navigation-hotkeys turn on Templater's device-local new-file trigger
+    ask:
+      Should bob-navigation-hotkeys turn on Templater's device-local new-file trigger
       itself when unset?
     choices:
-      enable: Turn it on at startup with a notice; each device fixes itself after
-        `bob plugins sync`
-      warn: Leave it off; show a sticky notice and a command, so each device needs
-        one manual step
+      enable:
+        Turn it on at startup with a notice; each device fixes itself after `bob plugins
+        sync`
+      warn:
+        Leave it off; show a sticky notice and a command, so each device needs one
+        manual step
     default: enable
-    why: bob-* plugins deploy per device, so syncing them is already Templater's per-device
+    why:
+      bob-* plugins deploy per device, so syncing them is already Templater's per-device
       trust step
     answer: enable
 proposed_by: bbugyi200.apollo.8o
@@ -22,6 +27,12 @@ proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.8o](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.8o.md)
+- **COMMITS:**
+  - [b760f5e](https://github.com/bobs-org/bob-plugins/commit/b760f5ec8d8d14c9b5116fa769f1e2f51be40c0e)
+    — feat(bob-navigation-hotkeys): enable Templater's per-device new-note trigger
 
 # Plan: Restore `_templates/new_note.md` on Cmd+N (Templater device-local trigger)
 
