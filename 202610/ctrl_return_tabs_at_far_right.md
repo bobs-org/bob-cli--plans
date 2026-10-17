@@ -1,27 +1,38 @@
 ---
 tier: tale
 title: Control-Return reuses any open tab, else appends at the far right
-goal: Control-Return in Bob Mac Capture reuses a tab already showing each note, including
+goal:
+  Control-Return in Bob Mac Capture reuses a tab already showing each note, including
   unloaded background tabs, and otherwise appends new tabs at the far right of the
   active tab group instead of right after the focused tab.
 size: small
 decisions:
   empty_tab:
-    ask: If the first note isn't open but the active tab is an empty New tab, fill
-      that tab instead of appending one?
+    ask:
+      If the first note isn't open but the active tab is an empty New tab, fill that tab
+      instead of appending one?
     choices:
-      reuse: The note fills the blank tab in place; no stray blank tab, but it can
-        land mid-strip
+      reuse:
+        The note fills the blank tab in place; no stray blank tab, but it can land
+        mid-strip
       end: The note always opens at the far right; the blank tab stays where it was
     default: reuse
-    why: A blank tab holds nothing, and the usual one (all tabs closed) is already
-      the far right
+    why:
+      A blank tab holds nothing, and the usual one (all tabs closed) is already the far
+      right
     answer: reuse
 proposed_by: bbugyi200.apollo.8s
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.8s](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.8s.md)
+- **COMMITS:**
+  - [bca788d](https://github.com/bobs-org/bob-plugins/commit/bca788d1aeb89df0284a355c50fa0b1709b7e5e9)
+    — fix(bob-navigation-hotkeys): reuse deferred tabs and append new ones at the far
+    right
 
 # Plan: Control-Return reuses any open tab, else appends at the far right
 
