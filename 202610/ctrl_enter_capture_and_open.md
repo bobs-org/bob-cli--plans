@@ -1,99 +1,91 @@
 ---
 tier: epic
-title: "Bob Mac Capture Control-Return: capture, then land on it in Obsidian"
-goal: "In Bob Mac Capture, Control-Return captures the draft, then brings Obsidian
-  forward with every note the capture changed open in its own tab. The caret sits on the
-  exact line that changed, which gets a short highlight. bob decides what to open, so
-  the app stays a thin client. One Obsidian URL carries the whole list, so tabs never
-  replace each other. The panel shows beforehand what Control-Return will open.
+title: 'Bob Mac Capture Control-Return: capture, then land on it in Obsidian'
+goal: 'In Bob Mac Capture, Control-Return captures the draft, then brings Obsidian
+  forward with every note the capture changed open in its own tab. The caret sits
+  on the exact line that changed, which gets a short highlight. bob decides what to
+  open, so the app stays a thin client. One Obsidian URL carries the whole list, so
+  tabs never replace each other. The panel shows beforehand what Control-Return will
+  open.
 
-  "
+  '
 decisions:
   tab_policy:
     ask: Where should Control-Return open notes in Obsidian?
     choices:
-      new_tab:
-        Reuse a tab already showing the note, else open a new tab; your current note
-        stays open
-      replace_active:
-        The first note replaces the active tab, like Go To; only extra notes get new
-        tabs
+      new_tab: Reuse a tab already showing the note, else open a new tab; your current
+        note stays open
+      replace_active: The first note replaces the active tab, like Go To; only extra
+        notes get new tabs
     default: new_tab
-    why:
-      A capture should never close the note you were reading, and several notes need
-      tabs anyway
+    why: A capture should never close the note you were reading, and several notes
+      need tabs anyway
     answer: new_tab
   notify_after_open:
-    ask:
-      Should a successful Control-Return skip the usual "Captured" banner once Obsidian
-      has opened?
+    ask: Should a successful Control-Return skip the usual "Captured" banner once
+      Obsidian has opened?
     default: true
-    why:
-      The landing highlight already confirms the capture; a banner over Obsidian is
-      redundant
+    why: The landing highlight already confirms the capture; a banner over Obsidian
+      is redundant
     answer: true
 phases:
-  - id: bob-open-notes
-    title: bob reports which notes a capture should open
-    depends_on: []
-    size: medium
-    description:
-      "bob-open-notes: add the always-present, batch-level `open_notes` array to `bob
-      capture --format json` (dry-run and real runs alike). Each entry carries an
-      absolute path, a role, a label, and a landing line and ref taken from the final
-      staged text. Document the field in docs/capture.md and test every capture kind."
-  - id: obsidian-open-uri
-    title: Obsidian handler that opens several notes and lands on each
-    depends_on: []
-    size: medium
-    description:
-      "obsidian-open-uri: in bob-plugins, register a read-only
-      `obsidian://bob-open-notes` handler in bob-navigation-hotkeys. It runs one URL at
-      a time, waits until bob's writes are visible in Obsidian, opens the notes under
-      the tab policy, and lands on and highlights the primary line. Also covers notices,
-      tests, README, version bump, build, and `bob plugins sync`."
-  - id: mac-open-core
-    title: Portable open plan and URL builder in CaptureCore
-    depends_on:
-      - bob-open-notes
-      - obsidian-open-uri
-    size: small
-    description:
-      "mac-open-core: in bob-mac-capture's CaptureCore, decode `open_notes` and add
-      `CaptureOpenPlan`: bob's entries, or a single shared fallback for older bob that
-      replaces the two duplicated heuristics. Add the `bob-open-notes` URL builder and
-      helpers that save the plan into and read it back from notifications, all covered
-      by portable tests."
-  - id: mac-ctrl-return
-    title: Control-Return gesture and the open pipeline
-    depends_on:
-      - mac-open-core
-    size: medium
-    description:
-      "mac-ctrl-return: handle Control-Return (with Command-Return as an alias in the
-      editor) across the editor, completion, pickers, prompts, the successor card, the
-      stash, and the template shelf. Open the plan through one Obsidian-activating
-      NSWorkspace call that reports failures, and switch notifications over to the plan.
-      Also update the README keyboard docs, add tests, and run the compile checks."
-  - id: mac-open-affordances
-    title: Footer hint, hold-to-reveal destinations, and picker hints
-    depends_on:
-      - mac-ctrl-return
-    size: medium
-    description:
-      "mac-open-affordances: add the footer `⌃↩ Open` chip and a destinations capsule
-      that appears while Control is held alone. Add Control-Return hints to the pickers
-      and the successor card, accessibility text from a portable presentation type,
-      render tests, and README docs."
+- id: bob-open-notes
+  title: bob reports which notes a capture should open
+  depends_on: []
+  size: medium
+  description: 'bob-open-notes: add the always-present, batch-level `open_notes` array
+    to `bob capture --format json` (dry-run and real runs alike). Each entry carries
+    an absolute path, a role, a label, and a landing line and ref taken from the final
+    staged text. Document the field in docs/capture.md and test every capture kind.'
+- id: obsidian-open-uri
+  title: Obsidian handler that opens several notes and lands on each
+  depends_on: []
+  size: medium
+  description: 'obsidian-open-uri: in bob-plugins, register a read-only `obsidian://bob-open-notes`
+    handler in bob-navigation-hotkeys. It runs one URL at a time, waits until bob''s
+    writes are visible in Obsidian, opens the notes under the tab policy, and lands
+    on and highlights the primary line. Also covers notices, tests, README, version
+    bump, build, and `bob plugins sync`.'
+- id: mac-open-core
+  title: Portable open plan and URL builder in CaptureCore
+  depends_on:
+  - bob-open-notes
+  - obsidian-open-uri
+  size: small
+  description: 'mac-open-core: in bob-mac-capture''s CaptureCore, decode `open_notes`
+    and add `CaptureOpenPlan`: bob''s entries, or a single shared fallback for older
+    bob that replaces the two duplicated heuristics. Add the `bob-open-notes` URL
+    builder and helpers that save the plan into and read it back from notifications,
+    all covered by portable tests.'
+- id: mac-ctrl-return
+  title: Control-Return gesture and the open pipeline
+  depends_on:
+  - mac-open-core
+  size: medium
+  description: 'mac-ctrl-return: handle Control-Return (with Command-Return as an
+    alias in the editor) across the editor, completion, pickers, prompts, the successor
+    card, the stash, and the template shelf. Open the plan through one Obsidian-activating
+    NSWorkspace call that reports failures, and switch notifications over to the plan.
+    Also update the README keyboard docs, add tests, and run the compile checks.'
+- id: mac-open-affordances
+  title: Footer hint, hold-to-reveal destinations, and picker hints
+  depends_on:
+  - mac-ctrl-return
+  size: medium
+  description: 'mac-open-affordances: add the footer `⌃↩ Open` chip and a destinations
+    capsule that appears while Control is held alone. Add Control-Return hints to
+    the pickers and the successor card, accessibility text from a portable presentation
+    type, render tests, and README docs.'
 proposed_by: bbugyi200.apollo.8q
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-17 15:54:12
 status: wip
+bead_id: bob-cli-8w
 ---
 
-- **PROMPT:**
-  [prompts/202610/ctrl_enter_capture_and_open.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_enter_capture_and_open.md)
+- **PROMPT:** [prompts/202610/ctrl_enter_capture_and_open.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_enter_capture_and_open.md)
+- **BEAD:** [bob-cli-8w](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8w/README.md)
 
 # Plan: Control-Return captures, then lands you in Obsidian
 
