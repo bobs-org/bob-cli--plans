@@ -1,107 +1,98 @@
 ---
 tier: epic
 title: Ctrl+Shift+Alt+B opens the Blocks… stage, Ctrl+Shift+B in reverse
-goal: "In Obsidian, Ctrl+Shift+Alt+B on task N (Task Card ⇧B) opens a Blocks… stage
-  where Bryan picks the open tasks T that N blocks. Applying it writes N onto each T's
-  Depends-On line. The bytes are exactly what Ctrl+Shift+B on T adding N would write: T
-  becomes Blocked, its live links in today's Pomodoros are consumed, N takes over its
-  lane, and N's BLOCKS mirror is updated. The stage previews every consequence before ↵,
-  and BLOCKS chips gain ＋ / ×.
+goal: 'In Obsidian, Ctrl+Shift+Alt+B on task N (Task Card ⇧B) opens a Blocks… stage
+  where Bryan picks the open tasks T that N blocks. Applying it writes N onto each
+  T''s Depends-On line. The bytes are exactly what Ctrl+Shift+B on T adding N would
+  write: T becomes Blocked, its live links in today''s Pomodoros are consumed, N takes
+  over its lane, and N''s BLOCKS mirror is updated. The stage previews every consequence
+  before ↵, and BLOCKS chips gain ＋ / ×.
 
-  "
+  '
 decisions:
   chips:
-    ask:
-      Should BLOCKS chip rows gain ＋ (open the Blocks stage) and hover × (remove a
-      dependent), like Depends-On chips?
+    ask: Should BLOCKS chip rows gain ＋ (open the Blocks stage) and hover × (remove
+      a dependent), like Depends-On chips?
     default: true
-    why:
-      Completes the symmetric surface bob-cli-3p asked for, cheaply once the writer
+    why: Completes the symmetric surface bob-cli-3p asked for, cheaply once the writer
       exists
     answer: true
   glossary_dep_link:
-    ask:
-      Fix the Task Dependency Link glossary term, which says dependencies are edited
+    ask: Fix the Task Dependency Link glossary term, which says dependencies are edited
       only on the dependent?
     memory:
-      - glossary:Task Dependency Link
+    - glossary:Task Dependency Link
     default: true
     corrects: dependencies are edited only on the dependent
     answer: true
 phases:
-  - id: contract
-    title: Blocks stage contract and RB vectors in the bob-cli docs
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the Blocks… stage contract as docs/task-dependencies.md §15
-      (entry points, pool, ranking, rows, guards, writes, notices, chips, api.blocks, RB
-      vectors). Update the cross-references in §5, §6.1, §8, §9, and §14.7–§14.12, plus
-      docs/projects.md, docs/freshness.md, and docs/capture.md. No code."
-  - id: writer
-    title: Reverse dependency writer with forward-parity tests
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "writer: add a nav writer that puts sources N onto many dependents T across notes,
-      built on planDependencyEdit and the §6.6 prepare → commit → mirror order. Prepare
-      N once (id plus the strongest lane), plan its BLOCKS edit once from the T writes
-      that committed, and aggregate Pomodoro consumption. Prove byte parity with the
-      forward writer on the RBP/RBW vectors."
-  - id: stage
-    title: The Blocks… stage modal
-    depends_on:
-      - writer
-    size: medium
-    description:
-      "stage: add showBlocksStage to the property picker. It reuses the vault pool and
-      needs a reverse CURRENT, swapped guards, and today-first ranking. Add the 🔑 / 🍅
-      / k-of-n badges, the one-line consequence strip, the dynamic footer verb, the
-      block-ID prompt for N, counted sources, marks, stale reopen, the inbox-route gate,
-      and review-origin continue."
-  - id: entry
-    title: Task Card ⇧B row, Ctrl+Shift+Alt+B, and every other entry point
-    depends_on:
-      - stage
-    size: medium
-    description:
-      "entry: add the Task Card Blocks… row (key ⇧B), the task-card-blocks command bound
-      to Ctrl+Shift+Alt+B, and counted N<Ctrl+Shift+Alt+B>. Wire Task Link,
-      Depends-On-line, and BLOCKS-line entries, Ctrl+Shift+P on a BLOCKS line, entry
-      refusals, the generated-line notice copy, and api.blocks (openStage,
-      removeDependent). Bump the nav minor version."
-  - id: chips
-    title: BLOCKS chip ＋ / × through api.blocks
-    depends_on:
-      - entry
-    size: small
-    description:
-      "chips: in bob-ledger-tools, give open-owner BLOCKS chip rows a ＋ that calls
-      api.blocks.openStage and a hover × on live chips that calls
-      api.blocks.removeDependent. Feature-detect api.blocks, leave frozen and stale
-      chips alone, and update the tooltip copy. Bump the ledger-tools minor version.
-      Gated by decision chips."
-  - id: publish
-    title: README, manifests, glossary, and the final sweep
-    depends_on:
-      - entry
-      - chips
-    size: small
-    description:
-      "publish: document Ctrl+Shift+Alt+B and ⇧B in the bob-plugins README,
-      deduplicating it first if it still repeats. Finalize the manifest descriptions,
-      apply the glossary_dep_link memory decision, run the full suites and bob plugins
-      sync, and check the docs against the shipped behavior."
+- id: contract
+  title: Blocks stage contract and RB vectors in the bob-cli docs
+  depends_on: []
+  size: medium
+  description: 'contract: write the Blocks… stage contract as docs/task-dependencies.md
+    §15 (entry points, pool, ranking, rows, guards, writes, notices, chips, api.blocks,
+    RB vectors). Update the cross-references in §5, §6.1, §8, §9, and §14.7–§14.12,
+    plus docs/projects.md, docs/freshness.md, and docs/capture.md. No code.'
+- id: writer
+  title: Reverse dependency writer with forward-parity tests
+  depends_on:
+  - contract
+  size: medium
+  description: 'writer: add a nav writer that puts sources N onto many dependents
+    T across notes, built on planDependencyEdit and the §6.6 prepare → commit → mirror
+    order. Prepare N once (id plus the strongest lane), plan its BLOCKS edit once
+    from the T writes that committed, and aggregate Pomodoro consumption. Prove byte
+    parity with the forward writer on the RBP/RBW vectors.'
+- id: stage
+  title: The Blocks… stage modal
+  depends_on:
+  - writer
+  size: medium
+  description: 'stage: add showBlocksStage to the property picker. It reuses the vault
+    pool and needs a reverse CURRENT, swapped guards, and today-first ranking. Add
+    the 🔑 / 🍅 / k-of-n badges, the one-line consequence strip, the dynamic footer
+    verb, the block-ID prompt for N, counted sources, marks, stale reopen, the inbox-route
+    gate, and review-origin continue.'
+- id: entry
+  title: Task Card ⇧B row, Ctrl+Shift+Alt+B, and every other entry point
+  depends_on:
+  - stage
+  size: medium
+  description: 'entry: add the Task Card Blocks… row (key ⇧B), the task-card-blocks
+    command bound to Ctrl+Shift+Alt+B, and counted N<Ctrl+Shift+Alt+B>. Wire Task
+    Link, Depends-On-line, and BLOCKS-line entries, Ctrl+Shift+P on a BLOCKS line,
+    entry refusals, the generated-line notice copy, and api.blocks (openStage, removeDependent).
+    Bump the nav minor version.'
+- id: chips
+  title: BLOCKS chip ＋ / × through api.blocks
+  depends_on:
+  - entry
+  size: small
+  description: 'chips: in bob-ledger-tools, give open-owner BLOCKS chip rows a ＋ that
+    calls api.blocks.openStage and a hover × on live chips that calls api.blocks.removeDependent.
+    Feature-detect api.blocks, leave frozen and stale chips alone, and update the
+    tooltip copy. Bump the ledger-tools minor version. Gated by decision chips.'
+- id: publish
+  title: README, manifests, glossary, and the final sweep
+  depends_on:
+  - entry
+  - chips
+  size: small
+  description: 'publish: document Ctrl+Shift+Alt+B and ⇧B in the bob-plugins README,
+    deduplicating it first if it still repeats. Finalize the manifest descriptions,
+    apply the glossary_dep_link memory decision, run the full suites and bob plugins
+    sync, and check the docs against the shipped behavior.'
 proposed_by: bbugyi200.athena.117
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-17 17:11:57
 status: wip
+bead_id: bob-cli-8x
 ---
 
-- **PROMPT:**
-  [prompts/202610/ctrl_shift_alt_b_blocks_stage.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_shift_alt_b_blocks_stage.md)
+- **PROMPT:** [prompts/202610/ctrl_shift_alt_b_blocks_stage.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ctrl_shift_alt_b_blocks_stage.md)
+- **BEAD:** [bob-cli-8x](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8x/README.md)
 
 # Plan: Ctrl+Shift+Alt+B opens the Blocks… stage, Ctrl+Shift+B in reverse
 
