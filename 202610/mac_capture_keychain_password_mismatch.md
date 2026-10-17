@@ -1,37 +1,48 @@
 ---
 tier: tale
 title: Diagnose a login keychain whose password no longer matches the login password
-goal: Bob Mac Capture installs name an out-of-sync login keychain password and its
-  one-time fix instead of blaming SSH or tmux.
+goal:
+  Bob Mac Capture installs name an out-of-sync login keychain password and its one-time
+  fix instead of blaming SSH or tmux.
 size: medium
 decisions:
   out_of_sync_prompt:
-    ask: Should the install offer to sync a mismatched login keychain password in
-      place?
+    ask: Should the install offer to sync a mismatched login keychain password in place?
     choices:
-      unlock: Explain the mismatch, offer a one-run unlock, and print the one-time
-        sync command
-      sync: Ask [y/N] to run security set-keychain-password, then fall back to the
-        one-run unlock
+      unlock:
+        Explain the mismatch, offer a one-run unlock, and print the one-time sync
+        command
+      sync:
+        Ask [y/N] to run security set-keychain-password, then fall back to the one-run
+        unlock
     default: unlock
     why: Bryan syncs once himself; an installer should not change a keychain password
     answer: unlock
   log_confirmation:
-    ask: Should the install read loginwindow's unified log to confirm the mismatch
-      before naming it?
+    ask:
+      Should the install read loginwindow's unified log to confirm the mismatch before
+      naming it?
     choices:
-      log: Confirm the mismatch from loginwindow's last keychain unlock; ~3 s, only
-        after a failed probe
+      log:
+        Confirm the mismatch from loginwindow's last keychain unlock; ~3 s, only after a
+        failed probe
       skip: Never read the log; always word the mismatch as the likely cause
     default: log
-    why: The last fix guessed wrong; the log line is definitive and costs nothing
-      on success
+    why:
+      The last fix guessed wrong; the log line is definitive and costs nothing on
+      success
     answer: log
 proposed_by: bbugyi200.apollo.8r
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.8r](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.8r.md)
+- **COMMITS:**
+  - [4c91ca9](https://github.com/bobs-org/bob-mac-capture/commit/4c91ca9d928947d1fa167a22be25516daab056d6)
+    — fix: diagnose login keychain password mismatch
 
 # Plan: Diagnose a login keychain whose password no longer matches the Mac login password
 
