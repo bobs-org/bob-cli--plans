@@ -1,56 +1,56 @@
 ---
 tier: epic
 title: Render Mermaid diagrams as vector figures in bob ref create PDFs
-goal: "Explicit Mermaid code blocks in Markdown and vault-note imports print as fitted,
-  selectable, Highlights-safe vector figures instead of wrapped source. Rendering is
-  offline and pinned, costs about one browser launch per document, and a broken diagram
-  or missing renderer degrades visibly without ever failing the import.
+goal: 'Explicit Mermaid code blocks in Markdown and vault-note imports print as fitted,
+  selectable, Highlights-safe vector figures instead of wrapped source. Rendering
+  is offline and pinned, costs about one browser launch per document, and a broken
+  diagram or missing renderer degrades visibly without ever failing the import.
 
-  "
+  '
 phases:
-  - id: adapter
-    title: Mermaid `diagrams` op in the web-clip adapter
-    depends_on: []
-    size: medium
-    description: "adapter: vendor a pinned Mermaid 12.x bundle and a static DejaVu Sans
-      TTF, add a `diagrams` op that renders batches offline in one Chrome page to fitted
-      vector PDFs with per-item error isolation, report the version from ping, and
-      extend the self-test.
+- id: adapter
+  title: Mermaid `diagrams` op in the web-clip adapter
+  depends_on: []
+  size: medium
+  description: 'adapter: vendor a pinned Mermaid 12.x bundle and a static DejaVu Sans
+    TTF, add a `diagrams` op that renders batches offline in one Chrome page to fitted
+    vector PDFs with per-item error isolation, report the version from ping, and extend
+    the self-test.
 
-      "
-  - id: ast
-    title: Diagram collect and swap filters, wired behind an off-by-default hook
-    depends_on: []
-    size: medium
-    description: "ast: add the Rust diagrams module with the kill switch, the fence
-      pre-scan, the pandoc collect pass, and the results writer, plus the collect and
-      swap Lua filters, inserted first in both renderers through RenderFilters but
-      unused in production yet.
+    '
+- id: ast
+  title: Diagram collect and swap filters, wired behind an off-by-default hook
+  depends_on: []
+  size: medium
+  description: 'ast: add the Rust diagrams module with the kill switch, the fence
+    pre-scan, the pandoc collect pass, and the results writer, plus the collect and
+    swap Lua filters, inserted first in both renderers through RenderFilters but unused
+    in production yet.
 
-      "
-  - id: wire
-    title: Render through the adapter on both routes
-    depends_on:
-      - adapter
-      - ast
-    size: medium
-    description: "wire: add the adapter client call, orchestration that never fails the
-      import, the results and fallback notes, the scale warnings, and the summary and
-      warning output on the generic and snapshot routes, with stub-adapter tests and an
-      athena smoke run.
+    '
+- id: wire
+  title: Render through the adapter on both routes
+  depends_on:
+  - adapter
+  - ast
+  size: medium
+  description: 'wire: add the adapter client call, orchestration that never fails
+    the import, the results and fallback notes, the scale warnings, and the summary
+    and warning output on the generic and snapshot routes, with stub-adapter tests
+    and an athena smoke run.
 
-      "
-  - id: finish
-    title: Dry-run, doctor, docs, live test, and acceptance
-    depends_on:
-      - wire
-    size: medium
-    description: "finish: add the browser-free dry-run count, the warn-only doctor row,
-      the docs, a gated live end-to-end PDF test, the athena acceptance run on the
-      12-fence report, Mac acceptance per decision, the optional decision record, and
-      follow-up notes.
+    '
+- id: finish
+  title: Dry-run, doctor, docs, live test, and acceptance
+  depends_on:
+  - wire
+  size: medium
+  description: 'finish: add the browser-free dry-run count, the warn-only doctor row,
+    the docs, a gated live end-to-end PDF test, the athena acceptance run on the 12-fence
+    report, Mac acceptance per decision, the optional decision record, and follow-up
+    notes.
 
-      "
+    '
 decisions:
   mac_check:
     ask: How should the final phase cover the Mac acceptance run?
@@ -63,7 +63,7 @@ decisions:
   decision_record:
     ask: Add a decisions-web record for the Mermaid rendering and failure policy?
     memory:
-      - decisions:ref-create-renders-mermaid-in-the-adapter
+    - decisions:ref-create-renders-mermaid-in-the-adapter
     default: false
     answer: false
 proposed_by: bbugyi200.athena.research.4r.linker.w0
@@ -71,10 +71,11 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-17 19:29:16
 status: wip
+bead_id: bob-cli-8y
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_create_mermaid_figures.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_mermaid_figures.md)
+- **PROMPT:** [prompts/202610/ref_create_mermaid_figures.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_mermaid_figures.md)
+- **BEAD:** [bob-cli-8y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8y/README.md)
 
 # Plan: Mermaid figures in `bob ref create` PDFs
 
