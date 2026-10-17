@@ -1,31 +1,26 @@
 ---
 tier: tale
 title: Control-Return reuses any open tab, else appends at the far right
-goal:
-  Control-Return in Bob Mac Capture reuses a tab already showing each note, including
+goal: Control-Return in Bob Mac Capture reuses a tab already showing each note, including
   unloaded background tabs, and otherwise appends new tabs at the far right of the
   active tab group instead of right after the focused tab.
 size: small
 decisions:
   empty_tab:
-    ask:
-      If the first note isn't open but the active tab is an empty New tab, fill that tab
-      instead of appending one?
+    ask: If the first note isn't open but the active tab is an empty New tab, fill
+      that tab instead of appending one?
     choices:
-      reuse:
-        The note fills the blank tab in place; no stray blank tab, but it can land
-        mid-strip
+      reuse: The note fills the blank tab in place; no stray blank tab, but it can
+        land mid-strip
       end: The note always opens at the far right; the blank tab stays where it was
     default: reuse
-    why:
-      A blank tab holds nothing, and the usual one (all tabs closed) is already the far
-      right
+    why: A blank tab holds nothing, and the usual one (all tabs closed) is already
+      the far right
     answer: reuse
 proposed_by: bbugyi200.apollo.8s
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-17 18:55:44
-status: wip
+status: done
 ---
 
 # Plan: Control-Return reuses any open tab, else appends at the far right
