@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "no_current",
+      "kind": "choice",
+      "ask": "When no Pomodoro is running, should Control-\\ still land on the nearest Pomodoro line instead of the note's top?",
+      "why": "Between sessions, the next planned Pomodoro is where work resumes",
+      "choices": [
+        {
+          "key": "nearest",
+          "label": "Land on the first open Pomodoro, else the last completed one, else the note's first line"
+        },
+        {
+          "key": "top",
+          "label": "Open today's note at its first line whenever nothing is running"
+        },
+        {
+          "key": "refuse",
+          "label": "Keep the panel open with \"No Pomodoro is running\" and open nothing"
+        }
+      ],
+      "default": "nearest",
+      "effective_default": "nearest",
+      "requested_verified": false
+    }
+  ]
+}
