@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "remote_access",
+      "kind": "choice",
+      "ask": "Should Plex become reachable only over the tailnet and LAN, with internet exposure removed?",
+      "why": "Internet-exposed 32400 was the entry point; all of Bryan's devices already use the tailnet",
+      "choices": [
+        {
+          "key": "tailnet",
+          "label": "Remote Access off, router mapping removed, 32400 firewalled; off-tailnet viewers lose access"
+        },
+        {
+          "key": "patched_public",
+          "label": "Patched Remote Access stays on via one manual forward, UPnP off; the internet surface remains"
+        }
+      ],
+      "default": "tailnet",
+      "effective_default": "tailnet",
+      "requested_verified": false
+    },
+    {
+      "id": "recovery_mode",
+      "kind": "choice",
+      "ask": "Should athena be cleaned in place instead of reinstalled?",
+      "why": "Evidence shows only uid plex was held, and Step 2 must prove no root access before cleaning",
+      "choices": [
+        {
+          "key": "clean",
+          "label": "Keep OS, library and home; fall back to rebuild only if a root tripwire fires"
+        },
+        {
+          "key": "rebuild",
+          "label": "Contain, preserve and report, then stop with a reinstall runbook; Plex stays off until rebuilt"
+        }
+      ],
+      "default": "clean",
+      "effective_default": "clean",
+      "requested_verified": false
+    },
+    {
+      "id": "plex_data",
+      "kind": "choice",
+      "ask": "Should the existing Plex data directory be kept and scrubbed rather than replaced?",
+      "why": "The payload sits in Codecs and /tmp; the database holds no code, and Step 2 sweeps for more",
+      "choices": [
+        {
+          "key": "scrub",
+          "label": "Keep the database and watch history; quarantine code-bearing dirs and reset abused prefs"
+        },
+        {
+          "key": "fresh",
+          "label": "Quarantine all Plex data and start empty; re-claim server, re-add libraries, lose watch history"
+        }
+      ],
+      "default": "scrub",
+      "effective_default": "scrub",
+      "requested_verified": false
+    },
+    {
+      "id": "home_perms",
+      "kind": "choice",
+      "ask": "Should /home/bryan stop being world-readable?",
+      "why": "The plex account could read every world-readable home file; the next breach could too",
+      "choices": [
+        {
+          "key": "lock",
+          "label": "Home and ~/.config become 750 and secrets 600; other users that read ~bryan break until fixed"
+        },
+        {
+          "key": "secrets_only",
+          "label": "Home stays 755; only the identified secret files become 600"
+        }
+      ],
+      "default": "lock",
+      "effective_default": "lock",
+      "requested_verified": false
+    },
+    {
+      "id": "report",
+      "kind": "choice",
+      "ask": "Should the redacted incident report go in the bob-cli--research sidecar?",
+      "why": "The sidecar holds durable reports, and redaction keeps tokens and malware out of git",
+      "choices": [
+        {
+          "key": "research",
+          "label": "Redacted report (no binaries or tokens) in bob-cli--research; raw evidence stays on apollo"
+        },
+        {
+          "key": "local",
+          "label": "Report lives only beside the off-host evidence on apollo, outside any git repo"
+        }
+      ],
+      "default": "research",
+      "effective_default": "research",
+      "requested_verified": false
+    }
+  ]
+}
