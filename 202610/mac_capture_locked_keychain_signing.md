@@ -1,33 +1,27 @@
 ---
 tier: tale
 title: Sign or stop cleanly when the login keychain is locked
-goal:
-  just install either signs with the stable identity or stops before building with an
-  actionable fix.
+goal: just install either signs with the stable identity or stops before building
+  with an actionable fix.
 size: medium
 decisions:
   locked_keychain:
-    ask:
-      Should the installer offer to unlock a locked login keychain when the stable
+    ask: Should the installer offer to unlock a locked login keychain when the stable
       identity exists?
     choices:
-      unlock:
-        Prompts via security unlock-keychain in a terminal, then retries; otherwise
+      unlock: Prompts via security unlock-keychain in a terminal, then retries; otherwise
         stops with exit 77
       fail: Never prompts; always stops before building with exit 77 and the fixes
-      adhoc:
-        Falls back to ad-hoc with a warning; the Accessibility grant resets on that
-        install
+      adhoc: Falls back to ad-hoc with a warning; the Accessibility grant resets on
+        that install
     default: unlock
-    why:
-      SSH/tmux installs work after one password prompt and keep the stable signature and
-      grant
+    why: SSH/tmux installs work after one password prompt and keep the stable signature
+      and grant
     answer: unlock
 proposed_by: bbugyi200.apollo.8n
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-17 13:14:16
-status: wip
+status: done
 ---
 
 # Plan: Make `just install` sign or stop cleanly when the login keychain is locked
