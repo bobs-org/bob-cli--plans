@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "idless",
+      "kind": "choice",
+      "ask": "Should a rename add an id to a reference that has none?",
+      "why": "77 PDF-backed refs were created without --include-id on purpose",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Id-less references stay id-less; renaming them leaves the PDF bytes untouched"
+        },
+        {
+          "key": "add",
+          "label": "Renames write id = new stem into the note and PDF marker, so every renamed ref gains an id"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "vault_repair",
+      "kind": "toggle",
+      "ask": "Should the coder re-key the live vault's mismatched references once the fix passes its tests?",
+      "why": "The eight live violations are the visible symptom; each repair is one revertable commit",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "decisions_memory",
+      "kind": "toggle",
+      "ask": "Should a new decisions record replace the rename-keeps-id claim, marking the old record superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:reference-renames-keep-identity",
+          "decisions:reference-ids-follow-file-stems"
+        ]
+      },
+      "corrects": "It keeps the reference's `id`, `^ref-\u2026` block ID, title, `source_url`, dates, PDF marker, and PDF bytes.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:reference-renames-keep-identity",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Reference Renames Keep Identity"
+          ]
+        },
+        {
+          "selector": "decisions:reference-ids-follow-file-stems",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/reference-ids-follow-file-stems.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
