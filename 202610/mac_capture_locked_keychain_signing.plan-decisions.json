@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "locked_keychain",
+      "kind": "choice",
+      "ask": "Should the installer offer to unlock a locked login keychain when the stable identity exists?",
+      "why": "SSH/tmux installs work after one password prompt and keep the stable signature and grant",
+      "choices": [
+        {
+          "key": "unlock",
+          "label": "Prompts via security unlock-keychain in a terminal, then retries; otherwise stops with exit 77"
+        },
+        {
+          "key": "fail",
+          "label": "Never prompts; always stops before building with exit 77 and the fixes"
+        },
+        {
+          "key": "adhoc",
+          "label": "Falls back to ad-hoc with a warning; the Accessibility grant resets on that install"
+        }
+      ],
+      "default": "unlock",
+      "effective_default": "unlock",
+      "requested_verified": false
+    }
+  ]
+}
