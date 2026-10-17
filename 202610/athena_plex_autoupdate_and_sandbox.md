@@ -1,93 +1,84 @@
 ---
 tier: epic
-title: "Athena: automatic Plex updates, apt-source alerting, and a Plex sandbox"
-goal:
-  Plex on athena patches itself from repo.plex.tv, a stale or failing apt source reaches
-  Bryan as an alert within days, and plexmediaserver runs sandboxed with every Plex
-  feature still working; bob-cli-8s and bob-cli-8t are closed.
+title: 'Athena: automatic Plex updates, apt-source alerting, and a Plex sandbox'
+goal: Plex on athena patches itself from repo.plex.tv, a stale or failing apt source
+  reaches Bryan as an alert within days, and plexmediaserver runs sandboxed with every
+  Plex feature still working; bob-cli-8s and bob-cli-8t are closed.
 decisions:
   plex_end_state:
     ask: Should Plex be left enabled and running once the sandbox passes validation?
     choices:
-      as_found:
-        Plex runs only during validation, then ends stopped and disabled as Gate B left
-        it
-      enable:
-        Plex returns for LAN and tailnet viewers, sandboxed; overrides Gate B's tripwire
-        hold
+      as_found: Plex runs only during validation, then ends stopped and disabled as
+        Gate B left it
+      enable: Plex returns for LAN and tailnet viewers, sandboxed; overrides Gate
+        B's tripwire hold
     default: as_found
-    why:
-      Gate B's tripwire left Plex off until Bryan's clean-or-rebuild call; not this
-      work's call
+    why: Gate B's tripwire left Plex off until Bryan's clean-or-rebuild call; not
+      this work's call
     answer: as_found
   alert_delivery:
     ask: How should athena's Prometheus alerts reach Bryan?
     choices:
-      email:
-        Mail via the existing postfix/Mailjet relay; no new secret, but lands beside
-        daily anacron mail
-      telegram:
-        Native Telegram receiver on the SASE bot; reaches the phone but copies its token
-        onto athena
-      defer:
-        Rules and metrics only; nothing is delivered until bob-cli-8r wires a channel
+      email: Mail via the existing postfix/Mailjet relay; no new secret, but lands
+        beside daily anacron mail
+      telegram: Native Telegram receiver on the SASE bot; reaches the phone but copies
+        its token onto athena
+      defer: Rules and metrics only; nothing is delivered until bob-cli-8r wires a
+        channel
     default: email
-    why:
-      Anacron mail already reaches Gmail via this relay, and no new secret lands on a
-      just-breached host
+    why: Anacron mail already reaches Gmail via this relay, and no new secret lands
+      on a just-breached host
     answer: email
   upgrade_scope:
-    ask: Should unattended-upgrades also install Debian security updates, not just Plex?
+    ask: Should unattended-upgrades also install Debian security updates, not just
+      Plex?
     choices:
-      plex_and_security:
-        Plex plus Debian-Security; stable point releases still wait for manual upgrades
-      plex_and_debian_stock:
-        Also Debian stable point releases, kernels included, install unattended
+      plex_and_security: Plex plus Debian-Security; stable point releases still wait
+        for manual upgrades
+      plex_and_debian_stock: Also Debian stable point releases, kernels included,
+        install unattended
       plex_only: Only Plex upgrades automatically; Debian security fixes stay manual
     default: plex_and_security
-    why:
-      sshd and postfix listen too, and security-only updates are Debian's lowest-risk
+    why: sshd and postfix listen too, and security-only updates are Debian's lowest-risk
       channel
     answer: plex_and_security
   extra_hardening:
-    ask:
-      Should the Plex drop-in add the low-risk hardening options beyond the bead's list?
+    ask: Should the Plex drop-in add the low-risk hardening options beyond the bead's
+      list?
     choices:
-      extras:
-        Adds no caps, no 32-bit syscalls, hidden foreign PIDs, no exec on /mnt/hercules;
+      extras: Adds no caps, no 32-bit syscalls, hidden foreign PIDs, no exec on /mnt/hercules;
         offline 3.3 OK
       bead_only: Exactly the bead's option list; offline score 7.2 MEDIUM
     default: extras
-    why:
-      The bot was an i386 ELF and secrets sat in others' process args; these block both
+    why: The bot was an i386 ELF and secrets sat in others' process args; these block
+      both
     answer: extras
 phases:
-  - id: apt-health
-    title: Unattended Plex upgrades and stale-apt-source alerting (bob-cli-8s)
-    size: medium
-    depends_on: []
-    description:
-      "apt-health: reinstall unattended-upgrades with the repo.plex.tv origin, add the
-      root-run apt source health collector, rules, and Alertmanager delivery, fix the
-      expired GitHub CLI apt key the new alert catches, then close bob-cli-8s."
-  - id: plex-sandbox
-    title: systemd hardening drop-in for plexmediaserver (bob-cli-8t)
-    size: medium
-    depends_on: []
-    description:
-      "plex-sandbox: install the hardening drop-in, validate it against NVENC
-      transcoding, library scans, DLNA, and codec/updater downloads, record before/after
-      security scores, restore Plex's run state, then close bob-cli-8t."
+- id: apt-health
+  title: Unattended Plex upgrades and stale-apt-source alerting (bob-cli-8s)
+  size: medium
+  depends_on: []
+  description: 'apt-health: reinstall unattended-upgrades with the repo.plex.tv origin,
+    add the root-run apt source health collector, rules, and Alertmanager delivery,
+    fix the expired GitHub CLI apt key the new alert catches, then close bob-cli-8s.'
+- id: plex-sandbox
+  title: systemd hardening drop-in for plexmediaserver (bob-cli-8t)
+  size: medium
+  depends_on: []
+  description: 'plex-sandbox: install the hardening drop-in, validate it against NVENC
+    transcoding, library scans, DLNA, and codec/updater downloads, record before/after
+    security scores, restore Plex''s run state, then close bob-cli-8t.'
 proposed_by: bbugyi200.athena.110
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-17 12:20:27
 status: wip
+bead_id: bob-cli-8v
 ---
 
-- **PROMPT:**
-  [prompts/202610/athena_plex_autoupdate_and_sandbox.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/athena_plex_autoupdate_and_sandbox.md)
+- **PROMPT:** [prompts/202610/athena_plex_autoupdate_and_sandbox.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/athena_plex_autoupdate_and_sandbox.md)
+- **BEAD:** [bob-cli-8v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8v/README.md)
 
 # Athena: Automatic Plex Updates, Apt-Source Alerting, And A Plex Sandbox
 
