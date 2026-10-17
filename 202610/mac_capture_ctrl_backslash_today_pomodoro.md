@@ -1,16 +1,19 @@
 ---
 tier: tale
 title: Bob Mac Capture Control-\ opens today's note on the current Pomodoro
-goal: In the capture panel, Control-\ opens today's daily note in Obsidian with the
-  caret on the running Pomodoro line, keeping any draft.
+goal:
+  In the capture panel, Control-\ opens today's daily note in Obsidian with the caret on
+  the running Pomodoro line, keeping any draft.
 size: medium
 decisions:
   no_current:
-    ask: When no Pomodoro is running, should Control-\ still land on the nearest Pomodoro
+    ask:
+      When no Pomodoro is running, should Control-\ still land on the nearest Pomodoro
       line instead of the note's top?
     choices:
-      nearest: Land on the first open Pomodoro, else the last completed one, else
-        the note's first line
+      nearest:
+        Land on the first open Pomodoro, else the last completed one, else the note's
+        first line
       top: Open today's note at its first line whenever nothing is running
       refuse: Keep the panel open with "No Pomodoro is running" and open nothing
     default: nearest
@@ -21,6 +24,12 @@ proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.8p](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.8p.md)
+- **COMMITS:**
+  - [ff96c07](https://github.com/bobs-org/bob-plugins/commit/ff96c07db7ec3e3e37113a9feaa8fb463fa9f63f)
+    — docs: name Control-backslash as a bob-goto-task caller
 
 # Bob Mac Capture: Control-\ opens today's note on the current Pomodoro
 
