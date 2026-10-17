@@ -1,38 +1,37 @@
 ---
 tier: tale
 title: Cmd+Enter opens the selected reference task's PDF in Highlights
-goal:
-  In Obsidian on the Mac, Cmd+Enter on a reading task, or a Task Link or managed embed
-  pointing at one, opens its library PDF in Highlights without writing the vault, while
-  Cmd+Enter everywhere else keeps opening the link under the cursor in a new tab.
+goal: In Obsidian on the Mac, Cmd+Enter on a reading task, or a Task Link or managed
+  embed pointing at one, opens its library PDF in Highlights without writing the vault,
+  while Cmd+Enter everywhere else keeps opening the link under the cursor in a new
+  tab.
 size: medium
 decisions:
   non_mac:
-    ask:
-      Off macOS, should Cmd+Enter on a reading task open the PDF in the system default
-      viewer?
+    ask: Off macOS, should Cmd+Enter on a reading task open the PDF in the system
+      default viewer?
     choices:
       notice: Show a "Highlights is macOS-only" notice; nothing opens
       default_app: Open the PDF in the system default viewer instead
     default: notice
-    why:
-      Highlights is the annotation source bob ref scan reads; other viewers never sync
+    why: Highlights is the annotation source bob ref scan reads; other viewers never
+      sync
     answer: notice
   ref_note_scope:
-    ask: Should Cmd+Enter anywhere inside a managed reference note open that note's PDF?
+    ask: Should Cmd+Enter anywhere inside a managed reference note open that note's
+      PDF?
     choices:
-      task_lines:
-        Only reading-task, managed-embed, v1-tracker, and Task Link lines open the PDF
-      whole_note:
-        Any ref-note line opens its PDF; Cmd+Enter on links there stops opening new tabs
+      task_lines: Only reading-task, managed-embed, v1-tracker, and Task Link lines
+        open the PDF
+      whole_note: Any ref-note line opens its PDF; Cmd+Enter on links there stops
+        opening new tabs
     default: task_lines
     why: Matches the request and keeps built-in Cmd+Enter on links inside ref notes
     answer: task_lines
 proposed_by: bbugyi200.athena.111
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-17 12:22:23
-status: wip
+status: done
 ---
 
 # Cmd+Enter opens the selected reference task's PDF in Highlights
