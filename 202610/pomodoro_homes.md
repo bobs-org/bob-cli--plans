@@ -1,134 +1,126 @@
 ---
 tier: epic
 title: Pomodoro homes — derived area and project labels and stats
-goal: "Every Pomodoro is labeled, on every surface, by the areas and projects of the
+goal: 'Every Pomodoro is labeled, on every surface, by the areas and projects of the
   tasks it links. The labels are derived at read time from Task Links and never written
-  to the vault. `bob stats` and `dash_stats.md` aggregate time and task throughput by
-  area and project. `rollup: subprojects` on `sase.md` reports every sase sub-project as
-  `sase`. Authored names keep working exactly as they do today, but naming a session
+  to the vault. `bob stats` and `dash_stats.md` aggregate time and task throughput
+  by area and project. `rollup: subprojects` on `sase.md` reports every sase sub-project
+  as `sase`. Authored names keep working exactly as they do today, but naming a session
   becomes optional.
 
-  "
+  '
 decisions:
   review_bridge:
-    ask: Count unnamed Jun–Aug sessions that link the daily ^gtd row as GTD review time?
+    ask: Count unnamed Jun–Aug sessions that link the daily ^gtd row as GTD review
+      time?
     default: true
-    why:
-      In the named era ^gtd and GTD agree for 92 of 94 sessions; this keeps 114 h of
-      summer review
+    why: In the named era ^gtd and GTD agree for 92 of 94 sessions; this keeps 114
+      h of summer review
     answer: true
   review_time_predicate:
-    ask:
-      Redefine the built-in review_time metric as exactly the GTD review row's minutes?
+    ask: Redefine the built-in review_time metric as exactly the GTD review row's
+      minutes?
     default: true
-    why:
-      The page then has one definition of review time, so the tile and the row always
-      agree
+    why: The page then has one definition of review time, so the tile and the row
+      always agree
     answer: true
   memory_mac_pom:
-    ask:
-      Update the Mac Menu Bar Pomodoro Indicator glossary term for derived home titles?
+    ask: Update the Mac Menu Bar Pomodoro Indicator glossary term for derived home
+      titles?
     memory:
-      - glossary:mac-menu-bar-pomodoro-indicator
+    - glossary:mac-menu-bar-pomodoro-indicator
     default: true
     corrects: where THEME is the Pomodoro's ` — NAME` (`UNTITLED` when
     answer: true
   memory_decision_record:
-    ask:
-      Record "Pomodoro homes are derived, never written; rollup is reporting-only" as a
-      decision?
+    ask: Record "Pomodoro homes are derived, never written; rollup is reporting-only"
+      as a decision?
     memory:
-      - decisions:pomodoro-homes-are-derived
+    - decisions:pomodoro-homes-are-derived
     default: false
     answer: false
   memory_home_term:
-    ask:
-      Add a glossary term Home (the derived area/project a task or Pomodoro belongs to)?
+    ask: Add a glossary term Home (the derived area/project a task or Pomodoro belongs
+      to)?
     memory:
-      - glossary:home
+    - glossary:home
     default: false
     answer: false
 phases:
-  - id: homes-core
-    title: Shared homes resolver, rollup switch, contract, and vault config
-    depends_on: []
-    size: medium
-    description:
-      "homes-core: build the one Rust resolver for task homes, session links, review
-      sessions, splitting, labels, chips, and hues. Parse and lint `rollup` and area
-      `color`. Write the normative docs/pomodoro-homes.md and the shared conformance
-      vectors, show the rollup flag in `bob projects list`, and configure sase.md and
-      the six top-level area notes."
-  - id: stats-parts
-    title: Area and project parts in bob stats
-    depends_on:
-      - homes-core
-    size: medium
-    description:
-      "stats-parts: index closed-session links in the stats pass and add area and
-      project parts to the pomodoro and task metrics, with buckets, a homes catalog,
-      apportioned minutes, and health. Print every parts dimension in the CLI. Add an
-      H-vector fixture vault and update docs/stats.md."
-  - id: stats-drilldown
-    title: Pomodoro in/review filters and session drill-down data
-    depends_on:
-      - stats-parts
-    size: medium
-    description:
-      "stats-drilldown: add the pomodoro `in:`, `exclude_in`, and `review:` filters, put
-      review_time on the review predicate (per decision), and add the top-level
-      `sessions` list that the panel drill-down reads. Add vectors and docs."
-  - id: live-surfaces
-    title: Homes on capture-pomodoros, bob plan, and bob pomodoro
-    depends_on:
-      - homes-core
-    size: medium
-    description:
-      "live-surfaces: add an additive `homes` object to capture-pomodoros --tasks
-      entries and to bob plan JSON entries, and dim chips to capture-pomodoros human
-      output. Make `bob pomodoro` print the derived label for unnamed sessions. Update
-      the chezmoi menu-bar spec and tests, the docs, and the mac pom glossary."
-  - id: ledger-chips
-    title: Obsidian ledger home chips
-    depends_on:
-      - homes-core
-    size: medium
-    description:
-      "ledger-chips: add a bob-ledger-tools JavaScript mirror of the resolver that runs
-      the shared vectors verbatim. Draw quiet lowercase home chips on Pomodoro entry
-      lines in Live Preview and Reading view, with the area-hue CSS tokens, the
-      suppression rules, and a toggle. Then sync the plugins."
-  - id: stats-panel
-    title: Where the time went panel on dash_stats.md
-    depends_on:
-      - stats-drilldown
-      - ledger-chips
-    size: medium
-    description:
-      'stats-panel: replace the "by theme" pomodoro context panel with an Areas &
-      projects view (area bar, projects grouped by area, apportioned tint, buckets,
-      drill-down, pinned-day filter) and keep Themes one click away. Show the same table
-      for task metrics, add preview fixtures and tests, then sync.'
-  - id: mac-agenda
-    title: Bob Mac Capture agenda shows homes
-    depends_on:
-      - live-surfaces
-    size: small
-    description:
-      'mac-agenda: decode the additive `homes` object. Unnamed agenda and Refs Today
-      entries show the derived label instead of "Untitled Pomodoro", and named entries
-      gain a muted chip with an area-hue dot. Add fixtures and tests, and gate on
-      portable-check plus macOS CI.'
+- id: homes-core
+  title: Shared homes resolver, rollup switch, contract, and vault config
+  depends_on: []
+  size: medium
+  description: 'homes-core: build the one Rust resolver for task homes, session links,
+    review sessions, splitting, labels, chips, and hues. Parse and lint `rollup` and
+    area `color`. Write the normative docs/pomodoro-homes.md and the shared conformance
+    vectors, show the rollup flag in `bob projects list`, and configure sase.md and
+    the six top-level area notes.'
+- id: stats-parts
+  title: Area and project parts in bob stats
+  depends_on:
+  - homes-core
+  size: medium
+  description: 'stats-parts: index closed-session links in the stats pass and add
+    area and project parts to the pomodoro and task metrics, with buckets, a homes
+    catalog, apportioned minutes, and health. Print every parts dimension in the CLI.
+    Add an H-vector fixture vault and update docs/stats.md.'
+- id: stats-drilldown
+  title: Pomodoro in/review filters and session drill-down data
+  depends_on:
+  - stats-parts
+  size: medium
+  description: 'stats-drilldown: add the pomodoro `in:`, `exclude_in`, and `review:`
+    filters, put review_time on the review predicate (per decision), and add the top-level
+    `sessions` list that the panel drill-down reads. Add vectors and docs.'
+- id: live-surfaces
+  title: Homes on capture-pomodoros, bob plan, and bob pomodoro
+  depends_on:
+  - homes-core
+  size: medium
+  description: 'live-surfaces: add an additive `homes` object to capture-pomodoros
+    --tasks entries and to bob plan JSON entries, and dim chips to capture-pomodoros
+    human output. Make `bob pomodoro` print the derived label for unnamed sessions.
+    Update the chezmoi menu-bar spec and tests, the docs, and the mac pom glossary.'
+- id: ledger-chips
+  title: Obsidian ledger home chips
+  depends_on:
+  - homes-core
+  size: medium
+  description: 'ledger-chips: add a bob-ledger-tools JavaScript mirror of the resolver
+    that runs the shared vectors verbatim. Draw quiet lowercase home chips on Pomodoro
+    entry lines in Live Preview and Reading view, with the area-hue CSS tokens, the
+    suppression rules, and a toggle. Then sync the plugins.'
+- id: stats-panel
+  title: Where the time went panel on dash_stats.md
+  depends_on:
+  - stats-drilldown
+  - ledger-chips
+  size: medium
+  description: 'stats-panel: replace the "by theme" pomodoro context panel with an
+    Areas & projects view (area bar, projects grouped by area, apportioned tint, buckets,
+    drill-down, pinned-day filter) and keep Themes one click away. Show the same table
+    for task metrics, add preview fixtures and tests, then sync.'
+- id: mac-agenda
+  title: Bob Mac Capture agenda shows homes
+  depends_on:
+  - live-surfaces
+  size: small
+  description: 'mac-agenda: decode the additive `homes` object. Unnamed agenda and
+    Refs Today entries show the derived label instead of "Untitled Pomodoro", and
+    named entries gain a muted chip with an area-hue dot. Add fixtures and tests,
+    and gate on portable-check plus macOS CI.'
 proposed_by: bbugyi200.athena.research.4t.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-10-18 16:35:48
 status: wip
+bead_id: bob-cli-9k
 ---
 
-- **PROMPT:**
-  [prompts/202610/pomodoro_homes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_homes.md)
+- **PROMPT:** [prompts/202610/pomodoro_homes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_homes.md)
+- **BEAD:** [bob-cli-9k](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9k/README.md)
 
 # Plan: Pomodoro homes — derived area and project labels and stats
 
