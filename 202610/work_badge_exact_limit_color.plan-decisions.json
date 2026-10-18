@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "color",
+      "kind": "choice",
+      "ask": "Which color should a Work badge show when its count exactly meets the limit?",
+      "why": "Magenta fills the widest unused hue gap and stays clear of red, the accent, and blue",
+      "choices": [
+        {
+          "key": "magenta",
+          "label": "Plum in light mode, orchid in dark; no Bob chip uses it, and it clears every Work tone"
+        },
+        {
+          "key": "pink",
+          "label": "Simplest CSS, but in light mode it sits next to red (\u0394E 3 at the 14% chip tint)"
+        },
+        {
+          "key": "purple",
+          "label": "Reads as \"complete\", but matches the PROJECTS/BLOCKED accent and looks blue if colorblind"
+        }
+      ],
+      "default": "magenta",
+      "effective_default": "magenta",
+      "requested_verified": false
+    }
+  ]
+}
