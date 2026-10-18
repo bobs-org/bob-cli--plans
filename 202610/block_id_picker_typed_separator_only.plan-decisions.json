@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "after_edit_affordance",
+      "kind": "choice",
+      "ask": "Should a non-opening edit in a block-ID token (Backspace, typing inside an ID) show the reopen chip?",
+      "why": "the chip is the app's existing quiet way to reopen this picker, and it never takes focus",
+      "choices": [
+        {
+          "key": "chip",
+          "label": "Show the existing reopen chip, as caret-only moves already do"
+        },
+        {
+          "key": "none",
+          "label": "Show nothing; the picker returns only by retyping the separator or a caret move"
+        }
+      ],
+      "default": "chip",
+      "effective_default": "chip",
+      "requested_verified": false
+    },
+    {
+      "id": "active_task_picker",
+      "kind": "choice",
+      "ask": "Should the `^` active-task picker also open only on the edit that typed its `^`?",
+      "why": "Bryan reported only the `@route:` menu; the `^` picker can opt in later without rework",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Change only the Block ID Picker; Backspace inside `^route:id` still reopens the `^` picker"
+        },
+        {
+          "key": "extend",
+          "label": "The `^` picker follows the same rule; Backspace inside `^route:id` shows its chip"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
