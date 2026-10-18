@@ -1,72 +1,69 @@
 ---
 tier: epic
-title: "Bob Refs ⌘0 Newest: browse references by capture date"
-goal: "In the Bob Refs panel, ⌘0 toggles a Newest mode: every reference in a
-  date-grouped timeline, newest capture first, still filterable by typing. bob also
-  reports a capture timestamp that is complete, rename-safe, and accurate to the minute
-  where the vault knows the time.
+title: 'Bob Refs ⌘0 Newest: browse references by capture date'
+goal: 'In the Bob Refs panel, ⌘0 toggles a Newest mode: every reference in a date-grouped
+  timeline, newest capture first, still filterable by typing. bob also reports a capture
+  timestamp that is complete, rename-safe, and accurate to the minute where the vault
+  knows the time.
 
-  "
+  '
 decisions:
   newest_persistence:
     ask: Should Newest stay on after the panel hides, until you turn it off yourself?
     choices:
-      reset:
-        Every show opens on the Library sections, like scope and Tabs; press ⌘0 again
-      remember:
-        Newest stays on across shows and relaunches; Esc and Backspace no longer clear
-        it
+      reset: Every show opens on the Library sections, like scope and Tabs; press
+        ⌘0 again
+      remember: Newest stays on across shows and relaunches; Esc and Backspace no
+        longer clear it
     default: reset
-    why:
-      Opening fresh keeps Today and Just scanned one glance away, like every other
+    why: Opening fresh keeps Today and Just scanned one glance away, like every other
       filter
     answer: reset
   memory_added_time_record:
-    ask:
-      Add a decisions record that ref added times come from created or git birth, never
-      backfilled?
+    ask: Add a decisions record that ref added times come from created or git birth,
+      never backfilled?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: bob-added-at
-    title: "bob: reliable added_at timestamps in ref rows"
-    depends_on: []
-    size: medium
-    description: "bob-added-at: add the additive `added_at` row field, make `-g` date
-      every modern row (v2 included) from its rename-following git birth commit, and
-      document the `added` precedence.
+- id: bob-added-at
+  title: 'bob: reliable added_at timestamps in ref rows'
+  depends_on: []
+  size: medium
+  description: 'bob-added-at: add the additive `added_at` row field, make `-g` date
+    every modern row (v2 included) from its rename-following git birth commit, and
+    document the `added` precedence.
 
-      "
-  - id: refs-core-newest
-    title: "RefsCore: Newest ordering, date groups, captions, refs-rank"
-    depends_on: []
-    size: medium
-    description: "refs-core-newest: decode `added_at`, keep git instants in the
-      snapshot, and add the pure Newest listing (date groups, sort keys, captions,
-      why-here, section jumps) plus `refs-rank --newest`.
+    '
+- id: refs-core-newest
+  title: 'RefsCore: Newest ordering, date groups, captions, refs-rank'
+  depends_on: []
+  size: medium
+  description: 'refs-core-newest: decode `added_at`, keep git instants in the snapshot,
+    and add the pure Newest listing (date groups, sort keys, captions, why-here, section
+    jumps) plus `refs-rank --newest`.
 
-      "
-  - id: refs-panel-newest
-    title: "Panel: ⌘0 toggle, Newest token, headers, footer, README"
-    depends_on:
-      - refs-core-newest
-    size: medium
-    description:
-      "refs-panel-newest: route ⌘0, hold the mode in the panel model (exclusive with
-      Tabs, Esc and Backspace ladders), draw the token, date headers, footer hints, and
-      inspector time, wire the git-lane merge, and document the mode."
+    '
+- id: refs-panel-newest
+  title: 'Panel: ⌘0 toggle, Newest token, headers, footer, README'
+  depends_on:
+  - refs-core-newest
+  size: medium
+  description: 'refs-panel-newest: route ⌘0, hold the mode in the panel model (exclusive
+    with Tabs, Esc and Backspace ladders), draw the token, date headers, footer hints,
+    and inspector time, wire the git-lane merge, and document the mode.'
 proposed_by: bbugyi200.athena.11j
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-18 15:40:18
 status: wip
+bead_id: bob-cli-9d
 ---
 
-- **PROMPT:**
-  [prompts/202610/refs_newest_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_newest_mode.md)
+- **PROMPT:** [prompts/202610/refs_newest_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_newest_mode.md)
+- **BEAD:** [bob-cli-9d](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9d/README.md)
 
 # Plan: Bob Refs ⌘0 Newest — browse references by capture date
 
