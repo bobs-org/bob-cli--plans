@@ -96,7 +96,7 @@ proposed_by: bbugyi200.athena.research.4s.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-18 14:40:02
-status: wip
+status: done
 bead_id: bob-cli-9c
 ---
 
