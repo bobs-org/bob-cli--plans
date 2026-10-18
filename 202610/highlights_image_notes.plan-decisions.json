@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "refresh",
+      "kind": "choice",
+      "ask": "Should later edits to the file at a pasted path re-copy over its vault image?",
+      "why": "macscrot names each capture uniquely, so frozen copies fit and vault files are never overwritten",
+      "choices": [
+        {
+          "key": "snapshot",
+          "label": "Copy once, never overwrite; delete the vault copy to re-import. No cross-host flapping"
+        },
+        {
+          "key": "mirror",
+          "label": "Re-copy when source bytes change so edits propagate; adds guarded overwrites, can flap"
+        }
+      ],
+      "default": "snapshot",
+      "effective_default": "snapshot",
+      "requested_verified": false
+    }
+  ]
+}
