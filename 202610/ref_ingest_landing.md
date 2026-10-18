@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Land bob-cli-9c — fix ingest-at-birth defects, tighten tests, refresh docs,
-  close the epic
-goal: Every defect the bob-cli-9c landing review found in the ingest-at-birth code
-  is fixed and tested, stale "after bob ref scan" docs match the new behavior, and
-  epic bob-cli-9c is closed with its plan file marked done.
+title:
+  Land bob-cli-9c — fix ingest-at-birth defects, tighten tests, refresh docs, close the
+  epic
+goal:
+  Every defect the bob-cli-9c landing review found in the ingest-at-birth code is fixed
+  and tested, stale "after bob ref scan" docs match the new behavior, and epic
+  bob-cli-9c is closed with its plan file marked done.
 proposed_by: bbugyi200.athena.bob-cli-9c.land
 proposed_with: claude/opus
 bead: bob-cli-9c
@@ -16,6 +18,11 @@ status: done
   [202610/ref_ingest_at_birth.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_ingest_at_birth.md)
 - **BEAD:**
   [bob-cli-9c](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9c/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-9c.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9c.land.md)
+- **COMMITS:**
+  - [d37ab64](https://github.com/bobs-org/bob-cli--plans/commit/d37ab64f69be59b89d3ee6288d3ec87cfd58e36b)
+    — docs(plan): mark ref_ingest_at_birth done after landing
 
 # Land bob-cli-9c: finish ingest at birth
 
