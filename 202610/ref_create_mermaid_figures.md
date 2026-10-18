@@ -70,7 +70,7 @@ proposed_by: bbugyi200.athena.research.4r.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-17 19:29:16
-status: wip
+status: done
 bead_id: bob-cli-8y
 ---
 
