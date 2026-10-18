@@ -1,14 +1,21 @@
 ---
 tier: tale
 title: Retune Work badge color thresholds to 40/60/80
-goal: TODAY, PENDING, NEXT, and READY badges in daily bob-plan blocks and dash.md
-  turn green at >=40%, yellow at >=60%, and orange at >=80% of their limit, keeping
-  grey at zero, red over the limit, and blue otherwise.
+goal:
+  TODAY, PENDING, NEXT, and READY badges in daily bob-plan blocks and dash.md turn green
+  at >=40%, yellow at >=60%, and orange at >=80% of their limit, keeping grey at zero,
+  red over the limit, and blue otherwise.
 size: small
 proposed_by: bbugyi200.athena.11g
 proposed_with: claude/opus
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.11g](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.11g.md)
+- **COMMITS:**
+  - [1907419](https://github.com/bobs-org/bob-plugins/commit/1907419d0890a75e692fbc8141585be85a5dff5e)
+    — feat(ledger-tools): retune Work badge color thresholds to 40/60/80
 
 # Retune the Work badge color thresholds (40% / 60% / 80%)
 
