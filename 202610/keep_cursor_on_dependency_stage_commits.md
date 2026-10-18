@@ -1,16 +1,14 @@
 ---
 tier: tale
-title:
-  Keep the cursor and viewport on the task after Ctrl+Shift+B / Ctrl+Shift+Alt+B commits
-goal:
-  After a Depends on or Blocks stage commit, the cursor stays on the task line the
-  gesture started on, the viewport does not jump to the top of the note, and the
+title: Keep the cursor and viewport on the task after Ctrl+Shift+B / Ctrl+Shift+Alt+B
+  commits
+goal: After a Depends on or Blocks stage commit, the cursor stays on the task line
+  the gesture started on, the viewport does not jump to the top of the note, and the
   freshness stamp always lands on the dependent task.
 size: medium
 proposed_by: bbugyi200.apollo.8u
 proposed_with: claude/opus
-create_time: 2026-10-18 07:51:17
-status: wip
+status: done
 ---
 
 # Keep the cursor and viewport on the task after Ctrl+Shift+B / Ctrl+Shift+Alt+B commits
