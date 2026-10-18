@@ -1,97 +1,91 @@
 ---
 tier: epic
 title: Bare x Pomodoro close replaces =x
-goal: "Closing today's running Pomodoro takes a bare `x` token with the same selection
-  grammar as today's `=x` (`=x2!1*3` becomes `x2!1*3`). The `=*`/`=!` shorthands are
-  gone. bob, its docs, and Bob Mac Capture teach only the new spelling.
+goal: 'Closing today''s running Pomodoro takes a bare `x` token with the same selection
+  grammar as today''s `=x` (`=x2!1*3` becomes `x2!1*3`). The `=*`/`=!` shorthands
+  are gone. bob, its docs, and Bob Mac Capture teach only the new spelling.
 
-  "
+  '
 decisions:
   x_case:
     ask: Which spellings of the bare close token should close the running Pomodoro?
     choices:
-      lower:
-        "`X post about the launch` and `X11 fix` stay tasks; capitalizing is the escape"
-      any:
-        "`X…` closes too, like today's `=X`; tasks starting with the word X must be
-        reworded"
+      lower: '`X post about the launch` and `X11 fix` stay tasks; capitalizing is
+        the escape'
+      any: '`X…` closes too, like today''s `=X`; tasks starting with the word X must
+        be reworded'
     default: lower
     why: Capital X starts real prose (X posts, X11, X86); `=X` was only a convenience
     answer: lower
   old_close:
     ask: What should a whole-item `=x…` do once the bare `x…` close lands?
     choices:
-      retire:
-        Fails with a teaching error that shows the `x…` rewrite; one spelling everywhere
-      alias: Keeps working as a hidden alias that docs, help, and diagnostics never show
+      retire: Fails with a teaching error that shows the `x…` rewrite; one spelling
+        everywhere
+      alias: Keeps working as a hidden alias that docs, help, and diagnostics never
+        show
     default: retire
-    why:
-      You asked to replace `=x`; an error retrains muscle memory instead of hiding a
-      twin
+    why: You asked to replace `=x`; an error retrains muscle memory instead of hiding
+      a twin
     answer: retire
   glossary_strands:
-    ask:
-      Update the Capture and Bulk Capture glossary strands to spell the close `x` (`+2
-      x`, `x =`)?
+    ask: Update the Capture and Bulk Capture glossary strands to spell the close `x`
+      (`+2 x`, `x =`)?
     memory:
-      - glossary:capture
-      - glossary:bulk-capture
+    - glossary:capture
+    - glossary:bulk-capture
     default: true
-    corrects:
-      or start, adjust, shift, or close today's Pomodoro (`=`, `+N`, `++N`, `=x`).
+    corrects: or start, adjust, shift, or close today's Pomodoro (`=`, `+N`, `++N`,
+      `=x`).
     answer: true
   decision_record:
-    ask:
-      Add a decisions-web record for the bare `x` close and its rejected alternatives?
+    ask: Add a decisions-web record for the bare `x` close and its rejected alternatives?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: bare-x
-    title: Bare x close in both parsers
-    depends_on: []
-    size: medium
-    description:
-      "bare-x: teach the shared capture grammar a bare `x…` whole-item close (plain,
-      selection-shaped, `x#…` near miss, chains, inline Work Log entries) next to
-      today's `=x…`, with parity tests proving identical behavior."
-  - id: retire
-    title: Retire =x and the =*/=! shorthands
-    depends_on:
-      - bare-x
-    size: medium
-    description:
-      "retire: turn the whole-item `=x…`/`=*…`/`=!…` shapes and the link `=*`/`=!`
-      suffix aliases into teaching errors, respell every message, help text, and
-      comment, and migrate the bob-cli test suite to `x…`."
-  - id: docs
-    title: Docs and memory teach x
-    depends_on:
-      - retire
-    size: medium
-    description:
-      "docs: respell the whole-item close as `x` across docs/capture.md, README.md, and
-      the other docs, document the retired forms and prose collisions, and apply the
-      accepted glossary and decision-record memory edits."
-  - id: mac
-    title: Bob Mac Capture teaches x
-    depends_on:
-      - retire
-    size: medium
-    description:
-      "mac: update Bob Mac Capture's hint text, teaching strings, fake-bob drafts,
-      regenerated JSON fixtures, Swift tests, and README for the bare `x` close."
+- id: bare-x
+  title: Bare x close in both parsers
+  depends_on: []
+  size: medium
+  description: 'bare-x: teach the shared capture grammar a bare `x…` whole-item close
+    (plain, selection-shaped, `x#…` near miss, chains, inline Work Log entries) next
+    to today''s `=x…`, with parity tests proving identical behavior.'
+- id: retire
+  title: Retire =x and the =*/=! shorthands
+  depends_on:
+  - bare-x
+  size: medium
+  description: 'retire: turn the whole-item `=x…`/`=*…`/`=!…` shapes and the link
+    `=*`/`=!` suffix aliases into teaching errors, respell every message, help text,
+    and comment, and migrate the bob-cli test suite to `x…`.'
+- id: docs
+  title: Docs and memory teach x
+  depends_on:
+  - retire
+  size: medium
+  description: 'docs: respell the whole-item close as `x` across docs/capture.md,
+    README.md, and the other docs, document the retired forms and prose collisions,
+    and apply the accepted glossary and decision-record memory edits.'
+- id: mac
+  title: Bob Mac Capture teaches x
+  depends_on:
+  - retire
+  size: medium
+  description: 'mac: update Bob Mac Capture''s hint text, teaching strings, fake-bob
+    drafts, regenerated JSON fixtures, Swift tests, and README for the bare `x` close.'
 proposed_by: bbugyi200.athena.11i
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-18 14:36:55
 status: wip
+bead_id: bob-cli-9b
 ---
 
-- **PROMPT:**
-  [prompts/202610/bare_x_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bare_x_close.md)
+- **PROMPT:** [prompts/202610/bare_x_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bare_x_close.md)
+- **BEAD:** [bob-cli-9b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9b/README.md)
 
 # Plan: Bare `x` Pomodoro close replaces `=x`
 
