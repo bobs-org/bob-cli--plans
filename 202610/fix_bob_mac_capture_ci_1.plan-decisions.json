@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "hang_watchdog",
+      "kind": "choice",
+      "ask": "Should the CI Test step run `swift test` under a 15-minute watchdog that samples any hung xctest process before failing?",
+      "why": "XCTest output is buffered in CI, so these hangs were impossible to locate from the log alone",
+      "choices": [
+        {
+          "key": "watchdog",
+          "label": "A future hang fails in about 15 minutes, and the log and an artifact show the stuck test's stack"
+        },
+        {
+          "key": "timeout_only",
+          "label": "Only add timeout-minutes; a future hang fails in about 25 minutes with no stack or test name"
+        }
+      ],
+      "default": "watchdog",
+      "effective_default": "watchdog",
+      "requested_verified": false
+    },
+    {
+      "id": "cancel_hung_runs",
+      "kind": "choice",
+      "ask": "Before pushing, should the coder cancel in-progress bob-mac-capture CI runs that are already hung in the Test step?",
+      "why": "run 327 sat queued for 3 hours behind earlier hung jobs",
+      "choices": [
+        {
+          "key": "cancel",
+          "label": "Frees the macOS runners now; those superseded commits show as cancelled"
+        },
+        {
+          "key": "leave",
+          "label": "They keep holding runners until the 6-hour cap, which delays this fix's own CI run"
+        }
+      ],
+      "default": "cancel",
+      "effective_default": "cancel",
+      "requested_verified": false
+    }
+  ]
+}
