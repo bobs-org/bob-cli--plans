@@ -1,17 +1,19 @@
 ---
 tier: epic
 title: Reading Board — a read-only kanban of the reading queue, drawn by bob
-goal: "dash_references opens on a calm, read-only Reading Board (📖 Reading · ⭐ Next ·
-  📥 Ready · 💤 Snoozed) whose lanes, wake dates, and waiting-on reasons come from `bob
-  ref list` JSON, so the board, the terminal, and Bob Mac Capture always agree on what
-  can be read now.
+goal: 'dash_references opens on a calm, read-only Reading Board (📖 Reading · ⭐ Next
+  · 📥 Ready · 💤 Snoozed) whose lanes, wake dates, and waiting-on reasons come from
+  `bob ref list` JSON, so the board, the terminal, and Bob Mac Capture always agree
+  on what can be read now.
 
-  "
+  '
 decisions:
   pdf_action:
-    ask: Should board cards open the reference PDF in Highlights (a PDF button and ⌘↵)?
+    ask: Should board cards open the reference PDF in Highlights (a PDF button and
+      ⌘↵)?
     default: true
-    why: Reading starts in Highlights, and ⌘↵ already opens the PDF from a reading task
+    why: Reading starts in Highlights, and ⌘↵ already opens the PDF from a reading
+      task
     answer: true
   human_reason:
     ask: Should human `bob ref list` rows also say why a blocked reference is snoozed?
@@ -19,63 +21,62 @@ decisions:
     why: The terminal and the board then agree on why each reference sleeps
     answer: true
   memory_board_record:
-    ask:
-      Record decisions:reading-board-is-bob-rendered (bob-drawn board; Bases kanban
+    ask: Record decisions:reading-board-is-bob-rendered (bob-drawn board; Bases kanban
       rejected)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: ref-json
-    title: Reading-task facts and blocked reasons in bob ref JSON
-    depends_on: []
-    size: medium
-    description: "ref-json: add task priority and scheduled date plus a typed
-      `blocked_by` reason list (schedule, open prerequisites, blocked project) to every
-      `bob ref` row, an optional human reason suffix, fixtures, tests, and docs/ref.md.
+- id: ref-json
+  title: Reading-task facts and blocked reasons in bob ref JSON
+  depends_on: []
+  size: medium
+  description: 'ref-json: add task priority and scheduled date plus a typed `blocked_by`
+    reason list (schedule, open prerequisites, blocked project) to every `bob ref`
+    row, an optional human reason suffix, fixtures, tests, and docs/ref.md.
 
-      "
-  - id: board-data
-    title: Board data path and pure lane models
-    depends_on:
-      - ref-json
-    size: medium
-    description: "board-data: in bob-ledger-tools, share the stats spawn core, fetch and
-      cache `bob ref list` JSON with stale-while-revalidate, and build the pure, tested
-      lane, card, snoozed-group, ordering, and fence models.
+    '
+- id: board-data
+  title: Board data path and pure lane models
+  depends_on:
+  - ref-json
+  size: medium
+  description: 'board-data: in bob-ledger-tools, share the stats spawn core, fetch
+    and cache `bob ref list` JSON with stale-while-revalidate, and build the pure,
+    tested lane, card, snoozed-group, ordering, and fence models.
 
-      "
-  - id: board-ui
-    title: The bob-reading-board block, interaction, and look
-    depends_on:
-      - board-data
-    size: medium
-    description: "board-ui: render the board (lanes, cards, Snoozed rows, honest
-      states), keyboard and mouse routing, the Open Reading Board command, the optional
-      Highlights hand-off, CSS, and a screenshot preview harness reviewed in both themes
-      and three widths.
+    '
+- id: board-ui
+  title: The bob-reading-board block, interaction, and look
+  depends_on:
+  - board-data
+  size: medium
+  description: 'board-ui: render the board (lanes, cards, Snoozed rows, honest states),
+    keyboard and mouse routing, the Open Reading Board command, the optional Highlights
+    hand-off, CSS, and a screenshot preview harness reviewed in both themes and three
+    widths.
 
-      "
-  - id: rollout
-    title: Put it on dash_references, document, verify live
-    depends_on:
-      - ref-json
-      - board-ui
-    size: small
-    description:
-      "rollout: add the board above the existing table on dash_references, document it
-      in docs/ref.md and docs/dashboard.md, verify against the live vault, record
-      follow-ups, and handle the memory decision."
+    '
+- id: rollout
+  title: Put it on dash_references, document, verify live
+  depends_on:
+  - ref-json
+  - board-ui
+  size: small
+  description: 'rollout: add the board above the existing table on dash_references,
+    document it in docs/ref.md and docs/dashboard.md, verify against the live vault,
+    record follow-ups, and handle the memory decision.'
 proposed_by: bbugyi200.apollo.8z
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-18 13:02:19
 status: wip
+bead_id: bob-cli-99
 ---
 
-- **PROMPT:**
-  [prompts/202610/reading_board.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/reading_board.md)
+- **PROMPT:** [prompts/202610/reading_board.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/reading_board.md)
+- **BEAD:** [bob-cli-99](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-99/README.md)
 
 # Plan: Reading Board — a read-only kanban of the reading queue, drawn by bob
 
