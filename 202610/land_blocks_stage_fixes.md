@@ -1,15 +1,15 @@
 ---
 tier: tale
 size: medium
-title: Finish landing the Blocks… stage (bob-cli-8x) by fixing its writer and entry
-  defects
-goal: 'Fix the defects that the bob-cli-8x land audit found in the reverse Blocks
+title:
+  Finish landing the Blocks… stage (bob-cli-8x) by fixing its writer and entry defects
+goal: "Fix the defects that the bob-cli-8x land audit found in the reverse Blocks
   writer, the stage, and its entry points. The changes make the parity invariant hold
   for multi-task and mixed-note gestures, every notice name the right task, the stale
   check fire, Ctrl+Shift+P on a BLOCKS line open the Blocks stage, and the forward
   behavior return to byte-identical. Then close epic bob-cli-8x and task bob-cli-3p.
 
-  '
+  "
 proposed_by: bbugyi200.athena.bob-cli-8x.land
 proposed_with: claude/opus
 bead: bob-cli-8x
@@ -20,6 +20,11 @@ status: done
   [202610/ctrl_shift_alt_b_blocks_stage.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ctrl_shift_alt_b_blocks_stage.md)
 - **BEAD:**
   [bob-cli-8x](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-8x/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-8x.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-8x.land.md)
+- **COMMITS:**
+  - [07c446b](https://github.com/bobs-org/bob-plugins/commit/07c446b36703aded00d0d5a3cfdc6811ff3834c8)
+    — fix(nav): land the Blocks stage writer, guard, and entry fixes
 
 # Finish landing the Blocks… stage (bob-cli-8x)
 
