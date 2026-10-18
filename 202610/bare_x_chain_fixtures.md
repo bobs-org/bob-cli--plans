@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Correct bare-x Mac chain fixtures and finish bob-cli-9b landing
-goal: Match Mac chain fixtures and completion ranges to current Bob, verify the correction,
+goal:
+  Match Mac chain fixtures and completion ranges to current Bob, verify the correction,
   and close bob-cli-9b with its plan marked done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-9b.land--1
@@ -12,6 +13,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-9b](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9b/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-9b.land--1--code](https://github.com/bobs-org/bob-cli--agents/blob/main/agents/bbugyi200.athena.bob-cli-9b.land--1--code/README.md)
+- **COMMITS:**
+  - [6166ec1](https://github.com/bobs-org/bob-mac-capture/commit/6166ec100bee4b0923e5ea4912342e63643f991b)
+    — test(capture): correct bare-x chain fixtures
 
 # Correct bare-x Mac chain fixtures and finish bob-cli-9b landing
 
