@@ -1,95 +1,90 @@
 ---
 tier: epic
-title: "`=` overrides the running Pomodoro; `==` retires"
-goal: "A whole-item `=` start restarts or swaps the running Pomodoro by itself, `==`
+title: '`=` overrides the running Pomodoro; `==` retires'
+goal: 'A whole-item `=` start restarts or swaps the running Pomodoro by itself, `==`
   becomes a retired teaching error, and Bob Mac Capture shows a clear, unmissable
   override warning and never commits an override whose warning was not on screen.
 
-  "
+  '
 decisions:
   swap_clock:
-    ask:
-      When `=#bugs` swaps BUGS in while CAPTURE runs, should BUGS keep CAPTURE's running
-      clock?
+    ask: When `=#bugs` swaps BUGS in while CAPTURE runs, should BUGS keep CAPTURE's
+      running clock?
     choices:
-      keep:
-        BUGS takes over CAPTURE's clock, as `==#bugs` does today; `=5#bugs` starts fresh
-      fresh:
-        BUGS always starts a fresh 25 minutes; the clock takeover goes away entirely
+      keep: BUGS takes over CAPTURE's clock, as `==#bugs` does today; `=5#bugs` starts
+        fresh
+      fresh: BUGS always starts a fresh 25 minutes; the clock takeover goes away entirely
     default: keep
     why: You asked for `==#name` to keep the running clock; `=` inherits that.
     answer: keep
   decision_record:
-    ask:
-      Add a decisions-web record for `=` overriding the running Pomodoro behind a
-      warning?
+    ask: Add a decisions-web record for `=` overriding the running Pomodoro behind
+      a warning?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: eq-overrides
-    title: "bob: `=` restarts or swaps the running session"
-    depends_on: []
-    size: medium
-    description: "eq-overrides: route every whole-item `=` start with one running
-      session through the existing restart/swap planners, add
-      `override.previous.overdue`, `override.close_first`, the yellow human warning
-      line, the hidden `--refuse-override` guard, and the state-based capture-complete
-      override context; `==` keeps working.
+- id: eq-overrides
+  title: 'bob: `=` restarts or swaps the running session'
+  depends_on: []
+  size: medium
+  description: 'eq-overrides: route every whole-item `=` start with one running session
+    through the existing restart/swap planners, add `override.previous.overdue`, `override.close_first`,
+    the yellow human warning line, the hidden `--refuse-override` guard, and the state-based
+    capture-complete override context; `==` keeps working.
 
-      "
-  - id: retire-double
-    title: "bob: retire `==`"
-    depends_on:
-      - eq-overrides
-    size: medium
-    description: 'retire-double: make every claimed `==` token a teaching error that
-      names its `=` rewrite in both parsers and in chains, drop the parse-spec
-      `override` flag and the idle `action: "start"` fallback, respell every `==`
-      message, and migrate the tests.
+    '
+- id: retire-double
+  title: 'bob: retire `==`'
+  depends_on:
+  - eq-overrides
+  size: medium
+  description: 'retire-double: make every claimed `==` token a teaching error that
+    names its `=` rewrite in both parsers and in chains, drop the parse-spec `override`
+    flag and the idle `action: "start"` fallback, respell every `==` message, and
+    migrate the tests.
 
-      '
-  - id: docs
-    title: "docs: teach the `=` override"
-    depends_on:
-      - retire-double
-    size: medium
-    description: "docs: rewrite the Pomodoro start, named-start, and override sections
-      of docs/capture.md plus README.md around `=`, document the new JSON fields, the
-      warning line, `--refuse-override`, and the retired `==` row, quoting bob's real
-      output.
+    '
+- id: docs
+  title: 'docs: teach the `=` override'
+  depends_on:
+  - retire-double
+  size: medium
+  description: 'docs: rewrite the Pomodoro start, named-start, and override sections
+    of docs/capture.md plus README.md around `=`, document the new JSON fields, the
+    warning line, `--refuse-override`, and the retired `==` row, quoting bob''s real
+    output.
 
-      "
-  - id: mac-warning
-    title: "Mac: override banner and orange Return"
-    depends_on:
-      - retire-double
-    size: medium
-    description: "mac-warning: add the override banner to the start card, tint the
-      Return button orange for overrides, respell `==` copy to `=`, drop the idle and
-      parse-flag leftovers, regenerate fixtures from the new bob, and update tests and
-      README.
+    '
+- id: mac-warning
+  title: 'Mac: override banner and orange Return'
+  depends_on:
+  - retire-double
+  size: medium
+  description: 'mac-warning: add the override banner to the start card, tint the Return
+    button orange for overrides, respell `==` copy to `=`, drop the idle and parse-flag
+    leftovers, regenerate fixtures from the new bob, and update tests and README.
 
-      "
-  - id: mac-guard
-    title: "Mac: commit an override only after its warning was shown"
-    depends_on:
-      - mac-warning
-    size: small
-    description:
-      "mac-guard: pass `--refuse-override` on every submit whose on-screen preview did
-      not show an override, and turn the refusal into a calm re-preview so the second
-      Return commits with the banner visible."
+    '
+- id: mac-guard
+  title: 'Mac: commit an override only after its warning was shown'
+  depends_on:
+  - mac-warning
+  size: small
+  description: 'mac-guard: pass `--refuse-override` on every submit whose on-screen
+    preview did not show an override, and turn the refusal into a calm re-preview
+    so the second Return commits with the banner visible.'
 proposed_by: bbugyi200.apollo.91
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-18 16:26:19
 status: wip
+bead_id: bob-cli-9j
 ---
 
-- **PROMPT:**
-  [prompts/202610/eq_overrides_running_pomodoro.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/eq_overrides_running_pomodoro.md)
+- **PROMPT:** [prompts/202610/eq_overrides_running_pomodoro.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/eq_overrides_running_pomodoro.md)
+- **BEAD:** [bob-cli-9j](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9j/README.md)
 
 # Plan: `=` overrides the running Pomodoro; `==` retires
 
