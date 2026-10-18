@@ -1,29 +1,39 @@
 ---
 tier: tale
 title: Give exact-limit Work badges their own magenta tone
-goal: TODAY, PENDING, NEXT, and READY badges in daily bob-plan blocks and dash.md
-  turn a dedicated magenta when the count exactly equals the limit, a color no other
-  Bob chip uses, while orange keeps 80% up to (not including) the limit.
+goal:
+  TODAY, PENDING, NEXT, and READY badges in daily bob-plan blocks and dash.md turn a
+  dedicated magenta when the count exactly equals the limit, a color no other Bob chip
+  uses, while orange keeps 80% up to (not including) the limit.
 size: small
 decisions:
   color:
     ask: Which color should a Work badge show when its count exactly meets the limit?
     choices:
-      magenta: Plum in light mode, orchid in dark; no Bob chip uses it, and it clears
-        every Work tone
-      pink: Simplest CSS, but in light mode it sits next to red (ΔE 3 at the 14% chip
-        tint)
-      purple: Reads as "complete", but matches the PROJECTS/BLOCKED accent and looks
-        blue if colorblind
+      magenta:
+        Plum in light mode, orchid in dark; no Bob chip uses it, and it clears every
+        Work tone
+      pink:
+        Simplest CSS, but in light mode it sits next to red (ΔE 3 at the 14% chip tint)
+      purple:
+        Reads as "complete", but matches the PROJECTS/BLOCKED accent and looks blue if
+        colorblind
     default: magenta
-    why: Magenta fills the widest unused hue gap and stays clear of red, the accent,
-      and blue
+    why:
+      Magenta fills the widest unused hue gap and stays clear of red, the accent, and
+      blue
     answer: magenta
 proposed_by: bbugyi200.athena.11g.f0
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.11g.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.11g.f0.md)
+- **COMMITS:**
+  - [8459538](https://github.com/bobs-org/bob/commit/84595383d15ef1b377928e7f7519388648c62270)
+    — feat(dashboard): mirror magenta exact-limit Work badges
 
 # Give exact-limit Work badges their own magenta tone
 
