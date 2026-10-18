@@ -1,115 +1,107 @@
 ---
 tier: epic
 title: bob ref create files its own references (ingest at birth)
-goal: "A successful `bob ref create` on athena, apollo, or the Mac leaves the reference
-  in the library — PDF in `lib/`, ref note written, reading task filed — committed and
-  pushed as one commit, so `bob ref scan` becomes a repair tool instead of a daily step.
-  When inline ingest cannot run, the PDF stays queued in that host's `xlib/` with a
-  visible reason and a per-host `bob ref scan --intake-only` timer files it later.
+goal: 'A successful `bob ref create` on athena, apollo, or the Mac leaves the reference
+  in the library — PDF in `lib/`, ref note written, reading task filed — committed
+  and pushed as one commit, so `bob ref scan` becomes a repair tool instead of a daily
+  step. When inline ingest cannot run, the PDF stays queued in that host''s `xlib/`
+  with a visible reason and a per-host `bob ref scan --intake-only` timer files it
+  later.
 
-  "
+  '
 decisions:
   rollout:
-    ask:
-      Should the final phase deploy to the tailnet hosts itself (install bob, apply
+    ask: Should the final phase deploy to the tailnet hosts itself (install bob, apply
       chezmoi, enable timers)?
     choices:
-      hosts:
-        Deploys to athena, then apollo and the Mac over Tailscale SSH; you do only the
-        Mac crontab
-      athena:
-        Deploys only on athena and hands you exact apollo and Mac commands to run
-        yourself
+      hosts: Deploys to athena, then apollo and the Mac over Tailscale SSH; you do
+        only the Mac crontab
+      athena: Deploys only on athena and hands you exact apollo and Mac commands to
+        run yourself
     default: hosts
-    why:
-      Ingest only pays off once every host runs the new bob and the Mac bridge retires
+    why: Ingest only pays off once every host runs the new bob and the Mac bridge
+      retires
     answer: hosts
   decision_record:
-    ask:
-      Should the rollout phase record "references are ingested at birth" as a
-      decisions-web strand?
+    ask: Should the rollout phase record "references are ingested at birth" as a decisions-web
+      strand?
     memory:
-      - decisions
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    - decisions
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     default: true
     answer: true
 phases:
-  - id: scan-sync-lock
-    title: Writing scans hold the vault-maintenance lock
-    depends_on: []
-    size: small
-    description:
-      "scan-sync-lock: make every writing `bob ref scan` (human and JSON) take
-      bob_sync.lock before scan.lock and hold both through intake and note writes. This
-      closes the window where vault-sync pushes a library PDF without its ref note. Add
-      the `lock_busy` error and document the lock order."
-  - id: create-ingest
-    title: Shared intake session and create wiring
-    depends_on: []
-    size: medium
-    description:
-      "create-ingest: build the shared locked intake session in a new highlights_ref
-      intake module. It takes the locks, pre-syncs, re-checks, moves, plans with
-      rollback, writes, makes one scoped commit, and post-syncs. Wire it into every `bob
-      ref create` route in place of `next: bob ref scan`. Add `-k/--keep-intake`, the
-      `highlights.ingest_on_create` switch, and `BOB_HIGHLIGHTS_INGEST_ON_CREATE`, with
-      scratch-vault integration tests."
-  - id: producer-ingest
-    title: Ingest for listen-attach, ref jobs, and gkeep pull
-    depends_on:
-      - create-ingest
-    size: medium
-    description:
-      "producer-ingest: route the remaining PDF producers through the intake session.
-      These are the `--listen` attach path (audio-only units), `ingest_url` (the capture
-      ref-jobs worker and `bob gkeep pull`), and their outcome types. Add
-      ingested/queued states to `bob ref jobs` and to gkeep output."
-  - id: scan-intake-only
-    title: bob ref scan --intake-only drain
-    depends_on:
-      - scan-sync-lock
-      - create-ingest
-    size: medium
-    description:
-      "scan-intake-only: add `bob ref scan -i/--intake-only`. It drains the local xlib/
-      queue through the intake session, with one commit per reference, and skips the
-      annotation pass and the pre-scan hook. It refuses `-w`, adds additive JSON fields,
-      and exits non-zero while anything stays queued, so timers surface stuck items."
-  - id: intake-health
-    title: Intake health in bob ref doctor
-    depends_on:
-      - scan-intake-only
-    size: small
-    description:
-      "intake-health: record a per-host intake status file (last success and last
-      failure) from create, producers, and scans. Teach `bob ref doctor` to show it,
-      plus the age of the oldest queued xlib/ PDF, warning past one hour."
-  - id: tailnet-rollout
-    title: Per-host drains, bridge retirement, docs, and rollout
-    depends_on:
-      - scan-sync-lock
-      - create-ingest
-      - producer-ingest
-      - scan-intake-only
-      - intake-health
-    size: medium
-    description:
-      "tailnet-rollout: in chezmoi, add the Linux bob-ref-intake systemd timer, retire
-      the bob_xlib_pull bridge and pre_scan_hook, and fix the maybe_bob_highlights_sync
-      gate. Rewrite the Highlights intake docs. Deploy to the hosts per the rollout
-      decision, verify, and record the decision strand."
+- id: scan-sync-lock
+  title: Writing scans hold the vault-maintenance lock
+  depends_on: []
+  size: small
+  description: 'scan-sync-lock: make every writing `bob ref scan` (human and JSON)
+    take bob_sync.lock before scan.lock and hold both through intake and note writes.
+    This closes the window where vault-sync pushes a library PDF without its ref note.
+    Add the `lock_busy` error and document the lock order.'
+- id: create-ingest
+  title: Shared intake session and create wiring
+  depends_on: []
+  size: medium
+  description: 'create-ingest: build the shared locked intake session in a new highlights_ref
+    intake module. It takes the locks, pre-syncs, re-checks, moves, plans with rollback,
+    writes, makes one scoped commit, and post-syncs. Wire it into every `bob ref create`
+    route in place of `next: bob ref scan`. Add `-k/--keep-intake`, the `highlights.ingest_on_create`
+    switch, and `BOB_HIGHLIGHTS_INGEST_ON_CREATE`, with scratch-vault integration
+    tests.'
+- id: producer-ingest
+  title: Ingest for listen-attach, ref jobs, and gkeep pull
+  depends_on:
+  - create-ingest
+  size: medium
+  description: 'producer-ingest: route the remaining PDF producers through the intake
+    session. These are the `--listen` attach path (audio-only units), `ingest_url`
+    (the capture ref-jobs worker and `bob gkeep pull`), and their outcome types. Add
+    ingested/queued states to `bob ref jobs` and to gkeep output.'
+- id: scan-intake-only
+  title: bob ref scan --intake-only drain
+  depends_on:
+  - scan-sync-lock
+  - create-ingest
+  size: medium
+  description: 'scan-intake-only: add `bob ref scan -i/--intake-only`. It drains the
+    local xlib/ queue through the intake session, with one commit per reference, and
+    skips the annotation pass and the pre-scan hook. It refuses `-w`, adds additive
+    JSON fields, and exits non-zero while anything stays queued, so timers surface
+    stuck items.'
+- id: intake-health
+  title: Intake health in bob ref doctor
+  depends_on:
+  - scan-intake-only
+  size: small
+  description: 'intake-health: record a per-host intake status file (last success
+    and last failure) from create, producers, and scans. Teach `bob ref doctor` to
+    show it, plus the age of the oldest queued xlib/ PDF, warning past one hour.'
+- id: tailnet-rollout
+  title: Per-host drains, bridge retirement, docs, and rollout
+  depends_on:
+  - scan-sync-lock
+  - create-ingest
+  - producer-ingest
+  - scan-intake-only
+  - intake-health
+  size: medium
+  description: 'tailnet-rollout: in chezmoi, add the Linux bob-ref-intake systemd
+    timer, retire the bob_xlib_pull bridge and pre_scan_hook, and fix the maybe_bob_highlights_sync
+    gate. Rewrite the Highlights intake docs. Deploy to the hosts per the rollout
+    decision, verify, and record the decision strand.'
 proposed_by: bbugyi200.athena.research.4s.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-18 14:40:02
 status: wip
+bead_id: bob-cli-9c
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_ingest_at_birth.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_ingest_at_birth.md)
+- **PROMPT:** [prompts/202610/ref_ingest_at_birth.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_ingest_at_birth.md)
+- **BEAD:** [bob-cli-9c](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9c/README.md)
 
 # Plan: bob ref create files its own references (ingest at birth)
 
