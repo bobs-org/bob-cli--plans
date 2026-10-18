@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Land bob-cli-9c — fix ingest-at-birth defects, tighten tests, refresh docs, close the
-  epic
-goal:
-  Every defect the bob-cli-9c landing review found in the ingest-at-birth code is fixed
-  and tested, stale "after bob ref scan" docs match the new behavior, and epic
-  bob-cli-9c is closed with its plan file marked done.
+title: Land bob-cli-9c — fix ingest-at-birth defects, tighten tests, refresh docs,
+  close the epic
+goal: Every defect the bob-cli-9c landing review found in the ingest-at-birth code
+  is fixed and tested, stale "after bob ref scan" docs match the new behavior, and
+  epic bob-cli-9c is closed with its plan file marked done.
 proposed_by: bbugyi200.athena.bob-cli-9c.land
 proposed_with: claude/opus
 bead: bob-cli-9c
-create_time: 2026-10-18 17:29:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
