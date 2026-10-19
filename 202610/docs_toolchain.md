@@ -1,76 +1,69 @@
 ---
 tier: epic
 title: Complete the Bob documentation toolchain and contract site
-goal:
-  Finish bob-cli-a0.2 with an in-place contract site, reproducible assembly, executable
+goal: Finish bob-cli-a0.2 with an in-place contract site, reproducible assembly, executable
   documentation gates, and the authorized authoring guidance.
 parent_bead: bob-cli-a0.2
 phases:
-  - id: foundation
-    title: Build the docs package and contract site foundation
-    size: medium
-    depends_on: []
-    description:
-      "foundation: create the locked uv package, tagged-YAML/config support, strict
-      builders, contract registry and generators, minimal Home/Develop pages, and
-      build/gen/serve recipes."
-  - id: mounts
-    title: Assemble mounted sources with verified provenance
-    size: medium
-    depends_on:
-      - foundation
-    description:
-      "mounts: implement sibling discovery, safe copying, mount nav expansion,
-      provenance, and explicit clean-SHA production assembly with fixture-repository
-      tests."
-  - id: lint
-    title: Enforce Bob's documentation contract
-    size: medium
-    depends_on:
-      - mounts
-    description:
-      "lint: port the editorial checks and add root registration, nav completeness,
-      portability, media provenance, privacy, and budget ratchets with negative fixtures
-      for every rule."
-  - id: url-links
-    title: Protect published URLs and verify built links
-    size: medium
-    depends_on:
-      - mounts
-    description:
-      "url-links: implement built-site URL and anchor resolution, live and curated URL
-      contracts, source mention scanning, and checksum-verified lychee acquisition and
-      execution."
-  - id: authoring
-    title: Document authoring and add the approved memory note
-    size: small
-    depends_on:
-      - lint
-    description:
-      "authoring: finish Writing docs and Build each repo, port five authoring
-      templates, and create only docs.md under the inherited accepted memory decision,
-      then republish memory."
-  - id: integration
-    title: Wire search and prove the complete docs gate
-    size: medium
-    depends_on:
-      - lint
-      - url-links
-      - authoring
-    description:
-      "integration: add search smoke, compose docs-check including production mode,
-      prove strict and fallback builds and injected-failure diagnostics, and leave
-      complete evidence for the land agent."
+- id: foundation
+  title: Build the docs package and contract site foundation
+  size: medium
+  depends_on: []
+  description: 'foundation: create the locked uv package, tagged-YAML/config support,
+    strict builders, contract registry and generators, minimal Home/Develop pages,
+    and build/gen/serve recipes.'
+- id: mounts
+  title: Assemble mounted sources with verified provenance
+  size: medium
+  depends_on:
+  - foundation
+  description: 'mounts: implement sibling discovery, safe copying, mount nav expansion,
+    provenance, and explicit clean-SHA production assembly with fixture-repository
+    tests.'
+- id: lint
+  title: Enforce Bob's documentation contract
+  size: medium
+  depends_on:
+  - mounts
+  description: 'lint: port the editorial checks and add root registration, nav completeness,
+    portability, media provenance, privacy, and budget ratchets with negative fixtures
+    for every rule.'
+- id: url-links
+  title: Protect published URLs and verify built links
+  size: medium
+  depends_on:
+  - mounts
+  description: 'url-links: implement built-site URL and anchor resolution, live and
+    curated URL contracts, source mention scanning, and checksum-verified lychee acquisition
+    and execution.'
+- id: authoring
+  title: Document authoring and add the approved memory note
+  size: small
+  depends_on:
+  - lint
+  description: 'authoring: finish Writing docs and Build each repo, port five authoring
+    templates, and create only docs.md under the inherited accepted memory decision,
+    then republish memory.'
+- id: integration
+  title: Wire search and prove the complete docs gate
+  size: medium
+  depends_on:
+  - lint
+  - url-links
+  - authoring
+  description: 'integration: add search smoke, compose docs-check including production
+    mode, prove strict and fallback builds and injected-failure diagnostics, and leave
+    complete evidence for the land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.2
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-19 19:05:36
 status: wip
+bead_id: bob-cli-a0.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/docs_toolchain.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_toolchain.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/docs_toolchain.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_toolchain.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.2.1.md)
 
 # Complete the Bob documentation toolchain and contract site
 
