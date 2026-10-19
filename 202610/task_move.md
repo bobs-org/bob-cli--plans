@@ -1,39 +1,36 @@
 ---
 tier: epic
 title: Build bob task move with guarded writes and reference repair
-goal:
-  Complete bob-cli-9y.1 with a dry-runnable bob task move that preserves task review
-  state, repairs vault-wide references, and safely syncs scoped writes.
+goal: Complete bob-cli-9y.1 with a dry-runnable bob task move that preserves task
+  review state, repairs vault-wide references, and safely syncs scoped writes.
 phases:
-  - id: move-planner
-    title: Build the pure task-move planner
-    size: medium
-    depends_on: []
-    description:
-      "move-planner: implement and test snapshot-only selection, task-block movement,
-      identity validation, collision renaming, and contextual vault-wide link repair in
-      bob-cli; preserve task metadata and existing archive behavior."
-  - id: move-command
-    title: Integrate the guarded task-move command
-    size: medium
-    depends_on:
-      - move-planner
-    description:
-      "move-command: expose the planner as bob task move with human/JSON output, dry
-      run, bounded locking and retries, guarded writes, scoped commits, vault-sync
-      integration, help/completion, integration tests, and documentation; leave ancestor
-      closure to land."
+- id: move-planner
+  title: Build the pure task-move planner
+  size: medium
+  depends_on: []
+  description: 'move-planner: implement and test snapshot-only selection, task-block
+    movement, identity validation, collision renaming, and contextual vault-wide link
+    repair in bob-cli; preserve task metadata and existing archive behavior.'
+- id: move-command
+  title: Integrate the guarded task-move command
+  size: medium
+  depends_on:
+  - move-planner
+  description: 'move-command: expose the planner as bob task move with human/JSON
+    output, dry run, bounded locking and retries, guarded writes, scoped commits,
+    vault-sync integration, help/completion, integration tests, and documentation;
+    leave ancestor closure to land.'
 proposed_by: bbugyi200.athena.bob-cli-9y.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-9y.1
 create_time: 2026-10-19 16:37:58
 status: wip
+bead_id: bob-cli-9y.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_move.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_move.md)
-- **PARENT:**
-  [202610/sase_hub_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/sase_hub_split.md)
+- **PROMPT:** [prompts/202610/task_move.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_move.md)
+- **PARENT:** [202610/sase_hub_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/sase_hub_split.md)
+- **BEAD:** [bob-cli-9y.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9y/bob-cli-9y.1.1.md)
 
 # Implement `bob task move` for bob-cli-9y.1
 
