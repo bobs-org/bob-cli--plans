@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ci_compile_fix",
+      "kind": "choice",
+      "ask": "Also fix bob-cli-9m's test-compile errors so CI can render and check the new design?",
+      "why": "A two-line rename plus a helper; no XCTest or render has run on CI since 2c007c7",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Fix both errors in a first commit and close bob-cli-9m; CI then uploads the renders"
+        },
+        {
+          "key": "skip",
+          "label": "Leave bob-cli-9m alone; CI still can't compile tests, so the design gets no render check"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
