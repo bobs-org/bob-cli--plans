@@ -1,18 +1,17 @@
 ---
 tier: tale
 size: medium
-title: "Land Today marks: fix the remaining spec deviations, then close bob-cli-9r"
-goal: "Fix the defects the bob-cli-9r landing review found in the bob-ledger-tools Today
-  marks: reduced motion, `::` in tooltips, the Live Preview builder gates, the keyboard
-  command, and reading-view placement, code, clicks, and mapping. Add the missing tests,
-  release and sync the plugin, then close epic bob-cli-9r.
+title: 'Land Today marks: fix the remaining spec deviations, then close bob-cli-9r'
+goal: 'Fix the defects the bob-cli-9r landing review found in the bob-ledger-tools
+  Today marks: reduced motion, `::` in tooltips, the Live Preview builder gates, the
+  keyboard command, and reading-view placement, code, clicks, and mapping. Add the
+  missing tests, release and sync the plugin, then close epic bob-cli-9r.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-9r.land
 proposed_with: claude/opus
 bead: bob-cli-9r
-create_time: 2026-10-19 11:37:04
-status: wip
+status: done
 ---
 
 - **PARENT:**
