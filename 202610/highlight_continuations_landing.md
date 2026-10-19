@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish continuation-highlight integration and land bob-cli-9p
-goal:
-  Fix plural page-label consumption and page-index overflow, verify both repositories,
+goal: Fix plural page-label consumption and page-index overflow, verify both repositories,
   and close the epic.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-9p.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-9p
-create_time: 2026-10-19 09:13:18
-status: wip
+status: done
 ---
 
 - **PARENT:**
