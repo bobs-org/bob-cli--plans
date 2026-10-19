@@ -1,13 +1,13 @@
 ---
 tier: tale
 size: medium
-title: 'Land Today marks: fix the remaining spec deviations, then close bob-cli-9r'
-goal: 'Fix the defects the bob-cli-9r landing review found in the bob-ledger-tools
-  Today marks: reduced motion, `::` in tooltips, the Live Preview builder gates, the
-  keyboard command, and reading-view placement, code, clicks, and mapping. Add the
-  missing tests, release and sync the plugin, then close epic bob-cli-9r.
+title: "Land Today marks: fix the remaining spec deviations, then close bob-cli-9r"
+goal: "Fix the defects the bob-cli-9r landing review found in the bob-ledger-tools Today
+  marks: reduced motion, `::` in tooltips, the Live Preview builder gates, the keyboard
+  command, and reading-view placement, code, clicks, and mapping. Add the missing tests,
+  release and sync the plugin, then close epic bob-cli-9r.
 
-  '
+  "
 proposed_by: bbugyi200.athena.bob-cli-9r.land
 proposed_with: claude/opus
 bead: bob-cli-9r
@@ -18,6 +18,11 @@ status: done
   [202610/today_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/today_marks.md)
 - **BEAD:**
   [bob-cli-9r](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9r/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-9r.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9r.land.md)
+- **COMMITS:**
+  - [ef1a63c](https://github.com/bobs-org/bob-plugins/commit/ef1a63c23a6c4f9861db37ad33d1c546899b5c83)
+    — fix(ledger-tools): land Today marks review fixes in 1.59.1
 
 # Plan: land Today marks (bob-cli-9r)
 
