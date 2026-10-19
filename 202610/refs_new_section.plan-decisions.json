@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "new_cap",
+      "kind": "choice",
+      "ask": "Should the NEW section list every NEW reference, dropping today's 5-row cap?",
+      "why": "One rule (dot = NEW = top section) is the clearer definition asked for; \u2325N keeps it short",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Dot and section always agree; on busy days Today can start below the fold"
+        },
+        {
+          "key": "cap5",
+          "label": "Today stays higher, but NEW rows past the fifth keep their dot down in Ready or Next"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "requested_verified": false
+    },
+    {
+      "id": "new_window",
+      "kind": "choice",
+      "ask": "How long should an unopened, unmarked reference stay NEW on its own?",
+      "why": "Keeps the uncapped section short; \u2325N can hold any older reference in NEW",
+      "choices": [
+        {
+          "key": "three_days",
+          "label": "3 local days, today's Just added window; about 5-11 rows on recent days"
+        },
+        {
+          "key": "seven_days",
+          "label": "7 local days; roughly twice as many rows, mostly agent reports"
+        }
+      ],
+      "default": "three_days",
+      "effective_default": "three_days",
+      "requested_verified": false
+    },
+    {
+      "id": "today_link",
+      "kind": "choice",
+      "ask": "Should a successful Link to Today (\u2318N) in Bob Refs leave the reference NEW?",
+      "why": "NEW keeps exactly three exits (open, \u2325N, leaving Ready/Next); the Today pill shows the link",
+      "choices": [
+        {
+          "key": "stays_new",
+          "label": "It stays NEW, in the NEW section with its pink Today pill, until opened or \u2325N"
+        },
+        {
+          "key": "marks_seen",
+          "label": "Linking also marks it seen, so it shows under Today after the next re-rank"
+        }
+      ],
+      "default": "stays_new",
+      "effective_default": "stays_new",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should the plan add a decisions-web record for the Refs NEW state?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Star Blocks Existing Tasks",
+            "Decay Decisions Are Available Immediately",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Note Ready Cap Counts The Lane",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "References Are Ingested At Birth",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Subprojects Inherit Project Blocking",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
