@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Keep the Bob Refs selected row clear of the pinned section header
-goal:
-  Opening Bob Refs always shows the list from its top with the first row fully visible,
-  and keyboard moves never leave the selected row's title hidden under a pinned section
-  header.
+goal: Opening Bob Refs always shows the list from its top with the first row fully
+  visible, and keyboard moves never leave the selected row's title hidden under a
+  pinned section header.
 size: medium
 proposed_by: bbugyi200.athena.129
 proposed_with: claude/opus
-create_time: 2026-10-19 18:47:13
-status: wip
+status: done
 ---
 
 # Fix: Bob Refs list hides the selected row's title under the pinned section header
