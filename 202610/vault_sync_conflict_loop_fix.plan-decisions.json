@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "copies",
+      "kind": "choice",
+      "ask": "Should conflict copies whose `_conflicts/` path is gitignored be force-added so they sync like Markdown copies?",
+      "why": "Every sync_conflicts.md entry then names a file that exists on every host",
+      "choices": [
+        {
+          "key": "force",
+          "label": "Stage every conflict copy with `git add -f`, so ignored copies are committed and reach every host"
+        },
+        {
+          "key": "local",
+          "label": "Keep ignored copies untracked on the resolving host; their sync_conflicts.md line says host-local"
+        }
+      ],
+      "default": "force",
+      "effective_default": "force",
+      "requested_verified": false
+    },
+    {
+      "id": "alert",
+      "kind": "choice",
+      "ask": "Should vault-sync swap its dead `bob notify` call for a macOS banner on conflicts and on a new halt?",
+      "why": "athena and apollo are headless, so no banner would have reached Bryan in either incident",
+      "choices": [
+        {
+          "key": "macos",
+          "label": "The Mac gets an osascript banner per conflict cycle and per new halt; Linux hosts stay log-only"
+        },
+        {
+          "key": "remove",
+          "label": "Delete the dead call; a halt shows only in last_error, the service log, and nightly's summary"
+        }
+      ],
+      "default": "remove",
+      "effective_default": "remove",
+      "requested_verified": false
+    },
+    {
+      "id": "rollout",
+      "kind": "choice",
+      "ask": "Should the implementer roll the fix out on athena (install bob, set the repo config, add the union rule to the vault)?",
+      "why": "Both loops ran on athena, and the report calls the config change its fix-now step",
+      "choices": [
+        {
+          "key": "athena",
+          "label": "Install bob, set both autoDetach keys, and add the journal union rule to ~/bob/.gitattributes"
+        },
+        {
+          "key": "none",
+          "label": "Ship only code, tests, and docs; the final report lists the host and vault steps for Bryan"
+        }
+      ],
+      "default": "athena",
+      "effective_default": "athena",
+      "requested_verified": false
+    },
+    {
+      "id": "cleanup",
+      "kind": "choice",
+      "ask": "Should the implementer delete the incident's leftover ~/bob/_conflicts copies after checking each against its source?",
+      "why": "Each copy is checked first, and the incidents' data already lives in the tracked files",
+      "choices": [
+        {
+          "key": "verify_delete",
+          "label": "Delete each copy only after it matches its source; keep and report any copy that fails the check"
+        },
+        {
+          "key": "keep",
+          "label": "Leave _conflicts/ untouched; the final report lists the cleanup commands"
+        }
+      ],
+      "default": "verify_delete",
+      "effective_default": "verify_delete",
+      "requested_verified": false
+    }
+  ]
+}
