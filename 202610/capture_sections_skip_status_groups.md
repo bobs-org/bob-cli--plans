@@ -1,15 +1,22 @@
 ---
 tier: tale
 title: Keep generated status-group headings out of @route# section capture
-goal: '`@note#` section completion, `bob capture-sections`, shell `--section` completion,
+goal:
+  "`@note#` section completion, `bob capture-sections`, shell `--section` completion,
   and `@note#prefix` / `--section` bullet placement all skip the `Next & In Progress`,
-  `Blocked`, and `Done & Canceled` headings that `bob task reconcile` generates under
-  a Tasks heading, while authored sections keep working.'
+  `Blocked`, and `Done & Canceled` headings that `bob task reconcile` generates under a
+  Tasks heading, while authored sections keep working."
 size: small
 proposed_by: bbugyi200.apollo.93
 proposed_with: claude/opus
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.93](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.93.md)
+- **COMMITS:**
+  - [8c10a82](https://github.com/bobs-org/bob-cli/commit/8c10a82008ecf3bbcefb4e43e2559b0fffe35cdc)
+    — fix(capture): skip generated status-group headings as bullet sections
 
 # Plan: Keep reconcile's generated status-group headings out of `@route#` section capture
 
