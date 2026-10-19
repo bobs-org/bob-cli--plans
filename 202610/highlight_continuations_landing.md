@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Finish continuation-highlight integration and land bob-cli-9p
-goal:
-  Fix plural page-label consumption and page-index overflow, verify both repositories,
+goal: Fix plural page-label consumption and page-index overflow, verify both repositories,
   and close the epic.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-9p.land
@@ -15,11 +14,6 @@ status: done
   [202610/highlight_continuations.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/highlight_continuations.md)
 - **BEAD:**
   [bob-cli-9p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9p/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-9p.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9p.land.md)
-- **COMMITS:**
-  - [1097ae9](https://github.com/bobs-org/bob-cli/commit/1097ae90654c7d2d60c43ac0fab62d15d5266309)
-    — fix(highlights): use checked page adjacency with overflow regression coverage
 
 # Finish continuation-highlight integration and land bob-cli-9p
 
