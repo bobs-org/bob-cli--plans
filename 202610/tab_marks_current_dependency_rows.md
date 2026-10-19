@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Tab marks CURRENT rows in the Depends on and Blocks stages
-goal:
-  Tab marks or unmarks CURRENT prerequisite/dependent rows for removal, and applying the
-  marks actually removes same-note links.
+goal: Tab marks or unmarks CURRENT prerequisite/dependent rows for removal, and applying
+  the marks actually removes same-note links.
 size: small
 proposed_by: bbugyi200.athena.11x
 proposed_with: claude/opus
-create_time: 2026-10-19 11:19:53
-status: wip
+status: done
 ---
 
 # Fix: Tab cannot mark CURRENT rows in the Depends on / Blocks stages
