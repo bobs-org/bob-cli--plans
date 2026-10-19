@@ -1,60 +1,58 @@
 ---
 tier: epic
-title: "Continuation highlights: a `<` note folds a highlight into the one before it"
-goal: "A Highlights note that starts with `<` makes `bob ref` render that highlight and
-  its notes as one quote with the highlight before it, across pages or within a
-  paragraph. Block identity, tasks, and published anchors stay stable. A marker that
-  cannot merge stays visible and is counted.
+title: 'Continuation highlights: a `<` note folds a highlight into the one before
+  it'
+goal: 'A Highlights note that starts with `<` makes `bob ref` render that highlight
+  and its notes as one quote with the highlight before it, across pages or within
+  a paragraph. Block identity, tasks, and published anchors stay stable. A marker
+  that cannot merge stays visible and is counted.
 
-  "
+  '
 decisions:
   decision_record:
     ask: Record a `decisions` strand for the render-time `<` continuation fold?
     memory:
-      - decisions:continuation-highlights-fold-at-render
+    - decisions:continuation-highlights-fold-at-render
     default: false
     answer: false
 phases:
-  - id: render-fold
-    title: Parse, plan, and render continuation groups
-    depends_on: []
-    size: medium
-    description:
-      "render-fold: add `page_index` to sidecar annotations, a pure `continuation.rs`
-      planner (marker grammar, nearest-earlier-text-highlight walk, page-aware seams,
-      range labels), and a group render path. Every text highlight renders through the
-      group path, so unmerged notes stay byte-identical. Also add head-ID identity,
-      redirect stubs for published follower anchors, and per-piece task identity with
-      group 🔖 links, plus a Gas Town golden test and a live-vault dry-run regression
-      check."
-  - id: scan-visibility-docs
-    title: Continuation counters, scan output, and docs
-    depends_on:
-      - render-fold
-    size: small
-    description:
-      "scan-visibility-docs: surface merged and dangling continuations in the verbose
-      plan, write report, per-PDF scan line, and scan JSON. Document the gesture, seam
-      rule, identity rules, and stubs in docs/highlights-ref-sync.md and the README.
-      Record the decisions strand if accepted."
-  - id: mac-pp-label
-    title: Plural page labels in Bob Mac Capture
-    depends_on: []
-    size: xsmall
-    description:
-      "mac-pp-label: in the linked bob-mac-capture repo, make
-      `RefsCopyFormat.shortPageLabel` render `Pages 11–12` as `pp. 11–12`, matching
-      `Page 11` → `p. 11`, with tests."
+- id: render-fold
+  title: Parse, plan, and render continuation groups
+  depends_on: []
+  size: medium
+  description: 'render-fold: add `page_index` to sidecar annotations, a pure `continuation.rs`
+    planner (marker grammar, nearest-earlier-text-highlight walk, page-aware seams,
+    range labels), and a group render path. Every text highlight renders through the
+    group path, so unmerged notes stay byte-identical. Also add head-ID identity,
+    redirect stubs for published follower anchors, and per-piece task identity with
+    group 🔖 links, plus a Gas Town golden test and a live-vault dry-run regression
+    check.'
+- id: scan-visibility-docs
+  title: Continuation counters, scan output, and docs
+  depends_on:
+  - render-fold
+  size: small
+  description: 'scan-visibility-docs: surface merged and dangling continuations in
+    the verbose plan, write report, per-PDF scan line, and scan JSON. Document the
+    gesture, seam rule, identity rules, and stubs in docs/highlights-ref-sync.md and
+    the README. Record the decisions strand if accepted.'
+- id: mac-pp-label
+  title: Plural page labels in Bob Mac Capture
+  depends_on: []
+  size: xsmall
+  description: 'mac-pp-label: in the linked bob-mac-capture repo, make `RefsCopyFormat.shortPageLabel`
+    render `Pages 11–12` as `pp. 11–12`, matching `Page 11` → `p. 11`, with tests.'
 proposed_by: bbugyi200.athena.research.4u.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-19 07:59:12
 status: wip
+bead_id: bob-cli-9p
 ---
 
-- **PROMPT:**
-  [prompts/202610/highlight_continuations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlight_continuations.md)
+- **PROMPT:** [prompts/202610/highlight_continuations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlight_continuations.md)
+- **BEAD:** [bob-cli-9p](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9p/README.md)
 
 # Plan: Continuation highlights (`<`)
 
