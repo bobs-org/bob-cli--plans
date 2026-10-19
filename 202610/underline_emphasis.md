@@ -1,67 +1,62 @@
 ---
 tier: epic
 title: Underline emphasis inside highlights
-goal: "An underline drawn inside a highlight renders as bold emphasis inside that
-  highlight's quote in Obsidian, bob ref show, and the Bob Mac Capture preview. Its
-  comment, tasks, and image notes join the highlight, anchors stay valid, and nothing is
-  written to the PDF or the sidecar.
+goal: 'An underline drawn inside a highlight renders as bold emphasis inside that
+  highlight''s quote in Obsidian, bob ref show, and the Bob Mac Capture preview. Its
+  comment, tasks, and image notes join the highlight, anchors stay valid, and nothing
+  is written to the PDF or the sidecar.
 
-  "
+  '
 decisions:
   quiet_quote_text:
-    ask:
-      Should the snippet also set every highlight quote in regular-weight muted text, so
-      emphasis stands out more?
+    ask: Should the snippet also set every highlight quote in regular-weight muted
+      text, so emphasis stands out more?
     default: false
-    why:
-      Keeps the ~330 quotes without emphasis as they look today; ink contrast alone
+    why: Keeps the ~330 quotes without emphasis as they look today; ink contrast alone
       reads clearly.
     answer: false
   decision_record:
     ask: Record the underline-emphasis rule in the decisions web once the epic lands?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: fold-render
-    title: Classify, match, and fold underlines into their highlights
-    depends_on: []
-    size: medium
-    description:
-      "fold-render: add underline.rs (classifier, match key, host predicate,
-      word-snapped runs), plan underlines before continuations in one shared fold plan,
-      render runs, comments, image notes, and task links into the host block, absorb
-      underline IDs with link-aware Merged emphasis stubs, heal standalone underlines,
-      and rehearse the rollout on a scratch copy of the affected notes."
-  - id: visibility-docs
-    title: Scan counters, terminal bold, docs, and the Obsidian snippet
-    depends_on:
-      - fold-render
-    size: small
-    description:
-      "visibility-docs: report merged and standalone underlines (with reasons) in
-      dry-run, scan, and JSON output; render quote emphasis as ANSI bold in bob ref
-      show; document the feature; install and enable the ref-highlights.css vault
-      snippet."
-  - id: mac-preview
-    title: Emphasis-aware quote preview in Bob Mac Capture
-    depends_on: []
-    size: small
-    description:
-      "mac-preview: a pure RefsCore excerpt that keeps late emphasis inside the 4-line
-      inspector preview, a plain-text quote tooltip, and bold runs instead of raw `**`
-      in the Copy card picker."
+- id: fold-render
+  title: Classify, match, and fold underlines into their highlights
+  depends_on: []
+  size: medium
+  description: 'fold-render: add underline.rs (classifier, match key, host predicate,
+    word-snapped runs), plan underlines before continuations in one shared fold plan,
+    render runs, comments, image notes, and task links into the host block, absorb
+    underline IDs with link-aware Merged emphasis stubs, heal standalone underlines,
+    and rehearse the rollout on a scratch copy of the affected notes.'
+- id: visibility-docs
+  title: Scan counters, terminal bold, docs, and the Obsidian snippet
+  depends_on:
+  - fold-render
+  size: small
+  description: 'visibility-docs: report merged and standalone underlines (with reasons)
+    in dry-run, scan, and JSON output; render quote emphasis as ANSI bold in bob ref
+    show; document the feature; install and enable the ref-highlights.css vault snippet.'
+- id: mac-preview
+  title: Emphasis-aware quote preview in Bob Mac Capture
+  depends_on: []
+  size: small
+  description: 'mac-preview: a pure RefsCore excerpt that keeps late emphasis inside
+    the 4-line inspector preview, a plain-text quote tooltip, and bold runs instead
+    of raw `**` in the Copy card picker.'
 proposed_by: bbugyi200.athena.research.4z.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-19 11:48:17
 status: wip
+bead_id: bob-cli-9u
 ---
 
-- **PROMPT:**
-  [prompts/202610/underline_emphasis.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/underline_emphasis.md)
+- **PROMPT:** [prompts/202610/underline_emphasis.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/underline_emphasis.md)
+- **BEAD:** [bob-cli-9u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9u/README.md)
 
 # Plan: Underline emphasis inside highlights
 
