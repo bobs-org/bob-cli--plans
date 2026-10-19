@@ -1,23 +1,22 @@
 ---
 tier: epic
 title: Bob public docs site on GitHub Pages
-goal: "https://bobs-org.github.io/ serves one beautiful, Diátaxis-organized
-  documentation site for the whole Bob system (bob-cli, bob-plugins, bob-mac-capture).
-  It is built with Zensical from in-repo Markdown, publishes itself hourly behind gates
-  that never replace a good site with a broken one, and keeps every existing
-  docs/<stem>.md contract at /<stem>/.
+goal: 'https://bobs-org.github.io/ serves one beautiful, Diátaxis-organized documentation
+  site for the whole Bob system (bob-cli, bob-plugins, bob-mac-capture). It is built
+  with Zensical from in-repo Markdown, publishes itself hourly behind gates that never
+  replace a good site with a broken one, and keeps every existing docs/<stem>.md contract
+  at /<stem>/.
 
-  "
+  '
 decisions:
   license:
-    ask:
-      Which license should bob-cli and bob-mac-capture adopt before the docs go public?
+    ask: Which license should bob-cli and bob-mac-capture adopt before the docs go
+      public?
     choices:
       mit: MIT in both repos, matching bob-plugins; one license across all of Bob
-      apache2:
-        Apache-2.0 in both repos; adds a patent grant but differs from bob-plugins
-      none:
-        No LICENSE file; the site and READMEs say source-available, all rights reserved
+      apache2: Apache-2.0 in both repos; adds a patent grant but differs from bob-plugins
+      none: No LICENSE file; the site and READMEs say source-available, all rights
+        reserved
     default: mit
     why: Matches bob-plugins and the research recommendation
     answer: mit
@@ -27,155 +26,141 @@ decisions:
     why: The three repos are already public; indexing lets people find the docs
     answer: true
   publish_decisions:
-    ask:
-      Should the site publish a generated Design decisions page from the decisions
+    ask: Should the site publish a generated Design decisions page from the decisions
       memory web?
     default: true
     why: The records are already public in bob-cli; a page makes the reasoning findable
     answer: true
   memory_docs_note:
-    ask:
-      Add a sase/memory/docs.md reference note so agents follow the docs contract and
-      routing?
+    ask: Add a sase/memory/docs.md reference note so agents follow the docs contract
+      and routing?
     memory:
-      - docs.md
-    requested:
-      Can you help me implement the recommendations made by the bob_public_docs_site.md
-      file in the research sidecar repo? Implement as much as you can on your own, which
-      should hopefully be all of it.
+    - docs.md
+    requested: Can you help me implement the recommendations made by the bob_public_docs_site.md
+      file in the research sidecar repo? Implement as much as you can on your own,
+      which should hopefully be all of it.
     default: true
     answer: true
 phases:
-  - id: prereqs
-    title: Licenses and stale public claims
-    depends_on: []
-    size: small
-    description:
-      "prereqs: add LICENSE files to bob-cli and bob-mac-capture and correct the
-      bob-plugins README's stale public claims."
-  - id: toolchain
-    title: Docs toolchain, contracts in place, and gates
-    depends_on: []
-    size: large
-    description:
-      "toolchain: create the tools/docs uv project, mkdocs.yml, assembler, lint, URL
-      contract, search smoke, and just recipes; publish the 26 contracts in place under
-      Develop; add the docs memory note."
-  - id: theme
-    title: Bob visual identity and homepage
-    depends_on:
-      - toolchain
-    size: large
-    description:
-      "theme: build the calm-notebook theme (tokens, self-hosted fonts, bullet-b mark,
-      keycaps, bob-task fence, contract banner, provenance footer) and the homepage,
-      verified with Playwright and axe."
-  - id: generated
-    title: Generated CLI reference, glossary, and decisions
-    depends_on:
-      - toolchain
-    size: medium
-    description:
-      "generated: add the golden-tested CLI reference, generate glossary and
-      design-decision pages from memory webs, and open the Reference tab."
-  - id: publish
-    title: Deploy repo, hourly gated publish, and launch
-    depends_on:
-      - prereqs
-      - toolchain
-      - theme
-      - generated
-    size: large
-    description:
-      "publish: add reusable publish/weekly workflows in bob-cli, bootstrap
-      bobs-org/bobs-org.github.io, launch the site, and prove the fail-safe path with a
-      drill."
-  - id: learn
-    title: Demo vault, tested tutorial, and the Learn path
-    depends_on:
-      - theme
-      - generated
-    size: large
-    description:
-      "learn: create the synthetic demo vault, tutorial runner, and CLI media; write the
-      Get started pages, the concepts hub with its first concept, and the Compatibility
-      page."
-  - id: reference-pages
-    title: Hand-written product reference
-    depends_on:
-      - theme
-      - generated
-    size: large
-    description:
-      "reference-pages: write Capture syntax with a token index, Vault format,
-      Configuration and environment, and JSON outputs, plus env-var drift and search
-      smoke coverage."
-  - id: guides
-    title: Goal-titled guides and component tags
-    depends_on:
-      - learn
-      - reference-pages
-    size: large
-    description:
-      "guides: harvest 10-15 goal-titled how-to guides from the README and contracts,
-      add component tags, and generate the By component index."
-  - id: concepts
-    title: Concept pages
-    depends_on:
-      - learn
-    size: large
-    description:
-      "concepts: write the remaining concept pages from the contracts and decision
-      records, and point the homepage's Bob day strip at them."
-  - id: plugins-ref
-    title: Obsidian plugin reference in bob-plugins
-    depends_on:
-      - theme
-      - generated
-    size: large
-    description:
-      "plugins-ref: create bob-plugins docs with generated inventory and command tables,
-      turn its README into a front door, and mount it into the site."
-  - id: mac-ref
-    title: Mac Capture reference in bob-mac-capture
-    depends_on:
-      - guides
-    size: large
-    description:
-      "mac-ref: split the Mac Capture README into docs pages and Fix-problems guides,
-      add CI-rendered panel images, turn the README into a front door, and mount it."
-  - id: front-door
-    title: bob-cli README becomes a front door
-    depends_on:
-      - learn
-      - reference-pages
-      - guides
-      - concepts
-    size: medium
-    description:
-      "front-door: give every remaining bob-cli README section a site home, then rewrite
-      the README as a short front door and repair inbound README anchors."
-  - id: polish
-    title: llms.txt, reader tests, final sweep, and handoff
-    depends_on:
-      - publish
-      - plugins-ref
-      - mac-ref
-      - front-door
-    size: medium
-    description:
-      "polish: enable llms.txt, run the agent reader test, fix label misses, do a final
-      accessibility sweep, and file the handoff research artifact for work agents could
-      not finish."
+- id: prereqs
+  title: Licenses and stale public claims
+  depends_on: []
+  size: small
+  description: 'prereqs: add LICENSE files to bob-cli and bob-mac-capture and correct
+    the bob-plugins README''s stale public claims.'
+- id: toolchain
+  title: Docs toolchain, contracts in place, and gates
+  depends_on: []
+  size: large
+  description: 'toolchain: create the tools/docs uv project, mkdocs.yml, assembler,
+    lint, URL contract, search smoke, and just recipes; publish the 26 contracts in
+    place under Develop; add the docs memory note.'
+- id: theme
+  title: Bob visual identity and homepage
+  depends_on:
+  - toolchain
+  size: large
+  description: 'theme: build the calm-notebook theme (tokens, self-hosted fonts, bullet-b
+    mark, keycaps, bob-task fence, contract banner, provenance footer) and the homepage,
+    verified with Playwright and axe.'
+- id: generated
+  title: Generated CLI reference, glossary, and decisions
+  depends_on:
+  - toolchain
+  size: medium
+  description: 'generated: add the golden-tested CLI reference, generate glossary
+    and design-decision pages from memory webs, and open the Reference tab.'
+- id: publish
+  title: Deploy repo, hourly gated publish, and launch
+  depends_on:
+  - prereqs
+  - toolchain
+  - theme
+  - generated
+  size: large
+  description: 'publish: add reusable publish/weekly workflows in bob-cli, bootstrap
+    bobs-org/bobs-org.github.io, launch the site, and prove the fail-safe path with
+    a drill.'
+- id: learn
+  title: Demo vault, tested tutorial, and the Learn path
+  depends_on:
+  - theme
+  - generated
+  size: large
+  description: 'learn: create the synthetic demo vault, tutorial runner, and CLI media;
+    write the Get started pages, the concepts hub with its first concept, and the
+    Compatibility page.'
+- id: reference-pages
+  title: Hand-written product reference
+  depends_on:
+  - theme
+  - generated
+  size: large
+  description: 'reference-pages: write Capture syntax with a token index, Vault format,
+    Configuration and environment, and JSON outputs, plus env-var drift and search
+    smoke coverage.'
+- id: guides
+  title: Goal-titled guides and component tags
+  depends_on:
+  - learn
+  - reference-pages
+  size: large
+  description: 'guides: harvest 10-15 goal-titled how-to guides from the README and
+    contracts, add component tags, and generate the By component index.'
+- id: concepts
+  title: Concept pages
+  depends_on:
+  - learn
+  size: large
+  description: 'concepts: write the remaining concept pages from the contracts and
+    decision records, and point the homepage''s Bob day strip at them.'
+- id: plugins-ref
+  title: Obsidian plugin reference in bob-plugins
+  depends_on:
+  - theme
+  - generated
+  size: large
+  description: 'plugins-ref: create bob-plugins docs with generated inventory and
+    command tables, turn its README into a front door, and mount it into the site.'
+- id: mac-ref
+  title: Mac Capture reference in bob-mac-capture
+  depends_on:
+  - guides
+  size: large
+  description: 'mac-ref: split the Mac Capture README into docs pages and Fix-problems
+    guides, add CI-rendered panel images, turn the README into a front door, and mount
+    it.'
+- id: front-door
+  title: bob-cli README becomes a front door
+  depends_on:
+  - learn
+  - reference-pages
+  - guides
+  - concepts
+  size: medium
+  description: 'front-door: give every remaining bob-cli README section a site home,
+    then rewrite the README as a short front door and repair inbound README anchors.'
+- id: polish
+  title: llms.txt, reader tests, final sweep, and handoff
+  depends_on:
+  - publish
+  - plugins-ref
+  - mac-ref
+  - front-door
+  size: medium
+  description: 'polish: enable llms.txt, run the agent reader test, fix label misses,
+    do a final accessibility sweep, and file the handoff research artifact for work
+    agents could not finish.'
 proposed_by: bbugyi200.apollo.95
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-19 18:55:40
 status: wip
+bead_id: bob-cli-a0
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/README.md)
 
 # Plan: Bob public docs site on GitHub Pages
 
