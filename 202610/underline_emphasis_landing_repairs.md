@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair underline emphasis edge cases and land bob-cli-9u
-goal:
-  Preserve accepted underline matches and terminal bold across wraps, then verify and
-  close bob-cli-9u.
+goal: Preserve accepted underline matches and terminal bold across wraps, then verify
+  and close bob-cli-9u.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-9u.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-9u
-create_time: 2026-10-19 13:04:16
-status: wip
+status: done
 ---
 
 - **PARENT:**
