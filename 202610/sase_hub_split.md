@@ -1,96 +1,87 @@
 ---
 tier: epic
 title: Split ~/bob/sase.md into child projects with a new bob task move
-goal: "The ~/bob/sase.md hub is migrated to the research report's recommended split.
+goal: 'The ~/bob/sase.md hub is migrated to the research report''s recommended split.
   Duplicates are merged, stale ideas are removed, and routed tasks live in their child
   notes with every id, dependency, Task Link, and backlink intact. The moves use a
   tested `bob task move` command that preserves freshness and keeps the vault synced.
 
-  "
+  '
 decisions:
   later_notes:
     ask: When should the report's three "create later" notes be created?
     choices:
       hub: Their 33 tasks stay in the hub's Tasks section until that work starts
-      now:
-        Create community, research, and waits/queues notes now; the hub shrinks to ~16
-        tasks
+      now: Create community, research, and waits/queues notes now; the hub shrinks
+        to ~16 tasks
     default: hub
     why: Follows the report; bob task move makes the later split a one-command job
     answer: hub
   move_in_flight:
-    ask:
-      Move the in-flight Next/Pending hub tasks now, instead of leaving them until they
-      finish?
+    ask: Move the in-flight Next/Pending hub tasks now, instead of leaving them until
+      they finish?
     default: true
-    why:
-      The move repairs their Task Links in today's daily note, so Today and lanes are
-      unaffected
+    why: The move repairs their Task Links in today's daily note, so Today and lanes
+      are unaffected
     answer: true
   installs_backlog:
-    ask:
-      Demote Docker, Windows, and multi-user support to Future Work bullets in
+    ask: Demote Docker, Windows, and multi-user support to Future Work bullets in
       sase_better_installs?
     default: true
-    why:
-      They are someday ideas that would keep a "ready to be talked about" project from
-      finishing
+    why: They are someday ideas that would keep a "ready to be talked about" project
+      from finishing
     answer: true
   personal_homes:
     ask: Where should the 8 personal (non-SASE) hub items go?
     choices:
-      routed:
-        Subscriptions to dev, Databricks prep to job_2026, the rest to mac_inbox for
-        triage
+      routed: Subscriptions to dev, Databricks prep to job_2026, the rest to mac_inbox
+        for triage
       inbox: All 8 go to mac_inbox; you route each one yourself with the inbox picker
     default: routed
     why: Clear homes exist for 6 of the 8; the inbox handles the ambiguous ones
     answer: routed
   widen_plans_prj:
-    ask:
-      Reword sase_better_plans's ^prj to "Improve sase plans and epics!" before moving
-      11 tasks in?
+    ask: Reword sase_better_plans's ^prj to "Improve sase plans and epics!" before
+      moving 11 tasks in?
     default: true
     why: The current criterion (epic frontmatter guidance) is narrow and largely shipped
     answer: true
 phases:
-  - id: move-cli
-    title: Build bob task move
-    depends_on: []
-    size: large
-    description:
-      "move-cli: add a sync-sandwiched, dry-runnable `bob task move` that moves open
-      top-level task blocks between notes and repairs ids, dependency fields, wikilinks,
-      embeds, and daily-note Task Links vault-wide, without stamping freshness."
-  - id: hub-cleanup
-    title: Clean up duplicates and stale ideas in place
-    depends_on: []
-    size: medium
-    description:
-      "hub-cleanup: in the live vault, cancel merged and duplicate tasks while carrying
-      their details to survivors. Delete stale Future Work bullets, record contradiction
-      and check notes, then reconcile and sync."
-  - id: split-hub
-    title: Create child notes and move tasks
-    depends_on:
-      - move-cli
-      - hub-cleanup
-    size: medium
-    description:
-      "split-hub: install the new bob, create the child notes, resolve the report's
-      routing into a manifest of live tasks, and move tasks and Future Work bullets in
-      verified batches. Attach refs, reconcile, sync projects, verify links, and
-      summarize what is left for Bryan."
+- id: move-cli
+  title: Build bob task move
+  depends_on: []
+  size: large
+  description: 'move-cli: add a sync-sandwiched, dry-runnable `bob task move` that
+    moves open top-level task blocks between notes and repairs ids, dependency fields,
+    wikilinks, embeds, and daily-note Task Links vault-wide, without stamping freshness.'
+- id: hub-cleanup
+  title: Clean up duplicates and stale ideas in place
+  depends_on: []
+  size: medium
+  description: 'hub-cleanup: in the live vault, cancel merged and duplicate tasks
+    while carrying their details to survivors. Delete stale Future Work bullets, record
+    contradiction and check notes, then reconcile and sync.'
+- id: split-hub
+  title: Create child notes and move tasks
+  depends_on:
+  - move-cli
+  - hub-cleanup
+  size: medium
+  description: 'split-hub: install the new bob, create the child notes, resolve the
+    report''s routing into a manifest of live tasks, and move tasks and Future Work
+    bullets in verified batches. Attach refs, reconcile, sync projects, verify links,
+    and summarize what is left for Bryan.'
 proposed_by: bbugyi200.athena.124
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-19 16:26:35
 status: wip
+bead_id: bob-cli-9y
 ---
 
-- **PROMPT:**
-  [prompts/202610/sase_hub_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/sase_hub_split.md)
+- **PROMPT:** [prompts/202610/sase_hub_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/sase_hub_split.md)
+- **BEAD:** [bob-cli-9y](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9y/README.md)
 
 # Plan: Split ~/bob/sase.md into child projects
 
