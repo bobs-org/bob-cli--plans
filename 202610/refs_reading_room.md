@@ -1,70 +1,66 @@
 ---
 tier: epic
-title:
-  "Bob Refs reading room: near-full-screen panel, 5-per-page previews, inline images"
-goal: "The Bob Refs panel in Bob Mac Capture opens nearly full screen (1344 × 798 pt on
-  Bryan's 1440 × 870 pt MacBook), its preview column shows 5 annotations per page and
-  reveals 5 more on each Ctrl+D, papers, articles, and docs show a larger 150 × 194 pt
-  first-page thumbnail beside the facts, and image highlights and image notes render
-  inline with stable layout, so Ctrl+D paging never jumps.
+title: 'Bob Refs reading room: near-full-screen panel, 5-per-page previews, inline
+  images'
+goal: 'The Bob Refs panel in Bob Mac Capture opens nearly full screen (1344 × 798
+  pt on Bryan''s 1440 × 870 pt MacBook), its preview column shows 5 annotations per
+  page and reveals 5 more on each Ctrl+D, papers, articles, and docs show a larger
+  150 × 194 pt first-page thumbnail beside the facts, and image highlights and image
+  notes render inline with stable layout, so Ctrl+D paging never jumps.
 
-  "
+  '
 decisions:
   standalone_notes:
     ask: Should standalone notes join the preview feed as note cards, in note order?
     choices:
-      include:
-        Notes show as yellow note cards between highlights; the feed previews every
-        annotation
-      exclude:
-        The feed shows only highlights and image highlights; standalone notes stay
-        Copy-card only
+      include: Notes show as yellow note cards between highlights; the feed previews
+        every annotation
+      exclude: The feed shows only highlights and image highlights; standalone notes
+        stay Copy-card only
     default: include
-    why: A complete preview beats a partial one, and only 4 standalone notes exist today
+    why: A complete preview beats a partial one, and only 4 standalone notes exist
+      today
     answer: include
 phases:
-  - id: refs-core-model
-    title: Portable RefsCore model, geometry, and 5-per-page default
-    depends_on: []
-    size: medium
-    description:
-      "refs-core-model: decode image fields from ref show, define the generalized
-      preview feed (image highlights, attached images, unavailable images, standalone
-      notes), add pure panel/inspector geometry, image sizing, and vault-path resolution
-      in RefsCore with Linux tests, and raise the page size default to 5."
-  - id: big-panel
-    title: Near-full-screen panel, wide inspector, larger thumbnail
-    depends_on:
-      - refs-core-model
-    size: medium
-    description:
-      "big-panel: wire the new geometry into the panel and column split, add the wide
-      inspector layout (hero with a 150 × 194 thumbnail beside the facts, readable 720
-      pt column, body typography), render thumbnails at the new size behind a versioned
-      cache, let Ctrl+D reveal while the disclosure row is visible, and refresh fixtures
-      and README."
-  - id: inspector-images
-    title: Inline images and standalone notes in the preview feed
-    depends_on:
-      - refs-core-model
-      - big-panel
-    size: medium
-    description:
-      "inspector-images: add an ImageIO-backed image loader with metadata prefetch so
-      every image reserves its exact size before layout, render image highlights,
-      attached images, unavailable-image rows, and standalone notes in the feed, and
-      cover them with loader, hosted reveal, and render-fixture tests plus README
-      updates."
+- id: refs-core-model
+  title: Portable RefsCore model, geometry, and 5-per-page default
+  depends_on: []
+  size: medium
+  description: 'refs-core-model: decode image fields from ref show, define the generalized
+    preview feed (image highlights, attached images, unavailable images, standalone
+    notes), add pure panel/inspector geometry, image sizing, and vault-path resolution
+    in RefsCore with Linux tests, and raise the page size default to 5.'
+- id: big-panel
+  title: Near-full-screen panel, wide inspector, larger thumbnail
+  depends_on:
+  - refs-core-model
+  size: medium
+  description: 'big-panel: wire the new geometry into the panel and column split,
+    add the wide inspector layout (hero with a 150 × 194 thumbnail beside the facts,
+    readable 720 pt column, body typography), render thumbnails at the new size behind
+    a versioned cache, let Ctrl+D reveal while the disclosure row is visible, and
+    refresh fixtures and README.'
+- id: inspector-images
+  title: Inline images and standalone notes in the preview feed
+  depends_on:
+  - refs-core-model
+  - big-panel
+  size: medium
+  description: 'inspector-images: add an ImageIO-backed image loader with metadata
+    prefetch so every image reserves its exact size before layout, render image highlights,
+    attached images, unavailable-image rows, and standalone notes in the feed, and
+    cover them with loader, hosted reveal, and render-fixture tests plus README updates.'
 proposed_by: bbugyi200.athena.11v.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-19 12:32:43
 status: wip
+bead_id: bob-cli-9v
 ---
 
-- **PROMPT:**
-  [prompts/202610/refs_reading_room.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_reading_room.md)
+- **PROMPT:** [prompts/202610/refs_reading_room.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/refs_reading_room.md)
+- **BEAD:** [bob-cli-9v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9v/README.md)
 
 # Plan: Bob Refs reading room
 
