@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ci_proof",
+      "kind": "choice",
+      "ask": "Should the fix be proven green on a throwaway draft PR before it lands on master?",
+      "why": "CI is the only place these tests run (the Mac lacks XCTest), and every failure landed unrun",
+      "choices": [
+        {
+          "key": "draft_pr",
+          "label": "Iterate on a temp PR until the whole macOS job is green, then land; 10\u201330 min CI wait per round"
+        },
+        {
+          "key": "land_only",
+          "label": "Land after local gates; the next master run may expose more and need follow-up work"
+        }
+      ],
+      "default": "draft_pr",
+      "effective_default": "draft_pr",
+      "requested_verified": false
+    }
+  ]
+}
