@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "fallback_box",
+      "kind": "choice",
+      "ask": "Should the built-in fallback box, shown only when no saved default fits any screen, become near-fullscreen?",
+      "why": "The fallback is rare once a default is saved, so keep this change limited to the Enter keys",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Leave the centered 60% fallback; Bryan sets his near-fullscreen default once with \u2318Enter"
+        },
+        {
+          "key": "near_full",
+          "label": "Make the fallback a centered 90% box, so a fresh or off-screen default also opens near fullscreen"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
