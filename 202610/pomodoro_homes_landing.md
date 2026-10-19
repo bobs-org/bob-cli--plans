@@ -1,95 +1,91 @@
 ---
 tier: epic
-title:
-  Finish Pomodoro homes — contract parity, review time, override labels, and panel fixes
-goal: "Close the gaps the bob-cli-9k landing review found between the shipped Pomodoro
+title: Finish Pomodoro homes — contract parity, review time, override labels, and
+  panel fixes
+goal: 'Close the gaps the bob-cli-9k landing review found between the shipped Pomodoro
   homes feature and its approved plan (plan:202610/pomodoro_homes.md). Rust and the
   bob-ledger-tools mirror agree on every shared vector. The review_time tile always
-  equals the GTD review row. Stats theme parts are unchanged when no home filter
-  applies. `bob ref today`, human `bob plan`, and the `=` override surfaces that landed
-  during the epic label unnamed sessions by their derived homes. The Stats panel follows
+  equals the GTD review row. Stats theme parts are unchanged when no home filter applies.
+  `bob ref today`, human `bob plan`, and the `=` override surfaces that landed during
+  the epic label unnamed sessions by their derived homes. The Stats panel follows
   chart pins. Bob Mac Capture never routes by a derived label and draws forecast dots
   hollow.
 
-  "
+  '
 parent_bead: bob-cli-9k
 decisions:
   review_row_time:
-    ask:
-      Count a work session's linked daily ^gtd share as review time, so the review_time
+    ask: Count a work session's linked daily ^gtd share as review time, so the review_time
       tile always equals the GTD review row?
     default: true
-    why:
-      You asked for exactly the GTD review row's minutes; 4w today is row 1729m vs tile
-      1660m
+    why: You asked for exactly the GTD review row's minutes; 4w today is row 1729m
+      vs tile 1660m
     answer: true
 phases:
-  - id: contract
-    title: "bob-cli: homes contract parity, review time, and Stats fixes"
-    depends_on: []
-    size: medium
-    description: "contract: give the R5 remainder to the first task, mark every closed
-      entry attributed, re-split the shared vectors so only the ambiguous-basename case
-      is rust_only and add the missing cases, put review_time on the GTD review row (per
-      decision), stop re-splitting theme parts when no home filter drops a task, prune
-      the homes catalog to used keys, align `bob projects list`, print the R10 caveat
-      and review hue in `bob stats show`, delete the stale `allow(unused)`, fill the
-      H-vector gaps, and update docs/pomodoro-homes.md and docs/stats.md.
+- id: contract
+  title: 'bob-cli: homes contract parity, review time, and Stats fixes'
+  depends_on: []
+  size: medium
+  description: 'contract: give the R5 remainder to the first task, mark every closed
+    entry attributed, re-split the shared vectors so only the ambiguous-basename case
+    is rust_only and add the missing cases, put review_time on the GTD review row
+    (per decision), stop re-splitting theme parts when no home filter drops a task,
+    prune the homes catalog to used keys, align `bob projects list`, print the R10
+    caveat and review hue in `bob stats show`, delete the stale `allow(unused)`, fill
+    the H-vector gaps, and update docs/pomodoro-homes.md and docs/stats.md.
 
-      "
-  - id: surfaces
-    title:
-      "bob-cli: homes on bob ref today, human bob plan, and the = override surfaces"
-    depends_on:
-      - contract
-    size: medium
-    description: "surfaces: add the R9 `homes` object to `bob ref today -f json`
-      Pomodoro rows and use the derived label in its human output, print the dim chip
-      for unnamed entries in human `bob plan`, and add `homes` to the bob-cli-9j
-      override JSON (`override.previous`, `override.demoted`, capture-complete
-      `override.running`) with the chip in the human warning, demoted, and
-      `--refuse-override` lines for unnamed sessions. Update docs and tests.
+    '
+- id: surfaces
+  title: 'bob-cli: homes on bob ref today, human bob plan, and the = override surfaces'
+  depends_on:
+  - contract
+  size: medium
+  description: 'surfaces: add the R9 `homes` object to `bob ref today -f json` Pomodoro
+    rows and use the derived label in its human output, print the dim chip for unnamed
+    entries in human `bob plan`, and add `homes` to the bob-cli-9j override JSON (`override.previous`,
+    `override.demoted`, capture-complete `override.running`) with the chip in the
+    human warning, demoted, and `--refuse-override` lines for unnamed sessions. Update
+    docs and tests.
 
-      "
-  - id: plugins
-    title: "bob-plugins: JS mirror parity and Stats panel fixes"
-    depends_on:
-      - contract
-    size: medium
-    description: "plugins: copy the updated vectors, bring the bob-ledger-tools homes
-      mirror to parity with Rust (share rounding, lead home, any-day ^gtd home, review
-      label, `[t::]` minutes, frontmatter shapes, closed-entry state, health), keep
-      chips to Live Preview and Reading view with embed support, make chart pins refresh
-      the Where the time went panel, fix the Themes pinned span, review hue, count/task
-      marks, saved view choice, fix-it copy, and drill-down labels, update the README
-      table, then test, validate, and sync.
+    '
+- id: plugins
+  title: 'bob-plugins: JS mirror parity and Stats panel fixes'
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugins: copy the updated vectors, bring the bob-ledger-tools homes
+    mirror to parity with Rust (share rounding, lead home, any-day ^gtd home, review
+    label, `[t::]` minutes, frontmatter shapes, closed-entry state, health), keep
+    chips to Live Preview and Reading view with embed support, make chart pins refresh
+    the Where the time went panel, fix the Themes pinned span, review hue, count/task
+    marks, saved view choice, fix-it copy, and drill-down labels, update the README
+    table, then test, validate, and sync.
 
-      "
-  - id: mac
-    title:
-      "Bob Mac Capture and chezmoi: no derived routing, hollow forecast dots, override
-      labels"
-    depends_on:
-      - surfaces
-    size: medium
-    description: 'mac: stop Refs Today Link from selecting or routing by `homes.label`,
-      name the derived label in its toast, draw forecast dots hollow, add the Later
-      strip "for", fix the HACK fixture, show the derived label in the override banner
-      from `override.previous.homes`, refresh fixtures from real bob output, compile on
-      the Mac and check CI; in chezmoi add the unnamed-derived tmux status sample.
+    '
+- id: mac
+  title: 'Bob Mac Capture and chezmoi: no derived routing, hollow forecast dots, override
+    labels'
+  depends_on:
+  - surfaces
+  size: medium
+  description: 'mac: stop Refs Today Link from selecting or routing by `homes.label`,
+    name the derived label in its toast, draw forecast dots hollow, add the Later
+    strip "for", fix the HACK fixture, show the derived label in the override banner
+    from `override.previous.homes`, refresh fixtures from real bob output, compile
+    on the Mac and check CI; in chezmoi add the unnamed-derived tmux status sample.
 
-      '
+    '
 proposed_by: bbugyi200.athena.bob-cli-9k.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-18 20:20:11
 status: wip
+bead_id: bob-cli-9k.8
 ---
 
-- **PROMPT:**
-  [prompts/202610/pomodoro_homes_landing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_homes_landing.md)
-- **PARENT:**
-  [202610/pomodoro_homes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/pomodoro_homes.md)
+- **PROMPT:** [prompts/202610/pomodoro_homes_landing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_homes_landing.md)
+- **PARENT:** [202610/pomodoro_homes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/pomodoro_homes.md)
+- **BEAD:** [bob-cli-9k.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9k/bob-cli-9k.8.md)
 
 # Context
 
