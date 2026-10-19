@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "arrivals",
+      "kind": "choice",
+      "ask": "Should references that arrive while the Refs panel is open join the visible list on their own?",
+      "why": "The pain is an open panel that never shows the new ref; selection stays id-based",
+      "choices": [
+        {
+          "key": "join",
+          "label": "New refs appear in the open panel within seconds; rows below an arrival may shift down one"
+        },
+        {
+          "key": "hint",
+          "label": "Rows never move while open; a footer 'N new \u00b7 \u2318R' hint shows until you press \u2318R or reopen"
+        }
+      ],
+      "default": "join",
+      "effective_default": "join",
+      "requested_verified": false
+    },
+    {
+      "id": "intake_cadence",
+      "kind": "choice",
+      "ask": "Should athena and apollo drain their xlib/ intake queue every 2 minutes instead of every 10?",
+      "why": "An empty queue takes no lock and does no sync, so the faster cadence costs almost nothing",
+      "choices": [
+        {
+          "key": "two_min",
+          "label": "Queued creates reach the Mac within ~2 min; one extra no-op bob spawn per host every 2 min"
+        },
+        {
+          "key": "keep",
+          "label": "The rare create that falls back to the queue can still wait up to 10 minutes"
+        }
+      ],
+      "default": "two_min",
+      "effective_default": "two_min",
+      "requested_verified": false
+    }
+  ]
+}
