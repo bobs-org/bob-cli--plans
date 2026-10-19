@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair task-move landing gaps and finish nested closeout
-goal: Make task moves preserve unambiguous identities and Markdown content, verify
-  guarded execution, and close bob-cli-9y.1.1 plus parent phase bob-cli-9y.1.
+goal:
+  Make task moves preserve unambiguous identities and Markdown content, verify guarded
+  execution, and close bob-cli-9y.1.1 plus parent phase bob-cli-9y.1.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-9y.1.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/task_move.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_move.md)
 - **BEAD:**
   [bob-cli-9y.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9y/bob-cli-9y.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-9y.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9y.1.1.land.md)
+- **COMMITS:**
+  - [c6e71a5](https://github.com/bobs-org/bob-cli--plans/commit/c6e71a525e55759f4f54892698942e91c76d8ce4)
+    — docs(task-move): mark guarded task-move epic plan done
 
 # Finish the task-move landing and close bob-cli-9y.1.1
 
