@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish the Bob Refs reading-room landing
-goal: Repair image rendering and verification gaps, then close bob-cli-9v with audited
+goal:
+  Repair image rendering and verification gaps, then close bob-cli-9v with audited
   checks and its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-9v.land
@@ -14,6 +15,11 @@ status: done
   [202610/refs_reading_room.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/refs_reading_room.md)
 - **BEAD:**
   [bob-cli-9v](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9v/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-9v.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9v.land.md)
+- **COMMITS:**
+  - [bd52675](https://github.com/bobs-org/bob-mac-capture/commit/bd52675f6866002c88191df0986ec894a8bb5961)
+    — fix(refs): bound inspector image cache and finish reading-room landing
 
 # Finish the Bob Refs reading-room landing
 
