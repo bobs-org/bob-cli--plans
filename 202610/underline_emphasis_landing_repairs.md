@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Repair underline emphasis edge cases and land bob-cli-9u
-goal:
-  Preserve accepted underline matches and terminal bold across wraps, then verify and
-  close bob-cli-9u.
+goal: Preserve accepted underline matches and terminal bold across wraps, then verify
+  and close bob-cli-9u.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-9u.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/underline_emphasis.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/underline_emphasis.md)
 - **BEAD:**
   [bob-cli-9u](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9u/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-9u.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-9u.land.md)
-- **COMMITS:**
-  - [435e9c1](https://github.com/bobs-org/bob-cli/commit/435e9c1473d55e52c3de40e56c1f6c5e7f389499)
-    — fix(ref): preserve underline host occurrence and wrap pairing
 
 # Repair underline emphasis edge cases and finish landing bob-cli-9u
 
