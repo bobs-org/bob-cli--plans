@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish the Bob Refs reading-room landing
-goal:
-  Repair image rendering and verification gaps, then close bob-cli-9v with audited
+goal: Repair image rendering and verification gaps, then close bob-cli-9v with audited
   checks and its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-9v.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-9v
-create_time: 2026-10-19 14:59:26
-status: wip
+status: done
 ---
 
 - **PARENT:**
