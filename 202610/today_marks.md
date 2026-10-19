@@ -1,87 +1,81 @@
 ---
 tier: epic
-title: "Today marks: a 🍅 on task lines that are on today's plan"
-goal: "Every open #task line whose task is on today's plan (it has a dedicated Task Link
-  under one of today's open Pomodoros) shows a display-only 🍅 Today mark right after
-  its identity glyph. The mark appears in Live Preview, and in rendered views wherever
-  the line's identity is exact. Its tooltip names the Pomodoro and whether it is running
-  or queued. Mod+click and a keyboard command jump to the Task Link, and a session
-  toggle hides every mark. The mark is truthful or neutral: it never guesses, never goes
-  stale, and is never written.
+title: 'Today marks: a 🍅 on task lines that are on today''s plan'
+goal: 'Every open #task line whose task is on today''s plan (it has a dedicated Task
+  Link under one of today''s open Pomodoros) shows a display-only 🍅 Today mark right
+  after its identity glyph. The mark appears in Live Preview, and in rendered views
+  wherever the line''s identity is exact. Its tooltip names the Pomodoro and whether
+  it is running or queued. Mod+click and a keyboard command jump to the Task Link,
+  and a session toggle hides every mark. The mark is truthful or neutral: it never
+  guesses, never goes stale, and is never written.
 
-  "
+  '
 decisions:
   keyboard_jump:
-    ask:
-      Ship a "Go to today's Task Link" command, the keyboard twin of Mod+click, in v1?
+    ask: Ship a "Go to today's Task Link" command, the keyboard twin of Mod+click,
+      in v1?
     default: true
     why: Bryan is vim-first; without it the mark's only action needs the mouse
     answer: true
   memory_today_mark_record:
-    ask:
-      Record the Today mark design as a new decisions-web record
-      (decisions:today-mark-shows-ledger-today)?
+    ask: Record the Today mark design as a new decisions-web record (decisions:today-mark-shows-ledger-today)?
     memory:
-      - decisions:today-mark-shows-ledger-today
+    - decisions:today-mark-shows-ledger-today
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Today marks display contract in bob-cli docs
-    depends_on: []
-    size: small
-    description:
-      "contract: write the authoritative docs/today-marks.md display contract with
-      conformance vectors TM1–TM23, link it from docs/README.md and docs/plan.md §Today,
-      and (only if the memory decision is yes) add the decisions-web record."
-  - id: cache
-    title: Today cache details, generation guard, and revalidation
-    depends_on: []
-    size: medium
-    description:
-      "cache: extend the bob-ledger-tools Today cache with per-key Pomodoro details, a
-      per-note id index, entered-key timestamps, and a details signature that refreshes
-      only the marks. Add an async generation guard and focus/visibility revalidation,
-      all with clock-injected tests."
-  - id: mark_core
-    title: Today mark pure core, widget, and styles
-    depends_on:
-      - cache
-    size: medium
-    description:
-      "mark_core: add src/143-today-marks.js (line candidate, insert offset, duplicate
-      ids, session text, tooltip, listener-free element, TodayMarkWidget) plus the
-      styles.css block and a new test suite for the pure vectors."
-  - id: live_preview
-    title: Today marks in Live Preview with toggle and jump
-    depends_on:
-      - contract
-      - mark_core
-    size: medium
-    description:
-      "live_preview: add the src/275-plugin-today-marks.js mixin (ViewPlugin
-      decorations, refresh fan-out, session toggle, the Mod+click and keyboard jump to
-      the Task Link) and lifecycle wiring. Run the TM vectors against Live Preview, then
-      bump, build, test, and sync."
-  - id: reading
-    title: Today marks in rendered views
-    depends_on:
-      - live_preview
-    size: medium
-    description:
-      "reading: add src/276-plugin-today-marks-reading.js. Rendered rows get marks only
-      on exact section mapping and stay neutral otherwise. Add row stamping with a live
-      refresh sweep, the daily-note view class, and delegated Mod+click, then test,
-      bump, and sync."
+- id: contract
+  title: Today marks display contract in bob-cli docs
+  depends_on: []
+  size: small
+  description: 'contract: write the authoritative docs/today-marks.md display contract
+    with conformance vectors TM1–TM23, link it from docs/README.md and docs/plan.md
+    §Today, and (only if the memory decision is yes) add the decisions-web record.'
+- id: cache
+  title: Today cache details, generation guard, and revalidation
+  depends_on: []
+  size: medium
+  description: 'cache: extend the bob-ledger-tools Today cache with per-key Pomodoro
+    details, a per-note id index, entered-key timestamps, and a details signature
+    that refreshes only the marks. Add an async generation guard and focus/visibility
+    revalidation, all with clock-injected tests.'
+- id: mark_core
+  title: Today mark pure core, widget, and styles
+  depends_on:
+  - cache
+  size: medium
+  description: 'mark_core: add src/143-today-marks.js (line candidate, insert offset,
+    duplicate ids, session text, tooltip, listener-free element, TodayMarkWidget)
+    plus the styles.css block and a new test suite for the pure vectors.'
+- id: live_preview
+  title: Today marks in Live Preview with toggle and jump
+  depends_on:
+  - contract
+  - mark_core
+  size: medium
+  description: 'live_preview: add the src/275-plugin-today-marks.js mixin (ViewPlugin
+    decorations, refresh fan-out, session toggle, the Mod+click and keyboard jump
+    to the Task Link) and lifecycle wiring. Run the TM vectors against Live Preview,
+    then bump, build, test, and sync.'
+- id: reading
+  title: Today marks in rendered views
+  depends_on:
+  - live_preview
+  size: medium
+  description: 'reading: add src/276-plugin-today-marks-reading.js. Rendered rows
+    get marks only on exact section mapping and stay neutral otherwise. Add row stamping
+    with a live refresh sweep, the daily-note view class, and delegated Mod+click,
+    then test, bump, and sync.'
 proposed_by: bbugyi200.athena.11r
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-19 09:47:16
 status: wip
+bead_id: bob-cli-9r
 ---
 
-- **PROMPT:**
-  [prompts/202610/today_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/today_marks.md)
+- **PROMPT:** [prompts/202610/today_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/today_marks.md)
+- **BEAD:** [bob-cli-9r](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-9r/README.md)
 
 # Plan: Today marks
 
