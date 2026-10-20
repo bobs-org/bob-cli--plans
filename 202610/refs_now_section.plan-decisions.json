@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "pill",
+      "kind": "choice",
+      "ask": "Should the pink Pomodoro pill's unnamed-Pomodoro fallback and its VoiceOver text say Now too?",
+      "why": "Otherwise rows keep the TODAY collision; the pill already mirrors capture's NOW pill",
+      "choices": [
+        {
+          "key": "now",
+          "label": "Unnamed-Pomodoro pill reads NOW and VoiceOver says \"Now in \u2026 Pomodoro\"; needs a Mac compile"
+        },
+        {
+          "key": "today",
+          "label": "Pill keeps TODAY, so an unnamed-Pomodoro row still shows TODAY under the NOW header"
+        }
+      ],
+      "default": "now",
+      "effective_default": "now",
+      "requested_verified": false
+    }
+  ]
+}
