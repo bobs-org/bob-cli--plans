@@ -2,27 +2,34 @@
 tier: tale
 size: medium
 title: Finish bob-cli-a0.13 (docs polish) and hand the epic to its land agent
-goal: bob-cli-a0.13 is closed with its acceptance met. The salvaged work is on master,
+goal:
+  bob-cli-a0.13 is closed with its acceptance met. The salvaged work is on master,
   llms.txt is live, the weekly check is green, live reader-test results and the handoff
   artifact are recorded, and bob-cli-a0.land has started.
 decisions:
   weekly_exclusion:
-    ask: How should the weekly link check stop failing on the Adobe URL in the vendored
+    ask:
+      How should the weekly link check stop failing on the Adobe URL in the vendored
       font license?
     choices:
-      url: Skip only the exact http://www.adobe.com/ URL; other OFL.txt links stay
-        checked
-      file: Skip the whole vendored assets/fonts/OFL.txt file; none of its URLs are
-        checked
+      url:
+        Skip only the exact http://www.adobe.com/ URL; other OFL.txt links stay checked
+      file:
+        Skip the whole vendored assets/fonts/OFL.txt file; none of its URLs are checked
     default: url
-    why: This is the narrowest possible exclusion, and the epic plan forbids broad
-      ones
+    why: This is the narrowest possible exclusion, and the epic plan forbids broad ones
     answer: url
 proposed_by: bbugyi200.apollo.9m
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.9m](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.9m.md)
+- **COMMITS:**
+  - [1513a38](https://github.com/bobs-org/bob-cli/commit/1513a385a691bedbafe13c36de3205e83ce7c7d0)
+    — feat(docs): add llms.txt, reader-testing protocol, and final accessibility fixes
 
 # Finish bob-cli-a0.13 (docs polish) and hand the epic to its land agent
 
