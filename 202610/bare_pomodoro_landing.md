@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish bare Pomodoro link grammar and land bob-cli-a7
-goal: Repair link validation, editing states, and completion, verify shared start
-  semantics, and close bob-cli-a7.
+goal:
+  Repair link validation, editing states, and completion, verify shared start semantics,
+  and close bob-cli-a7.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-a7.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/bare_pomodoro_names.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bare_pomodoro_names.md)
 - **BEAD:**
   [bob-cli-a7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a7/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-a7.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-a7.land.md)
+- **COMMITS:**
+  - [7a7c1bc](https://github.com/bobs-org/bob-cli/commit/7a7c1bca60135fbf3c78696b3dd296f481f3c3b7)
+    — feat(capture): finish bare Pomodoro link suffix validation and landing
 
 # Finish bare Pomodoro names and land bob-cli-a7
 
