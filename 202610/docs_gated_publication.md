@@ -1,67 +1,61 @@
 ---
 tier: epic
 title: Launch Bob documentation with gated hourly GitHub Pages publishing
-goal:
-  "Complete the publish scope of bob-cli-a0.5: ship reusable publication and weekly
-  workflows, bootstrap bobs-org/bobs-org.github.io, verify the live site, and
-  demonstrate a broken-link drill followed by recovery without replacing the last good
-  site. Record the run evidence for the assigned phase's land agent."
+goal: 'Complete the publish scope of bob-cli-a0.5: ship reusable publication and weekly
+  workflows, bootstrap bobs-org/bobs-org.github.io, verify the live site, and demonstrate
+  a broken-link drill followed by recovery without replacing the last good site. Record
+  the run evidence for the assigned phase''s land agent.'
 phases:
-  - id: source-plan
-    title: Publication source selection and manifest contracts
-    depends_on: []
-    size: medium
-    description:
-      "source-plan: implement and test publish-plan, deterministic input fingerprints,
-      production source manifests, and hold/pinned/force/drill selection semantics
-      against local Git fixtures."
-  - id: publish-workflow
-    title: Gated reusable publication and recovery
-    depends_on:
-      - source-plan
-    size: medium
-    description:
-      "publish-workflow: implement the workflow_call-only Pages publisher, staged
-      broken-link drill, publication recording, live verification, and one blocked-issue
-      lifecycle with focused failure-path tests."
-  - id: host-controls
-    title: Deploy repository templates and operator commands
-    depends_on:
-      - publish-workflow
-    size: medium
-    description:
-      "host-controls: implement thin caller templates, idempotent preview/apply host
-      bootstrap, publish dispatch/watch and status commands, just recipes, and the
-      operator runbook without launching the live site yet."
-  - id: weekly-checks
-    title: Weekly fallback build and external link checks
-    depends_on:
-      - host-controls
-    size: medium
-    description:
-      "weekly-checks: add the workflow_call-only weekly Material build and online lychee
-      check, its separate issue lifecycle and caller, and validate the complete workflow
-      set and production build path."
-  - id: launch
-    title: Bootstrap the public host and prove publication safety
-    depends_on:
-      - weekly-checks
-    size: medium
-    description:
-      "launch: add the three README docs links, configure the authorized public host and
-      homepages, run first publish, broken-link drill, normal recovery and weekly
-      checks, and record live URL and provenance evidence."
+- id: source-plan
+  title: Publication source selection and manifest contracts
+  depends_on: []
+  size: medium
+  description: 'source-plan: implement and test publish-plan, deterministic input
+    fingerprints, production source manifests, and hold/pinned/force/drill selection
+    semantics against local Git fixtures.'
+- id: publish-workflow
+  title: Gated reusable publication and recovery
+  depends_on:
+  - source-plan
+  size: medium
+  description: 'publish-workflow: implement the workflow_call-only Pages publisher,
+    staged broken-link drill, publication recording, live verification, and one blocked-issue
+    lifecycle with focused failure-path tests.'
+- id: host-controls
+  title: Deploy repository templates and operator commands
+  depends_on:
+  - publish-workflow
+  size: medium
+  description: 'host-controls: implement thin caller templates, idempotent preview/apply
+    host bootstrap, publish dispatch/watch and status commands, just recipes, and
+    the operator runbook without launching the live site yet.'
+- id: weekly-checks
+  title: Weekly fallback build and external link checks
+  depends_on:
+  - host-controls
+  size: medium
+  description: 'weekly-checks: add the workflow_call-only weekly Material build and
+    online lychee check, its separate issue lifecycle and caller, and validate the
+    complete workflow set and production build path.'
+- id: launch
+  title: Bootstrap the public host and prove publication safety
+  depends_on:
+  - weekly-checks
+  size: medium
+  description: 'launch: add the three README docs links, configure the authorized
+    public host and homepages, run first publish, broken-link drill, normal recovery
+    and weekly checks, and record live URL and provenance evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-a0.5
 create_time: 2026-10-19 23:18:28
 status: wip
+bead_id: bob-cli-a0.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/docs_gated_publication.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_gated_publication.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/docs_gated_publication.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_gated_publication.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.5.1.md)
 
 # Complete the publication phase
 
