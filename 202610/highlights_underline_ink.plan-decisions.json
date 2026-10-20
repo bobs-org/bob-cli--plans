@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "surfaces",
+      "kind": "choice",
+      "ask": "Should Obsidian ref notes and `bob ref show` get the same underline as the Mac Refs panel?",
+      "why": "One visual language \u2014 a line you drew in Highlights reads as a line wherever Bob shows it",
+      "choices": [
+        {
+          "key": "everywhere",
+          "label": "Mac panel, Obsidian ref notes, and `bob ref show` all draw your underlines as underlines"
+        },
+        {
+          "key": "mac_and_obsidian",
+          "label": "The Mac panel and Obsidian change; `bob ref show` keeps plain ANSI bold"
+        },
+        {
+          "key": "mac_only",
+          "label": "Only the Mac Refs panel changes; Obsidian and the terminal keep plain bold"
+        }
+      ],
+      "default": "everywhere",
+      "effective_default": "everywhere",
+      "requested_verified": false
+    }
+  ]
+}
