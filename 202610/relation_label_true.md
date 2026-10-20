@@ -1,30 +1,25 @@
 ---
 tier: tale
 title: Fix Task Card relation labels saving as "true"
-goal:
-  A relation label typed in the Task Card relation field (⇧↵ on the Links to or Linked
-  from stage) is written to the LINKS line exactly as typed, never as `true`.
+goal: A relation label typed in the Task Card relation field (⇧↵ on the Links to or
+  Linked from stage) is written to the LINKS line exactly as typed, never as `true`.
 size: small
 decisions:
   mac_deploy:
-    ask:
-      Commit and push the fix mid-turn so the MacBook's own `bob plugins sync` deploys
-      it in this turn?
+    ask: Commit and push the fix mid-turn so the MacBook's own `bob plugins sync`
+      deploys it in this turn?
     choices:
       push_then_sync: The Mac gets nav 2.50.1 this turn; Bryan only reloads Obsidian
-      leave_for_bryan:
-        No mid-turn commit; Bryan runs `bob plugins sync` on the Mac after the commit
-        lands
+      leave_for_bryan: No mid-turn commit; Bryan runs `bob plugins sync` on the Mac
+        after the commit lands
     default: push_then_sync
-    why:
-      The bug was hit on the Mac, whose bare sync pulls origin, so only a pushed fix
-      reaches it
+    why: The bug was hit on the Mac, whose bare sync pulls origin, so only a pushed
+      fix reaches it
     answer: push_then_sync
 proposed_by: bbugyi200.athena.12k
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-20 13:41:52
-status: wip
+status: done
 ---
 
 # Fix Task Card relation labels saving as "true"
