@@ -1,29 +1,26 @@
 ---
 tier: tale
-title: "Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view"
-goal:
-  In Bob Refs, Ctrl-U scrolls the preview up by half its height and the new Ctrl-Z
+title: 'Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view'
+goal: In Bob Refs, Ctrl-U scrolls the preview up by half its height and the new Ctrl-Z
   resets the remembered view to fresh-launch defaults.
 size: small
 decisions:
   ctrl_shift_u:
-    ask:
-      Should Ctrl-Shift-U keep scrolling the preview up as a second key beside Ctrl-U?
+    ask: Should Ctrl-Shift-U keep scrolling the preview up as a second key beside
+      Ctrl-U?
     choices:
-      drop:
-        Unbound again and passed through to search, as before the remember-view change;
-        one key per action
-      keep: Stays a silent alias for Ctrl-U's half-page-up scroll, documented beside it
+      drop: Unbound again and passed through to search, as before the remember-view
+        change; one key per action
+      keep: Stays a silent alias for Ctrl-U's half-page-up scroll, documented beside
+        it
     default: drop
-    why:
-      Ctrl-Shift-U only existed because Ctrl-U was taken; dropping it restores the
-      original keymap
+    why: Ctrl-Shift-U only existed because Ctrl-U was taken; dropping it restores
+      the original keymap
     answer: drop
 proposed_by: bbugyi200.athena.12e.f0
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-20 09:44:05
-status: wip
+status: done
 ---
 
 # Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view
