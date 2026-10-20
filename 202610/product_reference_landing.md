@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair product reference audit gaps and finish its landing
-goal:
-  Correct the environment guard and hand-written reference gaps, verify their
+goal: Correct the environment guard and hand-written reference gaps, verify their
   integration, and close bob-cli-a0.7.1 and its enclosing phase bob-cli-a0.7.
 proposed_by: bbugyi200.apollo.bob-cli-a0.7.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a0.7.1
-create_time: 2026-10-20 00:02:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
