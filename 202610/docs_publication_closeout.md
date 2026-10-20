@@ -1,14 +1,12 @@
 ---
 tier: tale
 size: medium
-title:
-  Close out gated docs publication — rollback, queued-run record, bootstrap staging,
+title: Close out gated docs publication — rollback, queued-run record, bootstrap staging,
   verify retry, runbook accuracy
-goal:
-  Fix the remaining epic-caused publication defects, so that the documented rollback
+goal: Fix the remaining epic-caused publication defects, so that the documented rollback
   works, queued runs record safely, bootstrap commits only host files, verify retries,
-  and the runbooks state the real failure boundaries. Then close epic bob-cli-a0.5.1 and
-  its parent phase bob-cli-a0.5.
+  and the runbooks state the real failure boundaries. Then close epic bob-cli-a0.5.1
+  and its parent phase bob-cli-a0.5.
 proposed_by: bbugyi200.apollo.bob-cli-a0.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-a0.5.1
@@ -19,11 +17,6 @@ status: done
   [202610/docs_gated_publication.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/docs_gated_publication.md)
 - **BEAD:**
   [bob-cli-a0.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.5.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-a0.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.5.1.land.md)
-- **COMMITS:**
-  - [10019f6](https://github.com/bobs-org/bob-cli/commit/10019f635d6b79ecaff5033c464dc7de0bf1a3ad)
-    — fix(docs): close gated publication with rollback, record CAS, and runbook fixes
 
 # Close out epic bob-cli-a0.5.1 (gated hourly GitHub Pages publishing)
 
