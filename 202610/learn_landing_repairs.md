@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Repair Learn gaps and finish its landing
-goal:
-  Correct Learn runtime and reader defects, integrate mounted references, verify the
-  result, and close bob-cli-a0.6.1 and phase bob-cli-a0.6.
+goal: Correct Learn runtime and reader defects, integrate mounted references, verify
+  the result, and close bob-cli-a0.6.1 and phase bob-cli-a0.6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.6.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/learn_path.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/learn_path.md)
 - **BEAD:**
   [bob-cli-a0.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.6.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-a0.6.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.6.1.land.md)
-- **COMMITS:**
-  - [928c195](https://github.com/bobs-org/bob-cli/commit/928c1955e1f3f63a579cddd25162298e60e25c6b)
-    — feat(docs): repair Learn sandbox, PTY, reader, and compatibility gaps
 
 # Repair the remaining Learn gaps and finish its landing
 
