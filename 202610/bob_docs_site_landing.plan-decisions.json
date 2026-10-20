@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "edit_link_check",
+      "kind": "choice",
+      "ask": "Should the weekly online link check stop fetching rendered GitHub edit links and verify them offline instead?",
+      "why": "Edit URLs always 302 to /login, so fetching proves nothing; the offline gate checks more",
+      "choices": [
+        {
+          "key": "offline",
+          "label": "Skip Bob edit URLs online; a new offline gate proves each targets a real source file"
+        },
+        {
+          "key": "throttle",
+          "label": "Keep fetching edit links with lychee throttling; slower, and GitHub may still 429"
+        }
+      ],
+      "default": "offline",
+      "effective_default": "offline",
+      "requested_verified": false
+    }
+  ]
+}
