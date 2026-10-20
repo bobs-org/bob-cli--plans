@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Complete Bob's concept pages
-goal:
-  Publish six accurate concept pages with reader routing and verified documentation
+goal: Publish six accurate concept pages with reader routing and verified documentation
   builds, links, search, and diagram rendering.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.9
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a0.9
-create_time: 2026-10-20 01:50:42
-status: wip
+status: done
 ---
 
 - **PARENT:**
