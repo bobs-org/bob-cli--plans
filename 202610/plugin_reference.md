@@ -2,63 +2,57 @@
 tier: epic
 parent_bead: bob-cli-a0.10
 title: Publish the generated Obsidian plugin reference
-goal:
-  Complete bob-cli-a0.10 with source-owned documentation for all seven plugins,
+goal: Complete bob-cli-a0.10 with source-owned documentation for all seven plugins,
   generated command and version facts, a concise README, and verified reference and
   development mounts in the Bob site.
 phases:
-  - id: mount-hubs
-    title: Support source-owned mounted documentation hubs
-    size: medium
-    depends_on: []
-    description:
-      "mount-hubs: add compatible support for a mounted repository's index.md while
-      preserving authored landing pages, collision guards, provenance, and navigation."
-  - id: inventory
-    title: Generate plugin facts and registered commands
-    size: medium
-    depends_on: []
-    description:
-      "inventory: implement the dependency-free static inventory scanner, generated
-      documentation regions, drift checks, and focused scanner tests in bob-plugins."
-  - id: plugin-pages
-    title: Write the seven plugin reference pages
-    size: medium
-    depends_on:
-      - inventory
-    description:
-      "plugin-pages: move the plugin-specific README details into seven usable reference
-      pages with settings, keyboard-handler distinctions, and authoritative contract
-      links."
-  - id: topic-migration
-    title: Preserve README topics and create the plugin front door
-    size: medium
-    depends_on:
-      - plugin-pages
-    description:
-      "topic-migration: migrate the remaining README topics and development material,
-      add both source navigation files, audit coverage, and shorten the README only
-      after every detail has a home."
-  - id: site-integration
-    title: Mount the plugin reference and verify its complete workflow
-    size: medium
-    depends_on:
-      - mount-hubs
-      - topic-migration
-    description:
-      "site-integration: add the two mounts, site entry links, generated-content gate
-      integration, the sibling preview wrapper, and end-to-end verification evidence for
-      the land agent."
+- id: mount-hubs
+  title: Support source-owned mounted documentation hubs
+  size: medium
+  depends_on: []
+  description: 'mount-hubs: add compatible support for a mounted repository''s index.md
+    while preserving authored landing pages, collision guards, provenance, and navigation.'
+- id: inventory
+  title: Generate plugin facts and registered commands
+  size: medium
+  depends_on: []
+  description: 'inventory: implement the dependency-free static inventory scanner,
+    generated documentation regions, drift checks, and focused scanner tests in bob-plugins.'
+- id: plugin-pages
+  title: Write the seven plugin reference pages
+  size: medium
+  depends_on:
+  - inventory
+  description: 'plugin-pages: move the plugin-specific README details into seven usable
+    reference pages with settings, keyboard-handler distinctions, and authoritative
+    contract links.'
+- id: topic-migration
+  title: Preserve README topics and create the plugin front door
+  size: medium
+  depends_on:
+  - plugin-pages
+  description: 'topic-migration: migrate the remaining README topics and development
+    material, add both source navigation files, audit coverage, and shorten the README
+    only after every detail has a home.'
+- id: site-integration
+  title: Mount the plugin reference and verify its complete workflow
+  size: medium
+  depends_on:
+  - mount-hubs
+  - topic-migration
+  description: 'site-integration: add the two mounts, site entry links, generated-content
+    gate integration, the sibling preview wrapper, and end-to-end verification evidence
+    for the land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.10
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-19 23:15:59
 status: wip
+bead_id: bob-cli-a0.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/plugin_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/plugin_reference.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/plugin_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/plugin_reference.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.10.1.md)
 
 # Publish the generated Obsidian plugin reference
 
