@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Complete panel-switch verification and land bob-cli-a8
-goal:
-  Finish refresh and caret coverage, record performance evidence, and close bob-cli-a8
+goal: Finish refresh and caret coverage, record performance evidence, and close bob-cli-a8
   with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-a8.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a8
-create_time: 2026-10-20 19:12:41
-status: wip
+status: done
 ---
 
 - **PARENT:**
