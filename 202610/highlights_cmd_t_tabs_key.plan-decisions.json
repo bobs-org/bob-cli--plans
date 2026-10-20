@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tabs_default",
+      "kind": "choice",
+      "ask": "Should Command-T replace Shift-Command-O as the default Highlights Tabs key?",
+      "why": "The Tabs key is already a one-key picker and Shift-Command-O is only four days old",
+      "choices": [
+        {
+          "key": "replace",
+          "label": "Command-T becomes the default; Shift-Command-O and Command-E stay selectable in Settings"
+        },
+        {
+          "key": "both",
+          "label": "Both keys open Tabs; adds a second hotkey registration and a Settings toggle"
+        }
+      ],
+      "default": "replace",
+      "effective_default": "replace",
+      "requested_verified": false
+    }
+  ]
+}
