@@ -1,48 +1,44 @@
 ---
 tier: epic
 title: Bob hand-written product reference
-goal:
-  Readers can look up capture syntax, vault structure, configuration, and machine
-  outputs in four verified reference pages, with complete token search coverage and an
-  environment-variable drift guard, completing bob-cli-a0.7.
+goal: Readers can look up capture syntax, vault structure, configuration, and machine
+  outputs in four verified reference pages, with complete token search coverage and
+  an environment-variable drift guard, completing bob-cli-a0.7.
 phases:
-  - id: capture-vault
-    title: Capture syntax and vault format reference
-    size: medium
-    depends_on: []
-    description:
-      "capture-vault: write the capture token index and vault-format reference, add
-      their navigation and token/lane search cases, and verify examples in a synthetic
-      vault."
-  - id: configuration-guard
-    title: Configuration reference and environment drift guard
-    size: medium
-    depends_on: []
-    description:
-      "configuration-guard: document configuration keys and public environment
-      variables, add a conservative production-source BOB_* inventory with reasoned
-      exceptions to docs lint, and test the guard's detection and exclusions."
-  - id: json-integration
-    title: JSON output catalog and reference integration
-    size: medium
-    depends_on:
-      - capture-vault
-      - configuration-guard
-    description:
-      "json-integration: catalog every public machine-readable command output, finish
-      the Reference hub and goal search cases, verify complete token coverage, and run
-      the integrated documentation gates for the land agent."
+- id: capture-vault
+  title: Capture syntax and vault format reference
+  size: medium
+  depends_on: []
+  description: 'capture-vault: write the capture token index and vault-format reference,
+    add their navigation and token/lane search cases, and verify examples in a synthetic
+    vault.'
+- id: configuration-guard
+  title: Configuration reference and environment drift guard
+  size: medium
+  depends_on: []
+  description: 'configuration-guard: document configuration keys and public environment
+    variables, add a conservative production-source BOB_* inventory with reasoned
+    exceptions to docs lint, and test the guard''s detection and exclusions.'
+- id: json-integration
+  title: JSON output catalog and reference integration
+  size: medium
+  depends_on:
+  - capture-vault
+  - configuration-guard
+  description: 'json-integration: catalog every public machine-readable command output,
+    finish the Reference hub and goal search cases, verify complete token coverage,
+    and run the integrated documentation gates for the land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-a0.7
 create_time: 2026-10-19 23:14:26
 status: wip
+bead_id: bob-cli-a0.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/product_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/product_reference.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/product_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/product_reference.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.7.1.md)
 
 # Hand-written product reference for Bob
 
