@@ -2,8 +2,7 @@
 tier: tale
 size: medium
 title: Repair product reference audit gaps and finish its landing
-goal:
-  Correct the environment guard and hand-written reference gaps, verify their
+goal: Correct the environment guard and hand-written reference gaps, verify their
   integration, and close bob-cli-a0.7.1 and its enclosing phase bob-cli-a0.7.
 proposed_by: bbugyi200.apollo.bob-cli-a0.7.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/product_reference.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/product_reference.md)
 - **BEAD:**
   [bob-cli-a0.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.7.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-a0.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.7.1.land.md)
-- **COMMITS:**
-  - [cf7a9e9](https://github.com/bobs-org/bob-cli/commit/cf7a9e98497c65a98969022616431aefb19c1ee8)
-    — docs(reference): finish product reference landing repairs
 
 # Finish the product reference landing
 
