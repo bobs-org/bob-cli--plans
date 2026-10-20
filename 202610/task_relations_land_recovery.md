@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  "Land task relations: restore the lost Mac relation card, fix relation docs, close
-  bob-cli-a2"
-goal:
-  Bob Mac Capture on origin/master has the bob-cli-a2.14 relation card, preview rows,
-  and capability warning; the relation guide and capture-parse help match real behavior;
-  and epic bob-cli-a2 is closed with its plan marked done.
+title: 'Land task relations: restore the lost Mac relation card, fix relation docs,
+  close bob-cli-a2'
+goal: Bob Mac Capture on origin/master has the bob-cli-a2.14 relation card, preview
+  rows, and capability warning; the relation guide and capture-parse help match real
+  behavior; and epic bob-cli-a2 is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-a2.land
 proposed_with: claude/opus
 bead: bob-cli-a2
-create_time: 2026-10-20 13:59:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
