@@ -1,31 +1,26 @@
 ---
 tier: tale
 title: Bob Refs resets to and selects newly added references
-goal:
-  The next Bob Refs show after a reference is added resets the remembered view and
-  selects it.
+goal: The next Bob Refs show after a reference is added resets the remembered view
+  and selects it.
 size: medium
 decisions:
   visible_arrivals:
-    ask:
-      Should a reference landing in the first 10 s of an untouched open panel also reset
-      the view and select it?
+    ask: Should a reference landing in the first 10 s of an untouched open panel also
+      reset the view and select it?
     choices:
-      untouched:
-        References the show's own vault pull brings in are selected; never moves after
-        your first input
-      next_show:
-        Arrivals while open only join the list as today; the next show resets and
-        selects them
+      untouched: References the show's own vault pull brings in are selected; never
+        moves after your first input
+      next_show: Arrivals while open only join the list as today; the next show resets
+        and selects them
     default: untouched
-    why:
-      The show-time vault pull exists so fresh athena/apollo references appear at once
+    why: The show-time vault pull exists so fresh athena/apollo references appear
+      at once
     answer: untouched
 proposed_by: bbugyi200.apollo.9a
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-20 11:54:15
-status: wip
+status: done
 ---
 
 # Bob Refs: a newly added reference resets the remembered view
