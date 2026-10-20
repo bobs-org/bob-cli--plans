@@ -1,32 +1,26 @@
 ---
 tier: tale
 title: Fix the Obsidian startup OOM from the ledger-tools relation index
-goal:
-  Obsidian on the MacBook starts cleanly again because bob-ledger-tools never reads the
-  vault on load-time create events or non-Markdown files.
+goal: Obsidian on the MacBook starts cleanly again because bob-ledger-tools never
+  reads the vault on load-time create events or non-Markdown files.
 size: medium
 decisions:
   mac_deploy:
-    ask:
-      Commit and push the fix mid-turn so the Mac's own `bob plugins sync` pulls it
-      before live verification?
+    ask: Commit and push the fix mid-turn so the Mac's own `bob plugins sync` pulls
+      it before live verification?
     choices:
-      push_then_sync:
-        The Mac pulls the fix via its normal sync; later syncs (incl. bob-cli-a2.15's)
-        keep it
-      copy_only:
-        Copy built files over SSH; a Mac sync before finalization redeploys the crashing
-        1.60.0
+      push_then_sync: The Mac pulls the fix via its normal sync; later syncs (incl.
+        bob-cli-a2.15's) keep it
+      copy_only: Copy built files over SSH; a Mac sync before finalization redeploys
+        the crashing 1.60.0
     default: push_then_sync
-    why:
-      The Mac's bare sync pulls origin first, so only a pushed fix survives the next
-      sync
+    why: The Mac's bare sync pulls origin first, so only a pushed fix survives the
+      next sync
     answer: push_then_sync
 proposed_by: bbugyi200.athena.12h
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-20 13:09:55
-status: wip
+status: done
 ---
 
 # Fix the Obsidian startup crash caused by the ledger-tools relation index
