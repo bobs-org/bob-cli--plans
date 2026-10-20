@@ -1,13 +1,13 @@
 ---
 tier: epic
 title: Similar tasks band in Bob Mac Capture
-goal: "When a capture draft will create new tasks, Bob Mac Capture quietly shows the few
-  existing tasks each one may duplicate. The rows appear after typing settles, at the
-  foot of the new task's own preview card, and take zero pixels otherwise. One
-  keyboard-driven draft edit can fold, relate, or link a match, and typing, the live
-  preview, and Return stay exactly as fast as today.
+goal: 'When a capture draft will create new tasks, Bob Mac Capture quietly shows the
+  few existing tasks each one may duplicate. The rows appear after typing settles,
+  at the foot of the new task''s own preview card, and take zero pixels otherwise.
+  One keyboard-driven draft edit can fold, relate, or link a match, and typing, the
+  live preview, and Return stay exactly as fast as today.
 
-  "
+  '
 decisions:
   duplicate_default:
     ask: Which action should ↩ apply on a focused duplicate row?
@@ -15,116 +15,106 @@ decisions:
       split: ⌫ Discard mine for Same title, + Add as note for Possible duplicate
       note_both: + Add as note for both, so ↩ never removes your words
     default: split
-    why:
-      An exact recapture is almost always a forgotten task; a lexical near-match may not
-      be
+    why: An exact recapture is almost always a forgotten task; a lexical near-match
+      may not be
     answer: split
   calibration:
-    ask:
-      Should the calibrate phase wait for your ~100 labels before it fixes the
+    ask: Should the calibrate phase wait for your ~100 labels before it fixes the
       thresholds?
     choices:
       labels: Calibrate pauses for your labels and sets the thresholds from them
-      starting_bars:
-        Ship the research's starting thresholds; labelling becomes a follow-up task
+      starting_bars: Ship the research's starting thresholds; labelling becomes a
+        follow-up task
     default: labels
     why: R10 says the thresholds come from your labels, not researcher labels
     answer: labels
   decision_record:
     ask: Record the Similar tasks band as a new accepted decisions record?
     memory:
-      - decisions
-      - decisions:similar-tasks-are-a-settled-heads-up
+    - decisions
+    - decisions:similar-tasks-are-a-settled-heads-up
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: engine
-    title: Matching engine and the --query harness
-    depends_on: []
-    size: medium
-    description:
-      "engine: add bob capture-related with the Bob-aware tokenizer, the per-call TF-IDF
-      scorer, candidate discovery (open tasks in routable notes plus a closed window),
-      bands, and --query human/JSON output, with table tests and a synthetic-vault perf
-      test."
-  - id: contract
-    title: Draft mode and the capture-related JSON contract
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "contract: accept a capture draft, gate task-creating items, exclude and report
-      draft-linked tasks, emit item anchors, actions, defaults, and replacements as
-      schema_version 1, with goldens, a perf gate, and docs."
-  - id: calibrate
-    title: Calibrate thresholds and measure on the Mac
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "calibrate: build the leave-one-out sampling script, collect Bryan's labels, set
-      the bars from them, time a release build on the Mac against the 50 ms gate, and
-      file a calibration report in the research sidecar."
-  - id: mac_lane
-    title: Mac related lane, settle policy, and setting
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "mac_lane: decode the contract, add the cancellable related lane with old-bob
-      fallback, a pure band-state reducer, the 350 ms settle wiring in
-      CapturePanelModel, the Settings toggle, signposts, fake-bob support, and protocol
-      docs."
-  - id: mac_band
-    title: Band view inside the preview card
-    depends_on:
-      - mac_lane
-    size: medium
-    description:
-      "mac_band: render the band at the foot of each task-creating card (header, rows,
-      capsules, bulk rows, folded line), fold before scrolling, cross-fade, VoiceOver
-      announcements, render fixtures, and capture-previews docs."
-  - id: mac_actions
-    title: Row focus, action strip, and draft-edit actions
-    depends_on:
-      - mac_band
-    size: medium
-    description:
-      "mac_actions: add ⌘1–⌘5 focus, the sigil action strip, key routing, click
-      handling, undoable splices for relate/note/needs/blocks on rows with IDs, Open
-      that keeps the draft, Discard mine, footer hints, a11y actions, and keyboard docs."
-  - id: mac_idless
-    title: ID-less rows and the +N reveal
-    depends_on:
-      - mac_actions
-    size: small
-    description:
-      "mac_idless: route link actions on ID-less rows through the existing Add block ID
-      prompt, reveal hidden matches with ↓ while focused, and finish the docs, fixtures,
-      and end-to-end checks."
-  - id: record
-    title: Decisions record for the band
-    depends_on:
-      - calibrate
-      - mac_idless
-    size: small
-    description:
-      "record: write the accepted decisions record through /sase_memory_write, citing
-      the research, this epic, the phase commits, and the Mac measurements, then
-      republish memory."
+- id: engine
+  title: Matching engine and the --query harness
+  depends_on: []
+  size: medium
+  description: 'engine: add bob capture-related with the Bob-aware tokenizer, the
+    per-call TF-IDF scorer, candidate discovery (open tasks in routable notes plus
+    a closed window), bands, and --query human/JSON output, with table tests and a
+    synthetic-vault perf test.'
+- id: contract
+  title: Draft mode and the capture-related JSON contract
+  depends_on:
+  - engine
+  size: medium
+  description: 'contract: accept a capture draft, gate task-creating items, exclude
+    and report draft-linked tasks, emit item anchors, actions, defaults, and replacements
+    as schema_version 1, with goldens, a perf gate, and docs.'
+- id: calibrate
+  title: Calibrate thresholds and measure on the Mac
+  depends_on:
+  - contract
+  size: medium
+  description: 'calibrate: build the leave-one-out sampling script, collect Bryan''s
+    labels, set the bars from them, time a release build on the Mac against the 50
+    ms gate, and file a calibration report in the research sidecar.'
+- id: mac_lane
+  title: Mac related lane, settle policy, and setting
+  depends_on:
+  - contract
+  size: medium
+  description: 'mac_lane: decode the contract, add the cancellable related lane with
+    old-bob fallback, a pure band-state reducer, the 350 ms settle wiring in CapturePanelModel,
+    the Settings toggle, signposts, fake-bob support, and protocol docs.'
+- id: mac_band
+  title: Band view inside the preview card
+  depends_on:
+  - mac_lane
+  size: medium
+  description: 'mac_band: render the band at the foot of each task-creating card (header,
+    rows, capsules, bulk rows, folded line), fold before scrolling, cross-fade, VoiceOver
+    announcements, render fixtures, and capture-previews docs.'
+- id: mac_actions
+  title: Row focus, action strip, and draft-edit actions
+  depends_on:
+  - mac_band
+  size: medium
+  description: 'mac_actions: add ⌘1–⌘5 focus, the sigil action strip, key routing,
+    click handling, undoable splices for relate/note/needs/blocks on rows with IDs,
+    Open that keeps the draft, Discard mine, footer hints, a11y actions, and keyboard
+    docs.'
+- id: mac_idless
+  title: ID-less rows and the +N reveal
+  depends_on:
+  - mac_actions
+  size: small
+  description: 'mac_idless: route link actions on ID-less rows through the existing
+    Add block ID prompt, reveal hidden matches with ↓ while focused, and finish the
+    docs, fixtures, and end-to-end checks.'
+- id: record
+  title: Decisions record for the band
+  depends_on:
+  - calibrate
+  - mac_idless
+  size: small
+  description: 'record: write the accepted decisions record through /sase_memory_write,
+    citing the research, this epic, the phase commits, and the Mac measurements, then
+    republish memory.'
 proposed_by: bbugyi200.apollo.research.27.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-20 17:44:11
 status: wip
+bead_id: bob-cli-ab
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_similar_tasks_band.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_similar_tasks_band.md)
+- **PROMPT:** [prompts/202610/capture_similar_tasks_band.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_similar_tasks_band.md)
+- **BEAD:** [bob-cli-ab](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ab/README.md)
 
 # Plan: Similar tasks band in Bob Mac Capture
 
