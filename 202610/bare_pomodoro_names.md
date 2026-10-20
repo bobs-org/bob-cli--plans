@@ -1,60 +1,58 @@
 ---
 tier: epic
 title: Bare Pomodoro names after `=` (`=bugs`, `@route:id=bugs`)
-goal: "`=bugs` starts the BUGS Pomodoro exactly like `=#bugs`, and `@route:id=bugs`
+goal: '`=bugs` starts the BUGS Pomodoro exactly like `=#bugs`, and `@route:id=bugs`
   links and starts exactly like `@route:id#bugs=`, across execution, capture-parse,
   live-editor spans, completion, and docs; every existing spelling keeps its current
   meaning.
 
-  "
+  '
 decisions:
   link_suffix:
     ask: How much of the standalone start grammar should a link's `=` suffix accept?
     choices:
-      shared:
-        Same start token as alone (`=bugs@3`, `=3#bugs`, `=#bugs` all work on links)
-      bare_only:
-        Only `=bugs`; name plus timing on a link stays `#bugs=3` (others get a hint)
+      shared: Same start token as alone (`=bugs@3`, `=3#bugs`, `=#bugs` all work on
+        links)
+      bare_only: Only `=bugs`; name plus timing on a link stays `#bugs=3` (others
+        get a hint)
     default: shared
     why: One lexer for both positions, and completion can always fall back to `=#name`
     answer: shared
 phases:
-  - id: standalone
-    title: Bare names on whole-item and chained starts
-    depends_on: []
-    size: medium
-    description:
-      "standalone: lex `=name` as the `=#name` named start (shared bare-name predicate,
-      execution, editor spans, completion, spelling-aware diagnostics, terminal hints)
-      with equivalence tests against the `#` spelling."
-  - id: links
-    title: Bare names in `@route:id=` and `^route:id=` suffixes
-    depends_on:
-      - standalone
-    size: medium
-    description:
-      "links: accept `=name` (and, under the shared answer, the full start token) in
-      link suffixes for execution, editor spans, and completion, with link equivalence
-      tests."
-  - id: docs
-    title: Contract, reference, and help text
-    depends_on:
-      - standalone
-      - links
-    size: medium
-    description:
-      "docs: teach `=name` as the primary spelling in the capture contract, syntax
-      reference, and CLI help; regenerate references; pass the docs gate; propose the
-      Mac Capture hint follow-up."
+- id: standalone
+  title: Bare names on whole-item and chained starts
+  depends_on: []
+  size: medium
+  description: 'standalone: lex `=name` as the `=#name` named start (shared bare-name
+    predicate, execution, editor spans, completion, spelling-aware diagnostics, terminal
+    hints) with equivalence tests against the `#` spelling.'
+- id: links
+  title: Bare names in `@route:id=` and `^route:id=` suffixes
+  depends_on:
+  - standalone
+  size: medium
+  description: 'links: accept `=name` (and, under the shared answer, the full start
+    token) in link suffixes for execution, editor spans, and completion, with link
+    equivalence tests.'
+- id: docs
+  title: Contract, reference, and help text
+  depends_on:
+  - standalone
+  - links
+  size: medium
+  description: 'docs: teach `=name` as the primary spelling in the capture contract,
+    syntax reference, and CLI help; regenerate references; pass the docs gate; propose
+    the Mac Capture hint follow-up.'
 proposed_by: bbugyi200.apollo.9p
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-20 15:12:09
 status: wip
+bead_id: bob-cli-a7
 ---
 
-- **PROMPT:**
-  [prompts/202610/bare_pomodoro_names.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bare_pomodoro_names.md)
+- **PROMPT:** [prompts/202610/bare_pomodoro_names.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bare_pomodoro_names.md)
+- **BEAD:** [bob-cli-a7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a7/README.md)
 
 # Plan: Bare Pomodoro names after `=`
 
