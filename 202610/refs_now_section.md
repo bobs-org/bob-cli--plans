@@ -1,32 +1,26 @@
 ---
 tier: tale
-title: "Bob Refs: show NOW for the section of today's linked references"
-goal:
-  The Bob Refs ledger section header reads NOW, so TODAY appears only on the ⌘0 Newest
-  timeline's date group.
+title: 'Bob Refs: show NOW for the section of today''s linked references'
+goal: The Bob Refs ledger section header reads NOW, so TODAY appears only on the ⌘0
+  Newest timeline's date group.
 size: small
 decisions:
   pill:
-    ask:
-      Should the pink Pomodoro pill's unnamed-Pomodoro fallback and its VoiceOver text
-      say Now too?
+    ask: Should the pink Pomodoro pill's unnamed-Pomodoro fallback and its VoiceOver
+      text say Now too?
     choices:
-      now:
-        Unnamed-Pomodoro pill reads NOW and VoiceOver says "Now in … Pomodoro"; needs a
-        Mac compile
-      today:
-        Pill keeps TODAY, so an unnamed-Pomodoro row still shows TODAY under the NOW
-        header
+      now: Unnamed-Pomodoro pill reads NOW and VoiceOver says "Now in … Pomodoro";
+        needs a Mac compile
+      today: Pill keeps TODAY, so an unnamed-Pomodoro row still shows TODAY under
+        the NOW header
     default: now
-    why:
-      Otherwise rows keep the TODAY collision; the pill already mirrors capture's NOW
-      pill
+    why: Otherwise rows keep the TODAY collision; the pill already mirrors capture's
+      NOW pill
     answer: now
 proposed_by: bbugyi200.athena.12e.f0.w0
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-20 10:05:48
-status: wip
+status: done
 ---
 
 # Bob Refs: show `NOW` for the section of today's linked references
