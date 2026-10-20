@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish the Mac Capture documentation landing
-goal: Repair the remaining documentation integration defects, verify the finished
-  work, and close bob-cli-a0.11.1 and parent phase bob-cli-a0.11.
+goal:
+  Repair the remaining documentation integration defects, verify the finished work, and
+  close bob-cli-a0.11.1 and parent phase bob-cli-a0.11.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.11.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/mac_capture_reference.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/mac_capture_reference.md)
 - **BEAD:**
   [bob-cli-a0.11.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.11.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a0.11.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.11.1.land.md)
+- **COMMITS:**
+  - [3f0b4a8](https://github.com/bobs-org/bob-cli/commit/3f0b4a879cb1688f049a757c2c8b446bf51bc8ad)
+    — docs(mac-capture): correct recovery claims and durable develop-hub guidance
 
 # Finish the Mac Capture documentation landing
 
