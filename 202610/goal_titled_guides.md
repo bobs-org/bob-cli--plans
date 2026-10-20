@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Goal-titled guides and component browsing
-goal: Publish twelve verified how-to guides with component chips, a generated index,
-  and connected reader paths, then close bob-cli-a0.8.
+goal:
+  Publish twelve verified how-to guides with component chips, a generated index, and
+  connected reader paths, then close bob-cli-a0.8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.8
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
 - **BEAD:**
   [bob-cli-a0.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.8.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a0.8](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.8.md)
+- **COMMITS:**
+  - [bae9468](https://github.com/bobs-org/bob-cli/commit/bae9468d692c5c4e9a14ab73558b1d6c50b8787b)
+    — feat(docs): add goal-titled guides and component tags
 
 # Goal-titled guides and component browsing
 
