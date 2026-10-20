@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ctrl_shift_u",
+      "kind": "choice",
+      "ask": "Should Ctrl-Shift-U keep scrolling the preview up as a second key beside Ctrl-U?",
+      "why": "Ctrl-Shift-U only existed because Ctrl-U was taken; dropping it restores the original keymap",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "Unbound again and passed through to search, as before the remember-view change; one key per action"
+        },
+        {
+          "key": "keep",
+          "label": "Stays a silent alias for Ctrl-U's half-page-up scroll, documented beside it"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    }
+  ]
+}
