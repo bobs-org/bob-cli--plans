@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish mount validation and live mirroring, then land the docs toolchain
-goal: Fix the four reproduced mount and serve defects and complete the verified nested
+goal:
+  Fix the four reproduced mount and serve defects and complete the verified nested
   toolchain landing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.2.1.7.land
@@ -14,6 +15,11 @@ status: done
   [202610/docs_toolchain_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/docs_toolchain_landing_fixes.md)
 - **BEAD:**
   [bob-cli-a0.2.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.2.1.7.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a0.2.1.7.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.2.1.7.land.md)
+- **COMMITS:**
+  - [701dd78](https://github.com/bobs-org/bob-cli/commit/701dd78302657dc41d807331b809977608802738)
+    — fix(docs): validate mount sources, ignores, cache, and live mirroring
 
 # Finish mount validation and live mirroring, then land the docs toolchain
 
