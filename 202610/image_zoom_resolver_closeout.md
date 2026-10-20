@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish image-zoom target handling and land bob-cli-a1
-goal: Preserve image target identity, complete missing resolver regressions, deploy
-  the repair, and close bob-cli-a1.
+goal:
+  Preserve image target identity, complete missing resolver regressions, deploy the
+  repair, and close bob-cli-a1.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/z_image_zoom.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/z_image_zoom.md)
 - **BEAD:**
   [bob-cli-a1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a1/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a1.land.md)
+- **COMMITS:**
+  - [e00b446](https://github.com/bobs-org/bob-cli--plans/commit/e00b4461c056597c75d0983fcd64477759d59b85)
+    — chore(plans): mark z_image_zoom done after resolver closeout
 
 # Finish image-zoom target handling and land bob-cli-a1
 
