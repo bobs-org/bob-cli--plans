@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Complete Bob visual identity and documentation homepage
-goal: Ship the Bob documentation theme, homepage, task examples, deterministic assets,
-  and browser verification in both supported builders.
+goal:
+  Ship the Bob documentation theme, homepage, task examples, deterministic assets, and
+  browser verification in both supported builders.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.3
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
 - **BEAD:**
   [bob-cli-a0.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a0.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.3.md)
+- **COMMITS:**
+  - [f8ef162](https://github.com/bobs-org/bob-cli/commit/f8ef1628621b8be6c8188eeb0e8ea0046bd007d9)
+    — feat(docs): complete Bob visual identity and homepage
 
 # Complete Bob's visual identity and documentation homepage
 
