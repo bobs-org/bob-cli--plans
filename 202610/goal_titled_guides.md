@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Goal-titled guides and component browsing
-goal:
-  Publish twelve verified how-to guides with component chips, a generated index, and
-  connected reader paths, then close bob-cli-a0.8.
+goal: Publish twelve verified how-to guides with component chips, a generated index,
+  and connected reader paths, then close bob-cli-a0.8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.8
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a0.8
-create_time: 2026-10-20 01:50:00
-status: wip
+status: done
 ---
 
 - **PARENT:**
