@@ -1,91 +1,80 @@
 ---
 tier: epic
 title: Bob Mac Capture Ctrl+Tab panel switch and show-path performance
-goal: "Ctrl+Tab (and Ctrl+Shift+Tab) in either Bob Mac Capture panel switches to the
+goal: 'Ctrl+Tab (and Ctrl+Shift+Tab) in either Bob Mac Capture panel switches to the
   other panel. Capture keeps its draft and caret, and Refs keeps its remembered view.
-  Showing, switching, and typing in both panels do less redundant main-thread work and
-  spawn fewer bob processes, with no change to what bob decides.
+  Showing, switching, and typing in both panels do less redundant main-thread work
+  and spawn fewer bob processes, with no change to what bob decides.
 
-  "
+  '
 decisions:
   open_surfaces:
-    ask:
-      Should Ctrl+Tab switch even while a picker, prompt, stash, shelf, or Refs card is
-      open?
+    ask: Should Ctrl+Tab switch even while a picker, prompt, stash, shelf, or Refs
+      card is open?
     choices:
-      switch:
-        Switch at once; the open surface closes as on a hotkey switch, draft and view
-        kept
-      block:
-        Consume Ctrl+Tab until that surface is finished or cancelled, like Control-\
+      switch: Switch at once; the open surface closes as on a hotkey switch, draft
+        and view kept
+      block: Consume Ctrl+Tab until that surface is finished or cancelled, like Control-\
     default: switch
-    why:
-      Matches what the global hotkeys already do from those states; the gesture always
-      works
+    why: Matches what the global hotkeys already do from those states; the gesture
+      always works
     answer: switch
   arrival_reset:
-    ask:
-      Should a Ctrl+Tab return to Refs keep the remembered view even if a new reference
+    ask: Should a Ctrl+Tab return to Refs keep the remembered view even if a new reference
       arrived?
     choices:
-      keep:
-        Restore the remembered view; the new reference joins the list without moving
-        selection
+      keep: Restore the remembered view; the new reference joins the list without
+        moving selection
       reset: Act like the Refs hotkey; reset to defaults and select the new reference
     default: keep
     why: The switch promises that each panel comes back exactly as it was left
     answer: keep
   show_refresh_window:
-    ask:
-      Should re-shows within 5 s skip re-spawning Refs Today, capture-targets, and
-      template refreshes?
+    ask: Should re-shows within 5 s skip re-spawning Refs Today, capture-targets,
+      and template refreshes?
     choices:
-      coalesce:
-        Skip them inside a 5 s window; watchers, captures, and mutations still refresh
-        at once
+      coalesce: Skip them inside a 5 s window; watchers, captures, and mutations still
+        refresh at once
       always: Keep spawning all three on every show, as today
     default: coalesce
-    why:
-      Rapid switching otherwise spawns about three bob processes per switch and
+    why: Rapid switching otherwise spawns about three bob processes per switch and
       re-renders on return
     answer: coalesce
 phases:
-  - id: panel_switch
-    title: Ctrl+Tab panel switch with preserved state
-    depends_on: []
-    size: medium
-    description:
-      "panel_switch: add the coordinator switch, Ctrl+Tab routing in both panels with a
-      deferred hop, the Refs panelSwitch presentation source, round-trip state tests,
-      switch signposts, and the keyboard/refs/capture docs."
-  - id: capture_perf
-    title: Capture show, keystroke, and refresh optimizations
-    depends_on:
-      - panel_switch
-    size: medium
-    description:
-      "capture_perf: remove no-op republishes, the per-render executable stat, and
-      repeated view-tree walks; add the fuzzy-matcher fast path and the coalesced show
-      refreshes for targets and templates; add measuring signposts."
-  - id: refs_perf
-    title: Refs show, keystroke, ranking, and refresh optimizations
-    depends_on:
-      - panel_switch
-    size: medium
-    description:
-      "refs_perf: drop the unread published row rect, cache the filter field, coalesce
-      library-publish passes, skip unchanged inspector and Today republishes, precompute
-      ranking sort keys, fix the stale prepared-item cache, and coalesce the panel-open
-      Today refresh."
+- id: panel_switch
+  title: Ctrl+Tab panel switch with preserved state
+  depends_on: []
+  size: medium
+  description: 'panel_switch: add the coordinator switch, Ctrl+Tab routing in both
+    panels with a deferred hop, the Refs panelSwitch presentation source, round-trip
+    state tests, switch signposts, and the keyboard/refs/capture docs.'
+- id: capture_perf
+  title: Capture show, keystroke, and refresh optimizations
+  depends_on:
+  - panel_switch
+  size: medium
+  description: 'capture_perf: remove no-op republishes, the per-render executable
+    stat, and repeated view-tree walks; add the fuzzy-matcher fast path and the coalesced
+    show refreshes for targets and templates; add measuring signposts.'
+- id: refs_perf
+  title: Refs show, keystroke, ranking, and refresh optimizations
+  depends_on:
+  - panel_switch
+  size: medium
+  description: 'refs_perf: drop the unread published row rect, cache the filter field,
+    coalesce library-publish passes, skip unchanged inspector and Today republishes,
+    precompute ranking sort keys, fix the stale prepared-item cache, and coalesce
+    the panel-open Today refresh.'
 proposed_by: bbugyi200.apollo.9q
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-20 15:55:11
 status: wip
+bead_id: bob-cli-a8
 ---
 
-- **PROMPT:**
-  [prompts/202610/mac_capture_panel_switch_and_perf.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_panel_switch_and_perf.md)
+- **PROMPT:** [prompts/202610/mac_capture_panel_switch_and_perf.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_panel_switch_and_perf.md)
+- **BEAD:** [bob-cli-a8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a8/README.md)
 
 # Plan: Ctrl+Tab panel switch and performance for Bob Mac Capture
 
