@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Complete Bob's concept pages
-goal: Publish six accurate concept pages with reader routing and verified documentation
+goal:
+  Publish six accurate concept pages with reader routing and verified documentation
   builds, links, search, and diagram rendering.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.9
@@ -14,6 +15,11 @@ status: done
   [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
 - **BEAD:**
   [bob-cli-a0.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.9.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-a0.9](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.9.md)
+- **COMMITS:**
+  - [d6795bd](https://github.com/bobs-org/bob-cli/commit/d6795bdec2fd0ad1defbc16bedf2c9550e2cd578)
+    — feat(docs): complete Bob concept pages and reader routing
 
 # Complete Bob's concept pages
 
