@@ -1,14 +1,21 @@
 ---
 tier: tale
 title: Show Next and Blocked sources in the Task Card's Linked from CURRENT
-goal: The Task Card's ⇧L Linked from stage lists every task that links to the current
-  task under CURRENT, whatever the source's checkbox status (Ready, Next, In Progress,
+goal:
+  The Task Card's ⇧L Linked from stage lists every task that links to the current task
+  under CURRENT, whatever the source's checkbox status (Ready, Next, In Progress,
   Blocked, Done, Canceled), and ↵ on such a row removes that link and its mirror entry.
 size: small
 proposed_by: bbugyi200.athena.12k.f0
 proposed_with: claude/opus
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.12k.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.12k.f0.md)
+- **COMMITS:**
+  - [d4927af](https://github.com/bobs-org/bob-plugins/commit/d4927af24de4a935fe3cba5a012bbd2053eb253b)
+    — fix(ledger-tools): index relations from tasks of every checkbox status
 
 # Show Next and Blocked sources in the Task Card's Linked from CURRENT
 
