@@ -1,64 +1,59 @@
 ---
 tier: epic
 title: Mac Capture reference, media, and documentation front door
-goal:
-  Complete bob-cli-a0.11 with preserved Mac Capture reference, actionable recovery
+goal: Complete bob-cli-a0.11 with preserved Mac Capture reference, actionable recovery
   guides, CI-rendered images, a useful README, and verified shared-site mounts.
 phases:
-  - id: capture-reference
-    title: Extract capture, keyboard, and protocol reference and mount it
-    size: medium
-    depends_on: []
-    description:
-      "capture-reference: Create the Mac reference and developer hubs, extract the
-      capture-side README content into bounded reference pages and an architecture page,
-      consolidate capture protocol compatibility, and add both bob-cli mounts. Leave the
-      README intact. Follow the capture-reference section and shared contracts below."
-  - id: application-reference
-    title: Extract installation, settings, permissions, and Bob Refs reference
-    size: medium
-    depends_on:
-      - capture-reference
-    description:
-      "application-reference: Extract the remaining application reference into install,
-      settings, permissions, diagnostics, refs, refs-inspector, and developer build/CI
-      pages. Extend nav and the protocol compatibility table. Keep troubleshooting and
-      the original README available until the final migration phase. Follow
-      application-reference below."
-  - id: rendered-media
-    title: Import CI panel images and add Mac documentation preview tooling
-    size: medium
-    depends_on:
-      - application-reference
-    description:
-      "rendered-media: Add Scripts/docs-media.sh to import a curated set of real
-      synthetic CI renders with provenance, Scripts/docs-check.sh and just recipes,
-      focused script tests, render-fixture contributor instructions, and the Mac
-      AGENTS.md docs instruction. Use real panel images in the mounted reference and
-      bob-cli homepage."
-  - id: guides-front-door
-    title: Migrate troubleshooting, finish the README front door, and verify coverage
-    size: medium
-    depends_on:
-      - rendered-media
-    description:
-      "guides-front-door: Move both troubleshooting sections into goal-titled bob-cli
-      Fix problems guides, finish all cross-links and search cases, audit every original
-      README section, then replace the README with a useful front door retaining an
-      exact Signing heading. Validate both builders and the combined docs gate. Close
-      only the assigned child phase; leave bob-cli-a0.11 for this child epic's land
-      agent."
+- id: capture-reference
+  title: Extract capture, keyboard, and protocol reference and mount it
+  size: medium
+  depends_on: []
+  description: 'capture-reference: Create the Mac reference and developer hubs, extract
+    the capture-side README content into bounded reference pages and an architecture
+    page, consolidate capture protocol compatibility, and add both bob-cli mounts.
+    Leave the README intact. Follow the capture-reference section and shared contracts
+    below.'
+- id: application-reference
+  title: Extract installation, settings, permissions, and Bob Refs reference
+  size: medium
+  depends_on:
+  - capture-reference
+  description: 'application-reference: Extract the remaining application reference
+    into install, settings, permissions, diagnostics, refs, refs-inspector, and developer
+    build/CI pages. Extend nav and the protocol compatibility table. Keep troubleshooting
+    and the original README available until the final migration phase. Follow application-reference
+    below.'
+- id: rendered-media
+  title: Import CI panel images and add Mac documentation preview tooling
+  size: medium
+  depends_on:
+  - application-reference
+  description: 'rendered-media: Add Scripts/docs-media.sh to import a curated set
+    of real synthetic CI renders with provenance, Scripts/docs-check.sh and just recipes,
+    focused script tests, render-fixture contributor instructions, and the Mac AGENTS.md
+    docs instruction. Use real panel images in the mounted reference and bob-cli homepage.'
+- id: guides-front-door
+  title: Migrate troubleshooting, finish the README front door, and verify coverage
+  size: medium
+  depends_on:
+  - rendered-media
+  description: 'guides-front-door: Move both troubleshooting sections into goal-titled
+    bob-cli Fix problems guides, finish all cross-links and search cases, audit every
+    original README section, then replace the README with a useful front door retaining
+    an exact Signing heading. Validate both builders and the combined docs gate. Close
+    only the assigned child phase; leave bob-cli-a0.11 for this child epic''s land
+    agent.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.11
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-a0.11
 create_time: 2026-10-20 03:05:20
 status: wip
+bead_id: bob-cli-a0.11.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/mac_capture_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_reference.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/mac_capture_reference.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_capture_reference.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.11.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.11.1.md)
 
 # Mac Capture reference, media, and documentation front door
 
