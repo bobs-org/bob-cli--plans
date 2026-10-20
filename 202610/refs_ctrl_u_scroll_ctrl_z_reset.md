@@ -1,27 +1,35 @@
 ---
 tier: tale
-title: 'Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view'
-goal: In Bob Refs, Ctrl-U scrolls the preview up by half its height and the new Ctrl-Z
+title: "Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view"
+goal:
+  In Bob Refs, Ctrl-U scrolls the preview up by half its height and the new Ctrl-Z
   resets the remembered view to fresh-launch defaults.
 size: small
 decisions:
   ctrl_shift_u:
-    ask: Should Ctrl-Shift-U keep scrolling the preview up as a second key beside
-      Ctrl-U?
+    ask:
+      Should Ctrl-Shift-U keep scrolling the preview up as a second key beside Ctrl-U?
     choices:
-      drop: Unbound again and passed through to search, as before the remember-view
-        change; one key per action
-      keep: Stays a silent alias for Ctrl-U's half-page-up scroll, documented beside
-        it
+      drop:
+        Unbound again and passed through to search, as before the remember-view change;
+        one key per action
+      keep: Stays a silent alias for Ctrl-U's half-page-up scroll, documented beside it
     default: drop
-    why: Ctrl-Shift-U only existed because Ctrl-U was taken; dropping it restores
-      the original keymap
+    why:
+      Ctrl-Shift-U only existed because Ctrl-U was taken; dropping it restores the
+      original keymap
     answer: drop
 proposed_by: bbugyi200.athena.12e.f0
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.12e.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.12e.f0.md)
+- **COMMITS:**
+  - [239aaef](https://github.com/bobs-org/bob-mac-capture/commit/239aaefa37d90155cfb2ac9e096b7f3b675f48ec)
+    — feat(refs): restore Ctrl-U preview scroll and bind Ctrl-Z to reset
 
 # Bob Refs: Ctrl-U scrolls the preview up again, Ctrl-Z resets the view
 
