@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Learn gaps and finish its landing
-goal:
-  Correct Learn runtime and reader defects, integrate mounted references, verify the
-  result, and close bob-cli-a0.6.1 and phase bob-cli-a0.6.
+goal: Correct Learn runtime and reader defects, integrate mounted references, verify
+  the result, and close bob-cli-a0.6.1 and phase bob-cli-a0.6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.6.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a0.6.1
-create_time: 2026-10-20 01:22:54
-status: wip
+status: done
 ---
 
 - **PARENT:**
