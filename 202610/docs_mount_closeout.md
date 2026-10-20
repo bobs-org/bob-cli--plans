@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish mount validation and live mirroring, then land the docs toolchain
-goal:
-  Fix the four reproduced mount and serve defects and complete the verified nested
+goal: Fix the four reproduced mount and serve defects and complete the verified nested
   toolchain landing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a0.2.1.7.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a0.2.1.7
-create_time: 2026-10-19 21:42:25
-status: wip
+status: done
 ---
 
 - **PARENT:**
