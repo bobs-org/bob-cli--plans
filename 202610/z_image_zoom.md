@@ -1,63 +1,60 @@
 ---
 tier: epic
 title: Z zooms the image on the cursor line in a read-only viewer
-goal: "In Obsidian's Vim normal mode, pressing Z on a line holding an image embed, a
-  plain image wikilink, or a Markdown image opens that image fitted to the window in a
-  small bob-owned viewer with keyboard and mouse zoom and pan. Esc, q, Ctrl+[ or Z
-  return to the same note, cursor, scroll, and normal mode, and no part of the gesture
-  ever writes the vault. Obsidian's native click and Zoom-button lightbox keep working
-  unchanged.
+goal: 'In Obsidian''s Vim normal mode, pressing Z on a line holding an image embed,
+  a plain image wikilink, or a Markdown image opens that image fitted to the window
+  in a small bob-owned viewer with keyboard and mouse zoom and pan. Esc, q, Ctrl+[
+  or Z return to the same note, cursor, scroll, and normal mode, and no part of the
+  gesture ever writes the vault. Obsidian''s native click and Zoom-button lightbox
+  keep working unchanged.
 
-  "
+  '
 decisions:
   image_zoom_record:
-    ask:
-      Add a decisions record that Z opens a read-only owned image viewer and native
+    ask: Add a decisions record that Z opens a read-only owned image viewer and native
       mouse paths stay native?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: target
-    title: Line-scoped image target resolver
-    depends_on: []
-    size: medium
-    description:
-      "target: add the bob-navigation-hotkeys image-zoom mixin fragment that finds
-      embed, wikilink, and Markdown image references on the live cursor line, skips
-      inline and fenced code, picks one by the containing/next/previous rule, and
-      resolves it against the source note to a resource URL or an exact notice, with
-      fixture tests."
-  - id: viewer
-    title: Owned ImageZoomModal viewer
-    depends_on: []
-    size: medium
-    description:
-      "viewer: add a public-API Modal fragment plus CSS that opens an image fitted to
-      the window with bounded zoom, device-pixel 1:1, keyboard/drag/wheel pan and zoom,
-      backdrop and key close, a guarded opening keystroke, and full listener cleanup,
-      with geometry, key-map, and lifecycle tests."
-  - id: wire
-    title: Zoom command, Z binding, docs, and deploy
-    depends_on:
-      - target
-      - viewer
-    size: medium
-    description:
-      'wire: register "Zoom image on cursor line", open the viewer from the resolver,
-      restore the source editor on close, bump the manifest, document the gesture, map
-      nmap Z in the vault vimrc, deploy with bob plugins sync, and hand Bryan the Mac
-      smoke checklist.'
+- id: target
+  title: Line-scoped image target resolver
+  depends_on: []
+  size: medium
+  description: 'target: add the bob-navigation-hotkeys image-zoom mixin fragment that
+    finds embed, wikilink, and Markdown image references on the live cursor line,
+    skips inline and fenced code, picks one by the containing/next/previous rule,
+    and resolves it against the source note to a resource URL or an exact notice,
+    with fixture tests.'
+- id: viewer
+  title: Owned ImageZoomModal viewer
+  depends_on: []
+  size: medium
+  description: 'viewer: add a public-API Modal fragment plus CSS that opens an image
+    fitted to the window with bounded zoom, device-pixel 1:1, keyboard/drag/wheel
+    pan and zoom, backdrop and key close, a guarded opening keystroke, and full listener
+    cleanup, with geometry, key-map, and lifecycle tests.'
+- id: wire
+  title: Zoom command, Z binding, docs, and deploy
+  depends_on:
+  - target
+  - viewer
+  size: medium
+  description: 'wire: register "Zoom image on cursor line", open the viewer from the
+    resolver, restore the source editor on close, bump the manifest, document the
+    gesture, map nmap Z in the vault vimrc, deploy with bob plugins sync, and hand
+    Bryan the Mac smoke checklist.'
 proposed_by: bbugyi200.apollo.research.26.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-20 09:07:39
 status: wip
+bead_id: bob-cli-a1
 ---
 
-- **PROMPT:**
-  [prompts/202610/z_image_zoom.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/z_image_zoom.md)
+- **PROMPT:** [prompts/202610/z_image_zoom.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/z_image_zoom.md)
+- **BEAD:** [bob-cli-a1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a1/README.md)
 
 # Plan: `Z` zooms the image on the cursor line
 
