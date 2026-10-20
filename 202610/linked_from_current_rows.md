@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Show Next and Blocked sources in the Task Card's Linked from CURRENT
-goal:
-  The Task Card's ⇧L Linked from stage lists every task that links to the current task
-  under CURRENT, whatever the source's checkbox status (Ready, Next, In Progress,
+goal: The Task Card's ⇧L Linked from stage lists every task that links to the current
+  task under CURRENT, whatever the source's checkbox status (Ready, Next, In Progress,
   Blocked, Done, Canceled), and ↵ on such a row removes that link and its mirror entry.
 size: small
 proposed_by: bbugyi200.athena.12k.f0
 proposed_with: claude/opus
-create_time: 2026-10-20 14:17:13
-status: wip
+status: done
 ---
 
 # Show Next and Blocked sources in the Task Card's Linked from CURRENT
