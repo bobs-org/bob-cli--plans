@@ -1,141 +1,128 @@
 ---
 tier: epic
-title:
-  Daily release train for bob-cli (CI, package hygiene, release-plz rehearsal, docs)
-goal: "bob-cli has hermetic per-push CI on Linux and macOS and a renamed, trimmed
-  package under the crates.io size cap. A scheduled release-plz train releases at most
-  once per New York day, only after full CI passes on the exact SHA, and runs in
-  git_only rehearsal mode (tags and GitHub Releases), ready to switch to crates.io. The
-  process is documented on the docs site in the Diátaxis structure, and Bryan gets a
-  report of the manual go-live steps that only he can take.
+title: Daily release train for bob-cli (CI, package hygiene, release-plz rehearsal,
+  docs)
+goal: 'bob-cli has hermetic per-push CI on Linux and macOS and a renamed, trimmed
+  package under the crates.io size cap. A scheduled release-plz train releases at
+  most once per New York day, only after full CI passes on the exact SHA, and runs
+  in git_only rehearsal mode (tags and GitHub Releases), ready to switch to crates.io.
+  The process is documented on the docs site in the Diátaxis structure, and Bryan
+  gets a report of the manual go-live steps that only he can take.
 
-  "
+  '
 decisions:
   crate_name:
-    ask:
-      Which crates.io package name should replace the taken bob-cli (the bob binary
+    ask: Which crates.io package name should replace the taken bob-cli (the bob binary
       keeps its name)?
     choices:
-      bob_obsidian:
-        Matches the repo's "Bugyi's Obsidian" description and reads clearly in search
+      bob_obsidian: Matches the repo's "Bugyi's Obsidian" description and reads clearly
+        in search
       bob_vault: Shorter, but less clearly tied to Obsidian
       bobs_cli: One typo away from the unrelated bob-cli crate
     default: bob_obsidian
     why: Descriptive, free on crates.io today, and not a near-homograph of bob-cli
     answer: bob_obsidian
   github_apply:
-    ask:
-      Should agents apply the GitHub setup (environment, rulesets, arm variable) and
-      dispatch the first rehearsal?
+    ask: Should agents apply the GitHub setup (environment, rulesets, arm variable)
+      and dispatch the first rehearsal?
     default: true
     why: Each setting and a git_only rehearsal release can be undone
     answer: true
   hotfix_override:
-    ask:
-      Should a manual run be able to bypass the once-per-day guard when given a written
-      hotfix reason?
+    ask: Should a manual run be able to bypass the once-per-day guard when given a
+      written hotfix reason?
     default: true
     why: Without it, a fix for a bad release waits until the next day
     answer: true
   binaries:
-    ask:
-      Should each release attach prebuilt Linux x86_64 and macOS arm64 binaries for
-      cargo binstall?
+    ask: Should each release attach prebuilt Linux x86_64 and macOS arm64 binaries
+      for cargo binstall?
     default: true
     why: Installs then skip compiling QuickJS, image, and SQLite from source
     answer: true
   memory_release_train:
-    ask:
-      Should docs-dev add a release-train decisions record telling agents never to edit
-      version or CHANGELOG.md?
+    ask: Should docs-dev add a release-train decisions record telling agents never
+      to edit version or CHANGELOG.md?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Can you help me implement the recommendations made by the
-      crates_io_daily_release_train.md file in the research sidecar repo?
+    requested: Can you help me implement the recommendations made by the crates_io_daily_release_train.md
+      file in the research sidecar repo?
     answer: true
 phases:
-  - id: hermetic
-    title: Hermetic test suite and pinned toolchain
-    depends_on: []
-    size: small
-    description:
-      "hermetic: fix the three tests that fail in a clean environment and add
-      rust-toolchain.toml pinned to 1.95.0."
-  - id: package
-    title: Package rename, metadata, trim, size budget, and install migration
-    depends_on: []
-    size: medium
-    description:
-      "package: rename the package, pin the lib name, seed 0.2.0 and CHANGELOG.md, trim
-      the include list under the size budget, add package-check, migrate installs, and
-      fix docs the rename makes false."
-  - id: ci
-    title: Reusable per-push CI workflow brought green on GitHub
-    depends_on:
-      - hermetic
-      - package
-    size: medium
-    description:
-      "ci: add .github/workflows/ci.yml (push, ci/** branches, dispatch, workflow_call
-      with sha/full) and iterate on a scratch branch until every Linux and macOS job is
-      green."
-  - id: train
-    title: release-plz train in git_only rehearsal mode
-    depends_on:
-      - ci
-    size: medium
-    description:
-      "train: add release-plz.toml, the tested daily guard, release.yml (plan, CI,
-      release, preview, optional binaries), and just release-preview, and validate them
-      with release-plz locally and a dry run on GitHub."
-  - id: github
-    title: GitHub setup and first rehearsal release
-    depends_on:
-      - train
-    size: small
-    description:
-      "github: dry-run the train on master, then (per github_apply) create the release
-      environment and rulesets, arm the train, dispatch the first rehearsal release, and
-      verify the same-day guard."
-  - id: docs-dev
-    title: Maintainer release documentation and decision record
-    depends_on:
-      - train
-    size: medium
-    description:
-      "docs-dev: write the Develop > Releases section (hub, tutorial, explanation,
-      how-to guides, reference) and the CI reference, add the release-train decision
-      record, and regenerate the docs."
-  - id: docs-user
-    title: Reader-facing release documentation and site integration
-    depends_on:
-      - docs-dev
-    size: medium
-    description:
-      "docs-user: add the Releases and versions reference and the tagged-release install
-      guide, update hubs, nav, the release checklist, and the URL contract, and pass the
-      full docs gate."
-  - id: handoff
-    title: End-state verification and Bryan's go-live report
-    depends_on:
-      - github
-      - docs-user
-    size: small
-    description:
-      "handoff: verify CI, the train, and the docs against what landed, finish any
-      pending rehearsal dispatch, and publish an artifact report of Bryan's remaining
-      steps."
+- id: hermetic
+  title: Hermetic test suite and pinned toolchain
+  depends_on: []
+  size: small
+  description: 'hermetic: fix the three tests that fail in a clean environment and
+    add rust-toolchain.toml pinned to 1.95.0.'
+- id: package
+  title: Package rename, metadata, trim, size budget, and install migration
+  depends_on: []
+  size: medium
+  description: 'package: rename the package, pin the lib name, seed 0.2.0 and CHANGELOG.md,
+    trim the include list under the size budget, add package-check, migrate installs,
+    and fix docs the rename makes false.'
+- id: ci
+  title: Reusable per-push CI workflow brought green on GitHub
+  depends_on:
+  - hermetic
+  - package
+  size: medium
+  description: 'ci: add .github/workflows/ci.yml (push, ci/** branches, dispatch,
+    workflow_call with sha/full) and iterate on a scratch branch until every Linux
+    and macOS job is green.'
+- id: train
+  title: release-plz train in git_only rehearsal mode
+  depends_on:
+  - ci
+  size: medium
+  description: 'train: add release-plz.toml, the tested daily guard, release.yml (plan,
+    CI, release, preview, optional binaries), and just release-preview, and validate
+    them with release-plz locally and a dry run on GitHub.'
+- id: github
+  title: GitHub setup and first rehearsal release
+  depends_on:
+  - train
+  size: small
+  description: 'github: dry-run the train on master, then (per github_apply) create
+    the release environment and rulesets, arm the train, dispatch the first rehearsal
+    release, and verify the same-day guard.'
+- id: docs-dev
+  title: Maintainer release documentation and decision record
+  depends_on:
+  - train
+  size: medium
+  description: 'docs-dev: write the Develop > Releases section (hub, tutorial, explanation,
+    how-to guides, reference) and the CI reference, add the release-train decision
+    record, and regenerate the docs.'
+- id: docs-user
+  title: Reader-facing release documentation and site integration
+  depends_on:
+  - docs-dev
+  size: medium
+  description: 'docs-user: add the Releases and versions reference and the tagged-release
+    install guide, update hubs, nav, the release checklist, and the URL contract,
+    and pass the full docs gate.'
+- id: handoff
+  title: End-state verification and Bryan's go-live report
+  depends_on:
+  - github
+  - docs-user
+  size: small
+  description: 'handoff: verify CI, the train, and the docs against what landed, finish
+    any pending rehearsal dispatch, and publish an artifact report of Bryan''s remaining
+    steps.'
 proposed_by: bbugyi200.apollo.95.w1
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-20 18:36:50
 status: wip
+bead_id: bob-cli-ac
 ---
 
-- **PROMPT:**
-  [prompts/202610/crates_io_release_train.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/crates_io_release_train.md)
+- **PROMPT:** [prompts/202610/crates_io_release_train.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/crates_io_release_train.md)
+- **BEAD:** [bob-cli-ac](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ac/README.md)
 
 # Plan: Daily release train for bob-cli
 
