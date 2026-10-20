@@ -1,49 +1,45 @@
 ---
 tier: epic
 title: Complete the Bob Learn path
-goal:
-  New readers can follow a verified first Bob day in a synthetic vault, understand
+goal: New readers can follow a verified first Bob day in a synthetic vault, understand
   component requirements, and continue into Obsidian or Mac Capture; executable tutorial
   checks and deterministic CLI media keep the published path accurate.
 phases:
-  - id: tutorial
-    title: Synthetic demo vault and executable first-day tutorial
-    size: medium
-    depends_on: []
-    description:
-      "tutorial: build the date-independent demo vault and isolated Bash-fence runner,
-      write the checkpointed first-day tutorial and its hub, and install the tutorial
-      command, recipe, tests, and docs-check gate."
-  - id: reader-path
-    title: Learn continuations, system concept, and compatibility
-    size: medium
-    depends_on:
-      - tutorial
-    description:
-      "reader-path: complete the Get started pages, concepts hub and system diagram,
-      compatibility template, navigation, homepage doors, footer links, and search smoke
-      queries. Keep every new shell fence covered by the tutorial runner or an explicit
-      skip."
-  - id: cli-media
-    title: Deterministic CLI media and Learn visual verification
-    size: medium
-    depends_on:
-      - reader-path
-    description:
-      "cli-media: reuse the isolated tutorial environment for real PTY captures, render
-      deterministic Rich SVGs, add media drift checking, replace the homepage terminal
-      illustration, and verify the completed Learn pages in both builders."
+- id: tutorial
+  title: Synthetic demo vault and executable first-day tutorial
+  size: medium
+  depends_on: []
+  description: 'tutorial: build the date-independent demo vault and isolated Bash-fence
+    runner, write the checkpointed first-day tutorial and its hub, and install the
+    tutorial command, recipe, tests, and docs-check gate.'
+- id: reader-path
+  title: Learn continuations, system concept, and compatibility
+  size: medium
+  depends_on:
+  - tutorial
+  description: 'reader-path: complete the Get started pages, concepts hub and system
+    diagram, compatibility template, navigation, homepage doors, footer links, and
+    search smoke queries. Keep every new shell fence covered by the tutorial runner
+    or an explicit skip.'
+- id: cli-media
+  title: Deterministic CLI media and Learn visual verification
+  size: medium
+  depends_on:
+  - reader-path
+  description: 'cli-media: reuse the isolated tutorial environment for real PTY captures,
+    render deterministic Rich SVGs, add media drift checking, replace the homepage
+    terminal illustration, and verify the completed Learn pages in both builders.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-a0.6
 create_time: 2026-10-19 23:17:14
 status: wip
+bead_id: bob-cli-a0.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/learn_path.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/learn_path.md)
-- **PARENT:**
-  [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **PROMPT:** [prompts/202610/learn_path.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/learn_path.md)
+- **PARENT:** [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
+- **BEAD:** [bob-cli-a0.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.6.1.md)
 
 # Complete the Bob Learn path
 
