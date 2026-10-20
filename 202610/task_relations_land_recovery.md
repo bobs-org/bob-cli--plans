@@ -1,13 +1,11 @@
 ---
 tier: tale
 size: medium
-title:
-  "Land task relations: restore the lost Mac relation card, fix relation docs, close
-  bob-cli-a2"
-goal:
-  Bob Mac Capture on origin/master has the bob-cli-a2.14 relation card, preview rows,
-  and capability warning; the relation guide and capture-parse help match real behavior;
-  and epic bob-cli-a2 is closed with its plan marked done.
+title: 'Land task relations: restore the lost Mac relation card, fix relation docs,
+  close bob-cli-a2'
+goal: Bob Mac Capture on origin/master has the bob-cli-a2.14 relation card, preview
+  rows, and capability warning; the relation guide and capture-parse help match real
+  behavior; and epic bob-cli-a2 is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-a2.land
 proposed_with: claude/opus
 bead: bob-cli-a2
@@ -18,11 +16,6 @@ status: done
   [202610/task_relations.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_relations.md)
 - **BEAD:**
   [bob-cli-a2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a2/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-a2.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-a2.land.md)
-- **COMMITS:**
-  - [4907f00](https://github.com/bobs-org/bob-cli/commit/4907f00ddd02635fe4f6698efcae21eb17b8554a)
-    — docs(capture): quote multi-word relation labels and fix capture-parse help
 
 # Land task relations: restore the lost Mac relation card, fix relation docs, close bob-cli-a2
 
