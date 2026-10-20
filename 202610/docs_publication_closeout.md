@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  Close out gated docs publication — rollback, queued-run record, bootstrap staging,
+title: Close out gated docs publication — rollback, queued-run record, bootstrap staging,
   verify retry, runbook accuracy
-goal:
-  Fix the remaining epic-caused publication defects, so that the documented rollback
+goal: Fix the remaining epic-caused publication defects, so that the documented rollback
   works, queued runs record safely, bootstrap commits only host files, verify retries,
-  and the runbooks state the real failure boundaries. Then close epic bob-cli-a0.5.1 and
-  its parent phase bob-cli-a0.5.
+  and the runbooks state the real failure boundaries. Then close epic bob-cli-a0.5.1
+  and its parent phase bob-cli-a0.5.
 proposed_by: bbugyi200.apollo.bob-cli-a0.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-a0.5.1
-create_time: 2026-10-20 09:49:54
-status: wip
+status: done
 ---
 
 - **PARENT:**
