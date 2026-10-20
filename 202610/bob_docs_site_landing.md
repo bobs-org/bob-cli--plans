@@ -2,24 +2,19 @@
 tier: tale
 size: medium
 title: Finish and land the Bob public docs site epic (bob-cli-a0)
-goal:
-  The six remaining defects the bob-cli-a0 docs-site epic caused are fixed and verified,
-  and the epic is closed with its plan file marked done.
+goal: The six remaining defects the bob-cli-a0 docs-site epic caused are fixed and
+  verified, and the epic is closed with its plan file marked done.
 decisions:
   edit_link_check:
-    ask:
-      Should the weekly online link check stop fetching rendered GitHub edit links and
-      verify them offline instead?
+    ask: Should the weekly online link check stop fetching rendered GitHub edit links
+      and verify them offline instead?
     choices:
-      offline:
-        Skip Bob edit URLs online; a new offline gate proves each targets a real source
-        file
-      throttle:
-        Keep fetching edit links with lychee throttling; slower, and GitHub may still
-        429
+      offline: Skip Bob edit URLs online; a new offline gate proves each targets a
+        real source file
+      throttle: Keep fetching edit links with lychee throttling; slower, and GitHub
+        may still 429
     default: offline
-    why:
-      Edit URLs always 302 to /login, so fetching proves nothing; the offline gate
+    why: Edit URLs always 302 to /login, so fetching proves nothing; the offline gate
       checks more
     answer: offline
 proposed_by: bbugyi200.apollo.bob-cli-a0.land
@@ -33,11 +28,6 @@ status: done
   [202610/bob_public_docs_site.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_public_docs_site.md)
 - **BEAD:**
   [bob-cli-a0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-a0.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-a0.land.md)
-- **COMMITS:**
-  - [4f6e475](https://github.com/bobs-org/bob-cli/commit/4f6e4753920008e3344697a15defd327575f82b5)
-    — feat(docs): land bob public docs site with offline edit-link gate
 
 # Finish and land the Bob public docs site epic (bob-cli-a0)
 
