@@ -2,32 +2,26 @@
 tier: tale
 size: medium
 title: Finish and land the Bob public docs site epic (bob-cli-a0)
-goal:
-  The six remaining defects the bob-cli-a0 docs-site epic caused are fixed and verified,
-  and the epic is closed with its plan file marked done.
+goal: The six remaining defects the bob-cli-a0 docs-site epic caused are fixed and
+  verified, and the epic is closed with its plan file marked done.
 decisions:
   edit_link_check:
-    ask:
-      Should the weekly online link check stop fetching rendered GitHub edit links and
-      verify them offline instead?
+    ask: Should the weekly online link check stop fetching rendered GitHub edit links
+      and verify them offline instead?
     choices:
-      offline:
-        Skip Bob edit URLs online; a new offline gate proves each targets a real source
-        file
-      throttle:
-        Keep fetching edit links with lychee throttling; slower, and GitHub may still
-        429
+      offline: Skip Bob edit URLs online; a new offline gate proves each targets a
+        real source file
+      throttle: Keep fetching edit links with lychee throttling; slower, and GitHub
+        may still 429
     default: offline
-    why:
-      Edit URLs always 302 to /login, so fetching proves nothing; the offline gate
+    why: Edit URLs always 302 to /login, so fetching proves nothing; the offline gate
       checks more
     answer: offline
 proposed_by: bbugyi200.apollo.bob-cli-a0.land
 proposed_with: claude/opus
 bead: bob-cli-a0
 decided_by: auto
-create_time: 2026-10-20 17:43:52
-status: wip
+status: done
 ---
 
 - **PARENT:**
