@@ -1,228 +1,212 @@
 ---
 tier: epic
-title: "Task relations: 🪢 LINKS, a generated 🪢 LINKED FROM mirror, and ~ / ~~ capture"
-goal: "Bryan can relate any task to any other task with an optional label, from Bob Mac
-  Capture (`~` / `~~`) and from the Obsidian Task Card (`l` / `⇧L`). The relation is
-  authored once on the source's `🪢 **LINKS:**` line, and a generated `🪢 **LINKED
+title: 'Task relations: 🪢 LINKS, a generated 🪢 LINKED FROM mirror, and ~ / ~~ capture'
+goal: 'Bryan can relate any task to any other task with an optional label, from Bob
+  Mac Capture (`~` / `~~`) and from the Obsidian Task Card (`l` / `⇧L`). The relation
+  is authored once on the source''s `🪢 **LINKS:**` line, and a generated `🪢 **LINKED
   FROM:**` line on the target always converges to it. Live chips render both ends
   correctly, and relations never block, promote, consume, schedule, stamp, or route
   anything.
 
-  "
+  '
 decisions:
   inverse_phrases:
     ask: How should a LINKED FROM chip show a known label from the target's side?
     choices:
-      builtin:
-        A fixed display-only table turns "merged into" into "merged from", and so on
+      builtin: A fixed display-only table turns "merged into" into "merged from",
+        and so on
       verbatim: Every label shows as written, followed by "→ this"
     default: builtin
     why: The chip then reads as a sentence from either end, and storage stays verbatim
     answer: builtin
   linked_from_remove:
-    ask:
-      Should live LINKED FROM chips get a hover × that removes the link from the source
-      task?
+    ask: Should live LINKED FROM chips get a hover × that removes the link from the
+      source task?
     default: true
-    why:
-      Matches the BLOCKS chips' × (§15.8); the notice names the source note that changed
+    why: Matches the BLOCKS chips' × (§15.8); the notice names the source note that
+      changed
     answer: true
   memory_decision_record:
-    ask:
-      Add a decisions strand recording that task relations are inert, authored on the
-      source, and mirrored?
+    ask: Add a decisions strand recording that task relations are inert, authored
+      on the source, and mirrored?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary:
-    ask:
-      Add a "Task Relation" glossary term and a Task Link sentence saying LINKS entries
-      are relations?
+    ask: Add a "Task Relation" glossary term and a Task Link sentence saying LINKS
+      entries are relations?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: true
 phases:
-  - id: contract
-    title: Task-relation contract, capture grammar, wire names, and vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write docs/task-relations.md (grammar, slot, identity, projection,
-      inertness, invariants, writers, gestures, chips, kill switch, outputs, and every
-      vector table). Add the registry and MC rows in task-dependencies.md, the `~` /
-      `~~` capture sections and wire names, capture-syntax rows, vault-format,
-      task-status-hooks, and configuration. Docs only."
-  - id: cli-core
-    title: Rust relation grammar, planners, label rules, registry guards, and config
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-core: add src/native/task_relations/ (LINKS and LINKED FROM parsers, label
-      normalisation, formatters, canonical sort, slot rules, and edit planners pinned by
-      LK/LW). Add an is_managed_link_line registry predicate at every Task Link guard
-      site, the relations.linked_from_lines config, and MC tests. No writer emits lines
-      yet."
-  - id: plugin-guards
-    title: Plugin recognisers and gesture guards for relation lines
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "plugin-guards: add LK recognisers to nav, the cycler, block-id-prompt, and the
-      ledger plan budget. Keep relation lines out of Task Link, Pomodoro, tree-close,
-      strike, `!`, and Ctrl+Shift+Enter paths. Give Ctrl+Enter and Alt+] parity with
-      dependency lines. Add the LINKED FROM hand-edit notice and keep relation lines
-      intact through project conversion. Deploy before any writer."
-  - id: cli-reconcile
-    title: Reconcile owns the LINKED FROM projection
-    depends_on:
-      - cli-core
-      - plugin-guards
-    size: medium
-    description:
-      "cli-reconcile: collect relation edges from active notes, plus read-only previous
-      daily and done/ sources. Add a reconcile_relation_lines pass that inserts,
-      rewrites, deletes, and dedupes LINKED FROM lines, and mints source ids, with
-      guarded output, never pruning on uncertainty, and the kill switch. Add JSON and
-      human outputs, relation_warnings, LR tests, and a read-only live dry run."
-  - id: capture-parse
-    title: Capture `~` / `~~` lexer, guards, and capture-parse wire
-    depends_on:
-      - cli-core
-    size: medium
-    description:
-      "capture-parse: add a relation scanner in the `&` / `*` modifier runs with the
-      digit, slash, strike, escape, and placement guards; labels after `|`; relation_*
-      spans; relations[]; relation_target and relation_label needs; owner reuse; the
-      relation_grammar signal; and a temporary execution refusal. Pinned by LP vectors."
-  - id: capture-complete
-    title: Relation completion pools, label suggestions, and task-id replacements
-    depends_on:
-      - capture-parse
-    size: medium
-    description:
-      "capture-complete: add contexts relation_to, relation_from, and relation_label;
-      reuse the `&` catalog (open, closed, archived) with direction-specific
-      eligibility, ranking, and badges. Label suggestions come from every LINKS line,
-      and a typed-label row returns bob's canonical spelling. Add the
-      relation_to_replacement and relation_from_replacement task-id fields, the
-      owner-picker relations[], and shell groups."
-  - id: capture-execute
-    title: Execute `~` / `~~` captures with a same-batch mirror
-    depends_on:
-      - capture-parse
-      - plugin-guards
-    size: medium
-    description:
-      "capture-execute: plan relations for new and existing owners in the staged batch.
-      Append or relabel the source's LINKS line, mint the ids the edge needs, and stage
-      the target's LINKED FROM through the cli-core delta planner. Add refusals,
-      inertness, relation_updates, linked_from_line_updates, task blocks, human output,
-      and dry-run parity. Remove the parse-phase refusal. Pinned by LX vectors."
-  - id: relation-index
-    title: bob-ledger-tools live relation index and api.relationIndex
-    depends_on:
-      - plugin-guards
-    size: medium
-    description:
-      "relation-index: build a raw-text relation index in bob-ledger-tools. It does a
-      prefiltered startup scan including done/, reparses per file on change, delete, and
-      rename, overlays unsaved editor text, publishes forward and reverse maps together,
-      and resolves targets by path plus block id. Publish it as api.relationIndex v1
-      with label suggestions. Measure cold and warm costs."
-  - id: nav-writer
-    title: nav relation grammar twin, planner, mint, writer, and api.relations
-    depends_on:
-      - plugin-guards
-    size: medium
-    description:
-      "nav-writer: add the JS twin of the LINKS / LINKED FROM planners (LW and LM bytes
-      equal to Rust) and applyRelationEdit. It writes one same-note transaction, mints
-      inside the source's transaction, and sends cross-note mirror follow-ups with an
-      honest failure suffix. Add the kill switch, notices, a machine-write annotation,
-      and nav api.relations (removeLink now, openStage once the stages land, v1 after
-      both). No UI."
-  - id: chips
-    title: bob-ledger-tools LINKS and LINKED FROM chips
-    depends_on:
-      - relation-index
-    size: medium
-    description:
-      "chips: render live chips for both relation rows in Live Preview and Reading view
-      from the index, never the stored mirror. Add label pills, inverse phrases, ✓×N
-      collapse, dashed stale and broken chips, and ＋ / × controls through nav
-      api.relations. Reuse the bob-dep chip family with no new palette, and add LC
-      tests."
-  - id: nav-links-stage
-    title: Task Card `l` Links to… and the Links stage with the relation field
-    depends_on:
-      - nav-writer
-      - relation-index
-    size: medium
-    description:
-      "nav-links-stage: add the Task Card row `l` and Ctrl+Shift+L, the Links stage
-      (open, closed, then archived pool; CURRENT, RESULTS, and CLOSED), ↵ link and ⇧↵
-      link with a relation, CURRENT unlink and relabel, Tab marks, ID prompts, the
-      consequence strip, and Ctrl+Shift+P on a LINKS line opening the owner's stage."
-  - id: nav-linked-from
-    title: Task Card `⇧L` Linked from…, counted gestures, hand-edit mirror, and Ctrl+D
-    depends_on:
-      - nav-links-stage
-    size: medium
-    description:
-      "nav-linked-from: add the reverse stage (⇧L, Ctrl+Shift+Alt+L, and Ctrl+Shift+P on
-      a LINKED FROM line) that writes other tasks' LINKS lines, counted N<Ctrl+Shift+L>
-      sources, and the LINKS hand-edit mirror with undo re-arm. Ctrl+D on the Links to
-      row removes every link, Ctrl+D on Linked from is refused, and LG vectors are
-      tested."
-  - id: mac-picker
-    title: Bob Mac Capture `~` / `~~` pickers, live flip, and spans
-    depends_on:
-      - capture-complete
-    size: medium
-    description:
-      "mac-picker: give the direction-aware picker String sigils (& * ~ ~~), add the
-      relation picker sources, the live flip when a second `~` is typed, relation span
-      colours (a new knot accent), the Add-ID flow using bob's relation replacements,
-      and real-bob fixtures, with portable-check and a macOS typecheck."
-  - id: mac-preview
-    title: Bob Mac Capture relation card, preview rows, and capability warning
-    depends_on:
-      - mac-picker
-      - capture-execute
-    size: medium
-    description:
-      "mac-preview: add the ⇧↩ relation card (field, suggestion chips with counts, live
-      sentence, and bob's inserted token), the 🪢 preview rows from relation_updates,
-      managed-line suppression, the relation_grammar capability warning, docs, and
-      fixtures. Verify on macOS CI."
-  - id: rollout
-    title: Install, pilot on a vault copy, reach the MacBook, guide, and memory
-    depends_on:
-      - cli-reconcile
-      - capture-execute
-      - chips
-      - nav-linked-from
-      - mac-preview
-    size: medium
-    description:
-      "rollout: install bob and the plugins on athena, then check that the live
-      reconcile dry run shows zero relation changes. Run the pilot script on a vault
-      copy, update the MacBook best-effort, write the user guide, add the memory records
-      the accepted decisions allow, and record what is left for Bryan."
+- id: contract
+  title: Task-relation contract, capture grammar, wire names, and vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write docs/task-relations.md (grammar, slot, identity, projection,
+    inertness, invariants, writers, gestures, chips, kill switch, outputs, and every
+    vector table). Add the registry and MC rows in task-dependencies.md, the `~` /
+    `~~` capture sections and wire names, capture-syntax rows, vault-format, task-status-hooks,
+    and configuration. Docs only.'
+- id: cli-core
+  title: Rust relation grammar, planners, label rules, registry guards, and config
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-core: add src/native/task_relations/ (LINKS and LINKED FROM parsers,
+    label normalisation, formatters, canonical sort, slot rules, and edit planners
+    pinned by LK/LW). Add an is_managed_link_line registry predicate at every Task
+    Link guard site, the relations.linked_from_lines config, and MC tests. No writer
+    emits lines yet.'
+- id: plugin-guards
+  title: Plugin recognisers and gesture guards for relation lines
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugin-guards: add LK recognisers to nav, the cycler, block-id-prompt,
+    and the ledger plan budget. Keep relation lines out of Task Link, Pomodoro, tree-close,
+    strike, `!`, and Ctrl+Shift+Enter paths. Give Ctrl+Enter and Alt+] parity with
+    dependency lines. Add the LINKED FROM hand-edit notice and keep relation lines
+    intact through project conversion. Deploy before any writer.'
+- id: cli-reconcile
+  title: Reconcile owns the LINKED FROM projection
+  depends_on:
+  - cli-core
+  - plugin-guards
+  size: medium
+  description: 'cli-reconcile: collect relation edges from active notes, plus read-only
+    previous daily and done/ sources. Add a reconcile_relation_lines pass that inserts,
+    rewrites, deletes, and dedupes LINKED FROM lines, and mints source ids, with guarded
+    output, never pruning on uncertainty, and the kill switch. Add JSON and human
+    outputs, relation_warnings, LR tests, and a read-only live dry run.'
+- id: capture-parse
+  title: Capture `~` / `~~` lexer, guards, and capture-parse wire
+  depends_on:
+  - cli-core
+  size: medium
+  description: 'capture-parse: add a relation scanner in the `&` / `*` modifier runs
+    with the digit, slash, strike, escape, and placement guards; labels after `|`;
+    relation_* spans; relations[]; relation_target and relation_label needs; owner
+    reuse; the relation_grammar signal; and a temporary execution refusal. Pinned
+    by LP vectors.'
+- id: capture-complete
+  title: Relation completion pools, label suggestions, and task-id replacements
+  depends_on:
+  - capture-parse
+  size: medium
+  description: 'capture-complete: add contexts relation_to, relation_from, and relation_label;
+    reuse the `&` catalog (open, closed, archived) with direction-specific eligibility,
+    ranking, and badges. Label suggestions come from every LINKS line, and a typed-label
+    row returns bob''s canonical spelling. Add the relation_to_replacement and relation_from_replacement
+    task-id fields, the owner-picker relations[], and shell groups.'
+- id: capture-execute
+  title: Execute `~` / `~~` captures with a same-batch mirror
+  depends_on:
+  - capture-parse
+  - plugin-guards
+  size: medium
+  description: 'capture-execute: plan relations for new and existing owners in the
+    staged batch. Append or relabel the source''s LINKS line, mint the ids the edge
+    needs, and stage the target''s LINKED FROM through the cli-core delta planner.
+    Add refusals, inertness, relation_updates, linked_from_line_updates, task blocks,
+    human output, and dry-run parity. Remove the parse-phase refusal. Pinned by LX
+    vectors.'
+- id: relation-index
+  title: bob-ledger-tools live relation index and api.relationIndex
+  depends_on:
+  - plugin-guards
+  size: medium
+  description: 'relation-index: build a raw-text relation index in bob-ledger-tools.
+    It does a prefiltered startup scan including done/, reparses per file on change,
+    delete, and rename, overlays unsaved editor text, publishes forward and reverse
+    maps together, and resolves targets by path plus block id. Publish it as api.relationIndex
+    v1 with label suggestions. Measure cold and warm costs.'
+- id: nav-writer
+  title: nav relation grammar twin, planner, mint, writer, and api.relations
+  depends_on:
+  - plugin-guards
+  size: medium
+  description: 'nav-writer: add the JS twin of the LINKS / LINKED FROM planners (LW
+    and LM bytes equal to Rust) and applyRelationEdit. It writes one same-note transaction,
+    mints inside the source''s transaction, and sends cross-note mirror follow-ups
+    with an honest failure suffix. Add the kill switch, notices, a machine-write annotation,
+    and nav api.relations (removeLink now, openStage once the stages land, v1 after
+    both). No UI.'
+- id: chips
+  title: bob-ledger-tools LINKS and LINKED FROM chips
+  depends_on:
+  - relation-index
+  size: medium
+  description: 'chips: render live chips for both relation rows in Live Preview and
+    Reading view from the index, never the stored mirror. Add label pills, inverse
+    phrases, ✓×N collapse, dashed stale and broken chips, and ＋ / × controls through
+    nav api.relations. Reuse the bob-dep chip family with no new palette, and add
+    LC tests.'
+- id: nav-links-stage
+  title: Task Card `l` Links to… and the Links stage with the relation field
+  depends_on:
+  - nav-writer
+  - relation-index
+  size: medium
+  description: 'nav-links-stage: add the Task Card row `l` and Ctrl+Shift+L, the Links
+    stage (open, closed, then archived pool; CURRENT, RESULTS, and CLOSED), ↵ link
+    and ⇧↵ link with a relation, CURRENT unlink and relabel, Tab marks, ID prompts,
+    the consequence strip, and Ctrl+Shift+P on a LINKS line opening the owner''s stage.'
+- id: nav-linked-from
+  title: Task Card `⇧L` Linked from…, counted gestures, hand-edit mirror, and Ctrl+D
+  depends_on:
+  - nav-links-stage
+  size: medium
+  description: 'nav-linked-from: add the reverse stage (⇧L, Ctrl+Shift+Alt+L, and
+    Ctrl+Shift+P on a LINKED FROM line) that writes other tasks'' LINKS lines, counted
+    N<Ctrl+Shift+L> sources, and the LINKS hand-edit mirror with undo re-arm. Ctrl+D
+    on the Links to row removes every link, Ctrl+D on Linked from is refused, and
+    LG vectors are tested.'
+- id: mac-picker
+  title: Bob Mac Capture `~` / `~~` pickers, live flip, and spans
+  depends_on:
+  - capture-complete
+  size: medium
+  description: 'mac-picker: give the direction-aware picker String sigils (& * ~ ~~),
+    add the relation picker sources, the live flip when a second `~` is typed, relation
+    span colours (a new knot accent), the Add-ID flow using bob''s relation replacements,
+    and real-bob fixtures, with portable-check and a macOS typecheck.'
+- id: mac-preview
+  title: Bob Mac Capture relation card, preview rows, and capability warning
+  depends_on:
+  - mac-picker
+  - capture-execute
+  size: medium
+  description: 'mac-preview: add the ⇧↩ relation card (field, suggestion chips with
+    counts, live sentence, and bob''s inserted token), the 🪢 preview rows from relation_updates,
+    managed-line suppression, the relation_grammar capability warning, docs, and fixtures.
+    Verify on macOS CI.'
+- id: rollout
+  title: Install, pilot on a vault copy, reach the MacBook, guide, and memory
+  depends_on:
+  - cli-reconcile
+  - capture-execute
+  - chips
+  - nav-linked-from
+  - mac-preview
+  size: medium
+  description: 'rollout: install bob and the plugins on athena, then check that the
+    live reconcile dry run shows zero relation changes. Run the pilot script on a
+    vault copy, update the MacBook best-effort, write the user guide, add the memory
+    records the accepted decisions allow, and record what is left for Bryan.'
 proposed_by: bbugyi200.athena.research.53.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-20 09:08:19
 status: wip
+bead_id: bob-cli-a2
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_relations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_relations.md)
+- **PROMPT:** [prompts/202610/task_relations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_relations.md)
+- **BEAD:** [bob-cli-a2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a2/README.md)
 
 # Plan: Task relations — 🪢 LINKS, a generated 🪢 LINKED FROM mirror, and `~` / `~~` capture
 
