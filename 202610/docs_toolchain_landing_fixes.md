@@ -1,47 +1,44 @@
 ---
 tier: epic
 title: Finish the Bob docs toolchain landing fixes
-goal:
-  Fix the verified defects and acceptance gaps that the bob-cli-a0.2.1 landing audit
-  found in bob-docs mounts, serve, lint, URL/link gates, and authoring templates, so the
-  toolchain epic can close honestly.
+goal: Fix the verified defects and acceptance gaps that the bob-cli-a0.2.1 landing
+  audit found in bob-docs mounts, serve, lint, URL/link gates, and authoring templates,
+  so the toolchain epic can close honestly.
 parent_bead: bob-cli-a0.2.1
 phases:
-  - id: mount-safety
-    title: Make mount assembly and serve safe and complete
-    size: medium
-    depends_on: []
-    description:
-      "mount-safety: fix front-matter stamping, destination symlink and gitignore
-      validation, stale-deletion safety, cache freshness, serve build.json and live
-      reload, and add the missing mounts acceptance tests."
-  - id: lint-contract
-    title: Lint the assembled site, not the authored approximation
-    size: medium
-    depends_on:
-      - mount-safety
-    description:
-      "lint-contract: lint the expanded nav and verified mount provenance from the
-      assembled context, stop lint discovery, fix privacy placeholders, line numbers,
-      nested fences, and ratchet consistency, and add the missing negative fixtures."
-  - id: links-authoring
-    title: Check fragments offline, widen mention scans, and finish templates
-    size: medium
-    depends_on: []
-    description:
-      "links-authoring: enable offline lychee fragment checking, scan every text source
-      for docs mentions, harden the URL resolver and live manifest, and give the
-      authoring templates and guide Bob examples and Output fences."
+- id: mount-safety
+  title: Make mount assembly and serve safe and complete
+  size: medium
+  depends_on: []
+  description: 'mount-safety: fix front-matter stamping, destination symlink and gitignore
+    validation, stale-deletion safety, cache freshness, serve build.json and live
+    reload, and add the missing mounts acceptance tests.'
+- id: lint-contract
+  title: Lint the assembled site, not the authored approximation
+  size: medium
+  depends_on:
+  - mount-safety
+  description: 'lint-contract: lint the expanded nav and verified mount provenance
+    from the assembled context, stop lint discovery, fix privacy placeholders, line
+    numbers, nested fences, and ratchet consistency, and add the missing negative
+    fixtures.'
+- id: links-authoring
+  title: Check fragments offline, widen mention scans, and finish templates
+  size: medium
+  depends_on: []
+  description: 'links-authoring: enable offline lychee fragment checking, scan every
+    text source for docs mentions, harden the URL resolver and live manifest, and
+    give the authoring templates and guide Bob examples and Output fences.'
 proposed_by: bbugyi200.apollo.bob-cli-a0.2.1.land
 proposed_with: claude/opus
 create_time: 2026-10-19 21:02:57
 status: wip
+bead_id: bob-cli-a0.2.1.7
 ---
 
-- **PROMPT:**
-  [prompts/202610/docs_toolchain_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_toolchain_landing_fixes.md)
-- **PARENT:**
-  [202610/docs_toolchain.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/docs_toolchain.md)
+- **PROMPT:** [prompts/202610/docs_toolchain_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/docs_toolchain_landing_fixes.md)
+- **PARENT:** [202610/docs_toolchain.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/docs_toolchain.md)
+- **BEAD:** [bob-cli-a0.2.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a0/bob-cli-a0.2.1.7.md)
 
 # Finish the Bob docs toolchain landing fixes
 
