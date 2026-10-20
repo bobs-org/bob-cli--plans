@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish image-zoom target handling and land bob-cli-a1
-goal:
-  Preserve image target identity, complete missing resolver regressions, deploy the
-  repair, and close bob-cli-a1.
+goal: Preserve image target identity, complete missing resolver regressions, deploy
+  the repair, and close bob-cli-a1.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-a1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-a1
-create_time: 2026-10-20 10:07:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
