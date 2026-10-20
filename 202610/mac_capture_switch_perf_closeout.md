@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Complete panel-switch verification and land bob-cli-a8
-goal: Finish refresh and caret coverage, record performance evidence, and close bob-cli-a8
+goal:
+  Finish refresh and caret coverage, record performance evidence, and close bob-cli-a8
   with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-a8.land
@@ -14,6 +15,11 @@ status: done
   [202610/mac_capture_panel_switch_and_perf.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/mac_capture_panel_switch_and_perf.md)
 - **BEAD:**
   [bob-cli-a8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-a8/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-a8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-a8.land.md)
+- **COMMITS:**
+  - [edd5be9](https://github.com/bobs-org/bob-cli--plans/commit/edd5be99dfd5c8e9ea6148423872ac74349e393c)
+    — docs(plans): mark mac_capture_panel_switch_and_perf done
 
 # Finish panel-switch verification and land bob-cli-a8
 
