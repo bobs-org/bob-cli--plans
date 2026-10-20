@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scroll_up_key",
+      "kind": "choice",
+      "ask": "Which key should take over the preview's half-page-up scroll, now that Ctrl-U resets the panel?",
+      "why": "Y sits next to U and nothing in Bob Refs uses Ctrl-Y; the Ctrl-U scroll dates from 4c22d09",
+      "choices": [
+        {
+          "key": "ctrl_y",
+          "label": "Ctrl-Y scrolls the preview up, next to U; the search field gives up native yank"
+        },
+        {
+          "key": "ctrl_b",
+          "label": "Ctrl-B scrolls the preview up like vim's page-back; the search field gives up caret-left"
+        },
+        {
+          "key": "ctrl_shift_u",
+          "label": "Ctrl-U keeps scrolling the preview up; Ctrl-Shift-U resets the panel instead"
+        }
+      ],
+      "default": "ctrl_y",
+      "effective_default": "ctrl_y",
+      "requested_verified": false
+    },
+    {
+      "id": "esc_closes",
+      "kind": "choice",
+      "ask": "Should Esc close Bob Refs at once, keeping the query, filters, selection, and preview scroll?",
+      "why": "Capture's Esc keeps its draft; the ladder would wipe the query and selection on every Esc",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "After any card or banner, Esc hides the panel and the next open restores everything"
+        },
+        {
+          "key": "ladder",
+          "label": "Esc still clears query, Tabs or Newest, then scope first, so an Esc close remembers little"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "tabs_entry",
+      "kind": "choice",
+      "ask": "Should Shift-\u2318O (Bob Refs in Tabs) also restore the remembered query, scope, selection, and scroll?",
+      "why": "Shift-\u2318O is the usual way in from Highlights; a tab switch still restores the preselection",
+      "choices": [
+        {
+          "key": "restore",
+          "label": "Shift-\u2318O restores the remembered view with Tabs on; an open remembered row stays selected"
+        },
+        {
+          "key": "fresh",
+          "label": "Shift-\u2318O keeps today's fresh Tabs view: blank query, All, previous tab preselected"
+        }
+      ],
+      "default": "restore",
+      "effective_default": "restore",
+      "requested_verified": false
+    }
+  ]
+}
