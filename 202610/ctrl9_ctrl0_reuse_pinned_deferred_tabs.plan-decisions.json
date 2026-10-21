@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ctrl9_any_tab",
+      "kind": "choice",
+      "ask": "Should Ctrl+9 also open today's daily note when the active tab has no Markdown editor (empty tab, PDF, canvas)?",
+      "why": "Matches Ctrl+0, and a pinned daily tab helps most when the current tab is not a note.",
+      "choices": [
+        {
+          "key": "any_tab",
+          "label": "Ctrl+9 finds the pinned daily tab from any tab, as Ctrl+0 already does"
+        },
+        {
+          "key": "editor_only",
+          "label": "Ctrl+9 still shows \"No active markdown editor\" outside Markdown tabs"
+        }
+      ],
+      "default": "any_tab",
+      "effective_default": "any_tab",
+      "requested_verified": false
+    }
+  ]
+}
