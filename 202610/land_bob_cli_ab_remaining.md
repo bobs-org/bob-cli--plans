@@ -2,12 +2,12 @@
 tier: tale
 size: medium
 title: Finish landing the Similar tasks band epic (bob-cli-ab)
-goal: 'Restore the bob capture-related --exclude calibration pieces that were dropped
+goal: "Restore the bob capture-related --exclude calibration pieces that were dropped
   from commit 453dc4a7 (master test build and CI are red), finish the mac_lane settle
   gate, signposts, and reliability-gate tests the epic plan required, then close epic
   bob-cli-ab.
 
-  '
+  "
 proposed_by: bbugyi200.apollo.bob-cli-ab.land
 proposed_with: claude/opus
 bead: bob-cli-ab
@@ -18,6 +18,11 @@ status: done
   [202610/capture_similar_tasks_band.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_similar_tasks_band.md)
 - **BEAD:**
   [bob-cli-ab](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ab/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ab.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ab.land.md)
+- **COMMITS:**
+  - [6b2d542](https://github.com/bobs-org/bob-mac-capture/commit/6b2d542c38bfa6f8eaac30ebd4092275c70e2fab)
+    — feat(mac-lane): finish settle gate, signposts, and gate tests
 
 # Plan: Finish landing the Similar tasks band epic (bob-cli-ab)
 
