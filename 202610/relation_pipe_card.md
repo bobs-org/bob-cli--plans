@@ -1,44 +1,46 @@
 ---
 tier: epic
 title: Reliable `|` relation-card trigger in Bob Mac Capture
-goal: "Typing `|` after a `~note:id` / `~~note:id` relation token in Bob Mac Capture
-  always opens the relation card, with or without a space before the `|`. The card shows
-  the correct direction, and committing a label never deletes text after the token.
+goal: 'Typing `|` after a `~note:id` / `~~note:id` relation token in Bob Mac Capture
+  always opens the relation card, with or without a space before the `|`. The card
+  shows the correct direction, and committing a label never deletes text after the
+  token.
 
-  "
+  '
 decisions:
   empty_label_drops_pipe:
-    ask: Should Return on an empty relation card opened by `|` remove the dangling `|`?
+    ask: Should Return on an empty relation card opened by `|` remove the dangling
+      `|`?
     default: true
-    why: A bare `~note:id|` makes `bob capture` refuse the draft as an incomplete label
+    why: A bare `~note:id|` makes `bob capture` refuse the draft as an incomplete
+      label
     answer: true
 phases:
-  - id: bob
-    title: bob-cli relation-label typing assist and completion contract
-    depends_on: []
-    size: medium
-    description:
-      "bob: add the `attach_relation_label` capture-rewrite rule, add the `relation`
-      object and `owner` to `relation_label` completions, and update tests, help, and
-      docs."
-  - id: mac
-    title: Bob Mac Capture relation-card trigger and label-range fixes
-    depends_on:
-      - bob
-    size: medium
-    description:
-      "mac: forward a typed `|` to the rewrite lane and request completion afterwards,
-      read the token from bob's `relation` object, replace only the label range, and
-      update tests, fixtures, and docs."
+- id: bob
+  title: bob-cli relation-label typing assist and completion contract
+  depends_on: []
+  size: medium
+  description: 'bob: add the `attach_relation_label` capture-rewrite rule, add the
+    `relation` object and `owner` to `relation_label` completions, and update tests,
+    help, and docs.'
+- id: mac
+  title: Bob Mac Capture relation-card trigger and label-range fixes
+  depends_on:
+  - bob
+  size: medium
+  description: 'mac: forward a typed `|` to the rewrite lane and request completion
+    afterwards, read the token from bob''s `relation` object, replace only the label
+    range, and update tests, fixtures, and docs.'
 proposed_by: bbugyi200.athena.12t
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-21 08:01:48
 status: wip
+bead_id: bob-cli-aj
 ---
 
-- **PROMPT:**
-  [prompts/202610/relation_pipe_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_pipe_card.md)
+- **PROMPT:** [prompts/202610/relation_pipe_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_pipe_card.md)
+- **BEAD:** [bob-cli-aj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-aj/README.md)
 
 # Plan: Reliable `|` relation-card trigger in Bob Mac Capture
 
