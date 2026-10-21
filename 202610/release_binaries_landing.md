@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  Fix the release train's binaries path, attach v0.2.0 archives, and land epic
+title: Fix the release train's binaries path, attach v0.2.0 archives, and land epic
   bob-cli-ac
-goal:
-  Every bob-cli release attaches working Linux x86_64 and macOS arm64 archives built
-  from its own tag. v0.2.0 carries them now, cargo-binstall metadata resolves them, a
-  failed upload can be retried for an existing tag, and the release-train epic
-  bob-cli-ac is closed.
+goal: Every bob-cli release attaches working Linux x86_64 and macOS arm64 archives
+  built from its own tag. v0.2.0 carries them now, cargo-binstall metadata resolves
+  them, a failed upload can be retried for an existing tag, and the release-train
+  epic bob-cli-ac is closed.
 proposed_by: bbugyi200.apollo.bob-cli-ac.land
 proposed_with: claude/opus
 bead: bob-cli-ac
-create_time: 2026-10-21 00:38:10
-status: wip
+status: done
 ---
 
 - **PARENT:**
