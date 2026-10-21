@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: Fix the release train's binaries path, attach v0.2.0 archives, and land epic
+title:
+  Fix the release train's binaries path, attach v0.2.0 archives, and land epic
   bob-cli-ac
-goal: Every bob-cli release attaches working Linux x86_64 and macOS arm64 archives
-  built from its own tag. v0.2.0 carries them now, cargo-binstall metadata resolves
-  them, a failed upload can be retried for an existing tag, and the release-train
-  epic bob-cli-ac is closed.
+goal:
+  Every bob-cli release attaches working Linux x86_64 and macOS arm64 archives built
+  from its own tag. v0.2.0 carries them now, cargo-binstall metadata resolves them, a
+  failed upload can be retried for an existing tag, and the release-train epic
+  bob-cli-ac is closed.
 proposed_by: bbugyi200.apollo.bob-cli-ac.land
 proposed_with: claude/opus
 bead: bob-cli-ac
@@ -17,6 +19,11 @@ status: done
   [202610/crates_io_release_train.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/crates_io_release_train.md)
 - **BEAD:**
   [bob-cli-ac](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ac/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ac.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ac.land.md)
+- **COMMITS:**
+  - [9c1f9c6](https://github.com/bobs-org/bob-cli--plans/commit/9c1f9c6286fdec33d682f0e8cc35fea39afc2802)
+    — docs(plan): mark crates_io_release_train epic as done
 
 # Plan: fix the release binaries path and land epic bob-cli-ac
 
