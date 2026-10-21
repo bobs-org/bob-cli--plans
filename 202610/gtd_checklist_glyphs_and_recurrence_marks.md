@@ -1,63 +1,59 @@
 ---
 tier: epic
 title: PRE/POST checklist glyphs and compact recurrence marks
-goal: "In Obsidian, a canonical `#task #gtd #pre` / `#task #gtd #post` run renders as
-  one teal sunrise / flag identity glyph, and every readable `[repeat:: …]` rule renders
-  as a quiet loop glyph plus a spoken cadence (`daily`, `Mondays`, `monthly · 1st`).
-  This works in Live Preview, reading view, and Tasks query results. Nothing changes in
-  storage, and anything uncertain keeps its honest pill.
+goal: 'In Obsidian, a canonical `#task #gtd #pre` / `#task #gtd #post` run renders
+  as one teal sunrise / flag identity glyph, and every readable `[repeat:: …]` rule
+  renders as a quiet loop glyph plus a spoken cadence (`daily`, `Mondays`, `monthly
+  · 1st`). This works in Live Preview, reading view, and Tasks query results. Nothing
+  changes in storage, and anything uncertain keeps its honest pill.
 
-  "
+  '
 decisions:
   when_done_label:
-    ask:
-      Should recurrence marks also print `when done` on the line (for example `daily
+    ask: Should recurrence marks also print `when done` on the line (for example `daily
       when done`)?
     default: false
-    why:
-      It is identical on 9 of 10 checklist rows; the tooltip and the repair pill already
-      carry it
+    why: It is identical on 9 of 10 checklist rows; the tooltip and the repair pill
+      already carry it
     answer: false
 phases:
-  - id: checklist-glyphs
-    title: PRE/POST checklist identity glyphs
-    depends_on: []
-    size: medium
-    description:
-      "checklist-glyphs: render a canonical, conflict-free `#task #gtd #pre|#post` run
-      as one teal sunrise or flag in the task identity slot. Covers Live Preview,
-      rendered views, CSS-only Tasks rows, and the Today 🍅 reading-view anchor. Also
-      adds the shared checklist-membership helper the recurrence guard reuses, and the
-      task-tag-marks / today-marks contract sections."
-  - id: recurrence-marks
-    title: Recurrence marks in Live Preview and rendered views
-    depends_on:
-      - checklist-glyphs
-    size: medium
-    description:
-      'recurrence-marks: render each canonical, Tasks-readable `[repeat:: …]` as a quiet
-      date-family mark (loop glyph plus spoken cadence label, exact rule in the
-      tooltip). Adds the checklist `when done` guard, the repeat repair flag, the
-      "Recurrence (not a date)" date-marks contract section, and the vault-format
-      `repeat` row.'
-  - id: recurrence-tasks
-    title: Recurrence marks in Tasks query results
-    depends_on:
-      - recurrence-marks
-    size: small
-    description:
-      "recurrence-tasks: extend the full-mode Tasks frame pass to `span.task-recurring`,
-      draw the loop glyph in short mode with CSS, add `hide recurrence rule` to the
-      vault's blocked.md RECURRING query, and add the RT conformance vectors."
+- id: checklist-glyphs
+  title: PRE/POST checklist identity glyphs
+  depends_on: []
+  size: medium
+  description: 'checklist-glyphs: render a canonical, conflict-free `#task #gtd #pre|#post`
+    run as one teal sunrise or flag in the task identity slot. Covers Live Preview,
+    rendered views, CSS-only Tasks rows, and the Today 🍅 reading-view anchor. Also
+    adds the shared checklist-membership helper the recurrence guard reuses, and the
+    task-tag-marks / today-marks contract sections.'
+- id: recurrence-marks
+  title: Recurrence marks in Live Preview and rendered views
+  depends_on:
+  - checklist-glyphs
+  size: medium
+  description: 'recurrence-marks: render each canonical, Tasks-readable `[repeat::
+    …]` as a quiet date-family mark (loop glyph plus spoken cadence label, exact rule
+    in the tooltip). Adds the checklist `when done` guard, the repeat repair flag,
+    the "Recurrence (not a date)" date-marks contract section, and the vault-format
+    `repeat` row.'
+- id: recurrence-tasks
+  title: Recurrence marks in Tasks query results
+  depends_on:
+  - recurrence-marks
+  size: small
+  description: 'recurrence-tasks: extend the full-mode Tasks frame pass to `span.task-recurring`,
+    draw the loop glyph in short mode with CSS, add `hide recurrence rule` to the
+    vault''s blocked.md RECURRING query, and add the RT conformance vectors.'
 proposed_by: bbugyi200.apollo.research.28.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-21 08:49:57
 status: wip
+bead_id: bob-cli-ak
 ---
 
-- **PROMPT:**
-  [prompts/202610/gtd_checklist_glyphs_and_recurrence_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gtd_checklist_glyphs_and_recurrence_marks.md)
+- **PROMPT:** [prompts/202610/gtd_checklist_glyphs_and_recurrence_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gtd_checklist_glyphs_and_recurrence_marks.md)
+- **BEAD:** [bob-cli-ak](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ak/README.md)
 
 # Plan: PRE/POST checklist glyphs and compact recurrence marks
 
