@@ -1,75 +1,69 @@
 ---
 tier: epic
-title: "Backlog batch 1: Athena security and vault durability"
-goal:
-  Close five prioritized task beads by removing Athena privilege-boundary exposures,
+title: 'Backlog batch 1: Athena security and vault durability'
+goal: Close five prioritized task beads by removing Athena privilege-boundary exposures,
   restricting monitoring access, preserving ignored vault content, and stabilizing
-  annotation identities. The lander continues the backlog through further epics of at
-  most five phases and five task beads until every project task bead is closed.
+  annotation identities. The lander continues the backlog through further epics of
+  at most five phases and five task beads until every project task bead is closed.
 decisions:
   legacy_migration_backup:
     ask: Preserve legacy migration reports and helper sources in the vault Git backup?
     choices:
-      preserve:
-        Back up migration reports and helper sources along with other authored vault
+      preserve: Back up migration reports and helper sources along with other authored
+        vault content
+      exclude: Leave migration material excluded; back up the remaining authored vault
         content
-      exclude:
-        Leave migration material excluded; back up the remaining authored vault content
     default: preserve
-    why:
-      These recovery materials currently fall outside Git backup; caches remain
+    why: These recovery materials currently fall outside Git backup; caches remain
       excluded.
     answer: preserve
 phases:
-  - id: supervisor
-    title: Secure Athena supervisor control and its executable chain
-    size: medium
-    depends_on: []
-    description:
-      "supervisor: resolve bob-cli-8u with restricted authenticated control, protected
-      credentials, root-owned dependencies, and live verification."
-  - id: root-cron
-    title: Remove user-writable code from root hourly jobs
-    size: medium
-    depends_on:
-      - supervisor
-    description:
-      "root-cron: resolve bob-cli-96 while preserving hourly jobs and backups and
-      verifying their complete executable chains."
-  - id: monitoring
-    title: Restrict monitoring endpoints to verified clients
-    size: medium
-    depends_on:
-      - root-cron
-    description:
-      "monitoring: resolve bob-cli-97 after inventorying scrapes, pushers, dashboards,
-      and firewall policy; retain apt alerts and email delivery."
-  - id: vault-content
-    title: Preserve ignored vault content off host
-    size: medium
-    depends_on:
-      - root-cron
-    description:
-      "vault-content: resolve bob-cli-1g with an inventory, narrow ignore exceptions,
-      durable copies, and a restore check, honoring the migration-material decision."
-  - id: highlight-identity
-    title: Preserve highlight IDs across annotation insertion
-    size: medium
-    depends_on: []
-    description:
-      "highlight-identity: resolve bob-cli-9o by preserving existing annotation
-      identities before allocating new IDs, including folded annotations and
-      duplicate-text cases."
+- id: supervisor
+  title: Secure Athena supervisor control and its executable chain
+  size: medium
+  depends_on: []
+  description: 'supervisor: resolve bob-cli-8u with restricted authenticated control,
+    protected credentials, root-owned dependencies, and live verification.'
+- id: root-cron
+  title: Remove user-writable code from root hourly jobs
+  size: medium
+  depends_on:
+  - supervisor
+  description: 'root-cron: resolve bob-cli-96 while preserving hourly jobs and backups
+    and verifying their complete executable chains.'
+- id: monitoring
+  title: Restrict monitoring endpoints to verified clients
+  size: medium
+  depends_on:
+  - root-cron
+  description: 'monitoring: resolve bob-cli-97 after inventorying scrapes, pushers,
+    dashboards, and firewall policy; retain apt alerts and email delivery.'
+- id: vault-content
+  title: Preserve ignored vault content off host
+  size: medium
+  depends_on:
+  - root-cron
+  description: 'vault-content: resolve bob-cli-1g with an inventory, narrow ignore
+    exceptions, durable copies, and a restore check, honoring the migration-material
+    decision.'
+- id: highlight-identity
+  title: Preserve highlight IDs across annotation insertion
+  size: medium
+  depends_on: []
+  description: 'highlight-identity: resolve bob-cli-9o by preserving existing annotation
+    identities before allocating new IDs, including folded annotations and duplicate-text
+    cases.'
 proposed_by: bbugyi200.athena.12v
 proposed_with: codex/gpt-6-astra
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-21 12:58:22
 status: wip
+bead_id: bob-cli-an
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_security_and_durability.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_security_and_durability.md)
+- **PROMPT:** [prompts/202610/backlog_security_and_durability.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_security_and_durability.md)
+- **BEAD:** [bob-cli-an](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/README.md)
 
 # Backlog batch 1: Athena security and vault durability
 
