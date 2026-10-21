@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish relation-card regression verification and land bob-cli-aj
-goal:
-  Truthful completion fixtures and production-path regressions verify suffix
-  preservation before bob-cli-aj closes.
+goal: Truthful completion fixtures and production-path regressions verify suffix preservation
+  before bob-cli-aj closes.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-aj.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-aj
-create_time: 2026-10-21 10:03:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
