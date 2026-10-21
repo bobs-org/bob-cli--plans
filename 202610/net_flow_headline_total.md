@@ -1,31 +1,26 @@
 ---
 tier: tale
 title: Make the Net flow headline agree with its shrinking/growing label
-goal:
-  The Net flow headline number and its direction label always come from the same
+goal: The Net flow headline number and its direction label always come from the same
   statistic.
 size: small
 decisions:
   headline:
-    ask:
-      Which statistic should the Net flow headline show so it always agrees with its
-      shrinking/growing label?
+    ask: Which statistic should the Net flow headline show so it always agrees with
+      its shrinking/growing label?
     choices:
-      total:
-        The window total, e.g. "−89 total · shrinking"; number and word share one value
-      mean:
-        The rounded daily mean, e.g. "−3/day · shrinking"; keeps /day, but small totals
-        read "0/day" flat
+      total: The window total, e.g. "−89 total · shrinking"; number and word share
+        one value
+      mean: The rounded daily mean, e.g. "−3/day · shrinking"; keeps /day, but small
+        totals read "0/day" flat
     default: total
-    why:
-      The label describes how much the backlog changed over the window, which is exactly
-      the total
+    why: The label describes how much the backlog changed over the window, which is
+      exactly the total
     answer: total
 proposed_by: bbugyi200.apollo.9v
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-21 10:50:58
-status: wip
+status: done
 ---
 
 # Make the Net flow headline agree with its shrinking/growing label
