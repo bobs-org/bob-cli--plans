@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish relation-card regression verification and land bob-cli-aj
-goal:
-  Truthful completion fixtures and production-path regressions verify suffix
-  preservation before bob-cli-aj closes.
+goal: Truthful completion fixtures and production-path regressions verify suffix preservation
+  before bob-cli-aj closes.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-aj.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/relation_pipe_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_pipe_card.md)
 - **BEAD:**
   [bob-cli-aj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-aj/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-aj.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-aj.land.md)
-- **COMMITS:**
-  - [d73d943](https://github.com/bobs-org/bob-mac-capture/commit/d73d943effd16bf81623981c4119af01c11cf0ce)
-    — fix(capture): truthful relation-card fixtures, caret, and missing-path regressions
 
 # Finish relation-card regression verification and land bob-cli-aj
 
