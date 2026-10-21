@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "dup_daily_press",
+      "kind": "choice",
+      "ask": "Should one Ctrl+9 press from an unpinned daily copy also jump to the current Pomodoro on the pinned tab?",
+      "why": "Keeps the existing rule that the first press opens the daily note and the second press jumps.",
+      "choices": [
+        {
+          "key": "switch_only",
+          "label": "Land on the pinned tab with its cursor kept; a second press jumps, as from any other note"
+        },
+        {
+          "key": "switch_and_jump",
+          "label": "Land on the pinned tab and jump to the current Pomodoro line in the same press"
+        }
+      ],
+      "default": "switch_only",
+      "effective_default": "switch_only",
+      "requested_verified": false
+    },
+    {
+      "id": "other_pomodoro_notes",
+      "kind": "choice",
+      "ask": "Should Ctrl+9 in another note with its own Pomodoros section (e.g. yesterday's daily) go to today's daily?",
+      "why": "The in-place jump is existing, tested behavior, and the bug report does not touch it.",
+      "choices": [
+        {
+          "key": "keep_in_place",
+          "label": "Keep jumping inside that note; only copies of today's daily change"
+        },
+        {
+          "key": "go_to_today",
+          "label": "Go to today's daily tab or open it; jump in place only on today's best daily tab"
+        }
+      ],
+      "default": "keep_in_place",
+      "effective_default": "keep_in_place",
+      "requested_verified": false
+    }
+  ]
+}
