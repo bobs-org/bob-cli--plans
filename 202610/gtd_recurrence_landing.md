@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair recurrence fallback and checklist guards and land bob-cli-ak
-goal:
-  Recurrence marks preserve unreadable rules, guard root checklist rows, and bob-cli-ak
+goal: Recurrence marks preserve unreadable rules, guard root checklist rows, and bob-cli-ak
   is verified and closed.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-ak.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ak
-create_time: 2026-10-21 10:39:01
-status: wip
+status: done
 ---
 
 - **PARENT:**
