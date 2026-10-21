@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "in_panel_toggle",
+      "kind": "choice",
+      "ask": "Should Command-T pressed inside an already-visible Bob Refs also reset the view when it turns Tabs on?",
+      "why": "the screenshot bug is the open path; keyboard.md documents the in-panel toggle keeping the query",
+      "choices": [
+        {
+          "key": "open_only",
+          "label": "Only opening Refs from Highlights resets; in-panel Command-T keeps filtering tabs by the query"
+        },
+        {
+          "key": "also_in_panel",
+          "label": "Turning Tabs on inside a visible Refs also resets like Ctrl-Z; filtering tabs by query goes away"
+        }
+      ],
+      "default": "open_only",
+      "effective_default": "open_only",
+      "requested_verified": false
+    }
+  ]
+}
