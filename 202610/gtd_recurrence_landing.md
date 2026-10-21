@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair recurrence fallback and checklist guards and land bob-cli-ak
-goal: Recurrence marks preserve unreadable rules, guard root checklist rows, and bob-cli-ak
+goal:
+  Recurrence marks preserve unreadable rules, guard root checklist rows, and bob-cli-ak
   is verified and closed.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-ak.land
@@ -14,6 +15,11 @@ status: done
   [202610/gtd_checklist_glyphs_and_recurrence_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/gtd_checklist_glyphs_and_recurrence_marks.md)
 - **BEAD:**
   [bob-cli-ak](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ak/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ak.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ak.land.md)
+- **COMMITS:**
+  - [55470e6](https://github.com/bobs-org/bob-cli/commit/55470e65cd25db0880253ebdffc1238c1a19959a)
+    — docs(date-marks): clarify recurrence validation vectors
 
 # Finish recurrence fallback and checklist guards, then land bob-cli-ak
 
