@@ -1,32 +1,26 @@
 ---
 tier: tale
 title: Reset Bob Refs when the Highlights Tabs key opens it
-goal:
-  Command-T in Highlights opens Bob Refs in Tabs from fresh defaults, exactly as if
-  Ctrl-Z had been pressed, with Tabs on.
+goal: Command-T in Highlights opens Bob Refs in Tabs from fresh defaults, exactly
+  as if Ctrl-Z had been pressed, with Tabs on.
 size: small
 decisions:
   in_panel_toggle:
-    ask:
-      Should Command-T pressed inside an already-visible Bob Refs also reset the view
-      when it turns Tabs on?
+    ask: Should Command-T pressed inside an already-visible Bob Refs also reset the
+      view when it turns Tabs on?
     choices:
-      open_only:
-        Only opening Refs from Highlights resets; in-panel Command-T keeps filtering
-        tabs by the query
-      also_in_panel:
-        Turning Tabs on inside a visible Refs also resets like Ctrl-Z; filtering tabs by
-        query goes away
+      open_only: Only opening Refs from Highlights resets; in-panel Command-T keeps
+        filtering tabs by the query
+      also_in_panel: Turning Tabs on inside a visible Refs also resets like Ctrl-Z;
+        filtering tabs by query goes away
     default: open_only
-    why:
-      the screenshot bug is the open path; keyboard.md documents the in-panel toggle
+    why: the screenshot bug is the open path; keyboard.md documents the in-panel toggle
       keeping the query
     answer: open_only
 proposed_by: bbugyi200.athena.12s
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-21 07:49:29
-status: wip
+status: done
 ---
 
 # Plan: Reset Bob Refs when the Highlights Tabs key (Command-T) opens it
