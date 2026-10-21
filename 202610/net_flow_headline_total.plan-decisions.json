@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "headline",
+      "kind": "choice",
+      "ask": "Which statistic should the Net flow headline show so it always agrees with its shrinking/growing label?",
+      "why": "The label describes how much the backlog changed over the window, which is exactly the total",
+      "choices": [
+        {
+          "key": "total",
+          "label": "The window total, e.g. \"\u221289 total \u00b7 shrinking\"; number and word share one value"
+        },
+        {
+          "key": "mean",
+          "label": "The rounded daily mean, e.g. \"\u22123/day \u00b7 shrinking\"; keeps /day, but small totals read \"0/day\" flat"
+        }
+      ],
+      "default": "total",
+      "effective_default": "total",
+      "requested_verified": false
+    }
+  ]
+}
