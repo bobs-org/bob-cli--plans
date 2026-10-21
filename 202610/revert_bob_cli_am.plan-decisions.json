@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "glossary_relations",
+      "kind": "toggle",
+      "ask": "Should the glossary go back to its pre-epic relation strands (restore task-relation, delete the two new ones)?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-relation",
+          "glossary:undirected-relation",
+          "glossary:directed-relation"
+        ]
+      },
+      "requested": "Can you help me revert any work that was already submitted related to the bob-cli-am epic bead?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-relation",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Relation",
+            "Undirected Relation",
+            "Capture",
+            "Pomodoro",
+            "Task Link",
+            "Task Freshness",
+            "Directed Relation",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:undirected-relation",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Undirected Relation",
+            "Directed Relation",
+            "Task Relation",
+            "Capture",
+            "Pomodoro",
+            "Task Link",
+            "Task Freshness",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:directed-relation",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Directed Relation",
+            "Task Relation",
+            "Capture",
+            "Undirected Relation",
+            "Pomodoro",
+            "Task Link",
+            "Task Freshness",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
