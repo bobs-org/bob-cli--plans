@@ -1,29 +1,25 @@
 ---
 tier: tale
 title: Revert the landed bob-cli-am undirected task relations work
-goal:
-  bob-cli, bob-plugins, the installed bob binary, and the vault plugins carry no
-  bob-cli-am behavior, docs, or glossary changes, matching their pre-epic state.
+goal: bob-cli, bob-plugins, the installed bob binary, and the vault plugins carry
+  no bob-cli-am behavior, docs, or glossary changes, matching their pre-epic state.
 size: small
 decisions:
   glossary_relations:
-    ask:
-      Should the glossary go back to its pre-epic relation strands (restore
-      task-relation, delete the two new ones)?
+    ask: Should the glossary go back to its pre-epic relation strands (restore task-relation,
+      delete the two new ones)?
     memory:
-      - glossary:task-relation
-      - glossary:undirected-relation
-      - glossary:directed-relation
+    - glossary:task-relation
+    - glossary:undirected-relation
+    - glossary:directed-relation
     default: true
-    requested:
-      Can you help me revert any work that was already submitted related to the
-      bob-cli-am epic bead?
+    requested: Can you help me revert any work that was already submitted related
+      to the bob-cli-am epic bead?
     answer: true
 proposed_by: bbugyi200.apollo.9y
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-21 12:07:46
-status: wip
+status: done
 ---
 
 # Revert the landed bob-cli-am (undirected task relations) work
