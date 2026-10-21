@@ -1,45 +1,38 @@
 ---
 tier: tale
-title:
-  Ctrl+9 / Ctrl+0 move from an unpinned copy of the daily / dash note to its pinned tab
-goal:
-  Ctrl+9 and Ctrl+0 reach the pinned daily / dash tab even when the current tab is an
-  unpinned copy of that note, including right after an Obsidian restart.
+title: Ctrl+9 / Ctrl+0 move from an unpinned copy of the daily / dash note to its
+  pinned tab
+goal: Ctrl+9 and Ctrl+0 reach the pinned daily / dash tab even when the current tab
+  is an unpinned copy of that note, including right after an Obsidian restart.
 size: small
 decisions:
   dup_daily_press:
-    ask:
-      Should one Ctrl+9 press from an unpinned daily copy also jump to the current
+    ask: Should one Ctrl+9 press from an unpinned daily copy also jump to the current
       Pomodoro on the pinned tab?
     choices:
-      switch_only:
-        Land on the pinned tab with its cursor kept; a second press jumps, as from any
-        other note
-      switch_and_jump:
-        Land on the pinned tab and jump to the current Pomodoro line in the same press
+      switch_only: Land on the pinned tab with its cursor kept; a second press jumps,
+        as from any other note
+      switch_and_jump: Land on the pinned tab and jump to the current Pomodoro line
+        in the same press
     default: switch_only
-    why:
-      Keeps the existing rule that the first press opens the daily note and the second
-      press jumps.
+    why: Keeps the existing rule that the first press opens the daily note and the
+      second press jumps.
     answer: switch_only
   other_pomodoro_notes:
-    ask:
-      Should Ctrl+9 in another note with its own Pomodoros section (e.g. yesterday's
+    ask: Should Ctrl+9 in another note with its own Pomodoros section (e.g. yesterday's
       daily) go to today's daily?
     choices:
       keep_in_place: Keep jumping inside that note; only copies of today's daily change
-      go_to_today:
-        Go to today's daily tab or open it; jump in place only on today's best daily tab
+      go_to_today: Go to today's daily tab or open it; jump in place only on today's
+        best daily tab
     default: keep_in_place
-    why:
-      The in-place jump is existing, tested behavior, and the bug report does not touch
-      it.
+    why: The in-place jump is existing, tested behavior, and the bug report does not
+      touch it.
     answer: keep_in_place
 proposed_by: bbugyi200.apollo.9z.f0
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-21 19:09:23
-status: wip
+status: done
 ---
 
 # Plan: Ctrl+9 / Ctrl+0 move from an unpinned copy of the daily / dash note to its pinned tab
