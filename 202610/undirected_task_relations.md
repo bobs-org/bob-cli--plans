@@ -1,165 +1,162 @@
 ---
 tier: epic
-title: "Undirected task relations: a plain link has no direction, a label gives it one"
-goal: "An unlabelled task relation is one undirected link, shown everywhere as `🪢
+title: 'Undirected task relations: a plain link has no direction, a label gives it
+  one'
+goal: 'An unlabelled task relation is one undirected link, shown everywhere as `🪢
   links` with no arrow. A labelled relation is a directed statement read from its
   source. A bare `~~` asks for a label. Every writer, reader, and client (bob-cli,
-  bob-plugins, Bob Mac Capture) applies the same pair rules on the unchanged LINKS /
-  LINKED FROM storage, so a plain re-add never erases a label and a pair is never listed
-  twice.
+  bob-plugins, Bob Mac Capture) applies the same pair rules on the unchanged LINKS
+  / LINKED FROM storage, so a plain re-add never erases a label and a pair is never
+  listed twice.
 
-  "
+  '
 decisions:
   clear_scope:
     ask: What should Ctrl+D on the merged Task Card Links… row clear?
     choices:
-      shown:
-        Every relation the row shows whose record is writable; any read-only ones are
-        kept and named
-      own: Only plain links and this task's own statements; other tasks' statements stay
+      shown: Every relation the row shows whose record is writable; any read-only
+        ones are kept and named
+      own: Only plain links and this task's own statements; other tasks' statements
+        stay
     default: shown
-    why: The row shows one list of related tasks, so clearing it should clear that list
+    why: The row shows one list of related tasks, so clearing it should clear that
+      list
     answer: shown
   glossary_task_relation:
-    ask:
-      Should the Task Relation glossary strand be rewritten for undirected and directed
-      relations?
+    ask: Should the Task Relation glossary strand be rewritten for undirected and
+      directed relations?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: true
-    requested:
-      Any relation with a description would then become a directed relation (update the
-      glossary term and add new ones for "directed" and "undirected" relations).
+    requested: Any relation with a description would then become a directed relation
+      (update the glossary term and add new ones for "directed" and "undirected" relations).
     answer: true
   glossary_undirected:
     ask: Should a new Undirected Relation glossary strand (aka plain link) be added?
     memory:
-      - glossary:undirected-relation
+    - glossary:undirected-relation
     default: true
-    requested:
-      Any relation with a description would then become a directed relation (update the
-      glossary term and add new ones for "directed" and "undirected" relations).
+    requested: Any relation with a description would then become a directed relation
+      (update the glossary term and add new ones for "directed" and "undirected" relations).
     answer: true
   glossary_directed:
-    ask:
-      Should a new Directed Relation glossary strand (aka labelled relation) be added?
+    ask: Should a new Directed Relation glossary strand (aka labelled relation) be
+      added?
     memory:
-      - glossary:directed-relation
+    - glossary:directed-relation
     default: true
-    requested:
-      Any relation with a description would then become a directed relation (update the
-      glossary term and add new ones for "directed" and "undirected" relations).
+    requested: Any relation with a description would then become a directed relation
+      (update the glossary term and add new ones for "directed" and "undirected" relations).
     answer: true
   decision_record:
     ask: Should the decision record relations-undirected-unless-labelled be added?
     memory:
-      - decisions:relations-undirected-unless-labelled
+    - decisions:relations-undirected-unless-labelled
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: contract
-    title: Relation contract, glossary, and decision record
-    depends_on: []
-    size: medium
-    description: "contract: rewrite docs/task-relations.md around the pair model
-      (vocabulary, pair rules, projection, writer table, chips, JSON, and every new or
-      changed vector), update the vocabulary-level docs, and write the glossary strands
-      and the decision record through /sase_memory_write.
+- id: contract
+  title: Relation contract, glossary, and decision record
+  depends_on: []
+  size: medium
+  description: 'contract: rewrite docs/task-relations.md around the pair model (vocabulary,
+    pair rules, projection, writer table, chips, JSON, and every new or changed vector),
+    update the vocabulary-level docs, and write the glossary strands and the decision
+    record through /sase_memory_write.
 
-      "
-  - id: pair-core
-    title: Rust pair model, planner, and reconcile projection
-    depends_on:
-      - contract
-    size: medium
-    description: "pair-core: add a pure pair-state and pair-write planner in
-      task_relations, stop bare adds from stripping labels, teach reconcile to omit
-      plain mirrors the target already names, and add the redundant_relation warning,
-      all pinned by the LW and LR vectors.
+    '
+- id: pair-core
+  title: Rust pair model, planner, and reconcile projection
+  depends_on:
+  - contract
+  size: medium
+  description: 'pair-core: add a pure pair-state and pair-write planner in task_relations,
+    stop bare adds from stripping labels, teach reconcile to omit plain mirrors the
+    target already names, and add the redundant_relation warning, all pinned by the
+    LW and LR vectors.
 
-      "
-  - id: capture-grammar
-    title: Capture grammar, completion, and the label-required reverse link
-    depends_on:
-      - pair-core
-    size: medium
-    description: "capture-grammar: make a bare `~~` an incomplete draft that submit
-      refuses, add `kind` to parsed relations, make completion symmetric with
-      existing_kind/existing_direction, end every `~~` replacement in `|`, add the
-      related-label hint, rename the shell groups, and update the capture syntax docs
-      (ships as `feat(capture)!:`).
+    '
+- id: capture-grammar
+  title: Capture grammar, completion, and the label-required reverse link
+  depends_on:
+  - pair-core
+  size: medium
+  description: 'capture-grammar: make a bare `~~` an incomplete draft that submit
+    refuses, add `kind` to parsed relations, make completion symmetric with existing_kind/existing_direction,
+    end every `~~` replacement in `|`, add the related-label hint, rename the shell
+    groups, and update the capture syntax docs (ships as `feat(capture)!:`).
 
-      "
-  - id: capture-writes
-    title: Pair-aware capture writers and sentence-shaped output
-    depends_on:
-      - pair-core
-      - capture-grammar
-    size: medium
-    description: "capture-writes: route `~` / `~~` writes through the pair planner in
-      one all-or-nothing batch (no-op re-adds, label conversions, moves, both-endpoint
-      mirror deltas), add `kind` and `moved_from` to relation_updates, rewrite the human
-      output as sentences, and update the linking docs and guide.
+    '
+- id: capture-writes
+  title: Pair-aware capture writers and sentence-shaped output
+  depends_on:
+  - pair-core
+  - capture-grammar
+  size: medium
+  description: 'capture-writes: route `~` / `~~` writes through the pair planner in
+    one all-or-nothing batch (no-op re-adds, label conversions, moves, both-endpoint
+    mirror deltas), add `kind` and `moved_from` to relation_updates, rewrite the human
+    output as sentences, and update the linking docs and guide.
 
-      "
-  - id: nav-writer
-    title: Obsidian pair planner twin, writers, and relations API v2
-    depends_on:
-      - pair-core
-    size: medium
-    description: "nav-writer: port the pair planner to bob-navigation-hotkeys with
-      shared vectors, make applyRelationEdit, removeLink, Ctrl+D, and the hand-edit
-      mirror pair-aware with add-before-remove cross-note writes, and publish
-      `api.relations` v2 (unlink, removeStatement, reverse openStage).
+    '
+- id: nav-writer
+  title: Obsidian pair planner twin, writers, and relations API v2
+  depends_on:
+  - pair-core
+  size: medium
+  description: 'nav-writer: port the pair planner to bob-navigation-hotkeys with shared
+    vectors, make applyRelationEdit, removeLink, Ctrl+D, and the hand-edit mirror
+    pair-aware with add-before-remove cross-note writes, and publish `api.relations`
+    v2 (unlink, removeStatement, reverse openStage).
 
-      "
-  - id: ledger-chips
-    title: One aggregated links block per task in bob-ledger-tools
-    depends_on:
-      - contract
-    size: medium
-    description: "ledger-chips: add the additive `related()` per-task view to
-      `api.relationIndex` and render one `🪢 links` block per task (arrow-free plain
-      chips, then statements) in Live Preview and Reading view, collapsing the second
-      relation line, with v2-aware × and ＋ controls.
+    '
+- id: ledger-chips
+  title: One aggregated links block per task in bob-ledger-tools
+  depends_on:
+  - contract
+  size: medium
+  description: 'ledger-chips: add the additive `related()` per-task view to `api.relationIndex`
+    and render one `🪢 links` block per task (arrow-free plain chips, then statements)
+    in Live Preview and Reading view, collapsing the second relation line, with v2-aware
+    × and ＋ controls.
 
-      "
-  - id: nav-stage
-    title: One Links row and one Links stage with a live label sentence
-    depends_on:
-      - nav-writer
-      - ledger-chips
-    size: medium
-    description: "nav-stage: merge the Task Card rows and the two relation stages into
-      one Links row and stage fed by `related()`, with plain ↵, a ⇧↵ label field showing
-      a live sentence and ⇄ swap, ⇧L as the reverse-label shortcut, new copy, plugin
-      docs, and a final `bob plugins sync`.
+    '
+- id: nav-stage
+  title: One Links row and one Links stage with a live label sentence
+  depends_on:
+  - nav-writer
+  - ledger-chips
+  size: medium
+  description: 'nav-stage: merge the Task Card rows and the two relation stages into
+    one Links row and stage fed by `related()`, with plain ↵, a ⇧↵ label field showing
+    a live sentence and ⇄ swap, ⇧L as the reverse-label shortcut, new copy, plugin
+    docs, and a final `bob plugins sync`.
 
-      "
-  - id: mac
-    title: Bob Mac Capture pickers, label card, and previews
-    depends_on:
-      - capture-grammar
-      - capture-writes
-    size: medium
-    description:
-      "mac: decode the new relation fields, route every `~~` pick into the label card,
-      give the card a live plain/directed sentence with swap and a visible plain-link
-      choice, and update picker, preview, notification copy, fixtures, and docs."
+    '
+- id: mac
+  title: Bob Mac Capture pickers, label card, and previews
+  depends_on:
+  - capture-grammar
+  - capture-writes
+  size: medium
+  description: 'mac: decode the new relation fields, route every `~~` pick into the
+    label card, give the card a live plain/directed sentence with swap and a visible
+    plain-link choice, and update picker, preview, notification copy, fixtures, and
+    docs.'
 proposed_by: bbugyi200.apollo.research.29.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-21 10:08:34
 status: wip
+bead_id: bob-cli-am
 ---
 
-- **PROMPT:**
-  [prompts/202610/undirected_task_relations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/undirected_task_relations.md)
+- **PROMPT:** [prompts/202610/undirected_task_relations.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/undirected_task_relations.md)
+- **BEAD:** [bob-cli-am](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-am/README.md)
 
 # Plan: Undirected task relations
 
