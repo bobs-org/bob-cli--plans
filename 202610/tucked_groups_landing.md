@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish tucked-group counts and migration verification, then land bob-cli-ap
-goal:
-  Correct grouped-highlight disclosure counts, prove legacy ID migration, finish the
-  documentation sweep, and close bob-cli-ap after verification.
+goal: Correct grouped-highlight disclosure counts, prove legacy ID migration, finish
+  the documentation sweep, and close bob-cli-ap after verification.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-ap.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/tucked_continuation_groups.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/tucked_continuation_groups.md)
 - **BEAD:**
   [bob-cli-ap](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ap/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-ap.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ap.land.md)
-- **COMMITS:**
-  - [510c8a4](https://github.com/bobs-org/bob-cli/commit/510c8a4425ca8ff267f3852133f86e1cf64c5cec)
-    — fix(highlights-ref): harden legacy migration coverage and grouping docs
 
 # Finish and land tucked continuation groups (bob-cli-ap)
 
