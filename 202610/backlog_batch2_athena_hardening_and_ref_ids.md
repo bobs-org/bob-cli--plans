@@ -1,82 +1,74 @@
 ---
 tier: epic
-title:
-  "Backlog batch 2: Athena root, listener, and backup hardening plus reference ID
-  allocation"
-goal:
-  Close five prioritized task beads by removing the remaining Bryan-to-root cron chains,
-  committing hourly-tier backup rotations despite benign rsync churn, restricting
+title: 'Backlog batch 2: Athena root, listener, and backup hardening plus reference
+  ID allocation'
+goal: Close five prioritized task beads by removing the remaining Bryan-to-root cron
+  chains, committing hourly-tier backup rotations despite benign rsync churn, restricting
   Athena's remaining wildcard control listeners, and making new reference IDs follow
   their stems without cross-type collisions. The lander continues the backlog through
-  further epics of at most five phases and five task beads until every project task bead
-  is closed.
+  further epics of at most five phases and five task beads until every project task
+  bead is closed.
 decisions:
   multivisor_web_access:
-    ask:
-      Should the Multivisor web UI on port 8100 stay reachable from Bryan's other
+    ask: Should the Multivisor web UI on port 8100 stay reachable from Bryan's other
       tailnet devices?
     choices:
-      tailnet:
-        Allow 8100 from loopback and tailnet only; the UI still opens on other tailnet
-        devices
+      tailnet: Allow 8100 from loopback and tailnet only; the UI still opens on other
+        tailnet devices
       loopback: Bind 8100 to 127.0.0.1 only; remote use needs an SSH tunnel
     default: tailnet
-    why: Drops LAN exposure without breaking remote use of the password-protected UI
+    why: Drops LAN exposure without breaking remote use of the password-protected
+      UI
     answer: tailnet
 phases:
-  - id: periodic-cron
-    title: Move daily, weekly, and monthly root cron onto root-owned code
-    size: medium
-    depends_on: []
-    description:
-      "periodic-cron: resolve bob-cli-au by extending the reviewed tailnet root-cron
-      installation to every daily, weekly, and monthly root entrypoint and verifying
-      their complete executable chains."
-  - id: backup-rotation
-    title: Commit backup rotations when rsync reports only vanished files
-    size: medium
-    depends_on:
-      - periodic-cron
-    description:
-      "backup-rotation: resolve bob-cli-1a in the root-owned backup.sh that every tier
-      now sources, keeping genuine rsync failures fatal and proving rotations land
-      again."
-  - id: user-supervisor
-    title: Restrict Bryan's user Supervisor bridge and the Multivisor web UI
-    size: medium
-    depends_on: []
-    description:
-      "user-supervisor: resolve bob-cli-av by moving the unauthenticated user
-      multivisor-rpc bridge off the network and applying the chosen Multivisor web
-      audience."
-  - id: rfserver-port
-    title: Decide and enforce rfserver's function-port boundary
-    size: medium
-    depends_on:
-      - user-supervisor
-    description:
-      "rfserver-port: resolve bob-cli-aw by inventorying port 23401 clients, choosing
-      the narrowest boundary that keeps them working, and verifying allowed and denied
-      access."
-  - id: ref-id-allocation
-    title: Make new reference IDs follow stems and stay unique across ref/
-    size: medium
-    depends_on: []
-    description:
-      "ref-id-allocation: resolve bob-cli-8o so created references record their actual
-      note stem and default collision walks cover every ref type directory."
+- id: periodic-cron
+  title: Move daily, weekly, and monthly root cron onto root-owned code
+  size: medium
+  depends_on: []
+  description: 'periodic-cron: resolve bob-cli-au by extending the reviewed tailnet
+    root-cron installation to every daily, weekly, and monthly root entrypoint and
+    verifying their complete executable chains.'
+- id: backup-rotation
+  title: Commit backup rotations when rsync reports only vanished files
+  size: medium
+  depends_on:
+  - periodic-cron
+  description: 'backup-rotation: resolve bob-cli-1a in the root-owned backup.sh that
+    every tier now sources, keeping genuine rsync failures fatal and proving rotations
+    land again.'
+- id: user-supervisor
+  title: Restrict Bryan's user Supervisor bridge and the Multivisor web UI
+  size: medium
+  depends_on: []
+  description: 'user-supervisor: resolve bob-cli-av by moving the unauthenticated
+    user multivisor-rpc bridge off the network and applying the chosen Multivisor
+    web audience.'
+- id: rfserver-port
+  title: Decide and enforce rfserver's function-port boundary
+  size: medium
+  depends_on:
+  - user-supervisor
+  description: 'rfserver-port: resolve bob-cli-aw by inventorying port 23401 clients,
+    choosing the narrowest boundary that keeps them working, and verifying allowed
+    and denied access.'
+- id: ref-id-allocation
+  title: Make new reference IDs follow stems and stay unique across ref/
+  size: medium
+  depends_on: []
+  description: 'ref-id-allocation: resolve bob-cli-8o so created references record
+    their actual note stem and default collision walks cover every ref type directory.'
 proposed_by: bbugyi200.athena.bob-cli-an.land
 proposed_with: claude/opus
 parent_bead: bob-cli-an
 decided_by: auto
 create_time: 2026-10-23 12:41:08
 status: wip
+bead_id: bob-cli-an.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch2_athena_hardening_and_ref_ids.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch2_athena_hardening_and_ref_ids.md)
-- **PARENT:**
-  [202610/backlog_security_and_durability.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_security_and_durability.md)
+- **PROMPT:** [prompts/202610/backlog_batch2_athena_hardening_and_ref_ids.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch2_athena_hardening_and_ref_ids.md)
+- **PARENT:** [202610/backlog_security_and_durability.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_security_and_durability.md)
+- **BEAD:** [bob-cli-an.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.md)
 
 # Backlog batch 2: Athena root, listener, and backup hardening plus reference ID allocation
 
