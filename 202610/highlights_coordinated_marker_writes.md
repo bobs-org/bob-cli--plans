@@ -1,167 +1,156 @@
 ---
 tier: epic
 title: Open PDFs stay in step with bob (Highlights saves first, then reloads in place)
-goal: "When `bob ref scan` or `bob ref sync -w` on the Mac updates a ref PDF's page-1
+goal: 'When `bob ref scan` or `bob ref sync -w` on the Mac updates a ref PDF''s page-1
   marker, it never again strands an open Highlights document. bob writes through a
-  bounded macOS file-coordination write (`NSFileCoordinator`, `.forMerging`). macOS has
-  Highlights save your unsaved annotations first, bob re-checks the marker in the fresh
-  bytes and writes, and Highlights reloads the same tab in place: no dialog, no
-  keystroke, no tab change. Anything uncertain becomes a hold: nothing is written for
-  that PDF, and the next scan retries. That covers you actively reading in Highlights,
+  bounded macOS file-coordination write (`NSFileCoordinator`, `.forMerging`). macOS
+  has Highlights save your unsaved annotations first, bob re-checks the marker in
+  the fresh bytes and writes, and Highlights reloads the same tab in place: no dialog,
+  no keystroke, no tab change. Anything uncertain becomes a hold: nothing is written
+  for that PDF, and the next scan retries. That covers you actively reading in Highlights,
   Highlights not answering, and the marker changing under bob. CLI and JSON always
-  report what happened. Bob Mac Capture posts one quiet, grouped notification, only when
-  a PDF that is open in Highlights was refreshed or Highlights needs you. The feature
-  ships behind `highlights.coordinate_pdf_writes` and is enabled after a guided
+  report what happened. Bob Mac Capture posts one quiet, grouped notification, only
+  when a PDF that is open in Highlights was refreshed or Highlights needs you. The
+  feature ships behind `highlights.coordinate_pdf_writes` and is enabled after a guided
   real-Highlights acceptance test.
 
-  "
+  '
 decisions:
   attended_signal:
     ask: How should Bob Refs tell `bob ref scan` that you started the scan yourself?
     choices:
-      flag:
-        Public `-a, --attended` in scan help; the app retries once without it on an
-        older bob
-      env:
-        Internal BOB_REF_SCAN_ATTENDED=1; older bobs ignore it, but help and ps never
-        show it
+      flag: Public `-a, --attended` in scan help; the app retries once without it
+        on an older bob
+      env: Internal BOB_REF_SCAN_ATTENDED=1; older bobs ignore it, but help and ps
+        never show it
     default: flag
-    why:
-      A visible flag is auditable, and the app already has a remembered retry for new
-      flags
+    why: A visible flag is auditable, and the app already has a remembered retry for
+      new flags
     answer: flag
   decision_record:
-    ask:
-      Record a decisions strand that bob writes open PDFs only via bounded .forMerging
+    ask: Record a decisions strand that bob writes open PDFs only via bounded .forMerging
       coordination, never UI automation?
     memory:
-      - decisions
-      - decisions:open-pdf-writes-are-coordinated
+    - decisions
+    - decisions:open-pdf-writes-are-coordinated
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: coordinate
-    title: macOS file-coordination primitive
-    depends_on: []
-    size: medium
-    description:
-      "coordinate: add `native::file_coordination`, a bounded `.forMerging` coordinated
-      write. On macOS it is `NSFileCoordinator` through objc2, objc2-foundation, and
-      block2 (macOS-only dependencies), with a watchdog that calls `cancel()` when the
-      budget expires and returns Granted/Held/Failed truthfully. Elsewhere it runs the
-      closure directly. Add a macOS-only test that compiles a small Swift NSDocument
-      presenter fixture with `swiftc` and proves three cases: no presenter writes; a
-      dirty presenter saves first and reloads clean; a blocked presenter is held within
-      the budget with no write. Nothing calls the primitive yet."
-  - id: policy
-    title: Coordination config, reading-activity probe, and budgets
-    depends_on: []
-    size: small
-    description:
-      "policy: parse `highlights.coordinate_pdf_writes` (bool, default false) into
-      `HighlightsConfig`. Add a reading-activity probe: on macOS, `lsappinfo` for the
-      frontmost bundle id (any `net.highlightsapp.*`) and `ioreg` `HIDIdleTime`, each
-      bounded at 2 s; elsewhere it always reports not reading. The output parsers are
-      pure and unit-tested, a probe failure reports unknown, and internal env overrides
-      exist for tests. Add the budget constants: 10 s per PDF, a 30 s scan cap, and a 30
-      s reading window, each with an internal env override. Bundle these into one
-      `PdfWritePolicy` value, built once per command. Nothing consumes it yet."
-  - id: executor
-    title: Coordinated marker writes, holds, and human reporting
-    depends_on:
-      - coordinate
-      - policy
-    size: medium
-    description:
-      "executor: when the policy is on, wrap each marker-write PDF's whole v1/v2 write
-      sequence in one coordinated accessor. That covers scan (human and JSON), `ref sync
-      -w`, and create-time ingest. Inside the accessor, re-check the PDF first. Same
-      digest: write as today. Changed digest with the same marker: write to the freshly
-      located annotation and record saved-first. Changed marker: hold `marker_changed`.
-      Add the `editor_active` reading hold for unattended scans only, plus the new `-a,
-      --attended` scan flag, and the `coordination_timeout` hold with the per-PDF budget
-      and scan cap. Add `ScanWriteOutcome::Held` and the marker-write report (mode,
-      saved-first, status transition, wait time). Holds exit 0. Add the yellow `held`
-      concise line, the summary count, and the verbose and `ref sync` lines. JSON mode
-      counts holds as neither notes nor failures for now. With the key off, output stays
-      byte-identical. Document the contract and the config key, then run `just docs-gen`
-      for the flag."
-  - id: report
-    title: Scan JSON fields, scan receipt, and the Darwin notification
-    depends_on:
-      - executor
-    size: medium
-    description:
-      'report: add the additive scan JSON fields (schema stays 1): `summary.held`,
-      `notes[].marker_write {mode, editor_saved_first, status{from,to}?}`, and a
-      top-level `held[] {pdf, note, title, reason, message}` appended after `queued`.
-      Extract one envelope builder shared by JSON and human modes. Every writing `ref
-      scan` that acquired the scan writer lock atomically writes that exact envelope to
-      `<state>/bob-cli/ref/last-scan.json` (0600). That includes human and JSON modes,
-      intake-only drains, and hard failures after the lock. Then, on macOS, it calls
-      `notify_post("org.bobs.bob.ref.scan-finished")`. A receipt failure only warns on
-      stderr. Document the fields, receipt, and notification in highlights-ref-sync.md
-      and the JSON reference.'
-  - id: mac-core
-    title: Bob Mac Capture core decoding and open-PDF presentation
-    depends_on:
-      - report
-    size: medium
-    description:
-      "mac-core: in the linked bob-mac-capture repo, RefsCore decodes the new scan
-      fields tolerantly. Those are `generated_at`, `summary.held`, `held[]` (lossy
-      rows), and `notes[].marker_write`. Add a bounded receipt reader that resolves the
-      path like bob: `XDG_STATE_HOME`, else `~/.local/state`. Add a pure
-      `RefsPDFUpdates` classifier that takes a response plus optional open-tab file
-      names. It splits entries into refreshed-open, refreshed-quiet, reading holds, busy
-      holds, and changed holds, and supplies dedupe keys. Add the exact copy deck for
-      notifications, footer clauses, and the busy banner, using the Refs state
-      vocabulary. Unit-test it all and run `just portable-check`."
-  - id: mac-app
-    title: Bob Mac Capture receipt observer, notifications, and settings
-    depends_on:
-      - mac-core
-    size: medium
-    description:
-      'mac-app: in bob-mac-capture, observe `org.bobs.bob.ref.scan-finished` with
-      `notify_register_dispatch` and read the receipt off the main thread. Dedupe by
-      content hash. Only when needed, check open tabs with the existing read-only
-      Highlights tab reader, and never prompt for Accessibility. When the panel is
-      hidden, post a passive, silent, threaded `refs-scan` notification that selects the
-      row. When the panel is visible, show a footer clause or the busy banner with Scan
-      Again. Notify for busy holds once per PDF. Add the Settings › References toggle
-      "Tell me when Bob updates an open PDF" (on by default). ⌘S passes `-a`, with a
-      remembered retry for an older bob. Update the refs, settings, and protocol docs,
-      compile on the Mac where reachable, and rely on macOS CI.'
-  - id: accept
-    title: Acceptance kit, docs consolidation, decision record, and follow-ups
-    depends_on:
-      - report
-      - mac-app
-    size: medium
-    description:
-      'accept: add `scripts/dev/highlights_coordination_acceptance`, a guided, colored,
-      interactive runbook for the Mac. It works in a throwaway vault and config under
-      `$TMPDIR` (never `~/bob` or the real config), covers the research''s nine steps,
-      and records `results.md` plus a verdict with the exact enable line. It also has a
-      non-GUI `--self-test` wired into `just check-scripts`. Consolidate the "PDFs open
-      in Highlights" docs. Replace both "keep Highlights idle" notes, and add the
-      conflict-dialog troubleshooting row and the enable steps. Write the decisions
-      strand if accepted, then record the proposed follow-ups on this phase bead.'
+- id: coordinate
+  title: macOS file-coordination primitive
+  depends_on: []
+  size: medium
+  description: 'coordinate: add `native::file_coordination`, a bounded `.forMerging`
+    coordinated write. On macOS it is `NSFileCoordinator` through objc2, objc2-foundation,
+    and block2 (macOS-only dependencies), with a watchdog that calls `cancel()` when
+    the budget expires and returns Granted/Held/Failed truthfully. Elsewhere it runs
+    the closure directly. Add a macOS-only test that compiles a small Swift NSDocument
+    presenter fixture with `swiftc` and proves three cases: no presenter writes; a
+    dirty presenter saves first and reloads clean; a blocked presenter is held within
+    the budget with no write. Nothing calls the primitive yet.'
+- id: policy
+  title: Coordination config, reading-activity probe, and budgets
+  depends_on: []
+  size: small
+  description: 'policy: parse `highlights.coordinate_pdf_writes` (bool, default false)
+    into `HighlightsConfig`. Add a reading-activity probe: on macOS, `lsappinfo` for
+    the frontmost bundle id (any `net.highlightsapp.*`) and `ioreg` `HIDIdleTime`,
+    each bounded at 2 s; elsewhere it always reports not reading. The output parsers
+    are pure and unit-tested, a probe failure reports unknown, and internal env overrides
+    exist for tests. Add the budget constants: 10 s per PDF, a 30 s scan cap, and
+    a 30 s reading window, each with an internal env override. Bundle these into one
+    `PdfWritePolicy` value, built once per command. Nothing consumes it yet.'
+- id: executor
+  title: Coordinated marker writes, holds, and human reporting
+  depends_on:
+  - coordinate
+  - policy
+  size: medium
+  description: 'executor: when the policy is on, wrap each marker-write PDF''s whole
+    v1/v2 write sequence in one coordinated accessor. That covers scan (human and
+    JSON), `ref sync -w`, and create-time ingest. Inside the accessor, re-check the
+    PDF first. Same digest: write as today. Changed digest with the same marker: write
+    to the freshly located annotation and record saved-first. Changed marker: hold
+    `marker_changed`. Add the `editor_active` reading hold for unattended scans only,
+    plus the new `-a, --attended` scan flag, and the `coordination_timeout` hold with
+    the per-PDF budget and scan cap. Add `ScanWriteOutcome::Held` and the marker-write
+    report (mode, saved-first, status transition, wait time). Holds exit 0. Add the
+    yellow `held` concise line, the summary count, and the verbose and `ref sync`
+    lines. JSON mode counts holds as neither notes nor failures for now. With the
+    key off, output stays byte-identical. Document the contract and the config key,
+    then run `just docs-gen` for the flag.'
+- id: report
+  title: Scan JSON fields, scan receipt, and the Darwin notification
+  depends_on:
+  - executor
+  size: medium
+  description: 'report: add the additive scan JSON fields (schema stays 1): `summary.held`,
+    `notes[].marker_write {mode, editor_saved_first, status{from,to}?}`, and a top-level
+    `held[] {pdf, note, title, reason, message}` appended after `queued`. Extract
+    one envelope builder shared by JSON and human modes. Every writing `ref scan`
+    that acquired the scan writer lock atomically writes that exact envelope to `<state>/bob-cli/ref/last-scan.json`
+    (0600). That includes human and JSON modes, intake-only drains, and hard failures
+    after the lock. Then, on macOS, it calls `notify_post("org.bobs.bob.ref.scan-finished")`.
+    A receipt failure only warns on stderr. Document the fields, receipt, and notification
+    in highlights-ref-sync.md and the JSON reference.'
+- id: mac-core
+  title: Bob Mac Capture core decoding and open-PDF presentation
+  depends_on:
+  - report
+  size: medium
+  description: 'mac-core: in the linked bob-mac-capture repo, RefsCore decodes the
+    new scan fields tolerantly. Those are `generated_at`, `summary.held`, `held[]`
+    (lossy rows), and `notes[].marker_write`. Add a bounded receipt reader that resolves
+    the path like bob: `XDG_STATE_HOME`, else `~/.local/state`. Add a pure `RefsPDFUpdates`
+    classifier that takes a response plus optional open-tab file names. It splits
+    entries into refreshed-open, refreshed-quiet, reading holds, busy holds, and changed
+    holds, and supplies dedupe keys. Add the exact copy deck for notifications, footer
+    clauses, and the busy banner, using the Refs state vocabulary. Unit-test it all
+    and run `just portable-check`.'
+- id: mac-app
+  title: Bob Mac Capture receipt observer, notifications, and settings
+  depends_on:
+  - mac-core
+  size: medium
+  description: 'mac-app: in bob-mac-capture, observe `org.bobs.bob.ref.scan-finished`
+    with `notify_register_dispatch` and read the receipt off the main thread. Dedupe
+    by content hash. Only when needed, check open tabs with the existing read-only
+    Highlights tab reader, and never prompt for Accessibility. When the panel is hidden,
+    post a passive, silent, threaded `refs-scan` notification that selects the row.
+    When the panel is visible, show a footer clause or the busy banner with Scan Again.
+    Notify for busy holds once per PDF. Add the Settings › References toggle "Tell
+    me when Bob updates an open PDF" (on by default). ⌘S passes `-a`, with a remembered
+    retry for an older bob. Update the refs, settings, and protocol docs, compile
+    on the Mac where reachable, and rely on macOS CI.'
+- id: accept
+  title: Acceptance kit, docs consolidation, decision record, and follow-ups
+  depends_on:
+  - report
+  - mac-app
+  size: medium
+  description: 'accept: add `scripts/dev/highlights_coordination_acceptance`, a guided,
+    colored, interactive runbook for the Mac. It works in a throwaway vault and config
+    under `$TMPDIR` (never `~/bob` or the real config), covers the research''s nine
+    steps, and records `results.md` plus a verdict with the exact enable line. It
+    also has a non-GUI `--self-test` wired into `just check-scripts`. Consolidate
+    the "PDFs open in Highlights" docs. Replace both "keep Highlights idle" notes,
+    and add the conflict-dialog troubleshooting row and the enable steps. Write the
+    decisions strand if accepted, then record the proposed follow-ups on this phase
+    bead.'
 proposed_by: bbugyi200.athena.research.56.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-10-23 11:44:14
 status: wip
+bead_id: bob-cli-at
 ---
 
-- **PROMPT:**
-  [prompts/202610/highlights_coordinated_marker_writes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_coordinated_marker_writes.md)
+- **PROMPT:** [prompts/202610/highlights_coordinated_marker_writes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/highlights_coordinated_marker_writes.md)
+- **BEAD:** [bob-cli-at](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-at/README.md)
 
 # Plan: Open PDFs stay in step with bob
 
