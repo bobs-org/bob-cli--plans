@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Move the Bob Refs view reset from Ctrl-Z to Ctrl-C
-goal:
-  In Bob Mac Capture's Bob Refs panel, Ctrl-C resets the view to fresh-launch defaults
-  and Ctrl-Z is no longer bound, with router, hosted tests, code comments, and mounted
-  docs all agreeing.
+goal: In Bob Mac Capture's Bob Refs panel, Ctrl-C resets the view to fresh-launch
+  defaults and Ctrl-Z is no longer bound, with router, hosted tests, code comments,
+  and mounted docs all agreeing.
 size: small
 proposed_by: bbugyi200.athena.130
 proposed_with: claude/opus
-create_time: 2026-10-23 05:42:36
-status: wip
+status: done
 ---
 
 # Plan: Move the Bob Refs view reset from Ctrl-Z to Ctrl-C
