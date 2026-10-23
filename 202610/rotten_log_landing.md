@@ -1,13 +1,15 @@
 ---
 tier: tale
 size: medium
-title: 'Finish and land the Rotten Log epic (bob-cli-as): tooltip line, missing tests,
-  card header fix'
-goal: The freshness mark tooltip shows the Rotten Log line exactly as docs/freshness.md
-  §11 specifies (wording, date, truncation, placement, query rows untouched, bounded
-  scan), with tests and a bob-ledger-tools release. The missing nav grammar and Rust
-  consequence tests exist, and the decay card header can report an unreadable log.
-  Epic bob-cli-as is closed and its plan file is marked done.
+title:
+  "Finish and land the Rotten Log epic (bob-cli-as): tooltip line, missing tests, card
+  header fix"
+goal:
+  The freshness mark tooltip shows the Rotten Log line exactly as docs/freshness.md §11
+  specifies (wording, date, truncation, placement, query rows untouched, bounded scan),
+  with tests and a bob-ledger-tools release. The missing nav grammar and Rust
+  consequence tests exist, and the decay card header can report an unreadable log. Epic
+  bob-cli-as is closed and its plan file is marked done.
 proposed_by: bbugyi200.athena.bob-cli-as.land
 proposed_with: claude/opus
 bead: bob-cli-as
@@ -18,6 +20,11 @@ status: done
   [202610/rotten_log.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/rotten_log.md)
 - **BEAD:**
   [bob-cli-as](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-as/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-as.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-as.land.md)
+- **COMMITS:**
+  - [82c1c6a](https://github.com/bobs-org/bob-cli--plans/commit/82c1c6ad8ab532adc3dee30251058d6be0eefe3b)
+    — chore(rotten-log): mark landing plan done
 
 # Finish and land the Rotten Log epic (bob-cli-as)
 
