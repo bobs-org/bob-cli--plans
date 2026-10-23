@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Fix the Bob Mac Capture build broken by RefsScanReceiptObserver
-goal:
-  Bob Mac Capture compiles, bundles, and type-checks its tests again, so `just install`
-  and macOS CI succeed. Fix the notify module import, the Self default argument, and the
-  Void-returning test assertion.
+goal: Bob Mac Capture compiles, bundles, and type-checks its tests again, so `just
+  install` and macOS CI succeed. Fix the notify module import, the Self default argument,
+  and the Void-returning test assertion.
 size: small
 proposed_by: bbugyi200.athena.13h
 proposed_with: claude/opus
-create_time: 2026-10-23 16:40:34
-status: wip
+status: done
 ---
 
 # Plan: Fix the Bob Mac Capture build broken by `RefsScanReceiptObserver`
