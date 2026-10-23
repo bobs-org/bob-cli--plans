@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "relation_label_guard",
+      "kind": "choice",
+      "ask": "Also add a generation guard so a stale relation-label suggestion reply can't overwrite a newer one?",
+      "why": "A few lines that close the product half of the same race; existing tests cover it",
+      "choices": [
+        {
+          "key": "guard",
+          "label": "A slow blank-label reply can no longer replace the typed-label rows in the card"
+        },
+        {
+          "key": "test_only",
+          "label": "The product race stays; it is rare and clears on the next keystroke"
+        }
+      ],
+      "default": "guard",
+      "effective_default": "guard",
+      "requested_verified": false
+    }
+  ]
+}
