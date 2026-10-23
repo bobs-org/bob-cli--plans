@@ -58,7 +58,7 @@ proposed_with: codex/gpt-6-astra
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-21 12:58:22
-status: wip
+status: done
 bead_id: bob-cli-an
 ---
 
