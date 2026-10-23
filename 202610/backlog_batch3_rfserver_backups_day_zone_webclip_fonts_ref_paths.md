@@ -1,79 +1,71 @@
 ---
 tier: epic
-title:
-  "Backlog batch 3: rfserver suspension, backup tier freshness, Eastern day boundary,
-  web-clip quote fidelity, and relative ref paths"
-goal:
-  Close five prioritized task beads by hardening rfserver's token suspension, proving
-  every Athena backup tier advances after the rsync-24 fix, making bob's "today" follow
-  Bryan's Eastern day on every host, stopping web-clip PDFs from splitting Highlights
-  quote words, and making relative PDF paths map to their real reference note. The
-  lander continues the backlog through further epics of at most five phases and five
-  task beads until every project task bead is closed.
+title: 'Backlog batch 3: rfserver suspension, backup tier freshness, Eastern day boundary,
+  web-clip quote fidelity, and relative ref paths'
+goal: Close five prioritized task beads by hardening rfserver's token suspension,
+  proving every Athena backup tier advances after the rsync-24 fix, making bob's "today"
+  follow Bryan's Eastern day on every host, stopping web-clip PDFs from splitting
+  Highlights quote words, and making relative PDF paths map to their real reference
+  note. The lander continues the backlog through further epics of at most five phases
+  and five task beads until every project task bead is closed.
 decisions:
   day_timezone:
-    ask:
-      Should bob decide "today" from a configured IANA timezone instead of the host's
-      system zone?
+    ask: Should bob decide "today" from a configured IANA timezone instead of the
+      host's system zone?
     choices:
       config: bob honors a config timezone key set to America/New_York for every host
-      host: Only apollo's system zone changes, via sudo; other UTC hosts keep the bug
+      host: Only apollo's system zone changes, via sudo; other UTC hosts keep the
+        bug
     default: config
-    why:
-      Fixes every host and agent environment regardless of system zone, and is
+    why: Fixes every host and agent environment regardless of system zone, and is
       unit-testable
     answer: config
 phases:
-  - id: rfserver-suspension
-    title: Stop rfserver trusting X-Forwarded-For for token suspension
-    size: small
-    depends_on: []
-    description:
-      "rfserver-suspension: resolve bob-cli-b3 by keying rfserver auth suspension on
-      REMOTE_ADDR only, with a regression, a durable tailnet record, and a
-      single-program restart."
-  - id: backup-tier-freshness
-    title: Prove daily, weekly, and monthly backup rotations advance
-    size: medium
-    depends_on: []
-    description:
-      "backup-tier-freshness: resolve bob-cli-b2 by verifying the first post-fix daily
-      and weekly rotations on Athena, diagnosing and fixing any tier that still fails,
-      and recording monthly evidence."
-  - id: day-timezone
-    title: Make bob's today follow Bryan's Eastern day on every host
-    size: medium
-    depends_on: []
-    description:
-      "day-timezone: resolve bob-cli-2q by applying the day_timezone decision so evening
-      commands on apollo target the correct daily note and date stamps."
-  - id: webclip-static-fonts
-    title: Render web clips with static fonts so Highlights quotes keep whole words
-    size: medium
-    depends_on: []
-    description:
-      "webclip-static-fonts: resolve bob-cli-85 by replacing the web-clip reader
-      template's variable woff2 faces with static faces so Chromium embeds no Type 3
-      body fonts."
-  - id: ref-relative-paths
-    title: Map relative PDF paths to their real reference notes
-    size: small
-    depends_on: []
-    description:
-      "ref-relative-paths: resolve bob-cli-9a by absolutizing and normalizing PDF
-      arguments before library mapping in bob ref sync and marker."
+- id: rfserver-suspension
+  title: Stop rfserver trusting X-Forwarded-For for token suspension
+  size: small
+  depends_on: []
+  description: 'rfserver-suspension: resolve bob-cli-b3 by keying rfserver auth suspension
+    on REMOTE_ADDR only, with a regression, a durable tailnet record, and a single-program
+    restart.'
+- id: backup-tier-freshness
+  title: Prove daily, weekly, and monthly backup rotations advance
+  size: medium
+  depends_on: []
+  description: 'backup-tier-freshness: resolve bob-cli-b2 by verifying the first post-fix
+    daily and weekly rotations on Athena, diagnosing and fixing any tier that still
+    fails, and recording monthly evidence.'
+- id: day-timezone
+  title: Make bob's today follow Bryan's Eastern day on every host
+  size: medium
+  depends_on: []
+  description: 'day-timezone: resolve bob-cli-2q by applying the day_timezone decision
+    so evening commands on apollo target the correct daily note and date stamps.'
+- id: webclip-static-fonts
+  title: Render web clips with static fonts so Highlights quotes keep whole words
+  size: medium
+  depends_on: []
+  description: 'webclip-static-fonts: resolve bob-cli-85 by replacing the web-clip
+    reader template''s variable woff2 faces with static faces so Chromium embeds no
+    Type 3 body fonts.'
+- id: ref-relative-paths
+  title: Map relative PDF paths to their real reference notes
+  size: small
+  depends_on: []
+  description: 'ref-relative-paths: resolve bob-cli-9a by absolutizing and normalizing
+    PDF arguments before library mapping in bob ref sync and marker.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.land
 proposed_with: claude/opus
 parent_bead: bob-cli-an.6
 decided_by: auto
 create_time: 2026-10-23 17:27:14
 status: wip
+bead_id: bob-cli-an.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md)
-- **PARENT:**
-  [202610/backlog_batch2_athena_hardening_and_ref_ids.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch2_athena_hardening_and_ref_ids.md)
+- **PROMPT:** [prompts/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md)
+- **PARENT:** [202610/backlog_batch2_athena_hardening_and_ref_ids.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch2_athena_hardening_and_ref_ids.md)
+- **BEAD:** [bob-cli-an.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.md)
 
 # Backlog batch 3: rfserver suspension, backup tier freshness, Eastern day boundary, web-clip quote fidelity, and relative ref paths
 
