@@ -1,77 +1,72 @@
 ---
 tier: epic
 title: Tucked continuation groups — keep every `<` highlight distinct inside its group
-goal: "A `<` note groups a highlight with the one before it without erasing either: the
-  group renders as one quote card under one heading and one `^h-` ID, and inside it
-  every highlight keeps its own words, its own page, and its own images and comment, in
-  reading order. Existing ref notes migrate on the next scan with no block-ID churn, no
-  tombstones, and no change to any note that has no group. `bob ref show` (and, if
-  approved, the Bob Mac Capture Refs inspector) shows the same pieces.
+goal: 'A `<` note groups a highlight with the one before it without erasing either:
+  the group renders as one quote card under one heading and one `^h-` ID, and inside
+  it every highlight keeps its own words, its own page, and its own images and comment,
+  in reading order. Existing ref notes migrate on the next scan with no block-ID churn,
+  no tombstones, and no change to any note that has no group. `bob ref show` (and,
+  if approved, the Bob Mac Capture Refs inspector) shows the same pieces.
 
-  "
+  '
 decisions:
   mac_inspector:
     ask: Also show grouped pieces distinctly in the Bob Mac Capture Refs inspector?
     default: true
-    why:
-      The inspector shows the same fused quote today; one look across both surfaces is
-      intuitive
+    why: The inspector shows the same fused quote today; one look across both surfaces
+      is intuitive
     answer: true
   install_css:
-    ask:
-      Install the updated ref-highlights CSS snippet into the live vault
-      (~/bob/.obsidian/snippets)?
+    ask: Install the updated ref-highlights CSS snippet into the live vault (~/bob/.obsidian/snippets)?
     default: true
     why: The dashed seam and page caption only appear once the vault carries the snippet
     answer: true
   memory_decision_record:
-    ask:
-      Record the "groups tuck pieces, never fuse them" rule as a new decisions-web
+    ask: Record the "groups tuck pieces, never fuse them" rule as a new decisions-web
       record?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: tucked-groups
-    title: Render, parse, and identify tucked groups in bob-cli
-    depends_on: []
-    size: medium
-    description:
-      "tucked-groups: replace the fused group quote with a head quote callout that tucks
-      each follower as its own nested quote callout (own page metadata, images, and
-      comment); teach the region and note-snapshot parsers the new shape; keep block IDs
-      stable through a legacy fused-key match; reword follower stubs; rewrite the
-      continuation docs and CSS snippet; verify on a scratch copy of the real notes."
-  - id: show-pieces
-    title: Expose group pieces in bob ref show
-    depends_on:
-      - tucked-groups
-    size: small
-    description:
-      "show-pieces: add an additive `pieces` array to `bob ref show` JSON for groups,
-      keep the flattened top-level fields, and print each piece with its own comment and
-      a page seam in the human and Markdown formats; document it in docs/ref.md."
-  - id: mac-inspector-pieces
-    title: Render group pieces in the Bob Mac Capture Refs inspector
-    depends_on:
-      - show-pieces
-    size: medium
-    description:
-      "mac-inspector-pieces: in bob-mac-capture, decode the optional `pieces` array and
-      render a group as one HIGHLIGHTS entry whose pieces each carry their own quote
-      rule and note card, separated by a captioned dashed seam; update Copy payloads,
-      VoiceOver labels, fixtures, tests, and docs/refs-inspector.md."
+- id: tucked-groups
+  title: Render, parse, and identify tucked groups in bob-cli
+  depends_on: []
+  size: medium
+  description: 'tucked-groups: replace the fused group quote with a head quote callout
+    that tucks each follower as its own nested quote callout (own page metadata, images,
+    and comment); teach the region and note-snapshot parsers the new shape; keep block
+    IDs stable through a legacy fused-key match; reword follower stubs; rewrite the
+    continuation docs and CSS snippet; verify on a scratch copy of the real notes.'
+- id: show-pieces
+  title: Expose group pieces in bob ref show
+  depends_on:
+  - tucked-groups
+  size: small
+  description: 'show-pieces: add an additive `pieces` array to `bob ref show` JSON
+    for groups, keep the flattened top-level fields, and print each piece with its
+    own comment and a page seam in the human and Markdown formats; document it in
+    docs/ref.md.'
+- id: mac-inspector-pieces
+  title: Render group pieces in the Bob Mac Capture Refs inspector
+  depends_on:
+  - show-pieces
+  size: medium
+  description: 'mac-inspector-pieces: in bob-mac-capture, decode the optional `pieces`
+    array and render a group as one HIGHLIGHTS entry whose pieces each carry their
+    own quote rule and note card, separated by a captioned dashed seam; update Copy
+    payloads, VoiceOver labels, fixtures, tests, and docs/refs-inspector.md.'
 proposed_by: bbugyi200.athena.12y
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-23 05:11:19
 status: wip
+bead_id: bob-cli-ap
 ---
 
-- **PROMPT:**
-  [prompts/202610/tucked_continuation_groups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/tucked_continuation_groups.md)
+- **PROMPT:** [prompts/202610/tucked_continuation_groups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/tucked_continuation_groups.md)
+- **BEAD:** [bob-cli-ap](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ap/README.md)
 
 # Plan: Tucked continuation groups
 
