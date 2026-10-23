@@ -1,20 +1,17 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish and land the Rotten Log epic (bob-cli-as): tooltip line, missing tests, card
-  header fix"
-goal:
-  The freshness mark tooltip shows the Rotten Log line exactly as docs/freshness.md §11
-  specifies (wording, date, truncation, placement, query rows untouched, bounded scan),
-  with tests and a bob-ledger-tools release. The missing nav grammar and Rust
-  consequence tests exist, and the decay card header can report an unreadable log. Epic
-  bob-cli-as is closed and its plan file is marked done.
+title: 'Finish and land the Rotten Log epic (bob-cli-as): tooltip line, missing tests,
+  card header fix'
+goal: The freshness mark tooltip shows the Rotten Log line exactly as docs/freshness.md
+  §11 specifies (wording, date, truncation, placement, query rows untouched, bounded
+  scan), with tests and a bob-ledger-tools release. The missing nav grammar and Rust
+  consequence tests exist, and the decay card header can report an unreadable log.
+  Epic bob-cli-as is closed and its plan file is marked done.
 proposed_by: bbugyi200.athena.bob-cli-as.land
 proposed_with: claude/opus
 bead: bob-cli-as
-create_time: 2026-10-23 11:39:46
-status: wip
+status: done
 ---
 
 - **PARENT:**
