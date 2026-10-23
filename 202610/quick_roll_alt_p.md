@@ -1,105 +1,103 @@
 ---
 tier: epic
 title: One-key recommended roll (Alt+P) with review-walk previews
-goal: "One keystroke on a task applies exactly what the Task Card's Ctrl+Enter
-  recommends (same-level roll, decay, or a confirmed cancel), and every GTD review
-  landing and the review footer say in a few words which priority that key would use and
-  whether it decays.
+goal: 'One keystroke on a task applies exactly what the Task Card''s Ctrl+Enter recommends
+  (same-level roll, decay, or a confirmed cancel), and every GTD review landing and
+  the review footer say in a few words which priority that key would use and whether
+  it decays.
 
-  "
+  '
 decisions:
   hotkey:
     ask: Which key should run the one-key recommended roll?
     choices:
-      alt_p:
-        ⌥P replaces the unused Pomodoro-schedule template; Cmd+P stays Obsidian's
+      alt_p: ⌥P replaces the unused Pomodoro-schedule template; Cmd+P stays Obsidian's
         command palette
-      mod_p:
-        ⌘P replaces Obsidian's command palette (Ctrl+P off macOS); ⌥P keeps the template
+      mod_p: ⌘P replaces Obsidian's command palette (Ctrl+P off macOS); ⌥P keeps the
+        template
     default: alt_p
-    why:
-      The ⌥P template is the Pomodoro binding you don't use; Cmd+P is the command
+    why: The ⌥P template is the Pomodoro binding you don't use; Cmd+P is the command
       palette
     answer: alt_p
   cancel_confirm:
-    ask:
-      Should a cancel recommendation wait on the Task Card for a second press before
+    ask: Should a cancel recommendation wait on the Task Card for a second press before
       cancelling?
     default: true
-    why:
-      Every other outcome reschedules; a one-key cancel is the only answer that ends a
-      task
+    why: Every other outcome reschedules; a one-key cancel is the only answer that
+      ends a task
     answer: true
   work_summary:
-    ask: Should the key still offer the optional Work summary on Next and Pending tasks?
+    ask: Should the key still offer the optional Work summary on Next and Pending
+      tasks?
     default: true
-    why:
-      Identical to Ctrl+Shift+P then Ctrl+Enter; a second press or blank Enter skips it
+    why: Identical to Ctrl+Shift+P then Ctrl+Enter; a second press or blank Enter
+      skips it
     answer: true
   memory_footer_glossary:
     ask: Update the Morning GTD Review Footer glossary strand to name the roll preview?
     memory:
-      - glossary:Morning GTD Review Footer
+    - glossary:Morning GTD Review Footer
     default: true
     corrects: on a queue row it reads `⟳ Review r/N · TIER i/M` plus that row's detail
     answer: true
   memory_decision_record:
     ask: Record the one-key roll design as a new decisions-web record?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: quick-roll-key
-    title: The one-key roll command in bob-navigation-hotkeys
-    depends_on: []
-    size: medium
-    description: "quick-roll-key: add the Task card roll-by-recommendation command on
-      the chosen key, run it as a one-shot Task Card intent that stays invisible unless
-      input is needed, alias the key inside the card, rebind the vault hotkey, and
-      document it.
+- id: quick-roll-key
+  title: The one-key roll command in bob-navigation-hotkeys
+  depends_on: []
+  size: medium
+  description: 'quick-roll-key: add the Task card roll-by-recommendation command on
+    the chosen key, run it as a one-shot Task Card intent that stays invisible unless
+    input is needed, alias the key inside the card, rebind the vault hotkey, and document
+    it.
 
-      "
-  - id: review-preview
-    title: Roll preview on review-walk landings and api.quickRoll
-    depends_on:
-      - quick-roll-key
-    size: medium
-    description: "review-preview: extract one shared recommendation planner, format the
-      concise roll preview, add it as the last line of `]s` landing toasts, and expose
-      it as the additive nav `api.quickRoll` v1 namespace.
+    '
+- id: review-preview
+  title: Roll preview on review-walk landings and api.quickRoll
+  depends_on:
+  - quick-roll-key
+  size: medium
+  description: 'review-preview: extract one shared recommendation planner, format
+    the concise roll preview, add it as the last line of `]s` landing toasts, and
+    expose it as the additive nav `api.quickRoll` v1 namespace.
 
-      "
-  - id: footer-preview
-    title: Roll preview in the review footer
-    depends_on:
-      - review-preview
-    size: small
-    description: "footer-preview: bob-ledger-tools shows the compact preview in the
-      footer's hint slot and the full sentence in its tooltip while the cursor is on a
-      review row.
+    '
+- id: footer-preview
+  title: Roll preview in the review footer
+  depends_on:
+  - review-preview
+  size: small
+  description: 'footer-preview: bob-ledger-tools shows the compact preview in the
+    footer''s hint slot and the full sentence in its tooltip while the cursor is on
+    a review row.
 
-      "
-  - id: review-docs
-    title: Review contract, API contract, and memory updates in bob-cli
-    depends_on:
-      - quick-roll-key
-      - review-preview
-      - footer-preview
-    size: small
-    description:
-      "review-docs: update the freshness review ritual and the nav API contract in
-      bob-cli docs, apply the accepted memory decisions, and regenerate generated docs."
+    '
+- id: review-docs
+  title: Review contract, API contract, and memory updates in bob-cli
+  depends_on:
+  - quick-roll-key
+  - review-preview
+  - footer-preview
+  size: small
+  description: 'review-docs: update the freshness review ritual and the nav API contract
+    in bob-cli docs, apply the accepted memory decisions, and regenerate generated
+    docs.'
 proposed_by: bbugyi200.athena.132
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-23 06:34:42
 status: wip
+bead_id: bob-cli-aq
 ---
 
-- **PROMPT:**
-  [prompts/202610/quick_roll_alt_p.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/quick_roll_alt_p.md)
+- **PROMPT:** [prompts/202610/quick_roll_alt_p.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/quick_roll_alt_p.md)
+- **BEAD:** [bob-cli-aq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-aq/README.md)
 
 # Plan: One-key recommended roll (Alt+P) with review-walk previews
 
