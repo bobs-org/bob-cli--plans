@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish tucked-group counts and migration verification, then land bob-cli-ap
-goal:
-  Correct grouped-highlight disclosure counts, prove legacy ID migration, finish the
-  documentation sweep, and close bob-cli-ap after verification.
+goal: Correct grouped-highlight disclosure counts, prove legacy ID migration, finish
+  the documentation sweep, and close bob-cli-ap after verification.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-ap.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ap
-create_time: 2026-10-23 06:53:18
-status: wip
+status: done
 ---
 
 - **PARENT:**
