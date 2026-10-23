@@ -1,134 +1,124 @@
 ---
 tier: epic
-title: "Rotten Log: a dated, reasoned history of every rotten keep"
+title: 'Rotten Log: a dated, reasoned history of every rotten keep'
 goal: 'Every counted keep of a rotten task (Alt+F or Ctrl+Alt+F on an exact due Ready
-  ROTTEN or scheduled TICKLER row, and Keep on the approved-decay card) asks "Why keep
-  it as written?" and, in the same transaction as the stamp, writes one dated entry
-  under a `🥀 **ROTTEN LOG**` child. Each task then shows how many times, when, and why
-  it was kept: in the note, in the prompt, on the decay card, on the freshness mark
-  tooltip, in note snapshots, and in the Mac agenda.
+  ROTTEN or scheduled TICKLER row, and Keep on the approved-decay card) asks "Why
+  keep it as written?" and, in the same transaction as the stamp, writes one dated
+  entry under a `🥀 **ROTTEN LOG**` child. Each task then shows how many times, when,
+  and why it was kept: in the note, in the prompt, on the decay card, on the freshness
+  mark tooltip, in note snapshots, and in the Mac agenda.
 
   '
 decisions:
   memory_decision_record:
     ask: Add the decisions-web record rotten-keeps-are-logged that governs this feature?
     memory:
-      - decisions:rotten-keeps-are-logged
+    - decisions:rotten-keeps-are-logged
     default: true
-    requested:
-      Review the rotten_log_keep_history.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    requested: Review the rotten_log_keep_history.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file
     answer: true
   memory_supersede_decay:
     ask: Mark rotten-keeps-use-priority-decay superseded in part by the new record?
     memory:
-      - decisions:rotten-keeps-use-priority-decay
+    - decisions:rotten-keeps-use-priority-decay
     default: true
     corrects: Keep anyway leaves only the line increment.
     answer: true
   memory_glossary:
     ask: Add the Rotten Log glossary term?
     memory:
-      - glossary:rotten-log
+    - glossary:rotten-log
     default: true
-    requested:
-      I would like to add support for a new "rotten log" (a good glossary entry should
-      be added for this new term). Can you help me implement this?
+    requested: I would like to add support for a new "rotten log" (a good glossary
+      entry should be added for this new term). Can you help me implement this?
     answer: true
 phases:
-  - id: record
-    title: Decision record, supersession mark, and glossary term
-    depends_on: []
-    size: small
-    description:
-      "record: write decisions:rotten-keeps-are-logged, mark
-      rotten-keeps-use-priority-decay superseded in part, add the Rotten Log glossary
-      strand, republish memory, and regenerate the decisions and glossary docs pages."
-  - id: registry
-    title: bob-cli managed-log registry, agenda JSON, and note snapshots
-    depends_on:
-      - record
-    size: medium
-    description:
-      'registry: add ManagedTaskLogKind::Rotten with the 🥀 marker grammar, fix the
-      Schedule Log inserter that files entries under any managed log, emit log "rotten"
-      in capture-pomodoros agenda JSON, render KEPT rows in note snapshots, and document
-      the registry row and MC vectors.'
-  - id: nav-grammar
-    title: Navigation plugin Rotten Log grammar, reader, and inserter
-    depends_on:
-      - record
-    size: small
-    description:
-      "nav-grammar: teach bob-navigation-hotkeys the rotten managed-log kind, a history
-      reader, an entry formatter, and a kind-generic log inserter, so project conversion
-      carries the log and later phases share one grammar."
-  - id: keep-single
-    title: Keep-reason prompt and combined write for a single keep
-    depends_on:
-      - nav-grammar
-    size: medium
-    description:
-      "keep-single: build the shared keep-reason stage and prompt model, the
-      counted-keep predicate, and the stamp-plus-log planner, then wire single-target
-      Alt+F and Ctrl+Alt+F (including the card-unavailable fallback) through them."
-  - id: card-keep
-    title: Decay card Keep asks why and logs
-    depends_on:
-      - keep-single
-    size: medium
-    description:
-      "card-keep: turn the approved-decay card's Keep into an in-card reason stage that
-      commits stamp, increment, and Rotten Log entry as one transaction, and show the
-      logged count and last reason on the card."
-  - id: keep-batches
-    title: Counted and Task Link keep sessions with one combined prompt
-    depends_on:
-      - card-keep
-    size: medium
-    description:
-      "keep-batches: give counted N<Alt+F> and Task Link sessions one prompt that shows
-      a Keep reason field and/or a Work summary field, and write one entry per counted
-      target across notes with honest refusals."
-  - id: mark-tooltip
-    title: Freshness mark tooltip shows the logged keeps
-    depends_on:
-      - keep-batches
-    size: small
-    description:
-      'mark-tooltip: add a "🥀 N keeps logged · last <date> — <reason>" line to the
-      bob-ledger-tools freshness mark tooltip in source-note views, never in Tasks query
-      rows.'
-  - id: mac-agenda
-    title: Mac agenda renders Rotten Logs with a 🥀 chip
-    depends_on:
-      - registry
-    size: small
-    description:
-      'mac-agenda: decode the agenda "rotten" log kind in Bob Mac Capture, render its
-      header and entries like the other logs, and add a 🥀 N count chip.'
-  - id: docs
-    title: Behavior contracts, guide, and rollout record in bob-cli docs
-    depends_on:
-      - registry
-      - mark-tooltip
-      - mac-agenda
-    size: small
-    description:
-      "docs: update docs/freshness.md, docs/projects.md, the morning-review guide, and
-      the freshness concept page to the shipped behavior, record the rollout, and pass
-      the docs gate."
+- id: record
+  title: Decision record, supersession mark, and glossary term
+  depends_on: []
+  size: small
+  description: 'record: write decisions:rotten-keeps-are-logged, mark rotten-keeps-use-priority-decay
+    superseded in part, add the Rotten Log glossary strand, republish memory, and
+    regenerate the decisions and glossary docs pages.'
+- id: registry
+  title: bob-cli managed-log registry, agenda JSON, and note snapshots
+  depends_on:
+  - record
+  size: medium
+  description: 'registry: add ManagedTaskLogKind::Rotten with the 🥀 marker grammar,
+    fix the Schedule Log inserter that files entries under any managed log, emit log
+    "rotten" in capture-pomodoros agenda JSON, render KEPT rows in note snapshots,
+    and document the registry row and MC vectors.'
+- id: nav-grammar
+  title: Navigation plugin Rotten Log grammar, reader, and inserter
+  depends_on:
+  - record
+  size: small
+  description: 'nav-grammar: teach bob-navigation-hotkeys the rotten managed-log kind,
+    a history reader, an entry formatter, and a kind-generic log inserter, so project
+    conversion carries the log and later phases share one grammar.'
+- id: keep-single
+  title: Keep-reason prompt and combined write for a single keep
+  depends_on:
+  - nav-grammar
+  size: medium
+  description: 'keep-single: build the shared keep-reason stage and prompt model,
+    the counted-keep predicate, and the stamp-plus-log planner, then wire single-target
+    Alt+F and Ctrl+Alt+F (including the card-unavailable fallback) through them.'
+- id: card-keep
+  title: Decay card Keep asks why and logs
+  depends_on:
+  - keep-single
+  size: medium
+  description: 'card-keep: turn the approved-decay card''s Keep into an in-card reason
+    stage that commits stamp, increment, and Rotten Log entry as one transaction,
+    and show the logged count and last reason on the card.'
+- id: keep-batches
+  title: Counted and Task Link keep sessions with one combined prompt
+  depends_on:
+  - card-keep
+  size: medium
+  description: 'keep-batches: give counted N<Alt+F> and Task Link sessions one prompt
+    that shows a Keep reason field and/or a Work summary field, and write one entry
+    per counted target across notes with honest refusals.'
+- id: mark-tooltip
+  title: Freshness mark tooltip shows the logged keeps
+  depends_on:
+  - keep-batches
+  size: small
+  description: 'mark-tooltip: add a "🥀 N keeps logged · last <date> — <reason>" line
+    to the bob-ledger-tools freshness mark tooltip in source-note views, never in
+    Tasks query rows.'
+- id: mac-agenda
+  title: Mac agenda renders Rotten Logs with a 🥀 chip
+  depends_on:
+  - registry
+  size: small
+  description: 'mac-agenda: decode the agenda "rotten" log kind in Bob Mac Capture,
+    render its header and entries like the other logs, and add a 🥀 N count chip.'
+- id: docs
+  title: Behavior contracts, guide, and rollout record in bob-cli docs
+  depends_on:
+  - registry
+  - mark-tooltip
+  - mac-agenda
+  size: small
+  description: 'docs: update docs/freshness.md, docs/projects.md, the morning-review
+    guide, and the freshness concept page to the shipped behavior, record the rollout,
+    and pass the docs gate.'
 proposed_by: bbugyi200.athena.research.55.linker.w2
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-10-23 08:24:11
 status: wip
+bead_id: bob-cli-as
 ---
 
-- **PROMPT:**
-  [prompts/202610/rotten_log.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/rotten_log.md)
+- **PROMPT:** [prompts/202610/rotten_log.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/rotten_log.md)
+- **BEAD:** [bob-cli-as](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-as/README.md)
 
 # Plan: Rotten Log
 
