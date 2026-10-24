@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish batch 4 capture safety and land the epic
-goal:
-  Close the remaining capture guard and relation-label gaps, integrate Mac tests, verify
-  and close bob-cli-an.6.6.6, and preserve its backlog continuation.
+goal: Close the remaining capture guard and relation-label gaps, integrate Mac tests,
+  verify and close bob-cli-an.6.6.6, and preserve its backlog continuation.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6
-create_time: 2026-10-24 06:47:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
