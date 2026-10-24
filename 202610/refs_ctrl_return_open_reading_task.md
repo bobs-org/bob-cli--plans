@@ -1,29 +1,34 @@
 ---
 tier: tale
 title: Bob Refs Control-Return opens the reading task
-goal: In Bob Refs, Control-Return opens the selected reference's reading-task file
-  in Obsidian, mirroring Command-Return for the note.
+goal:
+  In Bob Refs, Control-Return opens the selected reference's reading-task file in
+  Obsidian, mirroring Command-Return for the note.
 size: small
 decisions:
   landing:
-    ask: Should ⌃↵ put the caret on the reading-task line, not just open the file
-      at the top?
+    ask:
+      Should ⌃↵ put the caret on the reading-task line, not just open the file at the
+      top?
     choices:
-      task_line: Lands the caret on the task's ^block line via bob-goto-task (bob-navigation-hotkeys
-        ≥ 2.32.0)
-      file_top: Opens the file via obsidian://open like ⌘↵ does; you find the task
-        in the note yourself
+      task_line:
+        Lands the caret on the task's ^block line via bob-goto-task
+        (bob-navigation-hotkeys ≥ 2.32.0)
+      file_top:
+        Opens the file via obsidian://open like ⌘↵ does; you find the task in the note
+        yourself
     default: task_line
-    why: reading tasks live in long area notes, so landing on the line saves a search
-      every time
+    why:
+      reading tasks live in long area notes, so landing on the line saves a search every
+      time
     answer: task_line
   footer_hint:
     ask: Should the Bob Refs footer advertise `⌃↵ Task` in its widest hint variants?
     choices:
-      menu_only: The footer stays as it is; ⌃↵ appears in the ⌘K menu and the docs
-        only
-      widest: Adds `⌃↵ Task` to the widest footer variants only; mid-width panels
-        drop ⌘1–5 Scope sooner
+      menu_only: The footer stays as it is; ⌃↵ appears in the ⌘K menu and the docs only
+      widest:
+        Adds `⌃↵ Task` to the widest footer variants only; mid-width panels drop ⌘1–5
+        Scope sooner
     default: menu_only
     why: the footer is width-tuned to 760 pt and the ⌘K menu already shows the shortcut
     answer: menu_only
@@ -32,6 +37,12 @@ proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.a5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.a5.md)
+- **COMMITS:**
+  - [2750827](https://github.com/bobs-org/bob-mac-capture/commit/27508279b4b66b4b82a55dfa32d7a61acc8a1e25)
+    — feat(refs): Control-Return opens the reading task
 
 # Plan: Bob Refs Control-Return opens the reading task's file in Obsidian
 
