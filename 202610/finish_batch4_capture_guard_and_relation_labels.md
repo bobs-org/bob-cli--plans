@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish batch 4 capture safety and land the epic
-goal: Close the remaining capture guard and relation-label gaps, integrate Mac tests,
-  verify and close bob-cli-an.6.6.6, and preserve its backlog continuation.
+goal:
+  Close the remaining capture guard and relation-label gaps, integrate Mac tests, verify
+  and close bob-cli-an.6.6.6, and preserve its backlog continuation.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md)
 - **BEAD:**
   [bob-cli-an.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.land.md)
+- **COMMITS:**
+  - [0a8ca46](https://github.com/bobs-org/bob-cli--plans/commit/0a8ca4610cc97eacdda6b71b01867d9c78035aca)
+    — chore(plans): mark backlog batch 4 epic plan done
 
 # Finish batch 4: capture option clusters, authoritative relation labels, and integrated Mac tests
 
