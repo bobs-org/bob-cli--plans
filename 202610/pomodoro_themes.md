@@ -1,192 +1,174 @@
 ---
 tier: epic
 title: Pomodoro themes — remembered, hideable, renameable, and colored everywhere
-goal: "Every Pomodoro-name menu (Bob Mac Capture, zsh, and the Obsidian pickers) lists
-  today's names first and then previously used themes, and accepting a row submits
-  exactly the name it shows. Ctrl+D hides a stale theme from suggestions in place, with
-  undo. One bob transaction renames a theme across every daily note in a single
+goal: 'Every Pomodoro-name menu (Bob Mac Capture, zsh, and the Obsidian pickers) lists
+  today''s names first and then previously used themes, and accepting a row submits
+  exactly the name it shows. Ctrl+D hides a stale theme from suggestions in place,
+  with undo. One bob transaction renames a theme across every daily note in a single
   revertable commit. Each theme wears a stable, learnable hue — in Obsidian Live Preview
-  and Reading view, the plan block, Stats, Mac Capture, the CLI, tmux, and the menu bar
-  — from one rule owned by bob.
+  and Reading view, the plan block, Stats, Mac Capture, the CLI, tmux, and the menu
+  bar — from one rule owned by bob.
 
-  "
+  '
 decisions:
   area_hues:
     ask: Should a theme named like a top-level area wear that area's hue?
     choices:
-      area:
-        JOB wears job's aqua, DEV dev's blue, LOVE love's yellow; pins still win, GTD
-        stays muted
-      hash_only:
-        Hue is only a pin or the name hash, so JOB stays magenta beside the aqua job
-        area
+      area: JOB wears job's aqua, DEV dev's blue, LOVE love's yellow; pins still win,
+        GTD stays muted
+      hash_only: Hue is only a pin or the name hash, so JOB stays magenta beside the
+        aqua job area
     default: area
-    why:
-      The same word gets the same color everywhere, and the BOB/JOB collision disappears
+    why: The same word gets the same color everywhere, and the BOB/JOB collision disappears
       unpinned
     answer: area
   cli_noun:
     ask: Should the new command group be spelled with the plural noun `bob themes`?
     choices:
-      themes:
-        bob themes list|hide|unhide|color|rename, a plural catalog noun like projects
-        and plugins
-      theme:
-        bob theme list|hide|unhide|color|rename, singular like task, pomodoro, and ref
+      themes: bob themes list|hide|unhide|color|rename, a plural catalog noun like
+        projects and plugins
+      theme: bob theme list|hide|unhide|color|rename, singular like task, pomodoro,
+        and ref
     default: themes
-    why:
-      It names a catalog, like projects and plugins; bob-cli-4b can add the other
+    why: It names a catalog, like projects and plugins; bob-cli-4b can add the other
       spelling as an alias
     answer: themes
   seed_pins:
     ask: Should rollout apply each collision pin bob suggests at that moment, once?
     default: true
-    why:
-      Recurring pairs (SASE and BLOG are both orange) look identical from day one
+    why: Recurring pairs (SASE and BLOG are both orange) look identical from day one
       otherwise
     answer: true
   memory_glossary:
-    ask:
-      Should the glossary gain a Pomodoro Theme strand, with the mac pom strand saying
-      NAME, not THEME?
+    ask: Should the glossary gain a Pomodoro Theme strand, with the mac pom strand
+      saying NAME, not THEME?
     memory:
-      - glossary
+    - glossary
     default: true
     requested: We should add a new glossary term for this.
     answer: true
   memory_decisions:
-    ask:
-      Should four decision records capture the theme identity, hide, color, and journal
-      rules?
+    ask: Should four decision records capture the theme identity, hide, color, and
+      journal rules?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: lossless
-    title: Lossless name reuse and the exact-name literal
-    depends_on: []
-    size: medium
-    description:
-      'lossless: fix bob-cli-bb so reusing a completed name keeps its spelling, and add
-      the `#"NAME"` exact-name literal to every capture name position.'
-  - id: catalog
-    title: Theme catalog engine, `bob themes list`, and the contract
-    depends_on: []
-    size: medium
-    description:
-      "catalog: build the bob-cli theme catalog (scan, cache, journal fold, hue rule),
-      ship the read-only list command, docs/pomodoro-themes.md, and the shared vectors."
-  - id: prefs
-    title: Hide, unhide, and color writers plus the vault journal rollout
-    depends_on:
-      - catalog
-    size: medium
-    description:
-      "prefs: add the journal writers, collision hints, the vault allowlist and
-      union-merge rollout, and the one-time pin seeding."
-  - id: suggest
-    title: Recent themes in capture-complete
-    depends_on:
-      - lossless
-      - catalog
-    size: medium
-    description:
-      "suggest: compose today rows, recent themes, and the create row in both
-      Pomodoro-name completion contexts, with lossless replacements and additive JSON."
-  - id: theme-json
-    title: Theme hues across bob JSON and terminal output
-    depends_on:
-      - lossless
-      - catalog
-    size: medium
-    description:
-      "theme-json: add theme refs to capture-parse spans, the agenda, plan, stats, and
-      capture output, plus CLI and tmux swatches."
-  - id: rename
-    title: Global theme rename transaction
-    depends_on:
-      - prefs
-    size: medium
-    description:
-      "rename: implement the previewed, verified, single-commit rename modeled on `bob
-      ref rename`, with refusals and reappearance detection."
-  - id: mac-menus
-    title: Mac Capture recent rows, Ctrl+D hide, and Name it suggestions
-    depends_on:
-      - suggest
-      - prefs
-    size: medium
-    description:
-      "mac-menus: render Today/Recent rows with swatches, hide and undo with Ctrl+D, and
-      suggest themes in the Name it prompt."
-  - id: mac-colors
-    title: Mac Capture theme tints, agenda pills, and preview swatches
-    depends_on:
-      - mac-menus
-      - theme-json
-    size: medium
-    description:
-      "mac-colors: tint known names in the editor, wear pills in the agenda and
-      previews, and refresh on theme journal changes."
-  - id: obsidian-colors
-    title: Obsidian api.themes and theme pills
-    depends_on:
-      - catalog
-    size: medium
-    description:
-      "obsidian-colors: add the ledger-tools themes API with JS mirrors, shared hue
-      tokens, and pills in Live Preview, Reading view, the plan block, and Stats."
-  - id: obsidian-pickers
-    title: Recent themes and Ctrl+D in the Obsidian pickers
-    depends_on:
-      - obsidian-colors
-      - suggest
-      - prefs
-    size: medium
-    description:
-      "obsidian-pickers: compose recent rows, swatches, near-duplicate badges, and
-      Ctrl+D hide in the link picker and nav Pomodoro pickers."
-  - id: obsidian-manager
-    title: Obsidian Pomodoro themes manager
-    depends_on:
-      - obsidian-pickers
-      - rename
-    size: medium
-    description:
-      "obsidian-manager: add the Bob Pomodoro themes command to browse, hide, pin,
-      inspect, and rename themes with a previewed rename."
-  - id: menubar
-    title: Menu-bar theme swatch
-    depends_on:
-      - catalog
-    size: small
-    description:
-      "menubar: show the running session's theme swatch before the mac pom title in the
-      chezmoi Hammerspoon indicator."
-  - id: records
-    title: Decision records, glossary, and end-to-end acceptance
-    depends_on:
-      - mac-colors
-      - obsidian-manager
-      - menubar
-    size: medium
-    description:
-      "records: write the glossary strand and decision records from what shipped,
-      reconcile docs, and run the cross-surface acceptance."
+- id: lossless
+  title: Lossless name reuse and the exact-name literal
+  depends_on: []
+  size: medium
+  description: 'lossless: fix bob-cli-bb so reusing a completed name keeps its spelling,
+    and add the `#"NAME"` exact-name literal to every capture name position.'
+- id: catalog
+  title: Theme catalog engine, `bob themes list`, and the contract
+  depends_on: []
+  size: medium
+  description: 'catalog: build the bob-cli theme catalog (scan, cache, journal fold,
+    hue rule), ship the read-only list command, docs/pomodoro-themes.md, and the shared
+    vectors.'
+- id: prefs
+  title: Hide, unhide, and color writers plus the vault journal rollout
+  depends_on:
+  - catalog
+  size: medium
+  description: 'prefs: add the journal writers, collision hints, the vault allowlist
+    and union-merge rollout, and the one-time pin seeding.'
+- id: suggest
+  title: Recent themes in capture-complete
+  depends_on:
+  - lossless
+  - catalog
+  size: medium
+  description: 'suggest: compose today rows, recent themes, and the create row in
+    both Pomodoro-name completion contexts, with lossless replacements and additive
+    JSON.'
+- id: theme-json
+  title: Theme hues across bob JSON and terminal output
+  depends_on:
+  - lossless
+  - catalog
+  size: medium
+  description: 'theme-json: add theme refs to capture-parse spans, the agenda, plan,
+    stats, and capture output, plus CLI and tmux swatches.'
+- id: rename
+  title: Global theme rename transaction
+  depends_on:
+  - prefs
+  size: medium
+  description: 'rename: implement the previewed, verified, single-commit rename modeled
+    on `bob ref rename`, with refusals and reappearance detection.'
+- id: mac-menus
+  title: Mac Capture recent rows, Ctrl+D hide, and Name it suggestions
+  depends_on:
+  - suggest
+  - prefs
+  size: medium
+  description: 'mac-menus: render Today/Recent rows with swatches, hide and undo with
+    Ctrl+D, and suggest themes in the Name it prompt.'
+- id: mac-colors
+  title: Mac Capture theme tints, agenda pills, and preview swatches
+  depends_on:
+  - mac-menus
+  - theme-json
+  size: medium
+  description: 'mac-colors: tint known names in the editor, wear pills in the agenda
+    and previews, and refresh on theme journal changes.'
+- id: obsidian-colors
+  title: Obsidian api.themes and theme pills
+  depends_on:
+  - catalog
+  size: medium
+  description: 'obsidian-colors: add the ledger-tools themes API with JS mirrors,
+    shared hue tokens, and pills in Live Preview, Reading view, the plan block, and
+    Stats.'
+- id: obsidian-pickers
+  title: Recent themes and Ctrl+D in the Obsidian pickers
+  depends_on:
+  - obsidian-colors
+  - suggest
+  - prefs
+  size: medium
+  description: 'obsidian-pickers: compose recent rows, swatches, near-duplicate badges,
+    and Ctrl+D hide in the link picker and nav Pomodoro pickers.'
+- id: obsidian-manager
+  title: Obsidian Pomodoro themes manager
+  depends_on:
+  - obsidian-pickers
+  - rename
+  size: medium
+  description: 'obsidian-manager: add the Bob Pomodoro themes command to browse, hide,
+    pin, inspect, and rename themes with a previewed rename.'
+- id: menubar
+  title: Menu-bar theme swatch
+  depends_on:
+  - catalog
+  size: small
+  description: 'menubar: show the running session''s theme swatch before the mac pom
+    title in the chezmoi Hammerspoon indicator.'
+- id: records
+  title: Decision records, glossary, and end-to-end acceptance
+  depends_on:
+  - mac-colors
+  - obsidian-manager
+  - menubar
+  size: medium
+  description: 'records: write the glossary strand and decision records from what
+    shipped, reconcile docs, and run the cross-surface acceptance.'
 proposed_by: bbugyi200.apollo.research.2c.linker.w1
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 07:52:20
 status: wip
+bead_id: bob-cli-bc
 ---
 
-- **PROMPT:**
-  [prompts/202610/pomodoro_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_themes.md)
+- **PROMPT:** [prompts/202610/pomodoro_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/pomodoro_themes.md)
+- **BEAD:** [bob-cli-bc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bc/README.md)
 
 # Plan: Pomodoro themes
 
