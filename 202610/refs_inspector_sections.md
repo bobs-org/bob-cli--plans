@@ -1,20 +1,19 @@
 ---
 tier: tale
 title: Section headers in the Mac Refs inspector and Copy card
-goal:
-  Complete bob-cli-bd.8 with section-aware inspector and copy presentation while
+goal: Complete bob-cli-bd.8 with section-aware inspector and copy presentation while
   preserving flat entry indices, pagination, and keyboard selection.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-bd.8
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-bd.8
-create_time: 2026-10-24 09:09:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
   [202610/ref_note_annotation_sections.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_note_annotation_sections.md)
-- **BEAD:** bob-cli-bd.8
+- **BEAD:**
+  [bob-cli-bd.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bd/bob-cli-bd.8.md)
 
 # Section headers in the Mac Refs inspector and Copy card
 
