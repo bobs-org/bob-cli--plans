@@ -1,18 +1,21 @@
 ---
 tier: tale
 title: Finish capture inbox routing and land bob-cli-bk
-goal: Preserve atomic snapshot writes and exact routed-task identity, correct the
-  approved glossary wording, verify integration, and close bob-cli-bk.
+goal:
+  Preserve atomic snapshot writes and exact routed-task identity, correct the approved
+  glossary wording, verify integration, and close bob-cli-bk.
 size: medium
 decisions:
   memory_inbox_file:
-    ask: Correct the Inbox File sentence to include closing captures, as the epic
-      already approved?
+    ask:
+      Correct the Inbox File sentence to include closing captures, as the epic already
+      approved?
     default: true
     memory:
-    - glossary:inbox-file
-    corrects: A non-closing capture that changes an existing inbox task's status asks
-      the same question in Bob Mac Capture's route card
+      - glossary:inbox-file
+    corrects:
+      A non-closing capture that changes an existing inbox task's status asks the same
+      question in Bob Mac Capture's route card
     answer: true
 proposed_by: bbugyi200.apollo.bob-cli-bk.land
 proposed_with: codex/gpt-6-astra
@@ -25,6 +28,11 @@ status: done
   [202610/capture_inbox_routing.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_inbox_routing.md)
 - **BEAD:**
   [bob-cli-bk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bk/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-bk.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-bk.land.md)
+- **COMMITS:**
+  - [3398dd4](https://github.com/bobs-org/bob-cli--plans/commit/3398dd471d81a6aadc05c6086f7c4c9dd774a0dc)
+    — docs(plans): mark capture inbox routing and finish tale done
 
 # Finish capture inbox routing and land bob-cli-bk
 
