@@ -1,20 +1,18 @@
 ---
 tier: tale
 size: medium
-title:
-  Land annotation sections — comment declarations, linked page headings, and epic
-  closeout
-goal: "A highlight, underline, or image comment whose first line is `# Name` declares a
-  section that its own block joins, so Bryan's real gesture groups instead of failing
+title: Land annotation sections — comment declarations, linked page headings, and
+  epic closeout
+goal: 'A highlight, underline, or image comment whose first line is `# Name` declares
+  a section that its own block joins, so Bryan''s real gesture groups instead of failing
   silently; master CI is green again because linked page headings always split pages;
   and epic bob-cli-bd is verified, closed, and its plan marked done.
 
-  "
+  '
 proposed_by: bbugyi200.apollo.bob-cli-bd.land
 proposed_with: claude/opus
 bead: bob-cli-bd
-create_time: 2026-10-24 13:12:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
