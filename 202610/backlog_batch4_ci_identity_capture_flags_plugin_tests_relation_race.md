@@ -1,75 +1,65 @@
 ---
 tier: epic
-title:
-  "Backlog batch 4: green bob-cli CI, capture flag guard, bob-plugins red tests, and
-  relation-label race"
-goal:
-  Close five prioritized task beads. Restore bob-cli master CI so the release train can
-  ship and regressions stop hiding, stop bob capture from silently filing unknown flags
-  as task text, fix bob-plugins' two deterministic test failures including the dangling
-  BLOCKS link they expose, and stop Bob Mac Capture committing a stale relation label.
-  The lander continues the backlog through further epics of at most five phases and five
-  task beads until every project task bead is closed.
+title: 'Backlog batch 4: green bob-cli CI, capture flag guard, bob-plugins red tests,
+  and relation-label race'
+goal: Close five prioritized task beads. Restore bob-cli master CI so the release
+  train can ship and regressions stop hiding, stop bob capture from silently filing
+  unknown flags as task text, fix bob-plugins' two deterministic test failures including
+  the dangling BLOCKS link they expose, and stop Bob Mac Capture committing a stale
+  relation label. The lander continues the backlog through further epics of at most
+  five phases and five task beads until every project task bead is closed.
 decisions:
   capture_flag_guard:
-    ask:
-      Should bob capture reject unknown alphabetic long options before TEXT, in addition
-      to Bob Mac Capture's capability gate?
+    ask: Should bob capture reject unknown alphabetic long options before TEXT, in
+      addition to Bob Mac Capture's capability gate?
     choices:
-      refuse:
-        Unknown --flags exit 2 and write nothing; text starting with --word must follow
-        --
-      client_only:
-        Only the app gate ships; bob still files an unknown --flag and draft as a task
+      refuse: Unknown --flags exit 2 and write nothing; text starting with --word
+        must follow --
+      client_only: Only the app gate ships; bob still files an unknown --flag and
+        draft as a task
     default: refuse
-    why:
-      Fixes the root cause for every future internal capture flag, not just
-      --require-pull-in-choice
+    why: Fixes the root cause for every future internal capture flag, not just --require-pull-in-choice
     answer: refuse
 phases:
-  - id: ci-scripts-identity
-    title: Give the coordination acceptance self-test its own git identity
-    size: small
-    depends_on: []
-    description:
-      "ci-scripts-identity: resolve bob-cli-b5 by persisting the scratch vault's git
-      identity so just check-scripts passes on an identity-less CI runner."
-  - id: capture-flag-guard
-    title: Stop bob capture filing unknown flags as task text
-    size: medium
-    depends_on: []
-    description:
-      "capture-flag-guard: resolve bob-cli-8a by applying the capture_flag_guard
-      decision in bob capture and gating Bob Mac Capture's --require-pull-in-choice on a
-      positive capability."
-  - id: plugins-red-tests
-    title:
-      Fix bob-plugins' frozen-clock glyph tests and the reverse-conversion BLOCKS link
-    size: medium
-    depends_on: []
-    description:
-      "plugins-red-tests: resolve bob-cli-6v and bob-cli-7i by deriving the ledger-tools
-      test daily path from the frozen clock and re-keying the prerequisite's BLOCKS
-      entry when a project converts back to a task."
-  - id: relation-label-race
-    title: Commit only the relation label the user authored
-    size: medium
-    depends_on: []
-    description:
-      "relation-label-race: resolve bob-cli-al by tying Bob Mac Capture relation label
-      suggestions to the request and authored label that produced them."
+- id: ci-scripts-identity
+  title: Give the coordination acceptance self-test its own git identity
+  size: small
+  depends_on: []
+  description: 'ci-scripts-identity: resolve bob-cli-b5 by persisting the scratch
+    vault''s git identity so just check-scripts passes on an identity-less CI runner.'
+- id: capture-flag-guard
+  title: Stop bob capture filing unknown flags as task text
+  size: medium
+  depends_on: []
+  description: 'capture-flag-guard: resolve bob-cli-8a by applying the capture_flag_guard
+    decision in bob capture and gating Bob Mac Capture''s --require-pull-in-choice
+    on a positive capability.'
+- id: plugins-red-tests
+  title: Fix bob-plugins' frozen-clock glyph tests and the reverse-conversion BLOCKS
+    link
+  size: medium
+  depends_on: []
+  description: 'plugins-red-tests: resolve bob-cli-6v and bob-cli-7i by deriving the
+    ledger-tools test daily path from the frozen clock and re-keying the prerequisite''s
+    BLOCKS entry when a project converts back to a task.'
+- id: relation-label-race
+  title: Commit only the relation label the user authored
+  size: medium
+  depends_on: []
+  description: 'relation-label-race: resolve bob-cli-al by tying Bob Mac Capture relation
+    label suggestions to the request and authored label that produced them.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.land
 proposed_with: claude/opus
 parent_bead: bob-cli-an.6.6
 decided_by: auto
 create_time: 2026-10-24 05:39:20
 status: wip
+bead_id: bob-cli-an.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md)
-- **PARENT:**
-  [202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md)
+- **PROMPT:** [prompts/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md)
+- **PARENT:** [202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch3_rfserver_backups_day_zone_webclip_fonts_ref_paths.md)
+- **BEAD:** [bob-cli-an.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.md)
 
 # Backlog batch 4: green bob-cli CI, capture flag guard, bob-plugins red tests, and relation-label race
 
