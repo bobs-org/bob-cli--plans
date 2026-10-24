@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "height_budget",
+      "kind": "choice",
+      "ask": "How much of the text height may one rendered diagram fill?",
+      "why": "Planning stress tests fit H2 + two-line H3 + two pill rows; first diagram still prints at 75%",
+      "choices": [
+        {
+          "key": "p80",
+          "label": "Leaves ~130pt for heading, pills, and caption; tall diagrams print ~6% smaller than at 85%"
+        },
+        {
+          "key": "p85",
+          "label": "Research-tested value with larger labels, but only ~100pt for heading, pills, and caption"
+        }
+      ],
+      "default": "p80",
+      "effective_default": "p80",
+      "requested_verified": false
+    },
+    {
+      "id": "image_scope",
+      "kind": "choice",
+      "ask": "Should ordinary standalone Markdown images get the same height budget as Mermaid diagrams?",
+      "why": "The defect and evidence are Mermaid-specific; wider scope changes layouts nobody reported",
+      "choices": [
+        {
+          "key": "mermaid",
+          "label": "Only Mermaid diagrams change; a tall image right after a heading can still leave a blank page"
+        },
+        {
+          "key": "all_images",
+          "label": "Caps every standalone image on both Markdown routes; recreated tall screenshots print smaller"
+        }
+      ],
+      "default": "mermaid",
+      "effective_default": "mermaid",
+      "requested_verified": false
+    }
+  ]
+}
