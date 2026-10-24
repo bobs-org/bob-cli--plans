@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Sectioned annotation rendering with stable IDs
-goal: Render declared annotation sections while preserving published annotation IDs
-  and task identities through tag changes.
+goal:
+  Render declared annotation sections while preserving published annotation IDs and task
+  identities through tag changes.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-bd.4
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/ref_note_annotation_sections.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_note_annotation_sections.md)
 - **BEAD:**
   [bob-cli-bd.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bd/bob-cli-bd.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-bd.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-bd.4.md)
+- **COMMITS:**
+  - [9398c5b](https://github.com/bobs-org/bob-cli/commit/9398c5bbcca27fce050e67e029bd5a02bc60fbeb)
+    — feat(highlights): sectioned annotation rendering with stable IDs
 
 # Sectioned annotation rendering with stable IDs
 
