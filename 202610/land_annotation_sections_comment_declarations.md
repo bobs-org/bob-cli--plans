@@ -1,14 +1,15 @@
 ---
 tier: tale
 size: medium
-title: Land annotation sections — comment declarations, linked page headings, and
-  epic closeout
-goal: 'A highlight, underline, or image comment whose first line is `# Name` declares
-  a section that its own block joins, so Bryan''s real gesture groups instead of failing
+title:
+  Land annotation sections — comment declarations, linked page headings, and epic
+  closeout
+goal: "A highlight, underline, or image comment whose first line is `# Name` declares a
+  section that its own block joins, so Bryan's real gesture groups instead of failing
   silently; master CI is green again because linked page headings always split pages;
   and epic bob-cli-bd is verified, closed, and its plan marked done.
 
-  '
+  "
 proposed_by: bbugyi200.apollo.bob-cli-bd.land
 proposed_with: claude/opus
 bead: bob-cli-bd
@@ -19,6 +20,11 @@ status: done
   [202610/ref_note_annotation_sections.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_note_annotation_sections.md)
 - **BEAD:**
   [bob-cli-bd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bd/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-bd.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-bd.land.md)
+- **COMMITS:**
+  - [8a7b02e](https://github.com/bobs-org/bob-cli/commit/8a7b02e1b9a61b79bf8f3ced17a02d2e605ba1a8)
+    — feat(highlights-ref): land annotation sections comment declarations with CI fix
 
 # Land annotation sections: comment declarations, the CI fix, and closeout
 
