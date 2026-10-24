@@ -1,109 +1,102 @@
 ---
 tier: epic
 title: Day strip — a compact daily-stats receipt at the bottom of Bob daily notes
-goal: "Every canonical daily note (`YYYY/YYYYMMDD.md`) ends with a quiet, beautiful Day
-  strip of that day's own facts (Worked, Reviewed, Done, Created, Review closed, and the
-  area time mix). It is painted from cache in the first frame, re-runs `bob stats` only
-  while it is on screen and the data has changed and aged, and is never written into the
-  note.
+goal: 'Every canonical daily note (`YYYY/YYYYMMDD.md`) ends with a quiet, beautiful
+  Day strip of that day''s own facts (Worked, Reviewed, Done, Created, Review closed,
+  and the area time mix). It is painted from cache in the first frame, re-runs `bob
+  stats` only while it is on screen and the data has changed and aged, and is never
+  written into the note.
 
-  "
+  '
 decisions:
   reading_view:
-    ask: Should the Day strip also render at the bottom of daily notes in Reading view?
+    ask: Should the Day strip also render at the bottom of daily notes in Reading
+      view?
     default: false
-    why:
-      Daily notes open in Live Preview, and the Reading-view bottom mount is the fragile
-      path
+    why: Daily notes open in Live Preview, and the Reading-view bottom mount is the
+      fragile path
     answer: false
   decision_record:
-    ask:
-      Add a decision record for the Day strip's placement and its facts-not-targets
+    ask: Add a decision record for the Day strip's placement and its facts-not-targets
       rule?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   glossary_term:
-    ask:
-      Add a "Day Strip" glossary term that tells it apart from the Morning GTD Review
-      Footer?
+    ask: Add a "Day Strip" glossary term that tells it apart from the Morning GTD
+      Review Footer?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 phases:
-  - id: stats-not-yet
-    title: bob stats reads "not yet" for an unmet provisional boolean
-    depends_on: []
-    size: small
-    description:
-      "stats-not-yet: in bob-cli, make an unmet provisional (today) boolean point
-      display `not yet` in JSON, CSV, and human output, and draw `◌` in the bool
-      sparkline. Then update the unit and CLI tests and the docs/stats.md display rules
-      and M6 row."
-  - id: fetch-service
-    title: Stats fetch service fixes for the Stats page and the strip
-    depends_on: []
-    size: medium
-    description:
-      "fetch-service: in bob-plugins' bob-ledger-tools, give each key its own in-flight
-      promise behind a FIFO queue so no waiter is lost, track change generations and
-      fetch ages so cache hits spawn only when dirty, add a cache-update listener API, a
-      synchronous peek, and `group`. Also gate Stats page revalidation on visibility and
-      add spawn counters."
-  - id: strip-view
-    title: Day strip model, painter, styles, and preview matrix
-    depends_on:
-      - fetch-service
-    size: medium
-    description:
-      "strip-view: add the pure `dayStripModel` and DOM `paintDayStrip`, the
-      `.bob-day-strip` stylesheet, synthetic fixtures, model and painter tests, and a
-      headless-Chromium preview matrix. Inspect its screenshots until the strip meets
-      the visual contract."
-  - id: strip-hosts
-    title: Day strip data selection, refresh policy, fence, and Stats hand-off
-    depends_on:
-      - fetch-service
-      - strip-view
-    size: medium
-    description:
-      "strip-hosts: add the day-identity and report-selection rules, the strip registry
-      and its visible/dirty/aged refresh policy with rollover, the `bob-day-stats` fence
-      host, and `openStatsForDay`, which opens Stats with the day pinned. Cover them
-      with fake-timer, fake-IntersectionObserver, and fake-execFile tests."
-  - id: strip-mount
-    title: Virtual Live Preview mount, controls, and plugin docs
-    depends_on:
-      - strip-hosts
-    size: medium
-    description:
-      "strip-mount: mount the strip as a CodeMirror StateField block widget after the
-      last line of canonical daily notes in Live Preview. Add the `stats.day_strip`
-      config switch, the session `Toggle Day stats` command, per-device collapse, fence
-      stand-down, and the optional Reading view host. Then update plugin docs and the
-      manifest, and sync to the vault."
-  - id: strip-docs
-    title: Day strip contract in bob-cli docs and memory
-    depends_on:
-      - stats-not-yet
-      - strip-mount
-    size: small
-    description:
-      "strip-docs: document the shipped Day strip in docs/stats.md (what it shows,
-      honest states, refresh budget, controls, fence) and link it from
-      docs/dashboard.md. Write the decision record and glossary term only where their
-      memory decisions were accepted."
+- id: stats-not-yet
+  title: bob stats reads "not yet" for an unmet provisional boolean
+  depends_on: []
+  size: small
+  description: 'stats-not-yet: in bob-cli, make an unmet provisional (today) boolean
+    point display `not yet` in JSON, CSV, and human output, and draw `◌` in the bool
+    sparkline. Then update the unit and CLI tests and the docs/stats.md display rules
+    and M6 row.'
+- id: fetch-service
+  title: Stats fetch service fixes for the Stats page and the strip
+  depends_on: []
+  size: medium
+  description: 'fetch-service: in bob-plugins'' bob-ledger-tools, give each key its
+    own in-flight promise behind a FIFO queue so no waiter is lost, track change generations
+    and fetch ages so cache hits spawn only when dirty, add a cache-update listener
+    API, a synchronous peek, and `group`. Also gate Stats page revalidation on visibility
+    and add spawn counters.'
+- id: strip-view
+  title: Day strip model, painter, styles, and preview matrix
+  depends_on:
+  - fetch-service
+  size: medium
+  description: 'strip-view: add the pure `dayStripModel` and DOM `paintDayStrip`,
+    the `.bob-day-strip` stylesheet, synthetic fixtures, model and painter tests,
+    and a headless-Chromium preview matrix. Inspect its screenshots until the strip
+    meets the visual contract.'
+- id: strip-hosts
+  title: Day strip data selection, refresh policy, fence, and Stats hand-off
+  depends_on:
+  - fetch-service
+  - strip-view
+  size: medium
+  description: 'strip-hosts: add the day-identity and report-selection rules, the
+    strip registry and its visible/dirty/aged refresh policy with rollover, the `bob-day-stats`
+    fence host, and `openStatsForDay`, which opens Stats with the day pinned. Cover
+    them with fake-timer, fake-IntersectionObserver, and fake-execFile tests.'
+- id: strip-mount
+  title: Virtual Live Preview mount, controls, and plugin docs
+  depends_on:
+  - strip-hosts
+  size: medium
+  description: 'strip-mount: mount the strip as a CodeMirror StateField block widget
+    after the last line of canonical daily notes in Live Preview. Add the `stats.day_strip`
+    config switch, the session `Toggle Day stats` command, per-device collapse, fence
+    stand-down, and the optional Reading view host. Then update plugin docs and the
+    manifest, and sync to the vault.'
+- id: strip-docs
+  title: Day strip contract in bob-cli docs and memory
+  depends_on:
+  - stats-not-yet
+  - strip-mount
+  size: small
+  description: 'strip-docs: document the shipped Day strip in docs/stats.md (what
+    it shows, honest states, refresh budget, controls, fence) and link it from docs/dashboard.md.
+    Write the decision record and glossary term only where their memory decisions
+    were accepted.'
 proposed_by: bbugyi200.apollo.research.2f.linker.w1
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 16:30:41
 status: wip
+bead_id: bob-cli-bp
 ---
 
-- **PROMPT:**
-  [prompts/202610/daily_note_day_strip.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/daily_note_day_strip.md)
+- **PROMPT:** [prompts/202610/daily_note_day_strip.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/daily_note_day_strip.md)
+- **BEAD:** [bob-cli-bp](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bp/README.md)
 
 # Plan: The Day strip
 
