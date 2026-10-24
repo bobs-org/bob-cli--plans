@@ -1,46 +1,37 @@
 ---
 tier: tale
 title: Fix blank pages before tall Mermaid diagrams in bob ref create PDFs
-goal:
-  "Tall Mermaid diagrams fit on one page with their heading and return links on both
-  Markdown routes: no body-empty page, no bottom-margin overflow."
+goal: 'Tall Mermaid diagrams fit on one page with their heading and return links on
+  both Markdown routes: no body-empty page, no bottom-margin overflow.'
 size: medium
 decisions:
   height_budget:
     ask: How much of the text height may one rendered diagram fill?
     choices:
-      p80:
-        Leaves ~130pt for heading, pills, and caption; tall diagrams print ~6% smaller
-        than at 85%
-      p85:
-        Research-tested value with larger labels, but only ~100pt for heading, pills,
-        and caption
+      p80: Leaves ~130pt for heading, pills, and caption; tall diagrams print ~6%
+        smaller than at 85%
+      p85: Research-tested value with larger labels, but only ~100pt for heading,
+        pills, and caption
     default: p80
-    why:
-      Planning stress tests fit H2 + two-line H3 + two pill rows; first diagram still
-      prints at 75%
+    why: Planning stress tests fit H2 + two-line H3 + two pill rows; first diagram
+      still prints at 75%
     answer: p80
   image_scope:
-    ask:
-      Should ordinary standalone Markdown images get the same height budget as Mermaid
-      diagrams?
+    ask: Should ordinary standalone Markdown images get the same height budget as
+      Mermaid diagrams?
     choices:
-      mermaid:
-        Only Mermaid diagrams change; a tall image right after a heading can still leave
-        a blank page
-      all_images:
-        Caps every standalone image on both Markdown routes; recreated tall screenshots
-        print smaller
+      mermaid: Only Mermaid diagrams change; a tall image right after a heading can
+        still leave a blank page
+      all_images: Caps every standalone image on both Markdown routes; recreated tall
+        screenshots print smaller
     default: mermaid
-    why:
-      The defect and evidence are Mermaid-specific; wider scope changes layouts nobody
-      reported
+    why: The defect and evidence are Mermaid-specific; wider scope changes layouts
+      nobody reported
     answer: mermaid
 proposed_by: bbugyi200.athena.13q
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-24 11:20:26
-status: wip
+status: done
 ---
 
 # Fix blank pages before tall Mermaid diagrams in `bob ref create` PDFs
