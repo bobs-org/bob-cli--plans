@@ -1,28 +1,24 @@
 ---
 tier: tale
 title: Finish capture inbox routing and land bob-cli-bk
-goal:
-  Preserve atomic snapshot writes and exact routed-task identity, correct the approved
-  glossary wording, verify integration, and close bob-cli-bk.
+goal: Preserve atomic snapshot writes and exact routed-task identity, correct the
+  approved glossary wording, verify integration, and close bob-cli-bk.
 size: medium
 decisions:
   memory_inbox_file:
-    ask:
-      Correct the Inbox File sentence to include closing captures, as the epic already
-      approved?
+    ask: Correct the Inbox File sentence to include closing captures, as the epic
+      already approved?
     default: true
     memory:
-      - glossary:inbox-file
-    corrects:
-      A non-closing capture that changes an existing inbox task's status asks the same
-      question in Bob Mac Capture's route card
+    - glossary:inbox-file
+    corrects: A non-closing capture that changes an existing inbox task's status asks
+      the same question in Bob Mac Capture's route card
     answer: true
 proposed_by: bbugyi200.apollo.bob-cli-bk.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-bk
 decided_by: auto
-create_time: 2026-10-24 18:23:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
