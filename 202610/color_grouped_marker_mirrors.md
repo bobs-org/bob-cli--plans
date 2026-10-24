@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Exclude title-prefixed marker mirrors from Highlights annotations
-goal: Color-grouped sidecars and legacy rendered notes exclude marker mirrors while
+goal:
+  Color-grouped sidecars and legacy rendered notes exclude marker mirrors while
   preserving genuine annotations and their IDs.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.2
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.2.md)
+- **COMMITS:**
+  - [bff7bc7](https://github.com/bobs-org/bob-cli/commit/bff7bc724b5ac854c554ed916a13f5802dede634)
+    — fix(highlights): exclude color-grouped setext title-prefixed marker mirrors
 
 # Exclude title-prefixed marker mirrors from Highlights annotations
 
