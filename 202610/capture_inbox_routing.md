@@ -81,7 +81,7 @@ proposed_by: bbugyi200.apollo.a9
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 14:00:25
-status: wip
+status: done
 bead_id: bob-cli-bk
 ---
 
