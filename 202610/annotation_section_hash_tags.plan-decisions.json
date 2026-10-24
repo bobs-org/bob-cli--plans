@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "unknown_hash_tags",
+      "kind": "choice",
+      "ask": "Should an unknown positional `#name` report `section_tag_unknown` only when it is a near miss of a section tag?",
+      "why": "#word is already an ordinary Obsidian tag in Bryan's comments (#a, #b); flag likely typos only",
+      "choices": [
+        {
+          "key": "near_miss",
+          "label": "Only typo-like near misses report, with a did-you-mean hint; other hashtags stay quiet"
+        },
+        {
+          "key": "always",
+          "label": "Every unknown positional #name reports, so #a-style tags in sectioned PDFs add noise"
+        }
+      ],
+      "default": "near_miss",
+      "effective_default": "near_miss",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_term",
+      "kind": "toggle",
+      "ask": "Add the glossary:annotation-section memory strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:annotation-section"
+        ]
+      },
+      "requested": "Also, add a great glossary memory web entry for \"annotation section\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:annotation-section",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/annotation-section.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
