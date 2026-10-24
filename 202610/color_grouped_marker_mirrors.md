@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Exclude title-prefixed marker mirrors from Highlights annotations
-goal:
-  Color-grouped sidecars and legacy rendered notes exclude marker mirrors while
+goal: Color-grouped sidecars and legacy rendered notes exclude marker mirrors while
   preserving genuine annotations and their IDs.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.2
-create_time: 2026-10-24 08:20:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
