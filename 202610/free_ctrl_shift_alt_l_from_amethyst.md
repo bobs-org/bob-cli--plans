@@ -1,22 +1,31 @@
 ---
 tier: tale
 title: Make Ctrl+Shift+Alt+L reach Obsidian on the MacBook
-goal: Ctrl+Shift+Alt+L in Obsidian on the MacBook opens the Linked from stage instead
-  of being swallowed by Amethyst.
+goal:
+  Ctrl+Shift+Alt+L in Obsidian on the MacBook opens the Linked from stage instead of
+  being swallowed by Amethyst.
 size: small
 decisions:
   apply_now:
-    ask: Also run the new hook on the MacBook over SSH now, so the chord works without
+    ask:
+      Also run the new hook on the MacBook over SSH now, so the chord works without
       waiting for chezmoi update?
     default: true
-    why: The Mac is reachable over SSH and the hook is idempotent, so a later chezmoi
-      run is a no-op
+    why:
+      The Mac is reachable over SSH and the hook is idempotent, so a later chezmoi run
+      is a no-op
     answer: true
 proposed_by: bbugyi200.athena.13n.w0
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.13n.w0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.13n.w0.md)
+- **COMMITS:**
+  - [d3d7f17](https://github.com/bbugyi200/dotfiles/commit/d3d7f171654964e16007b7f743a0fd154965f006)
+    — feat(chezmoi): free Amethyst linked-from shortcut
 
 # Make Ctrl+Shift+Alt+L reach Obsidian on the MacBook
 
