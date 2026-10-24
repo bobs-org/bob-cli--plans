@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "token_source",
+      "kind": "choice",
+      "ask": "Should apollo, the feed host, read its feed token from a mode-600 file instead of decrypting it with pass?",
+      "why": "The token is already plain text in apollo's feed.xml, and an OOM kill already broke this once",
+      "choices": [
+        {
+          "key": "file",
+          "label": "Copy the token once from athena's pass to ~/.sase on apollo; publishing survives gpg-agent restarts"
+        },
+        {
+          "key": "pass",
+          "label": "Keep pass; Bryan unlocks apollo's gpg-agent by hand after each restart; bob's warning is the signal"
+        }
+      ],
+      "default": "file",
+      "effective_default": "file",
+      "requested_verified": false
+    }
+  ]
+}
