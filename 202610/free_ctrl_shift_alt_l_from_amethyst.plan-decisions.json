@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "apply_now",
+      "kind": "toggle",
+      "ask": "Also run the new hook on the MacBook over SSH now, so the chord works without waiting for chezmoi update?",
+      "why": "The Mac is reachable over SSH and the hook is idempotent, so a later chezmoi run is a no-op",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
