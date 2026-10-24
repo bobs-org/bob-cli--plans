@@ -1,74 +1,66 @@
 ---
 tier: epic
-title:
-  "Backlog batch 6: color-grouped quote wraps, BLOCKS-shifted line indexes, project
-  promotion anchor race, and Mac capture panel CI"
-goal:
-  Close five prioritized task beads. Stop color-grouped Highlights sidecars from
+title: 'Backlog batch 6: color-grouped quote wraps, BLOCKS-shifted line indexes, project
+  promotion anchor race, and Mac capture panel CI'
+goal: Close five prioritized task beads. Stop color-grouped Highlights sidecars from
   rendering wrapped quote text as Bryan's Comment, stop a generated BLOCKS line from
   mis-aiming the review-walk settle and the counted Depends-On planner, stop project
-  promotion from failing when a concurrent frontmatter write lands between the seed and
-  anchor writes, and make bob-mac-capture's three CapturePanelModelTests submit-argv
-  failures pass. The lander continues the backlog through further epics of at most five
-  phases and five task beads until every project task bead is closed.
+  promotion from failing when a concurrent frontmatter write lands between the seed
+  and anchor writes, and make bob-mac-capture's three CapturePanelModelTests submit-argv
+  failures pass. The lander continues the backlog through further epics of at most
+  five phases and five task beads until every project task bead is closed.
 parent_bead: bob-cli-an.6.6.6.5
 decisions:
   color_grouped_quote_id:
-    ask:
-      When the color-grouped quote fix changes a live highlight's quote text, should bob
-      re-mint its ^h- id?
+    ask: When the color-grouped quote fix changes a live highlight's quote text, should
+      bob re-mint its ^h- id?
     choices:
-      remint:
-        Re-mint and tombstone the affected id, since quote text is part of identity
+      remint: Re-mint and tombstone the affected id, since quote text is part of identity
       reuse: Keep the existing ^h- id even though the quote text changes
     default: remint
     why: Matches batch 5's linked-page quote fix; one live note is cheap to remint
     answer: remint
 phases:
-  - id: color-quote-wrap
-    title: Keep hard-wrapped quote lines inside color-grouped highlights
-    size: medium
-    depends_on: []
-    description:
-      "color-quote-wrap: resolve bob-cli-bf by applying bare-line quote continuation to
-      color-grouped Highlights sidecar chunks, not only linked-page chunks, and apply
-      color_grouped_quote_id."
-  - id: blocks-shift-indexes
-    title: Map review-walk and counted Depends-On line indexes through BLOCKS insertions
-    size: large
-    depends_on: []
-    description:
-      "blocks-shift-indexes: resolve bob-cli-94 and bob-cli-95 by threading the answered
-      or pending task's post-write line through generated BLOCKS-line edits in
-      bob-navigation-hotkeys instead of reusing pre-write indexes."
-  - id: promotion-anchor-race
-    title: Persist project anchors despite a concurrent frontmatter write
-    size: medium
-    depends_on:
-      - blocks-shift-indexes
-    description:
-      "promotion-anchor-race: resolve bob-cli-79 so that promoting a task with converted
-      child bullets persists its project anchors when bob-project-tasks or Templater
-      touch the new note after the seed write."
-  - id: mac-panel-argv-ci
-    title: Make the three CapturePanelModelTests submit-argv tests pass on macOS CI
-    size: large
-    depends_on: []
-    description:
-      "mac-panel-argv-ci: resolve bob-cli-be by finding why the bare x*!2 and =
-      override-restart submit argv no longer reach the fake-bob record, then fix the
-      client or fixture without weakening the assertions."
+- id: color-quote-wrap
+  title: Keep hard-wrapped quote lines inside color-grouped highlights
+  size: medium
+  depends_on: []
+  description: 'color-quote-wrap: resolve bob-cli-bf by applying bare-line quote continuation
+    to color-grouped Highlights sidecar chunks, not only linked-page chunks, and apply
+    color_grouped_quote_id.'
+- id: blocks-shift-indexes
+  title: Map review-walk and counted Depends-On line indexes through BLOCKS insertions
+  size: large
+  depends_on: []
+  description: 'blocks-shift-indexes: resolve bob-cli-94 and bob-cli-95 by threading
+    the answered or pending task''s post-write line through generated BLOCKS-line
+    edits in bob-navigation-hotkeys instead of reusing pre-write indexes.'
+- id: promotion-anchor-race
+  title: Persist project anchors despite a concurrent frontmatter write
+  size: medium
+  depends_on:
+  - blocks-shift-indexes
+  description: 'promotion-anchor-race: resolve bob-cli-79 so that promoting a task
+    with converted child bullets persists its project anchors when bob-project-tasks
+    or Templater touch the new note after the seed write.'
+- id: mac-panel-argv-ci
+  title: Make the three CapturePanelModelTests submit-argv tests pass on macOS CI
+  size: large
+  depends_on: []
+  description: 'mac-panel-argv-ci: resolve bob-cli-be by finding why the bare x*!2
+    and = override-restart submit argv no longer reach the fake-bob record, then fix
+    the client or fixture without weakening the assertions.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 09:36:37
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md)
-- **PARENT:**
-  [202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md)
+- **PROMPT:** [prompts/202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md)
+- **PARENT:** [202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.md)
 
 # Backlog batch 6: color-grouped quote wraps, BLOCKS-shifted line indexes, project promotion anchor race, and Mac capture panel CI
 
