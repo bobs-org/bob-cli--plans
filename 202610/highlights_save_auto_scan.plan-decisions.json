@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "save_confirmation",
+      "kind": "choice",
+      "ask": "Should a scan started by \u2318S in Highlights notify when it only updated existing notes?",
+      "why": "A notice on every save is noise when the reload and footer already confirm the sync",
+      "choices": [
+        {
+          "key": "silent",
+          "label": "Quiet on success; the PDF reload, Refs footer, and existing notices report it"
+        },
+        {
+          "key": "notify",
+          "label": "One passive, silent notification per such scan naming the updated notes"
+        }
+      ],
+      "default": "silent",
+      "effective_default": "silent",
+      "requested_verified": false
+    }
+  ]
+}
