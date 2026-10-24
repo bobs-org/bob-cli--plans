@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "landing",
+      "kind": "choice",
+      "ask": "Should \u2303\u21b5 put the caret on the reading-task line, not just open the file at the top?",
+      "why": "reading tasks live in long area notes, so landing on the line saves a search every time",
+      "choices": [
+        {
+          "key": "task_line",
+          "label": "Lands the caret on the task's ^block line via bob-goto-task (bob-navigation-hotkeys \u2265 2.32.0)"
+        },
+        {
+          "key": "file_top",
+          "label": "Opens the file via obsidian://open like \u2318\u21b5 does; you find the task in the note yourself"
+        }
+      ],
+      "default": "task_line",
+      "effective_default": "task_line",
+      "requested_verified": false
+    },
+    {
+      "id": "footer_hint",
+      "kind": "choice",
+      "ask": "Should the Bob Refs footer advertise `\u2303\u21b5 Task` in its widest hint variants?",
+      "why": "the footer is width-tuned to 760 pt and the \u2318K menu already shows the shortcut",
+      "choices": [
+        {
+          "key": "menu_only",
+          "label": "The footer stays as it is; \u2303\u21b5 appears in the \u2318K menu and the docs only"
+        },
+        {
+          "key": "widest",
+          "label": "Adds `\u2303\u21b5 Task` to the widest footer variants only; mid-width panels drop \u23181\u20135 Scope sooner"
+        }
+      ],
+      "default": "menu_only",
+      "effective_default": "menu_only",
+      "requested_verified": false
+    }
+  ]
+}
