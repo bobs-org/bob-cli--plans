@@ -1,50 +1,47 @@
 ---
 tier: epic
-title: "Backlog batch 7: URL identity, Gist metadata, close summaries, and Mac CI"
-goal:
-  Close five existing task beads by fixing URL identity spelling, Gist author/title
-  metadata, shifted Pomodoro close-summary headlines, and the Mac save-key test
-  compilation and mounted documentation failures. Continue the bounded backlog campaign
-  until all project task beads are resolved.
+title: 'Backlog batch 7: URL identity, Gist metadata, close summaries, and Mac CI'
+goal: Close five existing task beads by fixing URL identity spelling, Gist author/title
+  metadata, shifted Pomodoro close-summary headlines, and the Mac save-key test compilation
+  and mounted documentation failures. Continue the bounded backlog campaign until
+  all project task beads are resolved.
 parent_bead: bob-cli-an.6.6.6.5.6
 phases:
-  - id: url-identity
-    title: Normalize equivalent URL path spellings without merging distinct resources
-    size: medium
-    depends_on: []
-    description:
-      "url-identity: resolve bob-cli-7u in shared reference dedupe keys and verify
-      lookup, duplicate detection, and collection consumers."
-  - id: gist-metadata
-    title: Give Gist clips a real author and a readable content title
-    size: medium
-    depends_on: []
-    description:
-      "gist-metadata: resolve bob-cli-86 with evidence-based Gist metadata extraction
-      and offline adapter fixtures, preserving generic metadata and explicit overrides."
-  - id: close-summary
-    title: Resolve close-summary headlines after Work Log edits shift the ledger
-    size: medium
-    depends_on: []
-    description:
-      "close-summary: resolve bob-cli-2t so pomodoro_close.entry_line and task_line name
-      the actual closed Pomodoro after same-day task logs shift its line."
-  - id: mac-save-ci
-    title: Restore Mac save-key test compilation and the mounted Refs docs gate
-    size: medium
-    depends_on: []
-    description:
-      "mac-save-ci: resolve bob-cli-bg and bob-cli-bh in bob-mac-capture, preserving
-      event conversion and documentation contracts, with compiled Mac tests and the
-      shared docs gate."
+- id: url-identity
+  title: Normalize equivalent URL path spellings without merging distinct resources
+  size: medium
+  depends_on: []
+  description: 'url-identity: resolve bob-cli-7u in shared reference dedupe keys and
+    verify lookup, duplicate detection, and collection consumers.'
+- id: gist-metadata
+  title: Give Gist clips a real author and a readable content title
+  size: medium
+  depends_on: []
+  description: 'gist-metadata: resolve bob-cli-86 with evidence-based Gist metadata
+    extraction and offline adapter fixtures, preserving generic metadata and explicit
+    overrides.'
+- id: close-summary
+  title: Resolve close-summary headlines after Work Log edits shift the ledger
+  size: medium
+  depends_on: []
+  description: 'close-summary: resolve bob-cli-2t so pomodoro_close.entry_line and
+    task_line name the actual closed Pomodoro after same-day task logs shift its line.'
+- id: mac-save-ci
+  title: Restore Mac save-key test compilation and the mounted Refs docs gate
+  size: medium
+  depends_on: []
+  description: 'mac-save-ci: resolve bob-cli-bg and bob-cli-bh in bob-mac-capture,
+    preserving event conversion and documentation contracts, with compiled Mac tests
+    and the shared docs gate.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.land--2
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-24 12:31:53
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch7_url_identity_gist_metadata_close_summary_mac_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch7_url_identity_gist_metadata_close_summary_mac_ci.md)
+- **PROMPT:** [prompts/202610/backlog_batch7_url_identity_gist_metadata_close_summary_mac_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch7_url_identity_gist_metadata_close_summary_mac_ci.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.md)
 
 # Backlog batch 7: URL identity, Gist metadata, close summaries, and Mac CI
 
