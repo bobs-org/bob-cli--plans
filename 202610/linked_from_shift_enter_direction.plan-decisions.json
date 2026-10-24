@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "id_prompt",
+      "kind": "choice",
+      "ask": "Also fix the block-ID prompt so id-less tasks link after the prompt instead of refusing as stale?",
+      "why": "Same commit path; without it Linked from never links on a task with no ^id",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Id-less tasks link after one prompt, in both Links to and Linked from"
+        },
+        {
+          "key": "skip",
+          "label": "Direction-only fix; id-less tasks get an ^id, then still refuse \"changed \u2014 reopen\""
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    },
+    {
+      "id": "toast_names_source",
+      "kind": "choice",
+      "ask": "Should Linked-from success toasts name the task whose LINKS line changed?",
+      "why": "The current wording names the card's own task and reads like the reversed edge",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Toasts read \u201cOther\u201d now links here, Relabeled \u201cOther\u201d, and Unlinked \u201cOther\u201d"
+        },
+        {
+          "key": "keep",
+          "label": "Toasts keep naming the card's own task, e.g. \u201cCurrent\u201d now links here"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
