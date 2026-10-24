@@ -1,81 +1,72 @@
 ---
 tier: epic
-title:
-  "Backlog batch 5: Highlights quote and marker render, Pomodoro name reuse,
-  completed-link dedupe, and Mac scan CI"
-goal:
-  Close five prioritized task beads. Stop Highlights from dropping quoted lines that
-  look like headings and from rendering the page-1 marker as an annotation, keep
-  completed multi-word Pomodoro names when the link form reuses them, stop
-  completed-reference relocation from duplicating a Task Link already in the destination
-  Pomodoro, and make bob-mac-capture RefsLibrary scan tests record ref scan argv again.
-  The lander continues the backlog through further epics of at most five phases and five
-  task beads until every project task bead is closed.
+title: 'Backlog batch 5: Highlights quote and marker render, Pomodoro name reuse,
+  completed-link dedupe, and Mac scan CI'
+goal: Close five prioritized task beads. Stop Highlights from dropping quoted lines
+  that look like headings and from rendering the page-1 marker as an annotation, keep
+  completed multi-word Pomodoro names when the link form reuses them, stop completed-reference
+  relocation from duplicating a Task Link already in the destination Pomodoro, and
+  make bob-mac-capture RefsLibrary scan tests record ref scan argv again. The lander
+  continues the backlog through further epics of at most five phases and five task
+  beads until every project task bead is closed.
 parent_bead: bob-cli-an.6.6.6
 decisions:
   highlight_id_on_quote_fix:
-    ask:
-      When the quote/heading boundary fix changes two live highlight quote texts, should
-      bob re-mint their ^h- ids?
+    ask: When the quote/heading boundary fix changes two live highlight quote texts,
+      should bob re-mint their ^h- ids?
     choices:
-      remint:
-        Re-mint and tombstone the two affected highlight ids because quote text is part
-        of identity
+      remint: Re-mint and tombstone the two affected highlight ids because quote text
+        is part of identity
       reuse: Keep the existing ^h- ids even though the quote text changes
     default: remint
-    why:
-      Quote text is part of highlight identity; reminting two notes is cheaper than
-      mixed ids
+    why: Quote text is part of highlight identity; reminting two notes is cheaper
+      than mixed ids
     answer: remint
 phases:
-  - id: highlight-quote-heading
-    title: Keep hard-wrapped '# ' quote lines inside the highlight
-    size: medium
-    depends_on: []
-    description:
-      "highlight-quote-heading: resolve bob-cli-ba by treating a heading-shaped sidecar
-      line that immediately follows a quote line as quote continuation, applying
-      highlight_id_on_quote_fix for the two notes whose quote text changes."
-  - id: highlight-marker-mirror
-    title: Stop rendering the page-1 marker mirror as an annotation
-    size: large
-    depends_on:
-      - highlight-quote-heading
-    description:
-      "highlight-marker-mirror: resolve bob-cli-4r by skipping the real page-1 marker
-      mirror even when a setext title preamble consumes the current one-shot skip."
-  - id: pomodoro-name-reuse
-    title: Reuse a completed Pomodoro's canonical name on the link form
-    size: small
-    depends_on: []
-    description:
-      "pomodoro-name-reuse: resolve bob-cli-bb by naming a CompletedOnly placeholder
-      from the completed entry, not from canonicalize_pomodoro_name(selector)."
-  - id: completed-link-dedupe
-    title: Do not relocate a completed Task Link into a Pomodoro that already has it
-    size: medium
-    depends_on: []
-    description:
-      "completed-link-dedupe: resolve bob-cli-2l by passing dedupe_into_destination from
-      reconcile and matching that contract in the bob-plugins task-status-cycler."
-  - id: mac-refs-scan-ci
-    title: Make RefsLibraryTests record the ref scan argv again
-    size: medium
-    depends_on: []
-    description:
-      "mac-refs-scan-ci: resolve bob-cli-b7 by restoring a single recorded ref scan in
-      RefsLibraryTests so macOS CI is green aside from other recorded owners."
+- id: highlight-quote-heading
+  title: Keep hard-wrapped '# ' quote lines inside the highlight
+  size: medium
+  depends_on: []
+  description: 'highlight-quote-heading: resolve bob-cli-ba by treating a heading-shaped
+    sidecar line that immediately follows a quote line as quote continuation, applying
+    highlight_id_on_quote_fix for the two notes whose quote text changes.'
+- id: highlight-marker-mirror
+  title: Stop rendering the page-1 marker mirror as an annotation
+  size: large
+  depends_on:
+  - highlight-quote-heading
+  description: 'highlight-marker-mirror: resolve bob-cli-4r by skipping the real page-1
+    marker mirror even when a setext title preamble consumes the current one-shot
+    skip.'
+- id: pomodoro-name-reuse
+  title: Reuse a completed Pomodoro's canonical name on the link form
+  size: small
+  depends_on: []
+  description: 'pomodoro-name-reuse: resolve bob-cli-bb by naming a CompletedOnly
+    placeholder from the completed entry, not from canonicalize_pomodoro_name(selector).'
+- id: completed-link-dedupe
+  title: Do not relocate a completed Task Link into a Pomodoro that already has it
+  size: medium
+  depends_on: []
+  description: 'completed-link-dedupe: resolve bob-cli-2l by passing dedupe_into_destination
+    from reconcile and matching that contract in the bob-plugins task-status-cycler.'
+- id: mac-refs-scan-ci
+  title: Make RefsLibraryTests record the ref scan argv again
+  size: medium
+  depends_on: []
+  description: 'mac-refs-scan-ci: resolve bob-cli-b7 by restoring a single recorded
+    ref scan in RefsLibraryTests so macOS CI is green aside from other recorded owners.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.land
 proposed_with: grok/grok-4.6
 decided_by: auto
 create_time: 2026-10-24 07:37:06
 status: wip
+bead_id: bob-cli-an.6.6.6.5
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md)
-- **PARENT:**
-  [202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md)
+- **PROMPT:** [prompts/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch5_highlights_render_pomodoro_name_duplicate_link_mac_ci.md)
+- **PARENT:** [202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch4_ci_identity_capture_flags_plugin_tests_relation_race.md)
+- **BEAD:** [bob-cli-an.6.6.6.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.md)
 
 # Backlog batch 5: Highlights quote and marker render, Pomodoro name reuse, completed-link dedupe, and Mac scan CI
 
