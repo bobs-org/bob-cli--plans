@@ -1,179 +1,158 @@
 ---
 tier: epic
-title:
-  Relation label vocabulary — a chooser that works, hidden and one-off labels, and one
-  global rename
-goal: "The Bob Mac Capture relation card is a reliable, beautiful chooser: Ctrl+N/P move
-  a visible highlight through existing relation labels, Tab accepts, and nothing
+title: Relation label vocabulary — a chooser that works, hidden and one-off labels,
+  and one global rename
+goal: 'The Bob Mac Capture relation card is a reliable, beautiful chooser: Ctrl+N/P
+  move a visible highlight through existing relation labels, Tab accepts, and nothing
   collapses. Relation labels can be hidden from suggestions (Ctrl+D, with undo), shown
-  again (Ctrl+H section) and unhidden, created hidden with `~note:id||label` (with a
-  clear warning when that hides an existing label), and renamed everywhere — from the
-  card, `bob relations rename`, and Obsidian — in one previewed, revertable commit.
+  again (Ctrl+H section) and unhidden, created hidden with `~note:id||label` (with
+  a clear warning when that hides an existing label), and renamed everywhere — from
+  the card, `bob relations rename`, and Obsidian — in one previewed, revertable commit.
 
-  "
+  '
 decisions:
   hidden_key:
-    ask:
-      Which chord should toggle the relation card's Hidden section (Mac card and
+    ask: Which chord should toggle the relation card's Hidden section (Mac card and
       Obsidian stage)?
     choices:
-      ctrl_h:
-        Ctrl+H, mirroring `bob relations -H`; Ctrl+H stops deleting backward inside the
-        card
-      ctrl_shift_h:
-        Ctrl+Shift+H; Ctrl+H keeps its Emacs delete-backward meaning in the card field
+      ctrl_h: Ctrl+H, mirroring `bob relations -H`; Ctrl+H stops deleting backward
+        inside the card
+      ctrl_shift_h: Ctrl+Shift+H; Ctrl+H keeps its Emacs delete-backward meaning in
+        the card field
     default: ctrl_h
-    why:
-      The research's pick; Backspace still deletes and the ◌ N hidden pill is clickable
+    why: The research's pick; Backspace still deletes and the ◌ N hidden pill is clickable
     answer: ctrl_h
   obsidian_manager:
-    ask:
-      "Should Obsidian get a standalone 'Bob: Relation labels' command to hide, unhide,
-      and rename labels?"
+    ask: 'Should Obsidian get a standalone ''Bob: Relation labels'' command to hide,
+      unhide, and rename labels?'
     default: true
     why: Renaming from Obsidian should not require starting a link gesture first
     answer: true
   memory_decisions:
-    ask:
-      Should the records phase add four decision records for relation label hide,
+    ask: Should the records phase add four decision records for relation label hide,
       journal, rename, and card keys?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_glossary:
-    ask:
-      Should glossary:task-relation gain one sentence on relation labels (hide, one-off
-      ||, global rename)?
+    ask: Should glossary:task-relation gain one sentence on relation labels (hide,
+      one-off ||, global rename)?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: false
     answer: false
 phases:
-  - id: mac-chooser
-    title: Mac relation card as a navigate-then-accept chooser
-    depends_on: []
-    size: medium
-    description:
-      "mac-chooser: fix the Tab collapse by separating query from selection (selection
-      by key), add Ctrl+N/P and arrow navigation with wrap, Tab accepts or completes the
-      top match, AppKit field with focus repair, local filtering of a once-fetched
-      catalog, the redesigned vertical card, a collapsing fake-client regression test,
-      and keyboard docs. No bob change."
-  - id: label-catalog
-    title:
-      Shared preference journal, relation label catalog, and bob relations
-      list/hide/unhide
-    depends_on: []
-    size: medium
-    description:
-      "label-catalog: extract the theme journal into a namespaced shared module, add the
-      relation_labels module (one key function, fast LINKS scan, display spelling,
-      fold), the bob relations group with list/hide/unhide, the vault allowlist rollout,
-      the label-vocabulary contract section, and shared vectors."
-  - id: label-complete
-    title: capture-complete relation_label rows from the catalog
-    depends_on:
-      - label-catalog
-    size: small
-    description:
-      "label-complete: switch relation_label suggestions to the fast catalog, add
-      key/inverse/existing/count/hidden fields and hidden_count, omit hidden rows, adopt
-      the catalog spelling for case variants, fix the dedupe mismatch, and measure the
-      latency budget."
-  - id: rewrite-txn
-    title: Shared vault-rewrite transaction extracted from bob themes rename
-    depends_on:
-      - label-catalog
-    size: medium
-    description:
-      "rewrite-txn: extract lock, pre-sync, snapshot and stale check, dirty-path rules,
-      atomic write with rollback, verify, single commit, and post-sync from the theme
-      rename into one shared transaction, moving bob themes rename onto it
-      byte-for-byte."
-  - id: double-pipe
-    title: The `||` one-off relation label capture syntax
-    depends_on:
-      - label-complete
-    size: medium
-    description:
-      "double-pipe: parse, rewrite glue, completion, dry-run hide fields and the
-      hides_existing_relation_label warning, the after-commit journal append, shell
-      completion, and the capture grammar docs for `~note:id||label`."
-  - id: label-rename
-    title: bob relations rename across every note, done/ included
-    depends_on:
-      - rewrite-txn
-    size: medium
-    description:
-      "label-rename: the strict, previewed relation label rename on the shared
-      transaction — LINKS label spans everywhere including done/ and the previous daily
-      note, LINKED FROM mirrors, case-only and merge rules, journal rename event,
-      renamed_reappeared, the recorded LR7 exception, and the runbook."
-  - id: mac-vocab
-    title: Mac card hide, one-off, Hidden section, and warnings
-    depends_on:
-      - mac-chooser
-      - double-pipe
-    size: medium
-    description:
-      "mac-vocab: decode the new fields, Ctrl+D ghost-row hide/unhide on a serial lane,
-      the one-off toggle (Ctrl+D or a typed pipe), the Hidden section and pill, the
-      amber warning in the card, preview, and success feedback, capsule states, version
-      skew, fixtures, and docs."
-  - id: obsidian-vocab
-    title: Obsidian label stage parity, JS mirrors, and api.relationLabels
-    depends_on:
-      - label-catalog
-    size: medium
-    description:
-      "obsidian-vocab: copy the shared vectors, align the JS key, rank, and display
-      spelling, add a read-only journal fold and api.relationLabels v1 with hide/unhide
-      writes through bob, and give the nav relation-label stage the card's Tab, Ctrl+D,
-      pipe, Hidden, ghost, warning, and footer behavior."
-  - id: mac-rename
-    title: Mac card rename mode
-    depends_on:
-      - mac-vocab
-      - label-rename
-    size: medium
-    description:
-      "mac-rename: Ctrl+R rename mode with a live dry-run preview, merge confirmation,
-      apply on a serial long-timeout lane, the post-rename draft fix-up from
-      bob-supplied ranges and replacements, version skew, tests, and docs."
-  - id: obsidian-rename
-    title: Obsidian rename mode and the relation labels command
-    depends_on:
-      - obsidian-vocab
-      - label-rename
-    size: medium
-    description:
-      "obsidian-rename: Ctrl+R rename mode in the relation-label stage with the bob
-      dry-run preview, dirty-editor refusal, and merge confirmation, plus the optional
-      standalone Bob: Relation labels command, tests, docs, and deploy."
-  - id: records
-    title: Decision records, docs sweep, and end-to-end acceptance
-    depends_on:
-      - mac-rename
-      - obsidian-rename
-    size: small
-    description:
-      "records: write the accepted memory changes, drop planned markers and check
-      cross-links across bob-cli, Mac, and plugin docs, and run and record the
-      end-to-end acceptance."
+- id: mac-chooser
+  title: Mac relation card as a navigate-then-accept chooser
+  depends_on: []
+  size: medium
+  description: 'mac-chooser: fix the Tab collapse by separating query from selection
+    (selection by key), add Ctrl+N/P and arrow navigation with wrap, Tab accepts or
+    completes the top match, AppKit field with focus repair, local filtering of a
+    once-fetched catalog, the redesigned vertical card, a collapsing fake-client regression
+    test, and keyboard docs. No bob change.'
+- id: label-catalog
+  title: Shared preference journal, relation label catalog, and bob relations list/hide/unhide
+  depends_on: []
+  size: medium
+  description: 'label-catalog: extract the theme journal into a namespaced shared
+    module, add the relation_labels module (one key function, fast LINKS scan, display
+    spelling, fold), the bob relations group with list/hide/unhide, the vault allowlist
+    rollout, the label-vocabulary contract section, and shared vectors.'
+- id: label-complete
+  title: capture-complete relation_label rows from the catalog
+  depends_on:
+  - label-catalog
+  size: small
+  description: 'label-complete: switch relation_label suggestions to the fast catalog,
+    add key/inverse/existing/count/hidden fields and hidden_count, omit hidden rows,
+    adopt the catalog spelling for case variants, fix the dedupe mismatch, and measure
+    the latency budget.'
+- id: rewrite-txn
+  title: Shared vault-rewrite transaction extracted from bob themes rename
+  depends_on:
+  - label-catalog
+  size: medium
+  description: 'rewrite-txn: extract lock, pre-sync, snapshot and stale check, dirty-path
+    rules, atomic write with rollback, verify, single commit, and post-sync from the
+    theme rename into one shared transaction, moving bob themes rename onto it byte-for-byte.'
+- id: double-pipe
+  title: The `||` one-off relation label capture syntax
+  depends_on:
+  - label-complete
+  size: medium
+  description: 'double-pipe: parse, rewrite glue, completion, dry-run hide fields
+    and the hides_existing_relation_label warning, the after-commit journal append,
+    shell completion, and the capture grammar docs for `~note:id||label`.'
+- id: label-rename
+  title: bob relations rename across every note, done/ included
+  depends_on:
+  - rewrite-txn
+  size: medium
+  description: 'label-rename: the strict, previewed relation label rename on the shared
+    transaction — LINKS label spans everywhere including done/ and the previous daily
+    note, LINKED FROM mirrors, case-only and merge rules, journal rename event, renamed_reappeared,
+    the recorded LR7 exception, and the runbook.'
+- id: mac-vocab
+  title: Mac card hide, one-off, Hidden section, and warnings
+  depends_on:
+  - mac-chooser
+  - double-pipe
+  size: medium
+  description: 'mac-vocab: decode the new fields, Ctrl+D ghost-row hide/unhide on
+    a serial lane, the one-off toggle (Ctrl+D or a typed pipe), the Hidden section
+    and pill, the amber warning in the card, preview, and success feedback, capsule
+    states, version skew, fixtures, and docs.'
+- id: obsidian-vocab
+  title: Obsidian label stage parity, JS mirrors, and api.relationLabels
+  depends_on:
+  - label-catalog
+  size: medium
+  description: 'obsidian-vocab: copy the shared vectors, align the JS key, rank, and
+    display spelling, add a read-only journal fold and api.relationLabels v1 with
+    hide/unhide writes through bob, and give the nav relation-label stage the card''s
+    Tab, Ctrl+D, pipe, Hidden, ghost, warning, and footer behavior.'
+- id: mac-rename
+  title: Mac card rename mode
+  depends_on:
+  - mac-vocab
+  - label-rename
+  size: medium
+  description: 'mac-rename: Ctrl+R rename mode with a live dry-run preview, merge
+    confirmation, apply on a serial long-timeout lane, the post-rename draft fix-up
+    from bob-supplied ranges and replacements, version skew, tests, and docs.'
+- id: obsidian-rename
+  title: Obsidian rename mode and the relation labels command
+  depends_on:
+  - obsidian-vocab
+  - label-rename
+  size: medium
+  description: 'obsidian-rename: Ctrl+R rename mode in the relation-label stage with
+    the bob dry-run preview, dirty-editor refusal, and merge confirmation, plus the
+    optional standalone Bob: Relation labels command, tests, docs, and deploy.'
+- id: records
+  title: Decision records, docs sweep, and end-to-end acceptance
+  depends_on:
+  - mac-rename
+  - obsidian-rename
+  size: small
+  description: 'records: write the accepted memory changes, drop planned markers and
+    check cross-links across bob-cli, Mac, and plugin docs, and run and record the
+    end-to-end acceptance.'
 proposed_by: bbugyi200.apollo.research.2e.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 13:34:42
 status: wip
+bead_id: bob-cli-bj
 ---
 
-- **PROMPT:**
-  [prompts/202610/relation_label_vocabulary.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_label_vocabulary.md)
+- **PROMPT:** [prompts/202610/relation_label_vocabulary.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_label_vocabulary.md)
+- **BEAD:** [bob-cli-bj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bj/README.md)
 
 # Plan: Relation label vocabulary
 
