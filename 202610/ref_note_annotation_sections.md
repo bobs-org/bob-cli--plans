@@ -1,115 +1,108 @@
 ---
 tier: epic
 title: Annotation sections for ref notes (`# Name` + `@name`)
-goal: "A Highlights sticky note whose first line is `# Name` declares a section, and
-  every highlight, underline, image, or sticky note tagged `@name` renders grouped under
-  it: real headings with a quiet section card in Obsidian, native section headers in the
-  Bob Mac Capture Refs panel, and grouped output in every `bob ref show` format. Notes
-  that never declare a section stay byte-identical, the grouping is re-derived from the
-  annotations on every scan (nothing new is persisted), and adding, removing, or moving
-  a tag never changes a `^h-` ID or re-creates a task.
+goal: 'A Highlights sticky note whose first line is `# Name` declares a section, and
+  every highlight, underline, image, or sticky note tagged `@name` renders grouped
+  under it: real headings with a quiet section card in Obsidian, native section headers
+  in the Bob Mac Capture Refs panel, and grouped output in every `bob ref show` format.
+  Notes that never declare a section stay byte-identical, the grouping is re-derived
+  from the annotations on every scan (nothing new is persisted), and adding, removing,
+  or moving a tag never changes a `^h-` ID or re-creates a task.
 
-  "
+  '
 decisions:
   decision_record:
-    ask:
-      When the epic lands, record the annotation-sections design as a decisions strand?
+    ask: When the epic lands, record the annotation-sections design as a decisions
+      strand?
     memory:
-      - decisions:annotation-sections-are-name-keyed-folds
+    - decisions:annotation-sections-are-name-keyed-folds
     default: false
     answer: false
   glossary_term:
     ask: When the epic lands, add an "Annotation Section" glossary term?
     memory:
-      - glossary:annotation-section
+    - glossary:annotation-section
     default: false
     answer: false
 phases:
-  - id: gates
-    title: Sidecar parser gates
-    depends_on: []
-    size: medium
-    description:
-      "gates: fix bob-cli-ba so hard-wrapped quote lines starting with `# ` stay quote
-      text, and make sidecar page-heading detection level-aware so a `# P values` sticky
-      is never a page break."
-  - id: grammar
-    title: Section grammar and pure planner
-    depends_on:
-      - gates
-    size: medium
-    description:
-      "grammar: teach the sidecar parser to keep `# Name` sticky declarations, and add
-      sections.rs with the declaration and tag scanners and a pure plan_sections over
-      displayed blocks (homes, consumed text, diagnostics). Unit tests only; no
-      rendering change."
-  - id: region
-    title: Sectioned managed-region parser
-    depends_on: []
-    size: medium
-    description:
-      "region: teach parse_managed_region to read sectioned regions (section H3 +
-      summary|section card + ^s- line, #### page captions, Other highlights) into
-      RegionParse.sections and RegionBlock.section, leaving every unsectioned region
-      parsed exactly as today."
-  - id: render
-    title: Sectioned rendering and identity
-    depends_on:
-      - grammar
-      - region
-    size: large
-    description:
-      "render: restructure render_sidecar_highlights into collect-then-assemble, emit
-      the sectioned layout with consumed tags, apply the both-sides @-insensitive
-      identity keys, route declaration #task lines to the s- block, and prove
-      byte-identical output for undeclared notes plus ID stability through tag toggles."
-  - id: show
-    title: Sections in bob ref show
-    depends_on:
-      - region
-    size: medium
-    description:
-      "show: add the additive sections list and per-annotation section key to bob ref
-      show JSON, and grouped human and Markdown output, with -c/-N semantics and
-      docs/ref.md updates."
-  - id: edges
-    title: Section stubs, diagnostics, and route hints
-    depends_on:
-      - render
-    size: medium
-    description:
-      "edges: add redirect stubs for a published declaring sticky and for a vanished but
-      linked section, the dry-run/concise/JSON section diagnostics, the missing-route
-      hint, and the tag-on-task diagnostic."
-  - id: docs
-    title: Docs, Obsidian styling, and cross-surface checks
-    depends_on:
-      - edges
-      - show
-    size: medium
-    description:
-      "docs: write the user-facing Sections guide in docs/highlights-ref-sync.md, add
-      the section-card CSS to the vault ref-highlights snippet and its doc mirror, cover
-      rename and note-snapshot behavior with tests, run the vault-wide zero-change
-      check, and apply any approved memory decisions."
-  - id: mac
-    title: Section headers in the Bob Mac Capture Refs panel
-    depends_on:
-      - show
-    size: large
-    description:
-      "mac: in bob-mac-capture, decode sections, project section headers into the
-      inspector feed without shifting entry indices, draw the header view with tokens
-      and VoiceOver, group the Copy card, and update docs and design renders."
+- id: gates
+  title: Sidecar parser gates
+  depends_on: []
+  size: medium
+  description: 'gates: fix bob-cli-ba so hard-wrapped quote lines starting with `#
+    ` stay quote text, and make sidecar page-heading detection level-aware so a `#
+    P values` sticky is never a page break.'
+- id: grammar
+  title: Section grammar and pure planner
+  depends_on:
+  - gates
+  size: medium
+  description: 'grammar: teach the sidecar parser to keep `# Name` sticky declarations,
+    and add sections.rs with the declaration and tag scanners and a pure plan_sections
+    over displayed blocks (homes, consumed text, diagnostics). Unit tests only; no
+    rendering change.'
+- id: region
+  title: Sectioned managed-region parser
+  depends_on: []
+  size: medium
+  description: 'region: teach parse_managed_region to read sectioned regions (section
+    H3 + summary|section card + ^s- line, #### page captions, Other highlights) into
+    RegionParse.sections and RegionBlock.section, leaving every unsectioned region
+    parsed exactly as today.'
+- id: render
+  title: Sectioned rendering and identity
+  depends_on:
+  - grammar
+  - region
+  size: large
+  description: 'render: restructure render_sidecar_highlights into collect-then-assemble,
+    emit the sectioned layout with consumed tags, apply the both-sides @-insensitive
+    identity keys, route declaration #task lines to the s- block, and prove byte-identical
+    output for undeclared notes plus ID stability through tag toggles.'
+- id: show
+  title: Sections in bob ref show
+  depends_on:
+  - region
+  size: medium
+  description: 'show: add the additive sections list and per-annotation section key
+    to bob ref show JSON, and grouped human and Markdown output, with -c/-N semantics
+    and docs/ref.md updates.'
+- id: edges
+  title: Section stubs, diagnostics, and route hints
+  depends_on:
+  - render
+  size: medium
+  description: 'edges: add redirect stubs for a published declaring sticky and for
+    a vanished but linked section, the dry-run/concise/JSON section diagnostics, the
+    missing-route hint, and the tag-on-task diagnostic.'
+- id: docs
+  title: Docs, Obsidian styling, and cross-surface checks
+  depends_on:
+  - edges
+  - show
+  size: medium
+  description: 'docs: write the user-facing Sections guide in docs/highlights-ref-sync.md,
+    add the section-card CSS to the vault ref-highlights snippet and its doc mirror,
+    cover rename and note-snapshot behavior with tests, run the vault-wide zero-change
+    check, and apply any approved memory decisions.'
+- id: mac
+  title: Section headers in the Bob Mac Capture Refs panel
+  depends_on:
+  - show
+  size: large
+  description: 'mac: in bob-mac-capture, decode sections, project section headers
+    into the inspector feed without shifting entry indices, draw the header view with
+    tokens and VoiceOver, group the Copy card, and update docs and design renders.'
 proposed_by: bbugyi200.apollo.research.2d.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 07:59:19
 status: wip
+bead_id: bob-cli-bd
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_note_annotation_sections.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_note_annotation_sections.md)
+- **PROMPT:** [prompts/202610/ref_note_annotation_sections.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_note_annotation_sections.md)
+- **BEAD:** [bob-cli-bd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bd/README.md)
 
 # Plan: Annotation sections for ref notes (`# Name` + `@name`)
 
