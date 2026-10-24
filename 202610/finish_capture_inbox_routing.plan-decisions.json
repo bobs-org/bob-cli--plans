@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_inbox_file",
+      "kind": "toggle",
+      "ask": "Correct the Inbox File sentence to include closing captures, as the epic already approved?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:inbox-file"
+        ]
+      },
+      "corrects": "A non-closing capture that changes an existing inbox task's status asks the same question in Bob Mac Capture's route card",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:inbox-file",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Inbox File",
+            "Capture",
+            "Project Note",
+            "Pomodoro",
+            "Task Link"
+          ]
+        }
+      ]
+    }
+  ]
+}
