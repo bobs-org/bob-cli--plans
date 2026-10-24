@@ -1,85 +1,80 @@
 ---
 tier: epic
 title: Capture asks where inbox tasks go
-goal: "Every capture that changes the status of an existing inbox task makes Bob Mac
+goal: 'Every capture that changes the status of an existing inbox task makes Bob Mac
   Capture ask which area or open project the task belongs in, and bob applies the
   capture and the move in one atomic batch.
 
-  "
+  '
 phases:
-  - id: route-detect
-    title: Detect inbox route candidates and refuse without a choice
-    depends_on: []
-    size: medium
-    description:
-      "route-detect: bob capture finds existing inbox tasks whose checkbox the batch
-      changes, reports them with route destinations in `inbox_route`, and refuses
-      write-free under hidden `--require-inbox-route-choice`."
-  - id: route-apply
-    title: Apply inbox route answers inside the capture batch
-    depends_on:
-      - route-detect
-    size: medium
-    description:
-      "route-apply: `-i/--inbox-route` answers move candidates through the task-move
-      engine inside the same capture batch, with freshness stamps, link repair,
-      refusals, followed mirrors, and docs."
-  - id: mac-route-client
-    title: Decode inbox routes and send route answers in CaptureCore
-    depends_on:
-      - route-apply
-    size: medium
-    description:
-      "mac-route-client: CaptureCore decodes `inbox_route`, sends answers and the guard
-      flag behind a per-identity capability, models the route choice state, and
-      documents the protocol."
-  - id: mac-route-card
-    title: Route card in the Bob Mac Capture panel
-    depends_on:
-      - mac-route-client
-    size: medium
-    description:
-      "mac-route-card: the panel shows the route card on Return after any pull-in card,
-      resubmits the answers, handles refusals, documents the card, and lands the memory
-      updates."
+- id: route-detect
+  title: Detect inbox route candidates and refuse without a choice
+  depends_on: []
+  size: medium
+  description: 'route-detect: bob capture finds existing inbox tasks whose checkbox
+    the batch changes, reports them with route destinations in `inbox_route`, and
+    refuses write-free under hidden `--require-inbox-route-choice`.'
+- id: route-apply
+  title: Apply inbox route answers inside the capture batch
+  depends_on:
+  - route-detect
+  size: medium
+  description: 'route-apply: `-i/--inbox-route` answers move candidates through the
+    task-move engine inside the same capture batch, with freshness stamps, link repair,
+    refusals, followed mirrors, and docs.'
+- id: mac-route-client
+  title: Decode inbox routes and send route answers in CaptureCore
+  depends_on:
+  - route-apply
+  size: medium
+  description: 'mac-route-client: CaptureCore decodes `inbox_route`, sends answers
+    and the guard flag behind a per-identity capability, models the route choice state,
+    and documents the protocol.'
+- id: mac-route-card
+  title: Route card in the Bob Mac Capture panel
+  depends_on:
+  - mac-route-client
+  size: medium
+  description: 'mac-route-card: the panel shows the route card on Return after any
+    pull-in card, resubmits the answers, handles refusals, documents the card, and
+    lands the memory updates.'
 decisions:
   route_closes:
-    ask:
-      Should completing an inbox task by capture (`!note:id`, `x!N`) also ask where it
-      goes?
+    ask: Should completing an inbox task by capture (`!note:id`, `x!N`) also ask where
+      it goes?
     choices:
-      route:
-        Completions ask too; the Done task moves home before archive, unlike Obsidian
-      skip:
-        Completions never ask, as in Obsidian; Done tasks leave the inbox via `bob task
-        archive`
+      route: Completions ask too; the Done task moves home before archive, unlike
+        Obsidian
+      skip: Completions never ask, as in Obsidian; Done tasks leave the inbox via
+        `bob task archive`
     default: route
-    why: You asked for a prompt when a capture changes an inbox task status "in any way"
+    why: You asked for a prompt when a capture changes an inbox task status "in any
+      way"
     answer: route
   route_side_effects:
-    ask: Should side-effect status changes (a Blocked inbox task unblocking) also ask?
+    ask: Should side-effect status changes (a Blocked inbox task unblocking) also
+      ask?
     choices:
       all: Every inbox task whose checkbox the capture changes asks, recoveries included
-      named:
-        Only tasks the draft names or the pull-in card picks ask; recoveries stay silent
+      named: Only tasks the draft names or the pull-in card picks ask; recoveries
+        stay silent
     default: all
     why: One before/after diff rule covers every capture path and matches "always"
     answer: all
   memory_inbox_file:
-    ask: Update the glossary Inbox File entry to say captures ask where inbox tasks go?
+    ask: Update the glossary Inbox File entry to say captures ask where inbox tasks
+      go?
     memory:
-      - glossary:inbox-file
+    - glossary:inbox-file
     default: true
-    corrects:
-      Ctrl+Shift+M also moves it, following it to the destination, and a closed task
-      leaves through `bob task archive`.
+    corrects: Ctrl+Shift+M also moves it, following it to the destination, and a closed
+      task leaves through `bob task archive`.
     answer: true
   memory_decision_record:
-    ask:
-      Add a decisions record for capture inbox routing (bob detects and moves, the Mac
-      asks)?
+    ask: Add a decisions record for capture inbox routing (bob detects and moves,
+      the Mac asks)?
     memory:
-      - decisions:capture-asks-where-inbox-tasks-go
+    - decisions:capture-asks-where-inbox-tasks-go
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.a9
@@ -87,10 +82,11 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-24 14:00:25
 status: wip
+bead_id: bob-cli-bk
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_inbox_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_inbox_routing.md)
+- **PROMPT:** [prompts/202610/capture_inbox_routing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_inbox_routing.md)
+- **BEAD:** [bob-cli-bk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bk/README.md)
 
 # Plan: Bob Mac Capture asks where an inbox task goes when a capture changes its status
 
