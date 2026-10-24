@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Follow task positions through generated BLOCKS edits
-goal: Review settlement and counted dependency edits follow their tasks through BLOCKS
+goal:
+  Review settlement and counted dependency edits follow their tasks through BLOCKS
   insertions and removals, with correct stamps and one undo per gesture.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.2
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch6_color_quote_walk_blocks_shift_promotion_race_mac_panel_ci.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.2.md)
+- **COMMITS:**
+  - [42f86c8](https://github.com/bobs-org/bob-plugins/commit/42f86c8381c4bdf21d51e1ee7d915314285749e2)
+    — fix(navigation): follow task positions through generated BLOCKS edits
 
 # Follow task positions through generated BLOCKS edits
 
