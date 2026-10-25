@@ -1,12 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Distinct colours per root parent in the working-time bars, then land epic bob-cli-c5
-goal: 'Every root parent shown in the Day strip''s working-time bar (and the stats
-  dash Root parents bar it hands off to) gets its own colour, the dead rollup stub
-  is gone, and epic bob-cli-c5 is closed with its plan marked done.
+title:
+  Distinct colours per root parent in the working-time bars, then land epic bob-cli-c5
+goal: "Every root parent shown in the Day strip's working-time bar (and the stats dash
+  Root parents bar it hands off to) gets its own colour, the dead rollup stub is gone,
+  and epic bob-cli-c5 is closed with its plan marked done.
 
-  '
+  "
 proposed_by: bbugyi200.athena.bob-cli-c5.land
 proposed_with: claude/opus
 bead: bob-cli-c5
@@ -17,6 +18,11 @@ status: done
   [202610/day_strip_above_badges_root_parents.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/day_strip_above_badges_root_parents.md)
 - **BEAD:**
   [bob-cli-c5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c5/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-c5.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-c5.land.md)
+- **COMMITS:**
+  - [a29cb13](https://github.com/bobs-org/bob-cli--plans/commit/a29cb13b3691c2114bb270e2596737298286c8dc)
+    — docs(plans): mark day strip epic done
 
 # Plan: distinct root-parent colours, then land epic `bob-cli-c5`
 
