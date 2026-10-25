@@ -1,64 +1,59 @@
 ---
 tier: epic
 title: Complete ref create force-mode parsing and rereads
-goal: "Complete bob-cli-c9.3 so an explicit reread creates a separate reading with
-  durable lineage, a new reading task, and no changes to earlier readings, across every
-  supported create route and queued intake.
+goal: 'Complete bob-cli-c9.3 so an explicit reread creates a separate reading with
+  durable lineage, a new reading task, and no changes to earlier readings, across
+  every supported create route and queued intake.
 
-  "
+  '
 phases:
-  - id: force_parser
-    title: Parse recapture modes and preserve existing force behavior
-    size: medium
-    depends_on: []
-    description:
-      "force_parser: implement the force-mode parser, option plumbing, completion, and
-      parser tests; retain filed-reference refusals until the reread writers land."
-  - id: family_planning
-    title: Resolve capture families and allocate complete reread bundles
-    size: medium
-    depends_on:
-      - force_parser
-    description:
-      "family_planning: add shared capture-family classification, whole-bundle __vN
-      allocation, and refusal metadata without enabling reread writes."
-  - id: reading_birth
-    title: Derive lineage and preserve reading identity during intake
-    size: medium
-    depends_on:
-      - family_planning
-    description:
-      "reading_birth: derive earlier at birth, preserve reading task suffixes and
-      aliases, and recheck reread occupancy under the intake locks for inline and queued
-      filing."
-  - id: single_sources
-    title: Enable rereads for single files, URLs, and note snapshots
-    size: medium
-    depends_on:
-      - reading_birth
-    description:
-      "single_sources: wire the shared reread plan into every single-source route with
-      family defaults, flag guards, audio behavior, dry runs, and zero changes to
-      earlier readings."
-  - id: collections_acceptance
-    title: Finish collection rereads and the public contract
-    size: medium
-    depends_on:
-      - single_sources
-    description:
-      "collections_acceptance: enable exact URL-set collection rereads, complete help
-      and documentation, and verify the phase-wide acceptance matrix."
+- id: force_parser
+  title: Parse recapture modes and preserve existing force behavior
+  size: medium
+  depends_on: []
+  description: 'force_parser: implement the force-mode parser, option plumbing, completion,
+    and parser tests; retain filed-reference refusals until the reread writers land.'
+- id: family_planning
+  title: Resolve capture families and allocate complete reread bundles
+  size: medium
+  depends_on:
+  - force_parser
+  description: 'family_planning: add shared capture-family classification, whole-bundle
+    __vN allocation, and refusal metadata without enabling reread writes.'
+- id: reading_birth
+  title: Derive lineage and preserve reading identity during intake
+  size: medium
+  depends_on:
+  - family_planning
+  description: 'reading_birth: derive earlier at birth, preserve reading task suffixes
+    and aliases, and recheck reread occupancy under the intake locks for inline and
+    queued filing.'
+- id: single_sources
+  title: Enable rereads for single files, URLs, and note snapshots
+  size: medium
+  depends_on:
+  - reading_birth
+  description: 'single_sources: wire the shared reread plan into every single-source
+    route with family defaults, flag guards, audio behavior, dry runs, and zero changes
+    to earlier readings.'
+- id: collections_acceptance
+  title: Finish collection rereads and the public contract
+  size: medium
+  depends_on:
+  - single_sources
+  description: 'collections_acceptance: enable exact URL-set collection rereads, complete
+    help and documentation, and verify the phase-wide acceptance matrix.'
 proposed_by: bbugyi200.athena.bob-cli-c9.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-c9.3
 create_time: 2026-10-25 15:22:56
 status: wip
+bead_id: bob-cli-c9.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_create_reread.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_reread.md)
-- **PARENT:**
-  [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **PROMPT:** [prompts/202610/ref_create_reread.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_reread.md)
+- **PARENT:** [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **BEAD:** [bob-cli-c9.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.3.1.md)
 
 # Complete bob-cli-c9.3: force-mode parsing and rereads
 
