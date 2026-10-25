@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix Highlights tab-close keys' selected-tab read
-goal: The Highlights `\\`, `\<`, `\>`, and `\u` keys close and reopen tabs on the
-  real Mac, with specs that exercise the real AX adapter.
+goal:
+  The Highlights `\\`, `\<`, `\>`, and `\u` keys close and reopen tabs on the real Mac,
+  with specs that exercise the real AX adapter.
 size: small
 proposed_by: bbugyi200.athena.146.f0
 proposed_with: claude/opus
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.146.f0](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.146.f0.md)
+- **COMMITS:**
+  - [ea37b90](https://github.com/bbugyi200/dotfiles/commit/ea37b90d9d263068cec68e96367621c4c3b50ac9)
+    — fix(hammerspoon): read boolean AXValue for Highlights tab-close keys
 
 # Plan: Fix the Highlights tab-close keys' boolean selected-tab read
 
