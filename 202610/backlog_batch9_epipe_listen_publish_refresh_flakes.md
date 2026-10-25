@@ -1,79 +1,73 @@
 ---
 tier: epic
-title:
-  "Backlog batch 9: quiet EPIPE exits, explicit listen publish manifest state, and three
-  recurring test flakes"
-goal:
-  Close five existing task beads by making bob exit quietly when its stdout reader
+title: 'Backlog batch 9: quiet EPIPE exits, explicit listen publish manifest state,
+  and three recurring test flakes'
+goal: Close five existing task beads by making bob exit quietly when its stdout reader
   closes early, marking explicitly published listen episodes in their source library,
   and removing the Mac hidden-refresh flake, the capture-related debug perf-gate flake,
-  and the migrate-tasks snapshot race. Continue the bounded backlog campaign until all
-  project task beads are resolved.
+  and the migrate-tasks snapshot race. Continue the bounded backlog campaign until
+  all project task beads are resolved.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5
 decisions:
   epipe_status:
-    ask:
-      Should bob exit with status 0 when the reader of its stdout closes the pipe early?
+    ask: Should bob exit with status 0 when the reader of its stdout closes the pipe
+      early?
     choices:
-      zero:
-        Exit 0 quietly, like ripgrep; pipefail pipelines such as bob stats | head stay
-        green
-      sigpipe: Exit 141 quietly, like a SIGPIPE kill; pipefail pipelines report the cut
+      zero: Exit 0 quietly, like ripgrep; pipefail pipelines such as bob stats | head
+        stay green
+      sigpipe: Exit 141 quietly, like a SIGPIPE kill; pipefail pipelines report the
+        cut
     default: zero
-    why: a reader that stops early got what it asked for, and common Rust CLIs exit 0
+    why: a reader that stops early got what it asked for, and common Rust CLIs exit
+      0
     answer: zero
 phases:
-  - id: epipe-clean-exit
-    title: Exit quietly instead of panicking when bob's stdout reader closes early
-    size: small
-    depends_on: []
-    description:
-      "epipe-clean-exit: resolve bob-cli-bl so a closed stdout or stderr pipe ends bob
-      quietly at the run_bob boundary without changing SIGPIPE handling, with a
-      large-output CLI regression test."
-  - id: listen-explicit-publish
-    title: Mark the source manifest published after an explicit sase-listen publish
-    size: small
-    depends_on: []
-    description:
-      "listen-explicit-publish: resolve bob-cli-c1 in sase-listen so an explicit publish
-      in either feed role marks the originating library manifest published, with
-      success, failure, and mark-failure tests."
-  - id: mac-hidden-refresh-flake
-    title: Find and fix the stray ref show in the Mac hidden-library refresh test
-    size: medium
-    depends_on: []
-    description:
-      "mac-hidden-refresh-flake: resolve bob-cli-c0 by finding which code path spawns
-      ref show during testHiddenLibraryRefreshDoesNotHydrateInspector and fixing the
-      model or test ordering without weakening the assertion."
-  - id: related-perf-gate
-    title: Make the capture-related debug perf gate tolerate parallel test load
-    size: small
-    depends_on: []
-    description:
-      "related-perf-gate: resolve bob-cli-bo by replacing the single cold 500 ms
-      wall-clock sample with a load-tolerant measurement that still fails a real
-      slowdown."
-  - id: migrate-snapshot-prune
-    title: Stop the ref_library work-tree snapshots from reading transient .git files
-    size: small
-    depends_on: []
-    description:
-      "migrate-snapshot-prune: resolve bob-cli-c2 by pruning .git during traversal in
-      the ref_library work-tree snapshot helpers so a vanishing git file cannot panic
-      the walk."
+- id: epipe-clean-exit
+  title: Exit quietly instead of panicking when bob's stdout reader closes early
+  size: small
+  depends_on: []
+  description: 'epipe-clean-exit: resolve bob-cli-bl so a closed stdout or stderr
+    pipe ends bob quietly at the run_bob boundary without changing SIGPIPE handling,
+    with a large-output CLI regression test.'
+- id: listen-explicit-publish
+  title: Mark the source manifest published after an explicit sase-listen publish
+  size: small
+  depends_on: []
+  description: 'listen-explicit-publish: resolve bob-cli-c1 in sase-listen so an explicit
+    publish in either feed role marks the originating library manifest published,
+    with success, failure, and mark-failure tests.'
+- id: mac-hidden-refresh-flake
+  title: Find and fix the stray ref show in the Mac hidden-library refresh test
+  size: medium
+  depends_on: []
+  description: 'mac-hidden-refresh-flake: resolve bob-cli-c0 by finding which code
+    path spawns ref show during testHiddenLibraryRefreshDoesNotHydrateInspector and
+    fixing the model or test ordering without weakening the assertion.'
+- id: related-perf-gate
+  title: Make the capture-related debug perf gate tolerate parallel test load
+  size: small
+  depends_on: []
+  description: 'related-perf-gate: resolve bob-cli-bo by replacing the single cold
+    500 ms wall-clock sample with a load-tolerant measurement that still fails a real
+    slowdown.'
+- id: migrate-snapshot-prune
+  title: Stop the ref_library work-tree snapshots from reading transient .git files
+  size: small
+  depends_on: []
+  description: 'migrate-snapshot-prune: resolve bob-cli-c2 by pruning .git during
+    traversal in the ref_library work-tree snapshot helpers so a vanishing git file
+    cannot panic the walk.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-25 08:44:08
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md)
-- **PARENT:**
-  [202610/backlog_batch8_listen_manifest_mac_ci_flakes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md)
+- **PROMPT:** [prompts/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md)
+- **PARENT:** [202610/backlog_batch8_listen_manifest_mac_ci_flakes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.md)
 
 # Backlog batch 9: quiet EPIPE exits, explicit listen publish manifest state, and three recurring test flakes
 
