@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish backlog batch 9: keep unrelated panic messages under the EPIPE guard, keep
-  usage-error exit codes, then close the epic and propose batch 10"
-goal:
-  Repair the two defects batch 9's EPIPE phase introduced in src/runner.rs, close
+title: 'Finish backlog batch 9: keep unrelated panic messages under the EPIPE guard,
+  keep usage-error exit codes, then close the epic and propose batch 10'
+goal: Repair the two defects batch 9's EPIPE phase introduced in src/runner.rs, close
   bob-cli-bl and epic bob-cli-an.6.6.6.5.6.5.5.6, mark its plan done, and submit the
   mandatory successor backlog epic.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.land
 proposed_with: claude/opus
 bead: bob-cli-an.6.6.6.5.6.5.5.6
-create_time: 2026-10-25 09:34:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
