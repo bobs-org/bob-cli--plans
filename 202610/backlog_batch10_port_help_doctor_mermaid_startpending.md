@@ -1,63 +1,55 @@
 ---
 tier: epic
-title:
-  "Backlog batch 10: port-dedupe ports, capture help, ref doctor, Mermaid pdftotext, and
-  StartPending recheck"
-goal:
-  Close five backlog tasks by keeping explicit non-default ports in URL identity,
+title: 'Backlog batch 10: port-dedupe ports, capture help, ref doctor, Mermaid pdftotext,
+  and StartPending recheck'
+goal: Close five backlog tasks by keeping explicit non-default ports in URL identity,
   correcting capture help, deciding ref doctor scope, making Mermaid PDF tests pass
-  without pdftotext, and rechecking the StartPending flake for closeable
-  non-reproduction.
+  without pdftotext, and rechecking the StartPending flake for closeable non-reproduction.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6
 phases:
-  - id: port-dedupe-ports
-    title: Keep explicit non-default ports in URL dedupe keys and display URLs
-    size: small
-    depends_on: []
-    description:
-      "port-dedupe-ports: resolve bob-cli-c3 by keeping url.port() in dedupe_key_for and
-      display_url with unit tests for non-default, spelled-out default, and absent
-      ports."
-  - id: capture-help-accuracy
-    title: Correct capture TEXT help to match the unknown-flag guard
-    size: xsmall
-    depends_on: []
-    description:
-      "capture-help-accuracy: resolve bob-cli-c4 by wording TEXT help to say only the
-      flag where TEXT begins is rejected, with docs-check green."
-  - id: ref-doctor-identity
-    title: Decide and implement bob ref doctor for id and duplicate checks
-    size: medium
-    depends_on: []
-    description:
-      "ref-doctor-identity: resolve bob-cli-b8 by making a local implement or decline
-      decision first, then flagging id/stem mismatches and duplicate ids with live-vault
-      repair or closing as canceled with the decision recorded."
-  - id: mermaid-pdf-pdftotext
-    title: Make Mermaid PDF tests pass when pdftotext is absent
-    size: small
-    depends_on: []
-    description:
-      "mermaid-pdf-pdftotext: resolve bob-cli-9i by handling the missing pdftotext path
-      in the diagram PDF tests so clean trees pass without the binary."
-  - id: mac-startpending-recheck
-    title: Recheck the Mac StartPending preview flake for closeable non-reproduction
-    size: small
-    depends_on: []
-    description:
-      "mac-startpending-recheck: resolve bob-cli-4k by rechecking macOS CI history
-      including 461f46c fourth pass and closing as done with evidence if
-      non-reproducing, otherwise corroborating the flake."
+- id: port-dedupe-ports
+  title: Keep explicit non-default ports in URL dedupe keys and display URLs
+  size: small
+  depends_on: []
+  description: 'port-dedupe-ports: resolve bob-cli-c3 by keeping url.port() in dedupe_key_for
+    and display_url with unit tests for non-default, spelled-out default, and absent
+    ports.'
+- id: capture-help-accuracy
+  title: Correct capture TEXT help to match the unknown-flag guard
+  size: xsmall
+  depends_on: []
+  description: 'capture-help-accuracy: resolve bob-cli-c4 by wording TEXT help to
+    say only the flag where TEXT begins is rejected, with docs-check green.'
+- id: ref-doctor-identity
+  title: Decide and implement bob ref doctor for id and duplicate checks
+  size: medium
+  depends_on: []
+  description: 'ref-doctor-identity: resolve bob-cli-b8 by making a local implement
+    or decline decision first, then flagging id/stem mismatches and duplicate ids
+    with live-vault repair or closing as canceled with the decision recorded.'
+- id: mermaid-pdf-pdftotext
+  title: Make Mermaid PDF tests pass when pdftotext is absent
+  size: small
+  depends_on: []
+  description: 'mermaid-pdf-pdftotext: resolve bob-cli-9i by handling the missing
+    pdftotext path in the diagram PDF tests so clean trees pass without the binary.'
+- id: mac-startpending-recheck
+  title: Recheck the Mac StartPending preview flake for closeable non-reproduction
+  size: small
+  depends_on: []
+  description: 'mac-startpending-recheck: resolve bob-cli-4k by rechecking macOS CI
+    history including 461f46c fourth pass and closing as done with evidence if non-reproducing,
+    otherwise corroborating the flake.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.land
 proposed_with: muse/muse-spark-1.3-contributor
 create_time: 2026-10-25 10:04:05
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md)
-- **PARENT:**
-  [202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md)
+- **PROMPT:** [prompts/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md)
+- **PARENT:** [202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.md)
 
 # Backlog batch 10: port-dedupe ports, capture help, ref doctor, Mermaid pdftotext, and StartPending recheck
 
