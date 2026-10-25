@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ctrl_tab_round_trip",
+      "kind": "choice",
+      "ask": "Should a Ctrl+Tab round trip out of a Highlights-key session come back to that session's Tabs view?",
+      "why": "Leaving Refs never saves a Highlights-key session; Ctrl+Tab restores what the hotkeys restore",
+      "choices": [
+        {
+          "key": "discard",
+          "label": "Ctrl+Tab away ends the session; switching back shows the view from before the Highlights key"
+        },
+        {
+          "key": "keep",
+          "label": "Ctrl+Tab back returns to the session's Tabs view; only hiding Refs ends the session"
+        }
+      ],
+      "default": "discard",
+      "effective_default": "discard",
+      "requested_verified": false
+    },
+    {
+      "id": "focused_preselect_scope",
+      "kind": "choice",
+      "ask": "Should every Tabs entry, not only the Highlights key, preselect the focused PDF?",
+      "why": "The request names the Highlights keymap; the in-panel switcher rule is documented behavior",
+      "choices": [
+        {
+          "key": "takeover_only",
+          "label": "Only the Highlights-key show selects it; in-panel Command-T keeps the previous-tab preselection"
+        },
+        {
+          "key": "everywhere",
+          "label": "Every Tabs preselection selects the focused PDF; the previous-tab rule is removed"
+        }
+      ],
+      "default": "takeover_only",
+      "effective_default": "takeover_only",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should we add a decisions record that a Highlights-key Tabs session is ephemeral and opens on the focused page?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Star Blocks Existing Tasks",
+            "Decay Decisions Are Available Immediately",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Note Ready Cap Counts The Lane",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
