@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Day strip visibility and rollover, integrate docs, and land bob-cli-bz
-goal:
-  The redesigned Day strip honors its lifecycle contract, the integration branch
+goal: The redesigned Day strip honors its lifecycle contract, the integration branch
   documents it, and bob-cli-bz is verified and closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-bz.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-bz
-create_time: 2026-10-25 09:03:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
