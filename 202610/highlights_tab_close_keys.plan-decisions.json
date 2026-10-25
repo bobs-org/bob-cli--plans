@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scope",
+      "kind": "choice",
+      "ask": "Should `\\\\` also close the tabs in Highlights' other windows?",
+      "why": "matches macOS's own Close Other Tabs, and `\\<` / `\\>` can only mean one tab bar",
+      "choices": [
+        {
+          "key": "window",
+          "label": "Close only the focused window's other tabs; other Highlights windows stay open"
+        },
+        {
+          "key": "app",
+          "label": "Also close every tab in Highlights' other windows, leaving only the current tab open"
+        }
+      ],
+      "default": "window",
+      "effective_default": "window",
+      "requested_verified": false
+    },
+    {
+      "id": "reopen",
+      "kind": "choice",
+      "ask": "Should a fourth key, `\\u`, reopen the last batch these keys closed?",
+      "why": "keeps to the three requested keys, and Open Recent already recovers a mistaken close",
+      "choices": [
+        {
+          "key": "none",
+          "label": "Ship only the three requested keys; recover a mistaken close with Highlights' File \u203a Open Recent"
+        },
+        {
+          "key": "backslash_u",
+          "label": "Add `\\u` to reopen the last closed batch's PDFs (in memory only; a reload forgets it)"
+        }
+      ],
+      "default": "none",
+      "effective_default": "none",
+      "requested_verified": false
+    }
+  ]
+}
