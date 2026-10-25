@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Constrain relation cache pruning and finish bob-cli-bj.12 landing
-goal: Preserve unrelated and future-version cache files, verify the repair, close
+goal:
+  Preserve unrelated and future-version cache files, verify the repair, close
   bob-cli-bj.12, and recheck parent readiness.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-bj.12.land
@@ -14,6 +15,11 @@ status: done
   [202610/relation_label_vocabulary_landing_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_label_vocabulary_landing_repairs.md)
 - **BEAD:**
   [bob-cli-bj.12](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bj/bob-cli-bj.12.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-bj.12.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-bj.12.land.md)
+- **COMMITS:**
+  - [303d8d2](https://github.com/bobs-org/bob-cli/commit/303d8d248aae658feff47d7be9415b0e26c2929a)
+    — fix(relations): constrain catalog sweep to owned files and older versions
 
 # Constrain relation cache pruning and finish bob-cli-bj.12 landing
 
