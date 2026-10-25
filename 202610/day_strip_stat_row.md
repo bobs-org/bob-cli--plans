@@ -1,30 +1,25 @@
 ---
 tier: tale
 title: Day strip stat row with stacked stats where the values lead
-goal:
-  The Day strip's facts line becomes a polished row of stacked stats whose large tabular
-  values clearly dominate their labels, with identical data, links, and accessibility.
+goal: The Day strip's facts line becomes a polished row of stacked stats whose large
+  tabular values clearly dominate their labels, with identical data, links, and accessibility.
 size: medium
 decisions:
   stale_values:
     ask: Should a stale cached frame (refresh failed) show its values in muted text?
     choices:
-      muted:
-        Values switch to muted text while `refresh failed` shows, so cached numbers
+      muted: Values switch to muted text while `refresh failed` shows, so cached numbers
         never look live
-      full:
-        Values stay full strength; only the faint meta text at the far right says
+      full: Values stay full strength; only the faint meta text at the far right says
         `refresh failed`
     default: muted
-    why:
-      The faint far-right meta is easy to miss; dimming puts the signal on the numbers
-      themselves
+    why: The faint far-right meta is easy to miss; dimming puts the signal on the
+      numbers themselves
     answer: muted
 proposed_by: bbugyi200.athena.145.w6
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-25 13:08:20
-status: wip
+status: done
 ---
 
 # Day strip stat row: stacked stats where the values lead
