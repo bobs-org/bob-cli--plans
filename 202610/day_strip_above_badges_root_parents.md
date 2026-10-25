@@ -1,122 +1,113 @@
 ---
 tier: epic
 title: Day strip above the badges, with working time grouped by root parent
-goal: "On every canonical daily note the Day strip sits above the bob-plan badges, and
-  its full-width working-time bar, grouped by root parent (top-level project, or the
-  area a task lives in), separates it from them. The stats dash defaults to the same
-  root-parent grouping, with sub-project detail one click away. The rollup frontmatter
-  key and the `## Pomodoros` heading total are retired. Four new glossary strands name
-  the concepts.
+goal: 'On every canonical daily note the Day strip sits above the bob-plan badges,
+  and its full-width working-time bar, grouped by root parent (top-level project,
+  or the area a task lives in), separates it from them. The stats dash defaults to
+  the same root-parent grouping, with sub-project detail one click away. The rollup
+  frontmatter key and the `## Pomodoros` heading total are retired. Four new glossary
+  strands name the concepts.
 
-  "
+  '
 decisions:
   heading_cleanup:
     ask: Which daily notes should lose the `## Pomodoros` heading total?
     choices:
       template: Only the daily template; every existing note keeps its total
-      strip_notes:
-        Template plus the ~27 notes with a bob-plan block, where the Day strip repeats
-        it
-      all_notes:
-        Template plus all ~146 notes with it; notes before 2026-09-29 then show no total
+      strip_notes: Template plus the ~27 notes with a bob-plan block, where the Day
+        strip repeats it
+      all_notes: Template plus all ~146 notes with it; notes before 2026-09-29 then
+        show no total
     default: strip_notes
     why: Removes the total exactly where the Day strip already shows it
     answer: strip_notes
   glossary_top_project:
     ask: Add the glossary strand for "top-level project" (alias "top project")?
     memory:
-      - glossary:top-level-project
-    requested:
-      'We should add new glossary memory web strands for: "top-level project" (aka "top
-      project"), "root parent", "day strip", "stats dash" (an easy way to refer to the
-      ~/bob/dash_stats.md file)'
+    - glossary:top-level-project
+    requested: 'We should add new glossary memory web strands for: "top-level project"
+      (aka "top project"), "root parent", "day strip", "stats dash" (an easy way to
+      refer to the ~/bob/dash_stats.md file)'
     default: true
     answer: true
   glossary_root_parent:
     ask: Add the glossary strand for "root parent"?
     memory:
-      - glossary:root-parent
-    requested:
-      'We should add new glossary memory web strands for: "top-level project" (aka "top
-      project"), "root parent", "day strip", "stats dash" (an easy way to refer to the
-      ~/bob/dash_stats.md file)'
+    - glossary:root-parent
+    requested: 'We should add new glossary memory web strands for: "top-level project"
+      (aka "top project"), "root parent", "day strip", "stats dash" (an easy way to
+      refer to the ~/bob/dash_stats.md file)'
     default: true
     answer: true
   glossary_day_strip:
     ask: Add the glossary strand for "day strip"?
     memory:
-      - glossary:day-strip
-    requested:
-      'We should add new glossary memory web strands for: "top-level project" (aka "top
-      project"), "root parent", "day strip", "stats dash" (an easy way to refer to the
-      ~/bob/dash_stats.md file)'
+    - glossary:day-strip
+    requested: 'We should add new glossary memory web strands for: "top-level project"
+      (aka "top project"), "root parent", "day strip", "stats dash" (an easy way to
+      refer to the ~/bob/dash_stats.md file)'
     default: true
     answer: true
   glossary_stats_dash:
     ask: Add the glossary strand for "stats dash"?
     memory:
-      - glossary:stats-dash
-    requested:
-      'We should add new glossary memory web strands for: "top-level project" (aka "top
-      project"), "root parent", "day strip", "stats dash" (an easy way to refer to the
-      ~/bob/dash_stats.md file)'
+    - glossary:stats-dash
+    requested: 'We should add new glossary memory web strands for: "top-level project"
+      (aka "top project"), "root parent", "day strip", "stats dash" (an easy way to
+      refer to the ~/bob/dash_stats.md file)'
     default: true
     answer: true
 phases:
-  - id: retire-rollup
-    title: Retire rollup frontmatter in bob-cli
-    depends_on: []
-    size: medium
-    description:
-      "retire-rollup: delete rollup parsing, selection, lints, catalog counts, and the
-      projects-list marker from bob-cli; rename the pre-rollup chain to the residence
-      chain; update vectors, H-vectors, and docs."
-  - id: root-dimension
-    title: The root_parent dimension in bob stats
-    depends_on:
-      - retire-rollup
-    size: medium
-    description:
-      "root-dimension: derive each home's root parent in the resolver and report an
-      additive root_parent parts dimension and catalog field for Pomodoro and task
-      metrics, with human output, tests, docs, and a performance check."
-  - id: strip-above
-    title: Day strip above the badges with a full-width root-parent bar
-    depends_on: []
-    size: medium
-    description:
-      "strip-above: host the strip as the bob-plan block's first child, add the
-      full-width bar row under a legend and meta row, prefer root_parent parts with an
-      area fallback, and extend the preview harness and tests."
-  - id: stats-roots
-    title: Stats dash Root parents view and plugin rollup removal
-    depends_on:
-      - root-dimension
-      - strip-above
-    size: medium
-    description:
-      "stats-roots: replace Areas & projects with a Root parents view grouped by area
-      with sub-project disclosure, route the strip's hand-off to it, drop rollup from
-      the JS home mirror, and refresh fixtures and previews."
-  - id: closeout
-    title: Contract docs, heading total cleanup, glossary strands
-    depends_on:
-      - stats-roots
-    size: small
-    description:
-      "closeout: rewrite the Day strip and Stats block contract in docs/stats.md, remove
-      the heading total per the decision, add the four glossary strands, and settle
-      memory beads bob-cli-bt and bob-cli-bs."
+- id: retire-rollup
+  title: Retire rollup frontmatter in bob-cli
+  depends_on: []
+  size: medium
+  description: 'retire-rollup: delete rollup parsing, selection, lints, catalog counts,
+    and the projects-list marker from bob-cli; rename the pre-rollup chain to the
+    residence chain; update vectors, H-vectors, and docs.'
+- id: root-dimension
+  title: The root_parent dimension in bob stats
+  depends_on:
+  - retire-rollup
+  size: medium
+  description: 'root-dimension: derive each home''s root parent in the resolver and
+    report an additive root_parent parts dimension and catalog field for Pomodoro
+    and task metrics, with human output, tests, docs, and a performance check.'
+- id: strip-above
+  title: Day strip above the badges with a full-width root-parent bar
+  depends_on: []
+  size: medium
+  description: 'strip-above: host the strip as the bob-plan block''s first child,
+    add the full-width bar row under a legend and meta row, prefer root_parent parts
+    with an area fallback, and extend the preview harness and tests.'
+- id: stats-roots
+  title: Stats dash Root parents view and plugin rollup removal
+  depends_on:
+  - root-dimension
+  - strip-above
+  size: medium
+  description: 'stats-roots: replace Areas & projects with a Root parents view grouped
+    by area with sub-project disclosure, route the strip''s hand-off to it, drop rollup
+    from the JS home mirror, and refresh fixtures and previews.'
+- id: closeout
+  title: Contract docs, heading total cleanup, glossary strands
+  depends_on:
+  - stats-roots
+  size: small
+  description: 'closeout: rewrite the Day strip and Stats block contract in docs/stats.md,
+    remove the heading total per the decision, add the four glossary strands, and
+    settle memory beads bob-cli-bt and bob-cli-bs.'
 proposed_by: bbugyi200.athena.145
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-25 10:27:21
 status: wip
+bead_id: bob-cli-c5
 ---
 
-- **PROMPT:**
-  [prompts/202610/day_strip_above_badges_root_parents.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_above_badges_root_parents.md)
+- **PROMPT:** [prompts/202610/day_strip_above_badges_root_parents.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_above_badges_root_parents.md)
+- **BEAD:** [bob-cli-c5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c5/README.md)
 
 # Plan: The Day strip moves above the badges, and working time groups by root parent
 
