@@ -1,56 +1,49 @@
 ---
 tier: epic
-title:
-  Relation label vocabulary landing repairs — green Mac build and tests, bounded catalog
-  cache
-goal:
-  Finish the remaining work that epic bob-cli-bj caused. The bob-mac-capture app target
-  builds again. Every relation-card XCTest compiles and passes on macOS CI. The
-  relation-label catalog cache stops growing by one file per vault.
+title: Relation label vocabulary landing repairs — green Mac build and tests, bounded
+  catalog cache
+goal: Finish the remaining work that epic bob-cli-bj caused. The bob-mac-capture app
+  target builds again. Every relation-card XCTest compiles and passes on macOS CI.
+  The relation-label catalog cache stops growing by one file per vault.
 parent_bead: bob-cli-bj
 phases:
-  - id: relation-cache-bound
-    title: Bound the relation-label catalog cache and isolate its tests
-    depends_on: []
-    size: small
-    description:
-      "relation-cache-bound: prune relation catalog cache files whose vault no longer
-      exists, plus stale-version and stale temp files, the way bc.land bounded the theme
-      cache in 09b26957. Isolate XDG_CACHE_HOME in every lib test that loads the
-      relation catalog, so `cargo test` stops writing into the real
-      ~/.cache/bob-cli/relations."
-  - id: mac-relation-repair
-    title: Repair the relation-card Mac build and failing relation XCTests
-    depends_on: []
-    size: medium
-    description:
-      "mac-relation-repair: fix the five bj.9 compile errors in CapturePanelModel.swift
-      that break the macOS Build step. Review bj.9's never-compiled XCTest additions for
-      compile errors. Fix testRelationCardFiltersAndRanksCatalogLocally and the two
-      CaptureSeparatorToggleTests Shift+Return timeouts. Compile on the mac when it is
-      reachable."
-  - id: mac-ci-confirm
-    title:
-      Confirm macOS CI on the repair commit and fix any remaining epic-caused failures
-    depends_on:
-      - mac-relation-repair
-    size: small
-    description:
-      "mac-ci-confirm: wait for the bob-mac-capture macOS CI run on the master SHA that
-      contains the mac-relation-repair commit. Confirm that Lint, Build, and test
-      compilation pass and that every relation-card test passes. Repair any remaining
-      failure that epic bob-cli-bj caused. Record the run evidence and which failures
-      belong to other beads."
+- id: relation-cache-bound
+  title: Bound the relation-label catalog cache and isolate its tests
+  depends_on: []
+  size: small
+  description: 'relation-cache-bound: prune relation catalog cache files whose vault
+    no longer exists, plus stale-version and stale temp files, the way bc.land bounded
+    the theme cache in 09b26957. Isolate XDG_CACHE_HOME in every lib test that loads
+    the relation catalog, so `cargo test` stops writing into the real ~/.cache/bob-cli/relations.'
+- id: mac-relation-repair
+  title: Repair the relation-card Mac build and failing relation XCTests
+  depends_on: []
+  size: medium
+  description: 'mac-relation-repair: fix the five bj.9 compile errors in CapturePanelModel.swift
+    that break the macOS Build step. Review bj.9''s never-compiled XCTest additions
+    for compile errors. Fix testRelationCardFiltersAndRanksCatalogLocally and the
+    two CaptureSeparatorToggleTests Shift+Return timeouts. Compile on the mac when
+    it is reachable.'
+- id: mac-ci-confirm
+  title: Confirm macOS CI on the repair commit and fix any remaining epic-caused failures
+  depends_on:
+  - mac-relation-repair
+  size: small
+  description: 'mac-ci-confirm: wait for the bob-mac-capture macOS CI run on the master
+    SHA that contains the mac-relation-repair commit. Confirm that Lint, Build, and
+    test compilation pass and that every relation-card test passes. Repair any remaining
+    failure that epic bob-cli-bj caused. Record the run evidence and which failures
+    belong to other beads.'
 proposed_by: bbugyi200.apollo.bob-cli-bj.land
 proposed_with: claude/opus
 create_time: 2026-10-24 20:05:45
 status: wip
+bead_id: bob-cli-bj.12
 ---
 
-- **PROMPT:**
-  [prompts/202610/relation_label_vocabulary_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_label_vocabulary_landing_repairs.md)
-- **PARENT:**
-  [202610/relation_label_vocabulary.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_label_vocabulary.md)
+- **PROMPT:** [prompts/202610/relation_label_vocabulary_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_label_vocabulary_landing_repairs.md)
+- **PARENT:** [202610/relation_label_vocabulary.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_label_vocabulary.md)
+- **BEAD:** [bob-cli-bj.12](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bj/bob-cli-bj.12.md)
 
 # Plan: Relation label vocabulary landing repairs
 
