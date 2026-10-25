@@ -1,18 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  Distinct colours per root parent in the working-time bars, then land epic bob-cli-c5
-goal: "Every root parent shown in the Day strip's working-time bar (and the stats dash
-  Root parents bar it hands off to) gets its own colour, the dead rollup stub is gone,
-  and epic bob-cli-c5 is closed with its plan marked done.
+title: Distinct colours per root parent in the working-time bars, then land epic bob-cli-c5
+goal: 'Every root parent shown in the Day strip''s working-time bar (and the stats
+  dash Root parents bar it hands off to) gets its own colour, the dead rollup stub
+  is gone, and epic bob-cli-c5 is closed with its plan marked done.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-c5.land
 proposed_with: claude/opus
 bead: bob-cli-c5
-create_time: 2026-10-25 12:34:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
