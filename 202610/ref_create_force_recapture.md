@@ -1,129 +1,116 @@
 ---
 tier: epic
-title:
-  "bob ref create -f|--force[=reread|overwrite]: recapture a source you already have"
-goal: "A source that is already a reference can be captured again on purpose. Bare -f
-  adds a new <root>__vN reading linked to the earlier ones. -f overwrite recaptures a
-  reference in place and keeps its path, id, and reading task. Before that, anything you
-  made in the old note is frozen into ref_history/. Without -f, a duplicate is refused
-  before any fetch, with one clear message that names the existing copies and the exact
-  fix.
+title: 'bob ref create -f|--force[=reread|overwrite]: recapture a source you already
+  have'
+goal: 'A source that is already a reference can be captured again on purpose. Bare
+  -f adds a new <root>__vN reading linked to the earlier ones. -f overwrite recaptures
+  a reference in place and keeps its path, id, and reading task. Before that, anything
+  you made in the old note is frozen into ref_history/. Without -f, a duplicate is
+  refused before any fetch, with one clear message that names the existing copies
+  and the exact fix.
 
-  "
+  '
 decisions:
   legacy_force:
-    ask:
-      Should -f on a legacy note without a PDF start a reading family (a __v2 linked by
-      earlier:)?
+    ask: Should -f on a legacy note without a PDF start a reading family (a __v2 linked
+      by earlier:)?
     default: false
     why: -f only changes what create would refuse, and legacy-only matches never refuse
     answer: false
   keep_created:
-    ask:
-      Should overwrite keep the note's created date and record the new material as
-      recaptured?
+    ask: Should overwrite keep the note's created date and record the new material
+      as recaptured?
     default: true
-    why:
-      Overwrite keeps the reference's identity; created dates the reference, not the
-      material
+    why: Overwrite keeps the reference's identity; created dates the reference, not
+      the material
     answer: true
   memory_decision_record:
-    ask:
-      Add a decisions record for recapture (reread adds __vN; overwrite keeps identity,
+    ask: Add a decisions record for recapture (reread adds __vN; overwrite keeps identity,
       freezes to ref_history/)?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_ref_task:
-    ask:
-      Correct the Reference Task glossary strand to describe the ^ref-<slug> reading
+    ask: Correct the Reference Task glossary strand to describe the ^ref-<slug> reading
       task in the parent note?
     memory:
-      - glossary:reference-task
+    - glossary:reference-task
     default: true
-    corrects:
-      exact trailing block ID `^ref`, that tracks progress through the external
+    corrects: exact trailing block ID `^ref`, that tracks progress through the external
       material.
     answer: true
 phases:
-  - id: family
-    title: Reading families in the library read model
-    depends_on: []
-    size: medium
-    description:
-      "family: teach ref_library the note-local earlier: list, reading numbers, and
-      families. Doctor stops flagging families as duplicate_identity, find/show/resolve
-      rank the newest reading first, list/show render vN chips and earlier/later rows,
-      and JSON grows additively; uses hand-written fixtures only."
-  - id: refusal
-    title: One already-captured refusal, before parent resolution
-    depends_on: []
-    size: medium
-    description:
-      "refusal: route every duplicate site (URL dedupe, same-reference stem walk,
-      library PDF as TARGET, collections) through one renderer that lists every copy and
-      prints several hint rows. Duplicate detection runs before the missing -P error. -f
-      semantics are unchanged."
-  - id: reread
-    title: The --force[=MODE] parser and bare -f reread
-    depends_on:
-      - family
-      - refusal
-    size: large
-    description:
-      "reread: turn -f into --force[=MODE], with adjacent-mode adoption and a stray-mode
-      guard, and replace the bool with Option<ForceMode>. Ship reread end to end: the
-      <root>__vN allocator, earlier: written at birth (inline and queued), the -vN
-      block-id suffix, the 'Title (vN)' alias, -P/-t defaults from the family, hints,
-      refusals, the reread: output line, collections with an exact URL set, docs.
-      overwrite parses but refuses until the next phase."
-  - id: overwrite
-    title: In-place overwrite of unannotated references
-    depends_on:
-      - reread
-    size: large
-    description:
-      "overwrite: -f overwrite on any host, for references with no PDF annotations.
-      Includes rename-style preconditions, -N member selection, a render-first locked
-      transaction with a host-local intent marker and HEAD rollback, sidecar removal,
-      and a frozen inert note in ref_history/ when there is authored prose. Also
-      earlier: carry-forward, recaptured:, success output, the overwrite refusal hints,
-      and docs."
-  - id: annotated
-    title: Annotated overwrite on the Mac
-    depends_on:
-      - overwrite
-    size: large
-    description:
-      "annotated: overwrite references that carry highlights, image selections, or
-      .assets/, on macOS only and only under highlights.coordinate_pdf_writes. Rename
-      the annotated PDF and the assets into ref_history/, move inbound #^h- links to the
-      frozen note, add the scan write-back guard, extend the acceptance runbook, and
-      refuse with a hint on other hosts."
-  - id: record
-    title: Decision record, glossary correction, and final docs pass
-    depends_on:
-      - annotated
-    size: small
-    description:
-      "record: write the accepted recapture decision record and correct the Reference
-      Task glossary strand, then republish memory. Run the final cross-page docs
-      consistency pass and docs-check, and record proposed follow-ups."
+- id: family
+  title: Reading families in the library read model
+  depends_on: []
+  size: medium
+  description: 'family: teach ref_library the note-local earlier: list, reading numbers,
+    and families. Doctor stops flagging families as duplicate_identity, find/show/resolve
+    rank the newest reading first, list/show render vN chips and earlier/later rows,
+    and JSON grows additively; uses hand-written fixtures only.'
+- id: refusal
+  title: One already-captured refusal, before parent resolution
+  depends_on: []
+  size: medium
+  description: 'refusal: route every duplicate site (URL dedupe, same-reference stem
+    walk, library PDF as TARGET, collections) through one renderer that lists every
+    copy and prints several hint rows. Duplicate detection runs before the missing
+    -P error. -f semantics are unchanged.'
+- id: reread
+  title: The --force[=MODE] parser and bare -f reread
+  depends_on:
+  - family
+  - refusal
+  size: large
+  description: 'reread: turn -f into --force[=MODE], with adjacent-mode adoption and
+    a stray-mode guard, and replace the bool with Option<ForceMode>. Ship reread end
+    to end: the <root>__vN allocator, earlier: written at birth (inline and queued),
+    the -vN block-id suffix, the ''Title (vN)'' alias, -P/-t defaults from the family,
+    hints, refusals, the reread: output line, collections with an exact URL set, docs.
+    overwrite parses but refuses until the next phase.'
+- id: overwrite
+  title: In-place overwrite of unannotated references
+  depends_on:
+  - reread
+  size: large
+  description: 'overwrite: -f overwrite on any host, for references with no PDF annotations.
+    Includes rename-style preconditions, -N member selection, a render-first locked
+    transaction with a host-local intent marker and HEAD rollback, sidecar removal,
+    and a frozen inert note in ref_history/ when there is authored prose. Also earlier:
+    carry-forward, recaptured:, success output, the overwrite refusal hints, and docs.'
+- id: annotated
+  title: Annotated overwrite on the Mac
+  depends_on:
+  - overwrite
+  size: large
+  description: 'annotated: overwrite references that carry highlights, image selections,
+    or .assets/, on macOS only and only under highlights.coordinate_pdf_writes. Rename
+    the annotated PDF and the assets into ref_history/, move inbound #^h- links to
+    the frozen note, add the scan write-back guard, extend the acceptance runbook,
+    and refuse with a hint on other hosts.'
+- id: record
+  title: Decision record, glossary correction, and final docs pass
+  depends_on:
+  - annotated
+  size: small
+  description: 'record: write the accepted recapture decision record and correct the
+    Reference Task glossary strand, then republish memory. Run the final cross-page
+    docs consistency pass and docs-check, and record proposed follow-ups.'
 proposed_by: bbugyi200.athena.14a
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-25 14:15:30
 status: wip
+bead_id: bob-cli-c9
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_force_recapture.md)
+- **PROMPT:** [prompts/202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_create_force_recapture.md)
+- **BEAD:** [bob-cli-c9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/README.md)
 
 # Plan: `bob ref create -f|--force[=reread|overwrite]`
 
