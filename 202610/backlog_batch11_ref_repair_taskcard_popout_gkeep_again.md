@@ -1,69 +1,61 @@
 ---
 tier: epic
-title:
-  "Backlog batch 11: gated live ref-id repair, Task Card close cleanup, popout mark
-  gates, gkeep stdin EPIPE, and start-name again order"
-goal:
-  Close five backlog tasks by repairing the live vault's reference ids only through a
-  Bryan-approved gate, restoring the Task Card close cleanup, showing ledger marks in
-  popout windows, removing the gkeep login stdin broken-pipe race, and listing repeated
-  start names newest-first.
+title: 'Backlog batch 11: gated live ref-id repair, Task Card close cleanup, popout
+  mark gates, gkeep stdin EPIPE, and start-name again order'
+goal: Close five backlog tasks by repairing the live vault's reference ids only through
+  a Bryan-approved gate, restoring the Task Card close cleanup, showing ledger marks
+  in popout windows, removing the gkeep login stdin broken-pipe race, and listing
+  repeated start names newest-first.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6
 phases:
-  - id: ref-id-live-repair
-    title: Repair the live vault's reference ids through a Bryan-approved gate
-    size: small
-    depends_on: []
-    description:
-      "ref-id-live-repair: finish bob-cli-b8 by dry-running the bob ref rename repairs
-      for the remaining live reference-id warnings and running them only through a
-      Bryan-approved /sase_gate turn, recording an explicit decline instead when he
-      rejects."
-  - id: task-card-close-cleanup
-    title: Restore the Task Card cleanup in BulletPropertyPickerModal.onClose
-    size: small
-    depends_on: []
-    description:
-      "task-card-close-cleanup: resolve bob-cli-4e by folding the dead Task Card class
-      removal and flag resets into the live onClose in bob-navigation-hotkeys
-      src/350-picker-task-card.js, with a focused test and a bob plugins sync deploy."
-  - id: popout-mark-gates
-    title: Show ledger progress, unblocked, and date marks in popout windows
-    size: small
-    depends_on:
-      - task-card-close-cleanup
-    description:
-      "popout-mark-gates: resolve bob-cli-9q by making the bob-ledger-tools
-      progress-mark, unblocked-glyph, and Tasks date-mark body-class gates hold in
-      Obsidian popout windows for both toggle states, with tests and a bob plugins sync
-      deploy."
-  - id: gkeep-stdin-epipe
-    title: Tolerate a closed child stdin in the gkeep login test helper
-    size: small
-    depends_on: []
-    description:
-      "gkeep-stdin-epipe: resolve bob-cli-2m by making tests/gkeep_auth.rs run_login
-      (and any sibling stdin-writing gkeep helper) tolerate BrokenPipe while keeping the
-      exit-code, hint, and no-call assertions."
-  - id: start-name-again-order
-    title: List repeated completed Pomodoro names newest-first in start-name again rows
-    size: small
-    depends_on:
-      - popout-mark-gates
-    description:
-      "start-name-again-order: resolve bob-cli-bn by making today_start_rows order again
-      rows by latest occurrence, with an A, B, A regression in capture-complete JSON and
-      the shell presenter, and shared vectors kept byte-identical with bob-plugins."
+- id: ref-id-live-repair
+  title: Repair the live vault's reference ids through a Bryan-approved gate
+  size: small
+  depends_on: []
+  description: 'ref-id-live-repair: finish bob-cli-b8 by dry-running the bob ref rename
+    repairs for the remaining live reference-id warnings and running them only through
+    a Bryan-approved /sase_gate turn, recording an explicit decline instead when he
+    rejects.'
+- id: task-card-close-cleanup
+  title: Restore the Task Card cleanup in BulletPropertyPickerModal.onClose
+  size: small
+  depends_on: []
+  description: 'task-card-close-cleanup: resolve bob-cli-4e by folding the dead Task
+    Card class removal and flag resets into the live onClose in bob-navigation-hotkeys
+    src/350-picker-task-card.js, with a focused test and a bob plugins sync deploy.'
+- id: popout-mark-gates
+  title: Show ledger progress, unblocked, and date marks in popout windows
+  size: small
+  depends_on:
+  - task-card-close-cleanup
+  description: 'popout-mark-gates: resolve bob-cli-9q by making the bob-ledger-tools
+    progress-mark, unblocked-glyph, and Tasks date-mark body-class gates hold in Obsidian
+    popout windows for both toggle states, with tests and a bob plugins sync deploy.'
+- id: gkeep-stdin-epipe
+  title: Tolerate a closed child stdin in the gkeep login test helper
+  size: small
+  depends_on: []
+  description: 'gkeep-stdin-epipe: resolve bob-cli-2m by making tests/gkeep_auth.rs
+    run_login (and any sibling stdin-writing gkeep helper) tolerate BrokenPipe while
+    keeping the exit-code, hint, and no-call assertions.'
+- id: start-name-again-order
+  title: List repeated completed Pomodoro names newest-first in start-name again rows
+  size: small
+  depends_on:
+  - popout-mark-gates
+  description: 'start-name-again-order: resolve bob-cli-bn by making today_start_rows
+    order again rows by latest occurrence, with an A, B, A regression in capture-complete
+    JSON and the shell presenter, and shared vectors kept byte-identical with bob-plugins.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.land
 proposed_with: claude/opus
 create_time: 2026-10-25 11:34:34
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md)
-- **PARENT:**
-  [202610/backlog_batch10_port_help_doctor_mermaid_startpending.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md)
+- **PROMPT:** [prompts/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md)
+- **PARENT:** [202610/backlog_batch10_port_help_doctor_mermaid_startpending.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch10_port_help_doctor_mermaid_startpending.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.md)
 
 # Backlog batch 11: gated live ref-id repair, Task Card close cleanup, popout mark gates, gkeep stdin EPIPE, and start-name again order
 
