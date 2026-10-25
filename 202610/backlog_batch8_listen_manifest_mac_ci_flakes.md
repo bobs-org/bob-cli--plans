@@ -1,61 +1,54 @@
 ---
 tier: epic
-title:
-  "Backlog batch 8: listen manifest state, red macOS XCTests, and two recurring test
-  flakes"
-goal:
-  Close five existing task beads by marking retried listen episodes published in their
-  source library, making the two deterministic macOS XCTest failures pass, and removing
-  the stage-ranker timing flake and the lib-test ETXTBSY stub race. Continue the bounded
-  backlog campaign until all project task beads are resolved.
+title: 'Backlog batch 8: listen manifest state, red macOS XCTests, and two recurring
+  test flakes'
+goal: Close five existing task beads by marking retried listen episodes published
+  in their source library, making the two deterministic macOS XCTest failures pass,
+  and removing the stage-ranker timing flake and the lib-test ETXTBSY stub race. Continue
+  the bounded backlog campaign until all project task beads are resolved.
 parent_bead: bob-cli-an.6.6.6.5.6.5
 phases:
-  - id: listen-manifest
-    title: Mark the source manifest published when a pending feed retry succeeds
-    size: small
-    depends_on: []
-    description:
-      "listen-manifest: resolve bob-cli-bq in sase-listen flush_pending so a successful
-      retry marks the originating library manifest published, with success and failure
-      tests."
-  - id: mac-save-scan-test
-    title: Make the Highlights save-scan panel preparation XCTest pass on macOS CI
-    size: medium
-    depends_on: []
-    description:
-      "mac-save-scan-test: resolve bob-cli-bv by finding why the held-receipt PDF update
-      surface yields no footer clauses at RefsPanelModelTests.swift:2312 and fixing code
-      or fixture without weakening the assertion."
-  - id: mac-inbox-route-argv
-    title: Make the inbox route-card confirm argv XCTest pass on macOS CI
-    size: medium
-    depends_on: []
-    description:
-      "mac-inbox-route-argv: resolve bob-cli-bw by reconciling the route-card confirm
-      argv with the bob capture inbox-route contract at
-      CaptureInboxRouteChoiceModelTests.swift:32."
-  - id: plugin-ranker-flake
-    title: Stop the stage ranker 16 ms assertion from flaking under parallel npm test
-    size: small
-    depends_on: []
-    description:
-      "plugin-ranker-flake: resolve bob-cli-3w in bob-plugins by measuring a warmed
-      ranker over several runs while still failing a real slowdown."
-  - id: lib-stub-etxtbsy
-    title: Write lib-test executable stubs without an ETXTBSY race
-    size: small
-    depends_on: []
-    description:
-      "lib-stub-etxtbsy: resolve bob-cli-5l by routing every lib-test executable stub
-      through one fork-safe scratch-then-copy writer."
+- id: listen-manifest
+  title: Mark the source manifest published when a pending feed retry succeeds
+  size: small
+  depends_on: []
+  description: 'listen-manifest: resolve bob-cli-bq in sase-listen flush_pending so
+    a successful retry marks the originating library manifest published, with success
+    and failure tests.'
+- id: mac-save-scan-test
+  title: Make the Highlights save-scan panel preparation XCTest pass on macOS CI
+  size: medium
+  depends_on: []
+  description: 'mac-save-scan-test: resolve bob-cli-bv by finding why the held-receipt
+    PDF update surface yields no footer clauses at RefsPanelModelTests.swift:2312
+    and fixing code or fixture without weakening the assertion.'
+- id: mac-inbox-route-argv
+  title: Make the inbox route-card confirm argv XCTest pass on macOS CI
+  size: medium
+  depends_on: []
+  description: 'mac-inbox-route-argv: resolve bob-cli-bw by reconciling the route-card
+    confirm argv with the bob capture inbox-route contract at CaptureInboxRouteChoiceModelTests.swift:32.'
+- id: plugin-ranker-flake
+  title: Stop the stage ranker 16 ms assertion from flaking under parallel npm test
+  size: small
+  depends_on: []
+  description: 'plugin-ranker-flake: resolve bob-cli-3w in bob-plugins by measuring
+    a warmed ranker over several runs while still failing a real slowdown.'
+- id: lib-stub-etxtbsy
+  title: Write lib-test executable stubs without an ETXTBSY race
+  size: small
+  depends_on: []
+  description: 'lib-stub-etxtbsy: resolve bob-cli-5l by routing every lib-test executable
+    stub through one fork-safe scratch-then-copy writer.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.land
 proposed_with: claude/opus
 create_time: 2026-10-25 07:49:06
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md)
+- **PROMPT:** [prompts/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch8_listen_manifest_mac_ci_flakes.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.md)
 
 # Backlog batch 8: listen manifest state, red macOS XCTests, and two recurring test flakes
 
