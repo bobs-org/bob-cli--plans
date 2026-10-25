@@ -1,58 +1,54 @@
 ---
 tier: epic
 title: Day strip, redesigned — two calm lines under the daily note's plan badges
-goal:
-  On every canonical daily note that has a `bob-plan` block, the Day strip renders
-  directly under the plan badges, in Live Preview and Reading view, as two calm,
-  readable lines. The first line holds five facts (`WORKED 5h 25m  REVIEWED 64  DONE 30
-  CREATED 40  REVIEW CLOSED not yet`). The second holds the area time mix plus `so far ·
-  HH:MM`. Nothing overlaps or overflows under real Obsidian styles, a preview harness
-  enforces that, and the CodeMirror end-of-note mount is gone.
+goal: On every canonical daily note that has a `bob-plan` block, the Day strip renders
+  directly under the plan badges, in Live Preview and Reading view, as two calm, readable
+  lines. The first line holds five facts (`WORKED 5h 25m  REVIEWED 64  DONE 30 CREATED
+  40  REVIEW CLOSED not yet`). The second holds the area time mix plus `so far · HH:MM`.
+  Nothing overlaps or overflows under real Obsidian styles, a preview harness enforces
+  that, and the CodeMirror end-of-note mount is gone.
 phases:
-  - id: strip-look
-    title:
-      New Day strip look — facts line, time-mix line, no buttons, hostile-CSS preview
-    depends_on: []
-    size: medium
-    description:
-      "strip-look: in bob-plugins' bob-ledger-tools, redesign the Day strip model,
-      painter, and CSS into the two-line layout of the design contract. Use LABEL-value
-      facts, then a time-mix row with `so far · HH:MM`. Drop the history marks, the
-      collapse chevron, and `Stats ↗`. Use no `<button>` elements. Rebuild the preview
-      matrix so it applies Obsidian's baseline button and link rules, places the strip
-      under mock plan badges, and fails on overflow, overlap, a skeleton height
-      mismatch, or a busted budget. Rewrite the model and painter tests, then sync."
-  - id: strip-home
-    title: Mount the strip under the bob-plan badges and delete the end-of-note mount
-    depends_on:
-      - strip-look
-    size: medium
-    description:
-      "strip-home: in bob-plugins' bob-ledger-tools, host the Day strip inside the
-      rendered `bob-plan` block of canonical daily notes, after the badges, in Live
-      Preview and Reading view. The plan block's 5 s repaint must never touch the strip
-      host. Delete the CodeMirror StateField mount. Rewire `Toggle Day stats`,
-      `stats.day_strip`, and rollover to plan-block hosts. Replace the mount tests with
-      plan-host tests, update the plugin docs and manifest, then sync."
-  - id: strip-docs
-    title: Day strip contract in bob-cli docs, and notes on the open memory beads
-    depends_on:
-      - strip-home
-    size: small
-    description:
-      'strip-docs: in bob-cli, rewrite the docs/stats.md "Day strip" section for the
-      shipped placement and look: under the plan badges, two lines, no history marks, no
-      collapse, no fence stand-down. Check the dashboard and JSON references. Then add
-      notes to memory beads bob-cli-bs and bob-cli-bt saying their bottom-of-note,
-      history-mark, and collapse claims are superseded.'
+- id: strip-look
+  title: New Day strip look — facts line, time-mix line, no buttons, hostile-CSS preview
+  depends_on: []
+  size: medium
+  description: 'strip-look: in bob-plugins'' bob-ledger-tools, redesign the Day strip
+    model, painter, and CSS into the two-line layout of the design contract. Use LABEL-value
+    facts, then a time-mix row with `so far · HH:MM`. Drop the history marks, the
+    collapse chevron, and `Stats ↗`. Use no `<button>` elements. Rebuild the preview
+    matrix so it applies Obsidian''s baseline button and link rules, places the strip
+    under mock plan badges, and fails on overflow, overlap, a skeleton height mismatch,
+    or a busted budget. Rewrite the model and painter tests, then sync.'
+- id: strip-home
+  title: Mount the strip under the bob-plan badges and delete the end-of-note mount
+  depends_on:
+  - strip-look
+  size: medium
+  description: 'strip-home: in bob-plugins'' bob-ledger-tools, host the Day strip
+    inside the rendered `bob-plan` block of canonical daily notes, after the badges,
+    in Live Preview and Reading view. The plan block''s 5 s repaint must never touch
+    the strip host. Delete the CodeMirror StateField mount. Rewire `Toggle Day stats`,
+    `stats.day_strip`, and rollover to plan-block hosts. Replace the mount tests with
+    plan-host tests, update the plugin docs and manifest, then sync.'
+- id: strip-docs
+  title: Day strip contract in bob-cli docs, and notes on the open memory beads
+  depends_on:
+  - strip-home
+  size: small
+  description: 'strip-docs: in bob-cli, rewrite the docs/stats.md "Day strip" section
+    for the shipped placement and look: under the plan badges, two lines, no history
+    marks, no collapse, no fence stand-down. Check the dashboard and JSON references.
+    Then add notes to memory beads bob-cli-bs and bob-cli-bt saying their bottom-of-note,
+    history-mark, and collapse claims are superseded.'
 proposed_by: bbugyi200.athena.143
 proposed_with: claude/opus
 create_time: 2026-10-25 07:46:42
 status: wip
+bead_id: bob-cli-bz
 ---
 
-- **PROMPT:**
-  [prompts/202610/day_strip_under_the_badges.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_under_the_badges.md)
+- **PROMPT:** [prompts/202610/day_strip_under_the_badges.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_under_the_badges.md)
+- **BEAD:** [bob-cli-bz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bz/README.md)
 
 # Plan: The Day strip, redesigned and moved under the plan badges
 
