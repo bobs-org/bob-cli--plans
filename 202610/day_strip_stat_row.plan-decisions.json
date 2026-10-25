@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "stale_values",
+      "kind": "choice",
+      "ask": "Should a stale cached frame (refresh failed) show its values in muted text?",
+      "why": "The faint far-right meta is easy to miss; dimming puts the signal on the numbers themselves",
+      "choices": [
+        {
+          "key": "muted",
+          "label": "Values switch to muted text while `refresh failed` shows, so cached numbers never look live"
+        },
+        {
+          "key": "full",
+          "label": "Values stay full strength; only the faint meta text at the far right says `refresh failed`"
+        }
+      ],
+      "default": "muted",
+      "effective_default": "muted",
+      "requested_verified": false
+    }
+  ]
+}
