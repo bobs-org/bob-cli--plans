@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Constrain relation cache pruning and finish bob-cli-bj.12 landing
-goal:
-  Preserve unrelated and future-version cache files, verify the repair, close
+goal: Preserve unrelated and future-version cache files, verify the repair, close
   bob-cli-bj.12, and recheck parent readiness.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-bj.12.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-bj.12
-create_time: 2026-10-24 20:43:43
-status: wip
+status: done
 ---
 
 - **PARENT:**
