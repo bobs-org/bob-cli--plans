@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "mac_verify",
+      "kind": "choice",
+      "ask": "Deploy the fix to the Mac vault and verify the strip live in the running Obsidian?",
+      "why": "The last repair passed every fake-DOM test yet broke the real app",
+      "choices": [
+        {
+          "key": "verify",
+          "label": "Proven in real Obsidian; briefly reloads the plugin and flips one tab to Reading view and back"
+        },
+        {
+          "key": "athena_only",
+          "label": "Running Obsidian untouched; the Mac gets it on its next sync, unproven in the real app"
+        }
+      ],
+      "default": "verify",
+      "effective_default": "verify",
+      "requested_verified": false
+    }
+  ]
+}
