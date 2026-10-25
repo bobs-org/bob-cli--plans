@@ -1,9 +1,11 @@
 ---
 tier: tale
 size: medium
-title: 'Finish backlog batch 9: keep unrelated panic messages under the EPIPE guard,
-  keep usage-error exit codes, then close the epic and propose batch 10'
-goal: Repair the two defects batch 9's EPIPE phase introduced in src/runner.rs, close
+title:
+  "Finish backlog batch 9: keep unrelated panic messages under the EPIPE guard, keep
+  usage-error exit codes, then close the epic and propose batch 10"
+goal:
+  Repair the two defects batch 9's EPIPE phase introduced in src/runner.rs, close
   bob-cli-bl and epic bob-cli-an.6.6.6.5.6.5.5.6, mark its plan done, and submit the
   mandatory successor backlog epic.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.land
@@ -16,6 +18,11 @@ status: done
   [202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch9_epipe_listen_publish_refresh_flakes.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.land.md)
+- **COMMITS:**
+  - [af3b30c](https://github.com/bobs-org/bob-cli--plans/commit/af3b30c5c2d6b941b95a4f684e4420d2c813db23)
+    — chore(plans): mark batch 9 plan done after EPIPE hook closeout
 
 # Finish backlog batch 9: EPIPE guard repairs, epic closeout, and batch 10
 
