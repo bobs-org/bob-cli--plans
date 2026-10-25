@@ -1,81 +1,76 @@
 ---
 tier: epic
 title: Finish ref create rereads - landing fixes for bob-cli-c9.3.1
-goal: "Every gap the bob-cli-c9.3.1 land review found is fixed: rereads join only the
-  reference they really repeat, attach and intake keep working on later readings,
-  partial overlaps never reread, every route honours the reread contract, and the docs
-  and tests match the shipped behavior, so the bob-cli-c9.3.1 landing can resume and
-  close.
+goal: 'Every gap the bob-cli-c9.3.1 land review found is fixed: rereads join only
+  the reference they really repeat, attach and intake keep working on later readings,
+  partial overlaps never reread, every route honours the reread contract, and the
+  docs and tests match the shipped behavior, so the bob-cli-c9.3.1 landing can resume
+  and close.
 
-  "
+  '
 parent_bead: bob-cli-c9.3.1
 decisions:
   exact_wins_over_collection:
-    ask:
-      When a URL set exactly matches one family but also sits inside a larger
-      collection, reread the exact family?
+    ask: When a URL set exactly matches one family but also sits inside a larger collection,
+      reread the exact family?
     default: true
     why: -f recaptures only the exact URL set; that set is unambiguous here
     answer: true
   full_scan_collision:
-    ask:
-      How should a full bob ref scan handle a queued __vN PDF whose name another host
-      took?
+    ask: How should a full bob ref scan handle a queued __vN PDF whose name another
+      host took?
     choices:
-      abort:
-        Whole scan stops before any move, like today's same-path destination collision
-      skip:
-        Only that reread stays queued with a collision report; other queued items still
-        file
+      abort: Whole scan stops before any move, like today's same-path destination
+        collision
+      skip: Only that reread stays queued with a collision report; other queued items
+        still file
     default: abort
     why: matches the existing plan_xlib_intake collision contract
     answer: abort
 phases:
-  - id: intake_recheck
-    title: Locked reread recheck for audio units, full scan, and previews
-    size: small
-    depends_on: []
-    description:
-      "intake_recheck: stop the locked recheck from refusing audio attach onto __vN
-      readings, add the whole-bundle recheck to the full-scan xlib move path, and make
-      dry-run previews agree."
-  - id: family_matching
-    title: Identity-correct family matching and attach targets
-    size: medium
-    depends_on:
-      - intake_recheck
-    description:
-      "family_matching: title identity on title routes, exact-only URL family
-      candidates, deleted-root naming, refusal reading numbers, the -o guard, and
-      newest-reading -L attach for single sources and collections."
-  - id: route_guards
-    title: Route guards, audio, vault ordering, redirects, and parser edges
-    size: medium
-    depends_on:
-      - family_matching
-    description:
-      "route_guards: overwrite exact-output permission, narrated-reading hint, no audio
-      auto-discovery on rereads, library-PDF -f -L refusal, vault-note preflight
-      ordering, redirect guard, parser raw-argv fixes, and typed overwrite fallbacks."
-  - id: contract_docs
-    title: Docs, cleanup, test hardening, and acceptance evidence
-    size: small
-    depends_on:
-      - route_guards
-    description:
-      "contract_docs: correct help and docs, remove stale interim markers, add producer,
-      inline-filing, and byte-snapshot tests, and run the full acceptance checks."
+- id: intake_recheck
+  title: Locked reread recheck for audio units, full scan, and previews
+  size: small
+  depends_on: []
+  description: 'intake_recheck: stop the locked recheck from refusing audio attach
+    onto __vN readings, add the whole-bundle recheck to the full-scan xlib move path,
+    and make dry-run previews agree.'
+- id: family_matching
+  title: Identity-correct family matching and attach targets
+  size: medium
+  depends_on:
+  - intake_recheck
+  description: 'family_matching: title identity on title routes, exact-only URL family
+    candidates, deleted-root naming, refusal reading numbers, the -o guard, and newest-reading
+    -L attach for single sources and collections.'
+- id: route_guards
+  title: Route guards, audio, vault ordering, redirects, and parser edges
+  size: medium
+  depends_on:
+  - family_matching
+  description: 'route_guards: overwrite exact-output permission, narrated-reading
+    hint, no audio auto-discovery on rereads, library-PDF -f -L refusal, vault-note
+    preflight ordering, redirect guard, parser raw-argv fixes, and typed overwrite
+    fallbacks.'
+- id: contract_docs
+  title: Docs, cleanup, test hardening, and acceptance evidence
+  size: small
+  depends_on:
+  - route_guards
+  description: 'contract_docs: correct help and docs, remove stale interim markers,
+    add producer, inline-filing, and byte-snapshot tests, and run the full acceptance
+    checks.'
 proposed_by: bbugyi200.athena.bob-cli-c9.3.1.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-25 19:48:32
 status: wip
+bead_id: bob-cli-c9.3.1.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_reread_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_reread_landing_fixes.md)
-- **PARENT:**
-  [202610/ref_create_reread.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_reread.md)
+- **PROMPT:** [prompts/202610/ref_reread_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_reread_landing_fixes.md)
+- **PARENT:** [202610/ref_create_reread.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_reread.md)
+- **BEAD:** [bob-cli-c9.3.1.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.3.1.6.md)
 
 # Finish ref create rereads: landing fixes
 
