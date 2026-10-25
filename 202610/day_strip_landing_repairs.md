@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair Day strip visibility and rollover, integrate docs, and land bob-cli-bz
-goal: The redesigned Day strip honors its lifecycle contract, the integration branch
+goal:
+  The redesigned Day strip honors its lifecycle contract, the integration branch
   documents it, and bob-cli-bz is verified and closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-bz.land
@@ -14,6 +15,11 @@ status: done
   [202610/day_strip_under_the_badges.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/day_strip_under_the_badges.md)
 - **BEAD:**
   [bob-cli-bz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-bz/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-bz.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-bz.land.md)
+- **COMMITS:**
+  - [269e597](https://github.com/bobs-org/bob-cli/commit/269e597305d802f00e914b8429dd8b48a96b0192)
+    — docs(stats): document Day strip under plan badges
 
 # Finish the Day strip lifecycle and land bob-cli-bz
 
