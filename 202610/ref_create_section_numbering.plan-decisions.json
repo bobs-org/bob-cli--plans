@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "empty_contents",
+      "kind": "choice",
+      "ask": "Should the Markdown PDF skip its Contents list whenever no listed heading is left, including in heading-less files?",
+      "why": "An empty Contents heading never helps a reader, and one rule is simpler to document and test",
+      "choices": [
+        {
+          "key": "any",
+          "label": "Any PDF with no listed heading skips Contents; heading-less chat exports lose the empty one"
+        },
+        {
+          "key": "title_only",
+          "label": "Only title-only files skip Contents; heading-less files keep today's empty Contents"
+        }
+      ],
+      "default": "any",
+      "effective_default": "any",
+      "requested_verified": false
+    }
+  ]
+}
