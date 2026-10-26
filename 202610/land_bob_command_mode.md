@@ -1,17 +1,15 @@
 ---
 tier: tale
 size: small
-title: "Land Bob command mode: make `:` work on every host, then close bob-cli-ce"
-goal:
-  Enable the deployed bob-command-mode plugin in the vault so that `:` opens the bob
-  command sheet instead of doing nothing. Deploy it on the MacBook when reachable, fix
-  the one epic-caused test fragility, sharpen the troubleshooting docs, and close epic
-  bob-cli-ce.
+title: 'Land Bob command mode: make `:` work on every host, then close bob-cli-ce'
+goal: Enable the deployed bob-command-mode plugin in the vault so that `:` opens the
+  bob command sheet instead of doing nothing. Deploy it on the MacBook when reachable,
+  fix the one epic-caused test fragility, sharpen the troubleshooting docs, and close
+  epic bob-cli-ce.
 proposed_by: bbugyi200.athena.bob-cli-ce.land
 proposed_with: claude/opus
 bead: bob-cli-ce
-create_time: 2026-10-26 15:09:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
