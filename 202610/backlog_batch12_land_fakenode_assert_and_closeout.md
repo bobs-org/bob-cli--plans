@@ -1,16 +1,15 @@
 ---
 tier: tale
 size: medium
-title: "Finish backlog batch 12: real FakeNode assert fix, epic closeout, and batch 13"
-goal:
-  Make a failing assert.equal / deepEqual on two live ledger-tools FakeNodes report
-  instead of exhausting the heap, close bob-cli-c7 and epic
-  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6, and propose the batch-13 successor epic.
+title: 'Finish backlog batch 12: real FakeNode assert fix, epic closeout, and batch
+  13'
+goal: Make a failing assert.equal / deepEqual on two live ledger-tools FakeNodes report
+  instead of exhausting the heap, close bob-cli-c7 and epic bob-cli-an.6.6.6.5.6.5.5.6.6.6.6,
+  and propose the batch-13 successor epic.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.land
 proposed_with: claude/opus
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6
-create_time: 2026-10-26 10:02:16
-status: wip
+status: done
 ---
 
 - **PARENT:**
