@@ -1,75 +1,69 @@
 ---
 tier: epic
 title: Annotated reference overwrite on the Mac
-goal:
-  Annotated reference overwrite preserves old PDFs, assets, anchors, and reading-task
+goal: Annotated reference overwrite preserves old PDFs, assets, anchors, and reading-task
   identity through coordinated Mac transactions, rejects unsafe hosts, and protects
   scans and recovery from stale editor writes.
 phases:
-  - id: archive
-    title: Plan annotated archives and selective highlight links
-    size: medium
-    depends_on: []
-    description:
-      "archive: Extend the existing read-only overwrite plan with an annotated archive
-      bundle, frozen metadata and assets, and highlight-only inbound link rewrites.
-      Establish the shared archive metadata reader. Keep annotated execution refused
-      until the execute phase."
-  - id: guard
-    title: Hold scans that encounter a replaced annotated PDF
-    size: medium
-    depends_on:
-      - archive
-    description:
-      "guard: Use the archived PDF evidence to hold a restored old PDF before sync can
-      import annotations, change tasks, or repair its marker. Cover human and JSON scan,
-      explicit sync, dry-run behavior, and a race before execution; keep ordinary scans
-      unchanged."
-  - id: recovery
-    title: Recover transactions that renamed annotated bundles
-    size: medium
-    depends_on:
-      - archive
-    description:
-      "recovery: Extend the host-local overwrite intent and recovery to describe
-      no-clobber PDF and asset moves, reverse them safely on failure, and preserve
-      unexpected late editor writes. Retain version-1 intent compatibility. Keep
-      production annotated overwrite disabled; exercise recovery with synthetic
-      interrupted transactions."
-  - id: execute
-    title: Enable coordinated annotated overwrite
-    size: medium
-    depends_on:
-      - archive
-      - guard
-      - recovery
-    description:
-      "execute: Replace the annotated interim refusal with the Mac/config gate and
-      consume the prepared archive, link, scan-guard, and recovery contracts in the
-      existing transaction. Rename the PDF and assets under one bounded merging
-      coordination, preserve reading-task identity, and verify or roll back the complete
-      change. Add fake-coordinator transaction and hold tests."
-  - id: acceptance
-    title: Verify user behavior and extend Mac acceptance documentation
-    size: medium
-    depends_on:
-      - execute
-    description:
-      "acceptance: Add cross-cutting recapture regressions, pin processed annotation
-      identity, extend the isolated Highlights acceptance kit, and update create/sync
-      docs. Run the prescribed local gates and prepare evidence for the child epic land
-      agent. Real Highlights acceptance is a manual Mac step, never a Linux claim."
+- id: archive
+  title: Plan annotated archives and selective highlight links
+  size: medium
+  depends_on: []
+  description: 'archive: Extend the existing read-only overwrite plan with an annotated
+    archive bundle, frozen metadata and assets, and highlight-only inbound link rewrites.
+    Establish the shared archive metadata reader. Keep annotated execution refused
+    until the execute phase.'
+- id: guard
+  title: Hold scans that encounter a replaced annotated PDF
+  size: medium
+  depends_on:
+  - archive
+  description: 'guard: Use the archived PDF evidence to hold a restored old PDF before
+    sync can import annotations, change tasks, or repair its marker. Cover human and
+    JSON scan, explicit sync, dry-run behavior, and a race before execution; keep
+    ordinary scans unchanged.'
+- id: recovery
+  title: Recover transactions that renamed annotated bundles
+  size: medium
+  depends_on:
+  - archive
+  description: 'recovery: Extend the host-local overwrite intent and recovery to describe
+    no-clobber PDF and asset moves, reverse them safely on failure, and preserve unexpected
+    late editor writes. Retain version-1 intent compatibility. Keep production annotated
+    overwrite disabled; exercise recovery with synthetic interrupted transactions.'
+- id: execute
+  title: Enable coordinated annotated overwrite
+  size: medium
+  depends_on:
+  - archive
+  - guard
+  - recovery
+  description: 'execute: Replace the annotated interim refusal with the Mac/config
+    gate and consume the prepared archive, link, scan-guard, and recovery contracts
+    in the existing transaction. Rename the PDF and assets under one bounded merging
+    coordination, preserve reading-task identity, and verify or roll back the complete
+    change. Add fake-coordinator transaction and hold tests.'
+- id: acceptance
+  title: Verify user behavior and extend Mac acceptance documentation
+  size: medium
+  depends_on:
+  - execute
+  description: 'acceptance: Add cross-cutting recapture regressions, pin processed
+    annotation identity, extend the isolated Highlights acceptance kit, and update
+    create/sync docs. Run the prescribed local gates and prepare evidence for the
+    child epic land agent. Real Highlights acceptance is a manual Mac step, never
+    a Linux claim.'
 proposed_by: bbugyi200.athena.bob-cli-c9.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-c9.5
 create_time: 2026-10-26 07:41:49
 status: wip
+bead_id: bob-cli-c9.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/annotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/annotated_reference_overwrite.md)
-- **PARENT:**
-  [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **PROMPT:** [prompts/202610/annotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/annotated_reference_overwrite.md)
+- **PARENT:** [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **BEAD:** [bob-cli-c9.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.5.1.md)
 
 # Annotated reference overwrite on the Mac
 
