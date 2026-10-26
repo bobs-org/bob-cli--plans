@@ -1,159 +1,144 @@
 ---
 tier: epic
 title: Exact code-block copy from Bob Refs, and Command-Y in Highlights
-goal: "While reading a bob-rendered reference in Highlights, Command-Y C Return puts the
-  code block on the current page on the clipboard byte for byte (tabs, indentation, long
-  lines, Mermaid source). The original Markdown of every new reference is preserved in
-  the vault, one key (M) away, and `bob ref code` gives agents and the CLI the same
-  data.
+goal: 'While reading a bob-rendered reference in Highlights, Command-Y C Return puts
+  the code block on the current page on the clipboard byte for byte (tabs, indentation,
+  long lines, Mermaid source). The original Markdown of every new reference is preserved
+  in the vault, one key (M) away, and `bob ref code` gives agents and the CLI the
+  same data.
 
-  "
+  '
 decisions:
   pointer_home:
     ask: Where should a reference record the pointer to its saved Markdown?
     choices:
-      note:
-        Note frontmatter only, derived at birth; PDFs never change and backfill edits
-        notes only
-      marker:
-        Page-1 marker plus frontmatter; backfill later makes scans rewrite ~430 library
-        PDFs
+      note: Note frontmatter only, derived at birth; PDFs never change and backfill
+        edits notes only
+      marker: Page-1 marker plus frontmatter; backfill later makes scans rewrite ~430
+        library PDFs
     default: note
-    why:
-      Every intake path still finds the store, and no PDF or Highlights tab is ever
-      touched
+    why: Every intake path still finds the store, and no PDF or Highlights tab is
+      ever touched
     answer: note
   backfill:
-    ask:
-      How far should this epic take saved sources for existing agent-report references?
+    ask: How far should this epic take saved sources for existing agent-report references?
     choices:
-      run:
-        Build bob ref attach-source, dry-run it, then attach verified sources on athena
-        in batches
+      run: Build bob ref attach-source, dry-run it, then attach verified sources on
+        athena in batches
       build: Build and dry-run the command only; Bryan runs the write pass himself
       defer: Skip the attach phase; its worker files a follow-up task instead
     default: run
-    why:
-      About 430 existing reports gain code copy at once; every batch is one revertable
+    why: About 430 existing reports gain code copy at once; every batch is one revertable
       commit
     answer: run
   record_decisions:
     ask: Add decision records for the source store and the render-time code catalog?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Review the ref_code_block_copy.md file in the research sidecar repo for context
-      and inspiration before planning. I agree with all of the requirements recommended
-      in that research file (but keep in mind that you are responsible for planning and
-      splitting up this work appropriately).
+    requested: Review the ref_code_block_copy.md file in the research sidecar repo
+      for context and inspiration before planning. I agree with all of the requirements
+      recommended in that research file (but keep in mind that you are responsible
+      for planning and splitting up this work appropriately).
     answer: true
 phases:
-  - id: walkers
-    title: Keep bob's note walkers out of .bob
-    depends_on: []
-    size: small
-    description:
-      "walkers: add .bob to the always-excluded note directories so task archive, link
-      repair, project scans, and gkeep/articles walkers can never read or edit a saved
-      source, with regression tests."
-  - id: catalog
-    title: Render-time code catalog on both pandoc routes
-    depends_on: []
-    size: medium
-    description:
-      "catalog: add the two-pass code-catalog Lua filter, invisible per-block PDF
-      anchors, --preserve-tabs with filter-side tab expansion, the frozen render input,
-      and the promoted /Dests reader, so every Markdown and snapshot render returns an
-      exact CodeCatalog with pages while the PDF stays unchanged."
-  - id: store
-    title: Write-once source store and the source_markdown pointer
-    depends_on:
-      - walkers
-      - catalog
-    size: medium
-    description:
-      "store: persist source.md plus code.json under .bob/ref-sources at create time,
-      record the source_markdown pointer through every intake path, include the store in
-      the ingest commit, warn when the catalog is gitignored, allow it in athena's vault
-      .gitignore, and expose the pointer on RefRow."
-  - id: code-cmd
-    title: bob ref code read surface
-    depends_on:
-      - store
-    size: medium
-    description:
-      "code-cmd: add the read-only bob ref code command (human, json, markdown, raw,
-      page filter, saved source) with its versioned JSON contract, bob-computed
-      summaries and fenced forms, help, completion, and docs."
-  - id: lifecycle
-    title: Overwrite repointing and the doctor sources check
-    depends_on:
-      - store
-    size: medium
-    description:
-      "lifecycle: make -f overwrite stage, install, repoint, and roll back the store
-      inside its transaction, and add a bob ref doctor ref-sources row for dangling
-      pointers, digest mismatches, orphans, and an ignored catalog."
-  - id: attach
-    title: Verified attach of existing references' sources
-    depends_on:
-      - store
-      - code-cmd
-    size: medium
-    description:
-      "attach: add bob ref attach-source, which finds same-stem Markdown candidates,
-      verifies them against the library PDF text, and attaches only verified sources;
-      then dry-run and run it on athena per the backfill decision."
-  - id: mac-key
-    title: Command-Y takeover in Highlights and type-ahead
-    depends_on: []
-    size: medium
-    description:
-      "mac-key: register Command-Y as a Highlights takeover that opens the Command-T
-      session with the Copy card on the focused PDF, buffer keys typed before the card
-      exists, and queue card keys behind a pending load so fast gestures always do what
-      was typed."
-  - id: mac-core
-    title: RefsCore code catalog, C and M rows, and the code picker model
-    depends_on:
-      - code-cmd
-      - mac-key
-    size: medium
-    description:
-      "mac-core: decode source_markdown and the bob ref code JSON, add the C and M rows
-      with their hidden reasons, the pure RefsCodePicker with page-aware initial
-      selection, the preview-well model, and a shared sectioned window, all unit-tested
-      in RefsCore."
-  - id: mac-ui
-    title: Code picker, preview well, and panel wiring
-    depends_on:
-      - mac-core
-    size: medium
-    description:
-      "mac-ui: fetch the catalog when the card opens, draw the C and M rows, the code
-      picker, and the fixed-height preview well in light and dark, add HUD strings,
-      VoiceOver, design fixtures, and docs, and verify the Command-Y C Return gesture on
-      the Mac."
-  - id: records
-    title: Decision records
-    depends_on:
-      - lifecycle
-      - mac-ui
-    size: xsmall
-    description:
-      "records: author the two decisions-web records for the write-once source store and
-      the render-time code catalog, citing the landed commits and the research report."
+- id: walkers
+  title: Keep bob's note walkers out of .bob
+  depends_on: []
+  size: small
+  description: 'walkers: add .bob to the always-excluded note directories so task
+    archive, link repair, project scans, and gkeep/articles walkers can never read
+    or edit a saved source, with regression tests.'
+- id: catalog
+  title: Render-time code catalog on both pandoc routes
+  depends_on: []
+  size: medium
+  description: 'catalog: add the two-pass code-catalog Lua filter, invisible per-block
+    PDF anchors, --preserve-tabs with filter-side tab expansion, the frozen render
+    input, and the promoted /Dests reader, so every Markdown and snapshot render returns
+    an exact CodeCatalog with pages while the PDF stays unchanged.'
+- id: store
+  title: Write-once source store and the source_markdown pointer
+  depends_on:
+  - walkers
+  - catalog
+  size: medium
+  description: 'store: persist source.md plus code.json under .bob/ref-sources at
+    create time, record the source_markdown pointer through every intake path, include
+    the store in the ingest commit, warn when the catalog is gitignored, allow it
+    in athena''s vault .gitignore, and expose the pointer on RefRow.'
+- id: code-cmd
+  title: bob ref code read surface
+  depends_on:
+  - store
+  size: medium
+  description: 'code-cmd: add the read-only bob ref code command (human, json, markdown,
+    raw, page filter, saved source) with its versioned JSON contract, bob-computed
+    summaries and fenced forms, help, completion, and docs.'
+- id: lifecycle
+  title: Overwrite repointing and the doctor sources check
+  depends_on:
+  - store
+  size: medium
+  description: 'lifecycle: make -f overwrite stage, install, repoint, and roll back
+    the store inside its transaction, and add a bob ref doctor ref-sources row for
+    dangling pointers, digest mismatches, orphans, and an ignored catalog.'
+- id: attach
+  title: Verified attach of existing references' sources
+  depends_on:
+  - store
+  - code-cmd
+  size: medium
+  description: 'attach: add bob ref attach-source, which finds same-stem Markdown
+    candidates, verifies them against the library PDF text, and attaches only verified
+    sources; then dry-run and run it on athena per the backfill decision.'
+- id: mac-key
+  title: Command-Y takeover in Highlights and type-ahead
+  depends_on: []
+  size: medium
+  description: 'mac-key: register Command-Y as a Highlights takeover that opens the
+    Command-T session with the Copy card on the focused PDF, buffer keys typed before
+    the card exists, and queue card keys behind a pending load so fast gestures always
+    do what was typed.'
+- id: mac-core
+  title: RefsCore code catalog, C and M rows, and the code picker model
+  depends_on:
+  - code-cmd
+  - mac-key
+  size: medium
+  description: 'mac-core: decode source_markdown and the bob ref code JSON, add the
+    C and M rows with their hidden reasons, the pure RefsCodePicker with page-aware
+    initial selection, the preview-well model, and a shared sectioned window, all
+    unit-tested in RefsCore.'
+- id: mac-ui
+  title: Code picker, preview well, and panel wiring
+  depends_on:
+  - mac-core
+  size: medium
+  description: 'mac-ui: fetch the catalog when the card opens, draw the C and M rows,
+    the code picker, and the fixed-height preview well in light and dark, add HUD
+    strings, VoiceOver, design fixtures, and docs, and verify the Command-Y C Return
+    gesture on the Mac.'
+- id: records
+  title: Decision records
+  depends_on:
+  - lifecycle
+  - mac-ui
+  size: xsmall
+  description: 'records: author the two decisions-web records for the write-once source
+    store and the render-time code catalog, citing the landed commits and the research
+    report.'
 proposed_by: bbugyi200.athena.research.5b.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-26 09:00:54
 status: wip
+bead_id: bob-cli-cc
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_code_block_copy.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_code_block_copy.md)
+- **PROMPT:** [prompts/202610/ref_code_block_copy.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_code_block_copy.md)
+- **BEAD:** [bob-cli-cc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-cc/README.md)
 
 # Plan: Exact code-block copy from Bob Refs, and Command-Y in Highlights
 
