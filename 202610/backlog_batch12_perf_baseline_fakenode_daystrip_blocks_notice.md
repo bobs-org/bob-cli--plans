@@ -1,71 +1,64 @@
 ---
 tier: epic
-title:
-  "Backlog batch 12: capture-related perf baseline, FakeNode assert OOM, Day strip
-  new-tab and legend overflow, and the BLOCKS-line ! notice"
-goal:
-  Close five backlog tasks by making the capture_related lib perf gates load-tolerant,
+title: 'Backlog batch 12: capture-related perf baseline, FakeNode assert OOM, Day
+  strip new-tab and legend overflow, and the BLOCKS-line ! notice'
+goal: Close five backlog tasks by making the capture_related lib perf gates load-tolerant,
   making failing FakeNode asserts report instead of exhausting the heap, letting a
   modified click on the Day strip open a new Stats tab, keeping long Day strip legend
-  labels from painting over each other, and refusing ! on a generated BLOCKS line with
-  the documented notice.
+  labels from painting over each other, and refusing ! on a generated BLOCKS line
+  with the documented notice.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6
 phases:
-  - id: capture-related-perf-baseline
-    title: Give the capture_related synthetic-vault lib perf gates a paired baseline
-    size: small
-    depends_on: []
-    description:
-      "capture-related-perf-baseline: resolve bob-cli-ca by moving both
-      src/native/capture_related synthetic-vault wall-clock gates onto the warmed,
-      paired-baseline pattern from 0e75ca56, proving they still catch a real slowdown
-      and no longer fail under parallel just check load."
-  - id: blocks-line-bang-notice
-    title: Refuse ! and N! on a generated BLOCKS line with the BLOCKS notice
-    size: small
-    depends_on: []
-    description:
-      "blocks-line-bang-notice: resolve bob-cli-8z by making the bob-navigation-hotkeys
-      ! / N! handler show BLOCKS_GENERATED_LINE_NOTICE on a generated BLOCKS line, with
-      a test and a bob plugins sync deploy."
-  - id: fakenode-inspect
-    title: Make failing FakeNode asserts in ledger-tools suites report instead of OOM
-    size: small
-    depends_on: []
-    description:
-      "fakenode-inspect: resolve bob-cli-c7 by giving every bob-plugins ledger-tools
-      test FakeNode a short util.inspect.custom descriptor, restoring the plan-host
-      identity asserts, and adding a bounded-time failing-assert regression."
-  - id: day-strip-new-tab
-    title: Open a new Stats tab on a modified Day strip click even when Stats is open
-    size: small
-    depends_on:
-      - fakenode-inspect
-      - blocks-line-bang-notice
-    description:
-      "day-strip-new-tab: resolve bob-cli-c6 by making openStatsForDay skip the reuse
-      branch for newLeaf requests, with a host test, the docs/stats.md wording fix, and
-      a bob plugins sync deploy."
-  - id: day-strip-legend-overflow
-    title: Keep long Day strip legend labels from painting over each other
-    size: medium
-    depends_on:
-      - day-strip-new-tab
-    description:
-      "day-strip-legend-overflow: resolve bob-cli-c8 by keeping each Day strip legend
-      item at its content width and moving whole items that do not fit into the overflow
-      counter, with a preview-harness check that catches the overlap and a bob plugins
-      sync deploy."
+- id: capture-related-perf-baseline
+  title: Give the capture_related synthetic-vault lib perf gates a paired baseline
+  size: small
+  depends_on: []
+  description: 'capture-related-perf-baseline: resolve bob-cli-ca by moving both src/native/capture_related
+    synthetic-vault wall-clock gates onto the warmed, paired-baseline pattern from
+    0e75ca56, proving they still catch a real slowdown and no longer fail under parallel
+    just check load.'
+- id: blocks-line-bang-notice
+  title: Refuse ! and N! on a generated BLOCKS line with the BLOCKS notice
+  size: small
+  depends_on: []
+  description: 'blocks-line-bang-notice: resolve bob-cli-8z by making the bob-navigation-hotkeys
+    ! / N! handler show BLOCKS_GENERATED_LINE_NOTICE on a generated BLOCKS line, with
+    a test and a bob plugins sync deploy.'
+- id: fakenode-inspect
+  title: Make failing FakeNode asserts in ledger-tools suites report instead of OOM
+  size: small
+  depends_on: []
+  description: 'fakenode-inspect: resolve bob-cli-c7 by giving every bob-plugins ledger-tools
+    test FakeNode a short util.inspect.custom descriptor, restoring the plan-host
+    identity asserts, and adding a bounded-time failing-assert regression.'
+- id: day-strip-new-tab
+  title: Open a new Stats tab on a modified Day strip click even when Stats is open
+  size: small
+  depends_on:
+  - fakenode-inspect
+  - blocks-line-bang-notice
+  description: 'day-strip-new-tab: resolve bob-cli-c6 by making openStatsForDay skip
+    the reuse branch for newLeaf requests, with a host test, the docs/stats.md wording
+    fix, and a bob plugins sync deploy.'
+- id: day-strip-legend-overflow
+  title: Keep long Day strip legend labels from painting over each other
+  size: medium
+  depends_on:
+  - day-strip-new-tab
+  description: 'day-strip-legend-overflow: resolve bob-cli-c8 by keeping each Day
+    strip legend item at its content width and moving whole items that do not fit
+    into the overflow counter, with a preview-harness check that catches the overlap
+    and a bob plugins sync deploy.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.land
 proposed_with: claude/opus
 create_time: 2026-10-26 08:32:06
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md)
-- **PARENT:**
-  [202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md)
+- **PROMPT:** [prompts/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md)
+- **PARENT:** [202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch11_ref_repair_taskcard_popout_gkeep_again.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.md)
 
 # Backlog batch 12: capture-related perf baseline, FakeNode assert OOM, Day strip new-tab and legend overflow, and the BLOCKS-line ! notice
 
