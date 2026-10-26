@@ -1,11 +1,12 @@
 ---
 tier: tale
 size: small
-title: 'Land Bob command mode: make `:` work on every host, then close bob-cli-ce'
-goal: Enable the deployed bob-command-mode plugin in the vault so that `:` opens the
-  bob command sheet instead of doing nothing. Deploy it on the MacBook when reachable,
-  fix the one epic-caused test fragility, sharpen the troubleshooting docs, and close
-  epic bob-cli-ce.
+title: "Land Bob command mode: make `:` work on every host, then close bob-cli-ce"
+goal:
+  Enable the deployed bob-command-mode plugin in the vault so that `:` opens the bob
+  command sheet instead of doing nothing. Deploy it on the MacBook when reachable, fix
+  the one epic-caused test fragility, sharpen the troubleshooting docs, and close epic
+  bob-cli-ce.
 proposed_by: bbugyi200.athena.bob-cli-ce.land
 proposed_with: claude/opus
 bead: bob-cli-ce
@@ -16,6 +17,11 @@ status: done
   [202610/bob_colon_command_mode.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/bob_colon_command_mode.md)
 - **BEAD:**
   [bob-cli-ce](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ce/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ce.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ce.land.md)
+- **COMMITS:**
+  - [d149f84](https://github.com/bobs-org/bob-cli--plans/commit/d149f8472b65631255efe18b6599ea5eea7f37da)
+    — chore(plans): mark bob_colon_command_mode done
 
 # Land Bob command mode (epic `bob-cli-ce`)
 
