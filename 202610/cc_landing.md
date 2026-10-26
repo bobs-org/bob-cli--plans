@@ -1,17 +1,15 @@
 ---
 tier: tale
-title:
-  "Finish and land epic bob-cli-cc: ref code tests, store test gaps, Mac Copy fixture"
-goal:
-  bob ref code and the source store are covered by the integration tests the epic plan
-  required, the cc.7 Copy restore XCTest fixture is valid, just check and just
+title: 'Finish and land epic bob-cli-cc: ref code tests, store test gaps, Mac Copy
+  fixture'
+goal: bob ref code and the source store are covered by the integration tests the epic
+  plan required, the cc.7 Copy restore XCTest fixture is valid, just check and just
   docs-check pass, and epic bob-cli-cc is closed with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-cc.land
 proposed_with: claude/opus
 bead: bob-cli-cc
-create_time: 2026-10-26 14:13:23
-status: wip
+status: done
 ---
 
 - **PARENT:**
