@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cutoff",
+      "kind": "choice",
+      "ask": "Which days count as \"the last 7 days\" when picking themes to hide?",
+      "why": "Matches bob's own N-day windows (90-day list, 30-day hints), which count today as day one",
+      "choices": [
+        {
+          "key": "week",
+          "label": "Keep themes used Oct 20-26; also hides MEMORY, BUGS, PUBLIC (last used Oct 19); 71 hidden"
+        },
+        {
+          "key": "eight",
+          "label": "Keep themes used since Oct 19, so MEMORY, BUGS, PUBLIC stay visible; 68 hidden"
+        }
+      ],
+      "default": "week",
+      "effective_default": "week",
+      "requested_verified": false
+    }
+  ]
+}
