@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair overwrite identity and narration, prove rollback, and finish landing
-goal:
-  Complete the remaining overwrite contract and safety work and close bob-cli-c9.4.1.9
+goal: Complete the remaining overwrite contract and safety work and close bob-cli-c9.4.1.9
   and its eligible ancestors.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-c9.4.1.9.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-c9.4.1.9
-create_time: 2026-10-26 06:47:21
-status: wip
+status: done
 ---
 
 - **PARENT:**
