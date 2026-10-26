@@ -1,159 +1,144 @@
 ---
 tier: epic
-title: "Bob command mode: press : in Obsidian to run bob"
-goal: "Pressing `:` in Obsidian's Vim normal mode opens a fast, beautiful bob command
-  sheet. The user filters a bob-owned catalog of every useful bob command, runs one with
-  context-aware arguments and safe-write guards, and is notified when it finishes, with
-  three honest outcome classes (completed, needs attention, failed). The full output is
-  always one key away in a pager that doubles as run history. Vim's own ex line stays
-  reachable through `::`, Vim-shaped input, and `g:`.
+title: 'Bob command mode: press : in Obsidian to run bob'
+goal: 'Pressing `:` in Obsidian''s Vim normal mode opens a fast, beautiful bob command
+  sheet. The user filters a bob-owned catalog of every useful bob command, runs one
+  with context-aware arguments and safe-write guards, and is notified when it finishes,
+  with three honest outcome classes (completed, needs attention, failed). The full
+  output is always one key away in a pager that doubles as run history. Vim''s own
+  ex line stays reachable through `::`, Vim-shaped input, and `g:`.
 
-  "
+  '
 decisions:
   pomodoro_actions:
-    ask:
-      Add named Pomodoro session rows (start, stop, extend, shorten) that run bob
+    ask: Add named Pomodoro session rows (start, stop, extend, shorten) that run bob
       capture operators?
     default: true
-    why:
-      The research listed them; starting a Pomodoro from any note is a common
-      in-Obsidian need
+    why: The research listed them; starting a Pomodoro from any note is a common in-Obsidian
+      need
     answer: true
   free_text_capture:
-    ask:
-      Also accept free-text capture TEXT… runs in command mode, previewed with a ⇧↵ dry
-      run?
+    ask: Also accept free-text capture TEXT… runs in command mode, previewed with
+      a ⇧↵ dry run?
     default: false
-    why:
-      Keeps the research's exclusion; capture deserves live capture-parse spans, a
-      separate feature
+    why: Keeps the research's exclusion; capture deserves live capture-parse spans,
+      a separate feature
     answer: false
   decision_record:
-    ask:
-      Add a decisions record that `:` opens bob command mode and every vimrc map
+    ask: Add a decisions record that `:` opens bob command mode and every vimrc map
       replaying `:` is nnoremap?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: vault-prep
-    title: Make the colon key safe and keep the new plugin out of vault git
-    depends_on: []
-    size: small
-    description:
-      "vault-prep: turn all 16 recursive `nmap … :bob_*<CR>` lines in the vault vimrc
-      into `nnoremap`, add `nnoremap g: :`, and gitignore
-      `.obsidian/plugins/bob-command-mode/` in the vault, without binding `:` yet."
-  - id: catalog
-    title: bob __catalog --protocol 1
-    depends_on: []
-    size: medium
-    description:
-      "catalog: add the hidden, versioned JSON command catalog to bob-cli. A static
-      table sits beside SUBCOMMANDS, positional args and about text come from the clap
-      tree, coverage tests classify every public leaf, and a contract docs page
-      documents it."
-  - id: run-env
-    title: Color, progress, and exit receipts for non-TTY runs
-    depends_on:
-      - catalog
-    size: small
-    description:
-      "run-env: bob honors CLICOLOR_FORCE, BOB_PROGRESS, and BOB_RUN_RECEIPT without a
-      TTY, advertises them as catalog `features`, and documents them in the
-      configuration reference."
-  - id: completion-names
-    title: Theme-name and relation-label completion providers
-    depends_on: []
-    size: small
-    description:
-      "completion-names: complete theme names for `themes hide|unhide|color|rename OLD`
-      through a read-only theme-catalog load, and complete relation labels for
-      `relations hide|unhide`."
-  - id: runner
-    title: bob-command-mode plugin scaffold and run engine
-    depends_on:
-      - catalog
-      - run-env
-    size: medium
-    description:
-      "runner: create the desktop-only bob-command-mode plugin with a bob resolver,
-      child env, catalog cache, and detached file-backed runs. It also adds run records
-      and receipts, writer queue and save-before-write, timeouts, generic outcome
-      classification, api.commandMode v1, and Ctrl+P run commands, tested against a fake
-      bob."
-  - id: feedback
-    title: Toasts, status chip, outcome adapters, and OS notifications
-    depends_on:
-      - runner
-    size: medium
-    description:
-      "feedback: replace the runner's plain notices with the three-class toast cards and
-      the live status-bar chip. It adds per-command outcome adapters and their action
-      buttons, OS notifications for long unfocused runs, Rerun last command, and a
-      Chromium preview harness for visual review."
-  - id: pager
-    title: Output pager and run history
-    depends_on:
-      - feedback
-    size: medium
-    description:
-      "pager: build the streaming output pager. It renders ANSI color, marks stderr,
-      pretty-prints JSON, links vault references, and adds Vim-style keys, search, copy,
-      rerun, stop, and history stepping. Show last output and the toasts' Output action
-      open it."
-  - id: sheet
-    title: The bottom command sheet
-    depends_on:
-      - pager
-    size: medium
-    description:
-      "sheet: build the `Bob: Command mode` bottom sheet. It has fuzzy ranking with
-      keywords and frecency, Recent, For this note, and From clipboard sections, surface
-      rows, preview-first and confirm flows, `?` help, and in-place growth into the
-      pager for reports."
-  - id: args-vim
-    title: Argument mode, typed runs, Vim routing, and binding the colon key
-    depends_on:
-      - sheet
-      - vault-prep
-      - completion-names
-    size: medium
-    description:
-      "args-vim: add argument mode backed by `bob __complete`, a quote-aware tokenizer
-      for typed bob argv with excluded-command refusal, and Vim routing (`::`,
-      Vim-shaped input, fallback row, handleEx). It also adds the vimrc lint, then binds
-      `:` in the vault vimrc."
-  - id: integrations
-    title: Move Snapshot to Highlights onto the runner and refresh ledger caches
-    depends_on:
-      - pager
-    size: small
-    description:
-      "integrations: bob-project-tasks' Snapshot note to Highlights runs through
-      api.commandMode when it is available, and bob-ledger-tools refreshes the caches a
-      finished run invalidates."
-  - id: docs-land
-    title: Guide, reference polish, and end-to-end verification
-    depends_on:
-      - args-vim
-      - integrations
-    size: small
-    description:
-      'docs-land: write the "Run bob from Obsidian" guide, finish the plugin reference
-      page, run every repo''s gates and the end-to-end checklist, and add the decisions
-      record if accepted.'
+- id: vault-prep
+  title: Make the colon key safe and keep the new plugin out of vault git
+  depends_on: []
+  size: small
+  description: 'vault-prep: turn all 16 recursive `nmap … :bob_*<CR>` lines in the
+    vault vimrc into `nnoremap`, add `nnoremap g: :`, and gitignore `.obsidian/plugins/bob-command-mode/`
+    in the vault, without binding `:` yet.'
+- id: catalog
+  title: bob __catalog --protocol 1
+  depends_on: []
+  size: medium
+  description: 'catalog: add the hidden, versioned JSON command catalog to bob-cli.
+    A static table sits beside SUBCOMMANDS, positional args and about text come from
+    the clap tree, coverage tests classify every public leaf, and a contract docs
+    page documents it.'
+- id: run-env
+  title: Color, progress, and exit receipts for non-TTY runs
+  depends_on:
+  - catalog
+  size: small
+  description: 'run-env: bob honors CLICOLOR_FORCE, BOB_PROGRESS, and BOB_RUN_RECEIPT
+    without a TTY, advertises them as catalog `features`, and documents them in the
+    configuration reference.'
+- id: completion-names
+  title: Theme-name and relation-label completion providers
+  depends_on: []
+  size: small
+  description: 'completion-names: complete theme names for `themes hide|unhide|color|rename
+    OLD` through a read-only theme-catalog load, and complete relation labels for
+    `relations hide|unhide`.'
+- id: runner
+  title: bob-command-mode plugin scaffold and run engine
+  depends_on:
+  - catalog
+  - run-env
+  size: medium
+  description: 'runner: create the desktop-only bob-command-mode plugin with a bob
+    resolver, child env, catalog cache, and detached file-backed runs. It also adds
+    run records and receipts, writer queue and save-before-write, timeouts, generic
+    outcome classification, api.commandMode v1, and Ctrl+P run commands, tested against
+    a fake bob.'
+- id: feedback
+  title: Toasts, status chip, outcome adapters, and OS notifications
+  depends_on:
+  - runner
+  size: medium
+  description: 'feedback: replace the runner''s plain notices with the three-class
+    toast cards and the live status-bar chip. It adds per-command outcome adapters
+    and their action buttons, OS notifications for long unfocused runs, Rerun last
+    command, and a Chromium preview harness for visual review.'
+- id: pager
+  title: Output pager and run history
+  depends_on:
+  - feedback
+  size: medium
+  description: 'pager: build the streaming output pager. It renders ANSI color, marks
+    stderr, pretty-prints JSON, links vault references, and adds Vim-style keys, search,
+    copy, rerun, stop, and history stepping. Show last output and the toasts'' Output
+    action open it.'
+- id: sheet
+  title: The bottom command sheet
+  depends_on:
+  - pager
+  size: medium
+  description: 'sheet: build the `Bob: Command mode` bottom sheet. It has fuzzy ranking
+    with keywords and frecency, Recent, For this note, and From clipboard sections,
+    surface rows, preview-first and confirm flows, `?` help, and in-place growth into
+    the pager for reports.'
+- id: args-vim
+  title: Argument mode, typed runs, Vim routing, and binding the colon key
+  depends_on:
+  - sheet
+  - vault-prep
+  - completion-names
+  size: medium
+  description: 'args-vim: add argument mode backed by `bob __complete`, a quote-aware
+    tokenizer for typed bob argv with excluded-command refusal, and Vim routing (`::`,
+    Vim-shaped input, fallback row, handleEx). It also adds the vimrc lint, then binds
+    `:` in the vault vimrc.'
+- id: integrations
+  title: Move Snapshot to Highlights onto the runner and refresh ledger caches
+  depends_on:
+  - pager
+  size: small
+  description: 'integrations: bob-project-tasks'' Snapshot note to Highlights runs
+    through api.commandMode when it is available, and bob-ledger-tools refreshes the
+    caches a finished run invalidates.'
+- id: docs-land
+  title: Guide, reference polish, and end-to-end verification
+  depends_on:
+  - args-vim
+  - integrations
+  size: small
+  description: 'docs-land: write the "Run bob from Obsidian" guide, finish the plugin
+    reference page, run every repo''s gates and the end-to-end checklist, and add
+    the decisions record if accepted.'
 proposed_by: bbugyi200.athena.research.5c.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-26 10:35:51
 status: wip
+bead_id: bob-cli-ce
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_colon_command_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_colon_command_mode.md)
+- **PROMPT:** [prompts/202610/bob_colon_command_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_colon_command_mode.md)
+- **BEAD:** [bob-cli-ce](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ce/README.md)
 
 # Bob command mode: press `:` in Obsidian to run bob
 
