@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Protect plugin deployments from a stale checkout
-goal: Record plugin deployment provenance and refuse overwrites that would erase another
-  checkout's uncommitted or unincorporated build, with explicit force and safe clean-landing
-  recovery.
+goal:
+  Record plugin deployment provenance and refuse overwrites that would erase another
+  checkout's uncommitted or unincorporated build, with explicit force and safe
+  clean-landing recovery.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3
 proposed_with: codex/gpt-6-astra
@@ -15,6 +16,11 @@ status: done
   [202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3.md)
+- **COMMITS:**
+  - [115a361](https://github.com/bobs-org/bob-cli/commit/115a3610bdb2caabf9763f49a487b29e2bc16efa)
+    — feat(plugins)\!: refuse overwriting another checkout's uncommitted deploy
 
 # Protect plugin deployments from a stale checkout
 
