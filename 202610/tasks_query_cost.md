@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Avoid the unused Dataview index in native Tasks queries
-goal:
-  Reduce native Tasks query wall time and peak RSS by eliminating redundant Dataview
+goal: Reduce native Tasks query wall time and peak RSS by eliminating redundant Dataview
   indexing, with measured evidence and unchanged query results.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5
-create_time: 2026-10-26 11:01:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
