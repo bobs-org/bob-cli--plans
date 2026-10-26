@@ -1,11 +1,11 @@
 ---
 tier: tale
 size: medium
-title: 'Finish backlog batch 12: real FakeNode assert fix, epic closeout, and batch
-  13'
-goal: Make a failing assert.equal / deepEqual on two live ledger-tools FakeNodes report
-  instead of exhausting the heap, close bob-cli-c7 and epic bob-cli-an.6.6.6.5.6.5.5.6.6.6.6,
-  and propose the batch-13 successor epic.
+title: "Finish backlog batch 12: real FakeNode assert fix, epic closeout, and batch 13"
+goal:
+  Make a failing assert.equal / deepEqual on two live ledger-tools FakeNodes report
+  instead of exhausting the heap, close bob-cli-c7 and epic
+  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6, and propose the batch-13 successor epic.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.land
 proposed_with: claude/opus
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6
@@ -16,6 +16,11 @@ status: done
   [202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.land.md)
+- **COMMITS:**
+  - [24bfdb2](https://github.com/bobs-org/bob-plugins/commit/24bfdb2a1a7cfd44964b42b23976bb4a686e8237)
+    — test(ledger-tools): bound failing FakeNode assert diffs
 
 # Finish backlog batch 12: real FakeNode assert fix, epic closeout, and batch 13
 
