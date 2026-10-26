@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "restore_green_check",
+      "kind": "choice",
+      "ask": "Should this tale also repair the three pre-existing lib unit-test failures so `just check` and master CI go green?",
+      "why": "master CI has been red since fb28faa1, and the release train needs full CI on the exact SHA",
+      "choices": [
+        {
+          "key": "repair",
+          "label": "Also fix the three red lib tests; `just check` and CI pass so the release train can ship"
+        },
+        {
+          "key": "install_only",
+          "label": "Fix only the build; master CI stays red and a ci bead tracks the three lib tests"
+        }
+      ],
+      "default": "repair",
+      "effective_default": "repair",
+      "requested_verified": false
+    },
+    {
+      "id": "ref_code_catalog",
+      "kind": "choice",
+      "ask": "Should `bob ref code` ship as a command-catalog entry rather than an exclusion?",
+      "why": "it mirrors `ref-show`, and docs/command-catalog.md says every useful public leaf ships as an entry",
+      "choices": [
+        {
+          "key": "entry",
+          "label": "Read-only Report row like ref-show; command mode can run it; entry counts go 52 to 53"
+        },
+        {
+          "key": "excluded",
+          "label": "Terminal-only row; command mode refuses typed `ref code` argv; entry counts stay 52"
+        }
+      ],
+      "default": "entry",
+      "effective_default": "entry",
+      "requested_verified": false
+    }
+  ]
+}
