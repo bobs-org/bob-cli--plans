@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Protect plugin deployments from a stale checkout
-goal:
-  Record plugin deployment provenance and refuse overwrites that would erase another
-  checkout's uncommitted or unincorporated build, with explicit force and safe
-  clean-landing recovery.
+goal: Record plugin deployment provenance and refuse overwrites that would erase another
+  checkout's uncommitted or unincorporated build, with explicit force and safe clean-landing
+  recovery.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.3
-create_time: 2026-10-26 16:07:28
-status: wip
+status: done
 ---
 
 - **PARENT:**
