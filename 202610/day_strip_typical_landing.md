@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish the Day strip typical-day landing
-goal:
-  Share the usable-day rule, recover the approved glossary update without losing the
-  bars switch, and close bob-cli-cn.
+goal: Share the usable-day rule, recover the approved glossary update without losing
+  the bars switch, and close bob-cli-cn.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-cn.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-cn
-create_time: 2026-10-26 15:03:28
-status: wip
+status: done
 ---
 
 - **PARENT:**
