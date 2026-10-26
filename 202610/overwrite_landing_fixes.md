@@ -1,65 +1,61 @@
 ---
 tier: epic
 title: Finish unannotated overwrite - contract fixes and transaction hardening
-goal:
-  Close the contract gaps and transaction-safety gaps the bob-cli-c9.4.1 land review
-  found in `bob ref create -f overwrite`, with behavior tests for each, so the
-  interrupted landing of bob-cli-c9.4.1 can resume and close.
+goal: Close the contract gaps and transaction-safety gaps the bob-cli-c9.4.1 land
+  review found in `bob ref create -f overwrite`, with behavior tests for each, so
+  the interrupted landing of bob-cli-c9.4.1 can resume and close.
 parent_bead: bob-cli-c9.4.1
 phases:
-  - id: selection
-    title: Fix overwrite selection, refusals, and refusal coverage
-    size: medium
-    description:
-      "selection: honor -N on URL and collection overwrite, refuse disabled ingest,
-      archived reopen, and unstampable statuses before render, match the annotated
-      refusal text, add the reread overwrite hint, surface verify_failed, and cover
-      every refusal code with CLI tests."
-    depends_on: []
-  - id: output
-    title: Preserve task alias, user fields, and audio; align output and docs
-    size: medium
-    description:
-      "output: rewrite the task alias only on a real title change, report the final task
-      state, align success output with the contract, keep the Play link, narration
-      diagnostics, and audio extension correct, apply keep_user_fields, and correct the
-      create and clip docs."
-    depends_on:
-      - selection
-  - id: safety
-    title: Harden the overwrite transaction and prove it with failpoints
-    size: medium
-    description:
-      "safety: recheck selection after the locked pre-sync, refuse ignored or untracked
-      files inside touched directories, tighten intent path validation, stop other
-      pre-syncs from committing a crashed overwrite, drop blanket lint allows, add
-      executor failpoint tests, and run the full gates."
-    depends_on:
-      - output
+- id: selection
+  title: Fix overwrite selection, refusals, and refusal coverage
+  size: medium
+  description: 'selection: honor -N on URL and collection overwrite, refuse disabled
+    ingest, archived reopen, and unstampable statuses before render, match the annotated
+    refusal text, add the reread overwrite hint, surface verify_failed, and cover
+    every refusal code with CLI tests.'
+  depends_on: []
+- id: output
+  title: Preserve task alias, user fields, and audio; align output and docs
+  size: medium
+  description: 'output: rewrite the task alias only on a real title change, report
+    the final task state, align success output with the contract, keep the Play link,
+    narration diagnostics, and audio extension correct, apply keep_user_fields, and
+    correct the create and clip docs.'
+  depends_on:
+  - selection
+- id: safety
+  title: Harden the overwrite transaction and prove it with failpoints
+  size: medium
+  description: 'safety: recheck selection after the locked pre-sync, refuse ignored
+    or untracked files inside touched directories, tighten intent path validation,
+    stop other pre-syncs from committing a crashed overwrite, drop blanket lint allows,
+    add executor failpoint tests, and run the full gates.'
+  depends_on:
+  - output
 decisions:
   keep_user_fields:
-    ask:
-      Should overwrite carry the old aliases, topics, and research into the replacement
+    ask: Should overwrite carry the old aliases, topics, and research into the replacement
       when the capture omits them?
     choices:
-      keep:
-        Old aliases, topics, and research survive overwrite; alias links keep resolving
-      drop:
-        Rebuilt from the new capture only, as shipped; old aliases and topics are lost
+      keep: Old aliases, topics, and research survive overwrite; alias links keep
+        resolving
+      drop: Rebuilt from the new capture only, as shipped; old aliases and topics
+        are lost
     default: keep
-    why: Overwrite replaces material, not progress; dropping aliases dangles alias links
+    why: Overwrite replaces material, not progress; dropping aliases dangles alias
+      links
     answer: keep
 proposed_by: bbugyi200.athena.bob-cli-c9.4.1.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-26 03:39:11
 status: wip
+bead_id: bob-cli-c9.4.1.9
 ---
 
-- **PROMPT:**
-  [prompts/202610/overwrite_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/overwrite_landing_fixes.md)
-- **PARENT:**
-  [202610/unannotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/unannotated_reference_overwrite.md)
+- **PROMPT:** [prompts/202610/overwrite_landing_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/overwrite_landing_fixes.md)
+- **PARENT:** [202610/unannotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/unannotated_reference_overwrite.md)
+- **BEAD:** [bob-cli-c9.4.1.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.4.1.9.md)
 
 # Finish unannotated overwrite: contract fixes and transaction hardening
 
