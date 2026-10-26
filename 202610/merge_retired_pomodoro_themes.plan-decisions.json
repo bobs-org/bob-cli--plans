@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "blog_split",
+      "kind": "choice",
+      "ask": "Should BLOG's 17 article-reading sessions be retagged READ before the rest of BLOG merges into WRITE?",
+      "why": "Since Oct 23 this ref/blogs reading is logged as READ; it is 41% of BLOG's logged minutes",
+      "choices": [
+        {
+          "key": "split",
+          "label": "Retag 17 article-reading entries (Oct 18\u201323) to READ; merge the other 25 into WRITE"
+        },
+        {
+          "key": "whole",
+          "label": "Merge all 42 BLOG entries into WRITE; about 4h50m of article reading counts as WRITE"
+        }
+      ],
+      "default": "split",
+      "effective_default": "split",
+      "requested_verified": false
+    }
+  ]
+}
