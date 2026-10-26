@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish the Day strip typical-day landing
-goal: Share the usable-day rule, recover the approved glossary update without losing
-  the bars switch, and close bob-cli-cn.
+goal:
+  Share the usable-day rule, recover the approved glossary update without losing the
+  bars switch, and close bob-cli-cn.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-cn.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/day_strip_typical_day.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/day_strip_typical_day.md)
 - **BEAD:**
   [bob-cli-cn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-cn/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-cn.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-cn.land.md)
+- **COMMITS:**
+  - [29b3884](https://github.com/bobs-org/bob-cli--plans/commit/29b3884db3bc673d71ed728039e2b7f0d4fedb72)
+    — chore(plans): mark day strip typical-day plans done
 
 # Finish the Day strip typical-day landing
 
