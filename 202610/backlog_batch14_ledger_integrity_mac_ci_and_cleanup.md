@@ -1,80 +1,69 @@
 ---
 tier: epic
-title:
-  "Backlog batch 14: fresh stamps on Pomodoro ledger lines, red Mac Refs CI, the bob-cli
-  check tool, legacy dependency readers, and relation-index publish storms"
-goal:
-  Close five existing tasks by keeping freshness stamps off Pomodoro ledger lines,
+title: 'Backlog batch 14: fresh stamps on Pomodoro ledger lines, red Mac Refs CI,
+  the bob-cli check tool, legacy dependency readers, and relation-index publish storms'
+goal: Close five existing tasks by keeping freshness stamps off Pomodoro ledger lines,
   turning bob-mac-capture master CI green again, declaring bob-cli's named check tool,
-  retiring the R8 legacy-child dependency readers, and coalescing relation-index
-  publishes.
+  retiring the R8 legacy-child dependency readers, and coalescing relation-index publishes.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6
 phases:
-  - id: fresh-stamp-ledger-guard
-    title: Keep freshness stamps off Pomodoro ledger lines
-    size: large
-    depends_on: []
-    description:
-      "fresh-stamp-ledger-guard: resolve bob-cli-cf by finding the writer that stamped
-      [fresh::] onto a Pomodoro ledger line, guarding every freshness stamper against
-      ledger lines, and repairing the one polluted vault line through a Bryan-approved
-      gate."
-  - id: mac-refs-ci-red
-    title: Turn bob-mac-capture master CI green on the RefsPanel Highlights-key tests
-    size: large
-    depends_on: []
-    description:
-      "mac-refs-ci-red: resolve bob-cli-ci by deciding, per failing RefsPanel test,
-      whether 1311536 regressed the product or outdated the expectation, and fixing the
-      side that is wrong without weakening assertions."
-  - id: check-tool-catalog
-    title: Declare bob-cli's named check tool for SASE prepared completion
-    size: medium
-    depends_on: []
-    description:
-      "check-tool-catalog: resolve bob-cli-91 by declaring a run_silent named check tool
-      for just check in sase/sase.yml, so sase tool run check and prepared completion
-      work on this Rust project."
-  - id: retire-legacy-dep-readers
-    title: Retire the R8 legacy-child dependency readers
-    size: medium
-    depends_on: []
-    description:
-      "retire-legacy-dep-readers: resolve bob-cli-3o by re-verifying zero live legacy
-      children, then removing the R8 readers from bob-cli and bob-navigation-hotkeys
-      with their docs and test vectors."
-  - id: relation-index-coalesce
-    title: Coalesce relation-index publishes and memoize the task memo
-    size: medium
-    depends_on: []
-    description:
-      "relation-index-coalesce: resolve bob-cli-a5 by collapsing event-driven
-      relation-index publishes to one per turn and reusing the task memo within it, with
-      storm regression coverage and a sync deploy."
+- id: fresh-stamp-ledger-guard
+  title: Keep freshness stamps off Pomodoro ledger lines
+  size: large
+  depends_on: []
+  description: 'fresh-stamp-ledger-guard: resolve bob-cli-cf by finding the writer
+    that stamped [fresh::] onto a Pomodoro ledger line, guarding every freshness stamper
+    against ledger lines, and repairing the one polluted vault line through a Bryan-approved
+    gate.'
+- id: mac-refs-ci-red
+  title: Turn bob-mac-capture master CI green on the RefsPanel Highlights-key tests
+  size: large
+  depends_on: []
+  description: 'mac-refs-ci-red: resolve bob-cli-ci by deciding, per failing RefsPanel
+    test, whether 1311536 regressed the product or outdated the expectation, and fixing
+    the side that is wrong without weakening assertions.'
+- id: check-tool-catalog
+  title: Declare bob-cli's named check tool for SASE prepared completion
+  size: medium
+  depends_on: []
+  description: 'check-tool-catalog: resolve bob-cli-91 by declaring a run_silent named
+    check tool for just check in sase/sase.yml, so sase tool run check and prepared
+    completion work on this Rust project.'
+- id: retire-legacy-dep-readers
+  title: Retire the R8 legacy-child dependency readers
+  size: medium
+  depends_on: []
+  description: 'retire-legacy-dep-readers: resolve bob-cli-3o by re-verifying zero
+    live legacy children, then removing the R8 readers from bob-cli and bob-navigation-hotkeys
+    with their docs and test vectors.'
+- id: relation-index-coalesce
+  title: Coalesce relation-index publishes and memoize the task memo
+  size: medium
+  depends_on: []
+  description: 'relation-index-coalesce: resolve bob-cli-a5 by collapsing event-driven
+    relation-index publishes to one per turn and reusing the task memo within it,
+    with storm regression coverage and a sync deploy.'
 decisions:
   theme_field_strip:
-    ask:
-      "Should theme-name parsing also drop inline [field:: ...] runs so stray fields
-      never split a theme?"
+    ask: 'Should theme-name parsing also drop inline [field:: ...] runs so stray fields
+      never split a theme?'
     choices:
-      strip:
-        Parser and JS mirrors drop inline fields; needs parity tests and a docs update
-      writers:
-        Only the writers are fixed; a future stray field would still split a theme
+      strip: Parser and JS mirrors drop inline fields; needs parity tests and a docs
+        update
+      writers: Only the writers are fixed; a future stray field would still split
+        a theme
     default: writers
-    why:
-      It is a writer bug; the one-component theme contract changes only on its own
-      merits
+    why: It is a writer bug; the one-component theme contract changes only on its
+      own merits
     answer: writers
   legacy_key:
-    ask:
-      Should the legacy_dependency_children JSON key be removed now instead of pinned at
-      0?
+    ask: Should the legacy_dependency_children JSON key be removed now instead of
+      pinned at 0?
     choices:
-      remove:
-        Breaking JSON change marked with ! on the release train; log readers lose the
-        key
-      pin: The key stays as a constant 0 for one release; a follow-up task removes it
+      remove: Breaking JSON change marked with ! on the release train; log readers
+        lose the key
+      pin: The key stays as a constant 0 for one release; a follow-up task removes
+        it
     default: pin
     why: Pinning keeps the hooks JSON contract stable; bob-cli-3n allowed either
     answer: pin
@@ -83,12 +72,12 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-26 12:58:45
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md)
-- **PARENT:**
-  [202610/backlog_batch13_vault_integrity_and_perf_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch13_vault_integrity_and_perf_1.md)
+- **PROMPT:** [prompts/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md)
+- **PARENT:** [202610/backlog_batch13_vault_integrity_and_perf_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch13_vault_integrity_and_perf_1.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.md)
 
 # Backlog batch 14: fresh stamps on Pomodoro ledger lines, red Mac Refs CI, the bob-cli check tool, legacy dependency readers, and relation-index publish storms
 
