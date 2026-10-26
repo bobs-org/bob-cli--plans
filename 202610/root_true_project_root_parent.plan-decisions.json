@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "glossary_strands",
+      "kind": "toggle",
+      "ask": "Update the Root Parent and Top-Level Project glossary strands to name the root: true override?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:Root Parent",
+          "glossary:Top-Level Project"
+        ]
+      },
+      "corrects": "The [[area-note]] a task lives in, else the [[top-level-project]] above its project note.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:Root Parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:Top-Level Project",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Top-Level Project",
+            "Root Parent",
+            "Project Note"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record that root: true makes a project its own root parent?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:root-flag-makes-a-root-parent"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:root-flag-makes-a-root-parent",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/root-flag-makes-a-root-parent.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
