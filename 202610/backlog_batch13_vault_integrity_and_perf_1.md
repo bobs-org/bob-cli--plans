@@ -1,66 +1,59 @@
 ---
 tier: epic
-title:
-  "Backlog batch 13: vault plugin integrity, popout mark gates, CI flakes, and Tasks
-  query cost"
-goal:
-  Close five existing tasks by preventing host-to-host overwrites of deployed
+title: 'Backlog batch 13: vault plugin integrity, popout mark gates, CI flakes, and
+  Tasks query cost'
+goal: Close five existing tasks by preventing host-to-host overwrites of deployed
   bob-articles files, mirroring the remaining ledger-tools mark gates into Obsidian
   popouts, diagnosing two CI flakes, and reducing native Tasks query time and memory
   cost.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6
 phases:
-  - id: vault-plugin-ignore
-    title: Stop vault sync from tracking deployed bob-articles files
-    size: medium
-    depends_on: []
-    description:
-      "vault-plugin-ignore: resolve bob-cli-cd by fixing the source-of-truth ignore rule
-      and coordinating untracking/redeployment across hosts; never untrack on one host
-      alone."
-  - id: popout-mark-gates
-    title: Mirror the remaining ledger-tools mark gates into popout windows
-    size: medium
-    depends_on:
-      - vault-plugin-ignore
-    description:
-      "popout-mark-gates: resolve bob-cli-cb by routing priority, task-tag, freshness,
-      and Today-off body classes through the shared popout mirror, testing both toggle
-      states, and deploying after the ignore fix."
-  - id: capture-kick-flake
-    title: Diagnose the capture ref-jobs kick timing flake
-    size: large
-    depends_on: []
-    description:
-      "capture-kick-flake: resolve bob-cli-5o by capturing the failure mode under
-      full-suite load and fixing the demonstrated cause without blindly widening the
-      timeout."
-  - id: refs-refresh-flake
-    title: Diagnose the RefsLibrary extra follow-up call on macOS CI
-    size: large
-    depends_on: []
-    description:
-      "refs-refresh-flake: resolve bob-cli-67 by explaining the extra ref list call on
-      the same trigger pattern, then fixing refresh/backfill sequencing or test setup
-      without weakening its expectation."
-  - id: tasks-query-cost
-    title: Reduce native bob query --tasks time and memory cost
-    size: large
-    depends_on: []
-    description:
-      "tasks-query-cost: resolve bob-cli-6k by profiling the native Tasks query path,
-      finding the source of repeated note reads and memory amplification, and proving
-      improvements with regression coverage."
+- id: vault-plugin-ignore
+  title: Stop vault sync from tracking deployed bob-articles files
+  size: medium
+  depends_on: []
+  description: 'vault-plugin-ignore: resolve bob-cli-cd by fixing the source-of-truth
+    ignore rule and coordinating untracking/redeployment across hosts; never untrack
+    on one host alone.'
+- id: popout-mark-gates
+  title: Mirror the remaining ledger-tools mark gates into popout windows
+  size: medium
+  depends_on:
+  - vault-plugin-ignore
+  description: 'popout-mark-gates: resolve bob-cli-cb by routing priority, task-tag,
+    freshness, and Today-off body classes through the shared popout mirror, testing
+    both toggle states, and deploying after the ignore fix.'
+- id: capture-kick-flake
+  title: Diagnose the capture ref-jobs kick timing flake
+  size: large
+  depends_on: []
+  description: 'capture-kick-flake: resolve bob-cli-5o by capturing the failure mode
+    under full-suite load and fixing the demonstrated cause without blindly widening
+    the timeout.'
+- id: refs-refresh-flake
+  title: Diagnose the RefsLibrary extra follow-up call on macOS CI
+  size: large
+  depends_on: []
+  description: 'refs-refresh-flake: resolve bob-cli-67 by explaining the extra ref
+    list call on the same trigger pattern, then fixing refresh/backfill sequencing
+    or test setup without weakening its expectation.'
+- id: tasks-query-cost
+  title: Reduce native bob query --tasks time and memory cost
+  size: large
+  depends_on: []
+  description: 'tasks-query-cost: resolve bob-cli-6k by profiling the native Tasks
+    query path, finding the source of repeated note reads and memory amplification,
+    and proving improvements with regression coverage.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.land
 proposed_with: codex/gpt-6-luna
 create_time: 2026-10-26 10:47:08
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch13_vault_integrity_and_perf_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch13_vault_integrity_and_perf_1.md)
-- **PARENT:**
-  [202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md)
+- **PROMPT:** [prompts/202610/backlog_batch13_vault_integrity_and_perf_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch13_vault_integrity_and_perf_1.md)
+- **PARENT:** [202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch12_perf_baseline_fakenode_daystrip_blocks_notice.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.md)
 
 # Backlog batch 13: vault plugin integrity, popout mark gates, CI flakes, and Tasks query cost
 
