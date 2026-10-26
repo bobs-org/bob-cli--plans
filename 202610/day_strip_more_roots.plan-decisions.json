@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "gtd_label_scope",
+      "kind": "choice",
+      "ask": "Where should the review bucket read `GTD` instead of `GTD review`?",
+      "why": "The dash has room, and there `review` separates the bucket from the gtd area row",
+      "choices": [
+        {
+          "key": "strip",
+          "label": "Day strip legend only, via a new `short_label`; dash, chips, and CLI keep `GTD review`"
+        },
+        {
+          "key": "everywhere",
+          "label": "Every surface (strip, dash, chips, CLI, plan JSON) says `GTD`; more fixtures and docs change"
+        }
+      ],
+      "default": "strip",
+      "effective_default": "strip",
+      "requested_verified": false
+    },
+    {
+      "id": "legend_values",
+      "kind": "choice",
+      "ask": "When the legend cannot name every root with its minutes, should it drop the minutes so it can name more roots?",
+      "why": "The goal is a name for every colour; minutes stay one hover away",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "Legend drops minutes (kept in tooltips) whenever that names more roots"
+        },
+        {
+          "key": "keep",
+          "label": "Every item keeps its minutes; roots that don't fit go into `+N`"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_root_parent",
+      "kind": "toggle",
+      "ask": "If the bucket is renamed everywhere, update the root-parent glossary strand's `GTD review`?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:root-parent"
+        ]
+      },
+      "corrects": "Buckets `GTD review`, `unlinked`, and `unfiled` stay buckets.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
