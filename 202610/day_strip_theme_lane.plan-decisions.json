@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "same_hue",
+      "kind": "choice",
+      "ask": "When two of a day's themes share a hue, should the theme lane paint the smaller ones in lighter shades of it?",
+      "why": "Real days collide (PYPI/READ green, BLOG/VIBE orange on 10-23); shades keep the hue family",
+      "choices": [
+        {
+          "key": "shade",
+          "label": "Largest keeps the exact hue; smaller same-hue themes get 65 % then 42 % shades"
+        },
+        {
+          "key": "exact",
+          "label": "Every segment wears its exact hue; only gaps, legend, and theme pins tell them apart"
+        }
+      ],
+      "default": "shade",
+      "effective_default": "shade",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Should the Day Strip and Root Parent glossary strands describe the strip's two bars?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:day-strip",
+          "glossary:root-parent"
+        ]
+      },
+      "corrects": "the full-width root-parent bar that separates it from the badges",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:day-strip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Day Strip"
+          ]
+        },
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
