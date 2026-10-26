@@ -1,75 +1,68 @@
 ---
 tier: epic
 title: Day strip typical day — a quiet reference line under each numeric fact
-goal: 'Under Worked, Reviewed, Done, and Created, every Day strip shows one quiet line
-  with that metric''s typical day: the median of the seven days before D, needing at
-  least four days with data. On finished days a neutral ▲, ▼, or = mark comes first, so
-  the line reads `▼ typical 4h 10m`. Today shows `typical 4h 10m` with no mark. bob
-  computes every number and word in a new additive `typical` object on day-grouped JSON
-  points, and the plugin only paints it. The line has no colour, no percentages, and no
-  bars. The strip never changes height when data arrives. The decision is recorded so no
-  future agent "fixes" it back out.
+goal: 'Under Worked, Reviewed, Done, and Created, every Day strip shows one quiet
+  line with that metric''s typical day: the median of the seven days before D, needing
+  at least four days with data. On finished days a neutral ▲, ▼, or = mark comes first,
+  so the line reads `▼ typical 4h 10m`. Today shows `typical 4h 10m` with no mark.
+  bob computes every number and word in a new additive `typical` object on day-grouped
+  JSON points, and the plugin only paints it. The line has no colour, no percentages,
+  and no bars. The strip never changes height when data arrives. The decision is recorded
+  so no future agent "fixes" it back out.
 
   '
 phases:
-  - id: typical-field
-    title: bob stats — additive `typical` object on day-grouped count and minutes points
-    depends_on: []
-    size: medium
-    description:
-      "typical-field: in bob-cli, add the optional `typical` object (window D−7…D−1,
-      median, ≥4 usable days, relation, words, detail) to current day-grouped `points`
-      of count and minutes metrics. Share the usable-value rule with rolling medians and
-      extend the Day lead-in from 6 to 7 days. Cover it with hand-derived unit and
-      golden tests, document the schema-1 field in docs/stats.md, and check parity
-      read-only on the live vault."
-  - id: strip-line
-    title: Day strip — paint bob's typical line under the four numeric facts
-    depends_on:
-      - typical-field
-    size: medium
-    description:
-      "strip-line: in bob-plugins bob-ledger-tools, build a pure `ref` model from
-      `point.typical` and paint an aria-hidden reference line with SVG ▲/▼/= marks on
-      every fact. Keep the line's space on every fact. Put bob's words in the fact's
-      aria-label and tooltip. Require day-grouped reports for cache reuse, and repaint
-      when only the reference changes. Extend the unit tests and the preview harness
-      (new states, alignment, clipping, contrast, measured budgets). Update the plugin
-      docs and the bob-cli Day strip contract, bump the plugin version, then sync."
-  - id: record
-    title: Decision record, Day Strip glossary strand, bead bob-cli-bs, three-week check
-    depends_on:
-      - strip-line
-    size: small
-    description:
-      "record: in bob-cli, add the decisions strand for the typical-day comparison and
-      update the Day Strip glossary strand. Regenerate memory and docs, then close
-      memory bead bob-cli-bs as superseded by the new record. Propose the three-week
-      exit check as a follow-up for the land agent to file as a snoozed task bead."
+- id: typical-field
+  title: bob stats — additive `typical` object on day-grouped count and minutes points
+  depends_on: []
+  size: medium
+  description: 'typical-field: in bob-cli, add the optional `typical` object (window
+    D−7…D−1, median, ≥4 usable days, relation, words, detail) to current day-grouped
+    `points` of count and minutes metrics. Share the usable-value rule with rolling
+    medians and extend the Day lead-in from 6 to 7 days. Cover it with hand-derived
+    unit and golden tests, document the schema-1 field in docs/stats.md, and check
+    parity read-only on the live vault.'
+- id: strip-line
+  title: Day strip — paint bob's typical line under the four numeric facts
+  depends_on:
+  - typical-field
+  size: medium
+  description: 'strip-line: in bob-plugins bob-ledger-tools, build a pure `ref` model
+    from `point.typical` and paint an aria-hidden reference line with SVG ▲/▼/= marks
+    on every fact. Keep the line''s space on every fact. Put bob''s words in the fact''s
+    aria-label and tooltip. Require day-grouped reports for cache reuse, and repaint
+    when only the reference changes. Extend the unit tests and the preview harness
+    (new states, alignment, clipping, contrast, measured budgets). Update the plugin
+    docs and the bob-cli Day strip contract, bump the plugin version, then sync.'
+- id: record
+  title: Decision record, Day Strip glossary strand, bead bob-cli-bs, three-week check
+  depends_on:
+  - strip-line
+  size: small
+  description: 'record: in bob-cli, add the decisions strand for the typical-day comparison
+    and update the Day Strip glossary strand. Regenerate memory and docs, then close
+    memory bead bob-cli-bs as superseded by the new record. Propose the three-week
+    exit check as a follow-up for the land agent to file as a snoozed task bead.'
 decisions:
   decision_record:
-    ask:
-      Add a decisions strand recording that the Day strip shows each numeric fact's
+    ask: Add a decisions strand recording that the Day strip shows each numeric fact's
       typical day, never a target?
     default: true
     memory:
-      - decisions:day-strip-shows-typical-day
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    - decisions:day-strip-shows-typical-day
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   glossary_day_strip:
-    ask:
-      Update the Day Strip glossary strand so its contents list includes the typical
+    ask: Update the Day Strip glossary strand so its contents list includes the typical
       line under each numeric fact?
     default: true
     memory:
-      - glossary:day-strip
-    corrects:
-      "Its contents: five LABEL-value facts, a [[root-parent]] legend with `so far ·
-      HH:MM` over the root-parent bar, and a [[pomodoro-theme]] legend over the
-      full-width theme bar that separates it from the badges."
+    - glossary:day-strip
+    corrects: 'Its contents: five LABEL-value facts, a [[root-parent]] legend with
+      `so far · HH:MM` over the root-parent bar, and a [[pomodoro-theme]] legend over
+      the full-width theme bar that separates it from the badges.'
     answer: true
 proposed_by: bbugyi200.athena.research.5d.linker.w0
 proposed_with: claude/opus
@@ -77,10 +70,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-26 13:12:27
 status: wip
+bead_id: bob-cli-cn
 ---
 
-- **PROMPT:**
-  [prompts/202610/day_strip_typical_day.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_typical_day.md)
+- **PROMPT:** [prompts/202610/day_strip_typical_day.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/day_strip_typical_day.md)
+- **BEAD:** [bob-cli-cn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-cn/README.md)
 
 # Plan: The Day strip's typical day
 
