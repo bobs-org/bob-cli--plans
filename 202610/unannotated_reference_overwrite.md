@@ -1,92 +1,84 @@
 ---
 tier: epic
 title: In-place overwrite of unannotated references
-goal:
-  Complete bob-cli-c9.4 with task-preserving overwrite on every capture route, inert
-  prose archives, durable crash recovery, and verified code and documentation gates.
+goal: Complete bob-cli-c9.4 with task-preserving overwrite on every capture route,
+  inert prose archives, durable crash recovery, and verified code and documentation
+  gates.
 phases:
-  - id: shared
-    title: Share reference mutation safety primitives with rename
-    size: medium
-    description:
-      "shared: extract the narrow lock, precondition, scoped-git, and rollback helpers
-      needed by overwrite, retaining rename behavior and its tests."
-    depends_on: []
-  - id: prepare
-    title: Plan overwrite selection and inert prose archives
-    size: medium
-    description:
-      "prepare: implement strict read-only overwrite preflight, task and bundle
-      fingerprints, annotation and open-task refusals, fresh skeletons, and frozen-note
-      rendering with lineage preservation."
-    depends_on:
-      - shared
-  - id: recovery
-    title: Recover interrupted overwrites from host-local intents
-    size: medium
-    description:
-      "recovery: implement durable overwrite intents and scoped HEAD recovery before
-      create or scan can sync; preserve dry-run and JSON contracts and test interrupted
-      and committed states."
-    depends_on:
-      - shared
-  - id: transaction
-    title: Apply and verify a staged overwrite in one scoped commit
-    size: medium
-    description:
-      "transaction: consume the prepared overwrite and private staged bundle under both
-      locks, recheck preimages, publish and sync the replacement, preserve task
-      identity, verify, commit, and roll back failures."
-    depends_on:
-      - prepare
-      - recovery
-  - id: local
-    title: Enable local-file and vault-snapshot overwrite
-    size: medium
-    description:
-      "local: connect local PDF, Markdown, and vault-note rendering to the overwrite
-      transaction, including explicit status handling and the shared preserved or
-      replaced audio policy, with offline CLI tests."
-    depends_on:
-      - transaction
-  - id: web
-    title: Enable single-URL overwrite across web capture routes
-    size: medium
-    description:
-      "web: connect article, saved-HTML, PDF-URL, and arXiv capture to the same staged
-      overwrite transaction and preserve redirect, duplicate-before-fetch, and listen
-      semantics."
-    depends_on:
-      - local
-  - id: collections
-    title: Enable exact-set collection overwrite and complete remedies
-    size: medium
-    description:
-      "collections: integrate exact-URL-set collection overwrite, collection narration,
-      shared refusal and success rendering, and finish user-facing help and contract
-      documentation for unannotated overwrite."
-    depends_on:
-      - web
-  - id: acceptance
-    title: Verify overwrite preservation and crash recovery end to end
-    size: medium
-    description:
-      "acceptance: close cross-route acceptance gaps, prove archive inertness and
-      recovery through CLI fixtures, remove temporary symbols, and run the full code and
-      documentation gates for the child epic land agent."
-    depends_on:
-      - collections
+- id: shared
+  title: Share reference mutation safety primitives with rename
+  size: medium
+  description: 'shared: extract the narrow lock, precondition, scoped-git, and rollback
+    helpers needed by overwrite, retaining rename behavior and its tests.'
+  depends_on: []
+- id: prepare
+  title: Plan overwrite selection and inert prose archives
+  size: medium
+  description: 'prepare: implement strict read-only overwrite preflight, task and
+    bundle fingerprints, annotation and open-task refusals, fresh skeletons, and frozen-note
+    rendering with lineage preservation.'
+  depends_on:
+  - shared
+- id: recovery
+  title: Recover interrupted overwrites from host-local intents
+  size: medium
+  description: 'recovery: implement durable overwrite intents and scoped HEAD recovery
+    before create or scan can sync; preserve dry-run and JSON contracts and test interrupted
+    and committed states.'
+  depends_on:
+  - shared
+- id: transaction
+  title: Apply and verify a staged overwrite in one scoped commit
+  size: medium
+  description: 'transaction: consume the prepared overwrite and private staged bundle
+    under both locks, recheck preimages, publish and sync the replacement, preserve
+    task identity, verify, commit, and roll back failures.'
+  depends_on:
+  - prepare
+  - recovery
+- id: local
+  title: Enable local-file and vault-snapshot overwrite
+  size: medium
+  description: 'local: connect local PDF, Markdown, and vault-note rendering to the
+    overwrite transaction, including explicit status handling and the shared preserved
+    or replaced audio policy, with offline CLI tests.'
+  depends_on:
+  - transaction
+- id: web
+  title: Enable single-URL overwrite across web capture routes
+  size: medium
+  description: 'web: connect article, saved-HTML, PDF-URL, and arXiv capture to the
+    same staged overwrite transaction and preserve redirect, duplicate-before-fetch,
+    and listen semantics.'
+  depends_on:
+  - local
+- id: collections
+  title: Enable exact-set collection overwrite and complete remedies
+  size: medium
+  description: 'collections: integrate exact-URL-set collection overwrite, collection
+    narration, shared refusal and success rendering, and finish user-facing help and
+    contract documentation for unannotated overwrite.'
+  depends_on:
+  - web
+- id: acceptance
+  title: Verify overwrite preservation and crash recovery end to end
+  size: medium
+  description: 'acceptance: close cross-route acceptance gaps, prove archive inertness
+    and recovery through CLI fixtures, remove temporary symbols, and run the full
+    code and documentation gates for the child epic land agent.'
+  depends_on:
+  - collections
 proposed_by: bbugyi200.athena.bob-cli-c9.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-c9.4
 create_time: 2026-10-25 22:34:43
 status: wip
+bead_id: bob-cli-c9.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/unannotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/unannotated_reference_overwrite.md)
-- **PARENT:**
-  [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **PROMPT:** [prompts/202610/unannotated_reference_overwrite.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/unannotated_reference_overwrite.md)
+- **PARENT:** [202610/ref_create_force_recapture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ref_create_force_recapture.md)
+- **BEAD:** [bob-cli-c9.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.4.1.md)
 
 # In-place overwrite of unannotated references
 
