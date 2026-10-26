@@ -1,38 +1,50 @@
 ---
 tier: tale
 title: Fix the StoreWriteParams.verified build break
-goal: Make `just install` build again at HEAD and restore a green `just check` on
-  master.
+goal:
+  Make `just install` build again at HEAD and restore a green `just check` on master.
 size: small
 decisions:
   restore_green_check:
-    ask: Should this tale also repair the three pre-existing lib unit-test failures
-      so `just check` and master CI go green?
+    ask:
+      Should this tale also repair the three pre-existing lib unit-test failures so
+      `just check` and master CI go green?
     choices:
-      repair: Also fix the three red lib tests; `just check` and CI pass so the release
-        train can ship
-      install_only: Fix only the build; master CI stays red and a ci bead tracks the
-        three lib tests
+      repair:
+        Also fix the three red lib tests; `just check` and CI pass so the release train
+        can ship
+      install_only:
+        Fix only the build; master CI stays red and a ci bead tracks the three lib tests
     default: repair
-    why: master CI has been red since fb28faa1, and the release train needs full CI
-      on the exact SHA
+    why:
+      master CI has been red since fb28faa1, and the release train needs full CI on the
+      exact SHA
     answer: repair
   ref_code_catalog:
     ask: Should `bob ref code` ship as a command-catalog entry rather than an exclusion?
     choices:
-      entry: Read-only Report row like ref-show; command mode can run it; entry counts
-        go 52 to 53
-      excluded: Terminal-only row; command mode refuses typed `ref code` argv; entry
-        counts stay 52
+      entry:
+        Read-only Report row like ref-show; command mode can run it; entry counts go 52
+        to 53
+      excluded:
+        Terminal-only row; command mode refuses typed `ref code` argv; entry counts stay
+        52
     default: entry
-    why: it mirrors `ref-show`, and docs/command-catalog.md says every useful public
-      leaf ships as an entry
+    why:
+      it mirrors `ref-show`, and docs/command-catalog.md says every useful public leaf
+      ships as an entry
     answer: entry
 proposed_by: bbugyi200.apollo.ab
 proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.ab](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.ab.md)
+- **COMMITS:**
+  - [e9a955f](https://github.com/bobs-org/bob-cli/commit/e9a955f9225f304a421a2cf755b39c985f9b6800)
+    — fix(ref): repair StoreWriteParams.verified build break and restore green check
 
 # Plan: Fix the `StoreWriteParams.verified` build break and restore a green `just check`
 
