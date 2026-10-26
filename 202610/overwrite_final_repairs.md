@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair overwrite identity and narration, prove rollback, and finish landing
-goal: Complete the remaining overwrite contract and safety work and close bob-cli-c9.4.1.9
+goal:
+  Complete the remaining overwrite contract and safety work and close bob-cli-c9.4.1.9
   and its eligible ancestors.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-c9.4.1.9.land
@@ -14,6 +15,11 @@ status: done
   [202610/overwrite_landing_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/overwrite_landing_fixes.md)
 - **BEAD:**
   [bob-cli-c9.4.1.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-c9/bob-cli-c9.4.1.9.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-c9.4.1.9.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-c9.4.1.9.land.md)
+- **COMMITS:**
+  - [f749cce](https://github.com/bobs-org/bob-cli--plans/commit/f749cce3c55cf2fdaa7e2b87d1396b2be628a783)
+    — docs(plans): mark overwrite landing and unannotated plans done
 
 # Repair the remaining overwrite gaps and finish the nested landing
 
