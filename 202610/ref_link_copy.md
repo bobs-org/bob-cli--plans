@@ -1,120 +1,103 @@
 ---
 tier: epic
 title: Copy any link from a Markdown-born reference (Copy card L)
-goal: "While reading a bob-rendered report in Highlights, Command-Y L Return puts the
-  URL of the link on the current page on the clipboard, exactly the URL the PDF opens.
-  Option-Return copies it as a Markdown link, A copies every link, and `bob ref links`
-  gives the CLI and agents the same data.
+goal: 'While reading a bob-rendered report in Highlights, Command-Y L Return puts
+  the URL of the link on the current page on the clipboard, exactly the URL the PDF
+  opens. Option-Return copies it as a Markdown link, A copies every link, and `bob
+  ref links` gives the CLI and agents the same data.
 
-  "
+  '
 decisions:
   l_key:
-    ask:
-      Should L open Link… only on references with saved Markdown, and stay Markdown link
-      elsewhere?
+    ask: Should L open Link… only on references with saved Markdown, and stay Markdown
+      link elsewhere?
     choices:
-      shared:
-        L opens Link… on Markdown-born references and stays Markdown link elsewhere; no
-        card changes
-      links_only:
-        L always means Link…; the Markdown link moves to Option-U and web-article cards
-        lose their L row
+      shared: L opens Link… on Markdown-born references and stays Markdown link elsewhere;
+        no card changes
+      links_only: L always means Link…; the Markdown link moves to Option-U and web-article
+        cards lose their L row
     default: shared
-    why:
-      No reference with saved Markdown has a source URL (0 of 235), so the two meanings
-      never meet
+    why: No reference with saved Markdown has a source URL (0 of 235), so the two
+      meanings never meet
     answer: shared
   backfill:
-    ask:
-      How far should this epic take link records for references saved before bob
+    ask: How far should this epic take link records for references saved before bob
       recorded links?
     choices:
-      run:
-        Build bob ref recatalog, dry-run it on athena, check the gates, then write in
-        revertable batches
-      build:
-        Build and test the command and run only the dry run; Bryan runs the write pass
-        himself
-      defer:
-        Skip the recatalog phase and file a follow-up task; L stays hidden on today's
-        references
+      run: Build bob ref recatalog, dry-run it on athena, check the gates, then write
+        in revertable batches
+      build: Build and test the command and run only the dry run; Bryan runs the write
+        pass himself
+      defer: Skip the recatalog phase and file a follow-up task; L stays hidden on
+        today's references
     default: run
-    why:
-      The 95 saved reports with links are the ones Bryan reads; without backfill L never
-      shows there
+    why: The 95 saved reports with links are the ones Bryan reads; without backfill
+      L never shows there
     answer: run
   bare_urls:
-    ask:
-      Should bare URLs (https://… without brackets) become real links in new PDFs, so L
-      lists them too?
+    ask: Should bare URLs (https://… without brackets) become real links in new PDFs,
+      so L lists them too?
     choices:
-      link:
-        Markdown readers gain autolink_bare_uris; new PDFs make bare URLs clickable and
-        L lists them
-      skip:
-        Readers stay as they are; new PDFs render as today and L lists only written
+      link: Markdown readers gain autolink_bare_uris; new PDFs make bare URLs clickable
+        and L lists them
+      skip: Readers stay as they are; new PDFs render as today and L lists only written
         links and autolinks
     default: link
-    why:
-      Pandoc stays the only judge of what a link is; a URL you can't click or copy helps
-      no one
+    why: Pandoc stays the only judge of what a link is; a URL you can't click or copy
+      helps no one
     answer: link
 phases:
-  - id: links-catalog
-    title: Render-time link records in the code catalog
-    depends_on: []
-    size: medium
-    description:
-      "links-catalog: extend the render-time catalog filter to record every URI link
-      (exact target, text, autolink flag, lead-in context, section) with an invisible
-      inline PDF anchor for its page, store them as an additive `links` array in
-      code.json, and apply the bare_urls reader decision."
-  - id: links-cmd
-    title: bob ref links read surface
-    depends_on:
-      - links-catalog
-    size: medium
-    description:
-      "links-cmd: add the read-only `bob ref links <REF> [N]` command (human, json,
-      markdown, raw; page filter) with bob-computed label, site, and Markdown forms,
-      golden-tested, with completion, catalog, help, and docs."
-  - id: recatalog
-    title: Annotation pages, attach-source links, and bob ref recatalog
-    depends_on:
-      - links-catalog
-      - links-cmd
-    size: medium
-    description:
-      "recatalog: map links to pages from an existing PDF's link annotations, record
-      links in attach-source, add `bob ref recatalog` and the doctor count, then act on
-      the backfill decision on athena."
-  - id: mac-core
-    title: RefsCore link catalog, L row, and the link picker model
-    depends_on:
-      - links-cmd
-    size: medium
-    description:
-      "mac-core: decode `bob ref links`, add the L row, its key resolution, loading
-      queue and hidden reasons, the Option-U Markdown-link alternate, and a pure link
-      picker plus link preview model, all unit-tested with portable-check."
-  - id: mac-ui
-    title: Link picker, link well, and panel wiring
-    depends_on:
-      - mac-core
-    size: medium
-    description:
-      "mac-ui: fetch links beside code when the Copy card opens, draw the L row, the
-      link picker rows, and the link well in light and dark, extend the design fixtures
-      and docs, and run the Mac acceptance."
+- id: links-catalog
+  title: Render-time link records in the code catalog
+  depends_on: []
+  size: medium
+  description: 'links-catalog: extend the render-time catalog filter to record every
+    URI link (exact target, text, autolink flag, lead-in context, section) with an
+    invisible inline PDF anchor for its page, store them as an additive `links` array
+    in code.json, and apply the bare_urls reader decision.'
+- id: links-cmd
+  title: bob ref links read surface
+  depends_on:
+  - links-catalog
+  size: medium
+  description: 'links-cmd: add the read-only `bob ref links <REF> [N]` command (human,
+    json, markdown, raw; page filter) with bob-computed label, site, and Markdown
+    forms, golden-tested, with completion, catalog, help, and docs.'
+- id: recatalog
+  title: Annotation pages, attach-source links, and bob ref recatalog
+  depends_on:
+  - links-catalog
+  - links-cmd
+  size: medium
+  description: 'recatalog: map links to pages from an existing PDF''s link annotations,
+    record links in attach-source, add `bob ref recatalog` and the doctor count, then
+    act on the backfill decision on athena.'
+- id: mac-core
+  title: RefsCore link catalog, L row, and the link picker model
+  depends_on:
+  - links-cmd
+  size: medium
+  description: 'mac-core: decode `bob ref links`, add the L row, its key resolution,
+    loading queue and hidden reasons, the Option-U Markdown-link alternate, and a
+    pure link picker plus link preview model, all unit-tested with portable-check.'
+- id: mac-ui
+  title: Link picker, link well, and panel wiring
+  depends_on:
+  - mac-core
+  size: medium
+  description: 'mac-ui: fetch links beside code when the Copy card opens, draw the
+    L row, the link picker rows, and the link well in light and dark, extend the design
+    fixtures and docs, and run the Mac acceptance.'
 proposed_by: bbugyi200.athena.14k
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-26 15:37:25
 status: wip
+bead_id: bob-cli-ct
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_link_copy.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_link_copy.md)
+- **PROMPT:** [prompts/202610/ref_link_copy.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_link_copy.md)
+- **BEAD:** [bob-cli-ct](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ct/README.md)
 
 # Plan: Copy any link from a Markdown-born reference (Copy card `L`)
 
