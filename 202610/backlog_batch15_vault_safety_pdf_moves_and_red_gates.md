@@ -1,66 +1,57 @@
 ---
 tier: epic
-title:
-  "Backlog batch 15: wrong-vault pre-syncs, coordinated PDF moves, plugin deploys that
-  overwrite each other, the last red Mac XCTest, and the docs URL gate"
-goal:
-  Close five existing tasks by keeping -b runs from syncing the live vault, coordinating
+title: 'Backlog batch 15: wrong-vault pre-syncs, coordinated PDF moves, plugin deploys
+  that overwrite each other, the last red Mac XCTest, and the docs URL gate'
+goal: Close five existing tasks by keeping -b runs from syncing the live vault, coordinating
   the remaining Highlights PDF writers, guarding plugin deploys against overwriting
   another agent's uncommitted build, turning bob-mac-capture master CI green, and
   clearing the docs-check published-URLs gate.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6
 phases:
-  - id: vault-flag-presync
-    title: Stop -b runs from pre-syncing the default vault
-    size: medium
-    depends_on: []
-    description:
-      "vault-flag-presync: resolve bob-cli-cj by making bob ref rename and every other
-      -b-capable pre-sync caller refuse when the selected vault is not BOB_DIR, with
-      regression tests proving the default vault is never touched."
-  - id: open-pdf-move-coordination
-    title: Coordinate ref rename/move, id stamp, and create --force PDF writes
-    size: large
-    depends_on:
-      - vault-flag-presync
-    description:
-      "open-pdf-move-coordination: resolve bob-cli-az by routing rename/move, the id
-      stamp, and create --force through bounded Highlights file coordination, then
-      retiring the Bob Refs rename card's close-the-PDF hint."
-  - id: plugin-deploy-guard
-    title: Keep bob plugins sync from overwriting another agent's uncommitted deploy
-    size: large
-    depends_on: []
-    description:
-      "plugin-deploy-guard: resolve bob-cli-cu by recording a deploy stamp for every
-      synced plugin and guarding overwrites of a dirty or unpushed deploy from another
-      checkout."
-  - id: mac-code-key-ci
-    title: Turn bob-mac-capture master CI green on the queued code-key XCTest
-    size: large
-    depends_on: []
-    description:
-      "mac-code-key-ci: resolve bob-cli-cr by deciding whether the queued-Return code
-      picker regressed or its expectation is outdated, and fixing that side without
-      weakening assertions."
-  - id: command-mode-doc-links
-    title: Fix the two links to the nonexistent /bob-command-mode/ page
-    size: small
-    depends_on: []
-    description:
-      "command-mode-doc-links: resolve bob-cli-cs by pointing both command-mode links at
-      /reference/plugins/bob-command-mode/ and running just docs-check to completion."
+- id: vault-flag-presync
+  title: Stop -b runs from pre-syncing the default vault
+  size: medium
+  depends_on: []
+  description: 'vault-flag-presync: resolve bob-cli-cj by making bob ref rename and
+    every other -b-capable pre-sync caller refuse when the selected vault is not BOB_DIR,
+    with regression tests proving the default vault is never touched.'
+- id: open-pdf-move-coordination
+  title: Coordinate ref rename/move, id stamp, and create --force PDF writes
+  size: large
+  depends_on:
+  - vault-flag-presync
+  description: 'open-pdf-move-coordination: resolve bob-cli-az by routing rename/move,
+    the id stamp, and create --force through bounded Highlights file coordination,
+    then retiring the Bob Refs rename card''s close-the-PDF hint.'
+- id: plugin-deploy-guard
+  title: Keep bob plugins sync from overwriting another agent's uncommitted deploy
+  size: large
+  depends_on: []
+  description: 'plugin-deploy-guard: resolve bob-cli-cu by recording a deploy stamp
+    for every synced plugin and guarding overwrites of a dirty or unpushed deploy
+    from another checkout.'
+- id: mac-code-key-ci
+  title: Turn bob-mac-capture master CI green on the queued code-key XCTest
+  size: large
+  depends_on: []
+  description: 'mac-code-key-ci: resolve bob-cli-cr by deciding whether the queued-Return
+    code picker regressed or its expectation is outdated, and fixing that side without
+    weakening assertions.'
+- id: command-mode-doc-links
+  title: Fix the two links to the nonexistent /bob-command-mode/ page
+  size: small
+  depends_on: []
+  description: 'command-mode-doc-links: resolve bob-cli-cs by pointing both command-mode
+    links at /reference/plugins/bob-command-mode/ and running just docs-check to completion.'
 decisions:
   deploy_guard:
-    ask:
-      Should plugin sync refuse, not just warn, before overwriting another checkout's
+    ask: Should plugin sync refuse, not just warn, before overwriting another checkout's
       uncommitted deploy?
     choices:
-      refuse:
-        Overwrite needs --force and names the earlier deploy; landers force after
-        checking master
-      warn:
-        Sync proceeds and names the deploy it overwrote; a missed warning still loses it
+      refuse: Overwrite needs --force and names the earlier deploy; landers force
+        after checking master
+      warn: Sync proceeds and names the deploy it overwrote; a missed warning still
+        loses it
     default: refuse
     why: A warning in an agent's log is the same silent loss both batches hit
     answer: refuse
@@ -69,12 +60,12 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-26 15:53:07
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
-- **PARENT:**
-  [202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md)
+- **PROMPT:** [prompts/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
+- **PARENT:** [202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch14_ledger_integrity_mac_ci_and_cleanup.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.md)
 
 # Backlog batch 15: wrong-vault pre-syncs, coordinated PDF moves, plugin deploys that overwrite each other, the last red Mac XCTest, and the docs URL gate
 
