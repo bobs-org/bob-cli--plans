@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "remember",
+      "kind": "choice",
+      "ask": "Should the bars choice survive an Obsidian restart on this device?",
+      "why": "It is a reading preference, not a temporary hide; forgetting it each restart feels broken",
+      "choices": [
+        {
+          "key": "device",
+          "label": "Remember it on this device, so every restart opens in the last choice"
+        },
+        {
+          "key": "session",
+          "label": "Keep it for the plugin session only, like Toggle Day stats; restarts open with both bars"
+        }
+      ],
+      "default": "device",
+      "effective_default": "device",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Should the Day Strip glossary strand say its two lanes show together or one at a time?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:day-strip"
+        ]
+      },
+      "corrects": "Its contents: five LABEL-value facts, a [[root-parent]] legend with `so far \u00b7 HH:MM` over the root-parent bar, and a [[pomodoro-theme]] legend over the full-width theme bar that separates it from the badges.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:day-strip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Day Strip",
+            "Pomodoro Theme",
+            "Pomodoro",
+            "Task Link"
+          ]
+        }
+      ]
+    }
+  ]
+}
