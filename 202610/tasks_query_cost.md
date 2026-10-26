@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Avoid the unused Dataview index in native Tasks queries
-goal: Reduce native Tasks query wall time and peak RSS by eliminating redundant Dataview
+goal:
+  Reduce native Tasks query wall time and peak RSS by eliminating redundant Dataview
   indexing, with measured evidence and unchanged query results.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch13_vault_integrity_and_perf_1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch13_vault_integrity_and_perf_1.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.5.md)
+- **COMMITS:**
+  - [f73f926](https://github.com/bobs-org/bob-cli/commit/f73f926d72451cbaad4f5b22553c1860d3c8f490)
+    — perf(query): avoid unused Dataview index in native Tasks queries
 
 # Avoid the unused Dataview index in native Tasks queries
 
