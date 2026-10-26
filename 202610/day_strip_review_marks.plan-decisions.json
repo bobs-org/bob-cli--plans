@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "celebrate",
+      "kind": "choice",
+      "ask": "When today's review flips from not yet to met live, should the check draw itself once?",
+      "why": "Closing the review is the strip's daily win; a one-shot draw never fires on note open",
+      "choices": [
+        {
+          "key": "draw",
+          "label": "Seal pops in and the check strokes on once (~0.4 s); never on load or for missed"
+        },
+        {
+          "key": "none",
+          "label": "Marks always paint static; no per-host memo, keyframes, or arrive tests"
+        }
+      ],
+      "default": "draw",
+      "effective_default": "draw",
+      "requested_verified": false
+    }
+  ]
+}
