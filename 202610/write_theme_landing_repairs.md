@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair split byte preservation and completion, then land WRITE themes
-goal: The split command preserves unrelated bytes, completes its arguments, and reports
+goal:
+  The split command preserves unrelated bytes, completes its arguments, and reports
   re-adoption in journal order; bob-cli-db is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-db.land
@@ -14,6 +15,11 @@ status: done
   [202610/write_theme_and_job_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/write_theme_and_job_split.md)
 - **BEAD:**
   [bob-cli-db](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-db/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-db.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-db.land.md)
+- **COMMITS:**
+  - [d62c8bd](https://github.com/bobs-org/bob-cli--plans/commit/d62c8bd4f54127238da71799b52e06ecc5c43401)
+    — chore(plans): mark write_theme_and_job_split done
 
 # Finish the WRITE/theme-split landing
 
