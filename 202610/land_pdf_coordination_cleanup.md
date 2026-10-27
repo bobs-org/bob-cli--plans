@@ -2,9 +2,10 @@
 tier: tale
 size: small
 title: Remove the dead uncoordinated rename path and land the PDF coordination epic
-goal: The rename module carries no dead legacy write path or dead-code exemption,
-  and epic bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1 plus its parent phase bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2
-  are closed with recorded verification.
+goal:
+  The rename module carries no dead legacy write path or dead-code exemption, and epic
+  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1 plus its parent phase
+  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2 are closed with recorded verification.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.land
 proposed_with: claude/opus
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1
@@ -15,6 +16,11 @@ status: done
   [202610/remaining_pdf_write_coordination.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/remaining_pdf_write_coordination.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.land.md)
+- **COMMITS:**
+  - [da3fa75](https://github.com/bobs-org/bob-cli/commit/da3fa75106d90b7e00fd8be1fe2e2ab4c8731118)
+    — refactor(rename): remove dead uncoordinated legacy write path
 
 # Finish landing epic `bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1`
 
