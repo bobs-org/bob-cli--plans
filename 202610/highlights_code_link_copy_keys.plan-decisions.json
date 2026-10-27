@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "code_key",
+      "kind": "choice",
+      "ask": "Which chord should open the Copy card's code picker from Highlights?",
+      "why": "Single modifier like \u2318Y and \u2318L; collides with nothing in Highlights 2026.1.2 or the panel",
+      "choices": [
+        {
+          "key": "cmd_b",
+          "label": "Command-B (\"block\"); one modifier like \u2318Y/\u2318L; unbound in Highlights and the Refs panel"
+        },
+        {
+          "key": "ctrl_cmd_c",
+          "label": "Control-Command-C keeps the C mnemonic; two modifiers, among Highlights' \u2303\u2318 tools"
+        }
+      ],
+      "default": "cmd_b",
+      "effective_default": "cmd_b",
+      "requested_verified": false
+    },
+    {
+      "id": "link_without_markdown",
+      "kind": "choice",
+      "ask": "On references without saved Markdown, should \u2318L copy their Markdown link at once, exactly like \u2318Y L?",
+      "why": "The chord then saves exactly one keypress and never has a second meaning",
+      "choices": [
+        {
+          "key": "same_as_l",
+          "label": "\u2318L always equals \u2318Y L; such references copy [Title](source URL) at once"
+        },
+        {
+          "key": "picker_only",
+          "label": "\u2318L always means the link picker; such references show the red no-saved-Markdown line"
+        }
+      ],
+      "default": "same_as_l",
+      "effective_default": "same_as_l",
+      "requested_verified": false
+    },
+    {
+      "id": "offer_cmd_c",
+      "kind": "toggle",
+      "ask": "Also offer Command-C as an opt-in code key in Settings, though it replaces Highlights' Edit \u203a Copy?",
+      "why": "Highlights' \u2318C copies selected PDF text, and a Carbon hotkey cannot pass the key through",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    }
+  ]
+}
