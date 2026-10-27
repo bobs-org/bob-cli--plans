@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish batch 18 stats acceptance and closeout
-goal: Verify or reduce Apollo's actual stats index cost, finish the image provenance
-  and rollout checks, and close batch 18 with evidence.
+goal:
+  Verify or reduce Apollo's actual stats index cost, finish the image provenance and
+  rollout checks, and close batch 18 with evidence.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6.land.md)
+- **COMMITS:**
+  - [8c83a3a](https://github.com/bobs-org/bob-cli--plans/commit/8c83a3a81e02ddcb48fcf808a6642253b92631ed)
+    — chore(plans): mark batch 18 and its stats closeout tale done
 
 # Finish batch 18's stats acceptance and land the batch
 
