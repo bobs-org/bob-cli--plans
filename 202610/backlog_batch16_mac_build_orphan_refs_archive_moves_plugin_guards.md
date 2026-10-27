@@ -1,98 +1,86 @@
 ---
 tier: epic
-title:
-  "Backlog batch 16: the broken Mac build, orphaned reference sources, archive moves
-  under open PDFs, unignored plugin folders, and a plugin startup smoke check"
-goal:
-  Close five existing tasks by repairing the bob-mac-capture master build, stopping bob
-  ref create from leaving saved sources without a pointer, verifying and coordinating
+title: 'Backlog batch 16: the broken Mac build, orphaned reference sources, archive
+  moves under open PDFs, unignored plugin folders, and a plugin startup smoke check'
+goal: Close five existing tasks by repairing the bob-mac-capture master build, stopping
+  bob ref create from leaving saved sources without a pointer, verifying and coordinating
   the annotated-overwrite archive move, warning when a deployed plugin folder is not
   git-ignored, and giving plugin rollouts a real Obsidian startup check.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6
 phases:
-  - id: mac-build-repair
-    title: Repair the bob-mac-capture master build broken by 906a7df
-    size: small
-    depends_on: []
-    description:
-      "mac-build-repair: resolve bob-cli-cz by fixing the RefsCopyEntry scope and
-      public-HUD compile errors, compiling before landing, and confirming master macOS
-      CI also passes batch 15's uncompiled 9db33a6."
-  - id: ref-pointer-orphans
-    title:
-      Stop bob ref create from writing a saved source without its source_markdown
-      pointer
-    size: large
-    depends_on: []
-    description:
-      "ref-pointer-orphans: resolve bob-cli-cy by finding the create path that wrote the
-      muse_commentary store but no pointer, making store and pointer land together, and
-      routing the one live orphan's repair through a gate."
-  - id: archive-move-presenter
-    title: Verify and coordinate the annotated-overwrite archive move under an open PDF
-    size: large
-    depends_on: []
-    description:
-      "archive-move-presenter: resolve bob-cli-d0 by reproducing the archive move with
-      the NSDocument presenter fixture on macOS CI, then sending the right move
-      notifications or recording why merging-only access is correct."
-  - id: plugin-ignore-guard
-    title: Warn when a deployed custom plugin folder is not git-ignored or is tracked
-    size: medium
-    depends_on: []
-    description:
-      "plugin-ignore-guard: resolve bob-cli-ch per the plugin_ignore decision, reusing
-      batch 15's deploy-stamp ignore checks to cover each plugin's whole vault folder in
-      sync, list, and JSON."
-  - id: plugin-startup-smoke
-    title: Package the Obsidian startup smoke check that plugin rollouts run
-    size: large
-    depends_on: []
-    description:
-      "plugin-startup-smoke: resolve bob-cli-a6 per the startup_smoke decision by
-      packaging the CDP Obsidian startup and editor-mount check as a reusable rollout
-      script and wiring it into the deploy docs."
+- id: mac-build-repair
+  title: Repair the bob-mac-capture master build broken by 906a7df
+  size: small
+  depends_on: []
+  description: 'mac-build-repair: resolve bob-cli-cz by fixing the RefsCopyEntry scope
+    and public-HUD compile errors, compiling before landing, and confirming master
+    macOS CI also passes batch 15''s uncompiled 9db33a6.'
+- id: ref-pointer-orphans
+  title: Stop bob ref create from writing a saved source without its source_markdown
+    pointer
+  size: large
+  depends_on: []
+  description: 'ref-pointer-orphans: resolve bob-cli-cy by finding the create path
+    that wrote the muse_commentary store but no pointer, making store and pointer
+    land together, and routing the one live orphan''s repair through a gate.'
+- id: archive-move-presenter
+  title: Verify and coordinate the annotated-overwrite archive move under an open
+    PDF
+  size: large
+  depends_on: []
+  description: 'archive-move-presenter: resolve bob-cli-d0 by reproducing the archive
+    move with the NSDocument presenter fixture on macOS CI, then sending the right
+    move notifications or recording why merging-only access is correct.'
+- id: plugin-ignore-guard
+  title: Warn when a deployed custom plugin folder is not git-ignored or is tracked
+  size: medium
+  depends_on: []
+  description: 'plugin-ignore-guard: resolve bob-cli-ch per the plugin_ignore decision,
+    reusing batch 15''s deploy-stamp ignore checks to cover each plugin''s whole vault
+    folder in sync, list, and JSON.'
+- id: plugin-startup-smoke
+  title: Package the Obsidian startup smoke check that plugin rollouts run
+  size: large
+  depends_on: []
+  description: 'plugin-startup-smoke: resolve bob-cli-a6 per the startup_smoke decision
+    by packaging the CDP Obsidian startup and editor-mount check as a reusable rollout
+    script and wiring it into the deploy docs.'
 decisions:
   plugin_ignore:
-    ask:
-      Should plugin sync and list check each deployed plugin folder against the vault's
-      ignore rules?
+    ask: Should plugin sync and list check each deployed plugin folder against the
+      vault's ignore rules?
     choices:
-      warn:
-        Detect and warn in sync, list, and JSON; never edit .gitignore or untrack files
-      append:
-        Also append a missing ignore line through vault-sync when no plugin file is
-        tracked yet
+      warn: Detect and warn in sync, list, and JSON; never edit .gitignore or untrack
+        files
+      append: Also append a missing ignore line through vault-sync when no plugin
+        file is tracked yet
       decline: Close bob-cli-ch as canceled; batch 15's stamp-ignore refusal is enough
     default: warn
-    why:
-      Warnings catch the next missed folder without bob writing the shared vault
+    why: Warnings catch the next missed folder without bob writing the shared vault
       .gitignore on its own
     answer: warn
   startup_smoke:
-    ask:
-      Should plugin rollouts get a packaged real-Obsidian startup and editor-mount smoke
-      check?
+    ask: Should plugin rollouts get a packaged real-Obsidian startup and editor-mount
+      smoke check?
     choices:
-      implement:
-        Ship the script plus deploy-doc and lander wiring; it runs where Obsidian runs
+      implement: Ship the script plus deploy-doc and lander wiring; it runs where
+        Obsidian runs
       decline: Close bob-cli-a6 as canceled; rollouts keep relying on unit suites
     default: implement
-    why:
-      Two shipped regressions (the 1.60.0 OOM and 1.67.0 editor mount) passed every unit
-      suite
+    why: Two shipped regressions (the 1.60.0 OOM and 1.67.0 editor mount) passed every
+      unit suite
     answer: implement
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-27 03:08:25
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
-- **PARENT:**
-  [202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
+- **PROMPT:** [prompts/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
+- **PARENT:** [202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.md)
 
 # Backlog batch 16: the broken Mac build, orphaned reference sources, archive moves under open PDFs, unignored plugin folders, and a plugin startup smoke check
 
