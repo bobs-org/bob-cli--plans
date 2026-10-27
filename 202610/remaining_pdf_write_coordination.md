@@ -1,74 +1,69 @@
 ---
 tier: epic
 title: Coordinate remaining reference PDF writes and moves
-goal:
-  With PDF coordination enabled, reference renames, id repairs, and capture replacements
-  preserve presenter saves, notify moves, and hold without partial publication; Bob Refs
-  and the scratch acceptance kit reflect the contract.
+goal: With PDF coordination enabled, reference renames, id repairs, and capture replacements
+  preserve presenter saves, notify moves, and hold without partial publication; Bob
+  Refs and the scratch acceptance kit reflect the contract.
 phases:
-  - id: move-coordinator
-    title: Add bounded save-and-move coordination
-    size: medium
-    depends_on: []
-    description:
-      "move-coordinator: add a move-capable coordination scope with save-before-write,
-      explicit forward and reverse move notifications, the existing cancellation gate,
-      and portable fake plus macOS NSDocument tests. Extend the explicit-write session
-      seam without changing existing scan or overwrite behavior."
-  - id: rename-transaction
-    title: Coordinate the complete rename and id-repair transaction
-    size: medium
-    depends_on:
-      - move-coordinator
-    description:
-      "rename-transaction: put ref rename, same-stem id repair, verification, scoped
-      commit, and rollback inside one explicit coordination scope. Revalidate after
-      presenter saves, preserve the post-save rollback baseline, notify PDF moves, and
-      return truthful retryable errors without claiming success on a hold."
-  - id: staged-install
-    title: Build a guarded stamped-PDF publication helper
-    size: medium
-    depends_on:
-      - move-coordinator
-    description:
-      "staged-install: separate private PDF stamping from public installation and add
-      one guarded install boundary, used by install_stamped_pdf. Recheck destination
-      identity and marker after access, preserve presenter changes, and keep companion
-      audio inside the granted callback. Cover the helper and PDF publication path with
-      injected-coordinator tests."
-  - id: capture-writers
-    title: Route capture replacement writers through guarded publication
-    size: medium
-    depends_on:
-      - staged-install
-    description:
-      "capture-writers: migrate stamp_and_install and remaining direct public PDF copies
-      from create, clip, and collection to the shared guarded install boundary,
-      including companion audio ordering. Preserve existing filed-overwrite coordination
-      and all force-mode, collision, source-store, and ingest contracts."
-  - id: presentation-acceptance
-    title: Update rename presentation, contracts, and acceptance coverage
-    size: medium
-    depends_on:
-      - rename-transaction
-      - capture-writers
-    description:
-      "presentation-acceptance: remove the Bob Refs close-the-PDF rename hint, verify
-      retryable errors retain the draft, document the coordination contracts, and extend
-      the scratch-only acceptance kit for rename, same-stem id repair, and forced PDF
-      publication. Run portable checks and compile the Mac app and tests in a disposable
-      copy; record real Highlights acceptance separately if it cannot be run."
+- id: move-coordinator
+  title: Add bounded save-and-move coordination
+  size: medium
+  depends_on: []
+  description: 'move-coordinator: add a move-capable coordination scope with save-before-write,
+    explicit forward and reverse move notifications, the existing cancellation gate,
+    and portable fake plus macOS NSDocument tests. Extend the explicit-write session
+    seam without changing existing scan or overwrite behavior.'
+- id: rename-transaction
+  title: Coordinate the complete rename and id-repair transaction
+  size: medium
+  depends_on:
+  - move-coordinator
+  description: 'rename-transaction: put ref rename, same-stem id repair, verification,
+    scoped commit, and rollback inside one explicit coordination scope. Revalidate
+    after presenter saves, preserve the post-save rollback baseline, notify PDF moves,
+    and return truthful retryable errors without claiming success on a hold.'
+- id: staged-install
+  title: Build a guarded stamped-PDF publication helper
+  size: medium
+  depends_on:
+  - move-coordinator
+  description: 'staged-install: separate private PDF stamping from public installation
+    and add one guarded install boundary, used by install_stamped_pdf. Recheck destination
+    identity and marker after access, preserve presenter changes, and keep companion
+    audio inside the granted callback. Cover the helper and PDF publication path with
+    injected-coordinator tests.'
+- id: capture-writers
+  title: Route capture replacement writers through guarded publication
+  size: medium
+  depends_on:
+  - staged-install
+  description: 'capture-writers: migrate stamp_and_install and remaining direct public
+    PDF copies from create, clip, and collection to the shared guarded install boundary,
+    including companion audio ordering. Preserve existing filed-overwrite coordination
+    and all force-mode, collision, source-store, and ingest contracts.'
+- id: presentation-acceptance
+  title: Update rename presentation, contracts, and acceptance coverage
+  size: medium
+  depends_on:
+  - rename-transaction
+  - capture-writers
+  description: 'presentation-acceptance: remove the Bob Refs close-the-PDF rename
+    hint, verify retryable errors retain the draft, document the coordination contracts,
+    and extend the scratch-only acceptance kit for rename, same-stem id repair, and
+    forced PDF publication. Run portable checks and compile the Mac app and tests
+    in a disposable copy; record real Highlights acceptance separately if it cannot
+    be run.'
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2
 create_time: 2026-10-26 22:51:26
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/remaining_pdf_write_coordination.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/remaining_pdf_write_coordination.md)
-- **PARENT:**
-  [202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
+- **PROMPT:** [prompts/202610/remaining_pdf_write_coordination.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/remaining_pdf_write_coordination.md)
+- **PARENT:** [202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch15_vault_safety_pdf_moves_and_red_gates.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.md)
 
 # Coordinate the remaining reference PDF writers
 
