@@ -1,14 +1,12 @@
 ---
 tier: epic
-title:
-  "Backlog batch B2: macOS completion flake, Mermaid class, vault-format docs, and
-  assets split"
-goal:
-  "Resolve the four most important remaining bob-cli beads after batch A1: re-check the
-  macOS completion flake against the new deadline pin, restore the web-clip Mermaid
-  classification, correct the vault-format walk order, and decide the assets-crate split
-  before the package breaches its cap. The lander then starts the next backlog epic, so
-  the chain continues until no open task beads remain."
+title: 'Backlog batch B2: macOS completion flake, Mermaid class, vault-format docs,
+  and assets split'
+goal: 'Resolve the four most important remaining bob-cli beads after batch A1: re-check
+  the macOS completion flake against the new deadline pin, restore the web-clip Mermaid
+  classification, correct the vault-format walk order, and decide the assets-crate
+  split before the package breaches its cap. The lander then starts the next backlog
+  epic, so the chain continues until no open task beads remain.'
 decisions:
   assets_split:
     ask: Split bob-obsidian assets into a separate crate now?
@@ -27,58 +25,53 @@ decisions:
     why: a macOS-only flake cannot be proven fixed from Linux runs alone
     answer: ci_green
 phases:
-  - id: macos-completion-flake
-    title: Re-check the macOS aliases completion flake after the deadline pin
-    depends_on: []
-    size: large
-    description:
-      "macos-completion-flake: read bob-cli-b9 with audited reads, re-check it after
-      f00854be (complete() now uses bob_completion_command with the 10000 ms test
-      deadline), investigate complete_values empty-list path in tests/cli/aliases.rs,
-      apply the same pin only if it shares the deadline path, prove with loaded Linux
-      runs, obtain macOS CI evidence via gh, and close only per b9_close_gate =
-      ci_green; otherwise leave a coordination note. Do not assume a Linux pass proves
-      macOS."
-  - id: mermaid-class
-    title: Keep language-mermaid through web-clip extraction
-    depends_on: []
-    size: medium
-    description:
-      "mermaid-class: read bob-cli-d5, fix scripts/web_clip/web_clip_adapter.py so
-      Defuddle extraction preserves language-mermaid (tag/restore via data attribute or
-      post-process), extend --self-test to cover the real capture path, verify
-      source.md/code.json record kind mermaid, and close bob-cli-d5 with evidence."
-  - id: vault-format-docs
-    title: Correct the vault-format walk order and check the page
-    depends_on: []
-    size: small
-    description:
-      "vault-format-docs: read bob-cli-d8, fix docs/reference/vault-format.md lines
-      171-172 to PRE → NEW → PROJECTS → PENDING → NEXT → RECURRING → TICKLER → ROTTEN →
-      POST per src/native/freshness/state.rs Tier and docs/freshness.md, check nearby
-      explanations, run just docs-check, and close bob-cli-d8. Docs only, no behavior or
-      memory changes."
-  - id: assets-split
-    title: Split embedded assets before the package breaches its cap
-    depends_on: []
-    size: large
-    description:
-      "assets-split: read bob-cli-ai, if assets_split = split_now move web-clip fonts,
-      mermaid/defuddle vendor bundles, and large assets payloads into a
-      bob-obsidian-assets crate keeping include_bytes access, keep just package-check
-      green with headroom, and close bob-cli-ai; if defer, record size evidence and
-      leave the bead open with a monitor note. Do not breach the 9 MiB failure cap."
+- id: macos-completion-flake
+  title: Re-check the macOS aliases completion flake after the deadline pin
+  depends_on: []
+  size: large
+  description: 'macos-completion-flake: read bob-cli-b9 with audited reads, re-check
+    it after f00854be (complete() now uses bob_completion_command with the 10000 ms
+    test deadline), investigate complete_values empty-list path in tests/cli/aliases.rs,
+    apply the same pin only if it shares the deadline path, prove with loaded Linux
+    runs, obtain macOS CI evidence via gh, and close only per b9_close_gate = ci_green;
+    otherwise leave a coordination note. Do not assume a Linux pass proves macOS.'
+- id: mermaid-class
+  title: Keep language-mermaid through web-clip extraction
+  depends_on: []
+  size: medium
+  description: 'mermaid-class: read bob-cli-d5, fix scripts/web_clip/web_clip_adapter.py
+    so Defuddle extraction preserves language-mermaid (tag/restore via data attribute
+    or post-process), extend --self-test to cover the real capture path, verify source.md/code.json
+    record kind mermaid, and close bob-cli-d5 with evidence.'
+- id: vault-format-docs
+  title: Correct the vault-format walk order and check the page
+  depends_on: []
+  size: small
+  description: 'vault-format-docs: read bob-cli-d8, fix docs/reference/vault-format.md
+    lines 171-172 to PRE → NEW → PROJECTS → PENDING → NEXT → RECURRING → TICKLER →
+    ROTTEN → POST per src/native/freshness/state.rs Tier and docs/freshness.md, check
+    nearby explanations, run just docs-check, and close bob-cli-d8. Docs only, no
+    behavior or memory changes.'
+- id: assets-split
+  title: Split embedded assets before the package breaches its cap
+  depends_on: []
+  size: large
+  description: 'assets-split: read bob-cli-ai, if assets_split = split_now move web-clip
+    fonts, mermaid/defuddle vendor bundles, and large assets payloads into a bob-obsidian-assets
+    crate keeping include_bytes access, keep just package-check green with headroom,
+    and close bob-cli-ai; if defer, record size evidence and leave the bead open with
+    a monitor note. Do not breach the 9 MiB failure cap.'
 proposed_by: bbugyi200.athena.bob-cli-d7.land
 proposed_with: muse/muse-spark-1.3-contributor
 decided_by: auto
 create_time: 2026-10-27 16:30:17
 status: wip
+bead_id: bob-cli-da
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b2.md)
-- **PARENT:**
-  [202610/backlog_batch_a1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_a1.md)
+- **PROMPT:** [prompts/202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b2.md)
+- **PARENT:** [202610/backlog_batch_a1.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_a1.md)
+- **BEAD:** [bob-cli-da](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-da/README.md)
 
 # Backlog batch B2: macOS completion flake, Mermaid class, vault-format docs, and assets split
 
