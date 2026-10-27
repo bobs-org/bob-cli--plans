@@ -1,43 +1,40 @@
 ---
 tier: epic
 title: Split embedded assets into a release-managed workspace crate
-goal:
-  Complete bob-cli-da.4 with byte-identical embedded assets in a separate crate, both
-  archives verified below their size budgets, and the daily release train supporting the
-  workspace without changing Bob's installed behavior.
+goal: Complete bob-cli-da.4 with byte-identical embedded assets in a separate crate,
+  both archives verified below their size budgets, and the daily release train supporting
+  the workspace without changing Bob's installed behavior.
 phases:
-  - id: assets-and-packages
-    title: Move embedded payloads and verify both Cargo packages
-    size: medium
-    depends_on: []
-    description:
-      "assets-and-packages: create the bob-obsidian-assets workspace crate, move the
-      existing font and vendor payloads without changing their bytes, preserve installed
-      and source tree consumers, and extend package-check to verify both archives with
-      their own license and size budgets; add unique release tags with the new member.
-      Follow the assets-and-packages section below."
-  - id: release-integration
-    title: Integrate the assets crate with the daily release train
-    size: medium
-    depends_on:
-      - assets-and-packages
-    description:
-      "release-integration: verify independent assets versioning and unique tags under
-      the existing release-plz train, cover multi-package release output and preview
-      behavior, update release documentation, and supply final package measurements.
-      Follow the release-integration section below; leave closure of bob-cli-da.4 to
-      this child epic's land agent."
+- id: assets-and-packages
+  title: Move embedded payloads and verify both Cargo packages
+  size: medium
+  depends_on: []
+  description: 'assets-and-packages: create the bob-obsidian-assets workspace crate,
+    move the existing font and vendor payloads without changing their bytes, preserve
+    installed and source tree consumers, and extend package-check to verify both archives
+    with their own license and size budgets; add unique release tags with the new
+    member. Follow the assets-and-packages section below.'
+- id: release-integration
+  title: Integrate the assets crate with the daily release train
+  size: medium
+  depends_on:
+  - assets-and-packages
+  description: 'release-integration: verify independent assets versioning and unique
+    tags under the existing release-plz train, cover multi-package release output
+    and preview behavior, update release documentation, and supply final package measurements.
+    Follow the release-integration section below; leave closure of bob-cli-da.4 to
+    this child epic''s land agent.'
 proposed_by: bbugyi200.athena.bob-cli-da.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-da.4
 create_time: 2026-10-27 16:43:42
 status: wip
+bead_id: bob-cli-da.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/embedded_assets_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/embedded_assets_split.md)
-- **PARENT:**
-  [202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b2.md)
+- **PROMPT:** [prompts/202610/embedded_assets_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/embedded_assets_split.md)
+- **PARENT:** [202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b2.md)
+- **BEAD:** [bob-cli-da.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-da/bob-cli-da.4.1.md)
 
 # Split embedded assets out of bob-obsidian
 
