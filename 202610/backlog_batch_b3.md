@@ -1,45 +1,41 @@
 ---
 tier: epic
-title: "Backlog batch B3: Mac and plugin flakes, plus lossless theme rename"
-goal:
-  Resolve bob-cli-d4, bob-cli-d9, and bob-cli-dc with reproducible verification, then
-  continue the bounded backlog chain.
+title: 'Backlog batch B3: Mac and plugin flakes, plus lossless theme rename'
+goal: Resolve bob-cli-d4, bob-cli-d9, and bob-cli-dc with reproducible verification,
+  then continue the bounded backlog chain.
 phases:
-  - id: mac-highlights-flake
-    title: Stabilize the Highlights current-tab test
-    size: large
-    depends_on: []
-    description:
-      "mac-highlights-flake: investigate bob-cli-d4 in bob-mac-capture, repair the
-      demonstrated synchronization race without weakening current-tab assertions,
-      compile the Mac targets, and supply focused/full-suite macOS evidence for the
-      lander."
-  - id: command-runner-flake
-    title: Prove FIFO writers and overlapping readers without a wall-clock race
-    size: medium
-    depends_on: []
-    description:
-      "command-runner-flake: resolve bob-cli-d9 in bob-plugins with bounded event-based
-      tests for FIFO writers and concurrent readers; preserve production runner policy,
-      run the plugin gates, and sync through bob plugins sync."
-  - id: theme-rename-bytes
-    title: Preserve every byte outside renamed theme spans
-    size: small
-    depends_on: []
-    description:
-      "theme-rename-bytes: resolve bob-cli-dc in bob-cli by preserving CRLF, mixed
-      terminators, trailing spaces, and missing final newline in global theme rename;
-      verify exact unchanged bytes and retain transaction/journal semantics."
+- id: mac-highlights-flake
+  title: Stabilize the Highlights current-tab test
+  size: large
+  depends_on: []
+  description: 'mac-highlights-flake: investigate bob-cli-d4 in bob-mac-capture, repair
+    the demonstrated synchronization race without weakening current-tab assertions,
+    compile the Mac targets, and supply focused/full-suite macOS evidence for the
+    lander.'
+- id: command-runner-flake
+  title: Prove FIFO writers and overlapping readers without a wall-clock race
+  size: medium
+  depends_on: []
+  description: 'command-runner-flake: resolve bob-cli-d9 in bob-plugins with bounded
+    event-based tests for FIFO writers and concurrent readers; preserve production
+    runner policy, run the plugin gates, and sync through bob plugins sync.'
+- id: theme-rename-bytes
+  title: Preserve every byte outside renamed theme spans
+  size: small
+  depends_on: []
+  description: 'theme-rename-bytes: resolve bob-cli-dc in bob-cli by preserving CRLF,
+    mixed terminators, trailing spaces, and missing final newline in global theme
+    rename; verify exact unchanged bytes and retain transaction/journal semantics.'
 proposed_by: bbugyi200.athena.bob-cli-da.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-27 18:53:10
 status: wip
+bead_id: bob-cli-dd
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch_b3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b3.md)
-- **PARENT:**
-  [202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b2.md)
+- **PROMPT:** [prompts/202610/backlog_batch_b3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b3.md)
+- **PARENT:** [202610/backlog_batch_b2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b2.md)
+- **BEAD:** [bob-cli-dd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dd/README.md)
 
 # Backlog batch B3
 
