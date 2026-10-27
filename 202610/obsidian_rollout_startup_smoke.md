@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Package the real-Obsidian plugin rollout smoke check
-goal:
-  Plugin rollouts verify startup and four editor mounts in isolated Obsidian with
+goal: Plugin rollouts verify startup and four editor mounts in isolated Obsidian with
   reproducible evidence and a deployment gate.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5
-create_time: 2026-10-27 03:30:10
-status: wip
+status: done
 ---
 
 - **PARENT:**
