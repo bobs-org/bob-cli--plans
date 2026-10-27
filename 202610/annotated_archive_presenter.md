@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Coordinate annotated-overwrite archive moves and recovery
-goal:
-  Preserve the open annotated document and its save destination through archive
+goal: Preserve the open annotated document and its save destination through archive
   replacement and both rollback paths, with native presenter evidence and explicit
   real-app acceptance limits.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3
-create_time: 2026-10-27 03:21:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
