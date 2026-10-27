@@ -1,119 +1,105 @@
 ---
 tier: epic
-title:
-  "Backlog batch 17: a precommit macOS gate, the attach-source backfill skips, duplicate
-  research references, scan-wide dirty refusals, and a Swift format config"
-goal:
-  Close five existing tasks by giving Linux-launched agents a bounded precommit macOS
-  check, attaching saved sources to the skipped agent-report references, stopping the
-  research hook from creating duplicate references, refusing dirty ref-scan targets per
-  PDF, and pinning bob-mac-capture's Swift format.
+title: 'Backlog batch 17: a precommit macOS gate, the attach-source backfill skips,
+  duplicate research references, scan-wide dirty refusals, and a Swift format config'
+goal: Close five existing tasks by giving Linux-launched agents a bounded precommit
+  macOS check, attaching saved sources to the skipped agent-report references, stopping
+  the research hook from creating duplicate references, refusing dirty ref-scan targets
+  per PDF, and pinning bob-mac-capture's Swift format.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6
 phases:
-  - id: macos-precommit-gate
-    title: Give Linux-launched agents a bounded precommit macOS CI check
-    size: large
-    depends_on: []
-    description:
-      "macos-precommit-gate: resolve bob-cli-by per the macos_gate decision with a
-      scratch-branch macOS CI check for bob-cli and bob-mac-capture that never moves the
-      checkout and always deletes its branch."
-  - id: attach-source-skips
-    title: Attach saved sources to the ambiguous and title-mismatched backfill skips
-    size: medium
-    depends_on: []
-    description:
-      "attach-source-skips: resolve bob-cli-co per the attach_disambiguation decision by
-      verifying every candidate of an ambiguous stem and running the write pass only
-      through a Bryan-approved gate."
-  - id: research-hook-dedupe
-    title: Stop the research-file hook from creating hash-suffixed duplicate references
-    size: large
-    depends_on: []
-    description:
-      "research-hook-dedupe: resolve bob-cli-cm per the hook_dedupe decision by deriving
-      stems without the artifact hash, choosing -f overwrite or -f reread, and proposing
-      the fold of the five existing duplicates."
-  - id: per-pdf-dirty-refusal
-    title: Refuse dirty ref-scan targets per PDF instead of failing the whole scan
-    size: large
-    depends_on: []
-    description:
-      "per-pdf-dirty-refusal: resolve bob-cli-b1 per the dirty_pdf decision so one
-      autosaved Highlights PDF no longer refuses every other PDF in the scan."
-  - id: swift-format-config
-    title: Pin bob-mac-capture's Swift format and re-indent the minority files once
-    size: small
-    depends_on: []
-    description:
-      "swift-format-config: resolve bob-cli-8k by adding a majority-style .swift-format,
-      re-indenting the minority files in one whitespace-only commit, and compiling it on
-      macOS CI before landing."
+- id: macos-precommit-gate
+  title: Give Linux-launched agents a bounded precommit macOS CI check
+  size: large
+  depends_on: []
+  description: 'macos-precommit-gate: resolve bob-cli-by per the macos_gate decision
+    with a scratch-branch macOS CI check for bob-cli and bob-mac-capture that never
+    moves the checkout and always deletes its branch.'
+- id: attach-source-skips
+  title: Attach saved sources to the ambiguous and title-mismatched backfill skips
+  size: medium
+  depends_on: []
+  description: 'attach-source-skips: resolve bob-cli-co per the attach_disambiguation
+    decision by verifying every candidate of an ambiguous stem and running the write
+    pass only through a Bryan-approved gate.'
+- id: research-hook-dedupe
+  title: Stop the research-file hook from creating hash-suffixed duplicate references
+  size: large
+  depends_on: []
+  description: 'research-hook-dedupe: resolve bob-cli-cm per the hook_dedupe decision
+    by deriving stems without the artifact hash, choosing -f overwrite or -f reread,
+    and proposing the fold of the five existing duplicates.'
+- id: per-pdf-dirty-refusal
+  title: Refuse dirty ref-scan targets per PDF instead of failing the whole scan
+  size: large
+  depends_on: []
+  description: 'per-pdf-dirty-refusal: resolve bob-cli-b1 per the dirty_pdf decision
+    so one autosaved Highlights PDF no longer refuses every other PDF in the scan.'
+- id: swift-format-config
+  title: Pin bob-mac-capture's Swift format and re-indent the minority files once
+  size: small
+  depends_on: []
+  description: 'swift-format-config: resolve bob-cli-8k by adding a majority-style
+    .swift-format, re-indenting the minority files in one whitespace-only commit,
+    and compiling it on macOS CI before landing.'
 decisions:
   macos_gate:
-    ask:
-      Should agents get a script that runs their change on GitHub macOS CI from a
-      throwaway ci/ branch?
+    ask: Should agents get a script that runs their change on GitHub macOS CI from
+      a throwaway ci/ branch?
     choices:
-      scratch_ci:
-        Ship check scripts for both repos, add a ci/** trigger to bob-mac-capture,
+      scratch_ci: Ship check scripts for both repos, add a ci/** trigger to bob-mac-capture,
         document it
-      decline:
-        Close bob-cli-by as canceled; macOS breaks keep surfacing only after they reach
-        master
+      decline: Close bob-cli-by as canceled; macOS breaks keep surfacing only after
+        they reach master
     default: scratch_ci
-    why: Three batches in a row landed macOS code that failed only once it was on master
+    why: Three batches in a row landed macOS code that failed only once it was on
+      master
     answer: scratch_ci
   attach_disambiguation:
-    ask:
-      Should attach-source verify each candidate of an ambiguous stem and attach the one
-      that passes?
+    ask: Should attach-source verify each candidate of an ambiguous stem and attach
+      the one that passes?
     choices:
-      verify:
-        Attach only a single verified candidate, pair mismatches only by review, write
-        via a gate
-      decline:
-        Close bob-cli-co as canceled; the 82 references stay without saved sources
+      verify: Attach only a single verified candidate, pair mismatches only by review,
+        write via a gate
+      decline: Close bob-cli-co as canceled; the 82 references stay without saved
+        sources
     default: verify
-    why:
-      These references lack code, link, and Markdown copy, the loss bob-cli-cy fixed for
-      new ones
+    why: These references lack code, link, and Markdown copy, the loss bob-cli-cy
+      fixed for new ones
     answer: verify
   hook_dedupe:
-    ask:
-      Should the research hook drop the artifact hash from stems and pick -f overwrite
+    ask: Should the research hook drop the artifact hash from stems and pick -f overwrite
       or -f reread?
     choices:
-      implement:
-        Fix the stem and recapture mode, and fold the existing duplicates only through a
-        gate
-      decline:
-        Close bob-cli-cm as canceled; every republished report keeps adding a duplicate
+      implement: Fix the stem and recapture mode, and fold the existing duplicates
+        only through a gate
+      decline: Close bob-cli-cm as canceled; every republished report keeps adding
+        a duplicate
     default: implement
     why: Five duplicate references already exist and each republish adds another
     answer: implement
   dirty_pdf:
-    ask:
-      Should ref scan refuse only the PDFs whose own write targets are dirty and keep
-      scanning the rest?
+    ask: Should ref scan refuse only the PDFs whose own write targets are dirty and
+      keep scanning the rest?
     choices:
       hold: Report each dirty PDF as a hold that retries next scan; clean PDFs proceed
       fail: Report each dirty PDF as a per-PDF failure; clean PDFs proceed
       decline: Keep the scan-wide dirty_targets refusal and close bob-cli-b1 as canceled
     default: hold
-    why: An autosaved PDF clears once vault-sync commits it, which is what a hold means
+    why: An autosaved PDF clears once vault-sync commits it, which is what a hold
+      means
     answer: hold
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.land
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-27 06:23:57
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md)
-- **PARENT:**
-  [202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
+- **PROMPT:** [prompts/202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md)
+- **PARENT:** [202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.md)
 
 # Backlog batch 17: a precommit macOS gate, the attach-source backfill skips, duplicate research references, scan-wide dirty refusals, and a Swift format config
 
