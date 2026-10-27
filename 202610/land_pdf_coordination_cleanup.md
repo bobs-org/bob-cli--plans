@@ -2,15 +2,13 @@
 tier: tale
 size: small
 title: Remove the dead uncoordinated rename path and land the PDF coordination epic
-goal:
-  The rename module carries no dead legacy write path or dead-code exemption, and epic
-  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1 plus its parent phase
-  bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2 are closed with recorded verification.
+goal: The rename module carries no dead legacy write path or dead-code exemption,
+  and epic bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1 plus its parent phase bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2
+  are closed with recorded verification.
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1.land
 proposed_with: claude/opus
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.2.1
-create_time: 2026-10-27 02:04:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
