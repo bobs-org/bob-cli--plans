@@ -1,80 +1,75 @@
 ---
 tier: epic
-title:
-  "Backlog batch A1: red test gates, double-numbered headings, and stale walk/ref memory"
-goal: "The five most important open task beads are resolved: just check is green on
+title: 'Backlog batch A1: red test gates, double-numbered headings, and stale walk/ref
+  memory'
+goal: 'The five most important open task beads are resolved: just check is green on
   apollo and load-tolerant on athena, rendered research PDFs stop double-numbering
-  headings, and the decisions roster and glossary describe today's review walk and
+  headings, and the decisions roster and glossary describe today''s review walk and
   reference tasks. The lander then starts the next backlog epic, so the chain continues
   five beads at a time until no open task beads remain.
 
-  "
+  '
 decisions:
   memory_walk_record:
-    ask:
-      Add a decisions strand for the current walk tiers and mark review-walk-is-tiered
+    ask: Add a decisions strand for the current walk tiers and mark review-walk-is-tiered
       superseded in part?
     memory:
-      - decisions:review-walk-is-tiered
-    corrects:
-      PRE → NEW → PROJECTS → PENDING → NEXT → TICKLER → REFERENCES → ROTTEN → POST
+    - decisions:review-walk-is-tiered
+    corrects: PRE → NEW → PROJECTS → PENDING → NEXT → TICKLER → REFERENCES → ROTTEN
+      → POST
     default: true
     answer: true
   memory_glossary:
-    ask:
-      Correct glossary task-freshness, reference-note, and area-note to match today's
+    ask: Correct glossary task-freshness, reference-note, and area-note to match today's
       walk and reading tasks?
     memory:
-      - glossary:task-freshness
-      - glossary:reference-note
-      - glossary:area-note
+    - glossary:task-freshness
+    - glossary:reference-note
+    - glossary:area-note
     corrects: Its [[reference-task]] (`^ref`) represents progress through that material.
     default: true
     answer: true
 phases:
-  - id: snapshot-test-gate
-    title: Skip the snapshot store test when note-profile LaTeX packages are missing
-    depends_on: []
-    size: small
-    description:
-      "snapshot-test-gate: move the note-profile package skip helper into shared test
-      support, gate store_snapshot_create_records_note_snapshot_route and any other
-      ungated real snapshot render with it, and close bob-cli-d6."
-  - id: manual-heading-numbers
-    title: Stop pandoc numbering headings the author already numbered
-    depends_on: []
-    size: medium
-    description:
-      "manual-heading-numbers: teach the number_from_top_level Lua pass to leave
-      self-numbered Markdown documents unnumbered but listed, cover it with filter tests
-      and a scratch render, update docs/highlights-create.md, and close bob-cli-58."
-  - id: completion-load-flakes
-    title: Make the completion PTY and zpty tests load-tolerant
-    depends_on: []
-    size: medium
-    description:
-      "completion-load-flakes: reproduce the bash and zsh completion driver failures
-      under load, pin test-only deadlines and replace fixed sleeps with bounded
-      readiness waits, prove repeated loaded runs pass, and close bob-cli-8q."
-  - id: memory-corrections
-    title: Correct the stale review-walk and reference-task memory
-    depends_on: []
-    size: small
-    description:
-      "memory-corrections: per the accepted memory decisions, add a decisions strand
-      partly superseding review-walk-is-tiered, fix glossary task-freshness,
-      reference-note, and area-note, republish memory and docs, and close bob-cli-5q and
-      bob-cli-6c."
+- id: snapshot-test-gate
+  title: Skip the snapshot store test when note-profile LaTeX packages are missing
+  depends_on: []
+  size: small
+  description: 'snapshot-test-gate: move the note-profile package skip helper into
+    shared test support, gate store_snapshot_create_records_note_snapshot_route and
+    any other ungated real snapshot render with it, and close bob-cli-d6.'
+- id: manual-heading-numbers
+  title: Stop pandoc numbering headings the author already numbered
+  depends_on: []
+  size: medium
+  description: 'manual-heading-numbers: teach the number_from_top_level Lua pass to
+    leave self-numbered Markdown documents unnumbered but listed, cover it with filter
+    tests and a scratch render, update docs/highlights-create.md, and close bob-cli-58.'
+- id: completion-load-flakes
+  title: Make the completion PTY and zpty tests load-tolerant
+  depends_on: []
+  size: medium
+  description: 'completion-load-flakes: reproduce the bash and zsh completion driver
+    failures under load, pin test-only deadlines and replace fixed sleeps with bounded
+    readiness waits, prove repeated loaded runs pass, and close bob-cli-8q.'
+- id: memory-corrections
+  title: Correct the stale review-walk and reference-task memory
+  depends_on: []
+  size: small
+  description: 'memory-corrections: per the accepted memory decisions, add a decisions
+    strand partly superseding review-walk-is-tiered, fix glossary task-freshness,
+    reference-note, and area-note, republish memory and docs, and close bob-cli-5q
+    and bob-cli-6c.'
 proposed_by: bbugyi200.athena.14v
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-27 14:54:30
 status: wip
+bead_id: bob-cli-d7
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch_a1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_a1.md)
+- **PROMPT:** [prompts/202610/backlog_batch_a1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_a1.md)
+- **BEAD:** [bob-cli-d7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-d7/README.md)
 
 # Backlog batch A1: red test gates, double-numbered headings, and stale walk/ref memory
 
