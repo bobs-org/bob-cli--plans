@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Give the research-file hook stable names and deliberate recapture modes
-goal:
-  Prevent hash-suffixed duplicate captures, select overwrite or reread from the newest
-  reading, and record a safe proposal for the five existing references.
+goal: Prevent hash-suffixed duplicate captures, select overwrite or reread from the
+  newest reading, and record a safe proposal for the five existing references.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3
-create_time: 2026-10-27 06:37:18
-status: wip
+status: done
 ---
 
 - **PARENT:**
