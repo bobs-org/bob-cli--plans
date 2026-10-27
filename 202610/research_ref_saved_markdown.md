@@ -1,66 +1,60 @@
 ---
 tier: epic
-title:
-  Saved Markdown for every research reference (birth pointer fix and two-week backfill)
-goal:
-  Every research report the SASE research-highlights file hook turns into a reference
+title: Saved Markdown for every research reference (birth pointer fix and two-week
+  backfill)
+goal: Every research report the SASE research-highlights file hook turns into a reference
   carries its saved Markdown, so the Bob Refs Copy card offers C (code block), L (link),
-  and M (Markdown). That holds for every new report on athena and apollo, and for every
-  hook-matched report from the last two weeks.
+  and M (Markdown). That holds for every new report on athena and apollo, and for
+  every hook-matched report from the last two weeks.
 decisions:
   hook_timeout:
     ask: Should the research-highlights file hook's timeout rise from 120s to 300s?
     choices:
-      raise:
-        The hook gets a 300s timeout in chezmoi's sase.yml, applied on athena and apollo
-      keep:
-        The hook keeps 120s; apollo's slowest recent run (94.5s) leaves 25s of headroom
+      raise: The hook gets a 300s timeout in chezmoi's sase.yml, applied on athena
+        and apollo
+      keep: The hook keeps 120s; apollo's slowest recent run (94.5s) leaves 25s of
+        headroom
     default: raise
-    why:
-      A timed-out create files nothing, so a slow report on apollo silently never
+    why: A timed-out create files nothing, so a slow report on apollo silently never
       becomes a ref
     answer: raise
 phases:
-  - id: pointer-fix
-    title: Newborn reference notes keep their birth source_markdown pointer
-    depends_on: []
-    size: small
-    description:
-      "pointer-fix: make both PDF-sync executors carry the planned birth-only
-      source_markdown pointer into the note they write (today they rebuild metadata and
-      drop it), with regression tests for inline create intake and queued scan drains."
-  - id: adopt
-    title: bob ref attach-source adopts orphan saved-source stores
-    depends_on: []
-    size: medium
-    description:
-      "adopt: let `bob ref attach-source` point a reference at its own unreferenced
-      render-time store after verifying it against the PDF, leave its code.json
-      untouched, make --search optional, and name the repair in the doctor orphan
-      warning."
-  - id: backfill
-    title:
-      Deploy, verify the hook on both hosts, and backfill two weeks of research
-      references
-    depends_on:
-      - pointer-fix
-      - adopt
-    size: medium
-    description:
-      "backfill: install the fixed bob on athena and apollo, apply the hook_timeout
-      decision, prove the hook path end to end on both hosts, then adopt orphan stores
-      and attach hook-time Markdown to every research reference the hook matched since
-      2026-10-12."
+- id: pointer-fix
+  title: Newborn reference notes keep their birth source_markdown pointer
+  depends_on: []
+  size: small
+  description: 'pointer-fix: make both PDF-sync executors carry the planned birth-only
+    source_markdown pointer into the note they write (today they rebuild metadata
+    and drop it), with regression tests for inline create intake and queued scan drains.'
+- id: adopt
+  title: bob ref attach-source adopts orphan saved-source stores
+  depends_on: []
+  size: medium
+  description: 'adopt: let `bob ref attach-source` point a reference at its own unreferenced
+    render-time store after verifying it against the PDF, leave its code.json untouched,
+    make --search optional, and name the repair in the doctor orphan warning.'
+- id: backfill
+  title: Deploy, verify the hook on both hosts, and backfill two weeks of research
+    references
+  depends_on:
+  - pointer-fix
+  - adopt
+  size: medium
+  description: 'backfill: install the fixed bob on athena and apollo, apply the hook_timeout
+    decision, prove the hook path end to end on both hosts, then adopt orphan stores
+    and attach hook-time Markdown to every research reference the hook matched since
+    2026-10-12.'
 proposed_by: bbugyi200.athena.14o
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-27 07:42:23
 status: wip
+bead_id: bob-cli-d2
 ---
 
-- **PROMPT:**
-  [prompts/202610/research_ref_saved_markdown.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/research_ref_saved_markdown.md)
+- **PROMPT:** [prompts/202610/research_ref_saved_markdown.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/research_ref_saved_markdown.md)
+- **BEAD:** [bob-cli-d2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-d2/README.md)
 
 # Plan: Saved Markdown for every research reference
 
