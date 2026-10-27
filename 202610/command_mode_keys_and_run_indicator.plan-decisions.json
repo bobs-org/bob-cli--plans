@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "indicator_label",
+      "kind": "choice",
+      "ask": "What should the footer run indicator show beside its spinner?",
+      "why": "Says bob is busy, and for how long, without crowding the status bar",
+      "choices": [
+        {
+          "key": "brand",
+          "label": "Shows `bob 0:42`; the command name moves to the hover tooltip; narrow and steady"
+        },
+        {
+          "key": "title",
+          "label": "Shows the run's title and clock, like today's chip; up to ~200px wide, shifts between runs"
+        },
+        {
+          "key": "icon",
+          "label": "Spinner only (plus \u00d72 when several run); time and name appear only on hover"
+        }
+      ],
+      "default": "brand",
+      "effective_default": "brand",
+      "requested_verified": false
+    },
+    {
+      "id": "indicator_runs",
+      "kind": "choice",
+      "ask": "Should the indicator count every run the command-mode engine owns, not only `:` sheet runs?",
+      "why": "One engine, one honest busy signal; a writer queued behind a hidden run would look stuck",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Sheet, palette, toast-action, and sibling-plugin API runs all light it"
+        },
+        {
+          "key": "sheet",
+          "label": "Only runs started from the `:` sheet; palette and API runs stay invisible"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "requested_verified": false
+    }
+  ]
+}
