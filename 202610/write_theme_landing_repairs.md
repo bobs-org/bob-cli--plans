@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair split byte preservation and completion, then land WRITE themes
-goal:
-  The split command preserves unrelated bytes, completes its arguments, and reports
+goal: The split command preserves unrelated bytes, completes its arguments, and reports
   re-adoption in journal order; bob-cli-db is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-db.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-db
-create_time: 2026-10-27 18:14:48
-status: wip
+status: done
 ---
 
 - **PARENT:**
