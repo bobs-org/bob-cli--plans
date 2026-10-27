@@ -1,67 +1,58 @@
 ---
 tier: epic
-title:
-  "Backlog batch 18: the retired hooks JSON key, bob stats speed, a clippy gate, and the
-  Bob Refs Copy card and browse images"
-goal:
-  Close five existing tasks by removing the released legacy_dependency_children key,
-  bringing bob stats toward its 300 ms target, gating the mechanical clippy lints,
+title: 'Backlog batch 18: the retired hooks JSON key, bob stats speed, a clippy gate,
+  and the Bob Refs Copy card and browse images'
+goal: Close five existing tasks by removing the released legacy_dependency_children
+  key, bringing bob stats toward its 300 ms target, gating the mechanical clippy lints,
   fixing the Copy card C/L row previews, and refreshing the Bob Refs browse images.
 parent_bead: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6
 phases:
-  - id: hooks-legacy-key
-    title: Remove the pinned legacy_dependency_children key from hooks JSON
-    size: small
-    depends_on: []
-    description:
-      "hooks-legacy-key: resolve bob-cli-cq by deleting the key that v0.4.0 shipped
-      pinned at 0, with a breaking-change commit and updated docs and tests."
-  - id: stats-perf
-    title: Shrink the live-vault bob stats index pass toward 300 ms
-    size: large
-    depends_on: []
-    description:
-      "stats-perf: resolve bob-cli-6n per the stats_perf decision by profiling the
-      single-pass stats index and cutting avoidable work without changing output."
-  - id: clippy-gate
-    title: Fix the mechanical clippy lint classes and gate them
-    size: large
-    depends_on: []
-    description:
-      "clippy-gate: resolve bob-cli-v per the clippy_scope decision by applying
-      behavior-preserving fixes for the mechanical lint classes and denying them in just
-      lint."
-  - id: mac-refs-polish
-    title: Fix the Copy card C/L row previews and refresh the Bob Refs browse images
-    size: medium
-    depends_on: []
-    description:
-      "mac-refs-polish: resolve bob-cli-cw (tail truncation and accent dot on the C/L
-      rows) and bob-cli-a4 (browse images that predate the NOW section) in
-      bob-mac-capture."
+- id: hooks-legacy-key
+  title: Remove the pinned legacy_dependency_children key from hooks JSON
+  size: small
+  depends_on: []
+  description: 'hooks-legacy-key: resolve bob-cli-cq by deleting the key that v0.4.0
+    shipped pinned at 0, with a breaking-change commit and updated docs and tests.'
+- id: stats-perf
+  title: Shrink the live-vault bob stats index pass toward 300 ms
+  size: large
+  depends_on: []
+  description: 'stats-perf: resolve bob-cli-6n per the stats_perf decision by profiling
+    the single-pass stats index and cutting avoidable work without changing output.'
+- id: clippy-gate
+  title: Fix the mechanical clippy lint classes and gate them
+  size: large
+  depends_on: []
+  description: 'clippy-gate: resolve bob-cli-v per the clippy_scope decision by applying
+    behavior-preserving fixes for the mechanical lint classes and denying them in
+    just lint.'
+- id: mac-refs-polish
+  title: Fix the Copy card C/L row previews and refresh the Bob Refs browse images
+  size: medium
+  depends_on: []
+  description: 'mac-refs-polish: resolve bob-cli-cw (tail truncation and accent dot
+    on the C/L rows) and bob-cli-a4 (browse images that predate the NOW section) in
+    bob-mac-capture.'
 decisions:
   stats_perf:
-    ask:
-      Should batch 18 profile and speed up the bob stats index pass on athena and
+    ask: Should batch 18 profile and speed up the bob stats index pass on athena and
       apollo?
     choices:
-      implement:
-        Profile the release build and cut avoidable index work; output stays
+      implement: Profile the release build and cut avoidable index work; output stays
         byte-identical
-      decline:
-        Close bob-cli-6n as canceled; the Mac already renders stats in about 200 ms
+      decline: Close bob-cli-6n as canceled; the Mac already renders stats in about
+        200 ms
     default: implement
     why: athena and apollo still take 340-600 ms against the plan's 300 ms target
     answer: implement
   clippy_scope:
-    ask:
-      Should the mechanical clippy lint classes be fixed everywhere and then denied in
-      just lint?
+    ask: Should the mechanical clippy lint classes be fixed everywhere and then denied
+      in just lint?
     choices:
-      gate_mechanical:
-        Fix every mechanical-class site, deny those lints; judgment lints stay advisory
-      decline:
-        Close bob-cli-v as canceled; clippy warnings stay advisory and keep growing
+      gate_mechanical: Fix every mechanical-class site, deny those lints; judgment
+        lints stay advisory
+      decline: Close bob-cli-v as canceled; clippy warnings stay advisory and keep
+        growing
     default: gate_mechanical
     why: Warning sites grew from 357 to 435 in two days; only a gate stops the growth
     answer: gate_mechanical
@@ -70,10 +61,11 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-27 11:12:32
 status: wip
+bead_id: bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md)
+- **PROMPT:** [prompts/202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch18_hooks_legacy_key_stats_perf_clippy_gate_refs_copy_docs.md)
+- **BEAD:** [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.6.md)
 
 # Backlog batch 18: the retired hooks JSON key, bob stats speed, a clippy gate, and the Bob Refs Copy card and browse images
 
