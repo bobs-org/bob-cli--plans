@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "daily_label",
+      "kind": "choice",
+      "ask": "What should the root-parent bar call time spent on tasks defined in daily notes?",
+      "why": "True over multi-day ranges, never mistaken for a note, names where the tasks live",
+      "choices": [
+        {
+          "key": "angle_daily",
+          "label": "`<daily>`: brackets mark a synthetic root, like `<stdin>`; matches the `#daily` tag"
+        },
+        {
+          "key": "angle_day",
+          "label": "`<day>`: shorter, but reads like a unit of time (`<day> 55m`)"
+        },
+        {
+          "key": "bare_daily",
+          "label": "`daily`: matches `unlinked`/`unfiled`, but looks like a real note stem"
+        }
+      ],
+      "default": "angle_daily",
+      "effective_default": "angle_daily",
+      "requested_verified": false
+    },
+    {
+      "id": "daily_scope",
+      "kind": "choice",
+      "ask": "Should links to any task defined in a daily note (not just `^gtd`) count under `<daily>` instead of `unfiled`?",
+      "why": "The label then means exactly what it says; only `^gtd` is linked today, so history is unchanged",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Every daily-note block attributes to `<daily>`; one more branch in bob and the plugin chip mirror"
+        },
+        {
+          "key": "review_only",
+          "label": "Only review buckets roll up to `<daily>`; other daily-note tasks stay `unfiled`"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "requested_verified": false
+    },
+    {
+      "id": "review_area",
+      "kind": "choice",
+      "ask": "Should PLAN review keep the orange gtd area via a new root vault note `plan.md` whose parent is gtd?",
+      "why": "The research verified it in a scratch vault and it keeps six months of area history in place",
+      "choices": [
+        {
+          "key": "plan_note",
+          "label": "Create `~/bob/plan.md`; review keeps the gtd area, orange chip dot, and area history"
+        },
+        {
+          "key": "bucket",
+          "label": "No vault note; review becomes its own grey `PLAN review` area, since `plan` is ambiguous"
+        }
+      ],
+      "default": "plan_note",
+      "effective_default": "plan_note",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Should the glossary strands for Pomodoro Theme and Root Parent state the PLAN default and `<daily>` root?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:pomodoro-theme",
+          "glossary:root-parent"
+        ]
+      },
+      "corrects": "Buckets `GTD review`, `unlinked`, and `unfiled` stay buckets.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:pomodoro-theme",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Pomodoro Theme",
+            "Pomodoro",
+            "Task Link"
+          ]
+        },
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
