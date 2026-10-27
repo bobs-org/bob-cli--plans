@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Give the research-file hook stable names and deliberate recapture modes
-goal: Prevent hash-suffixed duplicate captures, select overwrite or reread from the
-  newest reading, and record a safe proposal for the five existing references.
+goal:
+  Prevent hash-suffixed duplicate captures, select overwrite or reread from the newest
+  reading, and record a safe proposal for the five existing references.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch17_macos_gate_source_backfill_hook_dedupe_dirty_scans_swift_format.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.6.3.md)
+- **COMMITS:**
+  - [10e9f1d](https://github.com/bbugyi200/dotfiles/commit/10e9f1d2877d08c2d2e4a651e97c78dff7202b77)
+    — feat(sase): stable research-file hook with deliberate recapture modes
 
 # Give the research-file hook stable names and deliberate recapture modes
 
