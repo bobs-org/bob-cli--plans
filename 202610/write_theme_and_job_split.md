@@ -1,48 +1,46 @@
 ---
 tier: epic
 title: Add the WRITE theme and split JOB blocks by work kind
-goal: "Every past and open JOB Pomodoro carries the work-kind theme its content supports
+goal: 'Every past and open JOB Pomodoro carries the work-kind theme its content supports
   (READ, WRITE, CHORE, PLAN, or BUILD) in one verified, revertable vault commit. WRITE
   is a live, pinned theme that shows in Recent. JOB is hidden. `bob themes list` reports
   no false rename reappearances.
 
-  "
+  '
 phases:
-  - id: split_cmd
-    title: "`bob themes split` and the reappearance fix"
-    depends_on: []
-    size: medium
-    description:
-      "split_cmd: add the template and map-driven per-entry theme split on the shared
-      vault-rewrite transaction, and stop renamed_reappeared from reporting re-adopted
-      names, with tests and docs."
-  - id: vault_migrate
-    title: Split the live JOB blocks and add WRITE
-    depends_on:
-      - split_cmd
-    size: small
-    description:
-      "vault_migrate: hide JOB, split its 89 blocks with the planned mapping in one
-      vault commit, pin WRITE (and the standing set), and verify list, stats, and sync."
+- id: split_cmd
+  title: '`bob themes split` and the reappearance fix'
+  depends_on: []
+  size: medium
+  description: 'split_cmd: add the template and map-driven per-entry theme split on
+    the shared vault-rewrite transaction, and stop renamed_reappeared from reporting
+    re-adopted names, with tests and docs.'
+- id: vault_migrate
+  title: Split the live JOB blocks and add WRITE
+  depends_on:
+  - split_cmd
+  size: small
+  description: 'vault_migrate: hide JOB, split its 89 blocks with the planned mapping
+    in one vault commit, pin WRITE (and the standing set), and verify list, stats,
+    and sync.'
 decisions:
   planning_blocks:
-    ask:
-      Should the 10 JOB blocks spent organizing the search and the blog project become
-      PLAN?
+    ask: Should the 10 JOB blocks spent organizing the search and the blog project
+      become PLAN?
     choices:
-      plan:
-        PLAN, per the codebook; about 2h moves from the job and sase_blog homes to the
-        review bucket
+      plan: PLAN, per the codebook; about 2h moves from the job and sase_blog homes
+        to the review bucket
       chore: CHORE, so those minutes stay in the job and sase_blog homes
     default: plan
-    why:
-      The codebook routes "a choice" to PLAN, and the research accepts losing the home
+    why: The codebook routes "a choice" to PLAN, and the research accepts losing the
+      home
     answer: plan
   pin_standing:
-    ask:
-      Should the migration also pin BUILD yellow, READ green, FIX blue, and CHORE aqua?
+    ask: Should the migration also pin BUILD yellow, READ green, FIX blue, and CHORE
+      aqua?
     default: true
-    why: Research step 7 pins the whole set so no area note or rename can shift a color
+    why: Research step 7 pins the whole set so no area note or rename can shift a
+      color
     answer: true
 proposed_by: bbugyi200.apollo.ar.w0
 proposed_with: claude/opus
@@ -50,10 +48,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-27 17:11:09
 status: wip
+bead_id: bob-cli-db
 ---
 
-- **PROMPT:**
-  [prompts/202610/write_theme_and_job_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/write_theme_and_job_split.md)
+- **PROMPT:** [prompts/202610/write_theme_and_job_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/write_theme_and_job_split.md)
+- **BEAD:** [bob-cli-db](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-db/README.md)
 
 # Plan: Add the WRITE theme and split JOB blocks by work kind
 
