@@ -1,64 +1,58 @@
 ---
 tier: epic
 title: Saved Markdown, code, and link catalogs for web-article references
-goal: "References that bob ref create captures from web-article URLs (single URL, -H
-  saved HTML, rereads, multi-URL collections, and their -f overwrite replacements) get a
-  saved source.md and a code/link catalog, so the Bob Mac Capture Refs Copy card's M, C,
-  and L modes work for them exactly as for Markdown-born references.
+goal: 'References that bob ref create captures from web-article URLs (single URL,
+  -H saved HTML, rereads, multi-URL collections, and their -f overwrite replacements)
+  get a saved source.md and a code/link catalog, so the Bob Mac Capture Refs Copy
+  card''s M, C, and L modes work for them exactly as for Markdown-born references.
 
-  "
+  '
 phases:
-  - id: adapter-source-view
-    title: Renderer emits the source view and code anchors
-    depends_on: []
-    size: medium
-    description:
-      "adapter-source-view: web-clip adapter keeps image origins, writes
-      render/source.html and render/code-anchors.json, injects Chrome-destination
-      anchors for every printed pre, and reports both paths; the Rust client decodes
-      them."
-  - id: web-article-store
-    title: Single web articles save source.md and a catalog
-    depends_on:
-      - adapter-source-view
-    size: medium
-    description:
-      "web-article-store: read Chrome catalog /Dests, convert the source view to GFM,
-      catalog it with the existing filters, map anchor and annotation pages, and write
-      the web_article store and pointer on every single-article create path, with tests
-      and docs."
-  - id: web-collection-store
-    title: Multi-URL collections save one source and catalog
-    depends_on:
-      - web-article-store
-    size: small
-    description:
-      "web-collection-store: persist a web_collection store from the compose response
-      before collection intake, numbering anchors across parts."
-  - id: web-overwrite-store
-    title: Web overwrites repoint instead of clearing
-    depends_on:
-      - web-collection-store
-    size: medium
-    description:
-      "web-overwrite-store: stage the new web store inside the overwrite transaction
-      after capture instead of clearing source_markdown, keeping Clear for PDF URL and
-      arXiv and as the fallback."
-  - id: mac-hint-copy
-    title: Hidden-row reasons name web pages
-    depends_on:
-      - web-article-store
-    size: small
-    description:
-      "mac-hint-copy: in bob-mac-capture, reword the no-saved-Markdown code and link
-      reasons to say Markdown or a web page, with tests and docs; no logic change."
+- id: adapter-source-view
+  title: Renderer emits the source view and code anchors
+  depends_on: []
+  size: medium
+  description: 'adapter-source-view: web-clip adapter keeps image origins, writes
+    render/source.html and render/code-anchors.json, injects Chrome-destination anchors
+    for every printed pre, and reports both paths; the Rust client decodes them.'
+- id: web-article-store
+  title: Single web articles save source.md and a catalog
+  depends_on:
+  - adapter-source-view
+  size: medium
+  description: 'web-article-store: read Chrome catalog /Dests, convert the source
+    view to GFM, catalog it with the existing filters, map anchor and annotation pages,
+    and write the web_article store and pointer on every single-article create path,
+    with tests and docs.'
+- id: web-collection-store
+  title: Multi-URL collections save one source and catalog
+  depends_on:
+  - web-article-store
+  size: small
+  description: 'web-collection-store: persist a web_collection store from the compose
+    response before collection intake, numbering anchors across parts.'
+- id: web-overwrite-store
+  title: Web overwrites repoint instead of clearing
+  depends_on:
+  - web-collection-store
+  size: medium
+  description: 'web-overwrite-store: stage the new web store inside the overwrite
+    transaction after capture instead of clearing source_markdown, keeping Clear for
+    PDF URL and arXiv and as the fallback.'
+- id: mac-hint-copy
+  title: Hidden-row reasons name web pages
+  depends_on:
+  - web-article-store
+  size: small
+  description: 'mac-hint-copy: in bob-mac-capture, reword the no-saved-Markdown code
+    and link reasons to say Markdown or a web page, with tests and docs; no logic
+    change.'
 decisions:
   decision_record:
-    ask:
-      Should the epic record a new accepted decision describing how web-article sources
-      and catalogs are derived?
+    ask: Should the epic record a new accepted decision describing how web-article
+      sources and catalogs are derived?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.ao
@@ -67,10 +61,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-27 11:21:26
 status: wip
+bead_id: bob-cli-d3
 ---
 
-- **PROMPT:**
-  [prompts/202610/web_ref_saved_sources.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/web_ref_saved_sources.md)
+- **PROMPT:** [prompts/202610/web_ref_saved_sources.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/web_ref_saved_sources.md)
+- **BEAD:** [bob-cli-d3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-d3/README.md)
 
 # Saved Markdown, code, and link catalogs for web-article references
 
