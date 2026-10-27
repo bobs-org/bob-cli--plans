@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "link_schemes",
+      "kind": "choice",
+      "ask": "Should Shift-open also open mailto: and obsidian: links, not just http and https?",
+      "why": "Saved pages can carry app-action URIs (Advanced URI, Shortcuts); the catalog is mostly https",
+      "choices": [
+        {
+          "key": "web",
+          "label": "Open only http and https; other schemes show a red reason and still copy"
+        },
+        {
+          "key": "web_mail_obsidian",
+          "label": "Also open mailto and obsidian links; still refuse file and every other scheme"
+        }
+      ],
+      "default": "web",
+      "effective_default": "web",
+      "requested_verified": false
+    }
+  ]
+}
