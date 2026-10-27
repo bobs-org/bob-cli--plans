@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Package the real-Obsidian plugin rollout smoke check
-goal: Plugin rollouts verify startup and four editor mounts in isolated Obsidian with
+goal:
+  Plugin rollouts verify startup and four editor mounts in isolated Obsidian with
   reproducible evidence and a deployment gate.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5
@@ -14,6 +15,11 @@ status: done
   [202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.5.md)
+- **COMMITS:**
+  - [29d6105](https://github.com/bobs-org/bob-cli/commit/29d6105b09856a70d7a9ff4359a44e3e76d79572)
+    — docs(plugins): add Obsidian rollout smoke gate to deploy guide
 
 # Package the real-Obsidian plugin rollout smoke check
 
