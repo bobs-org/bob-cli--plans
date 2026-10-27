@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Coordinate annotated-overwrite archive moves and recovery
-goal: Preserve the open annotated document and its save destination through archive
+goal:
+  Preserve the open annotated document and its save destination through archive
   replacement and both rollback paths, with native presenter evidence and explicit
   real-app acceptance limits.
 size: medium
@@ -15,6 +16,11 @@ status: done
   [202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch16_mac_build_orphan_refs_archive_moves_plugin_guards.md)
 - **BEAD:**
   [bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-an/bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-an.6.6.6.5.6.5.5.6.6.6.6.6.6.6.6.3.md)
+- **COMMITS:**
+  - [e557b02](https://github.com/bobs-org/bob-cli/commit/e557b021244a5aef656cbef0fcb14f6aea71aa53)
+    — feat(ref): coordinate annotated-overwrite archive moves under open PDFs
 
 # Coordinate annotated-overwrite archive moves and recovery
 
