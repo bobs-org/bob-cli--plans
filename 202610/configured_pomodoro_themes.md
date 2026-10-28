@@ -1,106 +1,98 @@
 ---
 tier: epic
-title: "Configured Pomodoro themes: a vocabulary with colors and gentle warnings"
-goal: "A `themes:` block in bob's config.yml declares Bryan's Pomodoro theme vocabulary
-  and each theme's palette color. Every bob surface shows the configured colors, the
-  menus suggest the configured themes, and using a name outside the vocabulary always
-  works but produces a clear warning wherever a theme gets authored. Bryan's six themes
-  ship configured with distinct colors.
+title: 'Configured Pomodoro themes: a vocabulary with colors and gentle warnings'
+goal: 'A `themes:` block in bob''s config.yml declares Bryan''s Pomodoro theme vocabulary
+  and each theme''s palette color. Every bob surface shows the configured colors,
+  the menus suggest the configured themes, and using a name outside the vocabulary
+  always works but produces a clear warning wherever a theme gets authored. Bryan''s
+  six themes ship configured with distinct colors.
 
-  "
+  '
 decisions:
   unconfigured_hue:
     ask: How should a theme outside the configured vocabulary be colored?
     choices:
       mute: Muted gray with a dashed outline, so color means "one of your themes"
-      keep:
-        Keeps its pin/area/hash hue plus the dashed outline; may share a configured
+      keep: Keeps its pin/area/hash hue plus the dashed outline; may share a configured
         color
     default: mute
-    why:
-      A hashed stranger can wear PLAN's blue; muting makes color itself mean membership
+    why: A hashed stranger can wear PLAN's blue; muting makes color itself mean membership
     answer: mute
   memory_glossary_theme:
-    ask:
-      Update the Pomodoro Theme glossary term with the new hue order and configured
+    ask: Update the Pomodoro Theme glossary term with the new hue order and configured
       themes?
     memory:
-      - glossary:pomodoro-theme
+    - glossary:pomodoro-theme
     default: true
     corrects: Hue priority is pin, exempt mute, matching top-level area, then
     answer: true
   memory_hue_record:
     ask: Supersede the theme hue decision record with a config-first hue order record?
     memory:
-      - decisions:theme-hue-is-pin-exempt-area-hash
-      - decisions:theme-hue-is-config-pin-exempt-area-hash
+    - decisions:theme-hue-is-pin-exempt-area-hash
+    - decisions:theme-hue-is-config-pin-exempt-area-hash
     default: true
-    corrects: "Hue is resolved in order: a journal pin (`hue_source: pin`); else a"
+    corrects: 'Hue is resolved in order: a journal pin (`hue_source: pin`); else a'
     answer: true
   memory_vocabulary_record:
-    ask:
-      Add a decision record that configured themes are a soft vocabulary that warns,
+    ask: Add a decision record that configured themes are a soft vocabulary that warns,
       never refuses?
     memory:
-      - decisions:configured-themes-are-a-soft-vocabulary
+    - decisions:configured-themes-are-a-soft-vocabulary
     default: false
     answer: false
 phases:
-  - id: config
-    title: bob-cli themes config, hue rule, and catalog reports
-    depends_on: []
-    size: medium
-    description:
-      "config: parse and validate the `themes:` block, put config colors first in the
-      hue rule, add `configured` to every ThemeRef, make `bob themes list` and `bob
-      themes color` config-aware, extend the hue vectors, and document PT12."
-  - id: warnings
-    title: bob-cli suggestions and warnings for unconfigured themes
-    depends_on:
-      - config
-    size: medium
-    description:
-      "warnings: limit Recent suggestions to configured themes and emit
-      `theme_not_configured` from capture, Name-it, bob plan, rename/split, and
-      themes-list hints, plus menu vectors and docs."
-  - id: obsidian
-    title: bob-plugins configured-theme rendering, pickers, and lints
-    depends_on:
-      - config
-      - warnings
-    size: medium
-    description:
-      "obsidian: decode the new report fields, mirror the hue rule and menu scoping in
-      JS, badge unconfigured create rows, mark unconfigured ledger chips, update the
-      theme manager, and add the plan-block lint."
-  - id: mac
-    title: Bob Mac Capture configured-theme rendering and warnings
-    depends_on:
-      - config
-      - warnings
-    size: medium
-    description:
-      "mac: render `configured: false` themes with the dashed treatment, badge
-      unconfigured create rows, show `theme_not_configured` in every preview and in
-      Name-it without flicker, and scope Name-it chips to configured themes."
-  - id: dotfiles
-    title: Bryan's six configured themes in chezmoi
-    depends_on:
-      - config
-    size: xsmall
-    description:
-      "dotfiles: add the six-theme `themes:` block with the chosen colors to the chezmoi
-      bob config, check it with the new parser, and apply it."
+- id: config
+  title: bob-cli themes config, hue rule, and catalog reports
+  depends_on: []
+  size: medium
+  description: 'config: parse and validate the `themes:` block, put config colors
+    first in the hue rule, add `configured` to every ThemeRef, make `bob themes list`
+    and `bob themes color` config-aware, extend the hue vectors, and document PT12.'
+- id: warnings
+  title: bob-cli suggestions and warnings for unconfigured themes
+  depends_on:
+  - config
+  size: medium
+  description: 'warnings: limit Recent suggestions to configured themes and emit `theme_not_configured`
+    from capture, Name-it, bob plan, rename/split, and themes-list hints, plus menu
+    vectors and docs.'
+- id: obsidian
+  title: bob-plugins configured-theme rendering, pickers, and lints
+  depends_on:
+  - config
+  - warnings
+  size: medium
+  description: 'obsidian: decode the new report fields, mirror the hue rule and menu
+    scoping in JS, badge unconfigured create rows, mark unconfigured ledger chips,
+    update the theme manager, and add the plan-block lint.'
+- id: mac
+  title: Bob Mac Capture configured-theme rendering and warnings
+  depends_on:
+  - config
+  - warnings
+  size: medium
+  description: 'mac: render `configured: false` themes with the dashed treatment,
+    badge unconfigured create rows, show `theme_not_configured` in every preview and
+    in Name-it without flicker, and scope Name-it chips to configured themes.'
+- id: dotfiles
+  title: Bryan's six configured themes in chezmoi
+  depends_on:
+  - config
+  size: xsmall
+  description: 'dotfiles: add the six-theme `themes:` block with the chosen colors
+    to the chezmoi bob config, check it with the new parser, and apply it.'
 proposed_by: bbugyi200.athena.151
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 07:47:08
 status: wip
+bead_id: bob-cli-dk
 ---
 
-- **PROMPT:**
-  [prompts/202610/configured_pomodoro_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/configured_pomodoro_themes.md)
+- **PROMPT:** [prompts/202610/configured_pomodoro_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/configured_pomodoro_themes.md)
+- **BEAD:** [bob-cli-dk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dk/README.md)
 
 # Plan: Configured Pomodoro themes
 
