@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "red_first_repro",
+      "kind": "choice",
+      "ask": "Prove the root cause on CI by running the new tests against the unfixed app before landing the fix?",
+      "why": "Bryan asked to confirm the root cause; a CI hang sample is the only direct stack proof",
+      "choices": [
+        {
+          "key": "run",
+          "label": "One extra throwaway ci/ branch run (10-20 min) whose hang sample shows the loop"
+        },
+        {
+          "key": "skip",
+          "label": "Land the fix with the model test and a manual check; the cause stays inferred"
+        }
+      ],
+      "default": "run",
+      "effective_default": "run",
+      "requested_verified": false
+    }
+  ]
+}
