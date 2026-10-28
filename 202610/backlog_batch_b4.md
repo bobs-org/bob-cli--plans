@@ -1,55 +1,49 @@
 ---
 tier: epic
-title:
-  "Backlog batch B4: catalog count, artifact-link quarantine, propose inlet, and
-  dirty-tree preservation"
-goal:
-  Resolve bob-cli-de, bob-cli-5m, bob-cli-5n, and the remaining bob-cli-cv dirty-tree
+title: 'Backlog batch B4: catalog count, artifact-link quarantine, propose inlet,
+  and dirty-tree preservation'
+goal: Resolve bob-cli-de, bob-cli-5m, bob-cli-5n, and the remaining bob-cli-cv dirty-tree
   loss with reproducible verification, then continue the bounded backlog chain.
 phases:
-  - id: catalog-protocol-count
-    title: Align the protocol-1 catalog CLI count with the themes-split row
-    size: small
-    depends_on: []
-    description:
-      "catalog-protocol-count: resolve bob-cli-de in bob-cli by updating the protocol-1
-      CLI catalog assertion from 54 to the intentional 55-entry shape, covering the
-      themes-split row, and verifying with the focused catalog CLI suite plus just
-      check."
-  - id: artifact-link-quarantine
-    title:
-      Quarantine colliding artifact-link operation IDs without blocking later writes
-    size: large
-    depends_on: []
-    description:
-      "artifact-link-quarantine: resolve bob-cli-5m in sase so one reused operation_id
-      with two payloads is quarantined and surfaced by sase artifact doctor while
-      unrelated link appends still succeed."
-  - id: plan-propose-inlet
-    title: Keep a failed links inlet from consuming the scratch plan
-    size: medium
-    depends_on: []
-    description:
-      "plan-propose-inlet: resolve bob-cli-5n in sase by validating or publishing the
-      plan links inlet before move_plan_to_sase, or rolling that move back on inlet
-      failure, so a failed propose leaves the scratch plan in place with a clear error."
-  - id: dirty-tree-preservation
-    title: Preserve tracked and untracked edits across a failed-close relaunch reset
-    size: large
-    depends_on: []
-    description:
-      "dirty-tree-preservation: resolve the remaining bob-cli-cv loss in sase by proving
-      and repairing the relaunch reset that still drops tracked edits after sase-1oh
-      reopened failed closes; stash or otherwise preserve the full dirty tree before any
-      hard reset."
+- id: catalog-protocol-count
+  title: Align the protocol-1 catalog CLI count with the themes-split row
+  size: small
+  depends_on: []
+  description: 'catalog-protocol-count: resolve bob-cli-de in bob-cli by updating
+    the protocol-1 CLI catalog assertion from 54 to the intentional 55-entry shape,
+    covering the themes-split row, and verifying with the focused catalog CLI suite
+    plus just check.'
+- id: artifact-link-quarantine
+  title: Quarantine colliding artifact-link operation IDs without blocking later writes
+  size: large
+  depends_on: []
+  description: 'artifact-link-quarantine: resolve bob-cli-5m in sase so one reused
+    operation_id with two payloads is quarantined and surfaced by sase artifact doctor
+    while unrelated link appends still succeed.'
+- id: plan-propose-inlet
+  title: Keep a failed links inlet from consuming the scratch plan
+  size: medium
+  depends_on: []
+  description: 'plan-propose-inlet: resolve bob-cli-5n in sase by validating or publishing
+    the plan links inlet before move_plan_to_sase, or rolling that move back on inlet
+    failure, so a failed propose leaves the scratch plan in place with a clear error.'
+- id: dirty-tree-preservation
+  title: Preserve tracked and untracked edits across a failed-close relaunch reset
+  size: large
+  depends_on: []
+  description: 'dirty-tree-preservation: resolve the remaining bob-cli-cv loss in
+    sase by proving and repairing the relaunch reset that still drops tracked edits
+    after sase-1oh reopened failed closes; stash or otherwise preserve the full dirty
+    tree before any hard reset.'
 proposed_by: bbugyi200.athena.bob-cli-dd.land--3
 proposed_with: grok/grok-4.6
 create_time: 2026-10-27 21:24:43
 status: wip
+bead_id: bob-cli-df
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b4.md)
+- **PROMPT:** [prompts/202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b4.md)
+- **BEAD:** [bob-cli-df](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/README.md)
 
 # Backlog batch B4
 
