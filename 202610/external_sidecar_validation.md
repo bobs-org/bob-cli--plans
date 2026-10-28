@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Provision the isolated plans sidecar for external SASE validation
-goal:
-  sase validate passes in an external sase checkout opened from another project's
-  workspace by validating that project's own provisioned plans sidecar, never the host's
-  plans and never a silenced stage.
+goal: sase validate passes in an external sase checkout opened from another project's
+  workspace by validating that project's own provisioned plans sidecar, never the
+  host's plans and never a silenced stage.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-dp.1
 proposed_with: claude/opus
 bead: bob-cli-dp.1
-create_time: 2026-10-28 13:25:01
-status: wip
+status: done
 ---
 
 - **BEAD:**
