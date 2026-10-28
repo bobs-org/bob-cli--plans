@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Compose relation cancellation into the Obsidian source write
-goal:
-  Complete bob-cli-dl.5 with shared cancel policy, one source-note write and undo step,
-  post-cancel effects, and verified plugin deployment.
+goal: Complete bob-cli-dl.5 with shared cancel policy, one source-note write and undo
+  step, post-cancel effects, and verified plugin deployment.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dl.5
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dl.5
-create_time: 2026-10-28 09:17:35
-status: wip
+status: done
 ---
 
 - **PARENT:**
