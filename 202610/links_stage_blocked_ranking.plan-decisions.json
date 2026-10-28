@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "blocked_ties",
+      "kind": "choice",
+      "ask": "Should equal-score Blocked rows tie with Ready rows in the Links stages instead of sorting after them?",
+      "why": "Relations never block, so Blocked status says nothing about link relevance",
+      "choices": [
+        {
+          "key": "peer",
+          "label": "Ready and Blocked share one tie lane; In Progress and Next still lead every tie"
+        },
+        {
+          "key": "lane",
+          "label": "Equal-score Blocked rows keep sorting after Ready rows, as the shared order does today"
+        }
+      ],
+      "default": "peer",
+      "effective_default": "peer",
+      "requested_verified": false
+    }
+  ]
+}
