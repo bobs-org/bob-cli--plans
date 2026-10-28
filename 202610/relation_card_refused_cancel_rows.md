@@ -1,18 +1,22 @@
 ---
 tier: tale
 title: Relation card renders refused cancel-label rows cleanly
-goal: On a new-task `~` (or recurring `~~`) relation, the Mac relation card shows
-  every row, keeps refused cancel rows compact, and states bob's refusal once in full.
+goal:
+  On a new-task `~` (or recurring `~~`) relation, the Mac relation card shows every row,
+  keeps refused cancel rows compact, and states bob's refusal once in full.
 size: medium
 decisions:
   refusal_reason_visibility:
-    ask: Should the card show bob's refusal reason whenever a refused cancel row is
+    ask:
+      Should the card show bob's refusal reason whenever a refused cancel row is
       visible, not just when highlighted?
     choices:
-      highlighted: Reason shows only while a refused row is highlighted or typed;
-        others show it on hover
-      always: Reason also shows muted under the list whenever refused rows are visible
-        (one extra line)
+      highlighted:
+        Reason shows only while a refused row is highlighted or typed; others show it on
+        hover
+      always:
+        Reason also shows muted under the list whenever refused rows are visible (one
+        extra line)
     default: highlighted
     why: Most new-task ~ cards pick an ordinary label, so an always-on line is noise
     answer: highlighted
@@ -21,6 +25,12 @@ proposed_with: claude/opus
 decided_by: auto
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.apollo.az](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.az.md)
+- **COMMITS:**
+  - [c8c4366](https://github.com/bobs-org/bob-mac-capture/commit/c8c4366d897baab836b4f05693aede4ca0a01a51)
+    — feat(mac-capture): show refused relation cancel reasons
 
 # Relation card: render refused cancel-label rows cleanly (Bob Mac Capture)
 
