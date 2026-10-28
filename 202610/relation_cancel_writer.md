@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Compose relation cancellation into the Obsidian source write
-goal: Complete bob-cli-dl.5 with shared cancel policy, one source-note write and undo
-  step, post-cancel effects, and verified plugin deployment.
+goal:
+  Complete bob-cli-dl.5 with shared cancel policy, one source-note write and undo step,
+  post-cancel effects, and verified plugin deployment.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dl.5
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/relation_cancel_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_cancel_labels.md)
 - **BEAD:**
   [bob-cli-dl.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dl/bob-cli-dl.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-dl.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-dl.5.md)
+- **COMMITS:**
+  - [768fac8](https://github.com/bobs-org/bob-plugins/commit/768fac86d256f6e7abd5c38fdff9a65c7fc4ed23)
+    — feat(nav): cancel sources when linking a configured cancel label
 
 # Compose relation cancellation into the Obsidian source write
 
