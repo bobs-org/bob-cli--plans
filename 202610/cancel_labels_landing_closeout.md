@@ -1,13 +1,11 @@
 ---
 tier: tale
 size: medium
-title:
-  Cancel labels landing — list only real cancels, name the unblocked task, and close
-  bob-cli-dl
-goal:
-  bob's capture cancel output matches the §17 contract (relation_cancels[] lists only
-  real cancels, the capture row names a single unblocked task, the warning and ^prj
-  strings follow CL6), and epic bob-cli-dl is closed with its plan marked done.
+title: Cancel labels landing — list only real cancels, name the unblocked task, and
+  close bob-cli-dl
+goal: bob's capture cancel output matches the §17 contract (relation_cancels[] lists
+  only real cancels, the capture row names a single unblocked task, the warning and
+  ^prj strings follow CL6), and epic bob-cli-dl is closed with its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-dl.land
 proposed_with: claude/opus
 bead: bob-cli-dl
@@ -18,11 +16,6 @@ status: done
   [202610/relation_cancel_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_cancel_labels.md)
 - **BEAD:**
   [bob-cli-dl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dl/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-dl.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-dl.land.md)
-- **COMMITS:**
-  - [b8d5529](https://github.com/bobs-org/bob-cli/commit/b8d5529742330811a412d1364ea47eda1be8d5ef)
-    — fix(capture): align cancel-label output with §17 CL6/CL7
 
 # Cancel labels landing closeout (epic `bob-cli-dl`)
 
