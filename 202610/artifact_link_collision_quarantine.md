@@ -1,45 +1,42 @@
 ---
 tier: epic
 title: Quarantine artifact-link collisions and keep unrelated writes available
-goal:
-  Preserve the earliest durable artifact-link payload, retain conflicting replays as
-  visible quarantine evidence, and allow unrelated reads, writes, and outbox publication
+goal: Preserve the earliest durable artifact-link payload, retain conflicting replays
+  as visible quarantine evidence, and allow unrelated reads, writes, and outbox publication
   to complete.
 parent_bead: bob-cli-df.2
 phases:
-  - id: collision-policy
-    title: Add the Rust collision partition and quarantine contracts
-    size: medium
-    depends_on: []
-    description:
-      "collision-policy: add canonical selection from durability evidence, typed
-      quarantine results, and Python binding coverage in sase-core."
-  - id: store-quarantine
-    title: Read colliding stores safely and expose quarantine in doctor
-    size: medium
-    depends_on:
-      - collision-policy
-    description:
-      "store-quarantine: add historical durability evidence, accepted-event snapshots,
-      quarantine persistence helpers, and doctor reporting in sase."
-  - id: publication-quarantine
-    title: Quarantine publication replays without losing outbox payloads
-    size: medium
-    depends_on:
-      - store-quarantine
-    description:
-      "publication-quarantine: support sidecar and local installation, mixed publication
-      batches, digest-aware outbox settlement, and end-to-end acceptance tests in sase."
+- id: collision-policy
+  title: Add the Rust collision partition and quarantine contracts
+  size: medium
+  depends_on: []
+  description: 'collision-policy: add canonical selection from durability evidence,
+    typed quarantine results, and Python binding coverage in sase-core.'
+- id: store-quarantine
+  title: Read colliding stores safely and expose quarantine in doctor
+  size: medium
+  depends_on:
+  - collision-policy
+  description: 'store-quarantine: add historical durability evidence, accepted-event
+    snapshots, quarantine persistence helpers, and doctor reporting in sase.'
+- id: publication-quarantine
+  title: Quarantine publication replays without losing outbox payloads
+  size: medium
+  depends_on:
+  - store-quarantine
+  description: 'publication-quarantine: support sidecar and local installation, mixed
+    publication batches, digest-aware outbox settlement, and end-to-end acceptance
+    tests in sase.'
 proposed_by: bbugyi200.athena.bob-cli-df.2
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-27 21:43:09
 status: wip
+bead_id: bob-cli-df.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/artifact_link_collision_quarantine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_collision_quarantine.md)
-- **PARENT:**
-  [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **PROMPT:** [prompts/202610/artifact_link_collision_quarantine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_collision_quarantine.md)
+- **PARENT:** [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **BEAD:** [bob-cli-df.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/bob-cli-df.2.1.md)
 
 # Artifact-link collision quarantine
 
