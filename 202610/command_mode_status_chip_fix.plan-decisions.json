@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "sheet_running_line",
+      "kind": "choice",
+      "ask": "Should the command sheet also show a running line while it waits on a report, preview, or help run?",
+      "why": "Report runs keep the sheet open over the status bar, which can hide the chip",
+      "choices": [
+        {
+          "key": "sheet_line",
+          "label": "Sheet footer shows a spinner and a running line until the output opens"
+        },
+        {
+          "key": "chip_only",
+          "label": "Only the status-bar chip is fixed; report runs stay silent in the sheet"
+        }
+      ],
+      "default": "sheet_line",
+      "effective_default": "sheet_line",
+      "requested_verified": false
+    }
+  ]
+}
