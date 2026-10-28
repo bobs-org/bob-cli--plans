@@ -78,7 +78,7 @@ phases:
 proposed_by: bbugyi200.athena.bob-cli-dp.land
 proposed_with: grok/grok-4.6
 create_time: 2026-10-28 15:35:22
-status: wip
+status: done
 bead_id: bob-cli-dw
 ---
 

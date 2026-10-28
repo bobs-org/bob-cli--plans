@@ -65,7 +65,7 @@ proposed_by: bbugyi200.athena.bob-cli-d7.land
 proposed_with: muse/muse-spark-1.3-contributor
 decided_by: auto
 create_time: 2026-10-27 16:30:17
-status: wip
+status: done
 bead_id: bob-cli-da
 ---
 

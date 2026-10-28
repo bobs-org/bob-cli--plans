@@ -52,7 +52,7 @@ phases:
 proposed_by: bbugyi200.athena.bob-cli-df.land
 proposed_with: muse/muse-spark-1.3-contributor
 create_time: 2026-10-28 11:23:28
-status: wip
+status: done
 bead_id: bob-cli-dp
 ---
 
