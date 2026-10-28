@@ -1,45 +1,43 @@
 ---
 tier: epic
 title: Rust task theme suggestions and canonical task fields
-goal:
-  Complete bob-cli-dm.1 with pure suggestion and field rules, a read-only explanation
+goal: Complete bob-cli-dm.1 with pure suggestion and field rules, a read-only explanation
   CLI, unknown-default hints, shared vectors, preservation coverage, and the published
   contract.
 phases:
-  - id: suggestion-model
-    title: Implement task theme rules and shared vectors
-    size: medium
-    depends_on: []
-    description:
-      "suggestion-model: add validated note defaults and reading config, the pure
-      resolver, canonical field edits, and the write rule, with shared Rust vectors."
-  - id: suggestion-cli
-    title: Expose suggestions and unknown note defaults
-    size: medium
-    depends_on:
-      - suggestion-model
-    description:
-      "suggestion-cli: ship read-only themes suggest and theme_default_unknown hints,
-      wire discovery and help, and measure warm-list performance."
-  - id: preservation-contract
-    title: Verify field preservation and publish the contract
-    size: medium
-    depends_on:
-      - suggestion-cli
-    description:
-      "preservation-contract: test existing task writers, fix field loss, publish the
-      task-theme contract and vault/config references, and run integrated gates."
+- id: suggestion-model
+  title: Implement task theme rules and shared vectors
+  size: medium
+  depends_on: []
+  description: 'suggestion-model: add validated note defaults and reading config,
+    the pure resolver, canonical field edits, and the write rule, with shared Rust
+    vectors.'
+- id: suggestion-cli
+  title: Expose suggestions and unknown note defaults
+  size: medium
+  depends_on:
+  - suggestion-model
+  description: 'suggestion-cli: ship read-only themes suggest and theme_default_unknown
+    hints, wire discovery and help, and measure warm-list performance.'
+- id: preservation-contract
+  title: Verify field preservation and publish the contract
+  size: medium
+  depends_on:
+  - suggestion-cli
+  description: 'preservation-contract: test existing task writers, fix field loss,
+    publish the task-theme contract and vault/config references, and run integrated
+    gates.'
 proposed_by: bbugyi200.apollo.bob-cli-dm.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-dm.1
 create_time: 2026-10-28 09:05:49
 status: wip
+bead_id: bob-cli-dm.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_theme_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_core.md)
-- **PARENT:**
-  [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **PROMPT:** [prompts/202610/task_theme_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_core.md)
+- **PARENT:** [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **BEAD:** [bob-cli-dm.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.1.1.md)
 
 # Task theme core for bob-cli-dm.1
 
