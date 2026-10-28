@@ -1,59 +1,54 @@
 ---
 tier: epic
 title: Complete relation sources through the shared capture Done path
-goal:
-  Finish bob-cli-du.2 by composing complete-label relation commits with existing task
-  completion, atomic capture writes, successor choice, and additive output.
+goal: Finish bob-cli-du.2 by composing complete-label relation commits with existing
+  task completion, atomic capture writes, successor choice, and additive output.
 phases:
-  - id: close-policy
-    title: Parse closing-label policy and expose complete verdicts
-    size: medium
-    depends_on: []
-    description:
-      "close-policy: share the cancel/complete label parser, drop overlapping keys from
-      both lists, add CloseEffect and complete verdicts, and exercise the existing
-      config, key, and rule vectors without enabling relation-triggered completion."
-  - id: shared-completion
-    title: Extract reusable capture completion and aggregate nested outcomes
-    size: medium
-    depends_on:
-      - close-policy
-    description:
-      "shared-completion: extract complete_existing_task from the whole-item ! adapter,
-      add omitted-by-default relation completion output, and generalize successor
-      traversal, numbering, net filtering, and detail rendering while preserving
-      existing capture behavior."
-  - id: relation-composition
-    title: Complete relation sources in the staged capture transaction
-    size: medium
-    depends_on:
-      - shared-completion
-    description:
-      "relation-composition: share closing-edge collection with cancel, enforce
-      same-source and cross-item refusals, compose relation writes with
-      complete_existing_task, and report nested completion, tracking references,
-      warnings, human rows, and successor choices."
-  - id: capture-acceptance
-    title: Verify capture edge cases and update implemented contract markers
-    size: medium
-    depends_on:
-      - relation-composition
-    description:
-      "capture-acceptance: finish the scratch-vault acceptance matrix, prove no-config
-      and existing !/cancel compatibility, verify rollback and mixed successor
-      selection, update capture contract documentation, and prepare evidence for the
-      child epic land agent."
+- id: close-policy
+  title: Parse closing-label policy and expose complete verdicts
+  size: medium
+  depends_on: []
+  description: 'close-policy: share the cancel/complete label parser, drop overlapping
+    keys from both lists, add CloseEffect and complete verdicts, and exercise the
+    existing config, key, and rule vectors without enabling relation-triggered completion.'
+- id: shared-completion
+  title: Extract reusable capture completion and aggregate nested outcomes
+  size: medium
+  depends_on:
+  - close-policy
+  description: 'shared-completion: extract complete_existing_task from the whole-item
+    ! adapter, add omitted-by-default relation completion output, and generalize successor
+    traversal, numbering, net filtering, and detail rendering while preserving existing
+    capture behavior.'
+- id: relation-composition
+  title: Complete relation sources in the staged capture transaction
+  size: medium
+  depends_on:
+  - shared-completion
+  description: 'relation-composition: share closing-edge collection with cancel, enforce
+    same-source and cross-item refusals, compose relation writes with complete_existing_task,
+    and report nested completion, tracking references, warnings, human rows, and successor
+    choices.'
+- id: capture-acceptance
+  title: Verify capture edge cases and update implemented contract markers
+  size: medium
+  depends_on:
+  - relation-composition
+  description: 'capture-acceptance: finish the scratch-vault acceptance matrix, prove
+    no-config and existing !/cancel compatibility, verify rollback and mixed successor
+    selection, update capture contract documentation, and prepare evidence for the
+    child epic land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-du.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-du.2
 create_time: 2026-10-28 15:26:08
 status: wip
+bead_id: bob-cli-du.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/complete_label_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/complete_label_capture.md)
-- **PARENT:**
-  [202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_complete_labels.md)
+- **PROMPT:** [prompts/202610/complete_label_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/complete_label_capture.md)
+- **PARENT:** [202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_complete_labels.md)
+- **BEAD:** [bob-cli-du.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-du/bob-cli-du.2.1.md)
 
 # Complete labels in capture: implementation of bob-cli-du.2
 
