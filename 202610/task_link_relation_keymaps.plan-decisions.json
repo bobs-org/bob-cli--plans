@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "counted_links",
+      "kind": "choice",
+      "ask": "Should N<Ctrl+Shift+L> on Task Links open the first linked task's Links stage, as the counted B keymaps do?",
+      "why": "Matches the open-first rule both B keymaps already follow on Task Links",
+      "choices": [
+        {
+          "key": "first",
+          "label": "Opens the first linked task's Links stage, and a notice says to reopen Links to for the rest"
+        },
+        {
+          "key": "refuse",
+          "label": "Refuses with a notice and focuses no note, because counted Links to on tasks means a batch"
+        }
+      ],
+      "default": "first",
+      "effective_default": "first",
+      "requested_verified": false
+    },
+    {
+      "id": "b_keys_on_relation_lines",
+      "kind": "choice",
+      "ask": "Should Ctrl+Shift+B / Ctrl+Shift+Alt+B on a LINKS or LINKED FROM line open Depends on / Blocks, not Links?",
+      "why": "It mirrors the Depends-On fix below and lives in the same few lines",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Fixed in the same routing block, with one test and one LG vector per key"
+        },
+        {
+          "key": "defer",
+          "label": "Left as is; the implementer files a bug bead for it with /sase_new_task"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
