@@ -1,164 +1,149 @@
 ---
 tier: epic
 title: Cancel labels — relation labels that cancel their source task
-goal: "Committing a relation whose label is listed in `relations.cancel_labels`
-  (starting with `duplicate of` and `superseded by`, configured in chezmoi) cancels the
-  relation's source task in the same gesture, exactly as Task Card Cancel would: `[-]`
-  plus `[cancelled:: today]`, its links removed from today's open Pomodoros, and blocked
-  dependents recovered. Every surface names the task before you commit (⊘ plus words, `↵
-  link & cancel`), and nothing else ever cancels or reopens because of a label.
+goal: 'Committing a relation whose label is listed in `relations.cancel_labels` (starting
+  with `duplicate of` and `superseded by`, configured in chezmoi) cancels the relation''s
+  source task in the same gesture, exactly as Task Card Cancel would: `[-]` plus `[cancelled::
+  today]`, its links removed from today''s open Pomodoros, and blocked dependents
+  recovered. Every surface names the task before you commit (⊘ plus words, `↵ link
+  & cancel`), and nothing else ever cancels or reopens because of a label.
 
-  "
+  '
 decisions:
   cancel_stage_door:
-    ask:
-      Should the Task Card Cancel stage also get "⊘ Cancel as duplicate of… / superseded
+    ask: Should the Task Card Cancel stage also get "⊘ Cancel as duplicate of… / superseded
       by…" rows?
     default: false
-    why:
-      About three uses a week; ship one door first and add rows later via the same
+    why: About three uses a week; ship one door first and add rows later via the same
       writer
     answer: false
   memory_decision_record:
     ask: Should rollout add the decision record cancel-labels-cancel-their-source?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_relation:
-    ask:
-      Should rollout correct glossary:task-relation to name the one cancel-label status
-      exception?
+    ask: Should rollout correct glossary:task-relation to name the one cancel-label
+      status exception?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: true
-    corrects:
-      "A relation is distinct from a Pomodoro [[task-link]]: it never blocks a task,
-      counts as a Pomodoro Task Link, or changes its status, schedule, priority, or
-      freshness."
+    corrects: 'A relation is distinct from a Pomodoro [[task-link]]: it never blocks
+      a task, counts as a Pomodoro Task Link, or changes its status, schedule, priority,
+      or freshness.'
     answer: true
   memory_glossary_term:
-    ask:
-      Should the rollout phase add the glossary term "Cancel Label"
-      (glossary:cancel-label)?
+    ask: Should the rollout phase add the glossary term "Cancel Label" (glossary:cancel-label)?
     memory:
-      - glossary:cancel-label
+    - glossary:cancel-label
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: cancel-contract
-    title: Cancel-label contract (§17), config reference, and shared cancel vectors
-    depends_on: []
-    size: medium
-    description:
-      "cancel-contract: write docs/task-relations.md §17 Cancel labels (rule, config,
-      source table, writes, verdicts, indication strings, JSON, refusal codes), amend
-      §§2/8/13.2/14 and the hooks, capture, projects, configuration, json-outputs, and
-      glossary docs, and commit tests/fixtures/task_cancel/vectors.json. The vectors'
-      cancel and prune bytes are generated from nav's existing Task Card Cancel
-      planners, and the rule, key, and config sections are hand-authored."
-  - id: cancel-engine
-    title: relations.cancel_labels config and the Rust task_cancel engine
-    depends_on:
-      - cancel-contract
-    size: large
-    description:
-      "cancel-engine: parse relations.cancel_labels so that errors only ever reduce
-      cancels, and add the pure src/native/task_cancel engine: verdict, line rewrite,
-      Cancel Log prepend only when a log exists, the immediate-semantics prune of
-      today's open Pomodoros, and recovery-only dependent and ^prj recovery. It must
-      pass every CX vector, and a test pins that reconcile never cancels."
-  - id: capture-cancel
-    title: Capture ~ / ~~ cancels the source in the same staged batch
-    depends_on:
-      - cancel-engine
-    size: medium
-    description:
-      "capture-cancel: on an Added or Relabeled relation with a cancel label, stage the
-      source cancel, today's prune, and recovery in the capture batch with dry-run
-      parity. Adds the new-task, recurring, and conflict refusals, relation_cancels[]
-      and relation_updates[].cancel_effect JSON, the relation_cancelled_source
-      structured warning, the human ⊘ row, and the capture docs."
-  - id: cancel-surfaces
-    title: Completion, parse, relations list, rename, and zsh show cancel labels
-    depends_on:
-      - cancel-engine
-    size: medium
-    description:
-      "cancel-surfaces: capture-complete relation_label rows gain cancels_source, a
-      configured zero-use overlay, and disabled_reason for refused sources, and the
-      response gains relation_cancel {source, verdict, message, hint}. Also:
-      capture-parse spans gain cancels_source; bob relations list shows ⊘ cancels source
-      in human and JSON output; zsh descriptions; the relations rename warning (rename
-      never cancels); config warnings; docs."
-  - id: nav-cancel-writer
-    title: Obsidian relation writer folds Task Card Cancel into the source write
-    depends_on:
-      - cancel-contract
-    size: large
-    description:
-      "nav-cancel-writer: mirror the vectors, add a cached cancel-label config loader
-      and one pure planRelationCancelEffects planner, and fold planTaskCancelBatch into
-      applyRelationEdit before stageWrite (one write, one undo). Extract a shared
-      post-cancel helper (prune and recovery, no notice), show one composed notice,
-      advance the walk once for a landed source, and re-plan at commit. Deploy with bob
-      plugins sync."
-  - id: nav-cancel-cue
-    title: Obsidian Links stage ⊘ indication, batch confirm, and hints
-    depends_on:
-      - nav-cancel-writer
-    size: medium
-    description:
-      "nav-cancel-cue: add ⊘ cancels row meta and a configured-label overlay, a
-      ⊘-prefixed dimmed source in the live sentence, the Task Card Cancel effects phrase
-      in the consequence strip, ↵ link & cancel, and disabled recurring rows. Adds the
-      second-Return banner for two or more cancels, the inverse, hand-edit, and
-      relabel-away hints, light and dark styles, plugin docs, tests, and sync."
-  - id: mac-cancel-cue
-    title: Bob Mac Capture renders bob's cancel consequences
-    depends_on:
-      - capture-cancel
-      - cancel-surfaces
-    size: medium
-    description:
-      "mac-cancel-cue: decode the new additive fields, then render the relation card ⊘
-      cancels capsule, the dimmed ⊘ source in the sentence, bob's verdict line in the
-      one-off warning slot, the ⊘ tint on the draft label span, and the preview and
-      success rows. Restyles the relation_cancelled_source warning by code, adds
-      fixtures from real bob output, tests, docs, and compiled Swift with green macOS
-      CI."
-  - id: rollout
-    title: Turn it on in chezmoi, write the records, and run end-to-end acceptance
-    depends_on:
-      - capture-cancel
-      - cancel-surfaces
-      - nav-cancel-cue
-      - mac-cancel-cue
-    size: small
-    description:
-      "rollout: add relations.cancel_labels [duplicate of, superseded by] to chezmoi
-      home/dot_config/bob/config.yml and apply it per the chezmoi rules. Then write the
-      accepted memory changes, drop every planned marker, check cross-repo doc links,
-      run the end-to-end acceptance in a scratch vault, and report the host steps Bryan
-      still has to run."
+- id: cancel-contract
+  title: Cancel-label contract (§17), config reference, and shared cancel vectors
+  depends_on: []
+  size: medium
+  description: 'cancel-contract: write docs/task-relations.md §17 Cancel labels (rule,
+    config, source table, writes, verdicts, indication strings, JSON, refusal codes),
+    amend §§2/8/13.2/14 and the hooks, capture, projects, configuration, json-outputs,
+    and glossary docs, and commit tests/fixtures/task_cancel/vectors.json. The vectors''
+    cancel and prune bytes are generated from nav''s existing Task Card Cancel planners,
+    and the rule, key, and config sections are hand-authored.'
+- id: cancel-engine
+  title: relations.cancel_labels config and the Rust task_cancel engine
+  depends_on:
+  - cancel-contract
+  size: large
+  description: 'cancel-engine: parse relations.cancel_labels so that errors only ever
+    reduce cancels, and add the pure src/native/task_cancel engine: verdict, line
+    rewrite, Cancel Log prepend only when a log exists, the immediate-semantics prune
+    of today''s open Pomodoros, and recovery-only dependent and ^prj recovery. It
+    must pass every CX vector, and a test pins that reconcile never cancels.'
+- id: capture-cancel
+  title: Capture ~ / ~~ cancels the source in the same staged batch
+  depends_on:
+  - cancel-engine
+  size: medium
+  description: 'capture-cancel: on an Added or Relabeled relation with a cancel label,
+    stage the source cancel, today''s prune, and recovery in the capture batch with
+    dry-run parity. Adds the new-task, recurring, and conflict refusals, relation_cancels[]
+    and relation_updates[].cancel_effect JSON, the relation_cancelled_source structured
+    warning, the human ⊘ row, and the capture docs.'
+- id: cancel-surfaces
+  title: Completion, parse, relations list, rename, and zsh show cancel labels
+  depends_on:
+  - cancel-engine
+  size: medium
+  description: 'cancel-surfaces: capture-complete relation_label rows gain cancels_source,
+    a configured zero-use overlay, and disabled_reason for refused sources, and the
+    response gains relation_cancel {source, verdict, message, hint}. Also: capture-parse
+    spans gain cancels_source; bob relations list shows ⊘ cancels source in human
+    and JSON output; zsh descriptions; the relations rename warning (rename never
+    cancels); config warnings; docs.'
+- id: nav-cancel-writer
+  title: Obsidian relation writer folds Task Card Cancel into the source write
+  depends_on:
+  - cancel-contract
+  size: large
+  description: 'nav-cancel-writer: mirror the vectors, add a cached cancel-label config
+    loader and one pure planRelationCancelEffects planner, and fold planTaskCancelBatch
+    into applyRelationEdit before stageWrite (one write, one undo). Extract a shared
+    post-cancel helper (prune and recovery, no notice), show one composed notice,
+    advance the walk once for a landed source, and re-plan at commit. Deploy with
+    bob plugins sync.'
+- id: nav-cancel-cue
+  title: Obsidian Links stage ⊘ indication, batch confirm, and hints
+  depends_on:
+  - nav-cancel-writer
+  size: medium
+  description: 'nav-cancel-cue: add ⊘ cancels row meta and a configured-label overlay,
+    a ⊘-prefixed dimmed source in the live sentence, the Task Card Cancel effects
+    phrase in the consequence strip, ↵ link & cancel, and disabled recurring rows.
+    Adds the second-Return banner for two or more cancels, the inverse, hand-edit,
+    and relabel-away hints, light and dark styles, plugin docs, tests, and sync.'
+- id: mac-cancel-cue
+  title: Bob Mac Capture renders bob's cancel consequences
+  depends_on:
+  - capture-cancel
+  - cancel-surfaces
+  size: medium
+  description: 'mac-cancel-cue: decode the new additive fields, then render the relation
+    card ⊘ cancels capsule, the dimmed ⊘ source in the sentence, bob''s verdict line
+    in the one-off warning slot, the ⊘ tint on the draft label span, and the preview
+    and success rows. Restyles the relation_cancelled_source warning by code, adds
+    fixtures from real bob output, tests, docs, and compiled Swift with green macOS
+    CI.'
+- id: rollout
+  title: Turn it on in chezmoi, write the records, and run end-to-end acceptance
+  depends_on:
+  - capture-cancel
+  - cancel-surfaces
+  - nav-cancel-cue
+  - mac-cancel-cue
+  size: small
+  description: 'rollout: add relations.cancel_labels [duplicate of, superseded by]
+    to chezmoi home/dot_config/bob/config.yml and apply it per the chezmoi rules.
+    Then write the accepted memory changes, drop every planned marker, check cross-repo
+    doc links, run the end-to-end acceptance in a scratch vault, and report the host
+    steps Bryan still has to run.'
 proposed_by: bbugyi200.apollo.research.2r.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 08:15:24
 status: wip
+bead_id: bob-cli-dl
 ---
 
-- **PROMPT:**
-  [prompts/202610/relation_cancel_labels.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_cancel_labels.md)
+- **PROMPT:** [prompts/202610/relation_cancel_labels.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_cancel_labels.md)
+- **BEAD:** [bob-cli-dl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dl/README.md)
 
 # Plan: Cancel labels — relation labels that cancel their source task
 
