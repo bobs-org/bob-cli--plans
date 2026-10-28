@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish failed-close preservation and land bob-cli-df.4.1
-goal:
-  Preserve every conflicted and nested-repository worktree before destructive recovery,
-  prove the full failed-close chain, and close the epic and parent phase.
+goal: Preserve every conflicted and nested-repository worktree before destructive
+  recovery, prove the full failed-close chain, and close the epic and parent phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-df.4.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-df.4.1
-create_time: 2026-10-27 23:58:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
