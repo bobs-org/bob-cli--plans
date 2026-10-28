@@ -1,146 +1,131 @@
 ---
 tier: epic
 title: Complete labels — relation labels that complete their source task
-goal: "Committing a relation whose label is listed in `relations.complete_labels`
-  (starting with `implemented by` and `verified by`) marks the relation's source task
-  Done in the same gesture, exactly as that surface's managed Done gesture would. Every
-  surface names the task before commit (✓ plus words, `↵ link & complete`). Bryan's 14
-  `implements` links are reversed into `implemented by` by a new, previewed, revertable
-  `bob relations rename --reverse` transaction.
+goal: 'Committing a relation whose label is listed in `relations.complete_labels`
+  (starting with `implemented by` and `verified by`) marks the relation''s source
+  task Done in the same gesture, exactly as that surface''s managed Done gesture would.
+  Every surface names the task before commit (✓ plus words, `↵ link & complete`).
+  Bryan''s 14 `implements` links are reversed into `implemented by` by a new, previewed,
+  revertable `bob relations rename --reverse` transaction.
 
-  "
+  '
 decisions:
   offer_successors:
-    ask:
-      Should a complete-label commit offer successors (the Done picker) like Ctrl+Enter
+    ask: Should a complete-label commit offer successors (the Done picker) like Ctrl+Enter
       and `!` do?
     default: true
-    why:
-      It is a managed Done; decisions:unblocked-tasks-are-offered covers every Done
-      gesture
+    why: It is a managed Done; decisions:unblocked-tasks-are-offered covers every
+      Done gesture
     answer: true
   memory_glossary_relation:
-    ask:
-      Should rollout correct glossary:task-relation to name both closing-label status
-      exceptions?
+    ask: Should rollout correct glossary:task-relation to name both closing-label
+      status exceptions?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: true
-    corrects:
-      The one status exception is committing a configured cancel label through capture
-      or the Links stage, which cancels the source task at commit time.
+    corrects: The one status exception is committing a configured cancel label through
+      capture or the Links stage, which cancels the source task at commit time.
     answer: true
   memory_decision_record:
-    ask:
-      Should rollout add the decision record closing-labels-close-their-source (cancel
-      and complete labels)?
+    ask: Should rollout add the decision record closing-labels-close-their-source
+      (cancel and complete labels)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: complete-contract
-    title:
-      Complete-label contract (§18), reverse-rename contract, inverse pairs, and shared
-      vectors
-    depends_on: []
-    size: medium
-    description:
-      "complete-contract: write docs/task-relations.md §18 and RV10, amend
-      §§1/2/8/10/13.2/14/15 and the capture, config, JSON, dependency, and project docs,
-      add the two inverse pairs in Rust, and add
-      tests/fixtures/relation_complete/vectors.json generated from the cycler's Done
-      bytes."
-  - id: complete-capture
-    title: relations.complete_labels config and capture ~ / ~~ completes the source
-    depends_on:
-      - complete-contract
-    size: large
-    description:
-      "complete-capture: parse complete_labels with the both-lists rule, add the
-      complete verdict, extract the `!` engine path into one reusable existing-task
-      completion, and stage complete-label commits in the capture batch with JSON,
-      refusals, offers, and human rows."
-  - id: complete-surfaces
-    title:
-      Completion, parse, relations list, rename warnings, and zsh show complete labels
-    depends_on:
-      - complete-capture
-    size: medium
-    description:
-      "complete-surfaces: add completes_source flags, the configured overlay,
-      relation_complete verdicts and hints to capture-complete and capture-parse, the ✓
-      column and counts to bob relations list and zsh, and the complete-label rename
-      warning."
-  - id: reverse-rename
-    title: bob relations rename --reverse moves each edge to its other end
-    depends_on:
-      - complete-surfaces
-    size: large
-    description:
-      "reverse-rename: add -r/--reverse to bob relations rename so S OLD T becomes T NEW
-      S in one previewed transaction and one revertable commit, with mirrors, minting,
-      merge, refusals, JSON, and beautiful human preview."
-  - id: cycler-done-api
-    title: task-status-cycler API v3 exposes its Done line rewrite and post-Done pass
-    depends_on:
-      - complete-contract
-    size: medium
-    description:
-      "cycler-done-api: expose completeTaskLineText and finalizeClosedTasks on the
-      cycler api (version 3), refactor Ctrl+Enter onto them byte-identically, and pin
-      the done vectors in bob-plugins."
-  - id: nav-complete-writer
-    title: Obsidian relation writer folds the Done into the source write
-    depends_on:
-      - cycler-done-api
-    size: large
-    description:
-      "nav-complete-writer: load closing labels with the both-lists rule, add
-      planRelationCompleteEffects, fold the cycler's Done line into the source write,
-      gate stale commits, run the post-Done pass after the stage closes, compose one
-      notice, and settle the walk once."
-  - id: nav-complete-cue
-    title:
-      Obsidian Links stage ✓ indication, mixed batch confirm, hints, and inverse chips
-    depends_on:
-      - nav-complete-writer
-    size: medium
-    description:
-      "nav-complete-cue: render the ✓ completes row meta, live sentence, consequence
-      strip, footer, mixed two-press banner, hints, green styles, and the new inverse
-      pairs in nav and ledger-tools chips, then document it."
-  - id: mac-complete-cue
-    title: Bob Mac Capture renders bob's complete consequences and offers
-    depends_on:
-      - complete-surfaces
-    size: medium
-    description:
-      "mac-complete-cue: generalize the cancel cue into one close-effect presentation,
-      decode the complete fields, render the ✓ capsule, sentence, slot, span tint,
-      preview rows, and submit hint, and feed complete-label offers into the in-panel
-      successor choice."
-  - id: rollout
-    title: Migrate implements, turn it on in chezmoi, record memory, and run acceptance
-    depends_on:
-      - reverse-rename
-      - nav-complete-cue
-      - mac-complete-cue
-    size: medium
-    description:
-      "rollout: reverse Bryan's 14 implements links with the new rename, add
-      complete_labels to chezmoi, make the accepted memory edits, sweep docs, and run
-      end-to-end acceptance."
+- id: complete-contract
+  title: Complete-label contract (§18), reverse-rename contract, inverse pairs, and
+    shared vectors
+  depends_on: []
+  size: medium
+  description: 'complete-contract: write docs/task-relations.md §18 and RV10, amend
+    §§1/2/8/10/13.2/14/15 and the capture, config, JSON, dependency, and project docs,
+    add the two inverse pairs in Rust, and add tests/fixtures/relation_complete/vectors.json
+    generated from the cycler''s Done bytes.'
+- id: complete-capture
+  title: relations.complete_labels config and capture ~ / ~~ completes the source
+  depends_on:
+  - complete-contract
+  size: large
+  description: 'complete-capture: parse complete_labels with the both-lists rule,
+    add the complete verdict, extract the `!` engine path into one reusable existing-task
+    completion, and stage complete-label commits in the capture batch with JSON, refusals,
+    offers, and human rows.'
+- id: complete-surfaces
+  title: Completion, parse, relations list, rename warnings, and zsh show complete
+    labels
+  depends_on:
+  - complete-capture
+  size: medium
+  description: 'complete-surfaces: add completes_source flags, the configured overlay,
+    relation_complete verdicts and hints to capture-complete and capture-parse, the
+    ✓ column and counts to bob relations list and zsh, and the complete-label rename
+    warning.'
+- id: reverse-rename
+  title: bob relations rename --reverse moves each edge to its other end
+  depends_on:
+  - complete-surfaces
+  size: large
+  description: 'reverse-rename: add -r/--reverse to bob relations rename so S OLD
+    T becomes T NEW S in one previewed transaction and one revertable commit, with
+    mirrors, minting, merge, refusals, JSON, and beautiful human preview.'
+- id: cycler-done-api
+  title: task-status-cycler API v3 exposes its Done line rewrite and post-Done pass
+  depends_on:
+  - complete-contract
+  size: medium
+  description: 'cycler-done-api: expose completeTaskLineText and finalizeClosedTasks
+    on the cycler api (version 3), refactor Ctrl+Enter onto them byte-identically,
+    and pin the done vectors in bob-plugins.'
+- id: nav-complete-writer
+  title: Obsidian relation writer folds the Done into the source write
+  depends_on:
+  - cycler-done-api
+  size: large
+  description: 'nav-complete-writer: load closing labels with the both-lists rule,
+    add planRelationCompleteEffects, fold the cycler''s Done line into the source
+    write, gate stale commits, run the post-Done pass after the stage closes, compose
+    one notice, and settle the walk once.'
+- id: nav-complete-cue
+  title: Obsidian Links stage ✓ indication, mixed batch confirm, hints, and inverse
+    chips
+  depends_on:
+  - nav-complete-writer
+  size: medium
+  description: 'nav-complete-cue: render the ✓ completes row meta, live sentence,
+    consequence strip, footer, mixed two-press banner, hints, green styles, and the
+    new inverse pairs in nav and ledger-tools chips, then document it.'
+- id: mac-complete-cue
+  title: Bob Mac Capture renders bob's complete consequences and offers
+  depends_on:
+  - complete-surfaces
+  size: medium
+  description: 'mac-complete-cue: generalize the cancel cue into one close-effect
+    presentation, decode the complete fields, render the ✓ capsule, sentence, slot,
+    span tint, preview rows, and submit hint, and feed complete-label offers into
+    the in-panel successor choice.'
+- id: rollout
+  title: Migrate implements, turn it on in chezmoi, record memory, and run acceptance
+  depends_on:
+  - reverse-rename
+  - nav-complete-cue
+  - mac-complete-cue
+  size: medium
+  description: 'rollout: reverse Bryan''s 14 implements links with the new rename,
+    add complete_labels to chezmoi, make the accepted memory edits, sweep docs, and
+    run end-to-end acceptance.'
 proposed_by: bbugyi200.apollo.aw
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 14:49:51
 status: wip
+bead_id: bob-cli-du
 ---
 
-- **PROMPT:**
-  [prompts/202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_complete_labels.md)
+- **PROMPT:** [prompts/202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/relation_complete_labels.md)
+- **BEAD:** [bob-cli-du](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-du/README.md)
 
 # Plan: Complete labels — relation labels that complete their source task
 
