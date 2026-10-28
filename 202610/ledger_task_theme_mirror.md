@@ -1,52 +1,49 @@
 ---
 tier: epic
 title: Ledger task-theme mirror and pills
-goal:
-  Complete bob-cli-dm.5 with Rust-equivalent task-theme suggestion and field APIs,
+goal: Complete bob-cli-dm.5 with Rust-equivalent task-theme suggestion and field APIs,
   editable explicit-field pills across Obsidian task surfaces, and active PT6 colors.
 phases:
-  - id: theme-api
-    title: Mirror the task-theme rule and expose the synchronous API
-    size: medium
-    depends_on: []
-    description:
-      "theme-api: extract the themes API factory, mirror task field parsing and
-      byte-preserving writes, suggestion resolution and the deliberate-choice rule, add
-      readingTheme config and known-theme lookup, consume the copied Rust vectors, and
-      document the additive namespace. Include legacy reference block-ID recognition in
-      the two picker display helpers identified in this plan."
-  - id: task-theme-editor
-    title: Render task-theme pills in Live Preview and activate PT6 colors
-    size: medium
-    depends_on:
-      - theme-api
-    description:
-      "task-theme-editor: build the canonical explicit-field mark model, safe selection
-      folding and click reveal, lazy reason tooltips, the task-theme session toggle and
-      popout gate, and the approved ledger theme-chip setup. Add editor, lifecycle,
-      color, and toggle tests and document the commands and Live Preview behavior."
-  - id: task-theme-rendered
-    title: Render task-theme pills in Reading view and query rows
-    size: medium
-    depends_on:
-      - task-theme-editor
-    description:
-      "task-theme-rendered: reuse the mark model in Reading view, Tasks, and Dataview
-      rows; preserve native content and inline markup, handle deferred query rendering,
-      replace only explicit task-field Dataview chips, and support lazy hover, toggle
-      restoration, and teardown. Complete cross-surface tests, docs, and deployment
-      evidence for the child epic land agent."
+- id: theme-api
+  title: Mirror the task-theme rule and expose the synchronous API
+  size: medium
+  depends_on: []
+  description: 'theme-api: extract the themes API factory, mirror task field parsing
+    and byte-preserving writes, suggestion resolution and the deliberate-choice rule,
+    add readingTheme config and known-theme lookup, consume the copied Rust vectors,
+    and document the additive namespace. Include legacy reference block-ID recognition
+    in the two picker display helpers identified in this plan.'
+- id: task-theme-editor
+  title: Render task-theme pills in Live Preview and activate PT6 colors
+  size: medium
+  depends_on:
+  - theme-api
+  description: 'task-theme-editor: build the canonical explicit-field mark model,
+    safe selection folding and click reveal, lazy reason tooltips, the task-theme
+    session toggle and popout gate, and the approved ledger theme-chip setup. Add
+    editor, lifecycle, color, and toggle tests and document the commands and Live
+    Preview behavior.'
+- id: task-theme-rendered
+  title: Render task-theme pills in Reading view and query rows
+  size: medium
+  depends_on:
+  - task-theme-editor
+  description: 'task-theme-rendered: reuse the mark model in Reading view, Tasks,
+    and Dataview rows; preserve native content and inline markup, handle deferred
+    query rendering, replace only explicit task-field Dataview chips, and support
+    lazy hover, toggle restoration, and teardown. Complete cross-surface tests, docs,
+    and deployment evidence for the child epic land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-dm.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-dm.5
 create_time: 2026-10-28 17:46:52
 status: wip
+bead_id: bob-cli-dm.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/ledger_task_theme_mirror.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ledger_task_theme_mirror.md)
-- **PARENT:**
-  [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **PROMPT:** [prompts/202610/ledger_task_theme_mirror.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ledger_task_theme_mirror.md)
+- **PARENT:** [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **BEAD:** [bob-cli-dm.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.5.1.md)
 
 # Ledger task-theme mirror and pills
 
