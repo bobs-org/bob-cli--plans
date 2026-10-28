@@ -1,36 +1,33 @@
 ---
 tier: epic
 title: Repair artifact-link durability ordering and quarantine replay
-goal:
-  Preserve the earliest provable durable payload and make quarantined replays settle
-  idempotently without weakening corruption checks.
+goal: Preserve the earliest provable durable payload and make quarantined replays
+  settle idempotently without weakening corruption checks.
 parent_bead: bob-cli-df.2.1
 phases:
-  - id: ordering-policy
-    title: Repair Rust collision ordering across history and duplicate roots
-    size: medium
-    depends_on: []
-    description:
-      "ordering-policy: preserve earliest evidence, compare actual instants, and respect
-      ancestry across the complete group."
-  - id: replay-and-evidence
-    title: Integrate the repaired core and finish quarantine recovery
-    size: medium
-    depends_on:
-      - ordering-policy
-    description:
-      "replay-and-evidence: pin the Rust repair, detect incomplete history, reuse
-      immutable quarantine evidence, and validate its path and project."
+- id: ordering-policy
+  title: Repair Rust collision ordering across history and duplicate roots
+  size: medium
+  depends_on: []
+  description: 'ordering-policy: preserve earliest evidence, compare actual instants,
+    and respect ancestry across the complete group.'
+- id: replay-and-evidence
+  title: Integrate the repaired core and finish quarantine recovery
+  size: medium
+  depends_on:
+  - ordering-policy
+  description: 'replay-and-evidence: pin the Rust repair, detect incomplete history,
+    reuse immutable quarantine evidence, and validate its path and project.'
 proposed_by: bbugyi200.athena.bob-cli-df.2.1.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-28 02:07:51
 status: wip
+bead_id: bob-cli-df.2.1.4
 ---
 
-- **PROMPT:**
-  [prompts/202610/artifact_link_quarantine_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_quarantine_landing_repairs.md)
-- **PARENT:**
-  [202610/artifact_link_collision_quarantine.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_collision_quarantine.md)
+- **PROMPT:** [prompts/202610/artifact_link_quarantine_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_quarantine_landing_repairs.md)
+- **PARENT:** [202610/artifact_link_collision_quarantine.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_collision_quarantine.md)
+- **BEAD:** [bob-cli-df.2.1.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/bob-cli-df.2.1.4.md)
 
 # Remaining artifact-link quarantine work
 
