@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "capitals",
+      "kind": "choice",
+      "ask": "Should `]S`/`[S` and `]W`/`[W` set their lowercase type, so `]]` then steps that walk?",
+      "why": "The types are named by letter, and repeating an endpoint jump never moves anywhere.",
+      "choices": [
+        {
+          "key": "family",
+          "label": "`]]` steps `]s` after `]S`, and walks the landed lane with `]w` after `]W`"
+        },
+        {
+          "key": "exact",
+          "label": "`S` / `W` are own types: `]]` re-jumps to POST after `]S` and cycles lanes after `]W`"
+        }
+      ],
+      "default": "family",
+      "effective_default": "family",
+      "requested_verified": false
+    },
+    {
+      "id": "blank_lines",
+      "kind": "choice",
+      "ask": "Should `[<Space>` / `]<Space>` (insert blank line above / below) also become a repeatable type?",
+      "why": "A stray `]]` should never edit a note.",
+      "choices": [
+        {
+          "key": "exclude",
+          "label": "Blank-line inserts leave the remembered type alone, so `]]` / `[[` only ever navigate"
+        },
+        {
+          "key": "include",
+          "label": "After `]<Space>`, `]]` / `[[` insert blank lines below / above until another walk is used"
+        }
+      ],
+      "default": "exclude",
+      "effective_default": "exclude",
+      "requested_verified": false
+    }
+  ]
+}
