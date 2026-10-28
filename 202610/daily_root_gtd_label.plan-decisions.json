@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "install",
+      "kind": "toggle",
+      "ask": "Should the coder reinstall bob on this host (`just install`) so the Day strip shows GTD right away?",
+      "why": "The strip reads the installed bob, so nothing visible changes until bob is reinstalled.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_root_parent_glossary",
+      "kind": "toggle",
+      "ask": "Should glossary:root-parent say the daily bucket is labeled GTD?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:root-parent"
+        ]
+      },
+      "corrects": "defined in canonical daily notes group under the `<daily>` bucket",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
