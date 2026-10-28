@@ -1,34 +1,32 @@
 ---
 tier: epic
 title: Repair same-payload ancestry and remaining quarantine path gaps
-goal:
-  Preserve earliest provable history across skewed copies and reject unsafe quarantine
+goal: Preserve earliest provable history across skewed copies and reject unsafe quarantine
   paths before reads or writes are accepted.
 parent_bead: bob-cli-df.2.1.4.3
 phases:
-  - id: same-payload-ancestry
-    title: Preserve ancestral provenance across skewed identical copies
-    depends_on: []
-    description:
-      "same-payload-ancestry: repair surviving-history selection and prove the public
-      partition and binding behavior."
-    size: medium
-  - id: quarantine-paths
-    title: Pin the core repair and reject every unsafe quarantine path
-    description:
-      "quarantine-paths: consume the landed core repair, reject malformed operation
-      paths and unsafe staging, and verify integrated recovery."
-    size: medium
-    depends_on:
-      - same-payload-ancestry
+- id: same-payload-ancestry
+  title: Preserve ancestral provenance across skewed identical copies
+  depends_on: []
+  description: 'same-payload-ancestry: repair surviving-history selection and prove
+    the public partition and binding behavior.'
+  size: medium
+- id: quarantine-paths
+  title: Pin the core repair and reject every unsafe quarantine path
+  description: 'quarantine-paths: consume the landed core repair, reject malformed
+    operation paths and unsafe staging, and verify integrated recovery.'
+  size: medium
+  depends_on:
+  - same-payload-ancestry
 proposed_by: bbugyi200.athena.bob-cli-df.2.1.4.3.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-28 07:11:11
 status: wip
+bead_id: bob-cli-df.2.1.4.3.3
 ---
 
-- **PARENT:**
-  [202610/artifact_link_provenance_closeout.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_provenance_closeout.md)
+- **PARENT:** [202610/artifact_link_provenance_closeout.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_provenance_closeout.md)
+- **BEAD:** [bob-cli-df.2.1.4.3.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/bob-cli-df.2.1.4.3.3.md)
 
 # Remaining work for bob-cli-df.2.1.4.3
 
