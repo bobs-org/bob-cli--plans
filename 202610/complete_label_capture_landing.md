@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish capture completion acceptance and land bob-cli-du.2.1
-goal:
-  Repair closing-edge reporting, complete required acceptance coverage, and close the
-  capture epic and its parent phase normally.
+goal: Repair closing-edge reporting, complete required acceptance coverage, and close
+  the capture epic and its parent phase normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-du.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-du.2.1
-create_time: 2026-10-28 18:18:21
-status: wip
+status: done
 ---
 
 - **PARENT:**
