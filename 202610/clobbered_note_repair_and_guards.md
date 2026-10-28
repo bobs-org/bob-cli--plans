@@ -1,71 +1,66 @@
 ---
 tier: epic
 title: Repair the clobbered sase_agent_recovery note and guard against note clobbers
-goal: "`bob ref scan -w` runs clean on the MacBook again with the lost agent-recovery
-  project restored; the review walk never leaves an unsaved plugin write behind when it
-  switches notes; and any future whole-note clobber is caught by vault-sync and named
-  plainly in bob's output instead of surfacing days later as cryptic ref-scan refusals.
+goal: '`bob ref scan -w` runs clean on the MacBook again with the lost agent-recovery
+  project restored; the review walk never leaves an unsaved plugin write behind when
+  it switches notes; and any future whole-note clobber is caught by vault-sync and
+  named plainly in bob''s output instead of surfacing days later as cryptic ref-scan
+  refusals.
 
-  "
+  '
 decisions:
   clobber_response:
-    ask:
-      When vault-sync detects a clobbered note, should it restore the note and
+    ask: When vault-sync detects a clobbered note, should it restore the note and
       quarantine the bad bytes?
     choices:
-      quarantine:
-        Restore from HEAD, keep the clobbering bytes in _conflicts/, log, alert; bad
-        text never syncs
+      quarantine: Restore from HEAD, keep the clobbering bytes in _conflicts/, log,
+        alert; bad text never syncs
       warn: Commit the note as-is, then log and alert only; you restore it by hand
     default: quarantine
-    why:
-      Matches the existing _conflicts/ policy and stops the loss before it reaches other
-      hosts
+    why: Matches the existing _conflicts/ policy and stops the loss before it reaches
+      other hosts
     answer: quarantine
 phases:
-  - id: vault-repair
-    title: Restore the clobbered note and verify the scan
-    depends_on: []
-    size: small
-    description:
-      "vault-repair: restore sase_agent_recovery.md from 8ca09ee75^, let bob task
-      reconcile drop 8 stale mirror links, verify ref scan on athena and the MacBook,
-      sync."
-  - id: walk-save-guard
-    title: Save before the review walk switches notes
-    depends_on: []
-    size: medium
-    description:
-      "walk-save-guard: in bob-navigation-hotkeys, flush and verify the active note
-      before any same-pane note switch, add a clobber tripwire on landing, test, build,
-      deploy."
-  - id: sync-clobber-guard
-    title: Vault-sync clobber detection and quarantine
-    depends_on: []
-    size: medium
-    description:
-      "sync-clobber-guard: detect displaced-plus-foreign-identity rewrites of tracked
-      notes before staging, quarantine or warn per the decision, record in status,
-      alert, document, test."
-  - id: ref-scan-copy-hint
-    title: Name duplicated-task copies in ref scan failures
-    depends_on:
-      - sync-clobber-guard
-    size: small
-    description:
-      "ref-scan-copy-hint: make multiple_open_ref_tasks say when the claimants are
-      copies of one task, and group repeated refusals into one cause line pointing at
-      the clobber runbook."
+- id: vault-repair
+  title: Restore the clobbered note and verify the scan
+  depends_on: []
+  size: small
+  description: 'vault-repair: restore sase_agent_recovery.md from 8ca09ee75^, let
+    bob task reconcile drop 8 stale mirror links, verify ref scan on athena and the
+    MacBook, sync.'
+- id: walk-save-guard
+  title: Save before the review walk switches notes
+  depends_on: []
+  size: medium
+  description: 'walk-save-guard: in bob-navigation-hotkeys, flush and verify the active
+    note before any same-pane note switch, add a clobber tripwire on landing, test,
+    build, deploy.'
+- id: sync-clobber-guard
+  title: Vault-sync clobber detection and quarantine
+  depends_on: []
+  size: medium
+  description: 'sync-clobber-guard: detect displaced-plus-foreign-identity rewrites
+    of tracked notes before staging, quarantine or warn per the decision, record in
+    status, alert, document, test.'
+- id: ref-scan-copy-hint
+  title: Name duplicated-task copies in ref scan failures
+  depends_on:
+  - sync-clobber-guard
+  size: small
+  description: 'ref-scan-copy-hint: make multiple_open_ref_tasks say when the claimants
+    are copies of one task, and group repeated refusals into one cause line pointing
+    at the clobber runbook.'
 proposed_by: bbugyi200.athena.157.f0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 10:46:05
 status: wip
+bead_id: bob-cli-do
 ---
 
-- **PROMPT:**
-  [prompts/202610/clobbered_note_repair_and_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/clobbered_note_repair_and_guards.md)
+- **PROMPT:** [prompts/202610/clobbered_note_repair_and_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/clobbered_note_repair_and_guards.md)
+- **BEAD:** [bob-cli-do](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-do/README.md)
 
 # Plan: Repair the clobbered note and make note clobbers impossible to miss
 
