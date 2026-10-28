@@ -1,60 +1,56 @@
 ---
 tier: epic
 title: Preserve full worktrees across failed-close relaunches
-goal: "Failed finalization and subsequent workspace preparation retain recoverable
+goal: 'Failed finalization and subsequent workspace preparation retain recoverable
   tracked, staged, and untracked work before destructive Git operations, with durable
   recovery locations in failure evidence.
 
-  "
+  '
 parent_bead: bob-cli-df.4
 phases:
-  - id: verified-snapshot
-    title: Verified durable checkout snapshots
-    depends_on: []
-    size: medium
-    description:
-      "verified-snapshot: add a non-destructive, verified snapshot adapter around
-      workspace rescue; retain tracked, staged, and untracked content outside the
-      checkout, and refuse incomplete preservation."
-  - id: reset-replay
-    title: Protect reset-and-replay operations
-    depends_on:
-      - verified-snapshot
-    size: medium
-    description:
-      "reset-replay: snapshot before abort/reset, preserve recovery locations through
-      success and every failure exit, and prove tracked plus untracked recovery with
-      real Git repositories."
-  - id: relaunch-cleanup
-    title: Protect workspace preparation and cleanup fallbacks
-    depends_on:
-      - verified-snapshot
-    size: medium
-    description:
-      "relaunch-cleanup: require verified preservation before preparation, stash-failure
-      reset, forced checkout, and reclone; ensure preservation failure cannot fall
-      through to destructive cleanup."
-  - id: failed-close-evidence
-    title: Connect failed-close evidence and prove relaunch recovery
-    depends_on:
-      - verified-snapshot
-      - reset-replay
-      - relaunch-cleanup
-    size: medium
-    description:
-      "failed-close-evidence: attach durable snapshots to existing terminal failure
-      evidence and verify recovery after failed finalization and relaunch without
-      changing failed-close eligibility."
+- id: verified-snapshot
+  title: Verified durable checkout snapshots
+  depends_on: []
+  size: medium
+  description: 'verified-snapshot: add a non-destructive, verified snapshot adapter
+    around workspace rescue; retain tracked, staged, and untracked content outside
+    the checkout, and refuse incomplete preservation.'
+- id: reset-replay
+  title: Protect reset-and-replay operations
+  depends_on:
+  - verified-snapshot
+  size: medium
+  description: 'reset-replay: snapshot before abort/reset, preserve recovery locations
+    through success and every failure exit, and prove tracked plus untracked recovery
+    with real Git repositories.'
+- id: relaunch-cleanup
+  title: Protect workspace preparation and cleanup fallbacks
+  depends_on:
+  - verified-snapshot
+  size: medium
+  description: 'relaunch-cleanup: require verified preservation before preparation,
+    stash-failure reset, forced checkout, and reclone; ensure preservation failure
+    cannot fall through to destructive cleanup.'
+- id: failed-close-evidence
+  title: Connect failed-close evidence and prove relaunch recovery
+  depends_on:
+  - verified-snapshot
+  - reset-replay
+  - relaunch-cleanup
+  size: medium
+  description: 'failed-close-evidence: attach durable snapshots to existing terminal
+    failure evidence and verify recovery after failed finalization and relaunch without
+    changing failed-close eligibility.'
 proposed_by: bbugyi200.athena.bob-cli-df.4
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-27 21:39:17
 status: wip
+bead_id: bob-cli-df.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/preserve_failed_close_worktrees.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/preserve_failed_close_worktrees.md)
-- **PARENT:**
-  [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **PROMPT:** [prompts/202610/preserve_failed_close_worktrees.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/preserve_failed_close_worktrees.md)
+- **PARENT:** [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **BEAD:** [bob-cli-df.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/bob-cli-df.4.1.md)
 
 # Preserve full worktrees across failed-close relaunches
 
