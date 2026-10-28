@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "restore",
+      "kind": "choice",
+      "ask": "Should the relaunched app put the stashed draft straight back in the editor?",
+      "why": "It is the requested fix, reuses the Control-S restore, and adds no launch-time state",
+      "choices": [
+        {
+          "key": "stash",
+          "label": "Draft waits at the top of the stash; Control-S plus one key restores it"
+        },
+        {
+          "key": "editor",
+          "label": "Next hotkey shows the draft already in the editor; adds a stash flag and launch restore"
+        }
+      ],
+      "default": "stash",
+      "effective_default": "stash",
+      "requested_verified": false
+    }
+  ]
+}
