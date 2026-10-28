@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair task-theme core edge cases and finish the nested landing
-goal:
-  Correct the core parsing and field-placement gaps, verify integration, and close
+goal: Correct the core parsing and field-placement gaps, verify integration, and close
   bob-cli-dm.1.1 and parent phase bob-cli-dm.1.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dm.1.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dm.1.1
-create_time: 2026-10-28 17:06:23
-status: wip
+status: done
 ---
 
 - **PARENT:**
