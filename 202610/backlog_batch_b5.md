@@ -1,70 +1,64 @@
 ---
 tier: epic
-title:
-  "Backlog batch B5: external sidecar validation, continuation obligations, reinstall
-  overrides, and core Clippy"
-goal:
-  Resolve bob-cli-dg, bob-cli-dh, bob-cli-di, and bob-cli-dn with reproducible
+title: 'Backlog batch B5: external sidecar validation, continuation obligations, reinstall
+  overrides, and core Clippy'
+goal: Resolve bob-cli-dg, bob-cli-dh, bob-cli-di, and bob-cli-dn with reproducible
   verification, then continue the bounded backlog chain.
 phases:
-  - id: external-plans-sidecar
-    title: Provision the isolated plans sidecar for external SASE validation
-    size: large
-    depends_on: []
-    description:
-      "external-plans-sidecar: resolve bob-cli-dg in sase by fixing external-checkout
-      plan-links validation (invalid-root for sase/repos/plans). Provision the correct
-      isolated sidecars via sase repo open or validate against an explicitly resolved
-      read context; never silence validation or read another workspace. Verify with sase
-      validate in a clean external checkout and the governed sase tool run check. Use
-      sase validate or sase plan links validate, not the shorthand sase validate
-      plan-links."
-  - id: core-clippy-cleanup
-    title: Clear the 27 pre-existing Clippy errors on the collision-policy base
-    size: medium
-    depends_on: []
-    description:
-      "core-clippy-cleanup: resolve bob-cli-dh in gh:sase-org/sase-core by reproducing
-      via sase tool run check in an opened core checkout, recording toolchain and exact
-      diagnostics, repairing only still-present violations (agent_hold, bead/cli/tests,
-      bead/touch_index, macro_catalog/tests, artifact_ref_commit_budget, gateway/push,
-      macro_lsp tests), and verifying with sase tool run check. Do not run check-full.
-      Close as superseded with evidence if the current toolchain no longer reproduces."
-  - id: editable-reinstall-overrides
-    title: Forward Justfile overrides through the editable reinstall
-    size: medium
-    depends_on: []
-    description:
-      "editable-reinstall-overrides: resolve bob-cli-di in sase Justfile
-      _install-venv/_setup/_core-overrides-arg by forwarding the effective
-      venv_dir/sase_core_dir settings (or binding the actual local wheel) through the
-      nested just _core-overrides-arg call used in editable reinstalls, preserving
-      normal published-pin resolution when no local core is requested. Regression-test
-      both source (SASE_CORE_DIR) and SASE_CORE_WHEEL paths. Verify the installed wheel
-      provenance/version before interpreting test results."
-  - id: continuation-obligations
-    title: Carry opened-repo obligations across monitor continuations
-    size: large
-    depends_on: []
-    description:
-      "continuation-obligations: resolve bob-cli-dn in sase host finalizer by
-      attributing sase repo open events to the continuation agent (not only the
-      predecessor) so finalizer_baseline opened_repo scope reaches the final context
-      obligations. Reproduce by opening an external repo, editing it, handing off via
-      sase monitor, and letting the continuation declare; the continuation must commit
-      the external edits. Reopen every external repo in each continuation to keep
-      obligations visible. Verify with the stranded-diff evidence pattern (finalizer
-      context, baseline, commit results)."
+- id: external-plans-sidecar
+  title: Provision the isolated plans sidecar for external SASE validation
+  size: large
+  depends_on: []
+  description: 'external-plans-sidecar: resolve bob-cli-dg in sase by fixing external-checkout
+    plan-links validation (invalid-root for sase/repos/plans). Provision the correct
+    isolated sidecars via sase repo open or validate against an explicitly resolved
+    read context; never silence validation or read another workspace. Verify with
+    sase validate in a clean external checkout and the governed sase tool run check.
+    Use sase validate or sase plan links validate, not the shorthand sase validate
+    plan-links.'
+- id: core-clippy-cleanup
+  title: Clear the 27 pre-existing Clippy errors on the collision-policy base
+  size: medium
+  depends_on: []
+  description: 'core-clippy-cleanup: resolve bob-cli-dh in gh:sase-org/sase-core by
+    reproducing via sase tool run check in an opened core checkout, recording toolchain
+    and exact diagnostics, repairing only still-present violations (agent_hold, bead/cli/tests,
+    bead/touch_index, macro_catalog/tests, artifact_ref_commit_budget, gateway/push,
+    macro_lsp tests), and verifying with sase tool run check. Do not run check-full.
+    Close as superseded with evidence if the current toolchain no longer reproduces.'
+- id: editable-reinstall-overrides
+  title: Forward Justfile overrides through the editable reinstall
+  size: medium
+  depends_on: []
+  description: 'editable-reinstall-overrides: resolve bob-cli-di in sase Justfile
+    _install-venv/_setup/_core-overrides-arg by forwarding the effective venv_dir/sase_core_dir
+    settings (or binding the actual local wheel) through the nested just _core-overrides-arg
+    call used in editable reinstalls, preserving normal published-pin resolution when
+    no local core is requested. Regression-test both source (SASE_CORE_DIR) and SASE_CORE_WHEEL
+    paths. Verify the installed wheel provenance/version before interpreting test
+    results.'
+- id: continuation-obligations
+  title: Carry opened-repo obligations across monitor continuations
+  size: large
+  depends_on: []
+  description: 'continuation-obligations: resolve bob-cli-dn in sase host finalizer
+    by attributing sase repo open events to the continuation agent (not only the predecessor)
+    so finalizer_baseline opened_repo scope reaches the final context obligations.
+    Reproduce by opening an external repo, editing it, handing off via sase monitor,
+    and letting the continuation declare; the continuation must commit the external
+    edits. Reopen every external repo in each continuation to keep obligations visible.
+    Verify with the stranded-diff evidence pattern (finalizer context, baseline, commit
+    results).'
 proposed_by: bbugyi200.athena.bob-cli-df.land
 proposed_with: muse/muse-spark-1.3-contributor
 create_time: 2026-10-28 11:23:28
 status: wip
+bead_id: bob-cli-dp
 ---
 
-- **PROMPT:**
-  [prompts/202610/backlog_batch_b5.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b5.md)
-- **PARENT:**
-  [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **PROMPT:** [prompts/202610/backlog_batch_b5.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/backlog_batch_b5.md)
+- **PARENT:** [202610/backlog_batch_b4.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/backlog_batch_b4.md)
+- **BEAD:** [bob-cli-dp](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dp/README.md)
 
 # Backlog batch B5
 
