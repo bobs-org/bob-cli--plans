@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair task-theme core edge cases and finish the nested landing
-goal: Correct the core parsing and field-placement gaps, verify integration, and close
+goal:
+  Correct the core parsing and field-placement gaps, verify integration, and close
   bob-cli-dm.1.1 and parent phase bob-cli-dm.1.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dm.1.1.land
@@ -14,6 +15,11 @@ status: done
   [202610/task_theme_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_core.md)
 - **BEAD:**
   [bob-cli-dm.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-dm.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-dm.1.1.land.md)
+- **COMMITS:**
+  - [fc59428](https://github.com/bobs-org/bob-cli/commit/fc594281b1f623738b6ee0f71c8ff86df0285246)
+    — fix(themes): repair task-theme scalars, placement, and unused-code gates
 
 # Finish the task-theme core and land bob-cli-dm.1.1
 
