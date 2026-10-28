@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "order",
+      "kind": "choice",
+      "ask": "Should the walk visit every PENDING task before any NEXT task, with note order inside each lane?",
+      "why": "WIP-before-Next is Kanban's pull order and matches the dash, chips, and ]s",
+      "choices": [
+        {
+          "key": "lane",
+          "label": "PENDING first, then NEXT, as in the dash and chips; a note with both lanes is visited twice"
+        },
+        {
+          "key": "note",
+          "label": "One note-ordered pass over both lanes; each note once, but the lane pill may flip every press"
+        }
+      ],
+      "default": "lane",
+      "effective_default": "lane",
+      "requested_verified": false
+    },
+    {
+      "id": "endpoints",
+      "kind": "toggle",
+      "ask": "Should [W / ]W jump to the first / last lane-walk task, mirroring [S / ]S?",
+      "why": "[S / ]S muscle memory makes [W / ]W the first thing users try",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should a decisions strand record that ]w is a navigation-only walk over exactly the dash PENDING/NEXT sections?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:lane-walk-is-navigation-only"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:lane-walk-is-navigation-only",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/lane-walk-is-navigation-only.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
