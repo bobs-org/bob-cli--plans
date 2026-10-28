@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "theme_contract",
+      "kind": "choice",
+      "ask": "Should bob keep every theme in the JSON window summary so the theme bar can show them all?",
+      "why": "A gray other that hides configured themes (SASE, FIX) makes the theme bar unreliable.",
+      "choices": [
+        {
+          "key": "full",
+          "label": "Bar shows every theme; bob-cli JSON stops collapsing themes (a ! change); Themes panel caps at 8"
+        },
+        {
+          "key": "top5",
+          "label": "No bob-cli change; bar shows top five plus a gray other (19-32% of live worked time)"
+        }
+      ],
+      "default": "full",
+      "effective_default": "full",
+      "requested_verified": false
+    },
+    {
+      "id": "legend_values",
+      "kind": "choice",
+      "ask": "Should each legend item show that row's time in the window, such as bob 28h 36m?",
+      "why": "The bar already encodes share; the legend adds the time the bar cannot show.",
+      "choices": [
+        {
+          "key": "time",
+          "label": "Legend shows each row's window time, like the Day strip; share goes in the tooltip"
+        },
+        {
+          "key": "share",
+          "label": "Legend shows each row's share (bob 23%), so more names fit; time goes in the tooltip"
+        }
+      ],
+      "default": "time",
+      "effective_default": "time",
+      "requested_verified": false
+    },
+    {
+      "id": "window_morph",
+      "kind": "choice",
+      "ask": "Should the bars glide from the old window's proportions to the new one's on a range change?",
+      "why": "Root order is stable across windows, so the glide shows how the mix shifted.",
+      "choices": [
+        {
+          "key": "morph",
+          "label": "Segments glide to new widths over 280 ms on window changes only; off under reduced motion"
+        },
+        {
+          "key": "still",
+          "label": "Bars repaint instantly, like the Day strip; no motion code"
+        }
+      ],
+      "default": "morph",
+      "effective_default": "morph",
+      "requested_verified": false
+    }
+  ]
+}
