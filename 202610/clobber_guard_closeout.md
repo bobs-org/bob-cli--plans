@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish clobber quarantine and land bob-cli-do
-goal:
-  Detect all approved clobbers, durably commit quarantine evidence, document recovery,
+goal: Detect all approved clobbers, durably commit quarantine evidence, document recovery,
   and close bob-cli-do.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-do.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-do
-create_time: 2026-10-28 13:52:01
-status: wip
+status: done
 ---
 
 - **PARENT:**
