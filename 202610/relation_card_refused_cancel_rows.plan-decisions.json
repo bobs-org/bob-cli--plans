@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "refusal_reason_visibility",
+      "kind": "choice",
+      "ask": "Should the card show bob's refusal reason whenever a refused cancel row is visible, not just when highlighted?",
+      "why": "Most new-task ~ cards pick an ordinary label, so an always-on line is noise",
+      "choices": [
+        {
+          "key": "highlighted",
+          "label": "Reason shows only while a refused row is highlighted or typed; others show it on hover"
+        },
+        {
+          "key": "always",
+          "label": "Reason also shows muted under the list whenever refused rows are visible (one extra line)"
+        }
+      ],
+      "default": "highlighted",
+      "effective_default": "highlighted",
+      "requested_verified": false
+    }
+  ]
+}
