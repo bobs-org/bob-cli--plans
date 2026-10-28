@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "compound_open",
+      "kind": "choice",
+      "ask": "Should a theme shown only inside an open multi-theme Today row (BUILD in PLAN + BUILD) also get its own Recent row?",
+      "why": "That theme already shows in the Today row; keep fixes the bug without reopening shared PT7",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "It stays visible only inside that Today row, as today; only bob-plugins changes"
+        },
+        {
+          "key": "show",
+          "label": "Recent drops only exact single-theme Today rows; bob-cli, vectors, and docs change too"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
