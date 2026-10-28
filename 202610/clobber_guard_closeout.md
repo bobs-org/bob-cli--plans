@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish clobber quarantine and land bob-cli-do
-goal: Detect all approved clobbers, durably commit quarantine evidence, document recovery,
+goal:
+  Detect all approved clobbers, durably commit quarantine evidence, document recovery,
   and close bob-cli-do.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-do.land
@@ -14,6 +15,11 @@ status: done
   [202610/clobbered_note_repair_and_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/clobbered_note_repair_and_guards.md)
 - **BEAD:**
   [bob-cli-do](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-do/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-do.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-do.land.md)
+- **COMMITS:**
+  - [792cc24](https://github.com/bobs-org/bob-cli/commit/792cc2436f43136a228d53cb8ddb4b7110178d92)
+    — fix(vault-sync): complete clobber-guard closeout quarantine
 
 # Finish the clobber guard and land bob-cli-do
 
