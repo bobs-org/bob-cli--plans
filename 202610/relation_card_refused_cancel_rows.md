@@ -1,30 +1,25 @@
 ---
 tier: tale
 title: Relation card renders refused cancel-label rows cleanly
-goal:
-  On a new-task `~` (or recurring `~~`) relation, the Mac relation card shows every row,
-  keeps refused cancel rows compact, and states bob's refusal once in full.
+goal: On a new-task `~` (or recurring `~~`) relation, the Mac relation card shows
+  every row, keeps refused cancel rows compact, and states bob's refusal once in full.
 size: medium
 decisions:
   refusal_reason_visibility:
-    ask:
-      Should the card show bob's refusal reason whenever a refused cancel row is
+    ask: Should the card show bob's refusal reason whenever a refused cancel row is
       visible, not just when highlighted?
     choices:
-      highlighted:
-        Reason shows only while a refused row is highlighted or typed; others show it on
-        hover
-      always:
-        Reason also shows muted under the list whenever refused rows are visible (one
-        extra line)
+      highlighted: Reason shows only while a refused row is highlighted or typed;
+        others show it on hover
+      always: Reason also shows muted under the list whenever refused rows are visible
+        (one extra line)
     default: highlighted
     why: Most new-task ~ cards pick an ordinary label, so an always-on line is noise
     answer: highlighted
 proposed_by: bbugyi200.apollo.az
 proposed_with: claude/opus
 decided_by: auto
-create_time: 2026-10-28 14:31:20
-status: wip
+status: done
 ---
 
 # Relation card: render refused cancel-label rows cleanly (Bob Mac Capture)
