@@ -1,37 +1,33 @@
 ---
 tier: epic
 title: Finish collision provenance and quarantine path safety
-goal:
-  Preserve earliest durability across copied histories and prove quarantine recovery
+goal: Preserve earliest durability across copied histories and prove quarantine recovery
   without accepting unsafe paths.
 parent_bead: bob-cli-df.2.1.4
 phases:
-  - id: copy-chronology
-    title:
-      Preserve earliest history when a later identical copy descends from a competitor
-    size: medium
-    depends_on: []
-    description:
-      "copy-chronology: repair complete-group selection across copies and finish the
-      required Rust import cleanup."
-  - id: adapter-recovery
-    title: Gather cross-root ancestry and finish safe quarantine recovery coverage
-    size: medium
-    depends_on:
-      - copy-chronology
-    description:
-      "adapter-recovery: pin the core repair, gather cross-root provenance, reject
-      unsafe quarantine paths, and prove restart settlement."
+- id: copy-chronology
+  title: Preserve earliest history when a later identical copy descends from a competitor
+  size: medium
+  depends_on: []
+  description: 'copy-chronology: repair complete-group selection across copies and
+    finish the required Rust import cleanup.'
+- id: adapter-recovery
+  title: Gather cross-root ancestry and finish safe quarantine recovery coverage
+  size: medium
+  depends_on:
+  - copy-chronology
+  description: 'adapter-recovery: pin the core repair, gather cross-root provenance,
+    reject unsafe quarantine paths, and prove restart settlement.'
 proposed_by: bbugyi200.athena.bob-cli-df.2.1.4.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-10-28 04:35:23
 status: wip
+bead_id: bob-cli-df.2.1.4.3
 ---
 
-- **PROMPT:**
-  [prompts/202610/artifact_link_provenance_closeout.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_provenance_closeout.md)
-- **PARENT:**
-  [202610/artifact_link_quarantine_landing_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_quarantine_landing_repairs.md)
+- **PROMPT:** [prompts/202610/artifact_link_provenance_closeout.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/artifact_link_provenance_closeout.md)
+- **PARENT:** [202610/artifact_link_quarantine_landing_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/artifact_link_quarantine_landing_repairs.md)
+- **BEAD:** [bob-cli-df.2.1.4.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-df/bob-cli-df.2.1.4.3.md)
 
 # Remaining work for bob-cli-df.2.1.4
 
