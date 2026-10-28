@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Provision the isolated plans sidecar for external SASE validation
-goal: sase validate passes in an external sase checkout opened from another project's
-  workspace by validating that project's own provisioned plans sidecar, never the
-  host's plans and never a silenced stage.
+goal:
+  sase validate passes in an external sase checkout opened from another project's
+  workspace by validating that project's own provisioned plans sidecar, never the host's
+  plans and never a silenced stage.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-dp.1
 proposed_with: claude/opus
@@ -13,6 +14,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-dp.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dp/bob-cli-dp.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-dp.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-dp.1.md)
+- **COMMITS:**
+  - [7531093](https://github.com/sase-org/sase/commit/75310937136049b2f90eb37f5304fff7be3c52ef)
+    — feat(repo): provision nested plans sidecar on registered-project open
 
 # Provision the external project's own plans sidecar and validate against it
 
