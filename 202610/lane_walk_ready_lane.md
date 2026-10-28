@@ -1,15 +1,13 @@
 ---
 tier: tale
-title: "Lane walk: add a READY lane and make ]W / [W jump between lanes"
-goal:
-  "]w / [w walk PENDING → NEXT → READY tasks off today's plan (READY matching the READY
-  chip and dash section exactly), and ]W / [W jump to the first task of the next /
-  previous non-empty lane with cycling, with a READY-blue lane-aware toast."
+title: 'Lane walk: add a READY lane and make ]W / [W jump between lanes'
+goal: ']w / [w walk PENDING → NEXT → READY tasks off today''s plan (READY matching
+  the READY chip and dash section exactly), and ]W / [W jump to the first task of
+  the next / previous non-empty lane with cycling, with a READY-blue lane-aware toast.'
 size: medium
 proposed_by: bbugyi200.apollo.ay.f1
 proposed_with: claude/opus
-create_time: 2026-10-28 14:51:56
-status: wip
+status: done
 ---
 
 # Lane Walk: Add A READY Lane And Make `]W` / `[W` Jump Between Lanes
