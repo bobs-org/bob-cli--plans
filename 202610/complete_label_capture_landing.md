@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish capture completion acceptance and land bob-cli-du.2.1
-goal: Repair closing-edge reporting, complete required acceptance coverage, and close
-  the capture epic and its parent phase normally.
+goal:
+  Repair closing-edge reporting, complete required acceptance coverage, and close the
+  capture epic and its parent phase normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-du.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,12 @@ status: done
   [202610/complete_label_capture.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/complete_label_capture.md)
 - **BEAD:**
   [bob-cli-du.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-du/bob-cli-du.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-du.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-du.2.1.land.md)
+- **COMMITS:**
+  - [d1f445c](https://github.com/bobs-org/bob-cli/commit/d1f445cafc5b95a1181cf38f5ab7254ed49af872)
+    — feat(capture): land complete-label closeout with edge grouping, scoped warnings,
+    and acceptance
 
 # Finish capture completion acceptance and land bob-cli-du.2.1
 
