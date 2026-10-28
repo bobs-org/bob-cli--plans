@@ -1,150 +1,142 @@
 ---
 tier: epic
-title: "Task theme suggestions: suggest, explain, remember"
-goal: "Every task-aware Pomodoro menu preselects the theme a task most likely belongs
+title: 'Task theme suggestions: suggest, explain, remember'
+goal: 'Every task-aware Pomodoro menu preselects the theme a task most likely belongs
   to, says why in the same words on every surface, and remembers deliberate exceptions
   as a `[theme:: X]` field on the task line. One Rust-owned rule drives bob-cli, the
-  Obsidian plugins mirror it under shared vectors, and Bob Mac Capture renders bob's
+  Obsidian plugins mirror it under shared vectors, and Bob Mac Capture renders bob''s
   JSON.
 
-  "
+  '
 decisions:
   ledger_theme_pills:
     ask: Also wire the never-registered PT6 ledger theme pills and their color toggle?
     default: true
-    why:
-      PT6 documents them as shipped, and the new task-theme pill shares their tint gate
+    why: PT6 documents them as shipped, and the new task-theme pill shares their tint
+      gate
     answer: true
   seed_plex_chore:
-    ask:
-      "Also seed dev_plex_hack_patch.md with `theme: CHORE` (17 of 17 links were CHORE)?"
+    ask: 'Also seed dev_plex_hack_patch.md with `theme: CHORE` (17 of 17 links were
+      CHORE)?'
     default: true
     why: Without it the patch project inherits BUILD from dev and is wrong every time
     answer: true
   memory_decision_record:
     ask: Add an accepted decision record for the task theme suggestion and write rules?
     memory:
-      - decisions:task-themes-are-suggested-then-remembered
+    - decisions:task-themes-are-suggested-then-remembered
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_term:
     ask: Add a Task Theme glossary term that also defines the note default?
     memory:
-      - glossary:task-theme
+    - glossary:task-theme
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: suggest-core
-    title: bob-cli suggestion rule, task field, and `bob themes suggest`
-    depends_on: []
-    size: large
-    description:
-      "suggest-core: Rust owns the rule. Parse `theme:` note defaults and `[theme:: X]`
-      task fields, resolve the suggestion and inherited theme, implement the canonical
-      field writer and the write rule as pure functions, add `plan.reading_theme`, ship
-      read-only `bob themes suggest` and the `theme_default_unknown` hint, extend the
-      shared vectors, write PT12 and the vault-format rows, and add the memory records."
-  - id: complete-suggest
-    title: Suggestions in capture completion and `bob ref today`
-    depends_on:
-      - suggest-core
-    size: medium
-    description:
-      "complete-suggest: make `pomodoro_name` completion task-aware (top-level
-      `theme_suggestion`, one `suggested` row, a suggested create row on top when no
-      bucket matches, zsh descriptions), add the same marker to `bob ref today`
-      listings, and pin the menu rule with a new `preselect` vectors section."
-  - id: rename-coverage
-    title: Theme rename covers note defaults and task fields
-    depends_on:
-      - suggest-core
-    size: medium
-    description:
-      "rename-coverage: `bob themes rename` also rewrites `theme:` frontmatter and
-      `[theme::]` fields in one previewed, verified commit with separate counts;
-      `config_reference` guards `plan.reading_theme`; `bob themes split` leaves them
-      alone and warns."
-  - id: capture-write
-    title: Capture remembers deliberate `#NAME` choices
-    depends_on:
-      - complete-suggest
-      - rename-coverage
-    size: large
-    description:
-      "capture-write: apply the write rule when a capture names a Pomodoro for a new or
-      existing task (`#NAME` and the `=name` shorthand), staged in the same
-      all-or-nothing batch, reported as `task_theme` in JSON, human, and dry-run output."
-  - id: ledger-mirror
-    title: Ledger Tools mirror, field writer, and task-theme pill
-    depends_on:
-      - suggest-core
-    size: large
-    description:
-      "ledger-mirror: move `api.themes` out of the full lifecycle fragment, add the JS
-      mirror of the rule, field parser, writer, and write rule under the copied shared
-      vectors, mirror `plan.reading_theme`, and render `[theme:: X]` as a PT6 pill in
-      Live Preview, Reading view, and Tasks rows, with the decision-gated ledger pill
-      wiring."
-  - id: link-picker
-    title: Link to today preselects, explains, and remembers
-    depends_on:
-      - ledger-mirror
-      - complete-suggest
-      - rename-coverage
-    size: large
-    description:
-      "link-picker: the Ctrl+Shift+Enter picker gets the task, preselects the suggested
-      bucket by the shared menu rule, shows the reason and a live footer consequence,
-      adds Alt+Enter link once, keeps selection stable by key, and writes or clears the
-      field inside the existing task-line edit with honest notices."
-  - id: card-successor
-    title: Task Card theme stage and successor retarget
-    depends_on:
-      - link-picker
-    size: large
-    description:
-      "card-successor: the Task Card shows the task theme line, gains a `t` stage and
-      Ctrl+D use-default, and the successor picker's per-row retarget passes the
-      successor task so a deliberate retarget remembers its theme."
-  - id: mac-capture
-    title: Bob Mac Capture renders suggestions and theme changes
-    depends_on:
-      - complete-suggest
-      - capture-write
-    size: medium
-    description:
-      "mac-capture: decode the additive fields, preselect the suggested Pomodoro-name
-      row, show the reason in the secondary slot, show the task-theme preview line, and
-      make the Refs Link to Today card preselect and actually link the suggested row."
-  - id: seed-defaults
-    title: Seed the first note defaults in the vault
-    depends_on:
-      - capture-write
-      - link-picker
-      - mac-capture
-    size: xsmall
-    description:
-      "seed-defaults: add the agreed `theme:` frontmatter to dev, love, job, sase_blog,
-      job_2026, and (decision-gated) dev_plex_hack_patch, verify with `bob themes
-      suggest`, sync the vault, and file the two-week retune follow-up."
+- id: suggest-core
+  title: bob-cli suggestion rule, task field, and `bob themes suggest`
+  depends_on: []
+  size: large
+  description: 'suggest-core: Rust owns the rule. Parse `theme:` note defaults and
+    `[theme:: X]` task fields, resolve the suggestion and inherited theme, implement
+    the canonical field writer and the write rule as pure functions, add `plan.reading_theme`,
+    ship read-only `bob themes suggest` and the `theme_default_unknown` hint, extend
+    the shared vectors, write PT12 and the vault-format rows, and add the memory records.'
+- id: complete-suggest
+  title: Suggestions in capture completion and `bob ref today`
+  depends_on:
+  - suggest-core
+  size: medium
+  description: 'complete-suggest: make `pomodoro_name` completion task-aware (top-level
+    `theme_suggestion`, one `suggested` row, a suggested create row on top when no
+    bucket matches, zsh descriptions), add the same marker to `bob ref today` listings,
+    and pin the menu rule with a new `preselect` vectors section.'
+- id: rename-coverage
+  title: Theme rename covers note defaults and task fields
+  depends_on:
+  - suggest-core
+  size: medium
+  description: 'rename-coverage: `bob themes rename` also rewrites `theme:` frontmatter
+    and `[theme::]` fields in one previewed, verified commit with separate counts;
+    `config_reference` guards `plan.reading_theme`; `bob themes split` leaves them
+    alone and warns.'
+- id: capture-write
+  title: Capture remembers deliberate `#NAME` choices
+  depends_on:
+  - complete-suggest
+  - rename-coverage
+  size: large
+  description: 'capture-write: apply the write rule when a capture names a Pomodoro
+    for a new or existing task (`#NAME` and the `=name` shorthand), staged in the
+    same all-or-nothing batch, reported as `task_theme` in JSON, human, and dry-run
+    output.'
+- id: ledger-mirror
+  title: Ledger Tools mirror, field writer, and task-theme pill
+  depends_on:
+  - suggest-core
+  size: large
+  description: 'ledger-mirror: move `api.themes` out of the full lifecycle fragment,
+    add the JS mirror of the rule, field parser, writer, and write rule under the
+    copied shared vectors, mirror `plan.reading_theme`, and render `[theme:: X]` as
+    a PT6 pill in Live Preview, Reading view, and Tasks rows, with the decision-gated
+    ledger pill wiring.'
+- id: link-picker
+  title: Link to today preselects, explains, and remembers
+  depends_on:
+  - ledger-mirror
+  - complete-suggest
+  - rename-coverage
+  size: large
+  description: 'link-picker: the Ctrl+Shift+Enter picker gets the task, preselects
+    the suggested bucket by the shared menu rule, shows the reason and a live footer
+    consequence, adds Alt+Enter link once, keeps selection stable by key, and writes
+    or clears the field inside the existing task-line edit with honest notices.'
+- id: card-successor
+  title: Task Card theme stage and successor retarget
+  depends_on:
+  - link-picker
+  size: large
+  description: 'card-successor: the Task Card shows the task theme line, gains a `t`
+    stage and Ctrl+D use-default, and the successor picker''s per-row retarget passes
+    the successor task so a deliberate retarget remembers its theme.'
+- id: mac-capture
+  title: Bob Mac Capture renders suggestions and theme changes
+  depends_on:
+  - complete-suggest
+  - capture-write
+  size: medium
+  description: 'mac-capture: decode the additive fields, preselect the suggested Pomodoro-name
+    row, show the reason in the secondary slot, show the task-theme preview line,
+    and make the Refs Link to Today card preselect and actually link the suggested
+    row.'
+- id: seed-defaults
+  title: Seed the first note defaults in the vault
+  depends_on:
+  - capture-write
+  - link-picker
+  - mac-capture
+  size: xsmall
+  description: 'seed-defaults: add the agreed `theme:` frontmatter to dev, love, job,
+    sase_blog, job_2026, and (decision-gated) dev_plex_hack_patch, verify with `bob
+    themes suggest`, sync the vault, and file the two-week retune follow-up.'
 proposed_by: bbugyi200.apollo.research.2s.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 08:45:51
 status: wip
+bead_id: bob-cli-dm
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_suggestions.md)
+- **PROMPT:** [prompts/202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_suggestions.md)
+- **BEAD:** [bob-cli-dm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/README.md)
 
 # Plan: Task theme suggestions — suggest, explain, remember
 
