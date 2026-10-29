@@ -1,24 +1,22 @@
 ---
 tier: epic
-title: "bob gcal: Google Calendar events as daily-note Event Tasks"
-goal: "Every day, the Google Calendar events Bryan said yes to appear as Event Tasks in
-  a `## Events` section above `## Pomodoros`. Each one is rooted where its time belongs
-  (`meet` by default, or a root the event names) and linked under one appended MEET
-  Pomodoro. A plain close of a MEET session completes, carries, or defers each meeting
-  by the clock. `bob gcal` (calendars, doctor, list, login, logout, sync) makes setup a
-  single read-only login, makes every sync idempotent, and never overwrites Bryan's
-  edits. The Mac runs sync automatically and Obsidian shows the Events beautifully.
+title: 'bob gcal: Google Calendar events as daily-note Event Tasks'
+goal: 'Every day, the Google Calendar events Bryan said yes to appear as Event Tasks
+  in a `## Events` section above `## Pomodoros`. Each one is rooted where its time
+  belongs (`meet` by default, or a root the event names) and linked under one appended
+  MEET Pomodoro. A plain close of a MEET session completes, carries, or defers each
+  meeting by the clock. `bob gcal` (calendars, doctor, list, login, logout, sync)
+  makes setup a single read-only login, makes every sync idempotent, and never overwrites
+  Bryan''s edits. The Mac runs sync automatically and Obsidian shows the Events beautifully.
 
-  "
+  '
 decisions:
   events_paint:
-    ask:
-      Should Obsidian paint Events rows (time pills, now/past states, muted context
+    ask: Should Obsidian paint Events rows (time pills, now/past states, muted context
       rows)?
     default: true
-    why:
-      Events sit right above the ledger, so they should read as its sibling, not as raw
-      Markdown
+    why: Events sit right above the ledger, so they should read as its sibling, not
+      as raw Markdown
     answer: true
   launch_agent:
     ask: Install a Mac LaunchAgent that runs bob gcal sync every 5 minutes?
@@ -26,126 +24,115 @@ decisions:
     why: The daily-note trigger alone misses invitations you accept later in the day
     answer: true
   glossary:
-    ask:
-      Add an Event Task glossary strand and list Event Tasks as an Area Note residence
+    ask: Add an Event Task glossary strand and list Event Tasks as an Area Note residence
       exception?
     memory:
-      - glossary
+    - glossary
     default: true
-    corrects:
-      The only exceptions are each daily note's templated `^gtd` task and closed tasks
+    corrects: The only exceptions are each daily note's templated `^gtd` task and
+      closed tasks
     answer: true
   decision_records:
-    ask:
-      Record the three gcal decisions (daily-note Event Tasks, clock close,
-      propose-once) in decisions?
+    ask: Record the three gcal decisions (daily-note Event Tasks, clock close, propose-once)
+      in decisions?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: meet-area
-    title: Modernize meet.md and prepare the vault
-    depends_on: []
-    size: small
-    description:
-      "meet-area: turn ~/bob/meet.md into a top-level violet area with task_type MEET
-      and a ## Tasks section, add the .bob/gcal journal git rules, commit under the sync
-      lock, and record meet's hue in the homes docs."
-  - id: event-close
-    title: Event Task grammar and the clock-aware MEET close (Rust)
-    depends_on: []
-    size: medium
-    description:
-      "event-close: add the shared Event Task parser and clock classifier, make bob's x
-      close resolve unlisted Event Task links by the clock, report it in JSON and human
-      output, add shared vectors, document the Events grammar, and write the glossary
-      and clock-close memory."
-  - id: event-close-js
-    title: Clock-aware Ctrl+Enter close in Obsidian
-    depends_on:
-      - event-close
-    size: medium
-    description:
-      "event-close-js: mirror the clock rule in task-status-cycler's Pomodoro completion
-      using a copy of the shared vectors, test it, document it, and deploy with bob
-      plugins sync."
-  - id: gcal-auth
-    title: bob gcal skeleton, gog transport, login, logout, doctor, calendars
-    depends_on: []
-    size: medium
-    description:
-      "gcal-auth: extract gkeep's hardened subprocess runner, add the gcal module,
-      config block, and gog transport with the BOB_GCAL_GOG test seam, ship login,
-      logout, doctor, and calendars with beautiful output, register the command, and
-      write the setup contract and guide."
-  - id: gcal-list
-    title: Event fetch, inclusion rule, root precedence, and bob gcal list
-    depends_on:
-      - gcal-auth
-    size: medium
-    description:
-      "gcal-list: fetch one DST-safe local day per calendar as a complete snapshot,
-      normalize events, classify them as task, context, or omitted, choose and validate
-      roots (route token, colour, calendar, default), and ship the read-only list as the
-      bare default."
-  - id: gcal-sync
-    title: bob gcal sync writes Events rows and MEET links
-    depends_on:
-      - gcal-list
-      - event-close
-      - meet-area
-    size: medium
-    description:
-      "gcal-sync: render Event Task and context rows, keep the per-host journal, plan
-      inserts, adoption, tombstones, and the appended MEET placeholder with links
-      written once, write through a locked preimage-checked transaction with a no-op
-      guarantee, and ship sync, list's VAULT column, docs, and the daily-note decision
-      record."
-  - id: gcal-lifecycle
-    title: Reconcile Google-side changes and learn series roots
-    depends_on:
-      - gcal-sync
-    size: medium
-    description:
-      "gcal-lifecycle: three-way update of untouched managed spans, cancel untouched
-      tasks for declined, deleted, or moved events with a created CANCEL LOG, handle
-      Maybe and Yes transitions, learn series roots from vault edits, list unresolved
-      past meetings, and record the propose-once decision."
-  - id: obsidian-events
-    title: Obsidian trigger, ledger guard, and Events painting
-    depends_on:
-      - gcal-sync
-    size: medium
-    description:
-      "obsidian-events: run bob gcal sync when today's note is created, add a gcal-sync
-      toast adapter, stop the section-move gesture from dropping task rows into the
-      ledger, paint Events rows when chosen, test, document, and deploy."
-  - id: rollout
-    title: Mac rollout, config, and handoff
-    depends_on:
-      - meet-area
-      - event-close-js
-      - gcal-lifecycle
-      - obsidian-events
-    size: small
-    description:
-      "rollout: add the gcal config block and (when chosen) the Mac LaunchAgent in
-      chezmoi, reword the gtd_daily calendar checklist row, update and check the Mac
-      best-effort, and hand Bryan the short login checklist."
+- id: meet-area
+  title: Modernize meet.md and prepare the vault
+  depends_on: []
+  size: small
+  description: 'meet-area: turn ~/bob/meet.md into a top-level violet area with task_type
+    MEET and a ## Tasks section, add the .bob/gcal journal git rules, commit under
+    the sync lock, and record meet''s hue in the homes docs.'
+- id: event-close
+  title: Event Task grammar and the clock-aware MEET close (Rust)
+  depends_on: []
+  size: medium
+  description: 'event-close: add the shared Event Task parser and clock classifier,
+    make bob''s x close resolve unlisted Event Task links by the clock, report it
+    in JSON and human output, add shared vectors, document the Events grammar, and
+    write the glossary and clock-close memory.'
+- id: event-close-js
+  title: Clock-aware Ctrl+Enter close in Obsidian
+  depends_on:
+  - event-close
+  size: medium
+  description: 'event-close-js: mirror the clock rule in task-status-cycler''s Pomodoro
+    completion using a copy of the shared vectors, test it, document it, and deploy
+    with bob plugins sync.'
+- id: gcal-auth
+  title: bob gcal skeleton, gog transport, login, logout, doctor, calendars
+  depends_on: []
+  size: medium
+  description: 'gcal-auth: extract gkeep''s hardened subprocess runner, add the gcal
+    module, config block, and gog transport with the BOB_GCAL_GOG test seam, ship
+    login, logout, doctor, and calendars with beautiful output, register the command,
+    and write the setup contract and guide.'
+- id: gcal-list
+  title: Event fetch, inclusion rule, root precedence, and bob gcal list
+  depends_on:
+  - gcal-auth
+  size: medium
+  description: 'gcal-list: fetch one DST-safe local day per calendar as a complete
+    snapshot, normalize events, classify them as task, context, or omitted, choose
+    and validate roots (route token, colour, calendar, default), and ship the read-only
+    list as the bare default.'
+- id: gcal-sync
+  title: bob gcal sync writes Events rows and MEET links
+  depends_on:
+  - gcal-list
+  - event-close
+  - meet-area
+  size: medium
+  description: 'gcal-sync: render Event Task and context rows, keep the per-host journal,
+    plan inserts, adoption, tombstones, and the appended MEET placeholder with links
+    written once, write through a locked preimage-checked transaction with a no-op
+    guarantee, and ship sync, list''s VAULT column, docs, and the daily-note decision
+    record.'
+- id: gcal-lifecycle
+  title: Reconcile Google-side changes and learn series roots
+  depends_on:
+  - gcal-sync
+  size: medium
+  description: 'gcal-lifecycle: three-way update of untouched managed spans, cancel
+    untouched tasks for declined, deleted, or moved events with a created CANCEL LOG,
+    handle Maybe and Yes transitions, learn series roots from vault edits, list unresolved
+    past meetings, and record the propose-once decision.'
+- id: obsidian-events
+  title: Obsidian trigger, ledger guard, and Events painting
+  depends_on:
+  - gcal-sync
+  size: medium
+  description: 'obsidian-events: run bob gcal sync when today''s note is created,
+    add a gcal-sync toast adapter, stop the section-move gesture from dropping task
+    rows into the ledger, paint Events rows when chosen, test, document, and deploy.'
+- id: rollout
+  title: Mac rollout, config, and handoff
+  depends_on:
+  - meet-area
+  - event-close-js
+  - gcal-lifecycle
+  - obsidian-events
+  size: small
+  description: 'rollout: add the gcal config block and (when chosen) the Mac LaunchAgent
+    in chezmoi, reword the gtd_daily calendar checklist row, update and check the
+    Mac best-effort, and hand Bryan the short login checklist.'
 proposed_by: bbugyi200.apollo.research.2w.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-29 19:40:01
 status: wip
+bead_id: bob-cli-ea
 ---
 
-- **PROMPT:**
-  [prompts/202610/bob_gcal_daily_events.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_gcal_daily_events.md)
+- **PROMPT:** [prompts/202610/bob_gcal_daily_events.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/bob_gcal_daily_events.md)
+- **BEAD:** [bob-cli-ea](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ea/README.md)
 
 # Plan: `bob gcal`, Google Calendar events as daily-note Event Tasks
 
