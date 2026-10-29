@@ -1,13 +1,14 @@
 ---
 tier: tale
 size: small
-title: Land bob-cli-du — honor the shared done vectors in cycler api v3, sweep stale
-  §18 markers, close the epic
-goal: The task-status-cycler api v3 `completeTaskLineText` honors every case in the
-  shared relation_complete `done` vectors. Already-closed lines stay unchanged; recurring
-  and non-task lines are refused. Nav consumes that result. docs/task-relations.md
-  no longer calls shipped work planned. Epic bob-cli-du is closed and its plan marked
-  done.
+title:
+  Land bob-cli-du — honor the shared done vectors in cycler api v3, sweep stale §18
+  markers, close the epic
+goal:
+  The task-status-cycler api v3 `completeTaskLineText` honors every case in the shared
+  relation_complete `done` vectors. Already-closed lines stay unchanged; recurring and
+  non-task lines are refused. Nav consumes that result. docs/task-relations.md no longer
+  calls shipped work planned. Epic bob-cli-du is closed and its plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-du.land
 proposed_with: claude/opus
 bead: bob-cli-du
@@ -18,6 +19,11 @@ status: done
   [202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_complete_labels.md)
 - **BEAD:**
   [bob-cli-du](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-du/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-du.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-du.land.md)
+- **COMMITS:**
+  - [259f48d](https://github.com/bobs-org/bob-cli--plans/commit/259f48d3fc0d2c288f3ad6162fc5fd218f8a30a0)
+    — docs(plan): mark complete-label epic done
 
 # Land bob-cli-du: finish the cycler done-vector contract, sweep docs, close the epic
 
