@@ -1,49 +1,45 @@
 ---
 tier: epic
 title: Task-aware Link to today picker
-goal:
-  Complete bob-cli-dm.6 so the picker preselects and explains a suggested theme,
+goal: Complete bob-cli-dm.6 so the picker preselects and explains a suggested theme,
   remembers deliberate exceptions in guarded task edits, and supports link once.
 phases:
-  - id: suggestion-model
-    title: Task-aware picker inputs and shared theme preselection
-    size: medium
-    depends_on: []
-    description:
-      "suggestion-model: add task context and the synchronous suggestion snapshot to
-      both picker entry points, implement the shared preselection rule without changing
-      Today order or typed-query ranking, and run the copied preselect vectors through
-      the model."
-  - id: picker-intent
-    title: Stable selection, explanation, and link-once intent
-    size: medium
-    depends_on:
-      - suggestion-model
-    description:
-      "picker-intent: preserve selection by key across asynchronous refreshes, render
-      suggestion reasons and the live field-change footer, add explicit Alt+Enter link
-      once, and carry themeIntent through the v1 picker API with interaction tests."
-  - id: guarded-theme-write
-    title: Remember deliberate choices in the guarded task edit
-    size: medium
-    depends_on:
-      - picker-intent
-    description:
-      "guarded-theme-write: revalidate the shown suggestion, apply the shared field
-      writer inside the existing task-line plan without changing freshness eligibility,
-      report successful and partial outcomes accurately, and finish docs and runtime
-      tests."
+- id: suggestion-model
+  title: Task-aware picker inputs and shared theme preselection
+  size: medium
+  depends_on: []
+  description: 'suggestion-model: add task context and the synchronous suggestion
+    snapshot to both picker entry points, implement the shared preselection rule without
+    changing Today order or typed-query ranking, and run the copied preselect vectors
+    through the model.'
+- id: picker-intent
+  title: Stable selection, explanation, and link-once intent
+  size: medium
+  depends_on:
+  - suggestion-model
+  description: 'picker-intent: preserve selection by key across asynchronous refreshes,
+    render suggestion reasons and the live field-change footer, add explicit Alt+Enter
+    link once, and carry themeIntent through the v1 picker API with interaction tests.'
+- id: guarded-theme-write
+  title: Remember deliberate choices in the guarded task edit
+  size: medium
+  depends_on:
+  - picker-intent
+  description: 'guarded-theme-write: revalidate the shown suggestion, apply the shared
+    field writer inside the existing task-line plan without changing freshness eligibility,
+    report successful and partial outcomes accurately, and finish docs and runtime
+    tests.'
 proposed_by: bbugyi200.apollo.bob-cli-dm.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-dm.6
 create_time: 2026-10-28 20:08:11
 status: wip
+bead_id: bob-cli-dm.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_theme_link_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_link_picker.md)
-- **PARENT:**
-  [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **PROMPT:** [prompts/202610/task_theme_link_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_theme_link_picker.md)
+- **PARENT:** [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **BEAD:** [bob-cli-dm.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.6.1.md)
 
 # Task-aware Link to today picker
 
