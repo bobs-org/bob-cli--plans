@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Task Card themes and complete dm.7.1 landing
-goal:
-  Make the approved theme editor work through real modal writes, verify successor
+goal: Make the approved theme editor work through real modal writes, verify successor
   preservation, and close dm.7.1 and parent phase dm.7.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dm.7.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dm.7.1
-create_time: 2026-10-29 00:33:42
-status: wip
+status: done
 ---
 
 - **PARENT:**
