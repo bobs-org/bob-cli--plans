@@ -1,216 +1,195 @@
 ---
 tier: epic
-title:
-  "Task types: Pomodoro themes become per-task types that always agree with their Task
-  Links"
+title: 'Task types: Pomodoro themes become per-task types that always agree with their
+  Task Links'
 goal: 'Every open task has one computed task type (field, reading rule, note default,
   then plan.default_type, CHORE for Bryan). Every live Task Link agrees with its task''s
   type: type edits move links, link moves and named captures retype tasks, and Bob
   places new links by type. Explicit types render as a colored #TYPE in place of the
-  #task glyph. The words "theme" and "Pomodoro theme" become "task type" everywhere a
-  person reads them.
+  #task glyph. The words "theme" and "Pomodoro theme" become "task type" everywhere
+  a person reads them.
 
   '
 decisions:
   running_retype:
-    ask:
-      When a Task Card retype hits a link in the running session, should that session
+    ask: When a Task Card retype hits a link in the running session, should that session
       absorb the new type?
     choices:
-      absorb:
-        Task stays in the running session; a sole link renames it, otherwise it gains +
-        TYPE
-      pull_out:
-        Link leaves the running session for a planned TYPE entry, like any planned link
+      absorb: Task stays in the running session; a sole link renames it, otherwise
+        it gains + TYPE
+      pull_out: Link leaves the running session for a planned TYPE entry, like any
+        planned link
     default: absorb
-    why:
-      Pulling the task you are working on out of the session you are in would surprise
+    why: Pulling the task you are working on out of the session you are in would surprise
       you
     answer: absorb
   memory_glossary:
-    ask:
-      Rename the pomodoro-theme glossary strand to task-type and repoint the three
+    ask: Rename the pomodoro-theme glossary strand to task-type and repoint the three
       strands that link it?
     memory:
-      - glossary:pomodoro-theme
-      - glossary:day-strip
-      - glossary:stats-dash
-      - glossary:root-parent
+    - glossary:pomodoro-theme
+    - glossary:day-strip
+    - glossary:stats-dash
+    - glossary:root-parent
     default: true
-    requested:
-      We should rename the "pomodoro theme" glossary entry to "task type" and update it
-      accordingly.
+    requested: We should rename the "pomodoro theme" glossary entry to "task type"
+      and update it accordingly.
     answer: true
   memory_decision_records:
-    ask:
-      Add two decision records, one for the type/link agreement invariant and one for
-      the computed type?
+    ask: Add two decision records, one for the type/link agreement invariant and one
+      for the computed type?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: vocab
-    title: Task-type words, docs/task-types.md, and the bob types command
-    depends_on: []
-    size: medium
-    description:
-      "vocab: move the themes contract to docs/task-types.md with a redirect, make bob
-      types canonical with bob themes as a permanent hidden alias, and switch
-      user-facing CLI copy from theme to type."
-  - id: storage
-    title: "[type::] task fields and task_type: note defaults"
-    depends_on:
-      - vocab
-    size: medium
-    description:
-      "storage: read [type::] and task_type: as canonical and the theme spellings as
-      legacy, emit [type::] from every writer, and extend rename, split, preservation
-      tests, and the task_field vectors."
-  - id: migrate
-    title: bob types migrate
-    depends_on:
-      - storage
-    size: small
-    description:
-      "migrate: add a previewed, single-commit vault rewrite that moves open-task
-      [theme::] fields and area/project theme: defaults to the canonical type spellings."
-  - id: default-type
-    title: plan.default_type and canonical types config
-    depends_on:
-      - storage
-    size: medium
-    description:
-      "default-type: add plan.default_type as the last cascade step, accept types: and
-      plan.reading_type as canonical config keys, resolve new captures from the staged
-      line, and set CHORE in chezmoi."
-  - id: routing-core
-    title: Rust routing planners and the type_mismatch lint
-    depends_on:
-      - default-type
-    size: medium
-    description:
-      "routing-core: add the pure agreement, retype, placement, and relocation planners
-      with shared vectors, plus a read-only type_mismatch lint in bob plan."
-  - id: capture-retype
-    title: Named captures keep the task type in agreement
-    depends_on:
-      - routing-core
-    size: medium
-    description:
-      "capture-retype: replace the old theme write rule with the retype planner for
-      every #NAME and =name capture form, including project-note bullets and exempt
-      types such as PLAN."
-  - id: capture-placement
-    title: Bare captures place links by task type
-    depends_on:
-      - capture-retype
-    size: medium
-    description:
-      "capture-placement: route every bare link-creating capture form to the Pomodoro
-      chosen by the task's effective type, report it additively in JSON and previews,
-      and refuse under plan.strict."
-  - id: js-mirror
-    title: Ledger Tools type model and routing mirror
-    depends_on:
-      - routing-core
-    size: medium
-    description:
-      "js-mirror: mirror storage, config, the cascade, and the four routing planners in
-      Ledger Tools JS against the copied vectors, extend api.themes additively, and
-      update every plugin-local name helper."
-  - id: type-tag-rendering
-    title: "#TYPE identity, ledger agreement marks, and Ledger Tools words"
-    depends_on:
-      - js-mirror
-    size: medium
-    description:
-      "type-tag-rendering: render explicit types as a colored #TYPE in the #task slot,
-      retire the trailing pill, mark disagreeing ledger links, and rename Ledger Tools
-      copy to type."
-  - id: move-retype
-    title: Ctrl+Shift+M Pomodoro bullet moves retype tasks
-    depends_on:
-      - js-mirror
-    size: medium
-    description:
-      "move-retype: make the Pomodoro bullet move picker apply the retype rule with
-      Enter, Alt+Enter keep-type merges, and Tab component cycling, with consequence
-      footers and checked cross-note writes."
-  - id: link-picker-retype
-    title: Link to today retypes and Alt+Enter keeps the type
-    depends_on:
-      - js-mirror
-    size: medium
-    description:
-      "link-picker-retype: replace the block-id-prompt theme write guards with the
-      retype rule, turn link once into the keep-type merge, and update footers, toasts,
-      and docs."
-  - id: ref-today-successors
-    title: bob ref today and successor offers place by type
-    depends_on:
-      - capture-placement
-      - js-mirror
-    size: medium
-    description:
-      "ref-today-successors: place reading-task links and successor links by their own
-      type in Rust and task-status-cycler, and retype on explicit ref-today targets."
-  - id: task-card-relocate
-    title: Task Card type edits relocate the live Task Link
-    depends_on:
-      - move-retype
-    size: medium
-    description:
-      "task-card-relocate: rename the Task Card stage to Type, allow every type
-      including PLAN, and relocate the task's live link with a consequence line, strict
-      refusal, and one gesture."
-  - id: gesture-retype
-    title: Note moves and Pomodoro renames keep agreement
-    depends_on:
-      - task-card-relocate
-      - capture-placement
-      - type-tag-rendering
-    size: medium
-    description:
-      "gesture-retype: relocate the live link when a note move changes an inherited
-      type, and retype linked tasks when naming or renaming an entry gives it a
-      different type."
-  - id: mac-copy
-    title: Bob Mac Capture type copy
-    depends_on:
-      - capture-placement
-    size: small
-    description:
-      "mac-copy: render bob's type words and the additive type placement label in Mac
-      capture previews, completions, and toasts without adding any capture logic."
-  - id: closeout
-    title: Memory, config spelling, vectors cleanup, and acceptance
-    depends_on:
-      - migrate
-      - type-tag-rendering
-      - link-picker-retype
-      - ref-today-successors
-      - gesture-retype
-      - mac-copy
-    size: small
-    description:
-      "closeout: rename the glossary strand, add the two decision records, switch
-      chezmoi to types:, drop the retired write_rule vectors, sweep docs, and run the
-      acceptance cases."
+- id: vocab
+  title: Task-type words, docs/task-types.md, and the bob types command
+  depends_on: []
+  size: medium
+  description: 'vocab: move the themes contract to docs/task-types.md with a redirect,
+    make bob types canonical with bob themes as a permanent hidden alias, and switch
+    user-facing CLI copy from theme to type.'
+- id: storage
+  title: '[type::] task fields and task_type: note defaults'
+  depends_on:
+  - vocab
+  size: medium
+  description: 'storage: read [type::] and task_type: as canonical and the theme spellings
+    as legacy, emit [type::] from every writer, and extend rename, split, preservation
+    tests, and the task_field vectors.'
+- id: migrate
+  title: bob types migrate
+  depends_on:
+  - storage
+  size: small
+  description: 'migrate: add a previewed, single-commit vault rewrite that moves open-task
+    [theme::] fields and area/project theme: defaults to the canonical type spellings.'
+- id: default-type
+  title: plan.default_type and canonical types config
+  depends_on:
+  - storage
+  size: medium
+  description: 'default-type: add plan.default_type as the last cascade step, accept
+    types: and plan.reading_type as canonical config keys, resolve new captures from
+    the staged line, and set CHORE in chezmoi.'
+- id: routing-core
+  title: Rust routing planners and the type_mismatch lint
+  depends_on:
+  - default-type
+  size: medium
+  description: 'routing-core: add the pure agreement, retype, placement, and relocation
+    planners with shared vectors, plus a read-only type_mismatch lint in bob plan.'
+- id: capture-retype
+  title: Named captures keep the task type in agreement
+  depends_on:
+  - routing-core
+  size: medium
+  description: 'capture-retype: replace the old theme write rule with the retype planner
+    for every #NAME and =name capture form, including project-note bullets and exempt
+    types such as PLAN.'
+- id: capture-placement
+  title: Bare captures place links by task type
+  depends_on:
+  - capture-retype
+  size: medium
+  description: 'capture-placement: route every bare link-creating capture form to
+    the Pomodoro chosen by the task''s effective type, report it additively in JSON
+    and previews, and refuse under plan.strict.'
+- id: js-mirror
+  title: Ledger Tools type model and routing mirror
+  depends_on:
+  - routing-core
+  size: medium
+  description: 'js-mirror: mirror storage, config, the cascade, and the four routing
+    planners in Ledger Tools JS against the copied vectors, extend api.themes additively,
+    and update every plugin-local name helper.'
+- id: type-tag-rendering
+  title: '#TYPE identity, ledger agreement marks, and Ledger Tools words'
+  depends_on:
+  - js-mirror
+  size: medium
+  description: 'type-tag-rendering: render explicit types as a colored #TYPE in the
+    #task slot, retire the trailing pill, mark disagreeing ledger links, and rename
+    Ledger Tools copy to type.'
+- id: move-retype
+  title: Ctrl+Shift+M Pomodoro bullet moves retype tasks
+  depends_on:
+  - js-mirror
+  size: medium
+  description: 'move-retype: make the Pomodoro bullet move picker apply the retype
+    rule with Enter, Alt+Enter keep-type merges, and Tab component cycling, with consequence
+    footers and checked cross-note writes.'
+- id: link-picker-retype
+  title: Link to today retypes and Alt+Enter keeps the type
+  depends_on:
+  - js-mirror
+  size: medium
+  description: 'link-picker-retype: replace the block-id-prompt theme write guards
+    with the retype rule, turn link once into the keep-type merge, and update footers,
+    toasts, and docs.'
+- id: ref-today-successors
+  title: bob ref today and successor offers place by type
+  depends_on:
+  - capture-placement
+  - js-mirror
+  size: medium
+  description: 'ref-today-successors: place reading-task links and successor links
+    by their own type in Rust and task-status-cycler, and retype on explicit ref-today
+    targets.'
+- id: task-card-relocate
+  title: Task Card type edits relocate the live Task Link
+  depends_on:
+  - move-retype
+  size: medium
+  description: 'task-card-relocate: rename the Task Card stage to Type, allow every
+    type including PLAN, and relocate the task''s live link with a consequence line,
+    strict refusal, and one gesture.'
+- id: gesture-retype
+  title: Note moves and Pomodoro renames keep agreement
+  depends_on:
+  - task-card-relocate
+  - capture-placement
+  - type-tag-rendering
+  size: medium
+  description: 'gesture-retype: relocate the live link when a note move changes an
+    inherited type, and retype linked tasks when naming or renaming an entry gives
+    it a different type.'
+- id: mac-copy
+  title: Bob Mac Capture type copy
+  depends_on:
+  - capture-placement
+  size: small
+  description: 'mac-copy: render bob''s type words and the additive type placement
+    label in Mac capture previews, completions, and toasts without adding any capture
+    logic.'
+- id: closeout
+  title: Memory, config spelling, vectors cleanup, and acceptance
+  depends_on:
+  - migrate
+  - type-tag-rendering
+  - link-picker-retype
+  - ref-today-successors
+  - gesture-retype
+  - mac-copy
+  size: small
+  description: 'closeout: rename the glossary strand, add the two decision records,
+    switch chezmoi to types:, drop the retired write_rule vectors, sweep docs, and
+    run the acceptance cases.'
 proposed_by: bbugyi200.apollo.research.2t.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-29 16:16:32
 status: wip
+bead_id: bob-cli-e6
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_types.md)
+- **PROMPT:** [prompts/202610/task_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_types.md)
+- **BEAD:** [bob-cli-e6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-e6/README.md)
 
 # Plan: Task types
 
