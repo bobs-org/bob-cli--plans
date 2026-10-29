@@ -1,143 +1,130 @@
 ---
 tier: epic
 title: Inline task mentions on 🪢 LINKED FROM
-goal: "When one task's own text links another task (`[[note#^id]]`, embedded or struck
-  too), the target's generated 🪢 LINKED FROM line gains an inert `[[S]] (💬 mentions)`
+goal: 'When one task''s own text links another task (`[[note#^id]]`, embedded or struck
+  too), the target''s generated 🪢 LINKED FROM line gains an inert `[[S]] (💬 mentions)`
   entry that explains itself at a glance with a `💬 mentioned in` / `💬 embedded in`
   pill, a live quote, and a context card that jumps to the sentence. Nothing is written
   on the mentioning task except a silent `^id`, a dependency or relation on the pair
   wins, and Rust and both plugins agree on every shared vector.
 
-  "
+  '
 decisions:
   rollout:
-    ask:
-      Should the last phase switch mentions on by default once the vault-copy pilot
+    ask: Should the last phase switch mentions on by default once the vault-copy pilot
       passes?
     choices:
       enable: Mentions go live with the next release train; no config edit is needed
-      dark:
-        Everything ships off; Bryan opts in later with relations.linked_from_mentions
+      dark: Everything ships off; Bryan opts in later with relations.linked_from_mentions
     default: enable
     why: The phase graph already deploys the plugins before the writer goes live.
     answer: enable
   memory_record:
-    ask:
-      Should the decisions web gain a record that task mentions are inert LINKED FROM
-      entries?
+    ask: Should the decisions web gain a record that task mentions are inert LINKED
+      FROM entries?
     memory:
-      - decisions:task-mentions-are-inert-linked-from-entries
+    - decisions:task-mentions-are-inert-linked-from-entries
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary:
-    ask:
-      Should the glossary add Task Mention and update Task Relation and Task Link to
-      match?
+    ask: Should the glossary add Task Mention and update Task Relation and Task Link
+      to match?
     memory:
-      - glossary:task-mention
-      - glossary:task-relation
-      - glossary:task-link
+    - glossary:task-mention
+    - glossary:task-relation
+    - glossary:task-link
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: contract
-    title: Mention contract, shared vectors, decision record, and glossary
-    depends_on: []
-    size: medium
-    description:
-      "contract: write task-relations §19 plus the amended sections, the shared MN
-      vector fixture, the config/JSON/guide docs, the decision record, and the glossary
-      terms."
-  - id: cli-core
-    title: Rust mention scanner, reserved label, and writer guards
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-core: add task_relations/mentions.rs driven by the shared vectors, reserve 💬
-      labels in every parser and authored writer, and stop relations reverse from
-      dropping mention entries."
-  - id: cli-reconcile
-    title: Reconcile projects mentions onto LINKED FROM
-    depends_on:
-      - cli-core
-    size: medium
-    description:
-      "cli-reconcile: fold mention pairs into reconcile_relation_lines with precedence,
-      minting, uncertainty, widened prefilters, the dark linked_from_mentions switch,
-      and additive JSON and human output."
-  - id: cli-capture
-    title: Capture stages mention mirrors in its batch
-    depends_on:
-      - cli-reconcile
-    size: medium
-    description:
-      "cli-capture: diff the mention pairs of every note a capture writes and stage the
-      targets' LINKED FROM entries and source mints in the same all-or-nothing batch."
-  - id: plugin-index
-    title: Live mention index and relationIndex v2
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "plugin-index: teach bob-ledger-tools' live index the mention rules from the
-      copied vectors, publish typed linkedFrom rows under relationIndex v2, and expose a
-      pure scanMentions helper."
-  - id: plugin-rows
-    title: Mention rows, pills, quotes, and jump-to-mention
-    depends_on:
-      - plugin-index
-    size: medium
-    description:
-      "plugin-rows: render mention entries in Live Preview and Reading view with
-      grouping, pills, quote lines, no ×, mixed-pair markers, density limits, stale
-      styling, and click-to-mention."
-  - id: plugin-card
-    title: Mention context card and embed-echo suppression
-    depends_on:
-      - plugin-rows
-    size: medium
-    description:
-      "plugin-card: add the accessible why-is-this-here card on each mention pill and
-      hide embedded-in entries inside their own host's transclusion."
-  - id: plugin-nav
-    title: Nav courtesy writes, stage rows, refusals, and counts
-    depends_on:
-      - plugin-index
-    size: medium
-    description:
-      "plugin-nav: write mention mirrors when the cursor leaves an edited line, show
-      mentions in the Linked-from stage and Task Card count, refuse removal and reserved
-      labels, and downgrade unlinked pairs."
-  - id: enable
-    title: Vault-copy pilot and switch-on
-    depends_on:
-      - cli-reconcile
-      - cli-capture
-      - plugin-card
-      - plugin-nav
-    size: small
-    description:
-      "enable: pilot the full feature on a copy of the vault, then flip
-      linked_from_mentions on per the rollout decision and record follow-up proposals."
+- id: contract
+  title: Mention contract, shared vectors, decision record, and glossary
+  depends_on: []
+  size: medium
+  description: 'contract: write task-relations §19 plus the amended sections, the
+    shared MN vector fixture, the config/JSON/guide docs, the decision record, and
+    the glossary terms.'
+- id: cli-core
+  title: Rust mention scanner, reserved label, and writer guards
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-core: add task_relations/mentions.rs driven by the shared vectors,
+    reserve 💬 labels in every parser and authored writer, and stop relations reverse
+    from dropping mention entries.'
+- id: cli-reconcile
+  title: Reconcile projects mentions onto LINKED FROM
+  depends_on:
+  - cli-core
+  size: medium
+  description: 'cli-reconcile: fold mention pairs into reconcile_relation_lines with
+    precedence, minting, uncertainty, widened prefilters, the dark linked_from_mentions
+    switch, and additive JSON and human output.'
+- id: cli-capture
+  title: Capture stages mention mirrors in its batch
+  depends_on:
+  - cli-reconcile
+  size: medium
+  description: 'cli-capture: diff the mention pairs of every note a capture writes
+    and stage the targets'' LINKED FROM entries and source mints in the same all-or-nothing
+    batch.'
+- id: plugin-index
+  title: Live mention index and relationIndex v2
+  depends_on:
+  - contract
+  size: medium
+  description: 'plugin-index: teach bob-ledger-tools'' live index the mention rules
+    from the copied vectors, publish typed linkedFrom rows under relationIndex v2,
+    and expose a pure scanMentions helper.'
+- id: plugin-rows
+  title: Mention rows, pills, quotes, and jump-to-mention
+  depends_on:
+  - plugin-index
+  size: medium
+  description: 'plugin-rows: render mention entries in Live Preview and Reading view
+    with grouping, pills, quote lines, no ×, mixed-pair markers, density limits, stale
+    styling, and click-to-mention.'
+- id: plugin-card
+  title: Mention context card and embed-echo suppression
+  depends_on:
+  - plugin-rows
+  size: medium
+  description: 'plugin-card: add the accessible why-is-this-here card on each mention
+    pill and hide embedded-in entries inside their own host''s transclusion.'
+- id: plugin-nav
+  title: Nav courtesy writes, stage rows, refusals, and counts
+  depends_on:
+  - plugin-index
+  size: medium
+  description: 'plugin-nav: write mention mirrors when the cursor leaves an edited
+    line, show mentions in the Linked-from stage and Task Card count, refuse removal
+    and reserved labels, and downgrade unlinked pairs.'
+- id: enable
+  title: Vault-copy pilot and switch-on
+  depends_on:
+  - cli-reconcile
+  - cli-capture
+  - plugin-card
+  - plugin-nav
+  size: small
+  description: 'enable: pilot the full feature on a copy of the vault, then flip linked_from_mentions
+    on per the rollout decision and record follow-up proposals.'
 proposed_by: bbugyi200.apollo.research.2v.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-29 17:20:19
 status: wip
+bead_id: bob-cli-e8
 ---
 
-- **PROMPT:**
-  [prompts/202610/inline_task_mentions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/inline_task_mentions.md)
+- **PROMPT:** [prompts/202610/inline_task_mentions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/inline_task_mentions.md)
+- **BEAD:** [bob-cli-e8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-e8/README.md)
 
 # Plan: Inline task mentions on 🪢 LINKED FROM
 
