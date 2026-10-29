@@ -1,14 +1,14 @@
 ---
 tier: epic
 title: (( task wikilink picker for Bob Mac Capture
-goal: "Typing `((` anywhere free text is allowed in a Bob Mac Capture draft opens a
-  large, fuzzy, keyboard-first picker over every task in the vault. Choosing a task
-  replaces the `((` token with a valid Obsidian block link such as `[[foo#^bar]]`. A
-  task without a block ID is named first through a prompt prefilled with a good
-  suggested ID. bob-cli owns the trigger grammar, the candidates, the link text, and the
-  ID write; the app only presents them.
+goal: 'Typing `((` anywhere free text is allowed in a Bob Mac Capture draft opens
+  a large, fuzzy, keyboard-first picker over every task in the vault. Choosing a task
+  replaces the `((` token with a valid Obsidian block link such as `[[foo#^bar]]`.
+  A task without a block ID is named first through a prompt prefilled with a good
+  suggested ID. bob-cli owns the trigger grammar, the candidates, the link text, and
+  the ID write; the app only presents them.
 
-  "
+  '
 decisions:
   history:
     ask: Should (( also offer Done and Cancelled tasks, listed after every open task?
@@ -21,63 +21,59 @@ decisions:
   link_form:
     ask: Which link form should a picked task insert?
     choices:
-      shortest:
-        "[[note#^id]] when the name is unique, a path only when needed, like bob's own
-        links"
-      full_path: Always [[dir/note#^id]]; longer, but never relies on a unique note name
+      shortest: '[[note#^id]] when the name is unique, a path only when needed, like
+        bob''s own links'
+      full_path: Always [[dir/note#^id]]; longer, but never relies on a unique note
+        name
     default: shortest
-    why:
-      Matches your [[foo#^bar]] example and the Task Links and Depends-On links bob
-      writes
+    why: Matches your [[foo#^bar]] example and the Task Links and Depends-On links
+      bob writes
     answer: shortest
 phases:
-  - id: id-suggestions
-    title: Block-ID suggestions skip link URLs
-    depends_on: []
-    size: small
-    description:
-      "id-suggestions: in bob-cli, make the shared block-ID suggestion generator ignore
-      Markdown link destinations and bare URLs, so Keep-captured tasks stop suggesting
-      `https-keep-google-com`; update the pinned tests and the documented algorithm."
-  - id: bob-contract
-    title: bob-cli wikilink_task completion contract
-    depends_on: []
-    size: medium
-    description:
-      "bob-contract: in bob-cli, detect the `((query` field, serve the vault-wide
-      `wikilink_task` snapshot with backend-formatted `[[target#^id]]` replacements,
-      groups, disabled reasons, and a picker descriptor, add `wikilink_replacement` to
-      `capture-task-id`, keep shell completion out of it, and document the contract."
-  - id: mac-picker
-    title: Mac Task Wikilink Picker
-    depends_on:
-      - id-suggestions
-      - bob-contract
-    size: medium
-    description:
-      "mac-picker: in bob-mac-capture, add the `.wikilinkTask` picker source that
-      decodes `wikilink_task`, auto-opens on typed `((`, filters locally, inserts Bob's
-      link, runs the Add block ID prompt in wikilink mode against `capture-task-id`, and
-      covers it with presentation, panel, and fake-bob tests."
-  - id: mac-design-docs
-    title: Mac picker design review and docs
-    depends_on:
-      - mac-picker
-    size: small
-    description:
-      "mac-design-docs: in bob-mac-capture, render light/dark design fixtures of the
-      card and ID prompt, review and polish them, show Markdown links in task text by
-      their label, and document the picker, keys, and capability row."
+- id: id-suggestions
+  title: Block-ID suggestions skip link URLs
+  depends_on: []
+  size: small
+  description: 'id-suggestions: in bob-cli, make the shared block-ID suggestion generator
+    ignore Markdown link destinations and bare URLs, so Keep-captured tasks stop suggesting
+    `https-keep-google-com`; update the pinned tests and the documented algorithm.'
+- id: bob-contract
+  title: bob-cli wikilink_task completion contract
+  depends_on: []
+  size: medium
+  description: 'bob-contract: in bob-cli, detect the `((query` field, serve the vault-wide
+    `wikilink_task` snapshot with backend-formatted `[[target#^id]]` replacements,
+    groups, disabled reasons, and a picker descriptor, add `wikilink_replacement`
+    to `capture-task-id`, keep shell completion out of it, and document the contract.'
+- id: mac-picker
+  title: Mac Task Wikilink Picker
+  depends_on:
+  - id-suggestions
+  - bob-contract
+  size: medium
+  description: 'mac-picker: in bob-mac-capture, add the `.wikilinkTask` picker source
+    that decodes `wikilink_task`, auto-opens on typed `((`, filters locally, inserts
+    Bob''s link, runs the Add block ID prompt in wikilink mode against `capture-task-id`,
+    and covers it with presentation, panel, and fake-bob tests.'
+- id: mac-design-docs
+  title: Mac picker design review and docs
+  depends_on:
+  - mac-picker
+  size: small
+  description: 'mac-design-docs: in bob-mac-capture, render light/dark design fixtures
+    of the card and ID prompt, review and polish them, show Markdown links in task
+    text by their label, and document the picker, keys, and capability row.'
 proposed_by: bbugyi200.apollo.b3
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-29 17:02:43
 status: wip
+bead_id: bob-cli-e7
 ---
 
-- **PROMPT:**
-  [prompts/202610/wikilink_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/wikilink_task_picker.md)
+- **PROMPT:** [prompts/202610/wikilink_task_picker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/wikilink_task_picker.md)
+- **BEAD:** [bob-cli-e7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-e7/README.md)
 
 # Plan: `((` task wikilink picker for Bob Mac Capture
 
