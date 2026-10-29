@@ -1,122 +1,111 @@
 ---
 tier: epic
 title: Task root fields replace the GTD review buckets
-goal: 'A task can name its root parent with `[root:: NOTE]`, rendered in Obsidian as a
-  calm hue-dot place mark. Every daily `^gtd` task carries `[root:: gtd_daily]`, so
-  morning review time is attributed through Task Links exactly like all other work. The
-  `@daily` "GTD" bucket, the `@review:<NAME>` "PLAN review" buckets, review sessions,
-  and the "daily review" theme step are gone from Rust, the Obsidian mirror, docs, and
-  memory.
+goal: 'A task can name its root parent with `[root:: NOTE]`, rendered in Obsidian
+  as a calm hue-dot place mark. Every daily `^gtd` task carries `[root:: gtd_daily]`,
+  so morning review time is attributed through Task Links exactly like all other work.
+  The `@daily` "GTD" bucket, the `@review:<NAME>` "PLAN review" buckets, review sessions,
+  and the "daily review" theme step are gone from Rust, the Obsidian mirror, docs,
+  and memory.
 
   '
 decisions:
   review_time:
-    ask:
-      What should the built-in review_time Stats metric measure once review sessions are
-      gone?
+    ask: What should the built-in review_time Stats metric measure once review sessions
+      are gone?
     choices:
-      gtd_daily:
-        "Minutes attributed to gtd_daily tasks (in: [gtd_daily]); the dash keeps its
-        line"
-      plan_theme:
-        "Minutes in PLAN-themed sessions (themes: [PLAN]); repeats the theme breakdown"
-      retire:
-        Drop the built-in; the dash's Review time line says it is not in the report
+      gtd_daily: 'Minutes attributed to gtd_daily tasks (in: [gtd_daily]); the dash
+        keeps its line'
+      plan_theme: 'Minutes in PLAN-themed sessions (themes: [PLAN]); repeats the theme
+        breakdown'
+      retire: Drop the built-in; the dash's Review time line says it is not in the
+        report
     default: gtd_daily
-    why: It measures the morning review itself, through the same Task Links as all work
+    why: It measures the morning review itself, through the same Task Links as all
+      work
     answer: gtd_daily
   backfill:
-    ask:
-      "Backfill [root:: gtd_daily] into every existing daily note's ^gtd task, not just
-      the template?"
+    ask: 'Backfill [root:: gtd_daily] into every existing daily note''s ^gtd task,
+      not just the template?'
     default: true
     why: Without it, past review time turns unfiled once the GTD bucket is retired
     answer: true
   theme_default:
-    ask:
-      Replace the "daily review" theme suggestion with a theme PLAN default on
+    ask: Replace the "daily review" theme suggestion with a theme PLAN default on
       gtd_daily.md?
     default: true
-    why:
-      The root field already routes ^gtd to gtd_daily, so a note default removes one
-      more special case
+    why: The root field already routes ^gtd to gtd_daily, so a note default removes
+      one more special case
     answer: true
   root_parent_glossary:
-    ask:
-      Rewrite the Root Parent glossary strand for root fields and the retired GTD
+    ask: Rewrite the Root Parent glossary strand for root fields and the retired GTD
       bucket?
     memory:
-      - glossary:root-parent
+    - glossary:root-parent
     default: true
-    corrects:
-      Review buckets and tasks defined in canonical daily notes group under the `GTD`
-      bucket (key `@daily`)
+    corrects: Review buckets and tasks defined in canonical daily notes group under
+      the `GTD` bucket (key `@daily`)
     answer: true
   decision_record:
-    ask:
-      Add a decision record saying session names never choose a home and root fields
+    ask: Add a decision record saying session names never choose a home and root fields
       re-home tasks?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: root-field
-    title: Rust root field contract and attribution
-    depends_on: []
-    size: medium
-    description:
-      "root-field: add the [root:: NOTE] parser, per-block root facts, as-if-residence
-      home resolution, task-metric and theme-default support, health lints, shared
-      vectors, and the R11 contract, all additive."
-  - id: root-mark
-    title: Obsidian root mark
-    depends_on:
-      - root-field
-    size: medium
-    description:
-      "root-mark: render each root field as a hue-dot place mark in Live Preview,
-      Reading view, and Tasks/Dataview rows in bob-ledger-tools, with compact, rolls-up,
-      and repair states, a toggle, tests, docs, and a plugins sync."
-  - id: vault-backfill
-    title: Vault template and ^gtd backfill
-    depends_on:
-      - root-field
-    size: small
-    description:
-      "vault-backfill: add [root:: gtd_daily] to the daily template and, per the
-      backfill decision, every existing ^gtd line; optionally add theme PLAN to
-      gtd_daily.md; commit under the sync lock and verify."
-  - id: retire-review
-    title: Retire review buckets in Rust, docs, and memory
-    depends_on:
-      - root-field
-      - vault-backfill
-    size: medium
-    description:
-      "retire-review: delete @daily, @review buckets, review sessions, the review metric
-      filter, and the daily-review theme step; redefine review_time; update vectors,
-      fixtures, docs, and the memory decisions; ship as a breaking JSON change."
-  - id: plugin-mirror
-    title: Obsidian homes mirror and Stats cleanup
-    depends_on:
-      - root-mark
-      - retire-review
-    size: medium
-    description:
-      "plugin-mirror: bring the JS homes mirror and theme suggester to the new contract,
-      drop @daily, @review, and short_label handling from Stats and the Day strip, sync
-      shared vectors, add root-mark parity, and deploy."
+- id: root-field
+  title: Rust root field contract and attribution
+  depends_on: []
+  size: medium
+  description: 'root-field: add the [root:: NOTE] parser, per-block root facts, as-if-residence
+    home resolution, task-metric and theme-default support, health lints, shared vectors,
+    and the R11 contract, all additive.'
+- id: root-mark
+  title: Obsidian root mark
+  depends_on:
+  - root-field
+  size: medium
+  description: 'root-mark: render each root field as a hue-dot place mark in Live
+    Preview, Reading view, and Tasks/Dataview rows in bob-ledger-tools, with compact,
+    rolls-up, and repair states, a toggle, tests, docs, and a plugins sync.'
+- id: vault-backfill
+  title: Vault template and ^gtd backfill
+  depends_on:
+  - root-field
+  size: small
+  description: 'vault-backfill: add [root:: gtd_daily] to the daily template and,
+    per the backfill decision, every existing ^gtd line; optionally add theme PLAN
+    to gtd_daily.md; commit under the sync lock and verify.'
+- id: retire-review
+  title: Retire review buckets in Rust, docs, and memory
+  depends_on:
+  - root-field
+  - vault-backfill
+  size: medium
+  description: 'retire-review: delete @daily, @review buckets, review sessions, the
+    review metric filter, and the daily-review theme step; redefine review_time; update
+    vectors, fixtures, docs, and the memory decisions; ship as a breaking JSON change.'
+- id: plugin-mirror
+  title: Obsidian homes mirror and Stats cleanup
+  depends_on:
+  - root-mark
+  - retire-review
+  size: medium
+  description: 'plugin-mirror: bring the JS homes mirror and theme suggester to the
+    new contract, drop @daily, @review, and short_label handling from Stats and the
+    Day strip, sync shared vectors, add root-mark parity, and deploy.'
 proposed_by: bbugyi200.athena.15o
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-28 22:26:40
 status: wip
+bead_id: bob-cli-e2
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_root_fields.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_root_fields.md)
+- **PROMPT:** [prompts/202610/task_root_fields.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_root_fields.md)
+- **BEAD:** [bob-cli-e2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-e2/README.md)
 
 # Plan: Task root fields replace the GTD review buckets
 
