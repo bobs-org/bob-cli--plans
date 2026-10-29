@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "link_budget",
+      "kind": "toggle",
+      "ask": "Also count Task Links under all-exempt (PLAN) entries toward plan.max_links, except that day's ^gtd row?",
+      "why": "The request is the Stats mismatch; the report calls this budget leak low-stakes and separable",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions-web record \"PLAN Is Review Only With The ^gtd Link\" for the new R4 rule?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Note Ready Cap Counts The Lane",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
