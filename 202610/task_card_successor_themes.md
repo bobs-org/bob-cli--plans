@@ -1,56 +1,52 @@
 ---
 tier: epic
 title: Task Card theme editing and successor retargeting
-goal:
-  Task Cards explain and edit task themes, and deliberate successor retargets remember
-  the correct task theme without changing ordinary placement or freshness behavior.
+goal: Task Cards explain and edit task themes, and deliberate successor retargets
+  remember the correct task theme without changing ordinary placement or freshness
+  behavior.
 phases:
-  - id: card-theme-model
-    title: Model and display Task Card themes
-    size: medium
-    depends_on: []
-    description:
-      "card-theme-model: extract crowded Task Card helpers, add the theme projection and
-      header/property row, and test suggestion, inheritance, repair, and task scope
-      handling."
-  - id: card-theme-edit
-    title: Edit task themes through the Task Card
-    size: medium
-    depends_on:
-      - card-theme-model
-    description:
-      "card-theme-edit: add the t stage and Ctrl+D use-default with API-backed field
-      setters and guarded local, counted, and linked task edits that preserve status,
-      links, and freshness."
-  - id: successor-theme-context
-    title: Carry each successor's context and retarget intent
-    size: medium
-    depends_on:
-      - card-theme-edit
-    description:
-      "successor-theme-context: carry task identity and full note context into each
-      successor retarget picker, preserve validated themeIntent through both
-      normalizers, and retain cancellation and older-plugin behavior."
-  - id: successor-theme-write
-    title: Remember guarded successor retarget choices
-    size: medium
-    depends_on:
-      - successor-theme-context
-    description:
-      "successor-theme-write: apply eligible retarget theme changes inside the successor
-      task edit, preserve default-placement and close/move/roll behavior, and document
-      and verify the complete contract."
+- id: card-theme-model
+  title: Model and display Task Card themes
+  size: medium
+  depends_on: []
+  description: 'card-theme-model: extract crowded Task Card helpers, add the theme
+    projection and header/property row, and test suggestion, inheritance, repair,
+    and task scope handling.'
+- id: card-theme-edit
+  title: Edit task themes through the Task Card
+  size: medium
+  depends_on:
+  - card-theme-model
+  description: 'card-theme-edit: add the t stage and Ctrl+D use-default with API-backed
+    field setters and guarded local, counted, and linked task edits that preserve
+    status, links, and freshness.'
+- id: successor-theme-context
+  title: Carry each successor's context and retarget intent
+  size: medium
+  depends_on:
+  - card-theme-edit
+  description: 'successor-theme-context: carry task identity and full note context
+    into each successor retarget picker, preserve validated themeIntent through both
+    normalizers, and retain cancellation and older-plugin behavior.'
+- id: successor-theme-write
+  title: Remember guarded successor retarget choices
+  size: medium
+  depends_on:
+  - successor-theme-context
+  description: 'successor-theme-write: apply eligible retarget theme changes inside
+    the successor task edit, preserve default-placement and close/move/roll behavior,
+    and document and verify the complete contract.'
 proposed_by: bbugyi200.apollo.bob-cli-dm.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-dm.7
 create_time: 2026-10-28 22:50:52
 status: wip
+bead_id: bob-cli-dm.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/task_card_successor_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_card_successor_themes.md)
-- **PARENT:**
-  [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **PROMPT:** [prompts/202610/task_card_successor_themes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/task_card_successor_themes.md)
+- **PARENT:** [202610/task_theme_suggestions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_theme_suggestions.md)
+- **BEAD:** [bob-cli-dm.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.7.1.md)
 
 # Task Card theme editing and successor retargeting
 
