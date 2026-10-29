@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Repair Task Card themes and complete dm.7.1 landing
-goal:
-  Make the approved theme editor work through real modal writes, verify successor
+goal: Make the approved theme editor work through real modal writes, verify successor
   preservation, and close dm.7.1 and parent phase dm.7.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-dm.7.1.land
@@ -15,11 +14,6 @@ status: done
   [202610/task_card_successor_themes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/task_card_successor_themes.md)
 - **BEAD:**
   [bob-cli-dm.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.7.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-dm.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-dm.7.1.land.md)
-- **COMMITS:**
-  - [2e1e881](https://github.com/bobs-org/bob-plugins/commit/2e1e881d6e03edf33f85b030cccd7016aebb85ae)
-    — feat(navigation): harden Task Card theme editing and successor writes
 
 # Repair Task Card theme interaction and finish dm.7.1 landing
 
