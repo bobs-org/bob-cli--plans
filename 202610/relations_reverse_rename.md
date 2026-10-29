@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Reverse relation-label renames
-goal: Complete bob-cli-du.4 with previewed, atomic edge reversal, accurate mirrors,
-  and verified undo.
+goal:
+  Complete bob-cli-du.4 with previewed, atomic edge reversal, accurate mirrors, and
+  verified undo.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-du.4
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/relation_complete_labels.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/relation_complete_labels.md)
 - **BEAD:**
   [bob-cli-du.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-du/bob-cli-du.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-du.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-du.4.md)
+- **COMMITS:**
+  - [cba7c47](https://github.com/bobs-org/bob-cli/commit/cba7c47dada6b0f409fc2b9c6ad72ecf05e97bb2)
+    — feat(relations): reverse relation-label renames with previewed edge reversal
 
 # Reverse relation-label renames for bob-cli-du.4
 
