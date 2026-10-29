@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "after_absorption",
+      "kind": "choice",
+      "ask": "Should a third @ still start the template when bob has already absorbed the line's @route into @@route?",
+      "why": "Otherwise the gesture fails on lines with a plain @route unless typed faster than bob answers",
+      "choices": [
+        {
+          "key": "recover",
+          "label": "Ask bob to start it from the pre-absorption line; `Buy milk @dev @@@` works at any typing speed"
+        },
+        {
+          "key": "literal",
+          "label": "The third @ types literally (`Buy milk @@dev@`); docs say to type @@@ before the route"
+        }
+      ],
+      "default": "recover",
+      "effective_default": "recover",
+      "requested_verified": false
+    },
+    {
+      "id": "separator_space",
+      "kind": "choice",
+      "ask": "Should the gesture also erase the spaces or tabs typed just before @@@?",
+      "why": "The line reads as it did before the gesture, like @@ absorption's whitespace tidy",
+      "choices": [
+        {
+          "key": "strip",
+          "label": "`Read {0} @@@` leaves `Read {0}` with the caret at its end"
+        },
+        {
+          "key": "keep",
+          "label": "Only the three @ go; `Read {0} ` keeps its trailing space and the caret after it"
+        }
+      ],
+      "default": "strip",
+      "effective_default": "strip",
+      "requested_verified": false
+    }
+  ]
+}
