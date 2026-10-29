@@ -40,7 +40,7 @@ proposed_by: bbugyi200.apollo.bob-cli-dm.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-dm.7
 create_time: 2026-10-28 22:50:52
-status: wip
+status: done
 bead_id: bob-cli-dm.7.1
 ---
 
