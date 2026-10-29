@@ -9,7 +9,7 @@ proposed_by: bbugyi200.apollo.bob-cli-dm.6.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dm.6.1
 create_time: 2026-10-28 21:42:47
-status: wip
+status: done
 ---
 
 - **PARENT:**
