@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Repair task-theme pill contract gaps and finish the ledger landing
-goal: Finish the remaining correctness and integration work in bob-cli-dm.5.1, then
-  close that epic and its parent phase bob-cli-dm.5.
+goal:
+  Finish the remaining correctness and integration work in bob-cli-dm.5.1, then close
+  that epic and its parent phase bob-cli-dm.5.
 proposed_by: bbugyi200.apollo.bob-cli-dm.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dm.5.1
@@ -14,6 +15,11 @@ status: done
   [202610/ledger_task_theme_mirror.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/ledger_task_theme_mirror.md)
 - **BEAD:**
   [bob-cli-dm.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-dm/bob-cli-dm.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-dm.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-dm.5.1.land.md)
+- **COMMITS:**
+  - [236ca9c](https://github.com/bobs-org/bob-cli--plans/commit/236ca9c3260f970042e05c03569494d4c03ad3b7)
+    — docs(plan): mark ledger task-theme mirror epic done
 
 # Task-theme pill landing repairs
 
