@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair task-theme pill contract gaps and finish the ledger landing
-goal:
-  Finish the remaining correctness and integration work in bob-cli-dm.5.1, then close
-  that epic and its parent phase bob-cli-dm.5.
+goal: Finish the remaining correctness and integration work in bob-cli-dm.5.1, then
+  close that epic and its parent phase bob-cli-dm.5.
 proposed_by: bbugyi200.apollo.bob-cli-dm.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-dm.5.1
-create_time: 2026-10-28 19:25:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
