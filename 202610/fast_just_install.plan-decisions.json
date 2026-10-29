@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "lto",
+      "kind": "choice",
+      "ask": "Should the local-install profile also turn off local ThinLTO for a faster build?",
+      "why": "bob runs interactively all day; ~15 s per install is not worth a ~25% slower binary",
+      "choices": [
+        {
+          "key": "thin",
+          "label": "Pulled-commit reinstalls take ~73 s; installed bob runs ~3-5% slower than a release build"
+        },
+        {
+          "key": "disable",
+          "label": "Pulled-commit reinstalls take ~58 s; installed bob runs ~25% slower on a heavy DQL query"
+        }
+      ],
+      "default": "thin",
+      "effective_default": "thin",
+      "requested_verified": false
+    }
+  ]
+}
