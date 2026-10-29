@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "default_marker",
+      "kind": "choice",
+      "ask": "Should the menu row for the inherited theme say it is the current default?",
+      "why": "It answers \"why didn't that write?\" before Enter, with no write-path risk.",
+      "choices": [
+        {
+          "key": "marker",
+          "label": "The inherited theme's row gets a Default badge and \"inherited from area note job\""
+        },
+        {
+          "key": "toast_only",
+          "label": "Leave rows unmarked; only the toast explains why nothing was written"
+        }
+      ],
+      "default": "marker",
+      "effective_default": "marker",
+      "requested_verified": false
+    },
+    {
+      "id": "header_grey",
+      "kind": "choice",
+      "ask": "Should the Task Card header's Theme pill also show uncolored themes such as PLAN in grey?",
+      "why": "The header and the menu sit on the same card, so PLAN should look the same in both.",
+      "choices": [
+        {
+          "key": "card",
+          "label": "The header pill and the menu rows both show uncolored themes in the same grey"
+        },
+        {
+          "key": "menu",
+          "label": "Only the menu rows turn grey; the header pill keeps its hollow muted swatch"
+        }
+      ],
+      "default": "card",
+      "effective_default": "card",
+      "requested_verified": false
+    }
+  ]
+}
