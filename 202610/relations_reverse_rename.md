@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Reverse relation-label renames
-goal:
-  Complete bob-cli-du.4 with previewed, atomic edge reversal, accurate mirrors, and
-  verified undo.
+goal: Complete bob-cli-du.4 with previewed, atomic edge reversal, accurate mirrors,
+  and verified undo.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-du.4
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-du.4
-create_time: 2026-10-28 20:15:21
-status: wip
+status: done
 ---
 
 - **PARENT:**
