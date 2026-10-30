@@ -1,13 +1,13 @@
 ---
 tier: epic
 title: Capture t:<type> task-type markers with configured-type completion
-goal: "Typing `t:` at either edge of any capture line opens a fast, beautiful menu of
-  your configured task types in Bob Mac Capture (and zsh). The accepted `t:fix` marker
-  types the task the item creates or targets, and the live preview says exactly what
-  will happen. Existing Task Links stay in agreement with the new type, and adding `t:`
-  never changes what the rest of the draft means.
+goal: 'Typing `t:` at either edge of any capture line opens a fast, beautiful menu
+  of your configured task types in Bob Mac Capture (and zsh). The accepted `t:fix`
+  marker types the task the item creates or targets, and the live preview says exactly
+  what will happen. Existing Task Links stay in agreement with the new type, and adding
+  `t:` never changes what the rest of the draft means.
 
-  "
+  '
 decisions:
   menu_order:
     ask: How should an empty `t:` menu order your configured types?
@@ -23,70 +23,69 @@ decisions:
       warn: Write it, with a "not one of your types; did you mean …?" warning
       refuse: Refuse the capture until a configured type is chosen
     default: warn
-    why:
-      PT12 says type warnings never block, and the live preview shows the warning first
+    why: PT12 says type warnings never block, and the live preview shows the warning
+      first
     answer: warn
   memory_record:
-    ask:
-      Add a decisions record for the `t:` orthogonality and named-Pomodoro agreement
+    ask: Add a decisions record for the `t:` orthogonality and named-Pomodoro agreement
       rules?
     memory:
-      - decisions:type-marker-is-orthogonal
+    - decisions:type-marker-is-orthogonal
     default: false
     answer: false
 phases:
-  - id: grammar
-    title: bob-cli t:<type> grammar, parse spans, and new-task typing
-    depends_on: []
-    size: large
-    description: "grammar: lex `t:<type>` at line edges with one shared lexer, mask it
-      out of the execution, editor, and completion parse paths without moving byte
-      offsets, emit the `task_type` span, need, and diagnostics, type newly captured
-      tasks (including the named-Pomodoro agreement rule), refuse non-task items with
-      teaching errors, and document the marker.
+- id: grammar
+  title: bob-cli t:<type> grammar, parse spans, and new-task typing
+  depends_on: []
+  size: large
+  description: 'grammar: lex `t:<type>` at line edges with one shared lexer, mask
+    it out of the execution, editor, and completion parse paths without moving byte
+    offsets, emit the `task_type` span, need, and diagnostics, type newly captured
+    tasks (including the named-Pomodoro agreement rule), refuse non-task items with
+    teaching errors, and document the marker.
 
-      "
-  - id: existing
-    title: bob-cli retyping of targeted existing tasks with D8 relocation
-    depends_on:
-      - grammar
-    size: medium
-    description: "existing: let `t:` retype the existing task an item targets
-      (whole-item links, Ensure Next, toggle, relationship owners), and share the D8
-      relocation applier with `bob task move` so the task's live Task Link keeps
-      agreeing with its type.
+    '
+- id: existing
+  title: bob-cli retyping of targeted existing tasks with D8 relocation
+  depends_on:
+  - grammar
+  size: medium
+  description: 'existing: let `t:` retype the existing task an item targets (whole-item
+    links, Ensure Next, toggle, relationship owners), and share the D8 relocation
+    applier with `bob task move` so the task''s live Task Link keeps agreeing with
+    its type.
 
-      "
-  - id: complete
-    title: bob-cli task_type completion context and zsh rows
-    depends_on:
-      - grammar
-    size: medium
-    description: "complete: add the `task_type` capture-complete context with
-      configured-type candidates, current, inherited, and effect annotations, a
-      typed-name row, lossless replacements, and zsh completion rows.
+    '
+- id: complete
+  title: bob-cli task_type completion context and zsh rows
+  depends_on:
+  - grammar
+  size: medium
+  description: 'complete: add the `task_type` capture-complete context with configured-type
+    candidates, current, inherited, and effect annotations, a typed-name row, lossless
+    replacements, and zsh completion rows.
 
-      "
-  - id: mac
-    title: Bob Mac Capture t:<type> painting, type menu, and preview
-    depends_on:
-      - grammar
-      - existing
-      - complete
-    size: large
-    description:
-      "mac: decode the new contract, paint `t:` markers as type pills, open a compact
-      task-type menu with a consequence footer and Ctrl+D hide, render the type row and
-      ledger relocation in previews, and document and test it all."
+    '
+- id: mac
+  title: Bob Mac Capture t:<type> painting, type menu, and preview
+  depends_on:
+  - grammar
+  - existing
+  - complete
+  size: large
+  description: 'mac: decode the new contract, paint `t:` markers as type pills, open
+    a compact task-type menu with a consequence footer and Ctrl+D hide, render the
+    type row and ledger relocation in previews, and document and test it all.'
 proposed_by: bbugyi200.apollo.b6
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-30 04:22:31
 status: wip
+bead_id: bob-cli-ee
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_type_marker.md)
+- **PROMPT:** [prompts/202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_type_marker.md)
+- **BEAD:** [bob-cli-ee](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ee/README.md)
 
 # Plan: Capture `t:<type>` task-type markers
 
