@@ -77,7 +77,7 @@ proposed_by: bbugyi200.apollo.research.2u.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-29 20:03:03
-status: wip
+status: done
 bead_id: bob-cli-eb
 ---
 
