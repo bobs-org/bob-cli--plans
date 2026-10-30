@@ -1,65 +1,63 @@
 ---
 tier: epic
 title: bob gcal login that just works
-goal: "`bob gcal login` connects Google Calendar in one command on any host (Mac with a
-  browser, athena over SSH): it fixes the gog-client reuse failure, owns a sign-in flow
-  that cannot hang, explains every Google screen in plain words, recovers from the usual
-  Cloud Console mistakes in place, and renders a calm, beautiful step transcript.
+goal: '`bob gcal login` connects Google Calendar in one command on any host (Mac with
+  a browser, athena over SSH): it fixes the gog-client reuse failure, owns a sign-in
+  flow that cannot hang, explains every Google screen in plain words, recovers from
+  the usual Cloud Console mistakes in place, and renders a calm, beautiful step transcript.
 
-  "
+  '
 decisions:
   memory_signin_record:
-    ask:
-      Record "gcal login owns sign-in through gog's two-step flow" as a decision record?
+    ask: Record "gcal login owns sign-in through gog's two-step flow" as a decision
+      record?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: client
-    title: Fix client reuse and make the OAuth client step robust
-    depends_on: []
-    size: medium
-    description:
-      "client: normalize gog's stored client JSON and pipe it to `gog auth credentials
-      set -`, skip keyring-held clients, validate `-c` files, let `-c` replace a stored
-      client, and make fake gog reject what real gog rejects."
-  - id: signin
-    title: Bob-owned sign-in through gog's two-step remote flow
-    depends_on:
-      - client
-    size: medium
-    description:
-      "signin: replace the inherited-stdio `gog auth add` with gog's remote step 1/2, a
-      loopback listener plus browser opener, a validated paste prompt, flow
-      auto-selection, a success page, and the new step renderer."
-  - id: experience
-    title: Guided setup, account choice, self-healing check, and summary
-    depends_on:
-      - signin
-    size: medium
-    description:
-      "experience: guided client setup with ~/Downloads discovery, the account picker
-      and shared resolver, self-healing stale grants, the in-place Calendar-API retry,
-      the summary, additive JSON fields, and doctor alignment."
-  - id: docs
-    title: Help text, docs, and the final gate
-    depends_on:
-      - experience
-    size: small
-    description:
-      "docs: rewrite login help and environment text, regenerate CLI references, update
-      the gcal contract, guide, and JSON/getting-started tables, and run the full gates."
+- id: client
+  title: Fix client reuse and make the OAuth client step robust
+  depends_on: []
+  size: medium
+  description: 'client: normalize gog''s stored client JSON and pipe it to `gog auth
+    credentials set -`, skip keyring-held clients, validate `-c` files, let `-c` replace
+    a stored client, and make fake gog reject what real gog rejects.'
+- id: signin
+  title: Bob-owned sign-in through gog's two-step remote flow
+  depends_on:
+  - client
+  size: medium
+  description: 'signin: replace the inherited-stdio `gog auth add` with gog''s remote
+    step 1/2, a loopback listener plus browser opener, a validated paste prompt, flow
+    auto-selection, a success page, and the new step renderer.'
+- id: experience
+  title: Guided setup, account choice, self-healing check, and summary
+  depends_on:
+  - signin
+  size: medium
+  description: 'experience: guided client setup with ~/Downloads discovery, the account
+    picker and shared resolver, self-healing stale grants, the in-place Calendar-API
+    retry, the summary, additive JSON fields, and doctor alignment.'
+- id: docs
+  title: Help text, docs, and the final gate
+  depends_on:
+  - experience
+  size: small
+  description: 'docs: rewrite login help and environment text, regenerate CLI references,
+    update the gcal contract, guide, and JSON/getting-started tables, and run the
+    full gates.'
 proposed_by: bbugyi200.athena.165
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-30 09:42:38
 status: wip
+bead_id: bob-cli-eg
 ---
 
-- **PROMPT:**
-  [prompts/202610/gcal_login_redesign.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gcal_login_redesign.md)
+- **PROMPT:** [prompts/202610/gcal_login_redesign.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gcal_login_redesign.md)
+- **BEAD:** [bob-cli-eg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-eg/README.md)
 
 # Plan: `bob gcal login` that just works
 
