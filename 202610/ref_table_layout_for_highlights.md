@@ -1,94 +1,88 @@
 ---
 tier: epic
 title: Highlight-friendly table layout for bob ref create PDFs
-goal: "Tables whose cells hold prose print in bob-typeset reference PDFs (Markdown,
-  vault-note, and web-article routes) as single-column row records that Highlights can
-  select and annotate on macOS 26. Short-cell data tables keep a more readable grid. The
-  choice can be reversed at the config, document, and table level, existing PDFs are
-  never touched, and the result is checked for text fidelity, page counts, and PDFKit
-  selection on the Mac.
+goal: 'Tables whose cells hold prose print in bob-typeset reference PDFs (Markdown,
+  vault-note, and web-article routes) as single-column row records that Highlights
+  can select and annotate on macOS 26. Short-cell data tables keep a more readable
+  grid. The choice can be reversed at the config, document, and table level, existing
+  PDFs are never touched, and the result is checked for text fidelity, page counts,
+  and PDFKit selection on the Mac.
 
-  "
+  '
 decisions:
   grid_hairlines:
     ask: Should data-table grids also get hairline rules between body rows?
     default: false
-    why:
-      Row air already separates rows; hairlines need a riskier final-position LaTeX
+    why: Row air already separates rows; hairlines need a riskier final-position LaTeX
       rewrite
     answer: false
   decision_record:
     ask: Add a decisions memory strand recording that prose tables print as records?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: records-filter
-    title: Table-layout Lua pass with prose-table records
-    depends_on: []
-    size: medium
-    description:
-      "records-filter: build the embedded table_layout.lua pass (classification,
-      override precedence, complex-table guard, row-record layout, JSON report) plus its
-      TeX macros and Rust embedding module, tested by running pandoc on the filter
-      directly."
-  - id: pandoc-wiring
-    title: Wire the table pass into both pandoc chains, config, and docs
-    depends_on:
-      - records-filter
-    size: medium
-    description:
-      "pandoc-wiring: add highlights.table_layout and highlights.table_prose_words, run
-      the pass first in the Markdown and note-snapshot chains, print the tables summary
-      line and warnings, cover the return-link and code-catalog contracts end to end,
-      and document the feature in help and docs."
-  - id: data-grid
-    title: Improved grid for data and complex tables
-    depends_on:
-      - pandoc-wiring
-    size: small
-    description:
-      "data-grid: give every table that stays a grid content-aware column widths and row
-      air at body size, plus optional hairline row rules behind the grid_hairlines
-      decision."
-  - id: web-clip
-    title: Records and grid cleanup on the web-clip print route
-    depends_on:
-      - pandoc-wiring
-    size: medium
-    description:
-      "web-clip: carry the table settings in the adapter request, rewrite prose tables
-      into record markup on the print DOM only, clean up reader.css grids, report counts
-      back to bob, and add a tables fixture to the adapter self-test."
-  - id: pdfkit-report
-    title: Draft the PDFKit table-selection reports
-    depends_on: []
-    size: small
-    description:
-      "pdfkit-report: write ready-to-send drafts for the Highlights developer and Apple
-      Feedback that describe the macOS 26 table-cell selection takeover, for Bryan to
-      send himself."
-  - id: acceptance
-    title: Fidelity, page-count, and Mac probe acceptance
-    depends_on:
-      - data-grid
-      - web-clip
-    size: medium
-    description:
-      "acceptance: compare baseline and new renders of fixtures and real chat reports
-      for text fidelity and page counts, rerun the PDFKit cell probe on the Mac (with a
-      bulleted-record fallback), write the acceptance report and Bryan's manual
-      checklist, and optionally record the decision."
+- id: records-filter
+  title: Table-layout Lua pass with prose-table records
+  depends_on: []
+  size: medium
+  description: 'records-filter: build the embedded table_layout.lua pass (classification,
+    override precedence, complex-table guard, row-record layout, JSON report) plus
+    its TeX macros and Rust embedding module, tested by running pandoc on the filter
+    directly.'
+- id: pandoc-wiring
+  title: Wire the table pass into both pandoc chains, config, and docs
+  depends_on:
+  - records-filter
+  size: medium
+  description: 'pandoc-wiring: add highlights.table_layout and highlights.table_prose_words,
+    run the pass first in the Markdown and note-snapshot chains, print the tables
+    summary line and warnings, cover the return-link and code-catalog contracts end
+    to end, and document the feature in help and docs.'
+- id: data-grid
+  title: Improved grid for data and complex tables
+  depends_on:
+  - pandoc-wiring
+  size: small
+  description: 'data-grid: give every table that stays a grid content-aware column
+    widths and row air at body size, plus optional hairline row rules behind the grid_hairlines
+    decision.'
+- id: web-clip
+  title: Records and grid cleanup on the web-clip print route
+  depends_on:
+  - pandoc-wiring
+  size: medium
+  description: 'web-clip: carry the table settings in the adapter request, rewrite
+    prose tables into record markup on the print DOM only, clean up reader.css grids,
+    report counts back to bob, and add a tables fixture to the adapter self-test.'
+- id: pdfkit-report
+  title: Draft the PDFKit table-selection reports
+  depends_on: []
+  size: small
+  description: 'pdfkit-report: write ready-to-send drafts for the Highlights developer
+    and Apple Feedback that describe the macOS 26 table-cell selection takeover, for
+    Bryan to send himself.'
+- id: acceptance
+  title: Fidelity, page-count, and Mac probe acceptance
+  depends_on:
+  - data-grid
+  - web-clip
+  size: medium
+  description: 'acceptance: compare baseline and new renders of fixtures and real
+    chat reports for text fidelity and page counts, rerun the PDFKit cell probe on
+    the Mac (with a bulleted-record fallback), write the acceptance report and Bryan''s
+    manual checklist, and optionally record the decision.'
 proposed_by: bbugyi200.apollo.research.2u.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-29 20:03:03
 status: wip
+bead_id: bob-cli-eb
 ---
 
-- **PROMPT:**
-  [prompts/202610/ref_table_layout_for_highlights.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_table_layout_for_highlights.md)
+- **PROMPT:** [prompts/202610/ref_table_layout_for_highlights.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/ref_table_layout_for_highlights.md)
+- **BEAD:** [bob-cli-eb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-eb/README.md)
 
 # Plan: Highlight-friendly table layout for `bob ref create` PDFs
 
