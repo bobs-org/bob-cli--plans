@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "duration",
+      "kind": "choice",
+      "ask": "How long should the clobber warning stay on screen before it disappears on its own?",
+      "why": "the message is long, and 8000 ms is this plugin's existing duration for long notices",
+      "choices": [
+        {
+          "key": "eight",
+          "label": "8 seconds, the same as the plugin's other long notice (file rename), so the long message can be read"
+        },
+        {
+          "key": "five",
+          "label": "5 seconds; gone sooner, but the ~170-character message may vanish before it is read"
+        }
+      ],
+      "default": "eight",
+      "effective_default": "eight",
+      "requested_verified": false
+    },
+    {
+      "id": "repeat_window",
+      "kind": "choice",
+      "ask": "Should the plugin also hide repeats of the same warning for one target/source pair for 60 seconds?",
+      "why": "after the fix, every warning signals real risk, so each one should be seen",
+      "choices": [
+        {
+          "key": "none",
+          "label": "Every warning shows; after the landing fix, only a real clobber signature warns"
+        },
+        {
+          "key": "collapse",
+          "label": "Each pair warns at most once a minute; a repeat clobber in that minute relies on vault-sync"
+        }
+      ],
+      "default": "none",
+      "effective_default": "none",
+      "requested_verified": false
+    }
+  ]
+}
