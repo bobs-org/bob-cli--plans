@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "subtree",
+      "kind": "choice",
+      "ask": "Should the sub-project map also skip _conflicts/ copies, so ^prj cascades never write into them?",
+      "why": "bob-cli's project scan already skips _conflicts/; the plugin should agree",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Filter buildProjectChildrenMap too; plugin cascade matches bob projects sync"
+        },
+        {
+          "key": "leave",
+          "label": "Fix only the pickers; a sub-project's conflict copy can still get cascade writes"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "generated",
+      "kind": "choice",
+      "ask": "Should Open child note also hide _generated/ notes, like the two dev_links query pages?",
+      "why": "Only _conflicts/ was requested; generated query pages can be handy children",
+      "choices": [
+        {
+          "key": "hide",
+          "label": "Hide _generated/ children too; only hand-authored child notes are listed"
+        },
+        {
+          "key": "keep",
+          "label": "Keep listing them; only _conflicts/ copies disappear"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
