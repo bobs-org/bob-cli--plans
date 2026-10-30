@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish capture type-marker agreement, previews, and landing
-goal:
-  Repair the remaining t:type contract and integration defects, verify performance and
-  consumers, then close bob-cli-ee and mark its plan done.
+goal: Repair the remaining t:type contract and integration defects, verify performance
+  and consumers, then close bob-cli-ee and mark its plan done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ee.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_type_marker.md)
 - **BEAD:**
   [bob-cli-ee](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ee/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-ee.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ee.land.md)
-- **COMMITS:**
-  - [6990e89](https://github.com/bobs-org/bob-cli/commit/6990e89b1ad1b9d1984f37adc29bfb5129a6d2d3)
-    — fix(capture): pin D8 relocation identity and named type-marker agreement
 
 # Finish capture type markers and land bob-cli-ee
 
