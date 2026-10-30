@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Present task-type markers in Bob Mac Capture
-goal: Complete bob-cli-ee.4 with task-type painting, completion, previews, and verified
+goal:
+  Complete bob-cli-ee.4 with task-type painting, completion, previews, and verified
   compatibility.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ee.4
@@ -14,6 +15,11 @@ status: done
   [202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_type_marker.md)
 - **BEAD:**
   [bob-cli-ee.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ee/bob-cli-ee.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ee.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ee.4.md)
+- **COMMITS:**
+  - [68aa63a](https://github.com/bobs-org/bob-mac-capture/commit/68aa63a1536b677f4ed57d8492864665a3bb73f8)
+    — feat(capture): present t:\<type\> menu, pills, and relocation preview
 
 # Present capture task-type markers in Bob Mac Capture
 
