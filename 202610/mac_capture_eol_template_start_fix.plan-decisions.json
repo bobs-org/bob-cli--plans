@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "help_text",
+      "kind": "choice",
+      "ask": "Should this tale also fix the raw CR/LF bytes in `bob capture-rewrite --help` and its reference page?",
+      "why": "Same feature commit introduced it; the fix is a few escapes plus docs-gen",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Escape the help string, add a CLI test, and regenerate the capture-rewrite reference page"
+        },
+        {
+          "key": "skip",
+          "label": "Leave bob-cli untouched; only the Mac app changes"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
