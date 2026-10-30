@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "recent_enter",
+      "kind": "choice",
+      "ask": "Should Enter on a RECENT row honor its preview-first/confirm guard, with Ctrl+Enter as the immediate rerun?",
+      "why": "Matches the sheet's \u21b5 run / \u2303\u21b5 run now contract and keeps writers like gkeep pull previewed",
+      "choices": [
+        {
+          "key": "guarded",
+          "label": "Enter previews or asks to confirm like the catalog row; Ctrl+Enter reruns at once"
+        },
+        {
+          "key": "verbatim",
+          "label": "Enter and Ctrl+Enter both rerun the recorded command at once, skipping its guard"
+        }
+      ],
+      "default": "guarded",
+      "effective_default": "guarded",
+      "requested_verified": false
+    },
+    {
+      "id": "replay_guards",
+      "kind": "choice",
+      "ask": "Should Retry/Apply toasts, Rerun last command, and pager r stop refusing applied preview-first or confirm runs?",
+      "why": "These replays are refused today with no way forward; the Apply toast exists only to apply",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Replays of an applied run skip the guard it cleared; the task-reroll Apply toast starts working"
+        },
+        {
+          "key": "leave",
+          "label": "Only RECENT rows and in-sheet r change; those surfaces keep refusing applied runs"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
