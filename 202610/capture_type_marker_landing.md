@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish capture type-marker agreement, previews, and landing
-goal:
-  Repair the remaining t:type contract and integration defects, verify performance and
-  consumers, then close bob-cli-ee and mark its plan done.
+goal: Repair the remaining t:type contract and integration defects, verify performance
+  and consumers, then close bob-cli-ee and mark its plan done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ee.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ee
-create_time: 2026-10-30 13:37:00
-status: wip
+status: done
 ---
 
 - **PARENT:**
