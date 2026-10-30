@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish capture type-marker agreement, previews, and landing
-goal:
-  Repair the remaining t:type contract and integration defects, verify performance and
-  consumers, then close bob-cli-ee and mark its plan done.
+goal: Repair the remaining t:type contract and integration defects, verify performance
+  and consumers, then close bob-cli-ee and mark its plan done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ee.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_type_marker.md)
 - **BEAD:**
   [bob-cli-ee](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ee/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-ee.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ee.land.md)
-- **COMMITS:**
-  - [f6a2e73](https://github.com/bobs-org/bob-mac-capture/commit/f6a2e732ef0a8136885488d5bb9b068303614a8a)
-    — test(capture): refresh t:type fixtures for truthful relocation previews
 
 # Finish capture type markers and land bob-cli-ee
 
