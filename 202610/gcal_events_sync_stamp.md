@@ -1,73 +1,67 @@
 ---
 tier: epic
 title: Google Calendar sync stamp under the daily note's Events heading
-goal: "Every daily-note `## Events` section that `bob gcal sync` reconciles carries one
-  quiet, Bob-owned line showing which Google account it was synced with and when; the
-  line stays honest without churning the note, cannot be silently taken over by another
-  account, and Bob Ledger Tools paints it as a live health light that turns amber when
-  sync has stopped.
+goal: 'Every daily-note `## Events` section that `bob gcal sync` reconciles carries
+  one quiet, Bob-owned line showing which Google account it was synced with and when;
+  the line stays honest without churning the note, cannot be silently taken over by
+  another account, and Bob Ledger Tools paints it as a live health light that turns
+  amber when sync has stopped.
 
-  "
+  '
 decisions:
   stamp_refresh:
     ask: How often should an otherwise-unchanged sync rewrite the stamp time?
     choices:
-      half_hourly:
-        Once it is 30+ min old; ~2 extra note commits per idle hour, stale after 45 min
-      every_run:
-        Every 5-min run; exact time, but the daily note is rewritten and committed all
-        day
-      on_change:
-        Only when rows change; no extra writes, but a quiet day looks stale while
-        healthy
+      half_hourly: Once it is 30+ min old; ~2 extra note commits per idle hour, stale
+        after 45 min
+      every_run: Every 5-min run; exact time, but the daily note is rewritten and
+        committed all day
+      on_change: Only when rows change; no extra writes, but a quiet day looks stale
+        while healthy
     default: half_hourly
     why: Keeps the stamp an honest health signal at about a sixth of every-run churn
     answer: on_change
   account_guard:
-    ask:
-      Should sync refuse a day whose stamp names a different Google account than this
-      run uses?
+    ask: Should sync refuse a day whose stamp names a different Google account than
+      this run uses?
     default: true
-    why:
-      Otherwise a switch cancels the old account's untouched meetings and relabels their
-      rows
+    why: Otherwise a switch cancels the old account's untouched meetings and relabels
+      their rows
     answer: true
   decision_record:
-    ask:
-      Add a decisions memory strand recording the stamp's ownership, refresh, and
+    ask: Add a decisions memory strand recording the stamp's ownership, refresh, and
       account rules?
     memory:
-      - decisions:gcal-events-stamp-is-bob-owned
+    - decisions:gcal-events-stamp-is-bob-owned
     default: false
     answer: false
 phases:
-  - id: cli-stamp
-    title: bob gcal sync writes and maintains the Events stamp
-    depends_on: []
-    size: medium
-    description:
-      "cli-stamp: add the stamp module (render, recognize, parse, refresh rule), run it
-      as the planner's last step, add the account guard, report the stamp in human and
-      JSON output, and update the gcal docs and tests."
-  - id: plugin-paint
-    title: Bob Ledger Tools paints the stamp as a live health line
-    depends_on:
-      - cli-stamp
-    size: small
-    description:
-      "plugin-paint: in bob-plugins, recognize the stamp in Live Preview and Reading
-      view, paint it as a muted caption, mark it stale on today's note, refresh it each
-      minute, then test, document, and run `bob plugins sync`."
+- id: cli-stamp
+  title: bob gcal sync writes and maintains the Events stamp
+  depends_on: []
+  size: medium
+  description: 'cli-stamp: add the stamp module (render, recognize, parse, refresh
+    rule), run it as the planner''s last step, add the account guard, report the stamp
+    in human and JSON output, and update the gcal docs and tests.'
+- id: plugin-paint
+  title: Bob Ledger Tools paints the stamp as a live health line
+  depends_on:
+  - cli-stamp
+  size: small
+  description: 'plugin-paint: in bob-plugins, recognize the stamp in Live Preview
+    and Reading view, paint it as a muted caption, mark it stale on today''s note,
+    refresh it each minute, then test, document, and run `bob plugins sync`.'
 proposed_by: bbugyi200.apollo.bh
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-30 18:30:32
 status: wip
+bead_id: bob-cli-es
 ---
 
-- **PROMPT:**
-  [prompts/202610/gcal_events_sync_stamp.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gcal_events_sync_stamp.md)
+- **PROMPT:** [prompts/202610/gcal_events_sync_stamp.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gcal_events_sync_stamp.md)
+- **BEAD:** [bob-cli-es](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-es/README.md)
 
 # Plan: Google Calendar sync stamp under the Events heading
 
