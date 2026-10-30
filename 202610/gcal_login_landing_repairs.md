@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Calendar login and finish bob-cli-eg landing
-goal:
-  Both login flows match real gog, the accepted setup and account contracts hold, and
-  bob-cli-eg closes with its original plan marked done.
+goal: Both login flows match real gog, the accepted setup and account contracts hold,
+  and bob-cli-eg closes with its original plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-eg.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-eg
-create_time: 2026-10-30 12:52:46
-status: wip
+status: done
 ---
 
 - **PARENT:**
