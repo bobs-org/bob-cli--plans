@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "heading_gap_above",
+      "kind": "choice",
+      "ask": "When sync creates a new `## Events` section, should it also keep a blank line above the new heading?",
+      "why": "Same function; its doc already promises tidy blank lines, and both gaps broke together",
+      "choices": [
+        {
+          "key": "above_too",
+          "label": "Also keep a blank line above a new heading, so it stops sticking to the bob-plan fence"
+        },
+        {
+          "key": "below_only",
+          "label": "Fix only the gap below; a new heading still sits right under the previous line"
+        }
+      ],
+      "default": "above_too",
+      "effective_default": "above_too",
+      "requested_verified": false
+    }
+  ]
+}
