@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "type_mark_hash",
+      "kind": "choice",
+      "ask": "How should an explicit task type draw its hash so it sits flush with the type name?",
+      "why": "One text run is the only way to guarantee a shared baseline and no gap on every host",
+      "choices": [
+        {
+          "key": "text",
+          "label": "\"#\" and the name become one text run; same baseline, zero gap, matches the ledger #BUILD"
+        },
+        {
+          "key": "glyph",
+          "label": "Keeps the custom hash glyph but tightens its box; alignment depends on the SVG margins"
+        }
+      ],
+      "default": "text",
+      "effective_default": "text",
+      "requested_verified": false
+    }
+  ]
+}
