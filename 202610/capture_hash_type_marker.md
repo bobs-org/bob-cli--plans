@@ -1,24 +1,22 @@
 ---
 tier: epic
 title: Capture `#<type>` replaces the `t:<type>` task-type marker
-goal: "Typing `#fix` at either edge of any capture line, or right after `@route^id` or a
-  marker-only `@route+id`, types the task the item creates or targets. The same Task
-  type menu that `t:` opens today appears. An unconfigured type name is refused before
-  any write with a clear, teaching message, and `t:` is retired.
+goal: 'Typing `#fix` at either edge of any capture line, or right after `@route^id`
+  or a marker-only `@route+id`, types the task the item creates or targets. The same
+  Task type menu that `t:` opens today appears. An unconfigured type name is refused
+  before any write with a clear, teaching message, and `t:` is retired.
 
-  "
+  '
 decisions:
   bare_hash_menu:
     ask: When should a free-standing `#` open the Task type menu?
     choices:
-      letter:
-        Once a letter follows (`#f`); a bare `#` stays the Pomodoro note; no Swift
-        change
-      open:
-        Also on a bare `#`, with no row selected so Return still submits; needs Mac work
+      letter: Once a letter follows (`#f`); a bare `#` stays the Pomodoro note; no
+        Swift change
+      open: Also on a bare `#`, with no row selected so Return still submits; needs
+        Mac work
     default: letter
-    why:
-      Return always accepts row 0 today, so a menu on a bare `#` would break Pomodoro
+    why: Return always accepts row 0 today, so a menu on a bare `#` would break Pomodoro
       notes
     answer: letter
   retire_t:
@@ -30,42 +28,40 @@ decisions:
     why: Silently writing `t:fix` into task text would hide a day's muscle memory
     answer: prose
   memory_record:
-    ask:
-      Add a decisions record that `#<type>` replaced `t:` and refuses unconfigured
+    ask: Add a decisions record that `#<type>` replaced `t:` and refuses unconfigured
       types?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: cli
-    title: bob-cli `#<type>` grammar, refusal, completion, and docs
-    depends_on: []
-    size: large
-    description:
-      "cli: switch the shared type-marker lexer to `#`, add the attached `@route^id#`
-      and marker-only `@route+id#` forms, refuse unconfigured types, retire `t:` and the
-      legacy `#tag` check, move `task_type` completion to `#`, and update docs, help,
-      fixtures, and tests in one coherent change."
-  - id: mac
-    title: Bob Mac Capture fixtures, tests, and docs for `#<type>`
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "mac: confirm the Swift sources stay sigil-agnostic, regenerate the task-type
-      fixtures with the new bob, update fake-bob, tests, and docs to `#`, and record a
-      smoke on the mac."
+- id: cli
+  title: bob-cli `#<type>` grammar, refusal, completion, and docs
+  depends_on: []
+  size: large
+  description: 'cli: switch the shared type-marker lexer to `#`, add the attached
+    `@route^id#` and marker-only `@route+id#` forms, refuse unconfigured types, retire
+    `t:` and the legacy `#tag` check, move `task_type` completion to `#`, and update
+    docs, help, fixtures, and tests in one coherent change.'
+- id: mac
+  title: Bob Mac Capture fixtures, tests, and docs for `#<type>`
+  depends_on:
+  - cli
+  size: medium
+  description: 'mac: confirm the Swift sources stay sigil-agnostic, regenerate the
+    task-type fixtures with the new bob, update fake-bob, tests, and docs to `#`,
+    and record a smoke on the mac.'
 proposed_by: bbugyi200.apollo.be
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-30 15:04:27
 status: wip
+bead_id: bob-cli-ep
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_hash_type_marker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_hash_type_marker.md)
+- **PROMPT:** [prompts/202610/capture_hash_type_marker.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_hash_type_marker.md)
+- **BEAD:** [bob-cli-ep](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ep/README.md)
 
 # Plan: Capture `#<type>` replaces `t:<type>`
 
