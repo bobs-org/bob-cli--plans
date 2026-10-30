@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "irregulars",
+      "kind": "toggle",
+      "ask": "Also invert common irregular participles (`written by` \u2192 `writes`, `overridden by` \u2192 `overrides`)?",
+      "why": "Same `\u2039participle\u203a by` grammar, and a closed lookup table can't guess wrong",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
