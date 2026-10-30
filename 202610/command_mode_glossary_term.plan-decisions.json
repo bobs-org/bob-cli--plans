@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_command_mode_term",
+      "kind": "toggle",
+      "ask": "Should the glossary web gain a new `command-mode.md` strand defining Command Mode?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary",
+          "glossary:command-mode"
+        ]
+      },
+      "requested": "Can you help me add an excellent new glossary term for Obsidian's \"command-mode\" (triggered via the `:` keymap)?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Annotation Section",
+            "Area Note",
+            "Bulk Capture",
+            "Capture",
+            "Day Strip",
+            "Event Task",
+            "Inbox File",
+            "Keep Streak",
+            "Mac Menu Bar Pomodoro Indicator",
+            "Morning GTD Review Footer",
+            "Pomodoro",
+            "Project Note",
+            "Project Task",
+            "Reference Note",
+            "Reference Task",
+            "Root Parent",
+            "Rotten Log",
+            "Schedule Log",
+            "Stats Dash",
+            "Successor Offer",
+            "Task Dependency Link",
+            "Task Freshness",
+            "Task Link",
+            "Task Mention",
+            "Task Relation",
+            "Task Type",
+            "Top-Level Project",
+            "Work Log"
+          ]
+        },
+        {
+          "selector": "glossary:command-mode",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/command-mode.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
