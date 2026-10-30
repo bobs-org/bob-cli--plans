@@ -1,107 +1,99 @@
 ---
 tier: epic
 title: (( task wikilink picker in Obsidian
-goal: "Typing (( anywhere prose is allowed in an Obsidian note opens a fast, calm,
-  keyboard-first picker over every task in the vault. Choosing a task replaces the token
-  with the same [[note#^id]] block link Bob Mac Capture would insert, naming an ID-less
-  task first. Under an open Pomodoro the link obeys Task Link rules. Nothing else ever
-  changes by surprise.
+goal: 'Typing (( anywhere prose is allowed in an Obsidian note opens a fast, calm,
+  keyboard-first picker over every task in the vault. Choosing a task replaces the
+  token with the same [[note#^id]] block link Bob Mac Capture would insert, naming
+  an ID-less task first. Under an open Pomodoro the link obeys Task Link rules. Nothing
+  else ever changes by surprise.
 
-  "
+  '
 decisions:
   pomodoro_blocked:
-    ask:
-      Under an open Pomodoro, should Enter on a prerequisite-blocked task raise its
-      prerequisites?
+    ask: Under an open Pomodoro, should Enter on a prerequisite-blocked task raise
+      its prerequisites?
     choices:
-      raise:
-        Raise them to Next like Ctrl+Shift+Enter, then offer them in the picker to link
+      raise: Raise them to Next like Ctrl+Shift+Enter, then offer them in the picker
+        to link
       refuse: Disable the row with the reason; the picker never writes other tasks
     default: raise
     why: Every plugin link gesture already consumes Blocked targets this way (PDG1)
     answer: raise
   caret_parity:
-    ask: Should ^^ links under an open Pomodoro adopt the same Task Link rules as ((?
+    ask: Should ^^ links under an open Pomodoro adopt the same Task Link rules as
+      ((?
     default: true
-    why:
-      One commit path; decisions:capture-link-drops-blocking-deps already says ^^ keeps
-      PDG1
+    why: One commit path; decisions:capture-link-drops-blocking-deps already says
+      ^^ keeps PDG1
     answer: true
   decision_record:
-    ask:
-      Add a decisions record explaining why Obsidian (( mirrors bob's rules in JS
-      instead of spawning bob?
+    ask: Add a decisions record explaining why Obsidian (( mirrors bob's rules in
+      JS instead of spawning bob?
     memory:
-      - decisions:obsidian-task-wikilinks-mirror-bob
+    - decisions:obsidian-task-wikilinks-mirror-bob
     default: false
     answer: false
 phases:
-  - id: model
-    title: Shared task wikilink rules and parity vectors
-    depends_on: []
-    size: medium
-    description:
-      "model: pin bob's wikilink_task pool, order, link-target, and guard rules as
-      shared vectors asserted in bob-cli, and mirror them in a pure block-id-prompt
-      model."
-  - id: trigger
-    title: Note grammar for the (( trigger
-    depends_on: []
-    size: small
-    description:
-      "trigger: pure (( token detection for Markdown notes, its note-only exclusions,
-      and the written-second-paren auto-open rule, pinned by vectors."
-  - id: index
-    title: Warm vault task index
-    depends_on:
-      - model
-    size: medium
-    description:
-      "index: an incrementally maintained, mtime-validated vault task index with
-      live-editor overlays, streaming cold builds, and performance budgets."
-  - id: picker
-    title: Task Wikilink Picker card and identified-link insert
-    depends_on:
-      - trigger
-      - index
-    size: medium
-    description:
-      "picker: wire the trigger to the new card, render it beautifully, and insert links
-      for identified rows, with Escape, Backspace, the reopen command, and reference
-      docs."
-  - id: naming
-    title: Name-then-link for ID-less tasks
-    depends_on:
-      - picker
-    size: small
-    description:
-      "naming: the Block ID prompt's wikilink mode, its back-to-picker lifecycle,
-      closed-task support, and stale-line relocation."
-  - id: pomodoro
-    title: Task Link rules under an open Pomodoro
-    depends_on:
-      - naming
-    size: medium
-    description:
-      "pomodoro: Pomodoro mode (no history, lane/schedule/type consequences, blocked
-      handling, duplicate guard, budget notice) plus the ^^ alignment."
-  - id: review
-    title: Real-Obsidian verification, visual polish, and docs
-    depends_on:
-      - pomodoro
-    size: medium
-    description:
-      "review: Chromium previews and a real-Obsidian e2e on athena, polish driven by the
-      screenshots, the final docs pass, and deployment."
+- id: model
+  title: Shared task wikilink rules and parity vectors
+  depends_on: []
+  size: medium
+  description: 'model: pin bob''s wikilink_task pool, order, link-target, and guard
+    rules as shared vectors asserted in bob-cli, and mirror them in a pure block-id-prompt
+    model.'
+- id: trigger
+  title: Note grammar for the (( trigger
+  depends_on: []
+  size: small
+  description: 'trigger: pure (( token detection for Markdown notes, its note-only
+    exclusions, and the written-second-paren auto-open rule, pinned by vectors.'
+- id: index
+  title: Warm vault task index
+  depends_on:
+  - model
+  size: medium
+  description: 'index: an incrementally maintained, mtime-validated vault task index
+    with live-editor overlays, streaming cold builds, and performance budgets.'
+- id: picker
+  title: Task Wikilink Picker card and identified-link insert
+  depends_on:
+  - trigger
+  - index
+  size: medium
+  description: 'picker: wire the trigger to the new card, render it beautifully, and
+    insert links for identified rows, with Escape, Backspace, the reopen command,
+    and reference docs.'
+- id: naming
+  title: Name-then-link for ID-less tasks
+  depends_on:
+  - picker
+  size: small
+  description: 'naming: the Block ID prompt''s wikilink mode, its back-to-picker lifecycle,
+    closed-task support, and stale-line relocation.'
+- id: pomodoro
+  title: Task Link rules under an open Pomodoro
+  depends_on:
+  - naming
+  size: medium
+  description: 'pomodoro: Pomodoro mode (no history, lane/schedule/type consequences,
+    blocked handling, duplicate guard, budget notice) plus the ^^ alignment.'
+- id: review
+  title: Real-Obsidian verification, visual polish, and docs
+  depends_on:
+  - pomodoro
+  size: medium
+  description: 'review: Chromium previews and a real-Obsidian e2e on athena, polish
+    driven by the screenshots, the final docs pass, and deployment.'
 proposed_by: bbugyi200.apollo.b5
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-30 16:10:18
 status: wip
+bead_id: bob-cli-eq
 ---
 
-- **PROMPT:**
-  [prompts/202610/obsidian_task_wikilinks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/obsidian_task_wikilinks.md)
+- **PROMPT:** [prompts/202610/obsidian_task_wikilinks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/obsidian_task_wikilinks.md)
+- **BEAD:** [bob-cli-eq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-eq/README.md)
 
 # Plan: `((` task wikilink picker in Obsidian
 
