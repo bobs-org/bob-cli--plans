@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_task_successor",
+      "kind": "toggle",
+      "ask": "Add the new \"Task Successor\" (aka successor) glossary term?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-successor"
+        ]
+      },
+      "requested": "As a part of this change, let's add a new \"task successor\" (aka \"successor\") glossary term.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-successor",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/task-successor.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_successor_offer",
+      "kind": "toggle",
+      "ask": "Update the Successor Offer glossary term so promotion offers are covered?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:Successor Offer"
+        ]
+      },
+      "corrects": "A task that a managed Done gesture recovered and may link under the Pomodoro destination is a successor offer.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:Successor Offer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Successor Offer",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Project Note"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_promotion_decision",
+      "kind": "toggle",
+      "ask": "Record the new promotion behavior as a decision record in the decisions web?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:promotion-offers-project-tasks"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:promotion-offers-project-tasks",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/promotion-offers-project-tasks.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
