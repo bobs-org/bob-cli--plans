@@ -184,7 +184,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-29 16:16:32
-status: wip
+status: done
 bead_id: bob-cli-e6
 ---
 
