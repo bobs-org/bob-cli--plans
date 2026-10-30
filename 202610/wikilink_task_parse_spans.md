@@ -9,7 +9,7 @@ size: medium
 proposed_by: bbugyi200.athena.163
 proposed_with: claude/opus
 create_time: 2026-10-30 09:20:59
-status: wip
+status: done
 ---
 
 # Make typed `((` open the Task Wikilink Picker
