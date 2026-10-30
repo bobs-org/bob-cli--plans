@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Present task-type markers in Bob Mac Capture
-goal:
-  Complete bob-cli-ee.4 with task-type painting, completion, previews, and verified
+goal: Complete bob-cli-ee.4 with task-type painting, completion, previews, and verified
   compatibility.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ee.4
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ee.4
-create_time: 2026-10-30 11:43:02
-status: wip
+status: done
 ---
 
 - **PARENT:**
