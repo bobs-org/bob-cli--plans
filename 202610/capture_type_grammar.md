@@ -1,52 +1,48 @@
 ---
 tier: epic
 title: Capture type-marker grammar and new-task typing
-goal:
-  "Complete bob-cli-ee.1 with one shared offset-preserving t: grammar, editor spans and
-  diagnostics, new-task type writes and named-Pomodoro agreement, while preserving
-  existing capture behavior and verifying its documentation."
+goal: 'Complete bob-cli-ee.1 with one shared offset-preserving t: grammar, editor
+  spans and diagnostics, new-task type writes and named-Pomodoro agreement, while
+  preserving existing capture behavior and verifying its documentation.'
 phases:
-  - id: language
-    title: Shared type-marker lexer and execution grammar
-    size: medium
-    depends_on: []
-    description:
-      "language: implement the shared t: lexer, offset-preserving item views,
-      original-draft boundary handling, execution metadata and teaching errors, and
-      template integration. Preserve unmarked grammar and fail closed at the planner
-      until the writes phase enables new-task typing. Add grammar and boundary vectors."
-  - id: editor
-    title: Editor spans and transparent completion parsing
-    size: medium
-    depends_on:
-      - language
-    description:
-      "editor: consume the shared masked view before editor claims and existing
-      completion detection. Add task_type spans, needs, diagnostics, shared exact-name
-      resolution and ThemeRefs. Verify offsets, neighboring completion, rewrite,
-      similar-task bodies and the masking invariant without implementing the new
-      task_type completion menu owned by bob-cli-ee.3."
-  - id: writes
-    title: New-task type writes, agreement, output and documentation
-    size: medium
-    depends_on:
-      - editor
-    description:
-      "writes: enable type markers for newly created tasks, stage the resolved field
-      before placement, enforce named-Pomodoro agreement, report set/cleared/kept and
-      unconfigured warnings, retain existing-target refusals, update help and
-      documentation, and verify the complete bob-cli-ee.1 acceptance matrix."
+- id: language
+  title: Shared type-marker lexer and execution grammar
+  size: medium
+  depends_on: []
+  description: 'language: implement the shared t: lexer, offset-preserving item views,
+    original-draft boundary handling, execution metadata and teaching errors, and
+    template integration. Preserve unmarked grammar and fail closed at the planner
+    until the writes phase enables new-task typing. Add grammar and boundary vectors.'
+- id: editor
+  title: Editor spans and transparent completion parsing
+  size: medium
+  depends_on:
+  - language
+  description: 'editor: consume the shared masked view before editor claims and existing
+    completion detection. Add task_type spans, needs, diagnostics, shared exact-name
+    resolution and ThemeRefs. Verify offsets, neighboring completion, rewrite, similar-task
+    bodies and the masking invariant without implementing the new task_type completion
+    menu owned by bob-cli-ee.3.'
+- id: writes
+  title: New-task type writes, agreement, output and documentation
+  size: medium
+  depends_on:
+  - editor
+  description: 'writes: enable type markers for newly created tasks, stage the resolved
+    field before placement, enforce named-Pomodoro agreement, report set/cleared/kept
+    and unconfigured warnings, retain existing-target refusals, update help and documentation,
+    and verify the complete bob-cli-ee.1 acceptance matrix.'
 proposed_by: bbugyi200.apollo.bob-cli-ee.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ee.1
 create_time: 2026-10-30 04:33:09
 status: wip
+bead_id: bob-cli-ee.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_type_grammar.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_type_grammar.md)
-- **PARENT:**
-  [202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_type_marker.md)
+- **PROMPT:** [prompts/202610/capture_type_grammar.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_type_grammar.md)
+- **PARENT:** [202610/capture_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_type_marker.md)
+- **BEAD:** [bob-cli-ee.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ee/bob-cli-ee.1.1.md)
 
 # Capture type-marker grammar and new-task typing
 
