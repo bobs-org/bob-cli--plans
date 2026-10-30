@@ -1,21 +1,19 @@
 ---
 tier: epic
-title: "Command-mode sequences: mark with Ctrl+M, run in order"
-goal: "In Bob Command Mode, Ctrl+M marks commands into an ordered sequence that Enter or
-  Ctrl+Enter runs one at a time. The status-bar bob chip shows how many steps there are
-  and which command is running. RECENT shows each past sequence as one row that runs it
-  again.
+title: 'Command-mode sequences: mark with Ctrl+M, run in order'
+goal: 'In Bob Command Mode, Ctrl+M marks commands into an ordered sequence that Enter
+  or Ctrl+Enter runs one at a time. The status-bar bob chip shows how many steps there
+  are and which command is running. RECENT shows each past sequence as one row that
+  runs it again.
 
-  "
+  '
 decisions:
   attention_continues:
-    ask:
-      Should a step that ends Needs attention (for example 'Already up to date') let the
-      sequence continue?
+    ask: Should a step that ends Needs attention (for example 'Already up to date')
+      let the sequence continue?
     default: true
-    why:
-      Attention mostly means exit 0 with a note; only failed, unknown, and stopped halt,
-      like &&.
+    why: Attention mostly means exit 0 with a note; only failed, unknown, and stopped
+      halt, like &&.
     answer: true
   escape_clears_marks:
     ask: Should Esc first clear pending marks, so a second Esc closes the sheet?
@@ -23,59 +21,56 @@ decisions:
     why: One stray Esc should never both drop a built sequence and close the sheet.
     answer: true
   rerun_last_sequence:
-    ask:
-      "Should Bob: Rerun last command rerun the whole sequence when the newest run was a
-      sequence step?"
+    ask: 'Should Bob: Rerun last command rerun the whole sequence when the newest
+      run was a sequence step?'
     default: true
-    why:
-      "A sequence is one unit everywhere else: RECENT, the chip, and the summary toast."
+    why: 'A sequence is one unit everywhere else: RECENT, the chip, and the summary
+      toast.'
     answer: true
 phases:
-  - id: engine
-    title: Sequence engine, record stamps, and plugin wiring
-    depends_on: []
-    size: medium
-    description:
-      "engine: add the pure step and history model, stamp step run records, add the
-      in-order driver that stops on failure, and wire the plugin to run sequences,
-      suppress per-step toasts, and rerun the last sequence."
-  - id: feedback
-    title: Status chip, summary toast, and pager step label
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "feedback: teach the status-bar chip to show step N/M and the running command,
-      replace per-step toasts with one summary card (Output, Resume, Rerun all, Copy),
-      label sequence steps in the pager, and add preview frames."
-  - id: sheet
-    title: Marking, tray, review card, and RECENT sequence rows
-    depends_on:
-      - engine
-      - feedback
-    size: medium
-    description:
-      "sheet: add Ctrl+M marking in list and argument stages, the numbered sequence
-      tray, Enter and Ctrl+Enter routing with the review card, Backspace and Esc rules,
-      and the grouped RECENT sequence row that reruns as one unit."
-  - id: docs
-    title: Plugin reference, user guide, and deploy
-    depends_on:
-      - sheet
-    size: small
-    description:
-      "docs: document sequences in the bob-plugins plugin reference and the bob-cli
-      guide, run the full plugin and docs gates, and deploy with bob plugins sync."
+- id: engine
+  title: Sequence engine, record stamps, and plugin wiring
+  depends_on: []
+  size: medium
+  description: 'engine: add the pure step and history model, stamp step run records,
+    add the in-order driver that stops on failure, and wire the plugin to run sequences,
+    suppress per-step toasts, and rerun the last sequence.'
+- id: feedback
+  title: Status chip, summary toast, and pager step label
+  depends_on:
+  - engine
+  size: medium
+  description: 'feedback: teach the status-bar chip to show step N/M and the running
+    command, replace per-step toasts with one summary card (Output, Resume, Rerun
+    all, Copy), label sequence steps in the pager, and add preview frames.'
+- id: sheet
+  title: Marking, tray, review card, and RECENT sequence rows
+  depends_on:
+  - engine
+  - feedback
+  size: medium
+  description: 'sheet: add Ctrl+M marking in list and argument stages, the numbered
+    sequence tray, Enter and Ctrl+Enter routing with the review card, Backspace and
+    Esc rules, and the grouped RECENT sequence row that reruns as one unit.'
+- id: docs
+  title: Plugin reference, user guide, and deploy
+  depends_on:
+  - sheet
+  size: small
+  description: 'docs: document sequences in the bob-plugins plugin reference and the
+    bob-cli guide, run the full plugin and docs gates, and deploy with bob plugins
+    sync.'
 proposed_by: bbugyi200.athena.16k
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-30 17:30:02
 status: wip
+bead_id: bob-cli-er
 ---
 
-- **PROMPT:**
-  [prompts/202610/command_mode_sequences.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/command_mode_sequences.md)
+- **PROMPT:** [prompts/202610/command_mode_sequences.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/command_mode_sequences.md)
+- **BEAD:** [bob-cli-er](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-er/README.md)
 
 # Plan: Command-mode sequences
 
