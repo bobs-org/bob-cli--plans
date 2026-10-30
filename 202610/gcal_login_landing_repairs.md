@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Calendar login and finish bob-cli-eg landing
-goal: Both login flows match real gog, the accepted setup and account contracts hold,
-  and bob-cli-eg closes with its original plan marked done.
+goal:
+  Both login flows match real gog, the accepted setup and account contracts hold, and
+  bob-cli-eg closes with its original plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-eg.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/gcal_login_redesign.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/gcal_login_redesign.md)
 - **BEAD:**
   [bob-cli-eg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-eg/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-eg.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-eg.land.md)
+- **COMMITS:**
+  - [f7642c7](https://github.com/bobs-org/bob-cli/commit/f7642c7a5bad190d7e2d94fb6a9a426c84e96d99)
+    — feat(gcal): match real gog OAuth and finish guided login
 
 # Finish and land the guided Calendar login
 
