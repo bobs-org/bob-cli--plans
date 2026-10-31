@@ -2,14 +2,12 @@
 tier: tale
 size: small
 title: Land the Keep → Inbox footer indicator (bob-cli-ez)
-goal:
-  Fix the bob-plugins test and Keep-indicator gaps the bob-cli-ez epic left, then close
-  the epic.
+goal: Fix the bob-plugins test and Keep-indicator gaps the bob-cli-ez epic left, then
+  close the epic.
 proposed_by: bbugyi200.apollo.bob-cli-ez.land
 proposed_with: claude/opus
 bead: bob-cli-ez
-create_time: 2026-10-31 16:40:07
-status: wip
+status: done
 ---
 
 - **PARENT:**
