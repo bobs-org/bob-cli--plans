@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish command-mode sequence UI and land bob-cli-er
-goal: Command sequences work in the real DOM, preserve single-command behavior, show
-  live history honestly, and bob-cli-er closes after verification.
+goal:
+  Command sequences work in the real DOM, preserve single-command behavior, show live
+  history honestly, and bob-cli-er closes after verification.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-er.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/command_mode_sequences.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/command_mode_sequences.md)
 - **BEAD:**
   [bob-cli-er](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-er/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-er.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-er.land.md)
+- **COMMITS:**
+  - [a573014](https://github.com/bobs-org/bob-cli--plans/commit/a5730148f4bc77bd7936f2cd01ddd91312fe74a9)
+    — docs(plans): mark command_mode_sequences done
 
 # Finish command-mode sequences and land bob-cli-er
 
