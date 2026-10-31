@@ -1,51 +1,46 @@
 ---
 tier: epic
 title: Complete project-note task offers for bob-cli-ex.2
-goal:
-  Capture @route:id@ creates a project note and offers its eligible tasks through the
-  existing pull-in protocol, with selected tasks identical to authored colon bullets and
-  complete grammar, documentation, and verification coverage.
+goal: Capture @route:id@ creates a project note and offers its eligible tasks through
+  the existing pull-in protocol, with selected tasks identical to authored colon bullets
+  and complete grammar, documentation, and verification coverage.
 phases:
-  - id: offer_engine
-    title: Plan project task offers through the existing colon-bullet writer
-    size: medium
-    depends_on: []
-    description:
-      "offer_engine: extend rendered project tasks, shared placement, project-note
-      output, selection, and draft-level pull-in plumbing. Exercise
-      ProjectNoteForm::Offer through internal planner tests while the public colon-seal
-      grammar remains disabled."
-  - id: offer_language
-    title: Enable the colon seal and verify the public capture protocol
-    size: medium
-    depends_on:
-      - offer_engine
-    description:
-      "offer_language: enable @route:id@ in execution, editor parsing, completion, and
-      sealed separator rewrites. Add CLI coverage of selections, destinations, atomic
-      failures, and mixed-draft offers, and update CLI help and its generated reference
-      pages."
-  - id: offer_contracts
-    title: Publish project-offer contracts and finish acceptance coverage
-    size: medium
-    depends_on:
-      - offer_language
-    description:
-      "offer_contracts: update capture, project, and successor documentation and only
-      the two glossary strands authorized by the parent epic. Verify equivalence to
-      authored colon bullets and the remaining acceptance matrix, then provide land
-      evidence."
+- id: offer_engine
+  title: Plan project task offers through the existing colon-bullet writer
+  size: medium
+  depends_on: []
+  description: 'offer_engine: extend rendered project tasks, shared placement, project-note
+    output, selection, and draft-level pull-in plumbing. Exercise ProjectNoteForm::Offer
+    through internal planner tests while the public colon-seal grammar remains disabled.'
+- id: offer_language
+  title: Enable the colon seal and verify the public capture protocol
+  size: medium
+  depends_on:
+  - offer_engine
+  description: 'offer_language: enable @route:id@ in execution, editor parsing, completion,
+    and sealed separator rewrites. Add CLI coverage of selections, destinations, atomic
+    failures, and mixed-draft offers, and update CLI help and its generated reference
+    pages.'
+- id: offer_contracts
+  title: Publish project-offer contracts and finish acceptance coverage
+  size: medium
+  depends_on:
+  - offer_language
+  description: 'offer_contracts: update capture, project, and successor documentation
+    and only the two glossary strands authorized by the parent epic. Verify equivalence
+    to authored colon bullets and the remaining acceptance matrix, then provide land
+    evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-ex.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ex.2
 create_time: 2026-10-31 13:56:42
 status: wip
+bead_id: bob-cli-ex.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/project_note_offer_form.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_note_offer_form.md)
-- **PARENT:**
-  [202610/project_note_seals.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/project_note_seals.md)
+- **PROMPT:** [prompts/202610/project_note_offer_form.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_note_offer_form.md)
+- **PARENT:** [202610/project_note_seals.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/project_note_seals.md)
+- **BEAD:** [bob-cli-ex.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ex/bob-cli-ex.2.1.md)
 
 # Complete bob-cli-ex.2: offer a new project's tasks with @route:id@
 
