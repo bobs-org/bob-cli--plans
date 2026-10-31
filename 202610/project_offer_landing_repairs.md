@@ -1,15 +1,14 @@
 ---
 tier: tale
 title: Finish project-offer validation and land bob-cli-ex.2.1
-goal:
-  Repair the project schedule guard and final offer identity/state reporting, verify the
-  combined tree, and close bob-cli-ex.2.1 and parent phase bob-cli-ex.2 normally.
+goal: Repair the project schedule guard and final offer identity/state reporting,
+  verify the combined tree, and close bob-cli-ex.2.1 and parent phase bob-cli-ex.2
+  normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ex.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ex.2.1
-create_time: 2026-10-31 17:09:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
