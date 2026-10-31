@@ -1,9 +1,9 @@
 ---
 tier: tale
 title: Finish project-offer validation and land bob-cli-ex.2.1
-goal: Repair the project schedule guard and final offer identity/state reporting,
-  verify the combined tree, and close bob-cli-ex.2.1 and parent phase bob-cli-ex.2
-  normally.
+goal:
+  Repair the project schedule guard and final offer identity/state reporting, verify the
+  combined tree, and close bob-cli-ex.2.1 and parent phase bob-cli-ex.2 normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ex.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,6 +15,11 @@ status: done
   [202610/project_note_offer_form.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/project_note_offer_form.md)
 - **BEAD:**
   [bob-cli-ex.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ex/bob-cli-ex.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ex.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ex.2.1.land.md)
+- **COMMITS:**
+  - [4d46180](https://github.com/bobs-org/bob-cli--plans/commit/4d461800f67260ed99d9ebd1510197189ed1875f)
+    — docs(plans): mark project_note_offer_form done for bob-cli-ex.2.1 landing
 
 # Finish project-offer validation and land bob-cli-ex.2.1
 
