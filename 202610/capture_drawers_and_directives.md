@@ -1,130 +1,119 @@
 ---
 tier: epic
 title: Capture drawers and % directives
-goal: "Bob's capture language reads as three rules: @ says where, # names a place or a
-  type, and % says how. `Text @note+id#drawer [#type]` files a note in a task drawer,
-  creating the drawer when it is missing and optionally retyping the task in the same
-  transaction. `%c`, `%n`, `%t`, and `%l` replace trailing `#`, `%`, `@@template:`, and
-  `URL %`. Typing `#`, `%`, or `@note+id#` in Bob Mac Capture opens a bob-described menu
-  with nothing preselected. Every retired form is deleted outright, with no aliases.
+goal: 'Bob''s capture language reads as three rules: @ says where, # names a place
+  or a type, and % says how. `Text @note+id#drawer [#type]` files a note in a task
+  drawer, creating the drawer when it is missing and optionally retyping the task
+  in the same transaction. `%c`, `%n`, `%t`, and `%l` replace trailing `#`, `%`, `@@template:`,
+  and `URL %`. Typing `#`, `%`, or `@note+id#` in Bob Mac Capture opens a bob-described
+  menu with nothing preselected. Every retired form is deleted outright, with no aliases.
 
-  "
+  '
 phases:
-  - id: cli-directives
-    title: bob-cli % directives, bare-# type menu, %t templates, and @@ cleanup
-    depends_on: []
-    size: large
-    description:
-      "cli-directives: add the `%c`/`%c<N>`/`%n`/`%t`/`%l` directive lexer and the
-      `directive` completion context; make a bare edge `#` an incomplete type marker
-      with `initial_selection: none`; split clipboard parsing from reading (`--no-clip`,
-      `clip.status`); frame templates with `%t` and render shelf drafts that way; delete
-      trailing `#`, `%`/`%N`/ `%header`, `URL %`/`URL @`, `@@template:`, `@@@`, and
-      `@@route+id`; add `grammar: 2`; update help, docs, and the Capture and Bulk
-      Capture glossary strands."
-  - id: cli-drawers
-    title: bob-cli task drawers, drawer menu, and capture-drawers
-    depends_on:
-      - cli-directives
-    size: large
-    description:
-      'cli-drawers: make a `#` glued after `@route+id` always name a task drawer,
-      matched exactly, created on demand, and guarded against reserved names and
-      near-duplicates; allow a separate `#type` to retype the target in the same
-      transaction; retire attached `#type` on `+id` and `^id`; add the cached drawer
-      catalog and the `drawer` completion context; add `-D/--drawer` and `bob
-      capture-drawers` (keeping `capture-task-sections` as a hidden alias); bump to
-      `grammar: 3`; rename "task section" everywhere; write the Task Drawer term, the
-      grammar decision record, and the Annotation Section fix.'
-  - id: mac-directives
-    title: Bob Mac Capture % menu, unselected menus, clip card, and grammar gate
-    depends_on:
-      - cli-directives
-    size: large
-    description:
-      "mac-directives: add the no-selection menu state; add the bob-described `%`
-      directive menu and the immediate bare-`#` Task type menu; style the `directive`
-      span; read the clipboard in live preview only when bob reports a clip directive,
-      and render a real Clip card; require `grammar >= 2`; delete `@@@`, the `@@`
-      template row, and `@@route+id` handling; regenerate fixtures; update the Mac docs."
-  - id: cli-project-drawers
-    title: bob-cli ^prj drawers resolve to project-note H2 sections
-    depends_on:
-      - cli-drawers
-    size: medium
-    description:
-      "cli-project-drawers: on a project note's own `^prj` line, resolve `#drawer`
-      against the note's eligible `##` sections, appending or creating `## Title Case`
-      the way promotion does; list those sections in the drawer menu; extend the Task
-      Drawer glossary strand."
-  - id: mac-drawers
-    title: Bob Mac Capture drawer menu and drawer previews
-    depends_on:
-      - cli-drawers
-      - mac-directives
-    size: medium
-    description:
-      'mac-drawers: render the `drawer` context with On this task and Recent groups, the
-      New drawer row, refused rows, and bob''s per-row consequence footer; style
-      `drawer` spans; show the "new drawer" and retype rows in previews; require
-      `grammar >= 3`; delete `task_section` rendering; regenerate fixtures; update the
-      Mac docs.'
-  - id: plugins-parity
-    title: bob-plugins drawer promotion parity test and vocabulary
-    depends_on:
-      - cli-drawers
-    size: small
-    description:
-      'plugins-parity: pin with a test that a drawer exactly as bob writes it promotes
-      to the expected `## Title Case` section and reverses to the same ALL-CAPS key;
-      rename "section bullet" to "drawer" in plugin docs and comments.'
+- id: cli-directives
+  title: bob-cli % directives, bare-# type menu, %t templates, and @@ cleanup
+  depends_on: []
+  size: large
+  description: 'cli-directives: add the `%c`/`%c<N>`/`%n`/`%t`/`%l` directive lexer
+    and the `directive` completion context; make a bare edge `#` an incomplete type
+    marker with `initial_selection: none`; split clipboard parsing from reading (`--no-clip`,
+    `clip.status`); frame templates with `%t` and render shelf drafts that way; delete
+    trailing `#`, `%`/`%N`/ `%header`, `URL %`/`URL @`, `@@template:`, `@@@`, and
+    `@@route+id`; add `grammar: 2`; update help, docs, and the Capture and Bulk Capture
+    glossary strands.'
+- id: cli-drawers
+  title: bob-cli task drawers, drawer menu, and capture-drawers
+  depends_on:
+  - cli-directives
+  size: large
+  description: 'cli-drawers: make a `#` glued after `@route+id` always name a task
+    drawer, matched exactly, created on demand, and guarded against reserved names
+    and near-duplicates; allow a separate `#type` to retype the target in the same
+    transaction; retire attached `#type` on `+id` and `^id`; add the cached drawer
+    catalog and the `drawer` completion context; add `-D/--drawer` and `bob capture-drawers`
+    (keeping `capture-task-sections` as a hidden alias); bump to `grammar: 3`; rename
+    "task section" everywhere; write the Task Drawer term, the grammar decision record,
+    and the Annotation Section fix.'
+- id: mac-directives
+  title: Bob Mac Capture % menu, unselected menus, clip card, and grammar gate
+  depends_on:
+  - cli-directives
+  size: large
+  description: 'mac-directives: add the no-selection menu state; add the bob-described
+    `%` directive menu and the immediate bare-`#` Task type menu; style the `directive`
+    span; read the clipboard in live preview only when bob reports a clip directive,
+    and render a real Clip card; require `grammar >= 2`; delete `@@@`, the `@@` template
+    row, and `@@route+id` handling; regenerate fixtures; update the Mac docs.'
+- id: cli-project-drawers
+  title: bob-cli ^prj drawers resolve to project-note H2 sections
+  depends_on:
+  - cli-drawers
+  size: medium
+  description: 'cli-project-drawers: on a project note''s own `^prj` line, resolve
+    `#drawer` against the note''s eligible `##` sections, appending or creating `##
+    Title Case` the way promotion does; list those sections in the drawer menu; extend
+    the Task Drawer glossary strand.'
+- id: mac-drawers
+  title: Bob Mac Capture drawer menu and drawer previews
+  depends_on:
+  - cli-drawers
+  - mac-directives
+  size: medium
+  description: 'mac-drawers: render the `drawer` context with On this task and Recent
+    groups, the New drawer row, refused rows, and bob''s per-row consequence footer;
+    style `drawer` spans; show the "new drawer" and retype rows in previews; require
+    `grammar >= 3`; delete `task_section` rendering; regenerate fixtures; update the
+    Mac docs.'
+- id: plugins-parity
+  title: bob-plugins drawer promotion parity test and vocabulary
+  depends_on:
+  - cli-drawers
+  size: small
+  description: 'plugins-parity: pin with a test that a drawer exactly as bob writes
+    it promotes to the expected `## Title Case` section and reverses to the same ALL-CAPS
+    key; rename "section bullet" to "drawer" in plugin docs and comments.'
 decisions:
   memory_drawer_term:
-    ask:
-      Add the Task Drawer (aka drawer) glossary strand, extended with the ^prj clause
-      once project drawers land?
+    ask: Add the Task Drawer (aka drawer) glossary strand, extended with the ^prj
+      clause once project drawers land?
     memory:
-      - glossary:task-drawer
+    - glossary:task-drawer
     default: true
-    requested:
-      As a part of this change, let's add a new "task drawer" (aka "drawer") glossary
-      term.
+    requested: As a part of this change, let's add a new "task drawer" (aka "drawer")
+      glossary term.
     answer: true
   memory_grammar_record:
-    ask:
-      "Add a decisions record that @ says where, # names a place or type, and % says
-      how?"
+    ask: 'Add a decisions record that @ says where, # names a place or type, and %
+      says how?'
     memory:
-      - decisions:capture-sigils-say-where-what-how
+    - decisions:capture-sigils-say-where-what-how
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_glossary_strands:
-    ask:
-      Update the Capture, Bulk Capture, and Annotation Section glossary strands for %c,
-      %t, and drawers?
+    ask: Update the Capture, Bulk Capture, and Annotation Section glossary strands
+      for %c, %t, and drawers?
     memory:
-      - glossary:capture
-      - glossary:bulk-capture
-      - glossary:annotation-section
+    - glossary:capture
+    - glossary:bulk-capture
+    - glossary:annotation-section
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 proposed_by: bbugyi200.apollo.research.2x.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-31 12:52:00
 status: wip
+bead_id: bob-cli-ey
 ---
 
-- **PROMPT:**
-  [prompts/202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_drawers_and_directives.md)
+- **PROMPT:** [prompts/202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/capture_drawers_and_directives.md)
+- **BEAD:** [bob-cli-ey](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ey/README.md)
 
 # Plan: Capture drawers and `%` directives
 
