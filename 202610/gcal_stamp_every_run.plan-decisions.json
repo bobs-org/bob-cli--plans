@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "launch_agent",
+      "kind": "choice",
+      "ask": "Should the never-loaded Mac `com.bbugyi.bob-gcal-sync` LaunchAgent be retired?",
+      "why": "Docs describe a 5-minute agent that never ran; loading it would now commit the note all day",
+      "choices": [
+        {
+          "key": "retire",
+          "label": "Delete the plist via chezmoi; docs say sync is on demand plus once at note creation"
+        },
+        {
+          "key": "keep_dormant",
+          "label": "Keep the unloaded plist; docs warn loading it commits the note every 5 min"
+        }
+      ],
+      "default": "retire",
+      "effective_default": "retire",
+      "requested_verified": false
+    }
+  ]
+}
