@@ -2,15 +2,13 @@
 tier: tale
 size: small
 title: Fix stale `@route+id#` completion docs and help, then close epic bob-cli-ep
-goal:
-  Every capture-complete doc and help line describes the no-body `@route+id#` and
-  `@route^id#` as task-type completion, and epic bob-cli-ep is closed with its plan
-  marked done.
+goal: Every capture-complete doc and help line describes the no-body `@route+id#`
+  and `@route^id#` as task-type completion, and epic bob-cli-ep is closed with its
+  plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-ep.land
 proposed_with: claude/opus
 bead: bob-cli-ep
-create_time: 2026-10-31 10:05:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
