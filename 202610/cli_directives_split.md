@@ -1,107 +1,98 @@
 ---
 tier: epic
-title:
-  "cli-directives, split: % directives, bare-# type marker, %t templates, and @@ cleanup"
-goal: 'Deliver phase cli-directives (bead bob-cli-ey.1) of the "Capture drawers and %
-  directives" epic as a chain of coherent bob-cli changes, each small enough for one
-  coding agent: delete `@@route+id`; add the `%` directive lexer with `%c`, `%n`, and
-  `%l`; split clipboard parsing from reading; make a bare edge `#` an incomplete type
-  marker; replace `@@template:`/`@@@` with `%t`; then add the `directive` completion
+title: 'cli-directives, split: % directives, bare-# type marker, %t templates, and
+  @@ cleanup'
+goal: 'Deliver phase cli-directives (bead bob-cli-ey.1) of the "Capture drawers and
+  % directives" epic as a chain of coherent bob-cli changes, each small enough for
+  one coding agent: delete `@@route+id`; add the `%` directive lexer with `%c`, `%n`,
+  and `%l`; split clipboard parsing from reading; make a bare edge `#` an incomplete
+  type marker; replace `@@template:`/`@@@` with `%t`; then add the `directive` completion
   context, `initial_selection`, and `grammar: 2`. The land agent closes bob-cli-ey.1.
 
   '
 phases:
-  - id: global-route-id-removal
-    title: Delete the @@route+block-id draft-wide form
-    depends_on: []
-    size: medium
-    description:
-      'global-route-id-removal: delete `@@route+id` end to end (parent plan §1.5):
-      `ParsedGlobalDestination.block_id`/`mode`, the `draft.rs` `+` branch, the
-      `GlobalSubBulletRoute`/`GlobalSubBulletBlockId` spans and `Need::Task` from
-      `classify_global_token`, `global_destination.mode`/`block_id` in capture-parse and
-      capture JSON, the "under ^id" human output, `capture_related/draft.rs` handling,
-      and its tests and docs. `@@route+id` now fails with the generic `@@` declaration
-      error. Commit as `feat(capture)!:`.'
-  - id: directive-lexer-clip
-    title: "% directive lexer with %c/%c<N>, and clipboard parsing split from reading"
-    depends_on:
-      - global-route-id-removal
-    size: medium
-    description:
-      'directive-lexer-clip: add `capture_language/directive.rs` (edge position rule,
-      transparency, bare `%` incomplete with need `directive`, `unknown_directive`, `\%`
-      escape, duplicate refusal, `directive` span) recognizing `%c` and `%c<N>`; delete
-      `%`/`%N`/`%header`, `parse_clip_token`, `ClipRequest` headers, `is_valid_header`,
-      `ClipOutput.header`, and `CaptureParseOptions.parse_clip_markers`; make
-      `-n/--no-clip` mean never-read (`clip.status: not_read`, `clip_not_read` refusal)
-      and `-c/--clip` a plain flag; add a "Directives (`%`)" docs section. Commit as
-      `feat(capture)!:`.'
-  - id: note-and-listen-directives
-    title: "%n replaces the trailing # Pomodoro note; %l replaces URL %/URL @"
-    depends_on:
-      - directive-lexer-clip
-    size: medium
-    description:
-      "note-and-listen-directives: teach the directive lexer `%n` and `%l`; route `%n`
-      to the existing Pomodoro-note path with its refusals (routes, forced route, `s:`,
-      `$`, `#type`; `@@route` does not apply) and delete the trailing-`#` marker; route
-      `%l` to ref listen (bare-URL items only, else `directive_not_applicable`) and
-      delete `is_standalone_listen_marker` everywhere, including `gkeep/plan.rs`; update
-      help, docs, and tests. Commit as `feat(capture)!:`."
-  - id: bare-hash-type-marker
-    title: A bare edge
-    depends_on:
-      - note-and-listen-directives
-    size: small
-    description:
-      'bare-hash-type-marker: a free-standing bare `#` at an item edge becomes an
-      incomplete `task_type` marker (span on the `#`, need `task_type` mode
-      `incomplete`, execution refuses with copy that teaches `#fix` and `\#`); delete
-      the "bare hash stays the Pomodoro note" branch in `type_marker.rs` and the bare
-      `#` in `is_trailing_transparent`; leave `#`+digit, `##…`, `#-…`, mid-line, and
-      glued `#` unchanged. Commit as `feat(capture)!:`.'
-  - id: percent-t-templates
-    title: "%t frames templates; delete @@template:, @@@, and the @@ template candidate"
-    depends_on:
-      - note-and-listen-directives
-    size: medium
-    description:
-      "percent-t-templates: add `%t` to the directive lexer and frame the draft's first
-      item as the template (parent plan §1.4) with offset-preserving masking;
-      `template_directive_misplaced`; refuse row values that inject `%c`/`%t`; render
-      shelf `show`/`draft` with ` %t` and keep shelf IDs unchanged; delete the
-      `@@template:` header, the `template_header` span, `@@@`/`start_template` rewrite,
-      and the `@@` template completion candidate; update help, docs, the calibrate
-      script, the runner example, the Bulk Capture glossary strand, and note open shelf
-      beads. Commit as `feat(capture)!:`."
-  - id: directive-completion-grammar
-    title: directive completion context, bare-# menu, initial_selection, and grammar 2
-    depends_on:
-      - bare-hash-type-marker
-      - percent-t-templates
-    size: medium
-    description:
-      'directive-completion-grammar: add the `directive` completion context
-      (`capture_complete/directives.rs`: rows c, n, t, then l on bare-URL items,
-      bob-authored names/summaries/details/disabled reasons, no clipboard read); open
-      the `task_type` context on a bare edge `#` with every row; emit
-      `initial_selection: "none"` only for an empty query opened by bare `#` or `%`; add
-      `GRAMMAR_REVISION = 2` as top-level `grammar` in capture-parse and
-      capture-complete; zsh `%<TAB>` and bare `#<TAB>`; finish docs (Grammar at a
-      glance), the Capture glossary strand, and the retirement grep. Commit as
-      `feat(capture):`.'
+- id: global-route-id-removal
+  title: Delete the @@route+block-id draft-wide form
+  depends_on: []
+  size: medium
+  description: 'global-route-id-removal: delete `@@route+id` end to end (parent plan
+    §1.5): `ParsedGlobalDestination.block_id`/`mode`, the `draft.rs` `+` branch, the
+    `GlobalSubBulletRoute`/`GlobalSubBulletBlockId` spans and `Need::Task` from `classify_global_token`,
+    `global_destination.mode`/`block_id` in capture-parse and capture JSON, the "under
+    ^id" human output, `capture_related/draft.rs` handling, and its tests and docs.
+    `@@route+id` now fails with the generic `@@` declaration error. Commit as `feat(capture)!:`.'
+- id: directive-lexer-clip
+  title: '% directive lexer with %c/%c<N>, and clipboard parsing split from reading'
+  depends_on:
+  - global-route-id-removal
+  size: medium
+  description: 'directive-lexer-clip: add `capture_language/directive.rs` (edge position
+    rule, transparency, bare `%` incomplete with need `directive`, `unknown_directive`,
+    `\%` escape, duplicate refusal, `directive` span) recognizing `%c` and `%c<N>`;
+    delete `%`/`%N`/`%header`, `parse_clip_token`, `ClipRequest` headers, `is_valid_header`,
+    `ClipOutput.header`, and `CaptureParseOptions.parse_clip_markers`; make `-n/--no-clip`
+    mean never-read (`clip.status: not_read`, `clip_not_read` refusal) and `-c/--clip`
+    a plain flag; add a "Directives (`%`)" docs section. Commit as `feat(capture)!:`.'
+- id: note-and-listen-directives
+  title: '%n replaces the trailing # Pomodoro note; %l replaces URL %/URL @'
+  depends_on:
+  - directive-lexer-clip
+  size: medium
+  description: 'note-and-listen-directives: teach the directive lexer `%n` and `%l`;
+    route `%n` to the existing Pomodoro-note path with its refusals (routes, forced
+    route, `s:`, `$`, `#type`; `@@route` does not apply) and delete the trailing-`#`
+    marker; route `%l` to ref listen (bare-URL items only, else `directive_not_applicable`)
+    and delete `is_standalone_listen_marker` everywhere, including `gkeep/plan.rs`;
+    update help, docs, and tests. Commit as `feat(capture)!:`.'
+- id: bare-hash-type-marker
+  title: A bare edge
+  depends_on:
+  - note-and-listen-directives
+  size: small
+  description: 'bare-hash-type-marker: a free-standing bare `#` at an item edge becomes
+    an incomplete `task_type` marker (span on the `#`, need `task_type` mode `incomplete`,
+    execution refuses with copy that teaches `#fix` and `\#`); delete the "bare hash
+    stays the Pomodoro note" branch in `type_marker.rs` and the bare `#` in `is_trailing_transparent`;
+    leave `#`+digit, `##…`, `#-…`, mid-line, and glued `#` unchanged. Commit as `feat(capture)!:`.'
+- id: percent-t-templates
+  title: '%t frames templates; delete @@template:, @@@, and the @@ template candidate'
+  depends_on:
+  - note-and-listen-directives
+  size: medium
+  description: 'percent-t-templates: add `%t` to the directive lexer and frame the
+    draft''s first item as the template (parent plan §1.4) with offset-preserving
+    masking; `template_directive_misplaced`; refuse row values that inject `%c`/`%t`;
+    render shelf `show`/`draft` with ` %t` and keep shelf IDs unchanged; delete the
+    `@@template:` header, the `template_header` span, `@@@`/`start_template` rewrite,
+    and the `@@` template completion candidate; update help, docs, the calibrate script,
+    the runner example, the Bulk Capture glossary strand, and note open shelf beads.
+    Commit as `feat(capture)!:`.'
+- id: directive-completion-grammar
+  title: directive completion context, bare-# menu, initial_selection, and grammar
+    2
+  depends_on:
+  - bare-hash-type-marker
+  - percent-t-templates
+  size: medium
+  description: 'directive-completion-grammar: add the `directive` completion context
+    (`capture_complete/directives.rs`: rows c, n, t, then l on bare-URL items, bob-authored
+    names/summaries/details/disabled reasons, no clipboard read); open the `task_type`
+    context on a bare edge `#` with every row; emit `initial_selection: "none"` only
+    for an empty query opened by bare `#` or `%`; add `GRAMMAR_REVISION = 2` as top-level
+    `grammar` in capture-parse and capture-complete; zsh `%<TAB>` and bare `#<TAB>`;
+    finish docs (Grammar at a glance), the Capture glossary strand, and the retirement
+    grep. Commit as `feat(capture):`.'
 proposed_by: bbugyi200.apollo.bob-cli-ey.1
 proposed_with: claude/opus
 parent_bead: bob-cli-ey.1
 create_time: 2026-10-31 12:58:12
 status: wip
+bead_id: bob-cli-ey.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/cli_directives_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/cli_directives_split.md)
-- **PARENT:**
-  [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **PROMPT:** [prompts/202610/cli_directives_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/cli_directives_split.md)
+- **PARENT:** [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **BEAD:** [bob-cli-ey.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ey/bob-cli-ey.1.1.md)
 
 # Plan: `cli-directives`, split into coherent bob-cli changes
 
