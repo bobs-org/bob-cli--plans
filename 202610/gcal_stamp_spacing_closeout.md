@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Events stamp spacing and finish landing bob-cli-es
-goal: Keep the Events stamp separate from prose without accumulating blank lines,
-  verify the repair, and close bob-cli-es.
+goal:
+  Keep the Events stamp separate from prose without accumulating blank lines, verify the
+  repair, and close bob-cli-es.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-es.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202610/gcal_events_sync_stamp.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/gcal_events_sync_stamp.md)
 - **BEAD:**
   [bob-cli-es](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-es/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-es.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-es.land.md)
+- **COMMITS:**
+  - [c456ba6](https://github.com/bobs-org/bob-cli--plans/commit/c456ba62ee9a269a7e1ababc445afe624fb929fe)
+    — docs(plans): mark gcal_events_sync_stamp done
 
 # Repair Events stamp spacing and finish landing bob-cli-es
 
