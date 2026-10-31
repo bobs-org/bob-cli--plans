@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "caret_plus",
+      "kind": "choice",
+      "ask": "Should `+` after `@file^id` also switch to `@file+id`, though `@file^id+` is the project-note form?",
+      "why": "You asked for both forms, and Undo already restores the literal key for the `:`/`^` toggle",
+      "choices": [
+        {
+          "key": "switch",
+          "label": "Both forms switch; typing a project note (`@file^id+`) then takes one Undo after the swap"
+        },
+        {
+          "key": "exempt",
+          "label": "Only `@file:id+` switches; `@file^id+` stays the project-note form and `+` types through"
+        }
+      ],
+      "default": "switch",
+      "effective_default": "switch",
+      "requested_verified": false
+    },
+    {
+      "id": "reverse_from_plus",
+      "kind": "choice",
+      "ask": "Should `:` or `^` typed after `@file+id` also switch it to `@file:id` or `@file^id`?",
+      "why": "Only `+` was requested; `@file+id:`/`@file+id^` are invalid today, so adding it later is safe",
+      "choices": [
+        {
+          "key": "three_way",
+          "label": "`:`/`^` after `@file+id` switch back too, so all three separator keys toggle freely"
+        },
+        {
+          "key": "one_way",
+          "label": "`@file+id` stays one-way; a stray `+` is undone with Undo"
+        }
+      ],
+      "default": "one_way",
+      "effective_default": "one_way",
+      "requested_verified": false
+    }
+  ]
+}
