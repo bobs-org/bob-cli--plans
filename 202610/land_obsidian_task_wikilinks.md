@@ -2,16 +2,15 @@
 tier: tale
 size: medium
 title: Finish landing the (( task wikilink picker (bob-cli-eq)
-goal: "Fix the gaps and regressions that the bob-cli-eq land review found in the (( Task
-  Wikilink Picker and the ^^ parity work, make the index performance test measure work
-  instead of scheduler noise, then close epic bob-cli-eq.
+goal: 'Fix the gaps and regressions that the bob-cli-eq land review found in the ((
+  Task Wikilink Picker and the ^^ parity work, make the index performance test measure
+  work instead of scheduler noise, then close epic bob-cli-eq.
 
-  "
+  '
 proposed_by: bbugyi200.apollo.bob-cli-eq.land
 proposed_with: claude/opus
 bead: bob-cli-eq
-create_time: 2026-10-30 21:29:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
