@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Events stamp spacing and finish landing bob-cli-es
-goal:
-  Keep the Events stamp separate from prose without accumulating blank lines, verify the
-  repair, and close bob-cli-es.
+goal: Keep the Events stamp separate from prose without accumulating blank lines,
+  verify the repair, and close bob-cli-es.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-es.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-es
-create_time: 2026-10-30 20:01:20
-status: wip
+status: done
 ---
 
 - **PARENT:**
