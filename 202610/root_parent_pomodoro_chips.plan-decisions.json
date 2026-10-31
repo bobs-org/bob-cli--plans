@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scope",
+      "kind": "choice",
+      "ask": "Should bob's own homes label and chip also switch, so `bob plan` and the Mac Capture agenda match Obsidian?",
+      "why": "Rust owns the R7 contract Obsidian mirrors; one rule keeps Obsidian and the Mac agenda in sync",
+      "choices": [
+        {
+          "key": "everywhere",
+          "label": "Rust contract, vectors, and the Obsidian mirror all switch; the Mac agenda follows unchanged"
+        },
+        {
+          "key": "obsidian",
+          "label": "Only Obsidian chips switch; bob JSON, `bob plan`, and the Mac agenda keep nearest-home labels"
+        }
+      ],
+      "default": "everywhere",
+      "effective_default": "everywhere",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_root_parent",
+      "kind": "toggle",
+      "ask": "Should the Root Parent glossary note say that Pomodoro home chips are labelled by root parent?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:root-parent"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
