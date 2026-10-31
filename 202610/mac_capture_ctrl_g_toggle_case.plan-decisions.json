@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "case_rule",
+      "kind": "choice",
+      "ask": "Should Ctrl-G U set the whole line to one case (UPPER, else lower) instead of swapping each letter?",
+      "why": "The request names two states, upper and lower; undo restores the original",
+      "choices": [
+        {
+          "key": "line",
+          "label": "A mixed line goes UPPER, then lower; only Command-Z restores its original mixed case"
+        },
+        {
+          "key": "swap",
+          "label": "Per-letter swap like Vim g~~; pressing twice restores the line, but Hello becomes hELLO"
+        }
+      ],
+      "default": "line",
+      "effective_default": "line",
+      "requested_verified": false
+    },
+    {
+      "id": "stray_key",
+      "kind": "choice",
+      "ask": "Should an unbound key pressed right after Ctrl-G be swallowed with a beep instead of acting normally?",
+      "why": "Usual prefix-key behavior (Emacs, tmux); a mistyped chord never types into the draft",
+      "choices": [
+        {
+          "key": "beep",
+          "label": "The key is consumed with a beep, so a mistyped chord never edits the draft"
+        },
+        {
+          "key": "passthrough",
+          "label": "The leader cancels silently and the key acts exactly as if Ctrl-G had never been pressed"
+        }
+      ],
+      "default": "beep",
+      "effective_default": "beep",
+      "requested_verified": false
+    },
+    {
+      "id": "leader_hint",
+      "kind": "choice",
+      "ask": "Should the footer status line show a pending-chord hint while Ctrl-G waits for its next key?",
+      "why": "Without a hint, a stray Ctrl-G silently changes what the next key does.",
+      "choices": [
+        {
+          "key": "show",
+          "label": "The footer status reads \"\u2303G \u00b7 U toggle line case \u00b7 esc cancel\" until the next key"
+        },
+        {
+          "key": "hide",
+          "label": "No visual change; nothing shows that the next key is captured"
+        }
+      ],
+      "default": "show",
+      "effective_default": "show",
+      "requested_verified": false
+    }
+  ]
+}
