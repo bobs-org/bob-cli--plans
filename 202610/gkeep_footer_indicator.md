@@ -1,95 +1,87 @@
 ---
 tier: epic
 title: Keep → Inbox footer indicator
-goal: "Obsidian's desktop status bar shows, beside the review footer, a gold bulb pill
-  counting the Google Keep notes a default `bob gkeep pull` would act on (only once Keep
-  has verifiably worked on this host) and a plain inbox-tray count of open top-level
-  tasks in gkeep_inbox.md. bob owns the Keep count, its cache, and its check budget; the
-  footer is a calm, attention-gated client.
+goal: 'Obsidian''s desktop status bar shows, beside the review footer, a gold bulb
+  pill counting the Google Keep notes a default `bob gkeep pull` would act on (only
+  once Keep has verifiably worked on this host) and a plain inbox-tray count of open
+  top-level tasks in gkeep_inbox.md. bob owns the Keep count, its cache, and its check
+  budget; the footer is a calm, attention-gated client.
 
-  "
+  '
 decisions:
   auto_checks:
-    ask:
-      Turn attention-gated automatic Keep checks on by default (gkeep.check_interval
+    ask: Turn attention-gated automatic Keep checks on by default (gkeep.check_interval
       30m)?
     default: true
-    why:
-      bob's gates cap it near 16 checks per attended day, and check_interval off is a
-      kill switch
+    why: bob's gates cap it near 16 checks per attended day, and check_interval off
+      is a kill switch
     answer: true
   decision_record:
-    ask:
-      Add a decisions-web record that bob owns the Keep count, its cache, and its check
-      budget?
+    ask: Add a decisions-web record that bob owns the Keep count, its cache, and its
+      check budget?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: keep-adapter-hardening
-    title: Keep adapter hardening
-    depends_on: []
-    size: small
-    description:
-      "keep-adapter-hardening: bound gkeepapi's endless 429 retry, classify rate-limit
-      403s as rate_limit, stop network blips from forcing a full resync, and drop the
-      redundant state save in the Python adapter, with self-tests."
-  - id: keep-status-cache
-    title: Host-local Keep status cache and its writers
-    depends_on: []
-    size: medium
-    description:
-      "keep-status-cache: add the 0600 status.json cache under bob's state dir with a
-      default-pull observation helper, and make list, pull (dry and real), doctor, and
-      login record observations, failures, and pull invalidation."
-  - id: keep-status-command
-    title: bob gkeep status with bob-owned check gates
-    depends_on:
-      - keep-adapter-hardening
-      - keep-status-cache
-    size: medium
-    description:
-      "keep-status-command: add `bob gkeep status [-b] [-f] [-m] [-r]`, the
-      never-prompting token read, freshness/floor/single-flight/busy/budget/backoff
-      gates, gkeep.check_interval, the JSON and human output, the catalog row and gkeep
-      invalidation tag, and docs."
-  - id: command-mode-preview-api
-    title: Command Mode preview API
-    depends_on: []
-    size: small
-    description:
-      "command-mode-preview-api: add `api.commandMode.preview(argv)` to bob-command-mode
-      so a sibling plugin can open the sheet straight into a row's preview stage, with
-      tests and docs."
-  - id: keep-indicator-view
-    title: Ledger-tools Keep inbox status-bar item
-    depends_on:
-      - keep-status-command
-    size: medium
-    description:
-      "keep-indicator-view: add the bob-keep-inbox status-bar item to bob-ledger-tools
-      with a pure view model, the live Tasks-cache inbox count, cache-only Keep reads,
-      the full visual design, the inbox click, tests, and docs."
-  - id: keep-indicator-actions
-    title: Attention-gated Keep checks and indicator actions
-    depends_on:
-      - command-mode-preview-api
-      - keep-indicator-view
-    size: medium
-    description:
-      "keep-indicator-actions: add attention-gated `bob gkeep status -r` triggers, Check
-      now, the bulb click into a previewed pull, the context menu and commands, the
-      sign-in notice, docs, and the optional decision record."
+- id: keep-adapter-hardening
+  title: Keep adapter hardening
+  depends_on: []
+  size: small
+  description: 'keep-adapter-hardening: bound gkeepapi''s endless 429 retry, classify
+    rate-limit 403s as rate_limit, stop network blips from forcing a full resync,
+    and drop the redundant state save in the Python adapter, with self-tests.'
+- id: keep-status-cache
+  title: Host-local Keep status cache and its writers
+  depends_on: []
+  size: medium
+  description: 'keep-status-cache: add the 0600 status.json cache under bob''s state
+    dir with a default-pull observation helper, and make list, pull (dry and real),
+    doctor, and login record observations, failures, and pull invalidation.'
+- id: keep-status-command
+  title: bob gkeep status with bob-owned check gates
+  depends_on:
+  - keep-adapter-hardening
+  - keep-status-cache
+  size: medium
+  description: 'keep-status-command: add `bob gkeep status [-b] [-f] [-m] [-r]`, the
+    never-prompting token read, freshness/floor/single-flight/busy/budget/backoff
+    gates, gkeep.check_interval, the JSON and human output, the catalog row and gkeep
+    invalidation tag, and docs.'
+- id: command-mode-preview-api
+  title: Command Mode preview API
+  depends_on: []
+  size: small
+  description: 'command-mode-preview-api: add `api.commandMode.preview(argv)` to bob-command-mode
+    so a sibling plugin can open the sheet straight into a row''s preview stage, with
+    tests and docs.'
+- id: keep-indicator-view
+  title: Ledger-tools Keep inbox status-bar item
+  depends_on:
+  - keep-status-command
+  size: medium
+  description: 'keep-indicator-view: add the bob-keep-inbox status-bar item to bob-ledger-tools
+    with a pure view model, the live Tasks-cache inbox count, cache-only Keep reads,
+    the full visual design, the inbox click, tests, and docs.'
+- id: keep-indicator-actions
+  title: Attention-gated Keep checks and indicator actions
+  depends_on:
+  - command-mode-preview-api
+  - keep-indicator-view
+  size: medium
+  description: 'keep-indicator-actions: add attention-gated `bob gkeep status -r`
+    triggers, Check now, the bulb click into a previewed pull, the context menu and
+    commands, the sign-in notice, docs, and the optional decision record.'
 proposed_by: bbugyi200.apollo.research.2y.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-10-31 13:32:39
 status: wip
+bead_id: bob-cli-ez
 ---
 
-- **PROMPT:**
-  [prompts/202610/gkeep_footer_indicator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gkeep_footer_indicator.md)
+- **PROMPT:** [prompts/202610/gkeep_footer_indicator.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/gkeep_footer_indicator.md)
+- **BEAD:** [bob-cli-ez](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ez/README.md)
 
 # Plan: Keep → Inbox footer indicator
 
