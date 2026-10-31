@@ -2,11 +2,11 @@
 tier: tale
 size: medium
 title: Finish landing the (( task wikilink picker (bob-cli-eq)
-goal: "Fix the gaps and regressions that the bob-cli-eq land review found in the (( Task
-  Wikilink Picker and the ^^ parity work, make the index performance test measure work
-  instead of scheduler noise, then close epic bob-cli-eq.
+goal: 'Fix the gaps and regressions that the bob-cli-eq land review found in the ((
+  Task Wikilink Picker and the ^^ parity work, make the index performance test measure
+  work instead of scheduler noise, then close epic bob-cli-eq.
 
-  "
+  '
 proposed_by: bbugyi200.apollo.bob-cli-eq.land
 proposed_with: claude/opus
 bead: bob-cli-eq
@@ -17,11 +17,6 @@ status: done
   [202610/obsidian_task_wikilinks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/obsidian_task_wikilinks.md)
 - **BEAD:**
   [bob-cli-eq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-eq/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-eq.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-eq.land.md)
-- **COMMITS:**
-  - [f0c1c97](https://github.com/bobs-org/bob-plugins/commit/f0c1c9707c19f10329de68c4c31715866f700b7e)
-    — fix(block-id-prompt): finish landing (( picker and ^^ parity from eq review
 
 # Plan: finish landing `((` (epic `bob-cli-eq`)
 
