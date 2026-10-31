@@ -1,95 +1,87 @@
 ---
 tier: epic
-title: "Project-note seals: @route^id@, @route:id@, and the project successor prompt"
+title: 'Project-note seals: @route^id@, @route:id@, and the project successor prompt'
 goal: 'A project note is sealed with `@`. `@route^id@` creates it, and `@route:id@`
-  creates it and then lets Bryan pick which of its tasks get Pomodoro Task Links in the
-  existing successor choice card. `+` typed after `@route^id` now switches to
-  `@route+id`, like every other separator. Bob Mac Capture draws both sealed markers as
-  one "manila chip" so a project note is easy to spot in a draft.
+  creates it and then lets Bryan pick which of its tasks get Pomodoro Task Links in
+  the existing successor choice card. `+` typed after `@route^id` now switches to
+  `@route+id`, like every other separator. Bob Mac Capture draws both sealed markers
+  as one "manila chip" so a project note is easy to spot in a draft.
 
   '
 decisions:
   initial_marks:
-    ask:
-      When the project successor prompt opens, should every offered task start marked?
+    ask: When the project successor prompt opens, should every offered task start
+      marked?
     choices:
-      none:
-        Nothing marked, as on every successor card; Return links the highlighted task,
-        ⌘A marks all
-      all:
-        Every offer starts marked; Return links them all and Space unmarks the ones to
-        leave out
+      none: Nothing marked, as on every successor card; Return links the highlighted
+        task, ⌘A marks all
+      all: Every offer starts marked; Return links them all and Space unmarks the
+        ones to leave out
     default: none
-    why:
-      A new project usually needs one or two next actions in today's plan, not its whole
-      backlog
+    why: A new project usually needs one or two next actions in today's plan, not
+      its whole backlog
     answer: none
   memory_glossary:
-    ask:
-      Update the Successor Offer and Task Successor glossary strands for @route:id@
+    ask: Update the Successor Offer and Task Successor glossary strands for @route:id@
       project offers?
     memory:
-      - glossary:successor-offer
-      - glossary:task-successor
+    - glossary:successor-offer
+    - glossary:task-successor
     corrects: pick links the task, raises it to Next, and stamps it fresh.
     default: true
     answer: true
 phases:
-  - id: seal_grammar
-    title: Seal the caret project-note form with @ in bob
-    depends_on: []
-    size: medium
-    description:
-      'seal_grammar: bob-cli switches `@route^id+` to `@route^id@` in the execution
-      grammar, editor spans, completion, type markers, and `@@` handling. The old `+`
-      forms are retired with teaching diagnostics. `capture-parse` emits a separator
-      span and the `project_note: "create"` span modifier. `+` after `@route^id` now
-      toggles to `@route+id`. CLI help, docs, and tests are migrated.'
-  - id: offer_form
-    title: "@route:id@ creates the project and offers its tasks"
-    depends_on:
-      - seal_grammar
-    size: large
-    description:
-      'offer_form: bob-cli adds the `@route:id@` grammar with `project_note: "offer"`
-      spans, plus sealed `:`/`^` toggles. The project-note planner offers the new
-      note''s open tasks (never `^prj`) as successor offers in
-      `project_note.successors`, using the existing `-p/--pull-in` and
-      `--require-pull-in-choice` plumbing. A pick renders exactly like a ` :` bullet.
-      Docs, glossary memory, and tests are updated.'
-  - id: mac_seal
-    title: Mac manila-chip highlighting and @ seal migration
-    depends_on:
-      - seal_grammar
-    size: medium
-    description:
-      "mac_seal: Bob Mac Capture decodes the `project_note` span modifier and the new
-      span kinds. It paints the manila chip: a brown wash, brown name and seal, and a
-      green separator and seal for the offer form. It moves picker teaching copy,
-      fake-bob fixtures, and separator-toggle tests from `+` to `@`, and updates the Mac
-      docs."
-  - id: mac_offer_card
-    title: Mac project successor prompt
-    depends_on:
-      - offer_form
-      - mac_seal
-    size: medium
-    description:
-      'mac_offer_card: Bob Mac Capture harvests `project_note.successors` into the
-      existing Pull-In card. The card shows a "New project" context, a folder.badge.plus
-      glyph, and a preview row. It applies the initial-marks decision, keeps
-      notifications free of double counts, regenerates offer-form fixtures from real
-      bob, and updates the Mac docs.'
+- id: seal_grammar
+  title: Seal the caret project-note form with @ in bob
+  depends_on: []
+  size: medium
+  description: 'seal_grammar: bob-cli switches `@route^id+` to `@route^id@` in the
+    execution grammar, editor spans, completion, type markers, and `@@` handling.
+    The old `+` forms are retired with teaching diagnostics. `capture-parse` emits
+    a separator span and the `project_note: "create"` span modifier. `+` after `@route^id`
+    now toggles to `@route+id`. CLI help, docs, and tests are migrated.'
+- id: offer_form
+  title: '@route:id@ creates the project and offers its tasks'
+  depends_on:
+  - seal_grammar
+  size: large
+  description: 'offer_form: bob-cli adds the `@route:id@` grammar with `project_note:
+    "offer"` spans, plus sealed `:`/`^` toggles. The project-note planner offers the
+    new note''s open tasks (never `^prj`) as successor offers in `project_note.successors`,
+    using the existing `-p/--pull-in` and `--require-pull-in-choice` plumbing. A pick
+    renders exactly like a ` :` bullet. Docs, glossary memory, and tests are updated.'
+- id: mac_seal
+  title: Mac manila-chip highlighting and @ seal migration
+  depends_on:
+  - seal_grammar
+  size: medium
+  description: 'mac_seal: Bob Mac Capture decodes the `project_note` span modifier
+    and the new span kinds. It paints the manila chip: a brown wash, brown name and
+    seal, and a green separator and seal for the offer form. It moves picker teaching
+    copy, fake-bob fixtures, and separator-toggle tests from `+` to `@`, and updates
+    the Mac docs.'
+- id: mac_offer_card
+  title: Mac project successor prompt
+  depends_on:
+  - offer_form
+  - mac_seal
+  size: medium
+  description: 'mac_offer_card: Bob Mac Capture harvests `project_note.successors`
+    into the existing Pull-In card. The card shows a "New project" context, a folder.badge.plus
+    glyph, and a preview row. It applies the initial-marks decision, keeps notifications
+    free of double counts, regenerates offer-form fixtures from real bob, and updates
+    the Mac docs.'
 proposed_by: bbugyi200.apollo.bp.f0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-10-31 12:01:09
 status: wip
+bead_id: bob-cli-ex
 ---
 
-- **PROMPT:**
-  [prompts/202610/project_note_seals.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_note_seals.md)
+- **PROMPT:** [prompts/202610/project_note_seals.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/project_note_seals.md)
+- **BEAD:** [bob-cli-ex](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ex/README.md)
 
 # Project-note seals: `@route^id@`, `@route:id@`, and the project successor prompt
 
