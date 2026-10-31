@@ -2,10 +2,9 @@
 tier: tale
 size: small
 title: Fix stale `@route+id#` completion docs and help, then close epic bob-cli-ep
-goal:
-  Every capture-complete doc and help line describes the no-body `@route+id#` and
-  `@route^id#` as task-type completion, and epic bob-cli-ep is closed with its plan
-  marked done.
+goal: Every capture-complete doc and help line describes the no-body `@route+id#`
+  and `@route^id#` as task-type completion, and epic bob-cli-ep is closed with its
+  plan marked done.
 proposed_by: bbugyi200.apollo.bob-cli-ep.land
 proposed_with: claude/opus
 bead: bob-cli-ep
@@ -16,11 +15,6 @@ status: done
   [202610/capture_hash_type_marker.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_hash_type_marker.md)
 - **BEAD:**
   [bob-cli-ep](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ep/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-ep.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ep.land.md)
-- **COMMITS:**
-  - [c7e1f62](https://github.com/bobs-org/bob-cli/commit/c7e1f62a4e79cbeeb8210d4e751c9e40ed78f70c)
-    — docs(capture): fix stale @route+id\# completion help after \#\<type\>
 
 # Plan: Fix stale `@route+id#` completion docs and help, then close `bob-cli-ep`
 
