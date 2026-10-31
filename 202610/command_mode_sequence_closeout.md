@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish command-mode sequence UI and land bob-cli-er
-goal:
-  Command sequences work in the real DOM, preserve single-command behavior, show live
-  history honestly, and bob-cli-er closes after verification.
+goal: Command sequences work in the real DOM, preserve single-command behavior, show
+  live history honestly, and bob-cli-er closes after verification.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-er.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-er
-create_time: 2026-10-30 20:29:01
-status: wip
+status: done
 ---
 
 - **PARENT:**
