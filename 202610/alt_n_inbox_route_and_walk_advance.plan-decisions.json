@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "advance_scope",
+      "kind": "choice",
+      "ask": "Should Alt+N advance the walk from any due walk row, not only the exact `]s` landing?",
+      "why": "It is the rule you stated; both missed Alt+N advances on 10-31 were due rows off the landing",
+      "choices": [
+        {
+          "key": "due_row",
+          "label": "Reworded or hand-reached due rows advance too; a daytime Alt+N on one jumps away"
+        },
+        {
+          "key": "landing",
+          "label": "Only the exact `]s` landing advances, as today; only the inbox routing ships"
+        }
+      ],
+      "default": "due_row",
+      "effective_default": "due_row",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_walk_record",
+      "kind": "toggle",
+      "ask": "Record Alt+N's due-row advance as a decision and mark answering-advances-the-walk superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:answering-advances-the-walk",
+          "decisions:alt-n-answers-from-due-rows"
+        ]
+      },
+      "corrects": "Esc, refusals, no-op writes, unlink, reopen, Reword, status cycling, and anything off a landing stay.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:answering-advances-the-walk",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Answering A Walk Landing Advances The Walk"
+          ]
+        },
+        {
+          "selector": "decisions:alt-n-answers-from-due-rows",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/alt-n-answers-from-due-rows.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_inbox_glossary",
+      "kind": "toggle",
+      "ask": "Update the Inbox File glossary strand so Alt+N is among the keys that route inbox tasks?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:inbox-file"
+        ]
+      },
+      "corrects": "every non-closing Ctrl+Shift+P answer and a Ctrl+Shift+Enter toggle on the task line ask where the task goes just before writing",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:inbox-file",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Inbox File",
+            "Capture",
+            "Project Note",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_inbox_record",
+      "kind": "toggle",
+      "ask": "Also write the pending inbox-routing decision record (bead bob-cli-4t), including Alt+N, and close that bead?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:inbox-answers-route-first"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:inbox-answers-route-first",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/inbox-answers-route-first.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
