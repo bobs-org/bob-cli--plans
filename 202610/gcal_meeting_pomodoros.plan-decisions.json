@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "past_grouping",
+      "kind": "choice",
+      "ask": "Should sync merge back-to-back or overlapping past meetings into one closed MEET entry?",
+      "why": "Groups as far as one truthful span allows; one entry across a gap would log the gap as meetings",
+      "choices": [
+        {
+          "key": "clusters",
+          "label": "One closed entry per run of touching meetings; Stats splits a merged entry's minutes evenly"
+        },
+        {
+          "key": "per_event",
+          "label": "One closed entry per meeting with its exact span; more rows, and double-booked time counts twice"
+        }
+      ],
+      "default": "clusters",
+      "effective_default": "clusters",
+      "requested_verified": false
+    },
+    {
+      "id": "open_meet_entries",
+      "kind": "choice",
+      "ask": "Should a running meeting and later meetings get separate open MEET entries even if two MEETs are open?",
+      "why": "Keeps the plan lint quiet; Event Task clock close already splits a shared MEET entry on x",
+      "choices": [
+        {
+          "key": "one_open",
+          "label": "Never a second open MEET; later meetings ride the running MEET and carry to a placeholder on x"
+        },
+        {
+          "key": "separate",
+          "label": "Running MEET plus MEET placeholder; duplicate_open_pomodoro_name lints while both are open"
+        }
+      ],
+      "default": "one_open",
+      "effective_default": "one_open",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_meet_record",
+      "kind": "toggle",
+      "ask": "Should a new decision record supersede in part the one-appended-MEET claim for synced meetings?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:calendar-events-are-daily-note-event-tasks",
+          "decisions:synced-meetings-link-by-phase"
+        ]
+      },
+      "corrects": "Synced calendar events live in their daily note's Events section with root attribution and one appended MEET.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:calendar-events-are-daily-note-event-tasks",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Calendar Events Are Daily Note Event Tasks"
+          ]
+        },
+        {
+          "selector": "decisions:synced-meetings-link-by-phase",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/synced-meetings-link-by-phase.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
