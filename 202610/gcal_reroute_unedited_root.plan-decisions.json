@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "reroute_sources",
+      "kind": "choice",
+      "ask": "Should colour, calendar, and default changes reroute unedited rows too, not just @route tokens?",
+      "why": "Mirrors how time and title already follow Google while unedited",
+      "choices": [
+        {
+          "key": "google",
+          "label": "Any non-series-memory source reroutes unedited rows, including token removal"
+        },
+        {
+          "key": "token_only",
+          "label": "Only a changed @route token reroutes; other sources affect new rows only"
+        }
+      ],
+      "default": "google",
+      "effective_default": "google",
+      "requested_verified": false
+    },
+    {
+      "id": "worked_rows",
+      "kind": "choice",
+      "ask": "Should rerouting also apply to done or already-worked rows?",
+      "why": "Spans already update regardless of checkbox; a late token should fix attribution",
+      "choices": [
+        {
+          "key": "any",
+          "label": "Any row whose [root::] you did not edit is rerouted, fixing a finished meeting too"
+        },
+        {
+          "key": "open_only",
+          "label": "Only open, unworked rows reroute; logged meetings keep their attribution"
+        }
+      ],
+      "default": "any",
+      "effective_default": "any",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_root_decision",
+      "kind": "toggle",
+      "ask": "Add a decisions record that [root::] follows Google until edited, superseding the old clause in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "corrects": "the vault owns the checkbox, `[root::]`, children, and the row itself",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Event Task Links Close By The Clock",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Note Ready Cap Counts The Lane",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
