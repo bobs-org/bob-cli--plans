@@ -1,20 +1,17 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish cli-directives landing: dead clip-control plumbing, stale %l/%c prose, %n
-  detail parity, then close bob-cli-ey.1.1 and bob-cli-ey.1"
-goal:
-  "The cli-directives epic lands clean: no dead parse_clip_markers or _with_clip_control
+title: 'Finish cli-directives landing: dead clip-control plumbing, stale %l/%c prose,
+  %n detail parity, then close bob-cli-ey.1.1 and bob-cli-ey.1'
+goal: 'The cli-directives epic lands clean: no dead parse_clip_markers or _with_clip_control
   plumbing survives, every doc and doc comment teaches `URL %l` and `%c` instead of
-  retired listen and clip spellings, the `%n` completion detail names the Pomodoro that
-  `%n` execution writes to, and epic bob-cli-ey.1.1 plus its parent phase bob-cli-ey.1
-  are closed with their verification recorded."
+  retired listen and clip spellings, the `%n` completion detail names the Pomodoro
+  that `%n` execution writes to, and epic bob-cli-ey.1.1 plus its parent phase bob-cli-ey.1
+  are closed with their verification recorded.'
 proposed_by: bbugyi200.apollo.bob-cli-ey.1.1.land
 proposed_with: claude/opus
 bead: bob-cli-ey.1.1
-create_time: 2026-10-31 22:37:13
-status: wip
+status: done
 ---
 
 - **PARENT:**
