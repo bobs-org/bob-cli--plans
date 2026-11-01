@@ -1,57 +1,53 @@
 ---
 tier: epic
 title: Bob Mac Capture directive menus and clipboard previews
-goal:
-  Complete bob-cli-ey.3 with unselected directive and type menus, a grammar-2
+goal: Complete bob-cli-ey.3 with unselected directive and type menus, a grammar-2
   compatibility gate, real clipboard previews, and no retired capture paths.
 phases:
-  - id: wire-fixtures
-    title: Decode the directive contract and generate current wire fixtures
-    size: medium
-    depends_on: []
-    description:
-      "wire-fixtures: add grammar, initial_selection, directive spans and candidates,
-      and clip status decoding; migrate template.directive and route-only global
-      destinations; generate truthful directive and clipboard fixtures from the current
-      Bob binary."
-  - id: retire-syntax
-    title: Remove retired Mac capture paths and migrate their scenarios
-    size: medium
-    depends_on:
-      - wire-fixtures
-    description:
-      "retire-syntax: delete template-start rewrites, the template route row, global
-      parent routing, and retired span mappings; migrate affected fake-bob scenarios,
-      generated fixtures, tests, and documentation to percent directives."
-  - id: menus-gate
-    title: Implement unselected menus, directive rows, and the grammar gate
-    size: medium
-    depends_on:
-      - retire-syntax
-    description:
-      "menus-gate: honor initial_selection across completion contexts, render
-      Bob-authored directive rows and bare-hash type menus, style directive spans, and
-      require grammar at least 2 for capture without losing the draft."
-  - id: clip-preview
-    title: Read clips in live preview and render the Clip card
-    size: medium
-    depends_on:
-      - menus-gate
-    description:
-      "clip-preview: authorize live clipboard reads only from the current Bob parse,
-      refresh on activation and pasteboard counter changes, render all clip modes and
-      not_read, and complete the Mac preview documentation and regression coverage."
+- id: wire-fixtures
+  title: Decode the directive contract and generate current wire fixtures
+  size: medium
+  depends_on: []
+  description: 'wire-fixtures: add grammar, initial_selection, directive spans and
+    candidates, and clip status decoding; migrate template.directive and route-only
+    global destinations; generate truthful directive and clipboard fixtures from the
+    current Bob binary.'
+- id: retire-syntax
+  title: Remove retired Mac capture paths and migrate their scenarios
+  size: medium
+  depends_on:
+  - wire-fixtures
+  description: 'retire-syntax: delete template-start rewrites, the template route
+    row, global parent routing, and retired span mappings; migrate affected fake-bob
+    scenarios, generated fixtures, tests, and documentation to percent directives.'
+- id: menus-gate
+  title: Implement unselected menus, directive rows, and the grammar gate
+  size: medium
+  depends_on:
+  - retire-syntax
+  description: 'menus-gate: honor initial_selection across completion contexts, render
+    Bob-authored directive rows and bare-hash type menus, style directive spans, and
+    require grammar at least 2 for capture without losing the draft.'
+- id: clip-preview
+  title: Read clips in live preview and render the Clip card
+  size: medium
+  depends_on:
+  - menus-gate
+  description: 'clip-preview: authorize live clipboard reads only from the current
+    Bob parse, refresh on activation and pasteboard counter changes, render all clip
+    modes and not_read, and complete the Mac preview documentation and regression
+    coverage.'
 proposed_by: bbugyi200.apollo.bob-cli-ey.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ey.3
 create_time: 2026-10-31 23:32:57
 status: wip
+bead_id: bob-cli-ey.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202610/mac_directives.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_directives.md)
-- **PARENT:**
-  [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **PROMPT:** [prompts/202610/mac_directives.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202610/mac_directives.md)
+- **PARENT:** [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **BEAD:** [bob-cli-ey.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ey/bob-cli-ey.3.1.md)
 
 # Bob Mac Capture directives: implementation child epic for bob-cli-ey.3
 
