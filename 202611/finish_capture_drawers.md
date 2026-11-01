@@ -1,69 +1,65 @@
 ---
 tier: epic
 title: Finish capture drawers (bob-cli-ey landing repairs)
-goal: "The drawer contract from the parent epic is fully shipped. `Text
-  @foo+bar#requirements #fix` files the note and retypes `^bar` in one transaction.
-  Drawer creation writes clean Markdown. bob reports the drawer object, the drawer span
-  fields, refusal codes, the near-catalog warning, and the full drawer menu. Bob Mac
-  Capture's fixtures are generated from that real bob, and macOS CI fails only
-  bob-cli-f3's seven baseline tests.
+goal: 'The drawer contract from the parent epic is fully shipped. `Text @foo+bar#requirements
+  #fix` files the note and retypes `^bar` in one transaction. Drawer creation writes
+  clean Markdown. bob reports the drawer object, the drawer span fields, refusal codes,
+  the near-catalog warning, and the full drawer menu. Bob Mac Capture''s fixtures
+  are generated from that real bob, and macOS CI fails only bob-cli-f3''s seven baseline
+  tests.
 
-  "
+  '
 phases:
-  - id: drawer-writes
-    title: bob-cli drawer writes, retype, capture output, and refusal codes
-    depends_on: []
-    size: medium
-    description:
-      "drawer-writes: let a separate #type on a body-bearing @route+id item retype the
-      target in the same transaction. Fix the stray blank line written when a drawer is
-      created. Replace parent_section with a per-item drawer {title, key, created}
-      object and show 'new drawer' plus the type row in human and dry-run output. Add
-      title/key to drawer spans, JSON codes to every drawer refusal, and the
-      drawer_near_catalog warning."
-  - id: drawer-menu
-    title: bob-cli full drawer completion menu and drawer vocabulary sweep
-    depends_on:
-      - drawer-writes
-    size: medium
-    description:
-      "drawer-menu: build the drawer completion menu: task, recent, and new groups;
-      bob-authored detail, consequence, and refused copy; a replacement that covers the
-      # and the name; and initial_selection none on an empty query. Rename the leftover
-      'task sections' shell group and docs wording to drawers."
-  - id: mac-ci-regressions
-    title: Bob Mac Capture macOS test regressions from the directive and drawer phases
-    depends_on: []
-    size: medium
-    description:
-      "mac-ci-regressions: fix the twelve macOS-hosted XCTest regressions that the
-      mac-directives and mac-drawers phases introduced (explicit completion submit, Open
-      Hint, template shelf, unselected type menu). Leave bob-cli-f3's seven baseline
-      failures alone. Verify with a macOS CI run."
-  - id: mac-drawer-fixtures
-    title: Bob Mac Capture real drawer fixtures and migrated task-type generator
-    depends_on:
-      - drawer-writes
-      - drawer-menu
-      - mac-ci-regressions
-    size: medium
-    description:
-      "mac-drawer-fixtures: regenerate the drawer fixtures from a bob that contains
-      drawer-writes and drawer-menu, and retire the synthetic drawer-contract overlays
-      and the parent_section fallback. Move generate-task-type-fixtures.sh off the
-      retired attached #type forms, regenerate the task-type fixtures at grammar 3,
-      update fake-bob and tests, and verify on macOS CI."
+- id: drawer-writes
+  title: bob-cli drawer writes, retype, capture output, and refusal codes
+  depends_on: []
+  size: medium
+  description: 'drawer-writes: let a separate #type on a body-bearing @route+id item
+    retype the target in the same transaction. Fix the stray blank line written when
+    a drawer is created. Replace parent_section with a per-item drawer {title, key,
+    created} object and show ''new drawer'' plus the type row in human and dry-run
+    output. Add title/key to drawer spans, JSON codes to every drawer refusal, and
+    the drawer_near_catalog warning.'
+- id: drawer-menu
+  title: bob-cli full drawer completion menu and drawer vocabulary sweep
+  depends_on:
+  - drawer-writes
+  size: medium
+  description: 'drawer-menu: build the drawer completion menu: task, recent, and new
+    groups; bob-authored detail, consequence, and refused copy; a replacement that
+    covers the # and the name; and initial_selection none on an empty query. Rename
+    the leftover ''task sections'' shell group and docs wording to drawers.'
+- id: mac-ci-regressions
+  title: Bob Mac Capture macOS test regressions from the directive and drawer phases
+  depends_on: []
+  size: medium
+  description: 'mac-ci-regressions: fix the twelve macOS-hosted XCTest regressions
+    that the mac-directives and mac-drawers phases introduced (explicit completion
+    submit, Open Hint, template shelf, unselected type menu). Leave bob-cli-f3''s
+    seven baseline failures alone. Verify with a macOS CI run.'
+- id: mac-drawer-fixtures
+  title: Bob Mac Capture real drawer fixtures and migrated task-type generator
+  depends_on:
+  - drawer-writes
+  - drawer-menu
+  - mac-ci-regressions
+  size: medium
+  description: 'mac-drawer-fixtures: regenerate the drawer fixtures from a bob that
+    contains drawer-writes and drawer-menu, and retire the synthetic drawer-contract
+    overlays and the parent_section fallback. Move generate-task-type-fixtures.sh
+    off the retired attached #type forms, regenerate the task-type fixtures at grammar
+    3, update fake-bob and tests, and verify on macOS CI.'
 proposed_by: bbugyi200.apollo.bob-cli-ey.land
 proposed_with: claude/opus
 parent_bead: bob-cli-ey
 create_time: 2026-11-01 03:50:51
 status: wip
+bead_id: bob-cli-ey.7
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_capture_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_capture_drawers.md)
-- **PARENT:**
-  [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **PROMPT:** [prompts/202611/finish_capture_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_capture_drawers.md)
+- **PARENT:** [202610/capture_drawers_and_directives.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/capture_drawers_and_directives.md)
+- **BEAD:** [bob-cli-ey.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ey/bob-cli-ey.7.md)
 
 # Plan: Finish capture drawers (bob-cli-ey landing repairs)
 
