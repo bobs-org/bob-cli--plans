@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Finish sealed project-offer refusal and incomplete editor contracts
-goal: Route-less sealed offers refuse capture without writing, every recognized sealed
-  offer keeps its project mode while requesting missing fields, and bob-cli-ex.2.1
-  and its parent phase complete their normal closeout.
+goal:
+  Route-less sealed offers refuse capture without writing, every recognized sealed offer
+  keeps its project mode while requesting missing fields, and bob-cli-ex.2.1 and its
+  parent phase complete their normal closeout.
 proposed_by: bbugyi200.apollo.bob-cli-ex.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ex.2.1
@@ -13,6 +14,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-ex.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ex/bob-cli-ex.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ex.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ex.2.1.land.md)
+- **COMMITS:**
+  - [f411232](https://github.com/bobs-org/bob-cli/commit/f41123201f285887d63e1ed50802c7bd118e38d0)
+    — fix(capture): refuse route-less sealed offers and keep offer mode while incomplete
 
 # Remaining work for bob-cli-ex.2.1
 
