@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish task link marks and close bob-cli-f5
-goal:
-  Repair task link eligibility and reduced motion, prove natural refresh and one swap,
-  and close bob-cli-f5.
+goal: Repair task link eligibility and reduced motion, prove natural refresh and one
+  swap, and close bob-cli-f5.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-f5.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-f5
-create_time: 2026-11-01 11:46:40
-status: wip
+status: done
 ---
 
 - **PARENT:**
