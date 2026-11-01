@@ -1,13 +1,15 @@
 ---
 tier: tale
 size: medium
-title: 'Finish cli-directives landing: dead clip-control plumbing, stale %l/%c prose,
-  %n detail parity, then close bob-cli-ey.1.1 and bob-cli-ey.1'
-goal: 'The cli-directives epic lands clean: no dead parse_clip_markers or _with_clip_control
+title:
+  "Finish cli-directives landing: dead clip-control plumbing, stale %l/%c prose, %n
+  detail parity, then close bob-cli-ey.1.1 and bob-cli-ey.1"
+goal:
+  "The cli-directives epic lands clean: no dead parse_clip_markers or _with_clip_control
   plumbing survives, every doc and doc comment teaches `URL %l` and `%c` instead of
-  retired listen and clip spellings, the `%n` completion detail names the Pomodoro
-  that `%n` execution writes to, and epic bob-cli-ey.1.1 plus its parent phase bob-cli-ey.1
-  are closed with their verification recorded.'
+  retired listen and clip spellings, the `%n` completion detail names the Pomodoro that
+  `%n` execution writes to, and epic bob-cli-ey.1.1 plus its parent phase bob-cli-ey.1
+  are closed with their verification recorded."
 proposed_by: bbugyi200.apollo.bob-cli-ey.1.1.land
 proposed_with: claude/opus
 bead: bob-cli-ey.1.1
@@ -18,6 +20,11 @@ status: done
   [202610/cli_directives_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202610/cli_directives_split.md)
 - **BEAD:**
   [bob-cli-ey.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ey/bob-cli-ey.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ey.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ey.1.1.land.md)
+- **COMMITS:**
+  - [a1dcb64](https://github.com/bobs-org/bob-cli/commit/a1dcb64eee30a3e7f45b0555be8cf60b940d85e1)
+    — refactor(capture): finish cli-directives cleanup
 
 # Plan: finish the `cli-directives` landing
 
