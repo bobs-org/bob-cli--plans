@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish Work Log clock semantics and land bob-cli-fd
-goal:
-  Navigation Work Logs use the commit instant, previews refresh their stamps, and
-  bob-cli-fd is verified, deployed, and closed.
+goal: Navigation Work Logs use the commit instant, previews refresh their stamps,
+  and bob-cli-fd is verified, deployed, and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fd.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fd
-create_time: 2026-11-01 18:00:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
