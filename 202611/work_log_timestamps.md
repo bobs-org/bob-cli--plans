@@ -1,83 +1,78 @@
 ---
 tier: epic
 title: Timestamped Work Log entries
-goal: "Every new Work Log entry, from any of Bob's four writers, opens with one italic
-  `*YYYY-MM-DD HH:MM*` stamp of the minute it was written. Older date-only entries stay
-  valid and untouched, and every reader handles both forms the same way.
+goal: 'Every new Work Log entry, from any of Bob''s four writers, opens with one italic
+  `*YYYY-MM-DD HH:MM*` stamp of the minute it was written. Older date-only entries
+  stay valid and untouched, and every reader handles both forms the same way.
 
-  "
+  '
 decisions:
   stamp_style:
     ask: How should the Work Log stamp read?
     choices:
-      iso:
-        "`*2026-11-01 14:32* — …`: matches BOB_NOW and gcal's synced stamp; narrowest
-        rows"
-      weekday:
-        "`*Sun 2026-11-01 14:32* — …`: adds the weekday for skimming; 4 chars wider per
-        row"
+      iso: '`*2026-11-01 14:32* — …`: matches BOB_NOW and gcal''s synced stamp; narrowest
+        rows'
+      weekday: '`*Sun 2026-11-01 14:32* — …`: adds the weekday for skimming; 4 chars
+        wider per row'
     default: iso
-    why:
-      Bob already writes date-times as YYYY-MM-DD HH:MM, which sorts and greps as text
+    why: Bob already writes date-times as YYYY-MM-DD HH:MM, which sorts and greps
+      as text
     answer: iso
   memory_decision_record:
     ask: Add a decisions record that Work Log entries carry a write-instant stamp?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_work_log:
     ask: Mention the entry stamp in the Work Log glossary term?
     memory:
-      - glossary:work-log
+    - glossary:work-log
     default: false
     answer: false
 phases:
-  - id: mac-strip
-    title: Bob Mac Capture strips both stamp forms
-    depends_on: []
-    size: small
-    description:
-      "mac-strip: make the close card's Work Log stripper accept stamped and date-only
-      entries strictly, with vector tests and the previews doc, before bob starts
-      emitting stamps."
-  - id: nav-stamp
-    title: Navigation hotkeys read and write stamps
-    depends_on: []
-    size: medium
-    description:
-      "nav-stamp: teach the lane-walk chip to read and show stamps, then stamp every
-      bob-navigation-hotkeys Work Log writer and preview from one commit-time clock read
-      per gesture."
-  - id: cli-stamp
-    title: bob capture close stamps entries and owns the grammar docs
-    depends_on:
-      - mac-strip
-      - nav-stamp
-    size: medium
-    description:
-      "cli-stamp: stamp capture `x` close entries from the close's own `now`, publish
-      the canonical entry grammar in vault-format.md, refresh the capture/plan/projects
-      docs, and mark the JSON shape change with `!`."
-  - id: cycler-stamp
-    title: Unlink prompt and Pomodoro checkbox close write stamps
-    depends_on:
-      - nav-stamp
-    size: medium
-    description:
-      "cycler-stamp: stamp block-id-prompt's unlink Work Log and task-status-cycler's
-      Pomodoro close entries from one commit-time clock read, replacing the
-      daily-note-filename date."
+- id: mac-strip
+  title: Bob Mac Capture strips both stamp forms
+  depends_on: []
+  size: small
+  description: 'mac-strip: make the close card''s Work Log stripper accept stamped
+    and date-only entries strictly, with vector tests and the previews doc, before
+    bob starts emitting stamps.'
+- id: nav-stamp
+  title: Navigation hotkeys read and write stamps
+  depends_on: []
+  size: medium
+  description: 'nav-stamp: teach the lane-walk chip to read and show stamps, then
+    stamp every bob-navigation-hotkeys Work Log writer and preview from one commit-time
+    clock read per gesture.'
+- id: cli-stamp
+  title: bob capture close stamps entries and owns the grammar docs
+  depends_on:
+  - mac-strip
+  - nav-stamp
+  size: medium
+  description: 'cli-stamp: stamp capture `x` close entries from the close''s own `now`,
+    publish the canonical entry grammar in vault-format.md, refresh the capture/plan/projects
+    docs, and mark the JSON shape change with `!`.'
+- id: cycler-stamp
+  title: Unlink prompt and Pomodoro checkbox close write stamps
+  depends_on:
+  - nav-stamp
+  size: medium
+  description: 'cycler-stamp: stamp block-id-prompt''s unlink Work Log and task-status-cycler''s
+    Pomodoro close entries from one commit-time clock read, replacing the daily-note-filename
+    date.'
 proposed_by: bbugyi200.apollo.c3
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 15:12:22
 status: wip
+bead_id: bob-cli-fd
 ---
 
-- **PROMPT:**
-  [prompts/202611/work_log_timestamps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/work_log_timestamps.md)
+- **PROMPT:** [prompts/202611/work_log_timestamps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/work_log_timestamps.md)
+- **BEAD:** [bob-cli-fd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fd/README.md)
 
 # Plan: Timestamped Work Log entries
 
