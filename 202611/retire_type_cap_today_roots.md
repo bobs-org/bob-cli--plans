@@ -1,12 +1,12 @@
 ---
 tier: epic
 title: Retire the daily type cap and show Today's root parents
-goal: "No Bob surface counts, caps, warns about, or refuses daily task types any more
+goal: 'No Bob surface counts, caps, warns about, or refuses daily task types any more
   (plan.max_themes and plan.strict are gone; the Task Link cap stays), and the daily
-  bob-plan block plus `bob plan` show which root parents today's planned work goes to,
-  as a concise, hue-ringed line after the ★ type line.
+  bob-plan block plus `bob plan` show which root parents today''s planned work goes
+  to, as a concise, hue-ringed line after the ★ type line.
 
-  "
+  '
 decisions:
   root_counts:
     ask: Should each root on the new roots line show how many Today tasks it holds?
@@ -22,73 +22,68 @@ decisions:
       area: Stable area hue, like the ledger home chips; same-area roots share a colour
       strip: The Day strip's distinct bar colour when worked today; may change mid-day
     default: area
-    why:
-      Labels already identify roots; a stable identity colour beats one that shifts all
-      day.
+    why: Labels already identify roots; a stable identity colour beats one that shifts
+      all day.
     answer: area
   memory_decision_record:
     ask: Add a decisions record that the daily plan caps Task Links only, never types?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: mac-drop-type-meter
-    title: Bob Mac Capture stops showing the type cap
-    depends_on: []
-    size: small
-    description:
-      "mac-drop-type-meter: in bob-mac-capture, drop the Types capsule, the +N type
-      delta chip, and the red after/cap completion badge, decode old and new bob budget
-      JSON, update tests and docs, and compile per AGENTS.md."
-  - id: cli-drop-type-cap
-    title: bob-cli retires plan.max_themes and plan.strict
-    depends_on: []
-    size: medium
-    description:
-      "cli-drop-type-cap: remove the type cap from bob-cli config, plan budget, capture,
-      routing contract, every strict refusal path, completion previews, reconcile
-      output, tests, fixtures, and docs; bump bob plan JSON to schema 3; clean Bryan's
-      chezmoi config; optionally add the decision record."
-  - id: cli-today-roots
-    title: bob plan reports and prints Today roots
-    depends_on:
-      - cli-drop-type-cap
-    size: medium
-    description:
-      "cli-today-roots: write the Today roots contract in docs/plan.md, compute
-      today_roots in Rust from today_tasks via the Pomodoro home resolver, print the
-      ROOTS line, and add shared today_roots conformance vectors."
-  - id: plugins-drop-type-cap
-    title: bob-plugins retires the type cap
-    depends_on:
-      - cli-drop-type-cap
-    size: medium
-    description:
-      "plugins-drop-type-cap: mirror the cap removal across bob-ledger-tools,
-      block-id-prompt, bob-navigation-hotkeys, and task-status-cycler (TODAY L/Lc chip,
-      caps API, routing, pickers, notices), copy the routing vectors, update tests and
-      docs, and sync."
-  - id: plugins-today-roots
-    title: The roots line in the bob-plan block
-    depends_on:
-      - cli-today-roots
-      - plugins-drop-type-cap
-    size: medium
-    description:
-      "plugins-today-roots: add a pure planTodayRoots model, paint the ringed roots line
-      after the ★ type line with click-to-open, styles, and repaint wiring, and run the
-      shared today_roots vectors plus DOM tests, then sync."
+- id: mac-drop-type-meter
+  title: Bob Mac Capture stops showing the type cap
+  depends_on: []
+  size: small
+  description: 'mac-drop-type-meter: in bob-mac-capture, drop the Types capsule, the
+    +N type delta chip, and the red after/cap completion badge, decode old and new
+    bob budget JSON, update tests and docs, and compile per AGENTS.md.'
+- id: cli-drop-type-cap
+  title: bob-cli retires plan.max_themes and plan.strict
+  depends_on: []
+  size: medium
+  description: 'cli-drop-type-cap: remove the type cap from bob-cli config, plan budget,
+    capture, routing contract, every strict refusal path, completion previews, reconcile
+    output, tests, fixtures, and docs; bump bob plan JSON to schema 3; clean Bryan''s
+    chezmoi config; optionally add the decision record.'
+- id: cli-today-roots
+  title: bob plan reports and prints Today roots
+  depends_on:
+  - cli-drop-type-cap
+  size: medium
+  description: 'cli-today-roots: write the Today roots contract in docs/plan.md, compute
+    today_roots in Rust from today_tasks via the Pomodoro home resolver, print the
+    ROOTS line, and add shared today_roots conformance vectors.'
+- id: plugins-drop-type-cap
+  title: bob-plugins retires the type cap
+  depends_on:
+  - cli-drop-type-cap
+  size: medium
+  description: 'plugins-drop-type-cap: mirror the cap removal across bob-ledger-tools,
+    block-id-prompt, bob-navigation-hotkeys, and task-status-cycler (TODAY L/Lc chip,
+    caps API, routing, pickers, notices), copy the routing vectors, update tests and
+    docs, and sync.'
+- id: plugins-today-roots
+  title: The roots line in the bob-plan block
+  depends_on:
+  - cli-today-roots
+  - plugins-drop-type-cap
+  size: medium
+  description: 'plugins-today-roots: add a pure planTodayRoots model, paint the ringed
+    roots line after the ★ type line with click-to-open, styles, and repaint wiring,
+    and run the shared today_roots vectors plus DOM tests, then sync.'
 proposed_by: bbugyi200.apollo.by
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 12:12:33
 status: wip
+bead_id: bob-cli-f9
 ---
 
-- **PROMPT:**
-  [prompts/202611/retire_type_cap_today_roots.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/retire_type_cap_today_roots.md)
+- **PROMPT:** [prompts/202611/retire_type_cap_today_roots.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/retire_type_cap_today_roots.md)
+- **BEAD:** [bob-cli-f9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-f9/README.md)
 
 # Retire the daily type cap and show Today's root parents
 
