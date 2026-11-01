@@ -1,58 +1,55 @@
 ---
 tier: epic
-title:
-  Keep leaf projects moving — offer a sub-project's ready tasks when its last planned
-  task closes
-goal: "When any managed Done gesture, on any surface, closes the task behind a leaf
-  project's last live Task Link in today's Pomodoros, Bob offers that project's ready
-  tasks in one picker. The picker says plainly why it appeared and that the rows are not
-  dependents. Rust and the JS cycler apply one rule, pinned by shared vectors. Obsidian,
-  `bob capture`, and Bob Mac Capture present it with one copy and visual system.
+title: Keep leaf projects moving — offer a sub-project's ready tasks when its last
+  planned task closes
+goal: 'When any managed Done gesture, on any surface, closes the task behind a leaf
+  project''s last live Task Link in today''s Pomodoros, Bob offers that project''s
+  ready tasks in one picker. The picker says plainly why it appeared and that the
+  rows are not dependents. Rust and the JS cycler apply one rule, pinned by shared
+  vectors. Obsidian, `bob capture`, and Bob Mac Capture present it with one copy and
+  visual system.
 
-  "
+  '
 phases:
-  - id: contract
-    title: Contract, glossary, and docs
-    depends_on: []
-    size: medium
-    description:
-      "contract: pin the leaf-project definition, the keep_moving trigger, rule,
-      reporting, copy, kill switch, and KM/LP vectors in bob-cli docs, and apply the
-      accepted memory decisions."
-  - id: rust
-    title: Rust engine and capture reporting
-    depends_on:
-      - contract
-    size: large
-    description:
-      "rust: implement leaf detection, the last_planned trigger, keep_moving offers,
-      picks, net pass, plan.keep_moving, and the JSON and human output in bob capture."
-  - id: nav
-    title: Obsidian picker and notice presentation
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "nav: teach bob-navigation-hotkeys' successor picker (v2) and Unblocked card
-      (notice v2) to render keep_moving groups, captions, folds, and lane names."
-  - id: cycler
-    title: Obsidian cycler engine
-    depends_on:
-      - contract
-      - nav
-    size: large
-    description:
-      "cycler: port the rule to task-status-cycler for every Obsidian close surface.
-      Covers leaf detection, gates, offers, the picker model, notice text, the receipt,
-      and the config loader."
-  - id: mac
-    title: Bob Mac Capture presentation
-    depends_on:
-      - rust
-    size: medium
-    description:
-      "mac: decode keep_moving arrays and present them in the Pull-In card, preview
-      cards, block-diff badges, and notification line, with fixtures from a real bob."
+- id: contract
+  title: Contract, glossary, and docs
+  depends_on: []
+  size: medium
+  description: 'contract: pin the leaf-project definition, the keep_moving trigger,
+    rule, reporting, copy, kill switch, and KM/LP vectors in bob-cli docs, and apply
+    the accepted memory decisions.'
+- id: rust
+  title: Rust engine and capture reporting
+  depends_on:
+  - contract
+  size: large
+  description: 'rust: implement leaf detection, the last_planned trigger, keep_moving
+    offers, picks, net pass, plan.keep_moving, and the JSON and human output in bob
+    capture.'
+- id: nav
+  title: Obsidian picker and notice presentation
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav: teach bob-navigation-hotkeys'' successor picker (v2) and Unblocked
+    card (notice v2) to render keep_moving groups, captions, folds, and lane names.'
+- id: cycler
+  title: Obsidian cycler engine
+  depends_on:
+  - contract
+  - nav
+  size: large
+  description: 'cycler: port the rule to task-status-cycler for every Obsidian close
+    surface. Covers leaf detection, gates, offers, the picker model, notice text,
+    the receipt, and the config loader.'
+- id: mac
+  title: Bob Mac Capture presentation
+  depends_on:
+  - rust
+  size: medium
+  description: 'mac: decode keep_moving arrays and present them in the Pull-In card,
+    preview cards, block-diff badges, and notification line, with fixtures from a
+    real bob.'
 decisions:
   offer_lanes:
     ask: Which lanes should a keep-moving offer list from the leaf project?
@@ -60,23 +57,20 @@ decisions:
       open: Pending, Next, and Ready tasks, in that pull order
       ready: Only Ready tasks; Next and Pending residents are left out
     default: open
-    why:
-      Next and Pending tasks are already commitments, so leaving them out hides the
-      likeliest pick
+    why: Next and Pending tasks are already commitments, so leaving them out hides
+      the likeliest pick
     answer: open
   memory_glossary:
-    ask:
-      Add the Leaf Project glossary term and extend Successor Offer and Task Successor?
+    ask: Add the Leaf Project glossary term and extend Successor Offer and Task Successor?
     memory:
-      - glossary
+    - glossary
     default: true
     requested: We should add a good new glossary term for "leaf project".
     answer: true
   memory_decision_record:
-    ask:
-      Record this design as a new decision record, decisions:leaf-projects-keep-moving?
+    ask: Record this design as a new decision record, decisions:leaf-projects-keep-moving?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.bz
@@ -85,10 +79,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 12:29:32
 status: wip
+bead_id: bob-cli-fb
 ---
 
-- **PROMPT:**
-  [prompts/202611/leaf_project_keep_moving_offers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/leaf_project_keep_moving_offers.md)
+- **PROMPT:** [prompts/202611/leaf_project_keep_moving_offers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/leaf_project_keep_moving_offers.md)
+- **BEAD:** [bob-cli-fb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fb/README.md)
 
 # Plan: Keep leaf projects moving
 
