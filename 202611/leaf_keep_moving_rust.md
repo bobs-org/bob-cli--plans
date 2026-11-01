@@ -1,47 +1,43 @@
 ---
 tier: epic
 title: Finish Rust leaf-project keep-moving offers
-goal:
-  Complete bob-cli-fb.2 with tested leaf detection, successor offers, capture selection
-  and reporting, correct batch behavior, and verified performance.
+goal: Complete bob-cli-fb.2 with tested leaf detection, successor offers, capture
+  selection and reporting, correct batch behavior, and verified performance.
 phases:
-  - id: engine
-    title: Implement the keep-moving successor engine
-    size: medium
-    depends_on: []
-    description:
-      "engine: implement leaf detection, cost gates, K1-K8, candidate classification,
-      stable ordering, picks, and separate keep-moving rows in the shared Rust engine,
-      with LP and pure KM tests."
-  - id: capture
-    title: Connect capture planning and the JSON contract
-    size: medium
-    depends_on:
-      - engine
-    description:
-      "capture: wire both capture close paths, dependency completeness, config, separate
-      JSON arrays, selection and refusal, group folds, task-block roles, and Pomodoro
-      diff reasons; add focused CLI tests."
-  - id: finish
-    title: Complete batch semantics, human output, and verification
-    size: medium
-    depends_on:
-      - capture
-    description:
-      "finish: implement KM21 with later-item provenance, render the approved human
-      copy, complete cross-surface regression coverage, and verify repository gates and
-      the release-mode performance target."
+- id: engine
+  title: Implement the keep-moving successor engine
+  size: medium
+  depends_on: []
+  description: 'engine: implement leaf detection, cost gates, K1-K8, candidate classification,
+    stable ordering, picks, and separate keep-moving rows in the shared Rust engine,
+    with LP and pure KM tests.'
+- id: capture
+  title: Connect capture planning and the JSON contract
+  size: medium
+  depends_on:
+  - engine
+  description: 'capture: wire both capture close paths, dependency completeness, config,
+    separate JSON arrays, selection and refusal, group folds, task-block roles, and
+    Pomodoro diff reasons; add focused CLI tests.'
+- id: finish
+  title: Complete batch semantics, human output, and verification
+  size: medium
+  depends_on:
+  - capture
+  description: 'finish: implement KM21 with later-item provenance, render the approved
+    human copy, complete cross-surface regression coverage, and verify repository
+    gates and the release-mode performance target.'
 proposed_by: bbugyi200.apollo.bob-cli-fb.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fb.2
 create_time: 2026-11-01 13:00:25
 status: wip
+bead_id: bob-cli-fb.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/leaf_keep_moving_rust.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/leaf_keep_moving_rust.md)
-- **PARENT:**
-  [202611/leaf_project_keep_moving_offers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/leaf_project_keep_moving_offers.md)
+- **PROMPT:** [prompts/202611/leaf_keep_moving_rust.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/leaf_keep_moving_rust.md)
+- **PARENT:** [202611/leaf_project_keep_moving_offers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/leaf_project_keep_moving_offers.md)
+- **BEAD:** [bob-cli-fb.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fb/bob-cli-fb.2.1.md)
 
 # Finish the Rust keep-moving phase
 
