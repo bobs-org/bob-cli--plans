@@ -1,156 +1,136 @@
 ---
 tier: epic
 title: Untracked calendar events, calendar-aware MEET starts, and a Calendar band
-goal: "A Google Calendar event tagged #untracked becomes an #untracked Event Task that
-  is still linked under a MEET Pomodoro but never counted as tracked time; = starts a
-  MEET on the real span of its next back-to-back events; non-MEET sessions warn before
-  running into an event; and Bob Mac Capture's idle view shows a glanceable, beautiful
-  Calendar band.
+goal: 'A Google Calendar event tagged #untracked becomes an #untracked Event Task
+  that is still linked under a MEET Pomodoro but never counted as tracked time; =
+  starts a MEET on the real span of its next back-to-back events; non-MEET sessions
+  warn before running into an event; and Bob Mac Capture''s idle view shows a glanceable,
+  beautiful Calendar band.
 
-  "
+  '
 decisions:
   untracked_counts:
     ask: Should an untracked session also drop out of Pomodoro counts, not just minutes?
     choices:
-      exclude:
-        Untracked sessions vanish from every aggregate (minutes, counts, homes, Day
-        strip)
-      minutes_only:
-        Untracked sessions still count as one Pomodoro each; only their minutes drop
+      exclude: Untracked sessions vanish from every aggregate (minutes, counts, homes,
+        Day strip)
+      minutes_only: Untracked sessions still count as one Pomodoro each; only their
+        minutes drop
     default: exclude
-    why:
-      "#untracked means not tracked; a lunch counted as a Pomodoro would still inflate
-      the day"
+    why: '#untracked means not tracked; a lunch counted as a Pomodoro would still
+      inflate the day'
     answer: exclude
   obsidian_meet_start:
     ask: Should Obsidian's se<X> + Tab mirror capture's new MEET start behavior?
     choices:
-      full:
-        se + Tab on a MEET uses the event-run span and [t::] rule, plus the
-        run-past-event Notice
-      tracked_only:
-        se<X> + Tab keeps its timing but omits [t::] when the MEET's event run is
-        untracked
+      full: se + Tab on a MEET uses the event-run span and [t::] rule, plus the run-past-event
+        Notice
+      tracked_only: se<X> + Tab keeps its timing but omits [t::] when the MEET's event
+        run is untracked
       none: Obsidian starts stay as today; an untracked MEET started there keeps [t::]
     default: full
-    why:
-      one gesture should write the same ledger from both front doors, pinned by shared
-      vectors
+    why: one gesture should write the same ledger from both front doors, pinned by
+      shared vectors
     answer: full
   warn_untracked:
-    ask:
-      Should non-MEET starts and extends also warn when they run past an untracked
+    ask: Should non-MEET starts and extends also warn when they run past an untracked
       event?
     choices:
-      all:
-        Every open Event Task warns, tracked or untracked (a lunch is still a
-        commitment)
-      tracked_only:
-        Untracked events never warn (better if they are mostly focus blockers)
+      all: Every open Event Task warns, tracked or untracked (a lunch is still a commitment)
+      tracked_only: Untracked events never warn (better if they are mostly focus blockers)
     default: all
     why: untracked means off the clock, not optional; the warning never blocks
     answer: all
   memory_event_task_glossary:
-    ask:
-      "Should glossary:event-task say an #untracked Event Task keeps its session off the
-      clock?"
+    ask: 'Should glossary:event-task say an #untracked Event Task keeps its session
+      off the clock?'
     memory:
-      - glossary:event-task
+    - glossary:event-task
     default: true
-    corrects:
-      "Its `[root:: NOTE]` attributes meeting time to an area or project, and a Pomodoro
-      Task Link under the daily note's ledger records the session."
+    corrects: 'Its `[root:: NOTE]` attributes meeting time to an area or project,
+      and a Pomodoro Task Link under the daily note''s ledger records the session.'
     answer: true
   memory_untracked_record:
-    ask:
-      Should a new record say untracked sessions omit [t::], superseding part of
+    ask: Should a new record say untracked sessions omit [t::], superseding part of
       synced-meetings-link-by-phase?
     memory:
-      - decisions:synced-meetings-link-by-phase
-      - decisions:untracked-sessions-omit-t-field
+    - decisions:synced-meetings-link-by-phase
+    - decisions:untracked-sessions-omit-t-field
     default: true
-    corrects:
-      Back-to-back or overlapping past meetings share one closed MEET whose span is the
-      cluster (next start ≤ cluster end).
+    corrects: Back-to-back or overlapping past meetings share one closed MEET whose
+      span is the cluster (next start ≤ cluster end).
     answer: true
 phases:
-  - id: untracked-ledger
-    title: "bob-cli: untracked ledger rows and Event Task event helpers"
-    size: medium
-    depends_on: []
-    description:
-      "untracked-ledger: make a timed row without [t::] untracked in every reader and
-      writer, and add the shared Event Task helpers."
-  - id: gcal-untracked-tag
-    title: "bob-cli: #untracked in Google Calendar and bob gcal sync"
-    size: medium
-    depends_on:
-      - untracked-ledger
-    description:
-      "gcal-untracked-tag: parse the Google token, render the row tag, split past MEET
-      clusters by trackedness, report it in list/sync."
-  - id: meet-event-run
-    title: "bob-cli: capture = starts a MEET on its next event run"
-    size: medium
-    depends_on:
-      - untracked-ledger
-    description:
-      "meet-event-run: default MEET starts to the next contiguous event run, apply the
-      [t::] rule to every MEET start, add JSON and vectors."
-  - id: event-start-warnings
-    title: "bob-cli: warn when non-MEET sessions run past an Event Task"
-    size: medium
-    depends_on:
-      - meet-event-run
-    description:
-      "event-start-warnings: structured run-past-event warnings with fit drafts for
-      starts, adjusts, and shifts of non-MEET sessions."
-  - id: agenda-events
-    title: "bob-cli: events block in capture-pomodoros --tasks"
-    size: medium
-    depends_on:
-      - untracked-ledger
-    description:
-      "agenda-events: add the additive events block, item event chips, and tracked flags
-      to the agenda JSON with a new golden."
-  - id: plugins-untracked
-    title: "bob-plugins: render #untracked and keep Obsidian keymaps in lockstep"
-    size: medium
-    depends_on:
-      - gcal-untracked-tag
-      - meet-event-run
-      - event-start-warnings
-    description:
-      'plugins-untracked: paint #untracked on Event rows, keep \p and home chips
-      untracked-aware, and mirror MEET starts per the decision.'
-  - id: mac-calendar-band
-    title: "bob-mac-capture: Calendar band in the idle agenda"
-    size: medium
-    depends_on:
-      - agenda-events
-    description:
-      "mac-calendar-band: decode the events block and add the folding Calendar band,
-      rows, header, chips, and Command-J join."
-  - id: mac-rail-and-cards
-    title: "bob-mac-capture: day rail, start-card event runs, conflict banners"
-    size: medium
-    depends_on:
-      - mac-calendar-band
-      - meet-event-run
-      - event-start-warnings
-    description:
-      "mac-rail-and-cards: draw the day rail and render event runs, far-run and conflict
-      banners, and untracked Now cards."
+- id: untracked-ledger
+  title: 'bob-cli: untracked ledger rows and Event Task event helpers'
+  size: medium
+  depends_on: []
+  description: 'untracked-ledger: make a timed row without [t::] untracked in every
+    reader and writer, and add the shared Event Task helpers.'
+- id: gcal-untracked-tag
+  title: 'bob-cli: #untracked in Google Calendar and bob gcal sync'
+  size: medium
+  depends_on:
+  - untracked-ledger
+  description: 'gcal-untracked-tag: parse the Google token, render the row tag, split
+    past MEET clusters by trackedness, report it in list/sync.'
+- id: meet-event-run
+  title: 'bob-cli: capture = starts a MEET on its next event run'
+  size: medium
+  depends_on:
+  - untracked-ledger
+  description: 'meet-event-run: default MEET starts to the next contiguous event run,
+    apply the [t::] rule to every MEET start, add JSON and vectors.'
+- id: event-start-warnings
+  title: 'bob-cli: warn when non-MEET sessions run past an Event Task'
+  size: medium
+  depends_on:
+  - meet-event-run
+  description: 'event-start-warnings: structured run-past-event warnings with fit
+    drafts for starts, adjusts, and shifts of non-MEET sessions.'
+- id: agenda-events
+  title: 'bob-cli: events block in capture-pomodoros --tasks'
+  size: medium
+  depends_on:
+  - untracked-ledger
+  description: 'agenda-events: add the additive events block, item event chips, and
+    tracked flags to the agenda JSON with a new golden.'
+- id: plugins-untracked
+  title: 'bob-plugins: render #untracked and keep Obsidian keymaps in lockstep'
+  size: medium
+  depends_on:
+  - gcal-untracked-tag
+  - meet-event-run
+  - event-start-warnings
+  description: 'plugins-untracked: paint #untracked on Event rows, keep \p and home
+    chips untracked-aware, and mirror MEET starts per the decision.'
+- id: mac-calendar-band
+  title: 'bob-mac-capture: Calendar band in the idle agenda'
+  size: medium
+  depends_on:
+  - agenda-events
+  description: 'mac-calendar-band: decode the events block and add the folding Calendar
+    band, rows, header, chips, and Command-J join.'
+- id: mac-rail-and-cards
+  title: 'bob-mac-capture: day rail, start-card event runs, conflict banners'
+  size: medium
+  depends_on:
+  - mac-calendar-band
+  - meet-event-run
+  - event-start-warnings
+  description: 'mac-rail-and-cards: draw the day rail and render event runs, far-run
+    and conflict banners, and untracked Now cards.'
 proposed_by: bbugyi200.apollo.bv
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 11:24:10
 status: wip
+bead_id: bob-cli-f6
 ---
 
-- **PROMPT:**
-  [prompts/202611/untracked_calendar_events.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/untracked_calendar_events.md)
+- **PROMPT:** [prompts/202611/untracked_calendar_events.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/untracked_calendar_events.md)
+- **BEAD:** [bob-cli-f6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-f6/README.md)
 
 # Untracked calendar events, calendar-aware MEET starts, and a Calendar band
 
