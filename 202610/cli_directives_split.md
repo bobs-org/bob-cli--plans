@@ -86,7 +86,7 @@ proposed_by: bbugyi200.apollo.bob-cli-ey.1
 proposed_with: claude/opus
 parent_bead: bob-cli-ey.1
 create_time: 2026-10-31 12:58:12
-status: wip
+status: done
 bead_id: bob-cli-ey.1.1
 ---
 
