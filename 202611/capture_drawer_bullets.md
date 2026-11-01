@@ -1,89 +1,82 @@
 ---
 tier: epic
 title: Drawer bullets and several notes per @file+id capture
-goal: "In Bob capture, a `#` typed right after a top-level bullet's `- ` opens a drawer
-  menu that expands to the drawer's ALL-CAPS title, and `@file+id` with no note text on
-  its line files every top-level bullet as its own note, with drawer bullets merging
-  into that task's drawers. Completion, `capture-parse`, preview, and commit always
-  agree.
+goal: 'In Bob capture, a `#` typed right after a top-level bullet''s `- ` opens a
+  drawer menu that expands to the drawer''s ALL-CAPS title, and `@file+id` with no
+  note text on its line files every top-level bullet as its own note, with drawer
+  bullets merging into that task''s drawers. Completion, `capture-parse`, preview,
+  and commit always agree.
 
-  "
+  '
 decisions:
   continue_bullet:
-    ask:
-      Should accepting a bullet drawer row also open a nested `  - ` bullet when the
-      drawer has no notes yet?
+    ask: Should accepting a bullet drawer row also open a nested `  - ` bullet when
+      the drawer has no notes yet?
     default: true
     why: Picking FUTURE WORK lands the caret where its first note goes
     answer: true
   memory_decisions_record:
-    ask:
-      Add a capture-bullets decision record and mark capture-sigils-say-where-what-how
+    ask: Add a capture-bullets decision record and mark capture-sigils-say-where-what-how
       superseded in part?
     memory:
-      - decisions
+    - decisions
     default: true
-    corrects:
-      "A `#` standing alone at an item edge names a [[task-type]]: `#fix` types a new
-      task or retypes the selected existing task in the same transaction."
+    corrects: 'A `#` standing alone at an item edge names a [[task-type]]: `#fix`
+      types a new task or retypes the selected existing task in the same transaction.'
     answer: true
   memory_drawer_glossary:
-    ask:
-      Update the Task Drawer glossary entry for bullet-start drawer names and drawer
+    ask: Update the Task Drawer glossary entry for bullet-start drawer names and drawer
       bullets?
     memory:
-      - glossary:task-drawer
+    - glossary:task-drawer
     default: true
     corrects: a free-standing `#fix` at an item edge types the task
     answer: true
 phases:
-  - id: drawer-bullets
-    title: Drawer bullets in the capture grammar
-    depends_on: []
-    size: medium
-    description:
-      "drawer-bullets: make a first-level bullet's leading `#` a drawer shortcut instead
-      of a type marker, recognize drawer bullets on new tasks and new project notes,
-      render and merge them through the commit resolver, report them in capture-parse,
-      and bump the grammar to 4."
-  - id: note-bullets
-    title: Several notes on one existing task
-    depends_on:
-      - drawer-bullets
-    size: medium
-    description:
-      "note-bullets: let a note-less `@route+id` (or `@route+id#drawer`) item file each
-      first-level bullet as its own note, file drawer bullets into the target's drawers,
-      and report notes and drawers in JSON and human output."
-  - id: bullet-menu
-    title: Bullet drawer menu, docs, and memory records
-    depends_on:
-      - note-bullets
-    size: medium
-    description:
-      "bullet-menu: open the drawer completion menu at a first-level bullet's `#`,
-      replace with the bare ALL-CAPS title (plus the optional nested-bullet
-      continuation), finish the docs, and write the accepted memory records."
-  - id: mac-capture
-    title: Bob Mac Capture presentation
-    depends_on:
-      - note-bullets
-      - bullet-menu
-    size: medium
-    description:
-      "mac-capture: paint drawer-bullet spans, summarize multi-note sub-bullet previews
-      from the new `notes`/`drawers` fields, and prove the bullet drawer menu end to end
-      with real-bob fixtures."
+- id: drawer-bullets
+  title: Drawer bullets in the capture grammar
+  depends_on: []
+  size: medium
+  description: 'drawer-bullets: make a first-level bullet''s leading `#` a drawer
+    shortcut instead of a type marker, recognize drawer bullets on new tasks and new
+    project notes, render and merge them through the commit resolver, report them
+    in capture-parse, and bump the grammar to 4.'
+- id: note-bullets
+  title: Several notes on one existing task
+  depends_on:
+  - drawer-bullets
+  size: medium
+  description: 'note-bullets: let a note-less `@route+id` (or `@route+id#drawer`)
+    item file each first-level bullet as its own note, file drawer bullets into the
+    target''s drawers, and report notes and drawers in JSON and human output.'
+- id: bullet-menu
+  title: Bullet drawer menu, docs, and memory records
+  depends_on:
+  - note-bullets
+  size: medium
+  description: 'bullet-menu: open the drawer completion menu at a first-level bullet''s
+    `#`, replace with the bare ALL-CAPS title (plus the optional nested-bullet continuation),
+    finish the docs, and write the accepted memory records.'
+- id: mac-capture
+  title: Bob Mac Capture presentation
+  depends_on:
+  - note-bullets
+  - bullet-menu
+  size: medium
+  description: 'mac-capture: paint drawer-bullet spans, summarize multi-note sub-bullet
+    previews from the new `notes`/`drawers` fields, and prove the bullet drawer menu
+    end to end with real-bob fixtures.'
 proposed_by: bbugyi200.apollo.c0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 12:53:05
 status: wip
+bead_id: bob-cli-fc
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_drawer_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_drawer_bullets.md)
+- **PROMPT:** [prompts/202611/capture_drawer_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_drawer_bullets.md)
+- **BEAD:** [bob-cli-fc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fc/README.md)
 
 # Plan: Drawer bullets and several notes per `@file+id` capture
 
