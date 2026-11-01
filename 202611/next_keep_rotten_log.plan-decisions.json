@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "blank_reason",
+      "kind": "choice",
+      "ask": "What should a blank Enter write when a Next task is marked fresh?",
+      "why": "You asked for an optional entry; daily Next reviews would bury real reasons under \ud83e\udd37 lines",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Nothing extra; the task is stamped and only a typed reason adds a Rotten Log entry"
+        },
+        {
+          "key": "shrug",
+          "label": "A `\ud83e\udd37 no reason given \u00b7 kept in Next` entry on every Next keep, like counted keeps"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_records",
+      "kind": "toggle",
+      "ask": "Should a new Next-keep decision record replace the Next exclusion in rotten-keeps-are-logged?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:rotten-keeps-are-logged",
+          "decisions:next-keeps-ask-an-optional-rotten-reason"
+        ]
+      },
+      "corrects": "NEW, early/FRESH, Pending, Next, PROJECTS, recurring, checklist, closed, and unblock-tickler keeps never prompt and never write it",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:rotten-keeps-are-logged",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Keeps Are Logged"
+          ]
+        },
+        {
+          "selector": "decisions:next-keeps-ask-an-optional-rotten-reason",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/next-keeps-ask-an-optional-rotten-reason.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_rotten_log_glossary",
+      "kind": "toggle",
+      "ask": "Should the Rotten Log glossary term be rewritten to cover optional Next-keep reasons?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:rotten-log"
+        ]
+      },
+      "corrects": "NEW, early, Pending, Next, PROJECTS, and unblock-tickler keeps never write it",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:rotten-log",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Log",
+            "Keep Streak"
+          ]
+        }
+      ]
+    }
+  ]
+}
