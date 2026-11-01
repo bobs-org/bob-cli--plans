@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "inbox_click",
+      "kind": "choice",
+      "ask": "When several inbox notes hold open tasks, should clicking the inbox count show a menu of those notes?",
+      "why": "Triage drains one note at a time; the tooltip already names every note and count",
+      "choices": [
+        {
+          "key": "first",
+          "label": "Opens the note with the most open tasks at its first one; click again for the next"
+        },
+        {
+          "key": "menu",
+          "label": "A menu lists each note and its count; a single note still opens directly"
+        }
+      ],
+      "default": "first",
+      "effective_default": "first",
+      "requested_verified": false
+    }
+  ]
+}
