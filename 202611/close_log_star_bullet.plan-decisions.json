@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "all_covered",
+      "kind": "choice",
+      "ask": "Should a `- *` bullet with no task left (every worked task already has its own entry) fail the capture?",
+      "why": "the close grammar never silently discards typed text, and positional overflow already fails",
+      "choices": [
+        {
+          "key": "error",
+          "label": "Fail with invalid_pomodoro_close and write nothing, like too many unnumbered bullets"
+        },
+        {
+          "key": "skip",
+          "label": "Accept the close, write nothing for that bullet, and print a warning naming the dropped text"
+        }
+      ],
+      "default": "error",
+      "effective_default": "error",
+      "requested_verified": false
+    }
+  ]
+}
