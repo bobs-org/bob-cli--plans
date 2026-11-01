@@ -1,141 +1,129 @@
 ---
 tier: epic
-title: "Merged Pomodoros: merge by default, split and merge by type, honest close names"
-goal: "A Pomodoro that holds several task types is a first-class merged Pomodoro.
-  Linking or moving a task into another type's Pomodoro merges that type into the name
-  instead of retyping the task. Capture `=*` and `=/` merge and split Pomodoros by type,
-  and so does Obsidian Ctrl+S. `x` names the closed and carried sessions after the work
-  that was actually done and is still planned. bob-cli, bob-plugins, and Bob Mac Capture
-  all agree, through shared vectors.
+title: 'Merged Pomodoros: merge by default, split and merge by type, honest close
+  names'
+goal: 'A Pomodoro that holds several task types is a first-class merged Pomodoro.
+  Linking or moving a task into another type''s Pomodoro merges that type into the
+  name instead of retyping the task. Capture `=*` and `=/` merge and split Pomodoros
+  by type, and so does Obsidian Ctrl+S. `x` names the closed and carried sessions
+  after the work that was actually done and is still planned. bob-cli, bob-plugins,
+  and Bob Mac Capture all agree, through shared vectors.
 
-  "
+  '
 phases:
-  - id: routing-core
-    title: Pure planners and shared vectors (bob-cli)
-    depends_on: []
-    size: medium
-    description:
-      "routing-core: implement R1–R7 as pure Rust planners (land, merge_names,
-      narrow_closed, shed, split_plan, select_by_type) with new shared vector sections
-      and the task-types.md contract."
-  - id: capture-link-merge
-    title: Capture lands by merging (bob-cli)
-    depends_on:
-      - routing-core
-    size: medium
-    description:
-      "capture-link-merge: make named capture links, ref today, and #type markers merge
-      the task's type into the destination name; retire type_marker_conflict; report the
-      merge in JSON and human output."
-  - id: capture-split
-    title: The =/ split syntax end to end (bob-cli)
-    depends_on:
-      - routing-core
-    size: large
-    description:
-      "capture-split: add the whole-item =/ token covering lexing, chaining, execution,
-      capture-parse spans, completion contexts, output, and docs; bump the grammar to 5."
-  - id: capture-merge
-    title: The =* merge syntax end to end (bob-cli)
-    depends_on:
-      - capture-split
-    size: medium
-    description:
-      "capture-merge: repurpose =* as merge, keeping retired-close teaching for digit
-      and marker forms; add execution, spans, completion, output, and docs."
-  - id: capture-close-names
-    title: x narrows the closed name and sheds the carried name (bob-cli)
-    depends_on:
-      - routing-core
-    size: medium
-    description:
-      "capture-close-names: apply R6 in the shared close planner using pre-close task
-      types; split the closed-name and continuation-name roles; add the closed_name and
-      shed output."
-  - id: obsidian-link-merge
-    title: Obsidian pickers merge by default (bob-plugins)
-    depends_on:
-      - routing-core
-    size: medium
-    description:
-      "obsidian-link-merge: copy the vectors, add the planLanding/mergeNames/shed
-      mirror, flip Enter to merge and Alt+Enter to retype in the link and move pickers,
-      ^^ links, successor retarget, and Ctrl+X merge naming; shed on move."
-  - id: obsidian-ctrl-s
-    title: Ctrl+S splits the selected Pomodoro (bob-plugins)
-    depends_on:
-      - obsidian-link-merge
-    size: medium
-    description:
-      "obsidian-ctrl-s: add the planSplit mirror, a contextual Ctrl+S dispatch, a
-      palette command, the two-type auto split, and the multi-select split picker with
-      refusals, docs, and tests."
-  - id: obsidian-close-names
-    title: Ctrl+Enter Pomodoro completion parity (bob-plugins)
-    depends_on:
-      - capture-close-names
-      - obsidian-ctrl-s
-    size: medium
-    description:
-      "obsidian-close-names: mirror R6 narrowing and shedding in task-status-cycler's
-      Pomodoro completion so ledgers stay byte-identical with bob's x."
-  - id: mac-capture
-    title: Present split, merge, merged links, and close names (Bob Mac Capture)
-    depends_on:
-      - capture-link-merge
-      - capture-merge
-      - capture-close-names
-    size: medium
-    description:
-      "mac-capture: decode and present the new span kinds, modes, needs, split/merge
-      preview cards, merged destination rows, and close names; accept grammar 5."
-  - id: glossary
-    title: Merged Pomodoro memory (bob-cli)
-    depends_on:
-      - capture-link-merge
-      - capture-merge
-      - capture-close-names
-      - obsidian-ctrl-s
-      - obsidian-close-names
-    size: small
-    description:
-      "glossary: add the Merged Pomodoro glossary strand and, if accepted, the
-      links-merge decision record; regenerate memory."
+- id: routing-core
+  title: Pure planners and shared vectors (bob-cli)
+  depends_on: []
+  size: medium
+  description: 'routing-core: implement R1–R7 as pure Rust planners (land, merge_names,
+    narrow_closed, shed, split_plan, select_by_type) with new shared vector sections
+    and the task-types.md contract.'
+- id: capture-link-merge
+  title: Capture lands by merging (bob-cli)
+  depends_on:
+  - routing-core
+  size: medium
+  description: 'capture-link-merge: make named capture links, ref today, and #type
+    markers merge the task''s type into the destination name; retire type_marker_conflict;
+    report the merge in JSON and human output.'
+- id: capture-split
+  title: The =/ split syntax end to end (bob-cli)
+  depends_on:
+  - routing-core
+  size: large
+  description: 'capture-split: add the whole-item =/ token covering lexing, chaining,
+    execution, capture-parse spans, completion contexts, output, and docs; bump the
+    grammar to 5.'
+- id: capture-merge
+  title: The =* merge syntax end to end (bob-cli)
+  depends_on:
+  - capture-split
+  size: medium
+  description: 'capture-merge: repurpose =* as merge, keeping retired-close teaching
+    for digit and marker forms; add execution, spans, completion, output, and docs.'
+- id: capture-close-names
+  title: x narrows the closed name and sheds the carried name (bob-cli)
+  depends_on:
+  - routing-core
+  size: medium
+  description: 'capture-close-names: apply R6 in the shared close planner using pre-close
+    task types; split the closed-name and continuation-name roles; add the closed_name
+    and shed output.'
+- id: obsidian-link-merge
+  title: Obsidian pickers merge by default (bob-plugins)
+  depends_on:
+  - routing-core
+  size: medium
+  description: 'obsidian-link-merge: copy the vectors, add the planLanding/mergeNames/shed
+    mirror, flip Enter to merge and Alt+Enter to retype in the link and move pickers,
+    ^^ links, successor retarget, and Ctrl+X merge naming; shed on move.'
+- id: obsidian-ctrl-s
+  title: Ctrl+S splits the selected Pomodoro (bob-plugins)
+  depends_on:
+  - obsidian-link-merge
+  size: medium
+  description: 'obsidian-ctrl-s: add the planSplit mirror, a contextual Ctrl+S dispatch,
+    a palette command, the two-type auto split, and the multi-select split picker
+    with refusals, docs, and tests.'
+- id: obsidian-close-names
+  title: Ctrl+Enter Pomodoro completion parity (bob-plugins)
+  depends_on:
+  - capture-close-names
+  - obsidian-ctrl-s
+  size: medium
+  description: 'obsidian-close-names: mirror R6 narrowing and shedding in task-status-cycler''s
+    Pomodoro completion so ledgers stay byte-identical with bob''s x.'
+- id: mac-capture
+  title: Present split, merge, merged links, and close names (Bob Mac Capture)
+  depends_on:
+  - capture-link-merge
+  - capture-merge
+  - capture-close-names
+  size: medium
+  description: 'mac-capture: decode and present the new span kinds, modes, needs,
+    split/merge preview cards, merged destination rows, and close names; accept grammar
+    5.'
+- id: glossary
+  title: Merged Pomodoro memory (bob-cli)
+  depends_on:
+  - capture-link-merge
+  - capture-merge
+  - capture-close-names
+  - obsidian-ctrl-s
+  - obsidian-close-names
+  size: small
+  description: 'glossary: add the Merged Pomodoro glossary strand and, if accepted,
+    the links-merge decision record; regenerate memory.'
 decisions:
   new_task_named_link:
-    ask:
-      When a capture creates a task inside a named Pomodoro of another type, should it
-      merge rather than retype?
+    ask: When a capture creates a task inside a named Pomodoro of another type, should
+      it merge rather than retype?
     choices:
-      merge:
-        The new task keeps its inherited type and the Pomodoro gains it, the same rule
-        as every link
+      merge: The new task keeps its inherited type and the Pomodoro gains it, the
+        same rule as every link
       retype: New tasks still take the Pomodoro's type; only existing tasks merge
     default: merge
-    why:
-      One landing rule everywhere; a free `#type` marker still types a new task
+    why: One landing rule everywhere; a free `#type` marker still types a new task
       explicitly
     answer: merge
   shed_on_move:
-    ask:
-      Should Ctrl+Shift+M drop a merged Pomodoro's type when the last Task Link of that
-      type moves out?
+    ask: Should Ctrl+Shift+M drop a merged Pomodoro's type when the last Task Link
+      of that type moves out?
     default: true
-    why:
-      A type travels with its tasks. Close uses the same shed rule, so names never go
-      stale
+    why: A type travels with its tasks. Close uses the same shed rule, so names never
+      go stale
     answer: true
   memory_merged_pomodoro:
     ask: Add a "Merged Pomodoro" glossary term?
     memory:
-      - glossary:merged-pomodoro
+    - glossary:merged-pomodoro
     default: true
     requested: We should add an excellent new glossary term for "merged pomodoro".
     answer: true
   memory_links_merge_record:
     ask: Record a decision that linking merges types and never retypes tasks?
     memory:
-      - decisions:links-merge-types
+    - decisions:links-merge-types
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.c4
@@ -144,10 +132,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 16:00:38
 status: wip
+bead_id: bob-cli-fe
 ---
 
-- **PROMPT:**
-  [prompts/202611/merged_pomodoros.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merged_pomodoros.md)
+- **PROMPT:** [prompts/202611/merged_pomodoros.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merged_pomodoros.md)
+- **BEAD:** [bob-cli-fe](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fe/README.md)
 
 # Plan: Merged Pomodoros
 
