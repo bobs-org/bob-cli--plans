@@ -1,85 +1,78 @@
 ---
 tier: epic
 title: Task link marks — status rings on links that point to tasks
-goal: "Every rendered link whose target is a `#task` line wears a small status ring
+goal: 'Every rendered link whose target is a `#task` line wears a small status ring
   (Ready, Next, In Progress, Blocked, Done, Cancelled) in Live Preview and rendered
   views, so Bryan can tell at a glance which links point to tasks and what state those
-  tasks are in. Links to notes, headings, and non-task blocks stay exactly as they are,
-  nothing is ever written to the vault, and a session toggle restores plain links.
+  tasks are in. Links to notes, headings, and non-task blocks stay exactly as they
+  are, nothing is ever written to the vault, and a session toggle restores plain links.
 
-  "
+  '
 decisions:
   ledger_rows:
-    ask: Should dedicated Pomodoro Task Links in daily-note ledgers also wear the ring?
+    ask: Should dedicated Pomodoro Task Links in daily-note ledgers also wear the
+      ring?
     choices:
-      skip:
-        Ledger rows keep their 🍅 / ◐ / type-drift slot; only prose links in daily notes
-        get rings
-      mark:
-        Every ledger row also wears a ring (◐ rows keep only ◐); status at a glance, one
-        glyph per row
+      skip: Ledger rows keep their 🍅 / ◐ / type-drift slot; only prose links in daily
+        notes get rings
+      mark: Every ledger row also wears a ring (◐ rows keep only ◐); status at a glance,
+        one glyph per row
     default: skip
-    why:
-      Every ledger row is a Task Link already, so a ring there adds noise but no new
-      information.
+    why: Every ledger row is a Task Link already, so a ring there adds noise but no
+      new information.
     answer: skip
   dim_closed_links:
-    ask:
-      Should links to Done or Cancelled tasks also dim their link text, not just show
-      the closed ring?
+    ask: Should links to Done or Cancelled tasks also dim their link text, not just
+      show the closed ring?
     default: false
-    why:
-      The ring already says "closed"; leaving the link text alone keeps Obsidian's link
-      styling intact.
+    why: The ring already says "closed"; leaving the link text alone keeps Obsidian's
+      link styling intact.
     answer: false
 phases:
-  - id: core
-    title: Contract, pure core, ring glyphs, and visual preview
-    depends_on: []
-    size: medium
-    description:
-      "core: write the bob-cli display contract with conformance vectors, add the pure
-      bob-ledger-tools core (link scanner, line context, target-line parser, state and
-      tooltip models), define the ring glyph family in CSS, and tune it with a
-      light/dark preview harness."
-  - id: live_preview
-    title: Live Preview rings, resolver, refresh, and toggle
-    depends_on:
-      - core
-    size: medium
-    description:
-      "live_preview: add the target resolver (live doc, then Tasks memo, then metadata
-      cache), the CM6 widget extension, click handling, the swap animation, refresh
-      plumbing, and the session toggle, with vector-driven and performance tests."
-  - id: reading
-    title: Reading view, embeds, hover popovers, and query rows
-    depends_on:
-      - live_preview
-    size: medium
-    description:
-      "reading: add the post-processor for Reading view, embeds, hover popovers, and
-      Tasks/Dataview rows, apply the DOM exclusion rules, and add a stamp-and-sweep
-      refresh that updates rings in place across every window."
-  - id: landing
-    title: Real-Obsidian e2e, docs, version, and sync
-    depends_on:
-      - reading
-    size: medium
-    description:
-      "landing: prove the feature in a real Obsidian scratch vault (LP, Reading,
-      cross-note status changes, toggle, line height, light/dark screenshots), fix what
-      it finds, finish the plugin docs and manifest, bump the version, and sync to the
-      vault."
+- id: core
+  title: Contract, pure core, ring glyphs, and visual preview
+  depends_on: []
+  size: medium
+  description: 'core: write the bob-cli display contract with conformance vectors,
+    add the pure bob-ledger-tools core (link scanner, line context, target-line parser,
+    state and tooltip models), define the ring glyph family in CSS, and tune it with
+    a light/dark preview harness.'
+- id: live_preview
+  title: Live Preview rings, resolver, refresh, and toggle
+  depends_on:
+  - core
+  size: medium
+  description: 'live_preview: add the target resolver (live doc, then Tasks memo,
+    then metadata cache), the CM6 widget extension, click handling, the swap animation,
+    refresh plumbing, and the session toggle, with vector-driven and performance tests.'
+- id: reading
+  title: Reading view, embeds, hover popovers, and query rows
+  depends_on:
+  - live_preview
+  size: medium
+  description: 'reading: add the post-processor for Reading view, embeds, hover popovers,
+    and Tasks/Dataview rows, apply the DOM exclusion rules, and add a stamp-and-sweep
+    refresh that updates rings in place across every window.'
+- id: landing
+  title: Real-Obsidian e2e, docs, version, and sync
+  depends_on:
+  - reading
+  size: medium
+  description: 'landing: prove the feature in a real Obsidian scratch vault (LP, Reading,
+    cross-note status changes, toggle, line height, light/dark screenshots), fix what
+    it finds, finish the plugin docs and manifest, bump the version, and sync to the
+    vault.'
 proposed_by: bbugyi200.athena.16q
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-01 09:24:19
 status: wip
+bead_id: bob-cli-f5
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_link_marks.md)
+- **PROMPT:** [prompts/202611/task_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_link_marks.md)
+- **BEAD:** [bob-cli-f5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-f5/README.md)
 
 # Plan: Task link marks
 
