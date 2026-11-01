@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Finish sealed project-offer refusal and incomplete editor contracts
-goal:
-  Route-less sealed offers refuse capture without writing, every recognized sealed offer
-  keeps its project mode while requesting missing fields, and bob-cli-ex.2.1 and its
-  parent phase complete their normal closeout.
+goal: Route-less sealed offers refuse capture without writing, every recognized sealed
+  offer keeps its project mode while requesting missing fields, and bob-cli-ex.2.1
+  and its parent phase complete their normal closeout.
 proposed_by: bbugyi200.apollo.bob-cli-ex.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ex.2.1
-create_time: 2026-11-01 09:10:07
-status: wip
+status: done
 ---
 
 - **BEAD:**
