@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "priority_roll_default",
+      "kind": "choice",
+      "ask": "On a task with a priority, should Tomorrow be preselected instead of the pinned priority roll?",
+      "why": "The ask targets Today; the roll is a deliberate pick and Ctrl+Enter / Alt+P already take it",
+      "choices": [
+        {
+          "key": "roll",
+          "label": "Priority tasks keep the pinned roll preselected; only no-priority tasks default to Tomorrow"
+        },
+        {
+          "key": "tomorrow",
+          "label": "Roll row stays pinned on top, but Tomorrow is preselected on every task"
+        }
+      ],
+      "default": "roll",
+      "effective_default": "roll",
+      "requested_verified": false
+    }
+  ]
+}
