@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "route_chip",
+      "kind": "toggle",
+      "ask": "Show the chosen destination as a `\u2192 <dest>` chip in the Link to today header?",
+      "why": "The picker now suggests from a note the task is not in yet; the chip explains it.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_inbox_file",
+      "kind": "toggle",
+      "ask": "Update the Inbox File glossary strand to say a Ctrl+Shift+Enter link asks for the route first?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:inbox-file"
+        ]
+      },
+      "corrects": "the task line, and Alt+N ask where the task goes just before writing",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:inbox-file",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Inbox File",
+            "Capture",
+            "Project Note",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness"
+          ]
+        }
+      ]
+    }
+  ]
+}
