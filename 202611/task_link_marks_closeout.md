@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish task link marks and close bob-cli-f5
-goal: Repair task link eligibility and reduced motion, prove natural refresh and one
-  swap, and close bob-cli-f5.
+goal:
+  Repair task link eligibility and reduced motion, prove natural refresh and one swap,
+  and close bob-cli-f5.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-f5.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,12 @@ status: done
   [202611/task_link_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_link_marks.md)
 - **BEAD:**
   [bob-cli-f5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-f5/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-f5.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-f5.land.md)
+- **COMMITS:**
+  - [f1ead7b](https://github.com/bobs-org/bob-cli/commit/f1ead7bf6499b69c03265af2d6a5e8265d647307)
+    — docs(task-link-marks): add fence, comment, and managed-row vectors and liveness
+    rules
 
 # Finish task link marks and close bob-cli-f5
 
