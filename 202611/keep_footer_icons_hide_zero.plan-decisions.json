@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "signin_pill",
+      "kind": "choice",
+      "ask": "Keep showing the dashed lightbulb-off pill when Keep sign-in has expired, even though it carries no count?",
+      "why": "It follows your rule that a segment shows only when its count is above 0.",
+      "choices": [
+        {
+          "key": "hide",
+          "label": "The pill hides; a lost sign-in then surfaces only via the once-per-session Notice"
+        },
+        {
+          "key": "show",
+          "label": "The pill stays, since Keep checks stop until bob gkeep login and the bar is where you'd notice"
+        }
+      ],
+      "default": "hide",
+      "effective_default": "hide",
+      "requested_verified": false
+    }
+  ]
+}
