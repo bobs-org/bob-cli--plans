@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Work Log clock semantics and land bob-cli-fd
-goal: Navigation Work Logs use the commit instant, previews refresh their stamps,
-  and bob-cli-fd is verified, deployed, and closed.
+goal:
+  Navigation Work Logs use the commit instant, previews refresh their stamps, and
+  bob-cli-fd is verified, deployed, and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fd.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/work_log_timestamps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/work_log_timestamps.md)
 - **BEAD:**
   [bob-cli-fd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fd/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fd.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fd.land.md)
+- **COMMITS:**
+  - [c0a524c](https://github.com/bobs-org/bob-cli--plans/commit/c0a524ceb19d68974e0ee68c4af921426fd0a844)
+    — docs(plans): add timestamped Work Log entries epic plan
 
 # Finish Work Log clock semantics and land bob-cli-fd
 
