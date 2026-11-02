@@ -2,20 +2,21 @@
 tier: tale
 size: medium
 title: Finish landing bob-cli-fl.6.1 — Stats clock fixes, docs, deploy, and closeout
-goal: Fix the two epic-caused Stats clock defects, make the Stats preview harness
-  complete, finish the clock user docs in both repositories, deploy bob-ledger-tools,
-  and close bob-cli-fl.6.1 and its parent phase bob-cli-fl.6.
+goal:
+  Fix the two epic-caused Stats clock defects, make the Stats preview harness complete,
+  finish the clock user docs in both repositories, deploy bob-ledger-tools, and close
+  bob-cli-fl.6.1 and its parent phase bob-cli-fl.6.
 decisions:
   force_sync_ledger_tools:
-    ask: Force-sync bob-ledger-tools after re-proving its refused dirty deploy is
-      on master?
+    ask:
+      Force-sync bob-ledger-tools after re-proving its refused dirty deploy is on
+      master?
     choices:
-      force: Obsidian runs the finished Stats clocks; sync backs up the overwritten
-        files
+      force:
+        Obsidian runs the finished Stats clocks; sync backs up the overwritten files
       leave: The vault keeps the phase-2 build and the refusal is recorded for Bryan
     default: force
-    why: The deployed build is 3a2b03b minus 7a647e8, both on master, so nothing is
-      lost
+    why: The deployed build is 3a2b03b minus 7a647e8, both on master, so nothing is lost
     answer: force
 proposed_by: bbugyi200.apollo.bob-cli-fl.6.1.land
 proposed_with: claude/opus
@@ -28,6 +29,11 @@ status: done
   [202611/stats_clock_ui.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/stats_clock_ui.md)
 - **BEAD:**
   [bob-cli-fl.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fl/bob-cli-fl.6.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fl.6.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fl.6.1.land.md)
+- **COMMITS:**
+  - [99fe1ce](https://github.com/bobs-org/bob-cli/commit/99fe1ce49a73154a49ffb904e4856a99ce708c79)
+    — docs(stats): finish clock user docs for Obsidian Stats block and window bars
 
 # Finish landing bob-cli-fl.6.1
 
