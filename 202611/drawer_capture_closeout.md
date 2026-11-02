@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish drawer capture composition and land bob-cli-fc
-goal:
-  Multi-note relationships and parent reporting agree with staged writes, reserved
+goal: Multi-note relationships and parent reporting agree with staged writes, reserved
   drawer diagnostics agree with capture, and bob-cli-fc closes with verified evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fc.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fc
-create_time: 2026-11-01 21:45:31
-status: wip
+status: done
 ---
 
 - **PARENT:**
