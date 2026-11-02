@@ -1,16 +1,14 @@
 ---
 tier: tale
 size: small
-title:
-  Finish landing bob-cli-fb — fix its two test defects and close the keep-moving epic
-goal:
-  Make the two test defects the keep-moving epic introduced deterministic, then close
-  epic bob-cli-fb normally and mark its plan done.
+title: Finish landing bob-cli-fb — fix its two test defects and close the keep-moving
+  epic
+goal: Make the two test defects the keep-moving epic introduced deterministic, then
+  close epic bob-cli-fb normally and mark its plan done.
 proposed_by: bbugyi200.apollo.bob-cli-fb.land
 proposed_with: claude/opus
 bead: bob-cli-fb
-create_time: 2026-11-01 23:24:50
-status: wip
+status: done
 ---
 
 - **PARENT:**
