@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish drawer capture composition and land bob-cli-fc
-goal: Multi-note relationships and parent reporting agree with staged writes, reserved
+goal:
+  Multi-note relationships and parent reporting agree with staged writes, reserved
   drawer diagnostics agree with capture, and bob-cli-fc closes with verified evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fc.land
@@ -14,6 +15,11 @@ status: done
   [202611/capture_drawer_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_drawer_bullets.md)
 - **BEAD:**
   [bob-cli-fc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fc/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fc.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fc.land.md)
+- **COMMITS:**
+  - [a455dd4](https://github.com/bobs-org/bob-cli--plans/commit/a455dd428b1f348336272d26c357a50f6f687ea7)
+    — chore(plans): mark capture_drawer_bullets done
 
 # Finish drawer capture composition and land bob-cli-fc
 
