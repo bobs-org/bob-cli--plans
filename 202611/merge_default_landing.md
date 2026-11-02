@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish and land the default Pomodoro merge
-goal: Preserve resolved merge rows, complete MEET errors and picker exclusions, then
-  verify and close bob-cli-fw.
+goal:
+  Preserve resolved merge rows, complete MEET errors and picker exclusions, then verify
+  and close bob-cli-fw.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fw.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/merge_next_planned_default.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/merge_next_planned_default.md)
 - **BEAD:**
   [bob-cli-fw](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fw/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-fw.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-fw.land.md)
+- **COMMITS:**
+  - [2d45cd0](https://github.com/bobs-org/bob-cli/commit/2d45cd02d168ce080d7c5d694a493db83d01288c)
+    — fix(capture): keep implied merge dest identity through ledger edits
 
 # Finish and land the default Pomodoro merge
 
