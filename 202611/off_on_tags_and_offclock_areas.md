@@ -1,148 +1,130 @@
 ---
 tier: epic
-title: "#off / #on clock tags and inherited offclock: area defaults"
-goal: "Off-clock life needs no tag: an area or project note's `offclock: true`,
-  inherited down the task's root walk and overridable by a child's `offclock: false` or
-  a task's `#on`, decides the clock of every untagged task and Event Task beneath it;
-  `#off` replaces `#offclock` as the one spelling bob writes in Obsidian and reads from
-  Google Calendar; `#offclock`, `#off-clock`, and `#untracked` keep working while `bob
-  gcal sync` and `bob gcal list` warn about them (with a once-a-day Obsidian Notice);
-  past Event Task rows are rewritten to `#off`; and `love.md` turns on the first area
-  default.
+title: '#off / #on clock tags and inherited offclock: area defaults'
+goal: 'Off-clock life needs no tag: an area or project note''s `offclock: true`, inherited
+  down the task''s root walk and overridable by a child''s `offclock: false` or a
+  task''s `#on`, decides the clock of every untagged task and Event Task beneath it;
+  `#off` replaces `#offclock` as the one spelling bob writes in Obsidian and reads
+  from Google Calendar; `#offclock`, `#off-clock`, and `#untracked` keep working while
+  `bob gcal sync` and `bob gcal list` warn about them (with a once-a-day Obsidian
+  Notice); past Event Task rows are rewritten to `#off`; and `love.md` turns on the
+  first area default.
 
-  "
+  '
 decisions:
   memory_decision_records:
-    ask:
-      Should new clock-rule and capture clock-tag decision records partly supersede the
-      two records they amend?
+    ask: Should new clock-rule and capture clock-tag decision records partly supersede
+      the two records they amend?
     memory:
-      - decisions:off-clock-follows-tag-then-note-default
-      - decisions:off-clock-pomodoros-count-apart
-      - decisions:capture-reserves-clock-tags
-      - decisions:capture-sigils-say-where-what-how
+    - decisions:off-clock-follows-tag-then-note-default
+    - decisions:off-clock-pomodoros-count-apart
+    - decisions:capture-reserves-clock-tags
+    - decisions:capture-sigils-say-where-what-how
     default: true
-    corrects:
-      it is off-clock only when at least one remains and every link resolves to a task
-      whose own line has the standalone `#offclock` tag or an alias.
+    corrects: it is off-clock only when at least one remains and every link resolves
+      to a task whose own line has the standalone `#offclock` tag or an alias.
     answer: true
   memory_glossary:
-    ask:
-      "Should the glossary describe #off, #on, and offclock note defaults
-      (off-clock-pomodoro, event-task, area/project notes)?"
+    ask: 'Should the glossary describe #off, #on, and offclock note defaults (off-clock-pomodoro,
+      event-task, area/project notes)?'
     memory:
-      - glossary:off-clock-pomodoro
-      - glossary:event-task
-      - glossary:area-note
-      - glossary:project-note
+    - glossary:off-clock-pomodoro
+    - glossary:event-task
+    - glossary:area-note
+    - glossary:project-note
     default: true
-    corrects:
-      A session goes off the clock exactly when it keeps at least one [[task-link]] and
-      every one resolves to a task tagged `#offclock` (aliases `#untracked`,
-      `#off-clock`)
+    corrects: A session goes off the clock exactly when it keeps at least one [[task-link]]
+      and every one resolves to a task tagged `#offclock` (aliases `#untracked`, `#off-clock`)
     answer: true
 phases:
-  - id: clock-contract
-    title:
-      "bob-cli: one clock spelling table, #on, offclock: note facts, and the
-      effective-clock resolver"
-    size: medium
-    depends_on: []
-    description:
-      "clock-contract: add the shared spelling table and tri-state ClockTag, make #off
-      canonical and #on win on vault lines, parse offclock: into NoteFacts with lints,
-      and add effective_clock plus Event Task enrichment over the PT13 root walk."
-  - id: clock-writers
-    title:
-      "bob-cli: capture start, close, restamp, and MEET event runs stamp the effective
-      clock"
-    size: medium
-    depends_on:
-      - clock-contract
-    description:
-      "clock-writers: thread a home resolver into every capture clock decision, name
-      inherited sources in summaries and JSON, extend the shared pomodoro_clock vectors
-      with frontmatter cases, and write the clock decision record and glossary."
-  - id: clock-readers
-    title:
-      "bob-cli: agenda JSON, reconcile settle, and stats drift use the effective clock"
-    size: medium
-    depends_on:
-      - clock-contract
-    description:
-      "clock-readers: enrich Event Tasks in the capture-pomodoros agenda, settle
-      inherited off-clock Event Tasks in reconcile, and recompute clock_drift by the
-      same rule, with docs."
-  - id: gcal-clock-tags
-    title:
-      "bob-cli: gcal reads #off/#on, renders only explicit tags, plans on the effective
-      clock, and warns on deprecated spellings"
-    size: large
-    depends_on:
-      - clock-contract
-    description:
-      "gcal-clock-tags: tri-state Google clock from titles and directive lines, #on as a
-      directive, explicit-only badge render with in-place migration, effective clock for
-      clusters and created MEETs, tri-state flip reports, and deprecation warnings plus
-      deprecations[] in sync and list."
-  - id: capture-clock-tags
-    title: "bob-cli: capture keeps #off/#on at item edges as tags, never type markers"
-    size: small
-    depends_on:
-      - clock-contract
-    description:
-      "capture-clock-tags: reserve the clock spellings in the capture parser and editor
-      scanner, refuse them as type names, teach the existing-task error, and record the
-      narrow sigil exception."
-  - id: plugins-clock
-    title:
-      "bob-plugins: spelling tables, offclock: inheritance in Obsidian starts and
-      closes, copied vectors"
-    size: medium
-    depends_on:
-      - clock-writers
-    description:
-      "plugins-clock: one spelling table per plugin, #on wins, the ledger-tools chain
-      walker reads offclock: and exports taskEffectiveOffClock, se<X> starts and the
-      cycler close use it with a tag-only fallback, and vectors are copied
-      byte-for-byte."
-  - id: plugins-marks-notice
-    title:
-      "bob-plugins: Event Task clock marks for #off, #on, and inherited rows, and the
-      daily deprecation Notice"
-    size: medium
-    depends_on:
-      - plugins-clock
-      - gcal-clock-tags
-    description:
-      "plugins-marks-notice: paint inherited off-clock Event Tasks dashed with a
-      from-note tooltip, keep #off tag marks, give #on a neutral override tooltip in
-      both views, and raise one Notice a day from deprecations[]."
-  - id: vault-landing
-    title:
-      "Vault landing: install everywhere, rewrite legacy rows to #off, turn on love.md,
-      verify"
-    size: small
-    depends_on:
-      - clock-writers
-      - clock-readers
-      - gcal-clock-tags
-      - capture-clock-tags
-      - plugins-marks-notice
-    description:
-      "vault-landing: confirm every host runs the new bob and plugins, rewrite
-      re-scanned legacy Event Task rows to #off, add offclock: true to love.md, list
-      Google titles to retitle, verify stats and drift, and close ^off-tag."
+- id: clock-contract
+  title: 'bob-cli: one clock spelling table, #on, offclock: note facts, and the effective-clock
+    resolver'
+  size: medium
+  depends_on: []
+  description: 'clock-contract: add the shared spelling table and tri-state ClockTag,
+    make #off canonical and #on win on vault lines, parse offclock: into NoteFacts
+    with lints, and add effective_clock plus Event Task enrichment over the PT13 root
+    walk.'
+- id: clock-writers
+  title: 'bob-cli: capture start, close, restamp, and MEET event runs stamp the effective
+    clock'
+  size: medium
+  depends_on:
+  - clock-contract
+  description: 'clock-writers: thread a home resolver into every capture clock decision,
+    name inherited sources in summaries and JSON, extend the shared pomodoro_clock
+    vectors with frontmatter cases, and write the clock decision record and glossary.'
+- id: clock-readers
+  title: 'bob-cli: agenda JSON, reconcile settle, and stats drift use the effective
+    clock'
+  size: medium
+  depends_on:
+  - clock-contract
+  description: 'clock-readers: enrich Event Tasks in the capture-pomodoros agenda,
+    settle inherited off-clock Event Tasks in reconcile, and recompute clock_drift
+    by the same rule, with docs.'
+- id: gcal-clock-tags
+  title: 'bob-cli: gcal reads #off/#on, renders only explicit tags, plans on the effective
+    clock, and warns on deprecated spellings'
+  size: large
+  depends_on:
+  - clock-contract
+  description: 'gcal-clock-tags: tri-state Google clock from titles and directive
+    lines, #on as a directive, explicit-only badge render with in-place migration,
+    effective clock for clusters and created MEETs, tri-state flip reports, and deprecation
+    warnings plus deprecations[] in sync and list.'
+- id: capture-clock-tags
+  title: 'bob-cli: capture keeps #off/#on at item edges as tags, never type markers'
+  size: small
+  depends_on:
+  - clock-contract
+  description: 'capture-clock-tags: reserve the clock spellings in the capture parser
+    and editor scanner, refuse them as type names, teach the existing-task error,
+    and record the narrow sigil exception.'
+- id: plugins-clock
+  title: 'bob-plugins: spelling tables, offclock: inheritance in Obsidian starts and
+    closes, copied vectors'
+  size: medium
+  depends_on:
+  - clock-writers
+  description: 'plugins-clock: one spelling table per plugin, #on wins, the ledger-tools
+    chain walker reads offclock: and exports taskEffectiveOffClock, se<X> starts and
+    the cycler close use it with a tag-only fallback, and vectors are copied byte-for-byte.'
+- id: plugins-marks-notice
+  title: 'bob-plugins: Event Task clock marks for #off, #on, and inherited rows, and
+    the daily deprecation Notice'
+  size: medium
+  depends_on:
+  - plugins-clock
+  - gcal-clock-tags
+  description: 'plugins-marks-notice: paint inherited off-clock Event Tasks dashed
+    with a from-note tooltip, keep #off tag marks, give #on a neutral override tooltip
+    in both views, and raise one Notice a day from deprecations[].'
+- id: vault-landing
+  title: 'Vault landing: install everywhere, rewrite legacy rows to #off, turn on
+    love.md, verify'
+  size: small
+  depends_on:
+  - clock-writers
+  - clock-readers
+  - gcal-clock-tags
+  - capture-clock-tags
+  - plugins-marks-notice
+  description: 'vault-landing: confirm every host runs the new bob and plugins, rewrite
+    re-scanned legacy Event Task rows to #off, add offclock: true to love.md, list
+    Google titles to retitle, verify stats and drift, and close ^off-tag.'
 proposed_by: bbugyi200.apollo.research.31.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 17:38:42
 status: wip
+bead_id: bob-cli-gb
 ---
 
-- **PROMPT:**
-  [prompts/202611/off_on_tags_and_offclock_areas.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_on_tags_and_offclock_areas.md)
+- **PROMPT:** [prompts/202611/off_on_tags_and_offclock_areas.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_on_tags_and_offclock_areas.md)
+- **BEAD:** [bob-cli-gb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gb/README.md)
 
 # `#off` / `#on` clock tags and inherited `offclock:` area defaults
 
