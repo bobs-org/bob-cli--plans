@@ -1,45 +1,41 @@
 ---
 tier: epic
 title: Complete Stats clock selection and reporting
-goal:
-  Finish bob-cli-fl.3 with Worked, Off-clock, and Total metrics, clock-aware session
+goal: Finish bob-cli-fl.3 with Worked, Off-clock, and Total metrics, clock-aware session
   diagnostics, and complete CLI and JSON contracts.
 phases:
-  - id: clock_evaluation
-    title: Evaluate Stats metrics on separate clocks
-    size: medium
-    depends_on: []
-    description:
-      "clock_evaluation: add request and pinned metric clocks, isolated formula
-      evaluation, coverage, labels, and the clock/sub-share JSON contract."
-  - id: session_diagnostics
-    title: Report clock-aware sessions and clock diagnostics
-    size: medium
-    depends_on:
-      - clock_evaluation
-    description:
-      "session_diagnostics: filter session drill-downs by clock, attribute real
-      off-clock minutes, and report unstamped rows, conflicts, drift, and overlaps."
-  - id: clock_interfaces
-    title: Expose and document all three Stats clocks
-    size: medium
-    depends_on:
-      - session_diagnostics
-    description:
-      "clock_interfaces: add CLI clock selection and completion, human and CSV output,
-      integration coverage, documentation, and the inherited authorized glossary
-      sentence."
+- id: clock_evaluation
+  title: Evaluate Stats metrics on separate clocks
+  size: medium
+  depends_on: []
+  description: 'clock_evaluation: add request and pinned metric clocks, isolated formula
+    evaluation, coverage, labels, and the clock/sub-share JSON contract.'
+- id: session_diagnostics
+  title: Report clock-aware sessions and clock diagnostics
+  size: medium
+  depends_on:
+  - clock_evaluation
+  description: 'session_diagnostics: filter session drill-downs by clock, attribute
+    real off-clock minutes, and report unstamped rows, conflicts, drift, and overlaps.'
+- id: clock_interfaces
+  title: Expose and document all three Stats clocks
+  size: medium
+  depends_on:
+  - session_diagnostics
+  description: 'clock_interfaces: add CLI clock selection and completion, human and
+    CSV output, integration coverage, documentation, and the inherited authorized
+    glossary sentence.'
 proposed_by: bbugyi200.apollo.bob-cli-fl.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fl.3
 create_time: 2026-11-02 01:23:54
 status: wip
+bead_id: bob-cli-fl.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/stats_clock.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/stats_clock.md)
-- **PARENT:**
-  [202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_clock_pomodoros.md)
+- **PROMPT:** [prompts/202611/stats_clock.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/stats_clock.md)
+- **PARENT:** [202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_clock_pomodoros.md)
+- **BEAD:** [bob-cli-fl.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fl/bob-cli-fl.3.1.md)
 
 # Complete bob-cli-fl.3: Stats clocks
 
