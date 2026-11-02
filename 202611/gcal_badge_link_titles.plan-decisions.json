@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "maps_title",
+      "kind": "choice",
+      "ask": "Should the \ud83d\udccd maps badge also lose its location title, with the agenda reading the location from the Maps URL instead?",
+      "why": "One title-free rule for every badge; the place stays recoverable from the Maps query",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "All three badges go title-free; Ctrl+L opens a clean Maps search too"
+        },
+        {
+          "key": "keep",
+          "label": "Only \ud83d\udcc5/\ud83d\udcf9 go title-free; \ud83d\udccd keeps its tooltip but Ctrl+L sends a messy Maps query"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    }
+  ]
+}
