@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish and land the default Pomodoro merge
-goal:
-  Preserve resolved merge rows, complete MEET errors and picker exclusions, then verify
-  and close bob-cli-fw.
+goal: Preserve resolved merge rows, complete MEET errors and picker exclusions, then
+  verify and close bob-cli-fw.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fw.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fw
-create_time: 2026-11-02 11:21:28
-status: wip
+status: done
 ---
 
 - **PARENT:**
