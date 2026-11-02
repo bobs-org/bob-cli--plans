@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Repair Stats clock diagnostics and finish the landing
-goal:
-  Correct drift and overnight overlap diagnostics, then close bob-cli-fl.3.1 and parent
-  phase bob-cli-fl.3.
+goal: Correct drift and overnight overlap diagnostics, then close bob-cli-fl.3.1 and
+  parent phase bob-cli-fl.3.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fl.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/stats_clock.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/stats_clock.md)
 - **BEAD:**
   [bob-cli-fl.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fl/bob-cli-fl.3.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-fl.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fl.3.1.land.md)
-- **COMMITS:**
-  - [2bf5e75](https://github.com/bobs-org/bob-cli/commit/2bf5e759cef7c4d4fba364108a29225c01c4c585)
-    — fix(stats): repair clock drift lookup and date-aware overlap
 
 # Repair Stats clock diagnostics and finish the landing
 
