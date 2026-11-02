@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair MEET continuation anchors and successor targeting, then land bob-cli-fx
-goal:
-  MEET continuations stay outside fences, preserve block spacing, receive their own
-  successors, and bob-cli-fx closes with verified fixture parity.
+goal: MEET continuations stay outside fences, preserve block spacing, receive their
+  own successors, and bob-cli-fx closes with verified fixture parity.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fx.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fx
-create_time: 2026-11-02 11:24:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
