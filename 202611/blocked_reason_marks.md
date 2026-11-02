@@ -1,151 +1,141 @@
 ---
 tier: epic
 title: Blocked-reason marks — every [?] checkbox says why
-goal: "In Obsidian, a Blocked task's checkbox shows why it is blocked. It shows & for
-  its own open prerequisite, ^ for a blocked project, 1–4 for a P1–P4 priority deferral,
-  ⟲ for a recurring rule's next run, ? for a date picked by hand, and a dashed ? when no
-  reason is left. Solid boxes mean held by other work, hollow boxes mean waiting for a
-  date. Stored Markdown, reconcile, and the Tasks registry stay exactly as they are.
+goal: 'In Obsidian, a Blocked task''s checkbox shows why it is blocked. It shows &
+  for its own open prerequisite, ^ for a blocked project, 1–4 for a P1–P4 priority
+  deferral, ⟲ for a recurring rule''s next run, ? for a date picked by hand, and a
+  dashed ? when no reason is left. Solid boxes mean held by other work, hollow boxes
+  mean waiting for a date. Stored Markdown, reconcile, and the Tasks registry stay
+  exactly as they are.
 
-  "
+  '
 decisions:
   precedence:
-    ask:
-      When a task is both held by its own prerequisite and in a blocked project, which
-      mark wins?
+    ask: When a task is both held by its own prerequisite and in a blocked project,
+      which mark wins?
     choices:
-      own_first:
-        Own prerequisite shows & even inside a blocked project; residents stand out
-      project_first:
-        Project-blocked rows always show ^, matching blocked.md's grouping exactly
+      own_first: Own prerequisite shows & even inside a blocked project; residents
+        stand out
+      project_first: Project-blocked rows always show ^, matching blocked.md's grouping
+        exactly
     default: own_first
-    why:
-      In a project note every resident would show ^; the own blocker's chips sit right
-      beneath it
+    why: In a project note every resident would show ^; the own blocker's chips sit
+      right beneath it
     answer: own_first
   prj_glyph:
     ask: Which glyph should the project-blocked (held by its project) checkbox draw?
     choices:
       chevron: A ^ chevron mask; ties to ^prj and reads as "the reason is above you"
-      folder_lock:
-        A Lucide folder-lock mask; more literal for strangers, busier at 16 px
+      folder_lock: A Lucide folder-lock mask; more literal for strangers, busier at
+        16 px
     default: chevron
-    why:
-      Matches Bob's typographic checkbox alphabet; a one-mask swap later if it doesn't
-      land
+    why: Matches Bob's typographic checkbox alphabet; a one-mask swap later if it
+      doesn't land
     answer: chevron
   hollow_tint:
     ask: How strongly should rows waiting for a date (hollow marks) tint the line?
     choices:
-      quiet:
-        About 5.5% red tint with a 45% rail; held-by-work rows stand out (109 vs 478)
+      quiet: About 5.5% red tint with a 45% rail; held-by-work rows stand out (109
+        vs 478)
       full: Today's 13% red tint and full rail; only the checkbox changes
     default: quiet
     why: The research's point is that real blockers should be the only loud red rows
     answer: quiet
   memory_decision_record:
-    ask:
-      Record an accepted decision that Blocked checkboxes show their reason while
+    ask: Record an accepted decision that Blocked checkboxes show their reason while
       storage stays [?]?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: contract
-    title: Blocked-marks display contract and decision record (bob-cli)
-    depends_on: []
-    size: medium
-    description:
-      "contract: write bob-cli docs/blocked-marks.md (marks, precedence, families and
-      tones, tooltip copy, surfaces, reliability rules, api.blockMarks v1, BM vectors),
-      amend the priority-marks eligibility and vectors in docs/projects.md, cross-link
-      the sibling contracts, register the page, and add the accepted decision record."
-  - id: model
-    title: Pure block-mark model and api.blockMarks.model (bob-ledger-tools)
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "model: add the pure classifier fragment, the memo-local open-prerequisite index,
-      the plugin method that feeds it live line text, the ladder, and today, and
-      api.blockMarks v1 model(); node tests run every BM vector verbatim. No visible
-      change."
-  - id: editor_marks
-    title: Checkbox rendering in Live Preview and reading view, CSS, toggle, tooltips
-    depends_on:
-      - model
-    size: large
-    description:
-      "editor_marks: render the marks on Blocked checkboxes in Live Preview, reading
-      view, embeds, hover previews, and Dataview TASK views. Covers the gated CSS
-      families and tokens, glyph masks and the corner pip, the session toggle, hover
-      tooltips, invalidation, api.blockMarks.render, a contrast test, and a
-      real-Obsidian e2e harness with light and dark screenshots."
-  - id: redundancy_folds
-    title: Fold the priority bars on digit rows and the project tag on ^ rows
-    depends_on:
-      - editor_marks
-    size: small
-    description:
-      "redundancy_folds: where the checkbox digit already says the priority, fold the
-      signal bars. Where the ^ mark already says the project is blocked, fold the
-      #prj_is_blocked pill. Applies in Live Preview and reading view, keeps cursor
-      reveal, and is gated on both toggles."
-  - id: tasks_results
-    title: Block marks in Tasks query results (CSS-only)
-    depends_on:
-      - redundancy_folds
-    size: medium
-    description:
-      "tasks_results: draw the marks on Tasks query result rows from Tasks' own row
-      attributes, with no JS on Tasks DOM. Also hide the priority glyph on digit rows
-      and the project tag on ^ rows. Verify the Tasks 8.4.0 attributes in the e2e
-      harness."
-  - id: chips
-    title: Block marks inside DEPENDS ON and BLOCKS chips
-    depends_on:
-      - tasks_results
-    size: small
-    description:
-      "chips: a Blocked prerequisite or dependent chip draws its own miniature block
-      mark and reason, exposing whether the critical path is waiting on work or on a
-      date."
-  - id: task_card
-    title: Task Card reason header and teaching digit (bob-navigation-hotkeys)
-    depends_on:
-      - editor_marks
-    size: medium
-    description:
-      "task_card: the Task Card's BLOCKED lane chip becomes the block mark plus every
-      reason in After / Until / Via words (the touch and mobile path). The P1–P4 strip
-      shows the hollow digit box beside each level's bars. Both go through
-      api.blockMarks v1 and fall back to today's look when the api is missing."
-  - id: visual_review
-    title: Cross-surface visual review, polish, and live checklist
-    depends_on:
-      - chips
-      - task_card
-    size: small
-    description:
-      "visual_review: screenshot every surface in light and dark through the e2e
-      harness, fix polish defects against the reference mockup, run the full suites,
-      deploy, finalize the contract's live-verification checklist, and record
-      follow-ups."
+- id: contract
+  title: Blocked-marks display contract and decision record (bob-cli)
+  depends_on: []
+  size: medium
+  description: 'contract: write bob-cli docs/blocked-marks.md (marks, precedence,
+    families and tones, tooltip copy, surfaces, reliability rules, api.blockMarks
+    v1, BM vectors), amend the priority-marks eligibility and vectors in docs/projects.md,
+    cross-link the sibling contracts, register the page, and add the accepted decision
+    record.'
+- id: model
+  title: Pure block-mark model and api.blockMarks.model (bob-ledger-tools)
+  depends_on:
+  - contract
+  size: medium
+  description: 'model: add the pure classifier fragment, the memo-local open-prerequisite
+    index, the plugin method that feeds it live line text, the ladder, and today,
+    and api.blockMarks v1 model(); node tests run every BM vector verbatim. No visible
+    change.'
+- id: editor_marks
+  title: Checkbox rendering in Live Preview and reading view, CSS, toggle, tooltips
+  depends_on:
+  - model
+  size: large
+  description: 'editor_marks: render the marks on Blocked checkboxes in Live Preview,
+    reading view, embeds, hover previews, and Dataview TASK views. Covers the gated
+    CSS families and tokens, glyph masks and the corner pip, the session toggle, hover
+    tooltips, invalidation, api.blockMarks.render, a contrast test, and a real-Obsidian
+    e2e harness with light and dark screenshots.'
+- id: redundancy_folds
+  title: Fold the priority bars on digit rows and the project tag on ^ rows
+  depends_on:
+  - editor_marks
+  size: small
+  description: 'redundancy_folds: where the checkbox digit already says the priority,
+    fold the signal bars. Where the ^ mark already says the project is blocked, fold
+    the #prj_is_blocked pill. Applies in Live Preview and reading view, keeps cursor
+    reveal, and is gated on both toggles.'
+- id: tasks_results
+  title: Block marks in Tasks query results (CSS-only)
+  depends_on:
+  - redundancy_folds
+  size: medium
+  description: 'tasks_results: draw the marks on Tasks query result rows from Tasks''
+    own row attributes, with no JS on Tasks DOM. Also hide the priority glyph on digit
+    rows and the project tag on ^ rows. Verify the Tasks 8.4.0 attributes in the e2e
+    harness.'
+- id: chips
+  title: Block marks inside DEPENDS ON and BLOCKS chips
+  depends_on:
+  - tasks_results
+  size: small
+  description: 'chips: a Blocked prerequisite or dependent chip draws its own miniature
+    block mark and reason, exposing whether the critical path is waiting on work or
+    on a date.'
+- id: task_card
+  title: Task Card reason header and teaching digit (bob-navigation-hotkeys)
+  depends_on:
+  - editor_marks
+  size: medium
+  description: 'task_card: the Task Card''s BLOCKED lane chip becomes the block mark
+    plus every reason in After / Until / Via words (the touch and mobile path). The
+    P1–P4 strip shows the hollow digit box beside each level''s bars. Both go through
+    api.blockMarks v1 and fall back to today''s look when the api is missing.'
+- id: visual_review
+  title: Cross-surface visual review, polish, and live checklist
+  depends_on:
+  - chips
+  - task_card
+  size: small
+  description: 'visual_review: screenshot every surface in light and dark through
+    the e2e harness, fix polish defects against the reference mockup, run the full
+    suites, deploy, finalize the contract''s live-verification checklist, and record
+    follow-ups.'
 proposed_by: bbugyi200.athena.16w
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 06:28:09
 status: wip
+bead_id: bob-cli-ft
 ---
 
-- **PROMPT:**
-  [prompts/202611/blocked_reason_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/blocked_reason_marks.md)
+- **PROMPT:** [prompts/202611/blocked_reason_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/blocked_reason_marks.md)
+- **BEAD:** [bob-cli-ft](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ft/README.md)
 
 # Plan: Blocked-reason marks — every `[?]` checkbox says why
 
