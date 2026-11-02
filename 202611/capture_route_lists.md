@@ -1,85 +1,84 @@
 ---
 tier: epic
 title: Capture lists under a lone @file header
-goal: "A capture item whose first line is only `@file` (or `@file#section`) files each
-  bullet below it as its own new task (or section note) in that file. A trailing ` :` or
-  ` ^` on a task bullet, or on one of its nested bullets, opens a block-ID prompt for
-  that task with a default ID Bryan is likely to accept, and ` :<id>` also links the
-  task into today's daily note. Execution, `capture-parse`, `capture-complete`, the
-  dry-run preview, and Bob Mac Capture always agree.
+goal: 'A capture item whose first line is only `@file` (or `@file#section`) files
+  each bullet below it as its own new task (or section note) in that file. A trailing
+  ` :` or ` ^` on a task bullet, or on one of its nested bullets, opens a block-ID
+  prompt for that task with a default ID Bryan is likely to accept, and ` :<id>` also
+  links the task into today''s daily note. Execution, `capture-parse`, `capture-complete`,
+  the dry-run preview, and Bob Mac Capture always agree.
 
-  "
+  '
 phases:
-  - id: list-capture
-    title: Lists in bob capture and capture-parse
-    depends_on: []
-    size: medium
-    description: "list-capture: split list headers into one capture item per bullet
-      (zero-copy slices plus a list context), give list bullets the task-bullet grammar
-      (` :id`, ` ^id`, per-task markers, refusals) in both the execution and editor
-      parsers, wire planning, add the `list` JSON object and human summary, bump grammar
-      to 6, and document the form.
+- id: list-capture
+  title: Lists in bob capture and capture-parse
+  depends_on: []
+  size: medium
+  description: 'list-capture: split list headers into one capture item per bullet
+    (zero-copy slices plus a list context), give list bullets the task-bullet grammar
+    (` :id`, ` ^id`, per-task markers, refusals) in both the execution and editor
+    parsers, wire planning, add the `list` JSON object and human summary, bump grammar
+    to 6, and document the form.
 
-      "
-  - id: id-suggester
-    title: Default block-ID suggestions tuned on the vault
-    depends_on: []
-    size: medium
-    description: "id-suggester: add an ignored calibration harness over a real vault,
-      then retune the shared block-ID suggester (filler lead-ins, content words, length)
-      so its first suggestion is closer to the IDs Bryan writes himself, with measured
-      before/after numbers.
+    '
+- id: id-suggester
+  title: Default block-ID suggestions tuned on the vault
+  depends_on: []
+  size: medium
+  description: 'id-suggester: add an ignored calibration harness over a real vault,
+    then retune the shared block-ID suggester (filler lead-ins, content words, length)
+    so its first suggestion is closer to the IDs Bryan writes himself, with measured
+    before/after numbers.
 
-      "
-  - id: editor-assists
-    title: Block-ID prompt, toggle, and similar tasks for lists
-    depends_on:
-      - list-capture
-      - id-suggester
-    size: medium
-    description: "editor-assists: open the `project_task_block_id` prompt on list
-      bullets and their nested bullets, return the owner-line `splice`, add the `:`/`^`
-      toggle to capture-rewrite, name Bob's suggested ID in unfinished-ID refusals, make
-      capture-related anchors list-aware, and write the authorized memory changes.
+    '
+- id: editor-assists
+  title: Block-ID prompt, toggle, and similar tasks for lists
+  depends_on:
+  - list-capture
+  - id-suggester
+  size: medium
+  description: 'editor-assists: open the `project_task_block_id` prompt on list bullets
+    and their nested bullets, return the owner-line `splice`, add the `:`/`^` toggle
+    to capture-rewrite, name Bob''s suggested ID in unfinished-ID refusals, make capture-related
+    anchors list-aware, and write the authorized memory changes.
 
-      "
-  - id: mac-lists
-    title: Bob Mac Capture presentation
-    depends_on:
-      - editor-assists
-    size: medium
-    description: "mac-lists: in bob-mac-capture, apply Bob's block-ID splice on accept,
-      caption the owner task, group list results in the preview, open the first bullet
-      after a lone header, and regenerate fixtures from a real bob.
+    '
+- id: mac-lists
+  title: Bob Mac Capture presentation
+  depends_on:
+  - editor-assists
+  size: medium
+  description: 'mac-lists: in bob-mac-capture, apply Bob''s block-ID splice on accept,
+    caption the owner task, group list results in the preview, open the first bullet
+    after a lone header, and regenerate fixtures from a real bob.
 
-      "
+    '
 decisions:
   header_starts_item:
-    ask:
-      Should a lone `@file` line start a new list even without a blank line before it?
+    ask: Should a lone `@file` line start a new list even without a blank line before
+      it?
     default: true
-    why:
-      Several files in one draft without blank lines; that line is a usage error today
+    why: Several files in one draft without blank lines; that line is a usage error
+      today
     answer: true
   project_note_parity:
-    ask:
-      Should project-note task bullets get the same ID grammar and prompt as list
+    ask: Should project-note task bullets get the same ID grammar and prompt as list
       bullets?
     default: true
-    why:
-      One task-bullet grammar, and it fixes the silent `s:2 :id` trap in project notes
+    why: One task-bullet grammar, and it fixes the silent `s:2 :id` trap in project
+      notes
     answer: true
   memory_bulk_capture_glossary:
     ask: Update the Bulk Capture glossary entry to describe lists?
     memory:
-      - glossary:bulk-capture
+    - glossary:bulk-capture
     corrects: Authored child bullets never start an item.
     default: true
     answer: true
   memory_list_decision_record:
     ask: Add a decisions record for capture lists under a lone @file header?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.c1
@@ -87,10 +86,11 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-01 23:41:31
 status: wip
+bead_id: bob-cli-fn
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_route_lists.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_route_lists.md)
+- **PROMPT:** [prompts/202611/capture_route_lists.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_route_lists.md)
+- **BEAD:** [bob-cli-fn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fn/README.md)
 
 # Plan: Capture lists under a lone `@file` header
 
