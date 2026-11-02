@@ -1,49 +1,48 @@
 ---
 tier: epic
-title:
-  Finish capture lists — section names with spaces, header completion, and undoable ID
-  splices
-goal: 'A list header can name any section, including one whose title has spaces
-  (`@sase#future-work` or `@sase#"Future Work"` both reach `## Future Work`). Picking a
-  section from the menu always inserts a selector that reaches that section. Route and
-  section completion work on a list header even after bullets are typed below it.
-  Accepting a block ID in Bob Mac Capture is one native Undo step. With this done,
-  bob-cli-fn can land.
+title: Finish capture lists — section names with spaces, header completion, and undoable
+  ID splices
+goal: 'A list header can name any section, including one whose title has spaces (`@sase#future-work`
+  or `@sase#"Future Work"` both reach `## Future Work`). Picking a section from the
+  menu always inserts a selector that reaches that section. Route and section completion
+  work on a list header even after bullets are typed below it. Accepting a block ID
+  in Bob Mac Capture is one native Undo step. With this done, bob-cli-fn can land.
 
   '
 parent_bead: bob-cli-fn
 phases:
-  - id: section-selectors
-    title: Section selectors with spaces and header-line completion in bob
-    depends_on: []
-    size: medium
-    description: 'section-selectors: add slug matching to `@route#selector` section
-      selectors, make section completion insert a selector that resolves back to the
-      picked heading (raw, slug, or quoted literal), decode partial quoted section
-      queries, treat an unterminated `#"…` section as incomplete in parse and execution,
-      complete route and section tokens on a list header that already has bullets, add
-      the off-clock list-vs-batch test, and document it all.
+- id: section-selectors
+  title: Section selectors with spaces and header-line completion in bob
+  depends_on: []
+  size: medium
+  description: 'section-selectors: add slug matching to `@route#selector` section
+    selectors, make section completion insert a selector that resolves back to the
+    picked heading (raw, slug, or quoted literal), decode partial quoted section queries,
+    treat an unterminated `#"…` section as incomplete in parse and execution, complete
+    route and section tokens on a list header that already has bullets, add the off-clock
+    list-vs-batch test, and document it all.
 
-      '
-  - id: mac-undo
-    title: Undoable ID splices and section picks in Bob Mac Capture
-    depends_on:
-      - section-selectors
-    size: medium
-    description: "mac-undo: apply an accepted block-ID splice as one native undoable
-      NSTextView edit, insert Bob's section replacement verbatim (including quoted
-      literals), treat the new `section` need as a calm incomplete state, regenerate
-      list and section fixtures from the phase-1 bob, and verify on macOS CI.
+    '
+- id: mac-undo
+  title: Undoable ID splices and section picks in Bob Mac Capture
+  depends_on:
+  - section-selectors
+  size: medium
+  description: 'mac-undo: apply an accepted block-ID splice as one native undoable
+    NSTextView edit, insert Bob''s section replacement verbatim (including quoted
+    literals), treat the new `section` need as a calm incomplete state, regenerate
+    list and section fixtures from the phase-1 bob, and verify on macOS CI.
 
-      "
+    '
 proposed_by: bbugyi200.apollo.bob-cli-fn.land
 proposed_with: claude/opus
 create_time: 2026-11-02 07:14:34
 status: wip
+bead_id: bob-cli-fn.5
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_list_section_names.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_list_section_names.md)
+- **PROMPT:** [prompts/202611/capture_list_section_names.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_list_section_names.md)
+- **BEAD:** [bob-cli-fn.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fn/bob-cli-fn.5.md)
 
 # Plan: Finish capture lists — section names with spaces, header completion, undoable ID splices
 
