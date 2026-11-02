@@ -2,18 +2,17 @@
 tier: tale
 size: medium
 title: Finish blocked-reason chip marks and land epic bob-cli-ft
-goal: "DEPENDS ON and BLOCKS chips show a Blocked target's block mark and reason line.
-  They refresh on every block-marks trigger and fall back to the plain ? as soon as the
-  marks are toggled off. Real Obsidian e2e screenshots verify them in light and dark.
-  The contract's live checklist is final, and epic bob-cli-ft is closed with its plan
-  marked done.
+goal: 'DEPENDS ON and BLOCKS chips show a Blocked target''s block mark and reason
+  line. They refresh on every block-marks trigger and fall back to the plain ? as
+  soon as the marks are toggled off. Real Obsidian e2e screenshots verify them in
+  light and dark. The contract''s live checklist is final, and epic bob-cli-ft is
+  closed with its plan marked done.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-ft.land
 proposed_with: claude/opus
 bead: bob-cli-ft
-create_time: 2026-11-02 14:08:38
-status: wip
+status: done
 ---
 
 - **PARENT:**
