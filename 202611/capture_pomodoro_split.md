@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Add whole-item Pomodoro split capture
-goal: Complete bob-cli-fe.3 with grammar 5 split execution, editor support, completion,
+goal:
+  Complete bob-cli-fe.3 with grammar 5 split execution, editor support, completion,
   previews, documentation, and regression coverage.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fe.3
@@ -14,6 +15,11 @@ status: done
   [202611/merged_pomodoros.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/merged_pomodoros.md)
 - **BEAD:**
   [bob-cli-fe.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fe/bob-cli-fe.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fe.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fe.3.md)
+- **COMMITS:**
+  - [ccd1ada](https://github.com/bobs-org/bob-cli/commit/ccd1ada109a634bf58b2261b5f3c0a2a84daa5ef)
+    — feat(capture)\!: add =/ split syntax end to end
 
 # Implement `=/` Pomodoro splitting for bob-cli-fe.3
 
