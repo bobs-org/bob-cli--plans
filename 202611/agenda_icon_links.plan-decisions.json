@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "text_links",
+      "kind": "choice",
+      "ask": "Should text-labeled Markdown links such as `[docs](url)` also show only their label in the idle agenda?",
+      "why": "Matches the request; the lightbulb plan deliberately kept prose links verbatim in the agenda",
+      "choices": [
+        {
+          "key": "icons_only",
+          "label": "Only single-emoji links collapse; text-labeled links keep their full Markdown and URL"
+        },
+        {
+          "key": "all_links",
+          "label": "Every well-formed Markdown link shows just its label, link-tinted, like the task pickers"
+        }
+      ],
+      "default": "icons_only",
+      "effective_default": "icons_only",
+      "requested_verified": false
+    }
+  ]
+}
