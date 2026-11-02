@@ -2,13 +2,13 @@
 tier: tale
 size: medium
 title: Finish blocked-reason chip marks and land epic bob-cli-ft
-goal: 'DEPENDS ON and BLOCKS chips show a Blocked target''s block mark and reason
-  line. They refresh on every block-marks trigger and fall back to the plain ? as
-  soon as the marks are toggled off. Real Obsidian e2e screenshots verify them in
-  light and dark. The contract''s live checklist is final, and epic bob-cli-ft is
-  closed with its plan marked done.
+goal: "DEPENDS ON and BLOCKS chips show a Blocked target's block mark and reason line.
+  They refresh on every block-marks trigger and fall back to the plain ? as soon as the
+  marks are toggled off. Real Obsidian e2e screenshots verify them in light and dark.
+  The contract's live checklist is final, and epic bob-cli-ft is closed with its plan
+  marked done.
 
-  '
+  "
 proposed_by: bbugyi200.athena.bob-cli-ft.land
 proposed_with: claude/opus
 bead: bob-cli-ft
@@ -19,6 +19,11 @@ status: done
   [202611/blocked_reason_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/blocked_reason_marks.md)
 - **BEAD:**
   [bob-cli-ft](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ft/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ft.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ft.land.md)
+- **COMMITS:**
+  - [f8dc885](https://github.com/bobs-org/bob-cli--plans/commit/f8dc885cb5e171101ef006df336897df3588dacb)
+    — docs(plans): mark blocked-reason chip landing and epic done
 
 # Tale: Finish blocked-reason chip marks and land epic bob-cli-ft
 
