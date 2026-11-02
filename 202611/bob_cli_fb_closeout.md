@@ -1,10 +1,11 @@
 ---
 tier: tale
 size: small
-title: Finish landing bob-cli-fb — fix its two test defects and close the keep-moving
-  epic
-goal: Make the two test defects the keep-moving epic introduced deterministic, then
-  close epic bob-cli-fb normally and mark its plan done.
+title:
+  Finish landing bob-cli-fb — fix its two test defects and close the keep-moving epic
+goal:
+  Make the two test defects the keep-moving epic introduced deterministic, then close
+  epic bob-cli-fb normally and mark its plan done.
 proposed_by: bbugyi200.apollo.bob-cli-fb.land
 proposed_with: claude/opus
 bead: bob-cli-fb
@@ -15,6 +16,11 @@ status: done
   [202611/leaf_project_keep_moving_offers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/leaf_project_keep_moving_offers.md)
 - **BEAD:**
   [bob-cli-fb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fb/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fb.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fb.land.md)
+- **COMMITS:**
+  - [5919d56](https://github.com/bobs-org/bob-cli--plans/commit/5919d565a0bb85b4bf588787f7828479214e2491)
+    — docs(plans): mark leaf project keep-moving plan done
 
 # Finish landing bob-cli-fb (keep-moving leaf-project offers)
 
