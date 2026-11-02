@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_link_order_record",
+      "kind": "toggle",
+      "ask": "Record the new rule as a decisions strand and mark synced-meetings-link-by-phase partly superseded by it?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:synced-meetings-link-by-phase",
+          "decisions:sync-sorts-event-task-links"
+        ]
+      },
+      "corrects": "Sync only creates MEET entries and appends links; it never starts, closes, retimes, renames, or moves an existing entry.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:synced-meetings-link-by-phase",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Synced Meetings Are Linked By Phase At Birth"
+          ]
+        },
+        {
+          "selector": "decisions:sync-sorts-event-task-links",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/sync-sorts-event-task-links.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
