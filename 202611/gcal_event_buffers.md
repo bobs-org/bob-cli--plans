@@ -1,95 +1,85 @@
 ---
 tier: epic
 title: Pre/post-event buffers for calendar events
-goal:
-  "A Google Calendar description line like `@love #untracked -30 +15` gives an Event
-  Task a beautifully rendered buffer that every occupied-time surface honors."
+goal: 'A Google Calendar description line like `@love #untracked -30 +15` gives an
+  Event Task a beautifully rendered buffer that every occupied-time surface honors.'
 phases:
-  - id: buffer-grammar
-    title:
-      "bob-cli: description directive lines, the [buffer::] field, and the shared
-      conflict predicate"
-    depends_on: []
-    size: medium
-    description:
-      "buffer-grammar: HTML-safe combinable directive lines in gcal/model.rs,
-      EventBuffer and buffered spans plus fixpoint title cleaning and the conflict
-      predicate in event_task.rs, and the shared event_buffer vectors."
-  - id: gcal-sync-buffers
-    title: "bob-cli: bob gcal sync renders buffers and files MEETs on buffered spans"
-    depends_on:
-      - buffer-grammar
-    size: medium
-    description:
-      "gcal-sync-buffers: render [buffer::] in the Google-owned badge run, keep that run
-      intact on reroutes, use buffered spans for sync phases and MEET clusters, show
-      buffers in list/sync output, and document them in docs/gcal.md."
-  - id: capture-buffers
-    title: "bob-cli: MEET event runs and run-into-event warnings honor buffers"
-    depends_on:
-      - buffer-grammar
-    size: medium
-    description:
-      "capture-buffers: buffered MEET event runs and far-run text, conflict
-      detection/overlap/fit/messages via the shared predicate, additive buffer JSON,
-      meet_event_run and event_task_close vector cases, and docs/capture.md."
-  - id: agenda-buffers
-    title: "bob-cli: capture-pomodoros --tasks events block carries buffers"
-    depends_on:
-      - buffer-grammar
-    size: medium
-    description:
-      "agenda-buffers: per-row and chip buffer objects, buffer-aware
-      gap/conflict/start_hint/refresh_at, the human Events block label, and a new
-      agenda-events-buffered golden."
-  - id: plugins-buffers
-    title: "bob-plugins: hatched buffer wings and a buffer-aware JS mirror"
-    depends_on:
-      - buffer-grammar
-      - capture-buffers
-    size: medium
-    description:
-      "plugins-buffers: copy and pin the vectors, make 035-meet-event-run.js
-      buffer-aware, paint hatched lead-in/lead-out wings on Event time pills in Live
-      Preview and Reading view, update docs, and deploy with bob plugins sync."
-  - id: mac-buffers
-    title: "bob-mac-capture: buffer wings on the Calendar rail and buffer-aware cards"
-    depends_on:
-      - capture-buffers
-      - agenda-buffers
-    size: medium
-    description:
-      "mac-buffers: tolerant buffer decoding, hatched rail wings and buffer-aware
-      firstGap, a row buffer capsule with accessibility text, buffer-aware event-run and
-      conflict cards, fixtures, renders, and docs."
+- id: buffer-grammar
+  title: 'bob-cli: description directive lines, the [buffer::] field, and the shared
+    conflict predicate'
+  depends_on: []
+  size: medium
+  description: 'buffer-grammar: HTML-safe combinable directive lines in gcal/model.rs,
+    EventBuffer and buffered spans plus fixpoint title cleaning and the conflict predicate
+    in event_task.rs, and the shared event_buffer vectors.'
+- id: gcal-sync-buffers
+  title: 'bob-cli: bob gcal sync renders buffers and files MEETs on buffered spans'
+  depends_on:
+  - buffer-grammar
+  size: medium
+  description: 'gcal-sync-buffers: render [buffer::] in the Google-owned badge run,
+    keep that run intact on reroutes, use buffered spans for sync phases and MEET
+    clusters, show buffers in list/sync output, and document them in docs/gcal.md.'
+- id: capture-buffers
+  title: 'bob-cli: MEET event runs and run-into-event warnings honor buffers'
+  depends_on:
+  - buffer-grammar
+  size: medium
+  description: 'capture-buffers: buffered MEET event runs and far-run text, conflict
+    detection/overlap/fit/messages via the shared predicate, additive buffer JSON,
+    meet_event_run and event_task_close vector cases, and docs/capture.md.'
+- id: agenda-buffers
+  title: 'bob-cli: capture-pomodoros --tasks events block carries buffers'
+  depends_on:
+  - buffer-grammar
+  size: medium
+  description: 'agenda-buffers: per-row and chip buffer objects, buffer-aware gap/conflict/start_hint/refresh_at,
+    the human Events block label, and a new agenda-events-buffered golden.'
+- id: plugins-buffers
+  title: 'bob-plugins: hatched buffer wings and a buffer-aware JS mirror'
+  depends_on:
+  - buffer-grammar
+  - capture-buffers
+  size: medium
+  description: 'plugins-buffers: copy and pin the vectors, make 035-meet-event-run.js
+    buffer-aware, paint hatched lead-in/lead-out wings on Event time pills in Live
+    Preview and Reading view, update docs, and deploy with bob plugins sync.'
+- id: mac-buffers
+  title: 'bob-mac-capture: buffer wings on the Calendar rail and buffer-aware cards'
+  depends_on:
+  - capture-buffers
+  - agenda-buffers
+  size: medium
+  description: 'mac-buffers: tolerant buffer decoding, hatched rail wings and buffer-aware
+    firstGap, a row buffer capsule with accessibility text, buffer-aware event-run
+    and conflict cards, fixtures, renders, and docs.'
 decisions:
   memory_buffer_record:
-    ask:
-      Write a buffers decision record and mark synced-meetings-link-by-phase superseded
+    ask: Write a buffers decision record and mark synced-meetings-link-by-phase superseded
       in part?
     default: true
     memory:
-      - decisions:synced-meetings-link-by-phase
-      - decisions
-    corrects:
-      Back-to-back or overlapping past meetings share one closed MEET whose span is the
-      cluster (next start ≤ cluster end).
+    - decisions:synced-meetings-link-by-phase
+    - decisions
+    corrects: Back-to-back or overlapping past meetings share one closed MEET whose
+      span is the cluster (next start ≤ cluster end).
     answer: true
   memory_event_task_glossary:
     ask: Add one sentence about the [buffer::] field to the Event Task glossary strand?
     default: false
     memory:
-      - glossary:event-task
+    - glossary:event-task
     answer: false
 proposed_by: bbugyi200.apollo.c5
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-01 21:42:29
 status: wip
+bead_id: bob-cli-fk
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_event_buffers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_event_buffers.md)
+- **PROMPT:** [prompts/202611/gcal_event_buffers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_event_buffers.md)
+- **BEAD:** [bob-cli-fk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fk/README.md)
 
 # Pre/post-event buffers for calendar events
 
