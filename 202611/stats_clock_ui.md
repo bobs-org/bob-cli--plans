@@ -1,67 +1,62 @@
 ---
 tier: epic
 title: Stats clocks and the Day strip off-clock hint
-goal:
-  Complete bob-cli-fl.6 with a persistent Worked, Off-clock, and Total Stats control,
+goal: Complete bob-cli-fl.6 with a persistent Worked, Off-clock, and Total Stats control,
   accurate dashed clock renderings, and a Day strip link to the selected day's off-clock
   time while preserving Worked facts and lanes.
 phases:
-  - id: clock-presentation-contract
-    title: Supply clock breakdowns for pinned Stats spans
-    size: medium
-    depends_on: []
-    description:
-      "clock-presentation-contract: complete the additive Stats presentation data needed
-      by bob-cli-fl.6; expose Bob-computed clock breakdowns and display strings for
-      points, pinned parts, and complete-day totals; preserve existing clock semantics."
-  - id: clock-control
-    title: Add the persistent Stats clock control and fetch routing
-    size: medium
-    depends_on:
-      - clock-presentation-contract
-    description:
-      "clock-control: add defensive clock presentation helpers, report-driven accessible
-      radios, device persistence, clock-specific fetch keys, capability fallback, and
-      bounded idle prefetch while preserving the Day strip default cache key."
-  - id: clock-charts
-    title: Render clocks in Stats tiles and focus charts
-    size: medium
-    depends_on:
-      - clock-control
-    description:
-      "clock-charts: render Off-clock outlines and Total tails in tile sparklines and
-      focus charts, with correct labels, neutral comparisons, spoken breakdowns, quality
-      states, and browser preview cases."
-  - id: clock-breakdowns
-    title: Render clocks in window lanes and time breakdowns
-    size: medium
-    depends_on:
-      - clock-charts
-    description:
-      "clock-breakdowns: preserve clock shares through root, project, and type models;
-      render dashed tails, session marks, clock-aware lane transitions, and pinned-span
-      details without changing Day strip lane semantics."
-  - id: day-strip-clock-hint
-    title: Add the Day strip hint and finish integration documentation
-    size: medium
-    depends_on:
-      - clock-breakdowns
-    description:
-      "day-strip-clock-hint: add the separate off-clock link below WORKED, open Stats
-      with its day and Off-clock lens selected, finish compatibility and preview
-      coverage, update both repositories' user documentation, and provide completion
-      evidence."
+- id: clock-presentation-contract
+  title: Supply clock breakdowns for pinned Stats spans
+  size: medium
+  depends_on: []
+  description: 'clock-presentation-contract: complete the additive Stats presentation
+    data needed by bob-cli-fl.6; expose Bob-computed clock breakdowns and display
+    strings for points, pinned parts, and complete-day totals; preserve existing clock
+    semantics.'
+- id: clock-control
+  title: Add the persistent Stats clock control and fetch routing
+  size: medium
+  depends_on:
+  - clock-presentation-contract
+  description: 'clock-control: add defensive clock presentation helpers, report-driven
+    accessible radios, device persistence, clock-specific fetch keys, capability fallback,
+    and bounded idle prefetch while preserving the Day strip default cache key.'
+- id: clock-charts
+  title: Render clocks in Stats tiles and focus charts
+  size: medium
+  depends_on:
+  - clock-control
+  description: 'clock-charts: render Off-clock outlines and Total tails in tile sparklines
+    and focus charts, with correct labels, neutral comparisons, spoken breakdowns,
+    quality states, and browser preview cases.'
+- id: clock-breakdowns
+  title: Render clocks in window lanes and time breakdowns
+  size: medium
+  depends_on:
+  - clock-charts
+  description: 'clock-breakdowns: preserve clock shares through root, project, and
+    type models; render dashed tails, session marks, clock-aware lane transitions,
+    and pinned-span details without changing Day strip lane semantics.'
+- id: day-strip-clock-hint
+  title: Add the Day strip hint and finish integration documentation
+  size: medium
+  depends_on:
+  - clock-breakdowns
+  description: 'day-strip-clock-hint: add the separate off-clock link below WORKED,
+    open Stats with its day and Off-clock lens selected, finish compatibility and
+    preview coverage, update both repositories'' user documentation, and provide completion
+    evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-fl.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fl.6
 create_time: 2026-11-02 05:03:36
 status: wip
+bead_id: bob-cli-fl.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/stats_clock_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/stats_clock_ui.md)
-- **PARENT:**
-  [202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_clock_pomodoros.md)
+- **PROMPT:** [prompts/202611/stats_clock_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/stats_clock_ui.md)
+- **PARENT:** [202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_clock_pomodoros.md)
+- **BEAD:** [bob-cli-fl.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fl/bob-cli-fl.6.1.md)
 
 # Stats clocks and the Day strip off-clock hint
 
