@@ -1,47 +1,43 @@
 ---
 tier: epic
 title: Rust relation-successor policy and planner for bob-cli-fs.2
-goal:
-  Complete the Rust policy, shared copy, pure relation-successor engine, and
-  successor-planner integration for bob-cli-fs.2 while preserving capture output until
-  its later wiring phase.
+goal: Complete the Rust policy, shared copy, pure relation-successor engine, and successor-planner
+  integration for bob-cli-fs.2 while preserving capture output until its later wiring
+  phase.
 phases:
-  - id: policy_copy
-    title: Successor-label policy and shared copy
-    size: medium
-    description:
-      "policy_copy: add the three-effect relation policy and typed copy builders, with
-      every config, key, and copy vector exercised."
-    depends_on: []
-  - id: classifier
-    title: Pure relation extraction and classification
-    size: medium
-    description:
-      "classifier: share reconcile target resolution and implement event,
-      released-state, R1-R7 classification, groups, held rows, and snapshot gates over
-      in-memory inputs."
-    depends_on:
-      - policy_copy
-  - id: integrate
-    title: Merge relation offers into successor planning
-    size: medium
-    description:
-      "integrate: integrate classification after recovery, preserve all reasons and
-      writes through deduplication, reuse selection and placement, and verify unchanged
-      capture behavior."
-    depends_on:
-      - classifier
+- id: policy_copy
+  title: Successor-label policy and shared copy
+  size: medium
+  description: 'policy_copy: add the three-effect relation policy and typed copy builders,
+    with every config, key, and copy vector exercised.'
+  depends_on: []
+- id: classifier
+  title: Pure relation extraction and classification
+  size: medium
+  description: 'classifier: share reconcile target resolution and implement event,
+    released-state, R1-R7 classification, groups, held rows, and snapshot gates over
+    in-memory inputs.'
+  depends_on:
+  - policy_copy
+- id: integrate
+  title: Merge relation offers into successor planning
+  size: medium
+  description: 'integrate: integrate classification after recovery, preserve all reasons
+    and writes through deduplication, reuse selection and placement, and verify unchanged
+    capture behavior.'
+  depends_on:
+  - classifier
 proposed_by: bbugyi200.athena.bob-cli-fs.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fs.2
 create_time: 2026-11-02 06:30:49
 status: wip
+bead_id: bob-cli-fs.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/relation_successor_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/relation_successor_core.md)
-- **PARENT:**
-  [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **PROMPT:** [prompts/202611/relation_successor_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/relation_successor_core.md)
+- **PARENT:** [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **BEAD:** [bob-cli-fs.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.2.1.md)
 
 # Rust relation-successor core
 
