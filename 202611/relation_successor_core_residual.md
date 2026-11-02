@@ -1,11 +1,10 @@
 ---
 tier: tale
 title: Finish the relation-successor core residuals and land bob-cli-fs.2.1
-goal:
-  Close the confirmed residual gaps in the Rust relation-successor core (slot placement,
-  effective-state projection, relation-winner placement and folds, target reads, and
-  real vector and capture-compatibility coverage), verify, then close bob-cli-fs.2.1 and
-  its parent phase bob-cli-fs.2 in the same turn.
+goal: Close the confirmed residual gaps in the Rust relation-successor core (slot
+  placement, effective-state projection, relation-winner placement and folds, target
+  reads, and real vector and capture-compatibility coverage), verify, then close bob-cli-fs.2.1
+  and its parent phase bob-cli-fs.2 in the same turn.
 size: medium
 bead: bob-cli-fs.2.1
 proposed_by: bbugyi200.athena.bob-cli-fs.2.1.land
@@ -15,11 +14,6 @@ status: done
 
 - **BEAD:**
   [bob-cli-fs.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.2.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-fs.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-fs.2.1.land.md)
-- **COMMITS:**
-  - [fdc34de](https://github.com/bobs-org/bob-cli/commit/fdc34de9bf82600e187ef8f6ebb66473fc4d2bbf)
-    — fix(task-complete): finish relation successor core
 
 # Finish the relation-successor core and land bob-cli-fs.2.1
 
