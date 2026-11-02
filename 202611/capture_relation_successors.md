@@ -1,76 +1,70 @@
 ---
 tier: epic
 title: Finish capture relation successors for bob-cli-fs.4
-goal: "Managed capture Done and parked gestures offer relation successors through the
-  shared planner, with correct batch selection, generic bob-authored output, and
+goal: 'Managed capture Done and parked gestures offer relation successors through
+  the shared planner, with correct batch selection, generic bob-authored output, and
   verified read and latency budgets; bob-cli-fs.4 is completed and closed.
 
-  "
+  '
 phases:
-  - id: snapshots
-    title: Share lazy dependency and relation source reads
-    size: medium
-    depends_on: []
-    description:
-      "snapshots: implement the shared byte snapshot, relation gates, staged input
-      assembly, completeness accounting, and read-count tests without enabling capture
-      offers yet."
-  - id: done
-    title: Wire managed Done events and relation JSON
-    size: medium
-    depends_on:
-      - snapshots
-    description:
-      "done: wire task completion and complete-label commits to relation planning,
-      serialize rows and held metadata, and integrate selection, refusal, task blocks,
-      and day-file reporting."
-  - id: parks
-    title: Wire Pomodoro parked and Done events
-    size: medium
-    depends_on:
-      - done
-    description:
-      "parks: wire every Pomodoro close path to relation planning, preserve baseline and
-      closing anchors, and test parked-only and mixed selection without treating parks
-      as completions."
-  - id: batches
-    title: Net relation offers across capture items
-    size: medium
-    depends_on:
-      - parks
-    description:
-      "batches: extend provenance and final offer filtering for later source and target
-      changes, preserve originating-item picks, and verify staged edges and numeric/key
-      selection."
-  - id: presentation
-    title: Author generic pull-in copy and relation human output
-    size: medium
-    depends_on:
-      - batches
-    description:
-      "presentation: emit ordered pull-in groups and copy for every offer kind, render
-      relation offers and held notices through the core copy builder, and verify
-      existing group compatibility."
-  - id: verification
-    title: Complete conformance and measure Apollo budgets
-    size: medium
-    depends_on:
-      - presentation
-    description:
-      "verification: audit capture-expressible SA cases, fill integration coverage,
-      measure release builds on an Apollo scratch copy, document results, and provide
-      full gate evidence."
+- id: snapshots
+  title: Share lazy dependency and relation source reads
+  size: medium
+  depends_on: []
+  description: 'snapshots: implement the shared byte snapshot, relation gates, staged
+    input assembly, completeness accounting, and read-count tests without enabling
+    capture offers yet.'
+- id: done
+  title: Wire managed Done events and relation JSON
+  size: medium
+  depends_on:
+  - snapshots
+  description: 'done: wire task completion and complete-label commits to relation
+    planning, serialize rows and held metadata, and integrate selection, refusal,
+    task blocks, and day-file reporting.'
+- id: parks
+  title: Wire Pomodoro parked and Done events
+  size: medium
+  depends_on:
+  - done
+  description: 'parks: wire every Pomodoro close path to relation planning, preserve
+    baseline and closing anchors, and test parked-only and mixed selection without
+    treating parks as completions.'
+- id: batches
+  title: Net relation offers across capture items
+  size: medium
+  depends_on:
+  - parks
+  description: 'batches: extend provenance and final offer filtering for later source
+    and target changes, preserve originating-item picks, and verify staged edges and
+    numeric/key selection.'
+- id: presentation
+  title: Author generic pull-in copy and relation human output
+  size: medium
+  depends_on:
+  - batches
+  description: 'presentation: emit ordered pull-in groups and copy for every offer
+    kind, render relation offers and held notices through the core copy builder, and
+    verify existing group compatibility.'
+- id: verification
+  title: Complete conformance and measure Apollo budgets
+  size: medium
+  depends_on:
+  - presentation
+  description: 'verification: audit capture-expressible SA cases, fill integration
+    coverage, measure release builds on an Apollo scratch copy, document results,
+    and provide full gate evidence.'
 proposed_by: bbugyi200.athena.bob-cli-fs.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fs.4
 create_time: 2026-11-02 12:28:45
 status: wip
+bead_id: bob-cli-fs.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_relation_successors.md)
-- **PARENT:**
-  [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **PROMPT:** [prompts/202611/capture_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_relation_successors.md)
+- **PARENT:** [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **BEAD:** [bob-cli-fs.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.4.1.md)
 
 # Capture relation successors
 
