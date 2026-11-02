@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair capture-list edge cases and finish bob-cli-fn
-goal:
-  Complete the remaining capture-list contract, integration, and verification, then
-  close bob-cli-fn and mark its plan done.
+goal: Complete the remaining capture-list contract, integration, and verification,
+  then close bob-cli-fn and mark its plan done.
 proposed_by: bbugyi200.apollo.bob-cli-fn.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fn
-create_time: 2026-11-02 04:56:56
-status: wip
+status: done
 ---
 
 - **PARENT:**
