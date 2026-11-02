@@ -3,158 +3,155 @@ tier: epic
 title: Starts-after relations offer the next task when one is parked or done
 goal: 'A task linked "S starts after T" is offered as a successor (never auto-linked,
   never blocked) when T is parked (left Pending with no live Task Link today) or done,
-  on every surface, and every surface says plainly which relation and which event fired.
+  on every surface, and every surface says plainly which relation and which event
+  fired.
 
   '
 decisions:
   memory_glossary:
-    ask:
-      Update the Task Relation, Task Successor, and Successor Offer glossary terms for
-      starts-after?
+    ask: Update the Task Relation, Task Successor, and Successor Offer glossary terms
+      for starts-after?
     memory:
-      - glossary:task-relation
-      - glossary:task-successor
-      - glossary:successor-offer
+    - glossary:task-relation
+    - glossary:task-successor
+    - glossary:successor-offer
     corrects: A directed, optionally labelled, inert link from one task to another.
     default: true
     answer: true
   memory_decision_record:
-    ask:
-      Record this design as a new decision record,
-      decisions:successor-labels-offer-when-parked-or-done?
+    ask: Record this design as a new decision record, decisions:successor-labels-offer-when-parked-or-done?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract, shared vectors, inverse pair, and glossary
-    depends_on: []
-    size: medium
-    description: "contract: write the shared design into docs/task-relations.md §20 and
-      docs/task-dependencies.md §12.18–§12.19, author
-      tests/fixtures/relation_successor/vectors.json, add the starts after → starts
-      before display inverse (Rust plus vectors), and apply the accepted memory
-      decisions.
+- id: contract
+  title: Contract, shared vectors, inverse pair, and glossary
+  depends_on: []
+  size: medium
+  description: 'contract: write the shared design into docs/task-relations.md §20
+    and docs/task-dependencies.md §12.18–§12.19, author tests/fixtures/relation_successor/vectors.json,
+    add the starts after → starts before display inverse (Rust plus vectors), and
+    apply the accepted memory decisions.
 
-      "
-  - id: core
-    title: Rust policy and relation-successor engine
-    depends_on:
-      - contract
-    size: large
-    description: "core: add relations.successor_labels and the LabelEffect policy, build
-      the pure relation-successor planner and copy builder, and integrate relation
-      offers into plan_successors (dedup, order, keys, placement), all pinned by the
-      shared vectors.
+    '
+- id: core
+  title: Rust policy and relation-successor engine
+  depends_on:
+  - contract
+  size: large
+  description: 'core: add relations.successor_labels and the LabelEffect policy, build
+    the pure relation-successor planner and copy builder, and integrate relation offers
+    into plan_successors (dedup, order, keys, placement), all pinned by the shared
+    vectors.
 
-      "
-  - id: authoring
-    title: Rust authoring indications and relations list
-    depends_on:
-      - core
-    size: medium
-    description: "authoring: flag successor labels in capture-complete, capture-parse,
-      capture commits, bob relations list, and rename warnings, with the offers strip,
-      the already-released caveat, and the starts-before inverse hint.
+    '
+- id: authoring
+  title: Rust authoring indications and relations list
+  depends_on:
+  - core
+  size: medium
+  description: 'authoring: flag successor labels in capture-complete, capture-parse,
+    capture commits, bob relations list, and rename warnings, with the offers strip,
+    the already-released caveat, and the starts-before inverse hint.
 
-      "
-  - id: capture
-    title: Capture events, snapshot, reporting, and bob-authored group copy
-    depends_on:
-      - core
-    size: large
-    description: "capture: raise parked events from x* closes and done events from every
-      Rust managed Done, build the batch-scoped relation-sources snapshot, report
-      relation offers in JSON and human output, add bob-authored copy to every pull_in
-      group, extend the net pass, and measure the budget.
+    '
+- id: capture
+  title: Capture events, snapshot, reporting, and bob-authored group copy
+  depends_on:
+  - core
+  size: large
+  description: 'capture: raise parked events from x* closes and done events from every
+    Rust managed Done, build the batch-scoped relation-sources snapshot, report relation
+    offers in JSON and human output, add bob-authored copy to every pull_in group,
+    extend the net pass, and measure the budget.
 
-      "
-  - id: capture_unlink
-    title: Capture unlink hand-offs (v1.1)
-    depends_on:
-      - capture
-    size: medium
-    description: "capture_unlink: raise a parked event when capture's @route+id! toggle
-      unlinks a Pending task, offering its starts-after sources at the link's former
-      slot.
+    '
+- id: capture_unlink
+  title: Capture unlink hand-offs (v1.1)
+  depends_on:
+  - capture
+  size: medium
+  description: 'capture_unlink: raise a parked event when capture''s @route+id! toggle
+    unlinks a Pending task, offering its starts-after sources at the link''s former
+    slot.
 
-      "
-  - id: nav
-    title: Obsidian picker v3 and notice v3 presentation
-    depends_on:
-      - contract
-    size: medium
-    description: "nav: teach bob-navigation-hotkeys' successor picker and Unblocked
-      notice the relation group, its caption, tag, fold line, glyph, and title rules,
-      behind api.successors and api.notice version 3.
+    '
+- id: nav
+  title: Obsidian picker v3 and notice v3 presentation
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav: teach bob-navigation-hotkeys'' successor picker and Unblocked
+    notice the relation group, its caption, tag, fold line, glyph, and title rules,
+    behind api.successors and api.notice version 3.
 
-      "
-  - id: nav_authoring
-    title: Obsidian inverse pair and relation-stage indications
-    depends_on:
-      - contract
-    size: medium
-    description: "nav_authoring: add the starts after → starts before pair to both JS
-      inverse twins and show the offers row meta, consequence strip, caveat, and inverse
-      hint in nav's Links and Linked-from stages.
+    '
+- id: nav_authoring
+  title: Obsidian inverse pair and relation-stage indications
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav_authoring: add the starts after → starts before pair to both JS
+    inverse twins and show the offers row meta, consequence strip, caveat, and inverse
+    hint in nav''s Links and Linked-from stages.
 
-      "
-  - id: cycler
-    title: Obsidian cycler relation-successor engine (Done path)
-    depends_on:
-      - contract
-      - nav
-    size: large
-    description: "cycler: port the relation-successor rule to task-status-cycler over
-      api.relationIndex, wire it into every Obsidian managed Done gesture, and present
-      it through nav picker v3 and notice v3.
+    '
+- id: cycler
+  title: Obsidian cycler relation-successor engine (Done path)
+  depends_on:
+  - contract
+  - nav
+  size: large
+  description: 'cycler: port the relation-successor rule to task-status-cycler over
+    api.relationIndex, wire it into every Obsidian managed Done gesture, and present
+    it through nav picker v3 and notice v3.
 
-      "
-  - id: obsidian_unlink
-    title: Obsidian unlink hand-offs (v1.1)
-    depends_on:
-      - cycler
-    size: medium
-    description: "obsidian_unlink: expose a cycler API for parked events and call it
-      from block-id-prompt once the Unlink task prompt settles on a Pending task with no
-      live link left.
+    '
+- id: obsidian_unlink
+  title: Obsidian unlink hand-offs (v1.1)
+  depends_on:
+  - cycler
+  size: medium
+  description: 'obsidian_unlink: expose a cycler API for parked events and call it
+    from block-id-prompt once the Unlink task prompt settles on a Pending task with
+    no live link left.
 
-      "
-  - id: mac
-    title: Bob Mac Capture generic group copy and relation presentation
-    depends_on:
-      - authoring
-      - capture
-      - capture_unlink
-    size: large
-    description: "mac: render every Pull-In group from bob's copy, decode and present
-      relation offers, held rows, block-diff badges, notifications, and the authoring
-      capsule, with fixtures from a real bob.
+    '
+- id: mac
+  title: Bob Mac Capture generic group copy and relation presentation
+  depends_on:
+  - authoring
+  - capture
+  - capture_unlink
+  size: large
+  description: 'mac: render every Pull-In group from bob''s copy, decode and present
+    relation offers, held rows, block-diff badges, notifications, and the authoring
+    capsule, with fixtures from a real bob.
 
-      "
-  - id: enable
-    title: Enable starts after in chezmoi and smoke it
-    depends_on:
-      - authoring
-      - capture
-      - nav_authoring
-      - cycler
-      - mac
-    size: small
-    description:
-      "enable: add relations.successor_labels [starts after] to the chezmoi bob config
-      and smoke-test the feature end to end on a scratch vault."
+    '
+- id: enable
+  title: Enable starts after in chezmoi and smoke it
+  depends_on:
+  - authoring
+  - capture
+  - nav_authoring
+  - cycler
+  - mac
+  size: small
+  description: 'enable: add relations.successor_labels [starts after] to the chezmoi
+    bob config and smoke-test the feature end to end on a scratch vault.'
 proposed_by: bbugyi200.athena.research.5m.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 05:57:10
 status: wip
+bead_id: bob-cli-fs
 ---
 
-- **PROMPT:**
-  [prompts/202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/starts_after_relation.md)
+- **PROMPT:** [prompts/202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/starts_after_relation.md)
+- **BEAD:** [bob-cli-fs](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/README.md)
 
 # Plan: Starts-after relations
 
