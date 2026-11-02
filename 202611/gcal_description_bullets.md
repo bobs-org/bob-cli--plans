@@ -1,104 +1,96 @@
 ---
 tier: epic
 title: Google Calendar descriptions become Event Task bullets
-goal: "`bob gcal sync` writes the human part of each Google Calendar event description
+goal: '`bob gcal sync` writes the human part of each Google Calendar event description
   as sanitized, capped, flat bullets directly under the Event Task it creates. Directive
   lines and video-call boilerplate are left out. The bullets follow Google until Bryan
   edits them, they can never trigger Bob, Dataview, or Tasks behavior, and they read
   cleanly in Source mode, Live Preview, and Reading view.
 
-  "
+  '
 phases:
-  - id: note-escaper
-    title: Inert note-text escaper
-    depends_on: []
-    size: small
-    description:
-      "note-escaper: lift gkeep's escape_child_text into task_text_escape.rs unchanged
-      and add escape_note_text / escape_note_inline, which make imported prose inert."
-  - id: cancel-log-indent
-    title: CANCEL LOG indentation matches the plugin writer
-    depends_on: []
-    size: small
-    description:
-      "cancel-log-indent: make the gcal CANCEL LOG writer reuse the task's existing
-      child indentation (else TAB) so a later CANCEL LOG nests correctly above
-      tab-indented description bullets."
-  - id: description-parser
-    title: Structured description parser
-    depends_on: []
-    size: medium
-    description:
-      "description-parser: one linear HTML/plain-text parse into structured lines that
-      feeds both directive verdicts (shared vectors stay byte-identical) and the future
-      bullets. GcalEvent carries the result behind a redacted Debug."
-  - id: boilerplate-filter
-    title: Separator, badge-duplicate, and vendor boilerplate filter
-    depends_on:
-      - description-parser
-    size: medium
-    description:
-      "boilerplate-filter: drop separators, lines that only repeat the 📹 or 📍 target,
-      and fenced or header-anchored Meet, Zoom, Teams, and Webex blocks. Keep a join
-      link only when the row has no 📹 badge."
-  - id: bullet-renderer
-    title: Bullet renderer, guards, and scanner-isolation gate
-    depends_on:
-      - note-escaper
-      - description-parser
-    size: medium
-    description:
-      "bullet-renderer: turn parsed lines into sanitized, capped bullet bodies with tidy
-      links, drawer and managed-log guards, an overflow line, an oversize fallback, and
-      a stable hash. A differential test against Bob's real scanners proves the output
-      is inert."
-  - id: birth-bullets
-    title: Bullets on created and upgraded Event Tasks
-    depends_on:
-      - boilerplate-filter
-      - bullet-renderer
-    size: medium
-    description:
-      "birth-bullets: add the config keys, write the bullets with every created Event
-      Task and Maybe→Yes upgrade, add the tri-state journal description record carried
-      by every row record, match rows only on top-level lines, add ≡ N and
-      description_lines, and document birth-time behavior."
-  - id: live-bullets
-    title: Description bullets follow Google until edited
-    depends_on:
-      - birth-bullets
-      - cancel-log-indent
-    size: medium
-    description:
-      "live-bullets: locate the journaled block, rewrite or remove it while untouched,
-      keep Bryan's edits with one kept_description notice, backfill rows synced before
-      the feature, match crash adoptions, and update the ownership contract docs."
-  - id: decision-and-review
-    title: Decision record and end-to-end review
-    depends_on:
-      - live-bullets
-    size: small
-    description:
-      "decision-and-review: author the new decision record and the supersession mark,
-      regenerate docs, run the full gates, and do a read-only end-to-end review against
-      the A1–A10 requirements."
+- id: note-escaper
+  title: Inert note-text escaper
+  depends_on: []
+  size: small
+  description: 'note-escaper: lift gkeep''s escape_child_text into task_text_escape.rs
+    unchanged and add escape_note_text / escape_note_inline, which make imported prose
+    inert.'
+- id: cancel-log-indent
+  title: CANCEL LOG indentation matches the plugin writer
+  depends_on: []
+  size: small
+  description: 'cancel-log-indent: make the gcal CANCEL LOG writer reuse the task''s
+    existing child indentation (else TAB) so a later CANCEL LOG nests correctly above
+    tab-indented description bullets.'
+- id: description-parser
+  title: Structured description parser
+  depends_on: []
+  size: medium
+  description: 'description-parser: one linear HTML/plain-text parse into structured
+    lines that feeds both directive verdicts (shared vectors stay byte-identical)
+    and the future bullets. GcalEvent carries the result behind a redacted Debug.'
+- id: boilerplate-filter
+  title: Separator, badge-duplicate, and vendor boilerplate filter
+  depends_on:
+  - description-parser
+  size: medium
+  description: 'boilerplate-filter: drop separators, lines that only repeat the 📹
+    or 📍 target, and fenced or header-anchored Meet, Zoom, Teams, and Webex blocks.
+    Keep a join link only when the row has no 📹 badge.'
+- id: bullet-renderer
+  title: Bullet renderer, guards, and scanner-isolation gate
+  depends_on:
+  - note-escaper
+  - description-parser
+  size: medium
+  description: 'bullet-renderer: turn parsed lines into sanitized, capped bullet bodies
+    with tidy links, drawer and managed-log guards, an overflow line, an oversize
+    fallback, and a stable hash. A differential test against Bob''s real scanners
+    proves the output is inert.'
+- id: birth-bullets
+  title: Bullets on created and upgraded Event Tasks
+  depends_on:
+  - boilerplate-filter
+  - bullet-renderer
+  size: medium
+  description: 'birth-bullets: add the config keys, write the bullets with every created
+    Event Task and Maybe→Yes upgrade, add the tri-state journal description record
+    carried by every row record, match rows only on top-level lines, add ≡ N and description_lines,
+    and document birth-time behavior.'
+- id: live-bullets
+  title: Description bullets follow Google until edited
+  depends_on:
+  - birth-bullets
+  - cancel-log-indent
+  size: medium
+  description: 'live-bullets: locate the journaled block, rewrite or remove it while
+    untouched, keep Bryan''s edits with one kept_description notice, backfill rows
+    synced before the feature, match crash adoptions, and update the ownership contract
+    docs.'
+- id: decision-and-review
+  title: Decision record and end-to-end review
+  depends_on:
+  - live-bullets
+  size: small
+  description: 'decision-and-review: author the new decision record and the supersession
+    mark, regenerate docs, run the full gates, and do a read-only end-to-end review
+    against the A1–A10 requirements.'
 decisions:
   decision_record:
     ask: Add the "Gcal Description Bullets Follow Google Until Edited" decision record?
     memory:
-      - decisions:gcal-description-bullets-follow-google-until-edited
+    - decisions:gcal-description-bullets-follow-google-until-edited
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   supersede_propose_once:
-    ask:
-      Mark bob-gcal-is-read-only-and-proposes-once as superseded in part by that new
-      record?
+    ask: Mark bob-gcal-is-read-only-and-proposes-once as superseded in part by that
+      new record?
     memory:
-      - decisions:bob-gcal-is-read-only-and-proposes-once
+    - decisions:bob-gcal-is-read-only-and-proposes-once
     default: true
     corrects: the vault owns the checkbox, `[root::]`, children, and the row itself
     answer: true
@@ -108,10 +100,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 09:28:49
 status: wip
+bead_id: bob-cli-fv
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_description_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_description_bullets.md)
+- **PROMPT:** [prompts/202611/gcal_description_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_description_bullets.md)
+- **BEAD:** [bob-cli-fv](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fv/README.md)
 
 # Plan: Google Calendar descriptions become Event Task bullets
 
