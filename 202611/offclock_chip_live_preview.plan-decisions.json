@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "reveal",
+      "kind": "choice",
+      "ask": "Should the raw `#offclock` text come back whenever the cursor is anywhere on the Event Task line?",
+      "why": "Keeps today's documented behavior and matches the buffer field on the same row",
+      "choices": [
+        {
+          "key": "line",
+          "label": "Raw tag returns while the cursor is on the line, as documented today and like `[buffer::]`"
+        },
+        {
+          "key": "tag",
+          "label": "Raw tag returns only when the selection touches the tag, like the `#task` hash mark"
+        }
+      ],
+      "default": "line",
+      "effective_default": "line",
+      "requested_verified": false
+    }
+  ]
+}
