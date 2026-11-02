@@ -1,151 +1,133 @@
 ---
 tier: epic
 title: Off-Clock Pomodoros, recorded and counted on their own clock
-goal: "Sessions spent on #offclock tasks (lunch, the gym, school pickup) keep their time
-  as [off:: Nm] Off-Clock Pomodoros instead of vanishing; a Pomodoro goes off the clock
-  exactly when every Task Link it keeps targets an #offclock task; bob stats and the
-  Stats dash gain a Worked · Off-clock · Total clock while every glanceable work signal
-  stays Worked; ended off-clock events settle on their own; and one dashed visual
-  language marks off-clock time everywhere.
+goal: 'Sessions spent on #offclock tasks (lunch, the gym, school pickup) keep their
+  time as [off:: Nm] Off-Clock Pomodoros instead of vanishing; a Pomodoro goes off
+  the clock exactly when every Task Link it keeps targets an #offclock task; bob stats
+  and the Stats dash gain a Worked · Off-clock · Total clock while every glanceable
+  work signal stays Worked; ended off-clock events settle on their own; and one dashed
+  visual language marks off-clock time everywhere.
 
-  "
+  '
 decisions:
   settled_status:
-    ask:
-      When an ended off-clock event settles into a closed session, should its Event Task
-      row be completed?
+    ask: When an ended off-clock event settles into a closed session, should its Event
+      Task row be completed?
     choices:
-      done:
-        Completed ([x] + done date), as a timed close completes a meeting that ended
-        inside it
-      in_progress:
-        Marked [/] like a past row sync creates; you complete or cancel it yourself
+      done: Completed ([x] + done date), as a timed close completes a meeting that
+        ended inside it
+      in_progress: Marked [/] like a past row sync creates; you complete or cancel
+        it yourself
     default: done
-    why:
-      settling exists so off-clock life needs no gestures; [/] would park every lunch in
-      Pending
+    why: settling exists so off-clock life needs no gestures; [/] would park every
+      lunch in Pending
     answer: done
   memory_off_clock_glossary:
     ask: Should a new glossary strand define the Off-Clock Pomodoro?
     memory:
-      - glossary:off-clock-pomodoro
+    - glossary:off-clock-pomodoro
     default: true
-    requested:
-      Add an excellent new glossary term for "untracked pomodoro" (or whatever we decide
-      to call these).
+    requested: Add an excellent new glossary term for "untracked pomodoro" (or whatever
+      we decide to call these).
     answer: true
   memory_glossary_corrections:
-    ask:
-      Should the pomodoro and event-task glossary strands describe off-clock sessions as
-      [off::] Off-Clock Pomodoros?
+    ask: Should the pomodoro and event-task glossary strands describe off-clock sessions
+      as [off::] Off-Clock Pomodoros?
     memory:
-      - glossary:pomodoro
-      - glossary:event-task
+    - glossary:pomodoro
+    - glossary:event-task
     default: true
-    corrects:
-      An `#untracked` tag keeps the session that links it off the clock (a timed ledger
-      row without `[t::]`), so its `[root::]` attributes no minutes.
+    corrects: An `#untracked` tag keeps the session that links it off the clock (a
+      timed ledger row without `[t::]`), so its `[root::]` attributes no minutes.
     answer: true
   memory_off_clock_record:
-    ask:
-      Should a new off-clock-pomodoros-count-apart record supersede
-      untracked-sessions-omit-t-field?
+    ask: Should a new off-clock-pomodoros-count-apart record supersede untracked-sessions-omit-t-field?
     memory:
-      - decisions:off-clock-pomodoros-count-apart
-      - decisions:untracked-sessions-omit-t-field
+    - decisions:off-clock-pomodoros-count-apart
+    - decisions:untracked-sessions-omit-t-field
     default: true
-    corrects:
-      Stats, homes, `bob pomodoro --worked`, and the agenda skip untracked sessions'
-      minutes and counts.
+    corrects: Stats, homes, `bob pomodoro --worked`, and the agenda skip untracked
+      sessions' minutes and counts.
     answer: true
   memory_settle_record:
     ask: Should a new ended-off-clock-events-settle decision record describe settling?
     memory:
-      - decisions:ended-off-clock-events-settle
+    - decisions:ended-off-clock-events-settle
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: off-clock-ledger
-    title: "bob-cli: [off:: Nm] ledger key, #offclock tag, and the off-clock vocabulary"
-    size: medium
-    depends_on: []
-    description:
-      "off-clock-ledger: replace SessionTracking with SessionClock, read and write
-      [off:: Nm], accept #offclock/#off-clock/#untracked, rename every surface to
-      off-clock, give off-clock homes real minutes, and land the glossary and record."
-  - id: off-clock-rule
-    title:
-      "bob-cli: a session is off the clock iff every Task Link it keeps is #offclock"
-    size: medium
-    depends_on:
-      - off-clock-ledger
-    description:
-      "off-clock-rule: stamp the clock key at every capture start, close, and
-      running-lineup edit from the counted-links rule, explain mixed sessions, and pin
-      it in shared pomodoro_clock vectors."
-  - id: stats-clock
-    title: "bob-cli: bob stats -k worked|off-clock|total and the clock JSON contract"
-    size: large
-    depends_on:
-      - off-clock-ledger
-    description:
-      "stats-clock: add the request lens and pinned clock param, relabel and neutralize
-      metrics, emit the clock object, off_clock sub-shares, clock-aware sessions and
-      health, coverage dates, CSV and human output."
-  - id: settle-ended-events
-    title: "bob-cli: bob task reconcile settles ended off-clock Event Tasks"
-    size: medium
-    depends_on:
-      - off-clock-ledger
-    description:
-      "settle-ended-events: reconcile turns ended #offclock Event Tasks still parked
-      under an unstarted placeholder into closed [off:: Nm] MEETs trimmed around
-      on-clock sessions, plus its decision record."
-  - id: plugins-off-clock-ledger
-    title:
-      "bob-plugins: [off::] writers, Obsidian start/close rule, Event marks, home chips"
-    size: medium
-    depends_on:
-      - off-clock-rule
-    description:
-      "plugins-off-clock-ledger: teach ledger writers [off::], apply the clock rule on
-      se<X> starts and Ctrl+Enter closes from copied vectors, paint #offclock, and draw
-      dashed home chips with minutes."
-  - id: plugins-stats-clock
-    title:
-      "bob-plugins: Worked · Off-clock · Total control in the Stats dash and the Day
-      strip hint"
-    size: large
-    depends_on:
-      - stats-clock
-      - plugins-off-clock-ledger
-    description:
-      "plugins-stats-clock: segmented clock control with per-view totals, off-clock and
-      total renderings in hue with dashed tails, and a quiet off-clock hint under the
-      Day strip's WORKED fact."
-  - id: mac-off-clock
-    title:
-      "bob-mac-capture: off-clock vocabulary, fallback decoding, and the title chip"
-    size: medium
-    depends_on:
-      - off-clock-rule
-    description:
-      "mac-off-clock: decode off_clock with untracked/tracked fallbacks, rename every
-      pill, capsule, and spoken label to off-clock, and add a dashed off-clock chip to
-      the agenda title line."
+- id: off-clock-ledger
+  title: 'bob-cli: [off:: Nm] ledger key, #offclock tag, and the off-clock vocabulary'
+  size: medium
+  depends_on: []
+  description: 'off-clock-ledger: replace SessionTracking with SessionClock, read
+    and write [off:: Nm], accept #offclock/#off-clock/#untracked, rename every surface
+    to off-clock, give off-clock homes real minutes, and land the glossary and record.'
+- id: off-clock-rule
+  title: 'bob-cli: a session is off the clock iff every Task Link it keeps is #offclock'
+  size: medium
+  depends_on:
+  - off-clock-ledger
+  description: 'off-clock-rule: stamp the clock key at every capture start, close,
+    and running-lineup edit from the counted-links rule, explain mixed sessions, and
+    pin it in shared pomodoro_clock vectors.'
+- id: stats-clock
+  title: 'bob-cli: bob stats -k worked|off-clock|total and the clock JSON contract'
+  size: large
+  depends_on:
+  - off-clock-ledger
+  description: 'stats-clock: add the request lens and pinned clock param, relabel
+    and neutralize metrics, emit the clock object, off_clock sub-shares, clock-aware
+    sessions and health, coverage dates, CSV and human output.'
+- id: settle-ended-events
+  title: 'bob-cli: bob task reconcile settles ended off-clock Event Tasks'
+  size: medium
+  depends_on:
+  - off-clock-ledger
+  description: 'settle-ended-events: reconcile turns ended #offclock Event Tasks still
+    parked under an unstarted placeholder into closed [off:: Nm] MEETs trimmed around
+    on-clock sessions, plus its decision record.'
+- id: plugins-off-clock-ledger
+  title: 'bob-plugins: [off::] writers, Obsidian start/close rule, Event marks, home
+    chips'
+  size: medium
+  depends_on:
+  - off-clock-rule
+  description: 'plugins-off-clock-ledger: teach ledger writers [off::], apply the
+    clock rule on se<X> starts and Ctrl+Enter closes from copied vectors, paint #offclock,
+    and draw dashed home chips with minutes.'
+- id: plugins-stats-clock
+  title: 'bob-plugins: Worked · Off-clock · Total control in the Stats dash and the
+    Day strip hint'
+  size: large
+  depends_on:
+  - stats-clock
+  - plugins-off-clock-ledger
+  description: 'plugins-stats-clock: segmented clock control with per-view totals,
+    off-clock and total renderings in hue with dashed tails, and a quiet off-clock
+    hint under the Day strip''s WORKED fact.'
+- id: mac-off-clock
+  title: 'bob-mac-capture: off-clock vocabulary, fallback decoding, and the title
+    chip'
+  size: medium
+  depends_on:
+  - off-clock-rule
+  description: 'mac-off-clock: decode off_clock with untracked/tracked fallbacks,
+    rename every pill, capsule, and spoken label to off-clock, and add a dashed off-clock
+    chip to the agenda title line.'
 proposed_by: bbugyi200.apollo.research.2z.linker.w0
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-01 21:46:31
 status: wip
+bead_id: bob-cli-fl
 ---
 
-- **PROMPT:**
-  [prompts/202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_clock_pomodoros.md)
+- **PROMPT:** [prompts/202611/off_clock_pomodoros.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_clock_pomodoros.md)
+- **BEAD:** [bob-cli-fl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fl/README.md)
 
 # Off-Clock Pomodoros, recorded and counted on their own clock
 
