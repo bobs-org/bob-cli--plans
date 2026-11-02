@@ -1,60 +1,58 @@
 ---
 tier: epic
 title: Bare =* merges the next planned Pomodoro into the current one
-goal: "`=*` alone merges the next planned Pomodoro into the current one, and `=*build`
+goal: '`=*` alone merges the next planned Pomodoro into the current one, and `=*build`
   merges the next planned Pomodoro below BUILD into BUILD. Every surface (live preview
   card, CLI output, completion menus, docs) shows which Pomodoros bob picked and the
   explicit spelling it resolved to, so the shortcut never surprises.
 
-  "
+  '
 decisions:
   meet_in_the_way:
-    ask:
-      When a MEET placeholder sits right below the source, should bare =* pass over it?
+    ask: When a MEET placeholder sits right below the source, should bare =* pass
+      over it?
     choices:
-      skip: Absorb the next mergeable planned entry below MEET; the preview names it
+      skip: Absorb the next mergeable planned entry below MEET; the preview names
+        it
       stop: Refuse with a teaching error that names MEET and suggests =*#name
     default: skip
-    why:
-      MEET never merges, and its one placeholder holds all future meetings, not a slot
+    why: MEET never merges, and its one placeholder holds all future meetings, not
+      a slot
     answer: skip
   record_decision:
-    ask:
-      Record a decisions-web strand for the bare =* default and its rejected
-      alternatives?
+    ask: Record a decisions-web strand for the bare =* default and its rejected alternatives?
     memory:
-      - decisions:bare-merge-absorbs-next-planned
+    - decisions:bare-merge-absorbs-next-planned
     default: false
     answer: false
 phases:
-  - id: bob
-    title: bob-cli resolves, reports, and teaches the implied merge
-    depends_on: []
-    size: medium
-    description:
-      "bob: make dest-less `=*` / `=*<src>` complete merges that absorb the next planned
-      Pomodoro below the source; add `source_role`, `absorbed[].role`, and `explicit` to
-      the merge report, a `same as` CLI line, completion labels and `initial_selection`,
-      a `merge_next_missing` error, tests, and docs."
-  - id: mac
-    title: Mac Capture merge card shows what bob picked
-    depends_on:
-      - bob
-    size: small
-    description:
-      "mac: decode the new merge fields, mark the implied source (`Current`) and
-      absorbed rows (`Next`), add a tinted `Same as =*plan#fix` caption with a `#name`
-      teaching hint, and document the merge card and protocol row."
+- id: bob
+  title: bob-cli resolves, reports, and teaches the implied merge
+  depends_on: []
+  size: medium
+  description: 'bob: make dest-less `=*` / `=*<src>` complete merges that absorb the
+    next planned Pomodoro below the source; add `source_role`, `absorbed[].role`,
+    and `explicit` to the merge report, a `same as` CLI line, completion labels and
+    `initial_selection`, a `merge_next_missing` error, tests, and docs.'
+- id: mac
+  title: Mac Capture merge card shows what bob picked
+  depends_on:
+  - bob
+  size: small
+  description: 'mac: decode the new merge fields, mark the implied source (`Current`)
+    and absorbed rows (`Next`), add a tinted `Same as =*plan#fix` caption with a `#name`
+    teaching hint, and document the merge card and protocol row.'
 proposed_by: bbugyi200.athena.173
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 09:55:53
 status: wip
+bead_id: bob-cli-fw
 ---
 
-- **PROMPT:**
-  [prompts/202611/merge_next_planned_default.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merge_next_planned_default.md)
+- **PROMPT:** [prompts/202611/merge_next_planned_default.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merge_next_planned_default.md)
+- **BEAD:** [bob-cli-fw](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fw/README.md)
 
 # Plan: Bare `=*` merges the next planned Pomodoro into the current one
 
