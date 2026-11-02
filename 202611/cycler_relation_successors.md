@@ -1,57 +1,52 @@
 ---
 tier: epic
 title: Obsidian cycler relation successors on managed Done
-goal:
-  Complete bob-cli-fs.8 with explicit relation-successor picks on every managed Obsidian
-  Done gesture, fresh revalidation, correct notices and undo, and a verified deployed
-  cycler build.
+goal: Complete bob-cli-fs.8 with explicit relation-successor picks on every managed
+  Obsidian Done gesture, fresh revalidation, correct notices and undo, and a verified
+  deployed cycler build.
 phases:
-  - id: relation_core
-    title: Relation policy, pure rule, and shared copy
-    size: medium
-    depends_on: []
-    description:
-      "relation_core: implement the cycler's cached successor-label policy, pure R1-R7
-      planner for Done and parked events, copy helpers, and fixture expansion without
-      enabling runtime offers."
-  - id: offer_pipeline
-    title: Integrate relation offers with recovery and selection
-    size: medium
-    depends_on:
-      - relation_core
-    description:
-      "offer_pipeline: merge relation marks into the pure successor pipeline, preserve
-      recoveries and reasons through deduplication, reuse selected writes and placement,
-      and produce picker v3 models with complete vector coverage."
-  - id: done_runtime
-    title: Wire managed Done with fresh relation reads and receipts
-    size: medium
-    depends_on:
-      - offer_pipeline
-    description:
-      "done_runtime: connect relationIndex v2 to every managed Done gesture with cheap
-      gates, fresh revalidation, notice v3 fallbacks, receipt take-back, and behavioral
-      wiring tests."
-  - id: ship
-    title: Document, validate, and deploy the cycler
-    size: small
-    depends_on:
-      - done_runtime
-    description:
-      "ship: update the cycler manifest and reference, run the complete plugin gates,
-      reproduce unrelated failures on the clean base, sync the cycler, and record
-      live-smoke evidence or its availability limit."
+- id: relation_core
+  title: Relation policy, pure rule, and shared copy
+  size: medium
+  depends_on: []
+  description: 'relation_core: implement the cycler''s cached successor-label policy,
+    pure R1-R7 planner for Done and parked events, copy helpers, and fixture expansion
+    without enabling runtime offers.'
+- id: offer_pipeline
+  title: Integrate relation offers with recovery and selection
+  size: medium
+  depends_on:
+  - relation_core
+  description: 'offer_pipeline: merge relation marks into the pure successor pipeline,
+    preserve recoveries and reasons through deduplication, reuse selected writes and
+    placement, and produce picker v3 models with complete vector coverage.'
+- id: done_runtime
+  title: Wire managed Done with fresh relation reads and receipts
+  size: medium
+  depends_on:
+  - offer_pipeline
+  description: 'done_runtime: connect relationIndex v2 to every managed Done gesture
+    with cheap gates, fresh revalidation, notice v3 fallbacks, receipt take-back,
+    and behavioral wiring tests.'
+- id: ship
+  title: Document, validate, and deploy the cycler
+  size: small
+  depends_on:
+  - done_runtime
+  description: 'ship: update the cycler manifest and reference, run the complete plugin
+    gates, reproduce unrelated failures on the clean base, sync the cycler, and record
+    live-smoke evidence or its availability limit.'
 proposed_by: bbugyi200.athena.bob-cli-fs.8
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fs.8
 create_time: 2026-11-02 07:08:23
 status: wip
+bead_id: bob-cli-fs.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/cycler_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_relation_successors.md)
-- **PARENT:**
-  [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **PROMPT:** [prompts/202611/cycler_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_relation_successors.md)
+- **PARENT:** [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **BEAD:** [bob-cli-fs.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.8.1.md)
 
 # Obsidian relation successors on managed Done
 
