@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Stats clock diagnostics and finish the landing
-goal:
-  Correct drift and overnight overlap diagnostics, then close bob-cli-fl.3.1 and parent
-  phase bob-cli-fl.3.
+goal: Correct drift and overnight overlap diagnostics, then close bob-cli-fl.3.1 and
+  parent phase bob-cli-fl.3.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fl.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fl.3.1
-create_time: 2026-11-02 04:14:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
