@@ -1,46 +1,43 @@
 ---
 tier: epic
 title: Ledger frees marks
-goal: 'In today''s daily note, each Task Link under an open Pomodoro whose task is the
-  last blocker of other open tasks wears a quiet "🔑 frees N" mark. N always matches the
-  task''s own BLOCKS row, the hover names the freed tasks, and the mark is verified in
-  real Obsidian.
+goal: 'In today''s daily note, each Task Link under an open Pomodoro whose task is
+  the last blocker of other open tasks wears a quiet "🔑 frees N" mark. N always matches
+  the task''s own BLOCKS row, the hover names the freed tasks, and the mark is verified
+  in real Obsidian.
 
   '
 phases:
-  - id: contract
-    title: Authoritative display contract (bob-cli)
-    depends_on: []
-    size: small
-    description:
-      "contract: write and register bob-cli docs/frees-marks.md (rule, look, placement,
-      tooltip, motion, liveness, FL/FC/FT/FP vectors) and cross-link BLOCKS §14.9."
-  - id: ledger_mark
-    title: The mark in bob-ledger-tools (bob-plugins)
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "ledger_mark: implement the pure core, Live Preview and Reading mixin, CSS,
-      wiring, vector tests with BLOCKS parity, docs inventory, and manifest bump; build,
-      test, sync."
-  - id: live_verify
-    title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
-    depends_on:
-      - ledger_mark
-    size: medium
-    description:
-      "live_verify: add an isolated real-Obsidian e2e with light/dark screenshots, tune
-      CSS from the review, and record live verification in the contract."
+- id: contract
+  title: Authoritative display contract (bob-cli)
+  depends_on: []
+  size: small
+  description: 'contract: write and register bob-cli docs/frees-marks.md (rule, look,
+    placement, tooltip, motion, liveness, FL/FC/FT/FP vectors) and cross-link BLOCKS
+    §14.9.'
+- id: ledger_mark
+  title: The mark in bob-ledger-tools (bob-plugins)
+  depends_on:
+  - contract
+  size: medium
+  description: 'ledger_mark: implement the pure core, Live Preview and Reading mixin,
+    CSS, wiring, vector tests with BLOCKS parity, docs inventory, and manifest bump;
+    build, test, sync.'
+- id: live_verify
+  title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
+  depends_on:
+  - ledger_mark
+  size: medium
+  description: 'live_verify: add an isolated real-Obsidian e2e with light/dark screenshots,
+    tune CSS from the review, and record live verification in the contract.'
 decisions:
   pill_text:
     ask: Should the mark spell out the word "frees" next to the key?
     choices:
-      words:
-        'Reads "🔑 frees 2": readable without hovering and word-for-word the BLOCKS row
-        summary'
-      compact:
-        'Reads "🔑 2": about half as wide, so you learn what it means from the tooltip'
+      words: 'Reads "🔑 frees 2": readable without hovering and word-for-word the BLOCKS
+        row summary'
+      compact: 'Reads "🔑 2": about half as wide, so you learn what it means from the
+        tooltip'
     default: words
     why: The point is to catch your eye while you plan, and "frees 2" needs no legend.
     answer: compact
@@ -50,10 +47,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 12:45:28
 status: wip
+bead_id: bob-cli-g1
 ---
 
-- **PROMPT:**
-  [prompts/202611/ledger_frees_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ledger_frees_marks.md)
+- **PROMPT:** [prompts/202611/ledger_frees_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ledger_frees_marks.md)
+- **BEAD:** [bob-cli-g1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-g1/README.md)
 
 # Ledger frees marks: show what closing a planned task unlocks
 
