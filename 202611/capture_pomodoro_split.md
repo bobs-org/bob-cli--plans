@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Add whole-item Pomodoro split capture
-goal:
-  Complete bob-cli-fe.3 with grammar 5 split execution, editor support, completion,
+goal: Complete bob-cli-fe.3 with grammar 5 split execution, editor support, completion,
   previews, documentation, and regression coverage.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fe.3
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fe.3
-create_time: 2026-11-01 18:18:49
-status: wip
+status: done
 ---
 
 - **PARENT:**
