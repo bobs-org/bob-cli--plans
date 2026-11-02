@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish section-completion round trips and land capture lists
-goal: Every offered section selector reaches its advertised heading, and verified
-  epics bob-cli-fn.5 and bob-cli-fn close normally.
+goal:
+  Every offered section selector reaches its advertised heading, and verified epics
+  bob-cli-fn.5 and bob-cli-fn close normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-fn.5.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/capture_list_section_names.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_list_section_names.md)
 - **BEAD:**
   [bob-cli-fn.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fn/bob-cli-fn.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-fn.5.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-fn.5.land.md)
+- **COMMITS:**
+  - [dd97128](https://github.com/bobs-org/bob-cli--plans/commit/dd971286fe31b8ee1348a99fb618abda3f704aa2)
+    — chore(plans): mark capture list section-names and route-lists epics done
 
 # Finish section-completion round trips and land capture lists
 
