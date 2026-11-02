@@ -1,60 +1,56 @@
 ---
 tier: epic
 title: Blocked checkbox rendering and verification for bob-cli-ft.3
-goal:
-  Blocked task checkboxes show their proven reason across Live Preview and rendered
-  source-note surfaces, with accessible tooltips, reversible toggling, a shared
-  miniature API, and verified light/dark Obsidian behavior; bob-cli-ft.3 is completed.
+goal: Blocked task checkboxes show their proven reason across Live Preview and rendered
+  source-note surfaces, with accessible tooltips, reversible toggling, a shared miniature
+  API, and verified light/dark Obsidian behavior; bob-cli-ft.3 is completed.
 phases:
-  - id: paint_api
-    title: Shared blocked checkbox paint, miniature API, and contrast
-    size: medium
-    depends_on: []
-    description:
-      "paint_api: implement the gated held/waiting/stale CSS, glyphs and pip,
-      listener-free api.blockMarks.render, and computed contrast tests. Record measured
-      tokens and geometry in the contract. No editor or reading-view decorations yet."
-  - id: live_preview
-    title: Live Preview decorations, session toggle, and refresh lifecycle
-    size: medium
-    depends_on:
-      - paint_api
-    description:
-      "live_preview: render block marks on visible Live Preview task rows; add lazy
-      checkbox tooltips, the session toggle, popout gating, and coalesced invalidation
-      from Tasks, ladder, midnight, and resume. Keep rendering free of disk reads and
-      selection-only rebuilds; prove behavior with focused node tests."
-  - id: rendered_views
-    title: Reading view, embeds, hover previews, and Dataview task marks
-    size: medium
-    depends_on:
-      - live_preview
-    description:
-      "rendered_views: map rendered task rows to canonical source text or a conservative
-      own-text fallback; classify and refresh the row and its own checkbox in place.
-      Cover nested rows, query origins, cleanup, and both toggle directions with DOM
-      tests."
-  - id: obsidian_e2e
-    title: Real-Obsidian harness, screenshots, and rendering integration
-    size: medium
-    depends_on:
-      - rendered_views
-    description:
-      "obsidian_e2e: add an isolated scratch-vault CDP harness and offline self-test,
-      exercise BM source-note vectors in both themes and views, verify real
-      hover/click/toggle behavior, inspect screenshots against the accepted mockup, and
-      fix integration defects within this rendering scope."
+- id: paint_api
+  title: Shared blocked checkbox paint, miniature API, and contrast
+  size: medium
+  depends_on: []
+  description: 'paint_api: implement the gated held/waiting/stale CSS, glyphs and
+    pip, listener-free api.blockMarks.render, and computed contrast tests. Record
+    measured tokens and geometry in the contract. No editor or reading-view decorations
+    yet.'
+- id: live_preview
+  title: Live Preview decorations, session toggle, and refresh lifecycle
+  size: medium
+  depends_on:
+  - paint_api
+  description: 'live_preview: render block marks on visible Live Preview task rows;
+    add lazy checkbox tooltips, the session toggle, popout gating, and coalesced invalidation
+    from Tasks, ladder, midnight, and resume. Keep rendering free of disk reads and
+    selection-only rebuilds; prove behavior with focused node tests.'
+- id: rendered_views
+  title: Reading view, embeds, hover previews, and Dataview task marks
+  size: medium
+  depends_on:
+  - live_preview
+  description: 'rendered_views: map rendered task rows to canonical source text or
+    a conservative own-text fallback; classify and refresh the row and its own checkbox
+    in place. Cover nested rows, query origins, cleanup, and both toggle directions
+    with DOM tests.'
+- id: obsidian_e2e
+  title: Real-Obsidian harness, screenshots, and rendering integration
+  size: medium
+  depends_on:
+  - rendered_views
+  description: 'obsidian_e2e: add an isolated scratch-vault CDP harness and offline
+    self-test, exercise BM source-note vectors in both themes and views, verify real
+    hover/click/toggle behavior, inspect screenshots against the accepted mockup,
+    and fix integration defects within this rendering scope.'
 proposed_by: bbugyi200.athena.bob-cli-ft.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ft.3
 create_time: 2026-11-02 07:34:43
 status: wip
+bead_id: bob-cli-ft.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/block_marks_editor.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/block_marks_editor.md)
-- **PARENT:**
-  [202611/blocked_reason_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/blocked_reason_marks.md)
+- **PROMPT:** [prompts/202611/block_marks_editor.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/block_marks_editor.md)
+- **PARENT:** [202611/blocked_reason_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/blocked_reason_marks.md)
+- **BEAD:** [bob-cli-ft.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ft/bob-cli-ft.3.1.md)
 
 # Blocked checkbox rendering for bob-cli-ft.3
 
