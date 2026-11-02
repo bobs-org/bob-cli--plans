@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair relation-successor core gaps and finish its landing
-goal:
-  Correct core identity, recovery, ordering, placement and fixture parity, verify the
-  result, then close bob-cli-fs.2.1 and parent phase bob-cli-fs.2.
+goal: Correct core identity, recovery, ordering, placement and fixture parity, verify
+  the result, then close bob-cli-fs.2.1 and parent phase bob-cli-fs.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fs.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fs.2.1
-create_time: 2026-11-02 09:10:12
-status: wip
+status: done
 ---
 
 - **PARENT:**
