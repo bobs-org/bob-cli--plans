@@ -1,56 +1,52 @@
 ---
 tier: epic
 title: Complete gcal explicit clock tags and inherited clock planning
-goal:
-  "Google events accept #off and #on, sync renders only explicit tags while creating
-  MEET sessions on the retained rows' effective clock, and sync/list explain legacy
-  spellings through additive warnings and deprecations without changing history."
+goal: 'Google events accept #off and #on, sync renders only explicit tags while creating
+  MEET sessions on the retained rows'' effective clock, and sync/list explain legacy
+  spellings through additive warnings and deprecations without changing history.'
 phases:
-  - id: explicit-clock-tags
-    title: Parse and render explicit Google clock tags without losing ownership
-    size: medium
-    depends_on: []
-    description:
-      "explicit-clock-tags: replace gcal's explicit clock boolean with the shared
-      ClockTag vocabulary, preserve title/description alias provenance, recognize #on in
-      directive lines, render only explicit #off/#on, migrate untouched legacy spans,
-      and compare normalized none/off/on values for kept_off_clock. Extend the shared
-      event-buffer vectors additively and verify parsing, rendering, migration, and flip
-      behavior."
-  - id: effective-clock-planning
-    title: Resolve MEET clocks from retained rows and show inherited clocks in list
-    size: medium
-    depends_on:
-      - explicit-clock-tags
-    description:
-      "effective-clock-planning: reuse one HomeResolver for the command's clock work,
-      resolve each eligible Event Task after row reconciliation, and use that effective
-      clock for past clusters and newly created running MEETs. Resolve list events
-      through Google's chosen root; add clock, clock_source, and clock_note to list JSON
-      and via-note human text. Preserve vault edits, retry correctness, and existing
-      ledger stamps."
-  - id: clock-diagnostics
-    title: Report Google clock deprecations and document the completed contract
-    size: medium
-    depends_on:
-      - effective-clock-planning
-    description:
-      "clock-diagnostics: produce one warning per deprecated occurrence per run and
-      structured deprecations in sync and list, including unchanged and dry-run results;
-      report canonical-tag conflicts, root-only drop suggestions, and on-wins copy.
-      Complete the gcal and JSON documentation, regression matrix, and documentation
-      generation/checks. Record final evidence for the child epic land agent."
+- id: explicit-clock-tags
+  title: Parse and render explicit Google clock tags without losing ownership
+  size: medium
+  depends_on: []
+  description: 'explicit-clock-tags: replace gcal''s explicit clock boolean with the
+    shared ClockTag vocabulary, preserve title/description alias provenance, recognize
+    #on in directive lines, render only explicit #off/#on, migrate untouched legacy
+    spans, and compare normalized none/off/on values for kept_off_clock. Extend the
+    shared event-buffer vectors additively and verify parsing, rendering, migration,
+    and flip behavior.'
+- id: effective-clock-planning
+  title: Resolve MEET clocks from retained rows and show inherited clocks in list
+  size: medium
+  depends_on:
+  - explicit-clock-tags
+  description: 'effective-clock-planning: reuse one HomeResolver for the command''s
+    clock work, resolve each eligible Event Task after row reconciliation, and use
+    that effective clock for past clusters and newly created running MEETs. Resolve
+    list events through Google''s chosen root; add clock, clock_source, and clock_note
+    to list JSON and via-note human text. Preserve vault edits, retry correctness,
+    and existing ledger stamps.'
+- id: clock-diagnostics
+  title: Report Google clock deprecations and document the completed contract
+  size: medium
+  depends_on:
+  - effective-clock-planning
+  description: 'clock-diagnostics: produce one warning per deprecated occurrence per
+    run and structured deprecations in sync and list, including unchanged and dry-run
+    results; report canonical-tag conflicts, root-only drop suggestions, and on-wins
+    copy. Complete the gcal and JSON documentation, regression matrix, and documentation
+    generation/checks. Record final evidence for the child epic land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-gb.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-gb.4
 create_time: 2026-11-02 18:52:55
 status: wip
+bead_id: bob-cli-gb.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_clock_tags.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_clock_tags.md)
-- **PARENT:**
-  [202611/off_on_tags_and_offclock_areas.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_on_tags_and_offclock_areas.md)
+- **PROMPT:** [prompts/202611/gcal_clock_tags.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_clock_tags.md)
+- **PARENT:** [202611/off_on_tags_and_offclock_areas.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/off_on_tags_and_offclock_areas.md)
+- **BEAD:** [bob-cli-gb.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gb/bob-cli-gb.4.1.md)
 
 # Complete bob-cli-gb.4: Google clock tags, inherited clocks, and warnings
 
