@@ -1,47 +1,46 @@
 ---
 tier: epic
 title: A MEET close carries its later meetings to the end of the ledger
-goal: "When closing a MEET Pomodoro creates a new MEET placeholder for meetings that
+goal: 'When closing a MEET Pomodoro creates a new MEET placeholder for meetings that
   have not happened yet, that placeholder becomes the last future Pomodoro, in both
   capture `x` and Obsidian Ctrl+Enter, so other planned work comes first.
 
-  "
+  '
 decisions:
   close_card_says_last:
-    ask:
-      Should close output say the MEET continuation was placed last (JSON flag, human
-      line, Mac card)?
+    ask: Should close output say the MEET continuation was placed last (JSON flag,
+      human line, Mac card)?
     default: true
     why: 'Without it the Mac close card still reads "Next: MEET", as if nothing moved.'
     answer: true
 phases:
-  - id: capture
-    title: bob capture x places the MEET continuation last
-    depends_on: []
-    size: medium
-    description:
-      "capture: move the close-created MEET continuation below the last open Pomodoro in
-      bob-cli's ledger close, update the shared close vector, docs, and tests, and (per
-      the decision) report it in JSON, human output, and the Bob Mac Capture close card."
-  - id: cycler
-    title: Obsidian Ctrl+Enter completion mirrors the placement
-    depends_on:
-      - capture
-    size: medium
-    description:
-      "cycler: port the same placement to the Task Status Cycler's Pomodoro completion
-      plan and cursor, re-copy the shared close vectors, update the plugin and bob-cli
-      docs, then build, test, and sync the plugins."
+- id: capture
+  title: bob capture x places the MEET continuation last
+  depends_on: []
+  size: medium
+  description: 'capture: move the close-created MEET continuation below the last open
+    Pomodoro in bob-cli''s ledger close, update the shared close vector, docs, and
+    tests, and (per the decision) report it in JSON, human output, and the Bob Mac
+    Capture close card.'
+- id: cycler
+  title: Obsidian Ctrl+Enter completion mirrors the placement
+  depends_on:
+  - capture
+  size: medium
+  description: 'cycler: port the same placement to the Task Status Cycler''s Pomodoro
+    completion plan and cursor, re-copy the shared close vectors, update the plugin
+    and bob-cli docs, then build, test, and sync the plugins.'
 proposed_by: bbugyi200.athena.174
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 10:05:56
 status: wip
+bead_id: bob-cli-fx
 ---
 
-- **PROMPT:**
-  [prompts/202611/meet_continuation_goes_last.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/meet_continuation_goes_last.md)
+- **PROMPT:** [prompts/202611/meet_continuation_goes_last.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/meet_continuation_goes_last.md)
+- **BEAD:** [bob-cli-fx](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fx/README.md)
 
 # Plan: A MEET close carries its later meetings to the end of the ledger
 
