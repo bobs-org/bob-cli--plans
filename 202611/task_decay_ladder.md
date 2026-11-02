@@ -1,143 +1,135 @@
 ---
 tier: epic
-title: "Task Decay: one ladder, two stays per rung, one card"
+title: 'Task Decay: one ladder, two stays per rung, one card'
 goal: 'Repeated freshness keeps on WIP, Next, Ready, and P-level tasks follow one
-  consent-based decay ladder (WIP → Next → Ready → P1 → … → P4): each rung allows a
-  configured number of due Alt+F keeps (Bryan: 2), then the next due keep opens one
-  rung-aware decay card whose Enter steps the task exactly one rung down and whose Alt+F
-  stays and restarts the count; every keep, stay, step, and drop writes one
-  rung-qualified Rotten Log entry; WIP keeps log to the Rotten Log instead of the Work
-  Log; and the Ready card''s "no priority ladder is configured" bug is fixed.
+  consent-based decay ladder (WIP → Next → Ready → P1 → … → P4): each rung allows
+  a configured number of due Alt+F keeps (Bryan: 2), then the next due keep opens
+  one rung-aware decay card whose Enter steps the task exactly one rung down and whose
+  Alt+F stays and restarts the count; every keep, stay, step, and drop writes one
+  rung-qualified Rotten Log entry; WIP keeps log to the Rotten Log instead of the
+  Work Log; and the Ready card''s "no priority ladder is configured" bug is fixed.
 
   '
 decisions:
   early_keeps:
-    ask:
-      How should Alt+F on a WIP or Next task that is not due (early or linked today)
+    ask: How should Alt+F on a WIP or Next task that is not due (early or linked today)
       behave?
     choices:
-      quiet: Stamp quietly with an "early · not counted" notice; no prompt, no log entry
-      prompt:
-        Prompt and always log an uncounted "kept early in Next" entry; 🤷 when blank
+      quiet: Stamp quietly with an "early · not counted" notice; no prompt, no log
+        entry
+      prompt: Prompt and always log an uncounted "kept early in Next" entry; 🤷 when
+        blank
     default: quiet
     why: Every entry then marks a real due review, so its count is truthful
     answer: quiet
   memory_task_decay_term:
     ask: Add the new glossary:task-decay strand that defines the unified decay ladder?
     memory:
-      - glossary:task-decay
+    - glossary:task-decay
     default: true
-    requested:
-      We should add a new glossary term for "task decay" that does a good job of
-      explaining this new / improved policy.
+    requested: We should add a new glossary term for "task decay" that does a good
+      job of explaining this new / improved policy.
     answer: true
   memory_decay_decision:
-    ask:
-      Record decisions:task-decay-is-one-ladder and mark the four records it supersedes
+    ask: Record decisions:task-decay-is-one-ladder and mark the four records it supersedes
       in part?
     memory:
-      - decisions:task-decay-is-one-ladder
-      - decisions:rotten-keeps-use-priority-decay
-      - decisions:rotten-keeps-are-logged
-      - decisions:next-keeps-ask-an-optional-rotten-reason
-      - decisions:task-lanes-are-sticky
+    - decisions:task-decay-is-one-ladder
+    - decisions:rotten-keeps-use-priority-decay
+    - decisions:rotten-keeps-are-logged
+    - decisions:next-keeps-ask-an-optional-rotten-reason
+    - decisions:task-lanes-are-sticky
     default: true
     corrects: Next keeps never change `[keeps::]` and never count toward the streak.
     answer: true
   memory_freshness_strands:
-    ask:
-      Correct the keep-streak, rotten-log, and task-freshness glossary strands for the
-      ladder?
+    ask: Correct the keep-streak, rotten-log, and task-freshness glossary strands
+      for the ladder?
     memory:
-      - glossary:keep-streak
-      - glossary:rotten-log
-      - glossary:task-freshness
+    - glossary:keep-streak
+    - glossary:rotten-log
+    - glossary:task-freshness
     default: true
     corrects: human stamp clears it, and automation never touches it.
     answer: true
 phases:
-  - id: card-hotfix
-    title: Decay card hotfix and interim config
-    depends_on: []
-    size: small
-    description:
-      "card-hotfix: make today's Ready decay card load the priority ladder (never
-      this.config), enter P1 via a >= entry rule, put Enter and the focus ring on the
-      same recommended row, give distinct config error copy, add a no-injection
-      regression test, and set the interim chezmoi config (keeps 2, enter P1, rolls 2)."
-  - id: rust-contract
-    title: Rust config, decide, and reconcile contract
-    depends_on: []
-    size: medium
-    description:
-      "rust-contract: parse per-rung allowances (pending_keeps, next_keeps, ready_keeps
-      with keeps fallback), widen decide to the PENDING and NEXT tiers, make reconcile
-      lane raises clear [keeps::], pin with a test that a stepped-down former
-      prerequisite is not re-raised, bump freshness JSON to schema 15, extend the shared
-      vectors, and update the bob-cli contract docs."
-  - id: ledger-mirror
-    title: bob-ledger-tools config, decide, and mark parity
-    depends_on:
-      - rust-contract
-    size: medium
-    description:
-      "ledger-mirror: mirror the per-rung config and lane decide in bob-ledger-tools
-      against the new vectors, show the decay mark on lane rows only when navigation's
-      card capability is at least 3, count lane decisions in the footer, and bump the
-      freshness namespace."
-  - id: nav-keeps
-    title: Lane keep counting and the always-logged Rotten Log
-    depends_on:
-      - card-hotfix
-      - ledger-mirror
-    size: medium
-    description:
-      'nav-keeps: count due WIP and Next keeps, ask "Why keep it in <rung>?" with the
-      allowance shown, always write a rung-qualified Rotten Log entry (🤷 when blank),
-      stop the Work Log prompt on every freshness gesture, ship the shared Rotten Log
-      grammar and per-rung tallies in both plugins, and leave lane decisions count-only
-      until the card supports them.'
-  - id: nav-card
-    title: One rung-aware decay card
-    depends_on:
-      - nav-keeps
-    size: medium
-    description:
-      "nav-card: generalize the decay card to every rung: Enter steps exactly one rung
-      (WIP to Next, Next to Ready, Ready to the entry level, P-level to the next, P4
-      rolls again) while bypassing the roll streak, Alt+F stays and resets the count,
-      each answer is one composed and undoable write with its Rotten Log entry, batches
-      skip at-limit lane targets, and the card capability rises to 3."
-  - id: live-e2e
-    title: Real-Obsidian decay ladder end-to-end check
-    depends_on:
-      - nav-card
-    size: medium
-    description:
-      "live-e2e: add an isolated real-Obsidian e2e that walks a scratch vault through
-      every rung (keeps, card, step, stay, drop, undo, batch skip), asserts the exact
-      task lines and Rotten Log entries, captures the card in light and dark themes, and
-      records the result in a live-verification doc."
-  - id: memory-config
-    title: Glossary, decision record, and final config
-    depends_on:
-      - nav-card
-    size: small
-    description:
-      "memory-config: add the task-decay glossary strand and the
-      task-decay-is-one-ladder decision record, correct the keep-streak, rotten-log, and
-      task-freshness strands, mark four superseded records, regenerate the docs pages,
-      and replace the interim chezmoi keeps with explicit per-rung allowances."
+- id: card-hotfix
+  title: Decay card hotfix and interim config
+  depends_on: []
+  size: small
+  description: 'card-hotfix: make today''s Ready decay card load the priority ladder
+    (never this.config), enter P1 via a >= entry rule, put Enter and the focus ring
+    on the same recommended row, give distinct config error copy, add a no-injection
+    regression test, and set the interim chezmoi config (keeps 2, enter P1, rolls
+    2).'
+- id: rust-contract
+  title: Rust config, decide, and reconcile contract
+  depends_on: []
+  size: medium
+  description: 'rust-contract: parse per-rung allowances (pending_keeps, next_keeps,
+    ready_keeps with keeps fallback), widen decide to the PENDING and NEXT tiers,
+    make reconcile lane raises clear [keeps::], pin with a test that a stepped-down
+    former prerequisite is not re-raised, bump freshness JSON to schema 15, extend
+    the shared vectors, and update the bob-cli contract docs.'
+- id: ledger-mirror
+  title: bob-ledger-tools config, decide, and mark parity
+  depends_on:
+  - rust-contract
+  size: medium
+  description: 'ledger-mirror: mirror the per-rung config and lane decide in bob-ledger-tools
+    against the new vectors, show the decay mark on lane rows only when navigation''s
+    card capability is at least 3, count lane decisions in the footer, and bump the
+    freshness namespace.'
+- id: nav-keeps
+  title: Lane keep counting and the always-logged Rotten Log
+  depends_on:
+  - card-hotfix
+  - ledger-mirror
+  size: medium
+  description: 'nav-keeps: count due WIP and Next keeps, ask "Why keep it in <rung>?"
+    with the allowance shown, always write a rung-qualified Rotten Log entry (🤷 when
+    blank), stop the Work Log prompt on every freshness gesture, ship the shared Rotten
+    Log grammar and per-rung tallies in both plugins, and leave lane decisions count-only
+    until the card supports them.'
+- id: nav-card
+  title: One rung-aware decay card
+  depends_on:
+  - nav-keeps
+  size: medium
+  description: 'nav-card: generalize the decay card to every rung: Enter steps exactly
+    one rung (WIP to Next, Next to Ready, Ready to the entry level, P-level to the
+    next, P4 rolls again) while bypassing the roll streak, Alt+F stays and resets
+    the count, each answer is one composed and undoable write with its Rotten Log
+    entry, batches skip at-limit lane targets, and the card capability rises to 3.'
+- id: live-e2e
+  title: Real-Obsidian decay ladder end-to-end check
+  depends_on:
+  - nav-card
+  size: medium
+  description: 'live-e2e: add an isolated real-Obsidian e2e that walks a scratch vault
+    through every rung (keeps, card, step, stay, drop, undo, batch skip), asserts
+    the exact task lines and Rotten Log entries, captures the card in light and dark
+    themes, and records the result in a live-verification doc.'
+- id: memory-config
+  title: Glossary, decision record, and final config
+  depends_on:
+  - nav-card
+  size: small
+  description: 'memory-config: add the task-decay glossary strand and the task-decay-is-one-ladder
+    decision record, correct the keep-streak, rotten-log, and task-freshness strands,
+    mark four superseded records, regenerate the docs pages, and replace the interim
+    chezmoi keeps with explicit per-rung allowances.'
 proposed_by: bbugyi200.apollo.research.32.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-02 15:55:40
 status: wip
+bead_id: bob-cli-g9
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_decay_ladder.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_decay_ladder.md)
+- **PROMPT:** [prompts/202611/task_decay_ladder.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_decay_ladder.md)
+- **BEAD:** [bob-cli-g9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-g9/README.md)
 
 # Plan: Task Decay — one ladder, two stays per rung, one card
 
