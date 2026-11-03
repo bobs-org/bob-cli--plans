@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "fixture_source",
+      "kind": "choice",
+      "ask": "Regenerate the real-bob directive fixtures from current bob instead of hand-editing their grammar?",
+      "why": "A trial regeneration changed only grammar, a null drawer, and one template preview",
+      "choices": [
+        {
+          "key": "regenerate",
+          "label": "Rerun the generator on bob-cli master; 66 one-line diffs, fixtures stay truthful"
+        },
+        {
+          "key": "hand_bump",
+          "label": "Hand-set grammar 5 in three clip parse fixtures; smallest diff, but no longer real output"
+        }
+      ],
+      "default": "regenerate",
+      "effective_default": "regenerate",
+      "requested_verified": false
+    },
+    {
+      "id": "fake_bob_scope",
+      "kind": "choice",
+      "ask": "Move every inline fake-bob body that hard-codes grammar 3 to grammar 5?",
+      "why": "fake-bob simulates current bob; gate tests use injected grammar, never a literal 3",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Bump all 67 literal grammar-3 bodies to match the injected default 5"
+        },
+        {
+          "key": "failing_only",
+          "label": "Bump only the ^sase:deep-fix and @file:ready bodies the failing tests hit"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "requested_verified": false
+    },
+    {
+      "id": "pull_in_order",
+      "kind": "choice",
+      "ask": "Restore legacy Pull-In section order when Bob lists only some groups and sends no copy?",
+      "why": "Current bob lists every group with copy, so only older payloads change",
+      "choices": [
+        {
+          "key": "product",
+          "label": "Fix CapturePullInChoice so keep-moving ranks last again for copy-less partial lists"
+        },
+        {
+          "key": "test",
+          "label": "Keep always-Bob-order and rewrite the test to expect keep-moving first"
+        }
+      ],
+      "default": "product",
+      "effective_default": "product",
+      "requested_verified": false
+    },
+    {
+      "id": "line_case_undo",
+      "kind": "choice",
+      "ask": "Keep AppKit's native caret placement after undoing Ctrl-G U?",
+      "why": "The documented contract is native undo, and AppKit leaves the caret at {5,0}",
+      "choices": [
+        {
+          "key": "native",
+          "label": "Drop the post-undo caret assertion, as docs/keyboard.md promises native undo"
+        },
+        {
+          "key": "restore",
+          "label": "Register selection restoration so undo returns the caret to its pre-toggle spot"
+        }
+      ],
+      "default": "native",
+      "effective_default": "native",
+      "requested_verified": false
+    }
+  ]
+}
