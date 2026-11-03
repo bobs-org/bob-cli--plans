@@ -1,77 +1,74 @@
 ---
 tier: epic
 title: Several @file+id targets on one capture line
-goal: "One capture line may name several existing tasks with adjacent `@route+block-id`
-  markers. Its note text, the bullets below it, and every operation on the line
-  (clipboard notes, `s:`/`$`, `#type`, `&`/`*`/`~`, Ensure Next, `!` toggle, drawers)
-  then apply to each named task in one atomic capture. `bob capture`, `capture-parse`,
-  `capture-complete`, and `capture-rewrite` agree on the grammar, and Bob Mac Capture
-  keeps working unchanged.
+goal: 'One capture line may name several existing tasks with adjacent `@route+block-id`
+  markers. Its note text, the bullets below it, and every operation on the line (clipboard
+  notes, `s:`/`$`, `#type`, `&`/`*`/`~`, Ensure Next, `!` toggle, drawers) then apply
+  to each named task in one atomic capture. `bob capture`, `capture-parse`, `capture-complete`,
+  and `capture-rewrite` agree on the grammar, and Bob Mac Capture keeps working unchanged.
 
-  "
+  '
 decisions:
   split_edges:
-    ask:
-      Refuse a line whose @file+id markers sit at both edges, instead of keeping the
-      trailing one as note text?
+    ask: Refuse a line whose @file+id markers sit at both edges, instead of keeping
+      the trailing one as note text?
     choices:
-      refuse:
-        "`@a+x note @b+y` fails with a teaching error to put every target in one run"
-      literal: Today's leading-wins rule stays; `@b+y` is written into the note under ^x
+      refuse: '`@a+x note @b+y` fails with a teaching error to put every target in
+        one run'
+      literal: Today's leading-wins rule stays; `@b+y` is written into the note under
+        ^x
     default: refuse
-    why:
-      Someone who names targets at both edges means all of them; silently misfiling is
-      worse
+    why: Someone who names targets at both edges means all of them; silently misfiling
+      is worse
     answer: refuse
   memory_bulk_capture:
-    ask:
-      Teach the Bulk Capture glossary strand that one line's @file+id run fans out into
-      one item per task?
+    ask: Teach the Bulk Capture glossary strand that one line's @file+id run fans
+      out into one item per task?
     memory:
-      - glossary:bulk-capture
+    - glossary:bulk-capture
     default: false
     answer: false
 phases:
-  - id: grammar
-    title: Target-run grammar in both resolvers, fan-out, and grammar bump
-    depends_on: []
-    size: large
-    description: "grammar: recognize a leading or trailing run of `@route+id` markers in
-      the execution resolver and the capture-parse resolver, fan each run out into one
-      parsed item per target, report `targets[]` and the new refusals in capture-parse,
-      bump the grammar revision, and document the grammar contract.
+- id: grammar
+  title: Target-run grammar in both resolvers, fan-out, and grammar bump
+  depends_on: []
+  size: large
+  description: 'grammar: recognize a leading or trailing run of `@route+id` markers
+    in the execution resolver and the capture-parse resolver, fan each run out into
+    one parsed item per target, report `targets[]` and the new refusals in capture-parse,
+    bump the grammar revision, and document the grammar contract.
 
-      "
-  - id: execute
-    title: Planner, output, and capture contract for fan-out groups
-    depends_on:
-      - grammar
-    size: medium
-    description: "execute: share one clipboard read and one `$N` roll per fan-out group,
-      refuse targets that resolve to the same task, name the failing target in errors,
-      dedupe group warnings, add the `fanout` JSON context and human header, cover every
-      operation with CLI tests, and finish the capture docs.
+    '
+- id: execute
+  title: Planner, output, and capture contract for fan-out groups
+  depends_on:
+  - grammar
+  size: medium
+  description: 'execute: share one clipboard read and one `$N` roll per fan-out group,
+    refuse targets that resolve to the same task, name the failing target in errors,
+    dedupe group warnings, add the `fanout` JSON context and human header, cover every
+    operation with CLI tests, and finish the capture docs.
 
-      "
-  - id: assist
-    title: Completion, rewrite, and @@ absorption inside target runs
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "assist: make capture-complete and capture-rewrite treat every member of a target
-      run (and the `@` token extending one) as a marker position, give a run the
-      non-absorbable `@@` notice, and update the editor-command docs and help."
+    '
+- id: assist
+  title: Completion, rewrite, and @@ absorption inside target runs
+  depends_on:
+  - grammar
+  size: medium
+  description: 'assist: make capture-complete and capture-rewrite treat every member
+    of a target run (and the `@` token extending one) as a marker position, give a
+    run the non-absorbable `@@` notice, and update the editor-command docs and help.'
 proposed_by: bbugyi200.athena.17k
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 13:55:31
 status: wip
+bead_id: bob-cli-gm
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_multi_target.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_multi_target.md)
+- **PROMPT:** [prompts/202611/capture_multi_target.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_multi_target.md)
+- **BEAD:** [bob-cli-gm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gm/README.md)
 
 # Plan: Several `@file+id` targets on one capture line
 
