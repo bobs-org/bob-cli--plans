@@ -1,60 +1,56 @@
 ---
 tier: epic
 title: Bob Mac Capture relation successors
-goal:
-  Bob Mac Capture presents starts-after offers and authoring cues from Bob's JSON,
+goal: Bob Mac Capture presents starts-after offers and authoring cues from Bob's JSON,
   preserves older payload behavior, and completes bob-cli-fs.10 with verified Mac
   presentation and real-Bob fixtures.
 phases:
-  - id: protocol
-    title: Decode relation successors and generate real-Bob fixtures
-    size: medium
-    depends_on: []
-    description:
-      "protocol: add tolerant CaptureCore models for relation offers, held rows, check
-      state, Bob-authored Pull-In copy, and authoring metadata; generate reproducible
-      scratch-vault fixtures and test every payload location and older responses."
-  - id: chooser
-    title: Render Bob-authored Pull-In groups and select relation offers
-    size: medium
-    depends_on:
-      - protocol
-    description:
-      "chooser: make the Pull-In choice model and card consume Bob's group order and
-      copy, gather relation offers from every capture location, preserve opaque
-      selection keys, and cover relation-only and mixed choices with model and design
-      tests."
-  - id: reporting
-    title: Present relation previews, held notices, notifications, and badges
-    size: medium
-    depends_on:
-      - chooser
-    description:
-      "reporting: wire relation offers and held/check state into passive capture
-      previews, completion summaries, notification counts, and block badges; test all
-      nested and item-level paths while preserving existing dependency and keep-moving
-      copy."
-  - id: authoring
-    title: Show relation offer authoring cues and finish the Mac contract docs
-    size: medium
-    depends_on:
-      - reporting
-    description:
-      "authoring: present Bob's offers-source capsule, consequence message, amber
-      caveats, and inverse hint without closing or dimming the source; finish protocol
-      and preview docs and run the complete portable and best-effort macOS verification
-      gates."
+- id: protocol
+  title: Decode relation successors and generate real-Bob fixtures
+  size: medium
+  depends_on: []
+  description: 'protocol: add tolerant CaptureCore models for relation offers, held
+    rows, check state, Bob-authored Pull-In copy, and authoring metadata; generate
+    reproducible scratch-vault fixtures and test every payload location and older
+    responses.'
+- id: chooser
+  title: Render Bob-authored Pull-In groups and select relation offers
+  size: medium
+  depends_on:
+  - protocol
+  description: 'chooser: make the Pull-In choice model and card consume Bob''s group
+    order and copy, gather relation offers from every capture location, preserve opaque
+    selection keys, and cover relation-only and mixed choices with model and design
+    tests.'
+- id: reporting
+  title: Present relation previews, held notices, notifications, and badges
+  size: medium
+  depends_on:
+  - chooser
+  description: 'reporting: wire relation offers and held/check state into passive
+    capture previews, completion summaries, notification counts, and block badges;
+    test all nested and item-level paths while preserving existing dependency and
+    keep-moving copy.'
+- id: authoring
+  title: Show relation offer authoring cues and finish the Mac contract docs
+  size: medium
+  depends_on:
+  - reporting
+  description: 'authoring: present Bob''s offers-source capsule, consequence message,
+    amber caveats, and inverse hint without closing or dimming the source; finish
+    protocol and preview docs and run the complete portable and best-effort macOS
+    verification gates.'
 proposed_by: bbugyi200.athena.bob-cli-fs.10
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-fs.10
 create_time: 2026-11-02 19:46:04
 status: wip
+bead_id: bob-cli-fs.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_relation_successors.md)
-- **PARENT:**
-  [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **PROMPT:** [prompts/202611/mac_relation_successors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_relation_successors.md)
+- **PARENT:** [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
+- **BEAD:** [bob-cli-fs.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.10.1.md)
 
 # Bob Mac Capture relation successors
 
