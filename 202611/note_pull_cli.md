@@ -1,61 +1,56 @@
 ---
 tier: epic
 title: Implement note-pull capture in bob-cli
-goal:
-  Complete bob-cli-gj.2 with atomic explicit note-pull selection, grammar 7, shared
+goal: Complete bob-cli-gj.2 with atomic explicit note-pull selection, grammar 7, shared
   pull-in reporting, NP1–NP28 coverage, and real-bob fixtures for the Mac phase.
 phases:
-  - id: core
-    title: Note-pull grammar and single-item planner
-    size: medium
-    depends_on: []
-    description:
-      "core: implement sections 3 and 4, including the lone-header grammar and editor
-      mode, staged note-pull planner, classification, placement, explicit picks,
-      refusals, additive result model, and shared offer traversal. Cover the single-item
-      NP vectors and parser regressions. Read section 2 constraints."
-  - id: batch
-    title: Note-pull batch identity and transaction semantics
-    size: medium
-    depends_on:
-      - core
-    description:
-      "batch: implement section 5, including stable pre-pick keys, earliest-item
-      ownership, draft numbering, same-draft creation provenance, per-row net filtering,
-      inbox routing, and transaction rollback. Cover NP13–NP20 and adversarial mixed
-      drafts without changing existing successor-group behavior."
-  - id: presentation
-    title: Note-pull copy, human output, and block reporting
-    size: medium
-    depends_on:
-      - batch
-    description:
-      "presentation: implement section 6, including note-pull groups and copy, human
-      success and refusal output, task and Pomodoro block reasons, and CLI help
-      regeneration. Pin approved wording, lane names, mixed-group behavior, and additive
-      JSON."
-  - id: verification
-    title: Note-pull conformance fixtures and performance evidence
-    size: medium
-    depends_on:
-      - presentation
-    description:
-      "verification: complete section 7, audit NP1–NP28, add CLI fixture assertions,
-      generate real-bob JSON fixtures for the Mac phase, verify dry-run parity and
-      write-free refusals, measure release latency on an isolated vault copy, and run
-      just check plus just docs-check. Prepare closure evidence for bob-cli-gj.2; this
-      phase closes only its own bead."
+- id: core
+  title: Note-pull grammar and single-item planner
+  size: medium
+  depends_on: []
+  description: 'core: implement sections 3 and 4, including the lone-header grammar
+    and editor mode, staged note-pull planner, classification, placement, explicit
+    picks, refusals, additive result model, and shared offer traversal. Cover the
+    single-item NP vectors and parser regressions. Read section 2 constraints.'
+- id: batch
+  title: Note-pull batch identity and transaction semantics
+  size: medium
+  depends_on:
+  - core
+  description: 'batch: implement section 5, including stable pre-pick keys, earliest-item
+    ownership, draft numbering, same-draft creation provenance, per-row net filtering,
+    inbox routing, and transaction rollback. Cover NP13–NP20 and adversarial mixed
+    drafts without changing existing successor-group behavior.'
+- id: presentation
+  title: Note-pull copy, human output, and block reporting
+  size: medium
+  depends_on:
+  - batch
+  description: 'presentation: implement section 6, including note-pull groups and
+    copy, human success and refusal output, task and Pomodoro block reasons, and CLI
+    help regeneration. Pin approved wording, lane names, mixed-group behavior, and
+    additive JSON.'
+- id: verification
+  title: Note-pull conformance fixtures and performance evidence
+  size: medium
+  depends_on:
+  - presentation
+  description: 'verification: complete section 7, audit NP1–NP28, add CLI fixture
+    assertions, generate real-bob JSON fixtures for the Mac phase, verify dry-run
+    parity and write-free refusals, measure release latency on an isolated vault copy,
+    and run just check plus just docs-check. Prepare closure evidence for bob-cli-gj.2;
+    this phase closes only its own bead.'
 proposed_by: bbugyi200.athena.bob-cli-gj.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-gj.2
 create_time: 2026-11-03 12:31:12
 status: wip
+bead_id: bob-cli-gj.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/note_pull_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_pull_cli.md)
-- **PARENT:**
-  [202611/note_pull.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/note_pull.md)
+- **PROMPT:** [prompts/202611/note_pull_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_pull_cli.md)
+- **PARENT:** [202611/note_pull.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/note_pull.md)
+- **BEAD:** [bob-cli-gj.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gj/bob-cli-gj.2.1.md)
 
 # Implement note-pull capture in bob-cli
 
