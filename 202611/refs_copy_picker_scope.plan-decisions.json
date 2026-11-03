@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "highlight_picker",
+      "kind": "choice",
+      "ask": "Should the Highlights (H) picker get the same count header, scope line, and rail as the code and link pickers?",
+      "why": "All three pickers share RefsSectionedWindow and the card, so one component keeps them consistent",
+      "choices": [
+        {
+          "key": "all_pickers",
+          "label": "H, C, and L pickers all get the count header, scope line, rail, and live digit hint"
+        },
+        {
+          "key": "code_and_links",
+          "label": "Only C and L change; the H picker keeps today's header, hint, and messages"
+        }
+      ],
+      "default": "all_pickers",
+      "effective_default": "all_pickers",
+      "requested_verified": false
+    }
+  ]
+}
