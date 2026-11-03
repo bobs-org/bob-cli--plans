@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "off_clock_counts",
+      "kind": "choice",
+      "ask": "Should an off-clock session (lunch, the gym) count as the last Pomodoro behind the \u21e5 mark?",
+      "why": "The mark answers \"since when has nothing been running\", and an off-clock session was running",
+      "choices": [
+        {
+          "key": "include",
+          "label": "\u21e5 shows when any closed session ended, so after lunch it reads the lunch end"
+        },
+        {
+          "key": "exclude",
+          "label": "\u21e5 shows when the last worked session ended, skipping off-clock rows"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_mac_pom_glossary",
+      "kind": "toggle",
+      "ask": "Update the mac pom glossary strand for the \u21e5 last-end mark and the --last call?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:mac-menu-bar-pomodoro-indicator"
+        ]
+      },
+      "corrects": "It is a read-only consumer of `bob pomodoro --show-stale --worked`",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:mac-menu-bar-pomodoro-indicator",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Mac Menu Bar Pomodoro Indicator",
+            "Pomodoro",
+            "Task Type",
+            "Capture",
+            "Task Link",
+            "Project Note",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
