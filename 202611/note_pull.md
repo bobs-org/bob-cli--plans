@@ -1,19 +1,19 @@
 ---
 tier: epic
 title: Pull a note's ready tasks with a lone @route capture
-goal: "Capturing a lone `@foobar` item (in `bob capture` or Bob Mac Capture) opens the
-  existing successor Pull-In choice. It lists every ready task that resides in
+goal: 'Capturing a lone `@foobar` item (in `bob capture` or Bob Mac Capture) opens
+  the existing successor Pull-In choice. It lists every ready task that resides in
   `foobar.md`, previews where each would land, and links only the picked tasks into
-  today's Pomodoros. The flow is atomic, explicit, and presented with one copy and
+  today''s Pomodoros. The flow is atomic, explicit, and presented with one copy and
   visual system on every surface.
 
-  "
+  '
 decisions:
   lanes:
     ask: Which lanes should a note pull offer?
     choices:
-      open_lanes:
-        Pending, Next, and Ready residents not linked today (keep-moving's ready set)
+      open_lanes: Pending, Next, and Ready residents not linked today (keep-moving's
+        ready set)
       ready_only: Only Ready `[ ]` residents; unlinked Next/Pending fold as "in flight"
     default: open_lanes
     why: Yesterday's unlinked Next work is exactly what a morning pull should surface
@@ -21,68 +21,64 @@ decisions:
   empty_pull:
     ask: What should `@note` do when the note has nothing to offer?
     choices:
-      refuse:
-        Refuse `nothing_to_pull_in` with the fold; the Mac shows a calm empty state
-      succeed:
-        Succeed and write nothing; the CLI prints the fold and the Mac panel closes on
-        Return
+      refuse: Refuse `nothing_to_pull_in` with the fold; the Mac shows a calm empty
+        state
+      succeed: Succeed and write nothing; the CLI prints the fold and the Mac panel
+        closes on Return
     default: refuse
-    why:
-      Return never looks like it worked while doing nothing, and the reason stays on
-      screen
+    why: Return never looks like it worked while doing nothing, and the reason stays
+      on screen
     answer: refuse
   memory_decision_record:
     ask: Add a decision record that a lone @route pulls its note's ready tasks?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_successor_offer:
     ask: Teach the Successor Offer glossary strand about note-pull offers?
     memory:
-      - glossary:successor-offer
+    - glossary:successor-offer
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract docs, copy, and NP vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the docs-first contract for the note pull. Cover the grammar row,
-      the new capture.md section, the capture-parse and JSON shapes, task-dependencies
-      §12.20/§12.21 with the NP vectors and copy table, the reference pages (grammar 7),
-      and any accepted memory updates."
-  - id: cli
-    title: bob-cli note pull grammar, planner, picks, and output
-    depends_on:
-      - contract
-    size: large
-    description:
-      "cli: implement the lone-header `note_pull` kind in the capture language and
-      capture-parse. Build the staged planner that classifies residents, keys, orders,
-      places, and writes picks; wire it into pull-in numbering, the net pass, refusals,
-      inbox routing, JSON, and human output; add tests for every NP vector."
-  - id: mac
-    title: Bob Mac Capture note-pull preview, card, and notification
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "mac: decode `note_pull` results and render them. Covers the preview card with the
-      Pull In verb, the Pull-In card glyph, tint, lanes, and footer, the calm empty
-      state, the Shift-Return list helper, and notifications. Includes fixtures captured
-      from the real bob and compiled, tested Swift."
+- id: contract
+  title: Contract docs, copy, and NP vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write the docs-first contract for the note pull. Cover the
+    grammar row, the new capture.md section, the capture-parse and JSON shapes, task-dependencies
+    §12.20/§12.21 with the NP vectors and copy table, the reference pages (grammar
+    7), and any accepted memory updates.'
+- id: cli
+  title: bob-cli note pull grammar, planner, picks, and output
+  depends_on:
+  - contract
+  size: large
+  description: 'cli: implement the lone-header `note_pull` kind in the capture language
+    and capture-parse. Build the staged planner that classifies residents, keys, orders,
+    places, and writes picks; wire it into pull-in numbering, the net pass, refusals,
+    inbox routing, JSON, and human output; add tests for every NP vector.'
+- id: mac
+  title: Bob Mac Capture note-pull preview, card, and notification
+  depends_on:
+  - cli
+  size: medium
+  description: 'mac: decode `note_pull` results and render them. Covers the preview
+    card with the Pull In verb, the Pull-In card glyph, tint, lanes, and footer, the
+    calm empty state, the Shift-Return list helper, and notifications. Includes fixtures
+    captured from the real bob and compiled, tested Swift.'
 proposed_by: bbugyi200.athena.17g
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 11:56:51
 status: wip
+bead_id: bob-cli-gj
 ---
 
-- **PROMPT:**
-  [prompts/202611/note_pull.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_pull.md)
+- **PROMPT:** [prompts/202611/note_pull.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_pull.md)
+- **BEAD:** [bob-cli-gj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gj/README.md)
 
 # Plan: Pull a note's ready tasks with a lone `@route` capture
 
