@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ctrl_o_history",
+      "kind": "choice",
+      "ask": "Should repeated \u2303O keep walking back through older jumps, like Vim's jump list?",
+      "why": "It matches Vim's \u2303O, which this keymap borrows.",
+      "choices": [
+        {
+          "key": "stack",
+          "label": "A second \u2303O after 2g-then-\u2303O goes to an older jump, or says \"No earlier page\""
+        },
+        {
+          "key": "toggle",
+          "label": "A second \u2303O returns to page 2, so repeated \u2303O flips between two pages"
+        }
+      ],
+      "default": "stack",
+      "effective_default": "stack",
+      "requested_verified": false
+    },
+    {
+      "id": "success_alert",
+      "kind": "choice",
+      "ask": "Should each successful jump also flash a \"Page N of M\" alert?",
+      "why": "Highlights' window title already shows the page, and Vim jumps are silent.",
+      "choices": [
+        {
+          "key": "quiet",
+          "label": "Successful jumps stay silent; only out-of-range, empty-history, and failed jumps alert"
+        },
+        {
+          "key": "alert",
+          "label": "Every successful jump also shows \"Page N of M\" briefly"
+        }
+      ],
+      "default": "quiet",
+      "effective_default": "quiet",
+      "requested_verified": false
+    }
+  ]
+}
