@@ -1,61 +1,58 @@
 ---
 tier: epic
 title: Event link times — the Event Task's time pill beside ledger Task Links to it
-goal: "In a daily note's Pomodoro ledger, every Task Link that points at one of that
-  note's Event Tasks wears the same time pill the Event Task wears in `## Events`
-  (meeting span, past/running/future state, MEET hue, off-clock dash, buffer wings), in
-  Live Preview and Reading view, display-only, so a MEET lineup reads as a schedule.
+goal: 'In a daily note''s Pomodoro ledger, every Task Link that points at one of that
+  note''s Event Tasks wears the same time pill the Event Task wears in `## Events`
+  (meeting span, past/running/future state, MEET hue, off-clock dash, buffer wings),
+  in Live Preview and Reading view, display-only, so a MEET lineup reads as a schedule.
 
-  "
+  '
 decisions:
   placement:
     ask: Where should the time pill sit on a ledger Task Link row?
     choices:
-      before:
-        Leads the link like the Events row, so MEET links read as a column of times
-      after:
-        Trails the link, like bob's "Swings! (0800-0815)" copy; 🔓/🔑/off must skip it
+      before: Leads the link like the Events row, so MEET links read as a column of
+        times
+      after: Trails the link, like bob's "Swings! (0800-0815)" copy; 🔓/🔑/off must
+        skip it
     default: before
-    why:
-      Mirrors the Events row (time, name, off chip) and gcal sync's time-ordered MEET
-      links
+    why: Mirrors the Events row (time, name, off chip) and gcal sync's time-ordered
+      MEET links
     answer: before
 phases:
-  - id: contract
-    title: Authoritative display contract (bob-cli)
-    depends_on: []
-    size: small
-    description:
-      "contract: write docs/event-link-times.md with which-links, resolution, look,
-      placement, tooltip, liveness, toggles, and vector tables; register it and add two
-      cross-links."
-  - id: pill
-    title: The pill in bob-ledger-tools (bob-plugins)
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "pill: fix the shared Event pill clock bug, then implement the contract in
-      bob-ledger-tools (pure core, Live Preview widget, Reading sweep, gates, liveness,
-      tests, docs, build, sync)."
-  - id: live_verify
-    title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
-    depends_on:
-      - pill
-    size: medium
-    description:
-      "live_verify: isolated real-Obsidian e2e with light/dark screenshots, then a Live
-      verification section in the bob-cli contract."
+- id: contract
+  title: Authoritative display contract (bob-cli)
+  depends_on: []
+  size: small
+  description: 'contract: write docs/event-link-times.md with which-links, resolution,
+    look, placement, tooltip, liveness, toggles, and vector tables; register it and
+    add two cross-links.'
+- id: pill
+  title: The pill in bob-ledger-tools (bob-plugins)
+  depends_on:
+  - contract
+  size: medium
+  description: 'pill: fix the shared Event pill clock bug, then implement the contract
+    in bob-ledger-tools (pure core, Live Preview widget, Reading sweep, gates, liveness,
+    tests, docs, build, sync).'
+- id: live_verify
+  title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
+  depends_on:
+  - pill
+  size: medium
+  description: 'live_verify: isolated real-Obsidian e2e with light/dark screenshots,
+    then a Live verification section in the bob-cli contract.'
 proposed_by: bbugyi200.apollo.ca
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 10:19:35
 status: wip
+bead_id: bob-cli-gg
 ---
 
-- **PROMPT:**
-  [prompts/202611/event_link_times.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/event_link_times.md)
+- **PROMPT:** [prompts/202611/event_link_times.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/event_link_times.md)
+- **BEAD:** [bob-cli-gg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gg/README.md)
 
 # Event link times
 
