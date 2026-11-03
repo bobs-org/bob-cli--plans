@@ -1,70 +1,66 @@
 ---
 tier: epic
 title: Image zoom remembers where images came from
-goal: "Every image bob copies into the vault remembers its original file path. The `Z`
-  viewer can copy that path (`y`) or turn the link back into it (`r`), and `Z` on a
-  bullet holding only an image path imports it the way `%c` does. One beautiful,
+goal: 'Every image bob copies into the vault remembers its original file path. The
+  `Z` viewer can copy that path (`y`) or turn the link back into it (`r`), and `Z`
+  on a bullet holding only an image path imports it the way `%c` does. One beautiful,
   undoable loop: path → embed → path.
 
-  "
+  '
 decisions:
   copy_form:
     ask: When bob knows an image's original path, which form should `y` copy?
     choices:
-      absolute:
-        /Users/bryan/tmp/screenshots/x.png. Works in any app, file dialog, or quoted
-        shell argument
-      tilde:
-        ~/tmp/screenshots/x.png. Matches what you typed, but only shells and Finder
-        expand ~
+      absolute: /Users/bryan/tmp/screenshots/x.png. Works in any app, file dialog,
+        or quoted shell argument
+      tilde: ~/tmp/screenshots/x.png. Matches what you typed, but only shells and
+        Finder expand ~
     default: absolute
     why: A copied path should work wherever it is pasted
     answer: tilde
   decision_record:
-    ask:
-      Record "attachment origins live in a per-host journal" as a decisions-web record?
+    ask: Record "attachment origins live in a per-host journal" as a decisions-web
+      record?
     memory:
-      - decisions:attachment-origins-live-in-per-host-journal
+    - decisions:attachment-origins-live-in-per-host-journal
     default: false
     answer: false
 phases:
-  - id: origins
-    title: bob records attachment origins and ships `bob attachments`
-    depends_on: []
-    size: medium
-    description:
-      "origins: add the `.bob/attachments/<host>.jsonl` origin journal, have `%c` record
-      every attachment it copies, add `bob attachments import` and `bob attachments
-      origin`, allowlist the journal in the vault, and document the contract."
-  - id: viewer
-    title: Viewer shows the origin, copies it with `y`, restores it with `r`
-    depends_on:
-      - origins
-    size: medium
-    description:
-      "viewer: expose a bob-ledger-tools `attachments` api namespace, then give the Z
-      viewer an origin line, key-chip footer, toast pill, and the `y` copy and `r`
-      restore gestures, with tests and docs."
-  - id: pathz
-    title: "`Z` on an image-path bullet imports it"
-    depends_on:
-      - origins
-      - viewer
-    size: small
-    description:
-      'pathz: detect a bullet that holds only an image path, import it through bob,
-      rewrite it to bob''s embed in one undoable edit, and open the viewer on the new
-      image with an "Imported" pill.'
+- id: origins
+  title: bob records attachment origins and ships `bob attachments`
+  depends_on: []
+  size: medium
+  description: 'origins: add the `.bob/attachments/<host>.jsonl` origin journal, have
+    `%c` record every attachment it copies, add `bob attachments import` and `bob
+    attachments origin`, allowlist the journal in the vault, and document the contract.'
+- id: viewer
+  title: Viewer shows the origin, copies it with `y`, restores it with `r`
+  depends_on:
+  - origins
+  size: medium
+  description: 'viewer: expose a bob-ledger-tools `attachments` api namespace, then
+    give the Z viewer an origin line, key-chip footer, toast pill, and the `y` copy
+    and `r` restore gestures, with tests and docs.'
+- id: pathz
+  title: '`Z` on an image-path bullet imports it'
+  depends_on:
+  - origins
+  - viewer
+  size: small
+  description: 'pathz: detect a bullet that holds only an image path, import it through
+    bob, rewrite it to bob''s embed in one undoable edit, and open the viewer on the
+    new image with an "Imported" pill.'
 proposed_by: bbugyi200.athena.17n
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 14:53:39
 status: wip
+bead_id: bob-cli-gn
 ---
 
-- **PROMPT:**
-  [prompts/202611/image_zoom_origins.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/image_zoom_origins.md)
+- **PROMPT:** [prompts/202611/image_zoom_origins.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/image_zoom_origins.md)
+- **BEAD:** [bob-cli-gn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gn/README.md)
 
 # Plan: Image zoom remembers where images came from
 
