@@ -1,54 +1,50 @@
 ---
 tier: epic
 title: Complete capture target-run grammar in bounded phases
-goal:
-  Complete bob-cli-gm.1 with equivalent per-target execution, one editor item with
-  targets, coded refusals, and one grammar revision bump.
+goal: Complete bob-cli-gm.1 with equivalent per-target execution, one editor item
+  with targets, coded refusals, and one grammar revision bump.
 phases:
-  - id: selection
-    title: Shared target selection and source-preserving member views
-    size: medium
-    depends_on: []
-    description:
-      "selection: build and test shared target-run selection, terminal extraction,
-      refusal metadata, and byte-preserving member views while keeping public parsing
-      behavior unchanged."
-  - id: execution
-    title: Execution member resolution and draft fan-out
-    size: medium
-    depends_on:
-      - selection
-    description:
-      "execution: resolve each member through existing item semantics, fan out ordinary
-      and template drafts, and preserve source metadata and coded errors behind the
-      internal staging option."
-  - id: editor
-    title: Editor member semantics and targets JSON
-    size: medium
-    depends_on:
-      - execution
-    description:
-      "editor: reuse shared selection and existing editor semantics to produce one item
-      with all target spans, ordered needs, exact diagnostics, and additive targets
-      metadata behind the internal staging option."
-  - id: activate
-    title: Activate both parsers and publish the grammar contract
-    size: medium
-    depends_on:
-      - editor
-    description:
-      "activate: remove internal staging, activate both resolvers together, bump the
-      grammar once above every existing claim, document the contract, and verify CLI
-      parity and regressions for the child epic land agent."
+- id: selection
+  title: Shared target selection and source-preserving member views
+  size: medium
+  depends_on: []
+  description: 'selection: build and test shared target-run selection, terminal extraction,
+    refusal metadata, and byte-preserving member views while keeping public parsing
+    behavior unchanged.'
+- id: execution
+  title: Execution member resolution and draft fan-out
+  size: medium
+  depends_on:
+  - selection
+  description: 'execution: resolve each member through existing item semantics, fan
+    out ordinary and template drafts, and preserve source metadata and coded errors
+    behind the internal staging option.'
+- id: editor
+  title: Editor member semantics and targets JSON
+  size: medium
+  depends_on:
+  - execution
+  description: 'editor: reuse shared selection and existing editor semantics to produce
+    one item with all target spans, ordered needs, exact diagnostics, and additive
+    targets metadata behind the internal staging option.'
+- id: activate
+  title: Activate both parsers and publish the grammar contract
+  size: medium
+  depends_on:
+  - editor
+  description: 'activate: remove internal staging, activate both resolvers together,
+    bump the grammar once above every existing claim, document the contract, and verify
+    CLI parity and regressions for the child epic land agent.'
 proposed_by: bbugyi200.athena.bob-cli-gm.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-gm.1
 create_time: 2026-11-03 16:48:51
 status: wip
+bead_id: bob-cli-gm.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_target_runs_finish.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_target_runs_finish.md)
+- **PROMPT:** [prompts/202611/capture_target_runs_finish.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_target_runs_finish.md)
+- **BEAD:** [bob-cli-gm.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gm/bob-cli-gm.1.1.md)
 
 # Complete capture target-run grammar
 
