@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair Mac relation presentation and finish the nested landing
-goal: Resolve the remaining Mac relation contract gaps, verify the combined implementation,
+goal:
+  Resolve the remaining Mac relation contract gaps, verify the combined implementation,
   and close bob-cli-fs.10.1 and parent phase bob-cli-fs.10 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fs.10.1.land
@@ -14,6 +15,11 @@ status: done
   [202611/mac_relation_successors.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/mac_relation_successors.md)
 - **BEAD:**
   [bob-cli-fs.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/bob-cli-fs.10.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-fs.10.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-fs.10.1.land.md)
+- **COMMITS:**
+  - [69f84d1](https://github.com/bobs-org/bob-cli--plans/commit/69f84d170984b4b1d426cea1d4510500015ca13f)
+    — docs(plans): mark mac_relation_successors done
 
 # Repair Mac relation presentation and finish bob-cli-fs.10.1 landing
 
