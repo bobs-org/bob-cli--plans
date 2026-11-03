@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "mixed_context_caption",
+      "kind": "choice",
+      "ask": "Should copy-bearing mixed Pull-In cards keep 17bd529's no-synthesized-caption rule?",
+      "why": "The approved mac_relation_landing_repairs plan required it; Bob's copy feeds every client",
+      "choices": [
+        {
+          "key": "keep_rule",
+          "label": "Update the stale test to expect no context line; Bob's group copy stays the only copy"
+        },
+        {
+          "key": "restore_caption",
+          "label": "Drop the copy gate for mixed cards so they show \"Unblocked by \u2026\" again (product change)"
+        }
+      ],
+      "default": "keep_rule",
+      "effective_default": "keep_rule",
+      "requested_verified": false
+    },
+    {
+      "id": "grammar_sweep",
+      "kind": "choice",
+      "ask": "Should all hand-written fake-bob capture-parse bodies move from grammar 3 to 5, not just failing ones?",
+      "why": "Keeps this repair to proven failures so each 15-minute CI round trip has a known outcome",
+      "choices": [
+        {
+          "key": "targeted",
+          "label": "Bump only what the failing tests use; file one task bead for the remaining grammar drift"
+        },
+        {
+          "key": "sweep",
+          "label": "Bump every inline grammar-3 parse body as 9a1876d did; may surface more CI failures"
+        }
+      ],
+      "default": "targeted",
+      "effective_default": "targeted",
+      "requested_verified": false
+    },
+    {
+      "id": "line_case_undo_caret",
+      "kind": "choice",
+      "ask": "Should Command-Z after Ctrl-G U also put the caret back where it was?",
+      "why": "docs/keyboard.md promises only that undo restores the line, like any native edit",
+      "choices": [
+        {
+          "key": "native",
+          "label": "No product change; the test stops asserting AppKit's post-undo caret position"
+        },
+        {
+          "key": "restore",
+          "label": "Register the original selection in the undo group and document it in docs/keyboard.md"
+        }
+      ],
+      "default": "native",
+      "effective_default": "native",
+      "requested_verified": false
+    }
+  ]
+}
