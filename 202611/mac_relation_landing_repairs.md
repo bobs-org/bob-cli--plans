@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Mac relation presentation and finish the nested landing
-goal:
-  Resolve the remaining Mac relation contract gaps, verify the combined implementation,
+goal: Resolve the remaining Mac relation contract gaps, verify the combined implementation,
   and close bob-cli-fs.10.1 and parent phase bob-cli-fs.10 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-fs.10.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-fs.10.1
-create_time: 2026-11-02 21:38:36
-status: wip
+status: done
 ---
 
 - **PARENT:**
