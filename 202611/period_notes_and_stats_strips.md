@@ -1,164 +1,147 @@
 ---
 tier: epic
-title:
-  "Period notes that add up: a whole-ISO-week Week → Quarter → Year → All-time tree with
-  stats strips, parts tables, and reviews Bryan closes"
+title: 'Period notes that add up: a whole-ISO-week Week → Quarter → Year → All-time
+  tree with stats strips, parts tables, and reviews Bryan closes'
 goal: 'Every daily note''s parent is its ISO week note, and the tree climbs week →
-  quarter → year → all_time → org with no dangling links. bob creates each period note
-  ahead of time from a deterministic scaffold and never edits a note it did not just
-  create. Every week, quarter, year, and all-time note opens with a live stats strip —
-  the Day strip''s family: the same five facts as period totals, a typical line, root
-  and type lanes, and a parts row of its child periods — and a live parts table that
-  summarizes each child automatically, with or without an agent. Each note carries
-  complete, versioned agent instructions, so "Update 2026/2026-W45.md" is a whole
-  prompt: agents take every number from `bob periods brief` and save only through `bob
-  periods draft`, which never overwrites Bryan''s edits. gtd_daily.md runs a Monday
-  weekly review plus calendar-anchored quarterly and yearly reviews, and the glossary
-  and decision records name the new pieces.
+  quarter → year → all_time → org with no dangling links. bob creates each period
+  note ahead of time from a deterministic scaffold and never edits a note it did not
+  just create. Every week, quarter, year, and all-time note opens with a live stats
+  strip — the Day strip''s family: the same five facts as period totals, a typical
+  line, root and type lanes, and a parts row of its child periods — and a live parts
+  table that summarizes each child automatically, with or without an agent. Each note
+  carries complete, versioned agent instructions, so "Update 2026/2026-W45.md" is
+  a whole prompt: agents take every number from `bob periods brief` and save only
+  through `bob periods draft`, which never overwrites Bryan''s edits. gtd_daily.md
+  runs a Monday weekly review plus calendar-anchored quarterly and yearly reviews,
+  and the glossary and decision records name the new pieces.
 
   '
 phases:
-  - id: vocab
-    title: Glossary strands and decision records
-    depends_on: []
-    size: small
-    description:
-      "vocab: add the Stats Strip and Period Note glossary strands, reword Day Strip as
-      the daily member of the stats-strip family, write the three period decision
-      records, and republish memory."
-  - id: core
-    title: Period calendar, scaffolds, note parser, and bob periods ensure/list
-    depends_on: []
-    size: medium
-    description:
-      "core: a new `periods` module in bob-cli with the ISO period calendar, ids, paths,
-      labels, the four deterministic scaffolds (with v1 agent callouts), the
-      note-anatomy parser and review-state machine, create-only `bob periods ensure`
-      with one-week look-ahead, a basic `bob periods list`, CLI wiring, and the first
-      `docs/periods.md`."
-  - id: report
-    title: Period report — bob periods show and period stats ranges
-    depends_on:
-      - core
-    size: medium
-    description:
-      'report: `bob periods show` (human and JSON) with so-far facts that include today,
-      same-kind typical lines, folded lanes, strip columns, and parts-table children
-      with review state, Headline, and an automatic "mostly" line; plus `bob stats -r
-      <period>` and `-g quarter`.'
-  - id: migrate
-    title: Vault adoption — bob periods migrate, problems report, nightly check
-    depends_on:
-      - core
-    size: medium
-    description:
-      "migrate: `bob periods migrate` (dry run by default, one verified commit with
-      `-a`) that creates the ISO-2026 tree, adopts 2026.md, re-parents year notes and
-      daily notes, and adds the week nav link; `bob periods list -p` problems; and a
-      report-only nightly step."
-  - id: reviews
-    title: Agent reviews — bob periods brief, draft, and instruction refresh
-    depends_on:
-      - report
-    size: medium
-    description:
-      "reviews: the deterministic, versioned `bob periods brief` bundle for weeks,
-      quarters, and years; `bob periods draft` with Headline and word-cap validation and
-      the empty/drafted/edited/reflected guard; and `bob periods ensure -R` to refresh
-      agent callouts."
-  - id: hook
-    title: Period-note creation hook, open-week command, and agent callout style
-    depends_on:
-      - core
-    size: small
-    description:
-      'hook: bob-ledger-tools runs `bob periods ensure` on daily-note creation and once
-      per local day, gated on all_time.md; adds an "Open this week''s note" command; and
-      styles `[!agent]` callouts as one quiet folded line.'
-  - id: strip
-    title: The period stats strip in bob-ledger-tools, week member first
-    depends_on:
-      - report
-    size: medium
-    description:
-      "strip: the `bob-stats-strip` fence and the shared period strip (facts, typical
-      line, meta, lanes) built on the Day strip components, the week parts row of seven
-      day columns, interactions and keyboard, `openStatsForPeriod`, caching and refresh,
-      preview fixtures, and tests."
-  - id: parts
-    title: Quarter, year, and all-time strips plus the bob-period-parts table
-    depends_on:
-      - strip
-    size: medium
-    description:
-      "parts: the quarter (week columns, month ticks), year (week columns in quarter
-      groups), and all-time (quarter columns in year groups) parts rows, and the live
-      `bob-period-parts` table for every kind, with previews, tests, and plugin docs."
-  - id: rollout
-    title: Vault rollout, review rituals, and live verification
-    depends_on:
-      - vocab
-      - migrate
-      - reviews
-      - hook
-      - parts
-    size: medium
-    description:
-      "rollout: install bob and the plugins, verify the recurrence strings, run the
-      migration dry run and then apply it, switch the daily template, retire the monthly
-      and yearly templates, update day.md, journal.md, org.md, and gtd_daily.md, pilot
-      drafts, capture screenshots, and file the automation follow-up."
+- id: vocab
+  title: Glossary strands and decision records
+  depends_on: []
+  size: small
+  description: 'vocab: add the Stats Strip and Period Note glossary strands, reword
+    Day Strip as the daily member of the stats-strip family, write the three period
+    decision records, and republish memory.'
+- id: core
+  title: Period calendar, scaffolds, note parser, and bob periods ensure/list
+  depends_on: []
+  size: medium
+  description: 'core: a new `periods` module in bob-cli with the ISO period calendar,
+    ids, paths, labels, the four deterministic scaffolds (with v1 agent callouts),
+    the note-anatomy parser and review-state machine, create-only `bob periods ensure`
+    with one-week look-ahead, a basic `bob periods list`, CLI wiring, and the first
+    `docs/periods.md`.'
+- id: report
+  title: Period report — bob periods show and period stats ranges
+  depends_on:
+  - core
+  size: medium
+  description: 'report: `bob periods show` (human and JSON) with so-far facts that
+    include today, same-kind typical lines, folded lanes, strip columns, and parts-table
+    children with review state, Headline, and an automatic "mostly" line; plus `bob
+    stats -r <period>` and `-g quarter`.'
+- id: migrate
+  title: Vault adoption — bob periods migrate, problems report, nightly check
+  depends_on:
+  - core
+  size: medium
+  description: 'migrate: `bob periods migrate` (dry run by default, one verified commit
+    with `-a`) that creates the ISO-2026 tree, adopts 2026.md, re-parents year notes
+    and daily notes, and adds the week nav link; `bob periods list -p` problems; and
+    a report-only nightly step.'
+- id: reviews
+  title: Agent reviews — bob periods brief, draft, and instruction refresh
+  depends_on:
+  - report
+  size: medium
+  description: 'reviews: the deterministic, versioned `bob periods brief` bundle for
+    weeks, quarters, and years; `bob periods draft` with Headline and word-cap validation
+    and the empty/drafted/edited/reflected guard; and `bob periods ensure -R` to refresh
+    agent callouts.'
+- id: hook
+  title: Period-note creation hook, open-week command, and agent callout style
+  depends_on:
+  - core
+  size: small
+  description: 'hook: bob-ledger-tools runs `bob periods ensure` on daily-note creation
+    and once per local day, gated on all_time.md; adds an "Open this week''s note"
+    command; and styles `[!agent]` callouts as one quiet folded line.'
+- id: strip
+  title: The period stats strip in bob-ledger-tools, week member first
+  depends_on:
+  - report
+  size: medium
+  description: 'strip: the `bob-stats-strip` fence and the shared period strip (facts,
+    typical line, meta, lanes) built on the Day strip components, the week parts row
+    of seven day columns, interactions and keyboard, `openStatsForPeriod`, caching
+    and refresh, preview fixtures, and tests.'
+- id: parts
+  title: Quarter, year, and all-time strips plus the bob-period-parts table
+  depends_on:
+  - strip
+  size: medium
+  description: 'parts: the quarter (week columns, month ticks), year (week columns
+    in quarter groups), and all-time (quarter columns in year groups) parts rows,
+    and the live `bob-period-parts` table for every kind, with previews, tests, and
+    plugin docs.'
+- id: rollout
+  title: Vault rollout, review rituals, and live verification
+  depends_on:
+  - vocab
+  - migrate
+  - reviews
+  - hook
+  - parts
+  size: medium
+  description: 'rollout: install bob and the plugins, verify the recurrence strings,
+    run the migration dry run and then apply it, switch the daily template, retire
+    the monthly and yearly templates, update day.md, journal.md, org.md, and gtd_daily.md,
+    pilot drafts, capture screenshots, and file the automation follow-up.'
 decisions:
   days_table:
-    ask:
-      Should weekly notes also get a live `## Days` parts table with one automatic
+    ask: Should weekly notes also get a live `## Days` parts table with one automatic
       summary row per day?
     default: true
-    why:
-      Every period note gets the same shape, and each day gets an automatic one-line
+    why: Every period note gets the same shape, and each day gets an automatic one-line
       summary
     answer: true
   pilot_drafts:
-    ask:
-      Should rollout draft the closed 2026-W44 and 2026-Q3 Reviews as worked examples
+    ask: Should rollout draft the closed 2026-W44 and 2026-Q3 Reviews as worked examples
       for you to correct?
     default: true
-    why:
-      The first Monday review starts from a real draft, and the quarterly contract is
-      tested early
+    why: The first Monday review starts from a real draft, and the quarterly contract
+      is tested early
     answer: true
   offclock_in_briefs:
     ask: How much off-clock detail may agent briefs include?
     choices:
-      counts:
-        Minutes and counts by area only; off-clock event titles never reach the agent
+      counts: Minutes and counts by area only; off-clock event titles never reach
+        the agent
       titles: Also each off-clock event's title and minutes, so drafts can name them
     default: counts
     why: Off-clock time is personal, and counts are enough to describe a period
     answer: counts
   memory_glossary:
-    ask:
-      Add the Stats Strip and Period Note glossary strands and reword Day Strip as the
-      daily stats strip?
+    ask: Add the Stats Strip and Period Note glossary strands and reword Day Strip
+      as the daily stats strip?
     memory:
-      - glossary
+    - glossary
     default: true
-    requested:
-      We should add a new glossary term for "stats strip" that adequately describes its
-      relation to other existing glossary terms (for example, the "day strip" is the
-      stats strip used for daily files).
+    requested: We should add a new glossary term for "stats strip" that adequately
+      describes its relation to other existing glossary terms (for example, the "day
+      strip" is the stats strip used for daily files).
     answer: true
   memory_decisions:
-    ask:
-      Record the three period-note decision records (whole ISO weeks, bob scaffolds,
+    ask: Record the three period-note decision records (whole ISO weeks, bob scaffolds,
       drafts Bryan closes)?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 proposed_by: bbugyi200.apollo.research.34.linker.w0
 proposed_with: claude/opus
@@ -166,10 +149,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 10:55:39
 status: wip
+bead_id: bob-cli-gh
 ---
 
-- **PROMPT:**
-  [prompts/202611/period_notes_and_stats_strips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_notes_and_stats_strips.md)
+- **PROMPT:** [prompts/202611/period_notes_and_stats_strips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_notes_and_stats_strips.md)
+- **BEAD:** [bob-cli-gh](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gh/README.md)
 
 # Plan: Period notes that add up
 
