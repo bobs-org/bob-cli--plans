@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "new_jump_forward",
+      "kind": "choice",
+      "ask": "After going back with \u2303O, should a new gg/G/<N>g jump discard the pages ahead of you?",
+      "why": "\u2303O/\u2303I stay a plain back/forward stack; \u2303O never revisits pages you backed away from",
+      "choices": [
+        {
+          "key": "discard",
+          "label": "Clear the pages ahead, like browser history and Vim's jumpoptions=stack"
+        },
+        {
+          "key": "keep",
+          "label": "Move them behind you, like Vim's default jump list, so \u2303O revisits them"
+        }
+      ],
+      "default": "discard",
+      "effective_default": "discard",
+      "requested_verified": false
+    }
+  ]
+}
