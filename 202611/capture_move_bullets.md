@@ -1,143 +1,126 @@
 ---
 tier: epic
 title: Move parent tasks into a new project note with capture move bullets
-goal:
-  When a capture item creates a project note with `@foo^bar@` or `@foo:bar@`, a
-  first-level bullet that holds only `^<id>` (or `:<id>`) moves that open task, with its
-  whole block, from the parent note `foo.md` into the new `foo_bar.md`. The task lands
-  in draft order, and `:` also makes it Next and links it. Typing `^` or `:` after `- `
-  in such an item opens a Bob Mac Capture move picker that lists the parent's open
-  tasks, including tasks without a block ID. The preview names every move before submit.
-  The batch is atomic and replaces the parent last, so an interrupted write can
-  duplicate a task but never lose one.
+goal: When a capture item creates a project note with `@foo^bar@` or `@foo:bar@`,
+  a first-level bullet that holds only `^<id>` (or `:<id>`) moves that open task,
+  with its whole block, from the parent note `foo.md` into the new `foo_bar.md`. The
+  task lands in draft order, and `:` also makes it Next and links it. Typing `^` or
+  `:` after `- ` in such an item opens a Bob Mac Capture move picker that lists the
+  parent's open tasks, including tasks without a block ID. The preview names every
+  move before submit. The batch is atomic and replaces the parent last, so an interrupted
+  write can duplicate a task but never lose one.
 decisions:
   grammar_bump:
     ask: Bump the capture grammar revision and mark the grammar commit breaking (`!`)?
     choices:
-      bump:
-        Bump GRAMMAR_REVISION by one in a `feat(capture)!:` commit with a BREAKING
+      bump: Bump GRAMMAR_REVISION by one in a `feat(capture)!:` commit with a BREAKING
         CHANGE footer
-      keep:
-        Keep the revision; ship additive `feat(capture):`; clients detect the new need
-        and context
+      keep: Keep the revision; ship additive `feat(capture):`; clients detect the
+        new need and context
     default: bump
-    why:
-      Refused drafts that gained meaning bumped before (lists, note pull); lone `- ^`
-      changes need
+    why: Refused drafts that gained meaning bumped before (lists, note pull); lone
+      `- ^` changes need
     answer: bump
   memory_decision_record:
-    ask:
-      Add a decision record that a leading `^`/`:` on a project-note bullet moves an
-      existing task?
+    ask: Add a decision record that a leading `^`/`:` on a project-note bullet moves
+      an existing task?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_project_note:
-    ask:
-      Teach the Project Note glossary strand that capture can move parent tasks into a
-      new note?
+    ask: Teach the Project Note glossary strand that capture can move parent tasks
+      into a new note?
     memory:
-      - glossary:project-note
+    - glossary:project-note
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract docs, copy table, and move-bullet vectors
-    depends_on: []
-    size: medium
-    description:
-      'contract: Write the docs-first contract for move bullets in bob-cli `docs/`.
-      Cover the grammar rows, a new "Moving parent tasks in" subsection under Project
-      notes, the rewritten parent and daily-note sentences, the `capture-parse` and
-      `capture-complete` contract additions, the capture JSON and human output, the
-      teaching-error copy table, the MV/MC vectors, and the `docs/task-move.md` and
-      `docs/freshness.md` rows. Implement the accepted memory decisions.'
-  - id: cli-grammar
-    title: Move-bullet lexer, parsers, and capture-parse
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-grammar: Add the shared `move_bullet` lexer. Wire it into the execution
-      parser (`item.rs`) and the editor parser (`editor_parse.rs`). Report the new
-      spans, the `project_task_move` need, `sub_bullet_moves`, and every lexical
-      diagnostic, and apply the grammar-revision decision. Execution refuses move
-      bullets until `cli-execution` lands."
-  - id: cli-engine
-    title: Move engine slots, eligibility API, batch move helper, and parent-last writes
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "cli-engine: Extend the task-move engine with capture-only slot placement and a
-      refuse-on-ID-collision mode. Add the shared movable-root eligibility API. Extract
-      a `capture::batch_move` helper from inbox routing (snapshot, plan, staged
-      postimages, `stamp_fresh` roots), and make the capture batch replace every move
-      destination before its source. Inbox routing keeps identical behavior."
-  - id: cli-complete
-    title: capture-complete `project_task_move` context and rows
-    depends_on:
-      - cli-grammar
-      - cli-engine
-    size: medium
-    description:
-      "cli-complete: Add the `project_task_move` completion field and context. It serves
-      the parent's open top-level tasks as rows (ID-less rows included) with a
-      Bob-authored consequence, disabled reasons, ordering, a `project_task_move` picker
-      descriptor with the shift-return `continuation`, and a response header object.
-      Update the capture-complete help and the generated reference."
-  - id: cli-execution
-    title: Project-note planner moves, `:` links, offers, and output
-    depends_on:
-      - cli-grammar
-      - cli-engine
-    size: large
-    description:
-      "cli-execution: Execute `- ^id` and `- :id` inside `plan_project_note_item`:
-      resolve against the staged parent, apply vault refusals, render ordered slots,
-      move through the batch move helper, stamp, link `:` moves through the
-      existing-task link semantics in draft order, integrate offers (`moved_from`), and
-      report `project_note.moved_tasks`, the move summary and move hint, plus human
-      output. Remove the interim refusal, rewrite the `bob capture` help, and land the
-      MV vectors as tests."
-  - id: mac-picker
-    title:
-      Bob Mac Capture move picker, Add block ID, shift-return chain, and span styling
-    depends_on:
-      - cli-complete
-    size: medium
-    description:
-      'mac-picker: In bob-mac-capture (open it with /sase_repo), gate on the
-      `project_task_move` need and spans and decode the new context, descriptor, and
-      rows. Build the move picker on the scoped parent-task picker patterns, with the
-      Add block ID flow, shift-return "move & add another", Esc and stale-draft
-      handling, calm need status text, and new span colours. Update the docs and
-      fixtures.'
-  - id: mac-preview
-    title:
-      Bob Mac Capture moves band, ghost titles, move hint, offers label, and
-      notification
-    depends_on:
-      - cli-execution
-      - mac-picker
-    size: medium
-    description:
-      'mac-preview: In bob-mac-capture, decode `project_note.moved_tasks`, the move
-      summary, the move hint, and offer `moved_from`. Render the "Moves N tasks from
-      cash.md" preview band, inline ghost titles after each move bullet, the
-      discoverability hint, the "moved from" label on Pull-In rows, the notification
-      copy, and VoiceOver labels. Update the docs and fixtures.'
+- id: contract
+  title: Contract docs, copy table, and move-bullet vectors
+  depends_on: []
+  size: medium
+  description: 'contract: Write the docs-first contract for move bullets in bob-cli
+    `docs/`. Cover the grammar rows, a new "Moving parent tasks in" subsection under
+    Project notes, the rewritten parent and daily-note sentences, the `capture-parse`
+    and `capture-complete` contract additions, the capture JSON and human output,
+    the teaching-error copy table, the MV/MC vectors, and the `docs/task-move.md`
+    and `docs/freshness.md` rows. Implement the accepted memory decisions.'
+- id: cli-grammar
+  title: Move-bullet lexer, parsers, and capture-parse
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-grammar: Add the shared `move_bullet` lexer. Wire it into the
+    execution parser (`item.rs`) and the editor parser (`editor_parse.rs`). Report
+    the new spans, the `project_task_move` need, `sub_bullet_moves`, and every lexical
+    diagnostic, and apply the grammar-revision decision. Execution refuses move bullets
+    until `cli-execution` lands.'
+- id: cli-engine
+  title: Move engine slots, eligibility API, batch move helper, and parent-last writes
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-engine: Extend the task-move engine with capture-only slot placement
+    and a refuse-on-ID-collision mode. Add the shared movable-root eligibility API.
+    Extract a `capture::batch_move` helper from inbox routing (snapshot, plan, staged
+    postimages, `stamp_fresh` roots), and make the capture batch replace every move
+    destination before its source. Inbox routing keeps identical behavior.'
+- id: cli-complete
+  title: capture-complete `project_task_move` context and rows
+  depends_on:
+  - cli-grammar
+  - cli-engine
+  size: medium
+  description: 'cli-complete: Add the `project_task_move` completion field and context.
+    It serves the parent''s open top-level tasks as rows (ID-less rows included) with
+    a Bob-authored consequence, disabled reasons, ordering, a `project_task_move`
+    picker descriptor with the shift-return `continuation`, and a response header
+    object. Update the capture-complete help and the generated reference.'
+- id: cli-execution
+  title: Project-note planner moves, `:` links, offers, and output
+  depends_on:
+  - cli-grammar
+  - cli-engine
+  size: large
+  description: 'cli-execution: Execute `- ^id` and `- :id` inside `plan_project_note_item`:
+    resolve against the staged parent, apply vault refusals, render ordered slots,
+    move through the batch move helper, stamp, link `:` moves through the existing-task
+    link semantics in draft order, integrate offers (`moved_from`), and report `project_note.moved_tasks`,
+    the move summary and move hint, plus human output. Remove the interim refusal,
+    rewrite the `bob capture` help, and land the MV vectors as tests.'
+- id: mac-picker
+  title: Bob Mac Capture move picker, Add block ID, shift-return chain, and span styling
+  depends_on:
+  - cli-complete
+  size: medium
+  description: 'mac-picker: In bob-mac-capture (open it with /sase_repo), gate on
+    the `project_task_move` need and spans and decode the new context, descriptor,
+    and rows. Build the move picker on the scoped parent-task picker patterns, with
+    the Add block ID flow, shift-return "move & add another", Esc and stale-draft
+    handling, calm need status text, and new span colours. Update the docs and fixtures.'
+- id: mac-preview
+  title: Bob Mac Capture moves band, ghost titles, move hint, offers label, and notification
+  depends_on:
+  - cli-execution
+  - mac-picker
+  size: medium
+  description: 'mac-preview: In bob-mac-capture, decode `project_note.moved_tasks`,
+    the move summary, the move hint, and offer `moved_from`. Render the "Moves N tasks
+    from cash.md" preview band, inline ghost titles after each move bullet, the discoverability
+    hint, the "moved from" label on Pull-In rows, the notification copy, and VoiceOver
+    labels. Update the docs and fixtures.'
 proposed_by: bbugyi200.apollo.research.35.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 13:39:28
 status: wip
+bead_id: bob-cli-gl
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_move_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_move_bullets.md)
+- **PROMPT:** [prompts/202611/capture_move_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_move_bullets.md)
+- **BEAD:** [bob-cli-gl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gl/README.md)
 
 # Plan: Move parent tasks into a new project note with capture move bullets
 
