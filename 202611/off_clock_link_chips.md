@@ -1,70 +1,64 @@
 ---
 tier: epic
-title:
-  Off-clock link chips — show the `#off` chip after ledger Task Links to off-clock tasks
-goal: "In a daily note's Pomodoro ledger, every Task Link whose task resolves off the
-  clock (an explicit `#off` or alias, or an inherited area/project `offclock: true`)
-  wears the same dashed `timer-off` `off` chip that off-clock Event Tasks already wear,
-  in Live Preview and Reading view, so Bryan can see at a glance which planned or logged
-  work will keep a session off the work clock.
+title: Off-clock link chips — show the `#off` chip after ledger Task Links to off-clock
+  tasks
+goal: 'In a daily note''s Pomodoro ledger, every Task Link whose task resolves off
+  the clock (an explicit `#off` or alias, or an inherited area/project `offclock:
+  true`) wears the same dashed `timer-off` `off` chip that off-clock Event Tasks already
+  wear, in Live Preview and Reading view, so Bryan can see at a glance which planned
+  or logged work will keep a session off the work clock.
 
-  "
+  '
 decisions:
   history_rows:
-    ask:
-      Also chip links under closed entries and in past daily notes, not just today's
+    ask: Also chip links under closed entries and in past daily notes, not just today's
       open Pomodoros?
     default: true
-    why:
-      "The clock belongs to the task, like the #off tag it stands in for; home chips
-      mark history too."
+    why: 'The clock belongs to the task, like the #off tag it stands in for; home
+      chips mark history too.'
     answer: true
   prose_links:
-    ask:
-      Also put the chip after prose task links (the ones wearing a status ring), not
-      only ledger rows?
+    ask: Also put the chip after prose task links (the ones wearing a status ring),
+      not only ledger rows?
     default: false
-    why:
-      The clock only decides Pomodoro sessions; chips across every love-note link would
-      be noise.
+    why: The clock only decides Pomodoro sessions; chips across every love-note link
+      would be noise.
     answer: false
 phases:
-  - id: contract
-    title: Authoritative display contract (bob-cli)
-    depends_on: []
-    size: small
-    description:
-      "contract: write docs/off-clock-link-chips.md with the which-links, resolution,
-      look, placement, tooltip, liveness, toggle, and vector tables below, register it,
-      and add two cross-links."
-  - id: chip
-    title: The chip in bob-ledger-tools (bob-plugins)
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "chip: implement the contract in bob-ledger-tools — pure core, Live Preview
-      widget, Reading-view sweep, shared CSS, toggle, liveness, unit and parity tests,
-      plugin docs, build, and bob plugins sync."
-  - id: live_verify
-    title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
-    depends_on:
-      - chip
-    size: medium
-    description:
-      "live_verify: drive the chip in an isolated real-Obsidian scratch vault, compare
-      its computed look with the Event Task chip, record screenshots and timings, and
-      write the contract's Live verification section."
+- id: contract
+  title: Authoritative display contract (bob-cli)
+  depends_on: []
+  size: small
+  description: 'contract: write docs/off-clock-link-chips.md with the which-links,
+    resolution, look, placement, tooltip, liveness, toggle, and vector tables below,
+    register it, and add two cross-links.'
+- id: chip
+  title: The chip in bob-ledger-tools (bob-plugins)
+  depends_on:
+  - contract
+  size: medium
+  description: 'chip: implement the contract in bob-ledger-tools — pure core, Live
+    Preview widget, Reading-view sweep, shared CSS, toggle, liveness, unit and parity
+    tests, plugin docs, build, and bob plugins sync.'
+- id: live_verify
+  title: Real-Obsidian e2e and visual review (bob-plugins, bob-cli)
+  depends_on:
+  - chip
+  size: medium
+  description: 'live_verify: drive the chip in an isolated real-Obsidian scratch vault,
+    compare its computed look with the Event Task chip, record screenshots and timings,
+    and write the contract''s Live verification section.'
 proposed_by: bbugyi200.apollo.c9
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 09:51:46
 status: wip
+bead_id: bob-cli-gf
 ---
 
-- **PROMPT:**
-  [prompts/202611/off_clock_link_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_clock_link_chips.md)
+- **PROMPT:** [prompts/202611/off_clock_link_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/off_clock_link_chips.md)
+- **BEAD:** [bob-cli-gf](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gf/README.md)
 
 # Off-clock link chips
 
