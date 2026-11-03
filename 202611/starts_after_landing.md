@@ -1,11 +1,12 @@
 ---
 tier: tale
 size: medium
-title: Land starts-after relations — fixture re-sync, relation overhead cut, epic
-  closeout
-goal: Finish the last epic-caused work for bob-cli-fs and close it. Re-sync the plugin
-  fixture copies. Bring relation-enabled capture overhead down to the shared byte
-  pass the design priced. Then close the epic in the same turn.
+title:
+  Land starts-after relations — fixture re-sync, relation overhead cut, epic closeout
+goal:
+  Finish the last epic-caused work for bob-cli-fs and close it. Re-sync the plugin
+  fixture copies. Bring relation-enabled capture overhead down to the shared byte pass
+  the design priced. Then close the epic in the same turn.
 proposed_by: bbugyi200.athena.bob-cli-fs.land
 proposed_with: claude/opus
 bead: bob-cli-fs
@@ -16,6 +17,9 @@ status: done
   [202611/starts_after_relation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/starts_after_relation.md)
 - **BEAD:**
   [bob-cli-fs](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-fs/README.md)
+- **COMMITS:**
+  - [dc319a7](https://github.com/bobs-org/bob-plugins/commit/dc319a7c4f525dd4768b92a73be7ed550548cff6)
+    — test(relation-successors): re-sync vectors after capture unlink moved SA31/SA32
 
 # Land starts-after relations (epic `bob-cli-fs`)
 
