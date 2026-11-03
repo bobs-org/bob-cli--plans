@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Event link times documentation and land bob-cli-gg
-goal: Correct the two remaining copy defects, verify and deploy the combined feature,
-  and close bob-cli-gg.
+goal:
+  Correct the two remaining copy defects, verify and deploy the combined feature, and
+  close bob-cli-gg.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-gg.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/event_link_times.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/event_link_times.md)
 - **BEAD:**
   [bob-cli-gg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gg/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-gg.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-gg.land.md)
+- **COMMITS:**
+  - [ee5c078](https://github.com/bobs-org/bob-cli/commit/ee5c0781caa7c748713ab685de9a9dc7da000f78)
+    — docs(task-link-marks): describe event pill and off chip as additive
 
 # Finish Event link times documentation and land bob-cli-gg
 
