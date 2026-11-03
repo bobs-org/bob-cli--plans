@@ -1,186 +1,171 @@
 ---
 tier: epic
 title: Move, merge, and split tasks — one destination-shaped family
-goal: "Bryan can move tasks between notes, merge tasks into another task, drawer, or
-  note section, and split bullets out into new linked tasks, from capture (`@a+x @b+y >
-  @c…`), the `merged into` relation label, Obsidian (Ctrl+Shift+T and the Links stage),
-  and `bob task move|merge|split`. All of these share one Rust engine per operation.
-  They never lose content or identity, leave `bob task reconcile` with nothing to do,
-  and explain every consequence before and after they write.
+goal: 'Bryan can move tasks between notes, merge tasks into another task, drawer,
+  or note section, and split bullets out into new linked tasks, from capture (`@a+x
+  @b+y > @c…`), the `merged into` relation label, Obsidian (Ctrl+Shift+T and the Links
+  stage), and `bob task move|merge|split`. All of these share one Rust engine per
+  operation. They never lose content or identity, leave `bob task reconcile` with
+  nothing to do, and explain every consequence before and after they write.
 
-  "
+  '
 decisions:
   memory_relation_effects:
-    ask:
-      Teach glossary:task-relation that a configured merge label is a third commit-time
+    ask: Teach glossary:task-relation that a configured merge label is a third commit-time
       status exception?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: true
-    corrects:
-      The status exceptions are committing a configured cancel label through capture or
-      the Links stage, which cancels the source task at commit time, and committing a
-      configured complete label through capture or the Links stage, which marks the
-      source task Done at commit time.
+    corrects: The status exceptions are committing a configured cancel label through
+      capture or the Links stage, which cancels the source task at commit time, and
+      committing a configured complete label through capture or the Links stage, which
+      marks the source task Done at commit time.
     answer: true
   memory_glossary_strands:
-    ask:
-      Add Task Merge and Task Split glossary strands that tell them apart from Pomodoro
-      merge and split?
+    ask: Add Task Merge and Task Split glossary strands that tell them apart from
+      Pomodoro merge and split?
     memory:
-      - glossary:task-merge
-      - glossary:task-split
+    - glossary:task-merge
+    - glossary:task-split
     default: false
     answer: true
   memory_decision_records:
-    ask:
-      Record the destination-shape, merge-retires, and split-leaves-links decisions in
-      the decisions web?
+    ask: Record the destination-shape, merge-retires, and split-leaves-links decisions
+      in the decisions web?
     memory:
-      - decisions:destination-decides-the-shape
-      - decisions:merge-cuts-and-retires
-      - decisions:split-leaves-live-links
+    - decisions:destination-decides-the-shape
+    - decisions:merge-cuts-and-retires
+    - decisions:split-leaves-live-links
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract docs, canonical copy, and split vectors
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the task-merge and task-split contract pages, the relations
-      §2/§21 merge-label contract, the many-source move docs, the shared copy table, and
-      the byte-exact split conformance vectors that the Rust and JS planners must both
-      pass."
-  - id: foundation
-    title:
-      Fragment transplant, task-children classifier, drawer ensure, and task locators
-    depends_on: []
-    size: medium
-    description:
-      "foundation: extract the move engine's fragment cut, re-indent, anchor-rename, and
-      vault-wide link-repair machinery into a reusable transplant API, rebuild
-      plan_task_move on it unchanged, and add a shared task-children classifier, a
-      find-or-create drawer helper, and the note:block-id task locator."
-  - id: split-cli
-    title: Rust split planner and `bob task split`
-    depends_on:
-      - contract
-      - foundation
-    size: medium
-    description:
-      "split-cli: implement the pure plan_task_split that passes every split vector
-      byte-for-byte, extract the task-move command shell for reuse, and ship `bob task
-      split` with candidate listing, dry-run parity, scoped commits, and JSON."
-  - id: merge-engine
-    title: Rust merge engine for task, drawer, and section containers
-    depends_on:
-      - contract
-      - foundation
-    size: large
-    description:
-      "merge-engine: implement plan_task_merge, which validates, cuts each source's
-      notes into the container, re-points dependents, writes the relation or Cancel Log
-      provenance, cancels, prunes today's links, offers the target, and reports, with
-      idempotent re-runs and property tests."
-  - id: merge-cli
-    title: "`bob task merge` and `bob task move -t`"
-    depends_on:
-      - merge-engine
-      - split-cli
-    size: medium
-    description:
-      "merge-cli: ship `bob task merge` (-i, -D, -s, -p) and the many-source `bob task
-      move -t` mode on the shared shell, with teaching refusals, beautiful human output,
-      JSON records, catalog and completion wiring, and generated reference docs."
-  - id: merge-label
-    title: Configurable merge labels in config, capture `~`/`~~`, and completion
-    depends_on:
-      - merge-engine
-    size: medium
-    description:
-      "merge-label: add relations.merge_labels and LabelEffect::Merge with the four-list
-      overlap rule, dispatch merges from capture relation commits through the engine,
-      flag merge labels in capture-parse, capture-complete, completion, and `bob
-      relations list`, and enable the label in chezmoi."
-  - id: nav-split
-    title: Obsidian Ctrl+Shift+T split — JS twin and cursor gestures
-    depends_on:
-      - split-cli
-    size: medium
-    description:
-      "nav-split: port the split planner to JS against the copied vectors, then register
-      Ctrl+Shift+T for the cursor, counted, and visual-selection splits, with
-      one-transaction undo, cursor landing, notices, and the Undo-close-tab rebind."
-  - id: nav-split-picker
-    title: Split picker, section promotion, cross-note splits, and Undo notices
-    depends_on:
-      - nav-split
-    size: medium
-    description:
-      "nav-split-picker: add the Tab-mark split picker on task lines and drawer titles,
-      section-bullet promotion, the guarded cross-note write for daily-note owners, and
-      a reusable Undo notice action, then document the gesture."
-  - id: nav-merge
-    title: Merge through the Obsidian Links stage
-    depends_on:
-      - merge-cli
-      - merge-label
-      - nav-split-picker
-    size: medium
-    description:
-      "nav-merge: make a configured merge label in Ctrl+Shift+L, counted Ctrl+Shift+L,
-      and Ctrl+Shift+Alt+L preview and commit through `bob task merge` via a
-      ledger-tools API, with the consequence strip, an offer pick, an Undo notice, and a
-      mobile refusal."
-  - id: transfer-capture
-    title: Capture `>` transfer grammar, execution, and output
-    depends_on:
-      - merge-cli
-      - merge-label
-    size: large
-    description:
-      "transfer-capture: after bob-cli-gm and bob-cli-gl.2 land, recognize `@src+id… >
-      @dest[+id][#name]` in both resolvers before fan-out, execute moves through
-      batch_move and merges through the engine, report moves[] and merges[], add the
-      shell-redirect guard, and bump the grammar once."
-  - id: transfer-assist
-    title: Capture-complete and capture-rewrite for transfer lines
-    depends_on:
-      - transfer-capture
-    size: medium
-    description:
-      "transfer-assist: complete sources, destinations, `+` merge targets, and `#`
-      drawers or sections on transfer lines, extend separator rewrite and the `@@`
-      notice, and document both."
-  - id: mac
-    title: Bob Mac Capture transfer spans, bands, and verbs
-    depends_on:
-      - transfer-assist
-    size: medium
-    description:
-      "mac: style the transfer spans, render bob's moves[] and merges[] as Moves and
-      Merges preview bands, show the Move or Merge footer verb, and write notification
-      copy, while staying a thin client."
-  - id: closeout
-    title: Live verification, cross-links, and accepted memory
-    depends_on:
-      - nav-merge
-      - mac
-    size: small
-    description:
-      "closeout: verify every gesture end to end in a scratch vault, fix cross-links and
-      stale docs, apply only the accepted memory decisions, and record follow-ups."
+- id: contract
+  title: Contract docs, canonical copy, and split vectors
+  depends_on: []
+  size: medium
+  description: 'contract: write the task-merge and task-split contract pages, the
+    relations §2/§21 merge-label contract, the many-source move docs, the shared copy
+    table, and the byte-exact split conformance vectors that the Rust and JS planners
+    must both pass.'
+- id: foundation
+  title: Fragment transplant, task-children classifier, drawer ensure, and task locators
+  depends_on: []
+  size: medium
+  description: 'foundation: extract the move engine''s fragment cut, re-indent, anchor-rename,
+    and vault-wide link-repair machinery into a reusable transplant API, rebuild plan_task_move
+    on it unchanged, and add a shared task-children classifier, a find-or-create drawer
+    helper, and the note:block-id task locator.'
+- id: split-cli
+  title: Rust split planner and `bob task split`
+  depends_on:
+  - contract
+  - foundation
+  size: medium
+  description: 'split-cli: implement the pure plan_task_split that passes every split
+    vector byte-for-byte, extract the task-move command shell for reuse, and ship
+    `bob task split` with candidate listing, dry-run parity, scoped commits, and JSON.'
+- id: merge-engine
+  title: Rust merge engine for task, drawer, and section containers
+  depends_on:
+  - contract
+  - foundation
+  size: large
+  description: 'merge-engine: implement plan_task_merge, which validates, cuts each
+    source''s notes into the container, re-points dependents, writes the relation
+    or Cancel Log provenance, cancels, prunes today''s links, offers the target, and
+    reports, with idempotent re-runs and property tests.'
+- id: merge-cli
+  title: '`bob task merge` and `bob task move -t`'
+  depends_on:
+  - merge-engine
+  - split-cli
+  size: medium
+  description: 'merge-cli: ship `bob task merge` (-i, -D, -s, -p) and the many-source
+    `bob task move -t` mode on the shared shell, with teaching refusals, beautiful
+    human output, JSON records, catalog and completion wiring, and generated reference
+    docs.'
+- id: merge-label
+  title: Configurable merge labels in config, capture `~`/`~~`, and completion
+  depends_on:
+  - merge-engine
+  size: medium
+  description: 'merge-label: add relations.merge_labels and LabelEffect::Merge with
+    the four-list overlap rule, dispatch merges from capture relation commits through
+    the engine, flag merge labels in capture-parse, capture-complete, completion,
+    and `bob relations list`, and enable the label in chezmoi.'
+- id: nav-split
+  title: Obsidian Ctrl+Shift+T split — JS twin and cursor gestures
+  depends_on:
+  - split-cli
+  size: medium
+  description: 'nav-split: port the split planner to JS against the copied vectors,
+    then register Ctrl+Shift+T for the cursor, counted, and visual-selection splits,
+    with one-transaction undo, cursor landing, notices, and the Undo-close-tab rebind.'
+- id: nav-split-picker
+  title: Split picker, section promotion, cross-note splits, and Undo notices
+  depends_on:
+  - nav-split
+  size: medium
+  description: 'nav-split-picker: add the Tab-mark split picker on task lines and
+    drawer titles, section-bullet promotion, the guarded cross-note write for daily-note
+    owners, and a reusable Undo notice action, then document the gesture.'
+- id: nav-merge
+  title: Merge through the Obsidian Links stage
+  depends_on:
+  - merge-cli
+  - merge-label
+  - nav-split-picker
+  size: medium
+  description: 'nav-merge: make a configured merge label in Ctrl+Shift+L, counted
+    Ctrl+Shift+L, and Ctrl+Shift+Alt+L preview and commit through `bob task merge`
+    via a ledger-tools API, with the consequence strip, an offer pick, an Undo notice,
+    and a mobile refusal.'
+- id: transfer-capture
+  title: Capture `>` transfer grammar, execution, and output
+  depends_on:
+  - merge-cli
+  - merge-label
+  size: large
+  description: 'transfer-capture: after bob-cli-gm and bob-cli-gl.2 land, recognize
+    `@src+id… > @dest[+id][#name]` in both resolvers before fan-out, execute moves
+    through batch_move and merges through the engine, report moves[] and merges[],
+    add the shell-redirect guard, and bump the grammar once.'
+- id: transfer-assist
+  title: Capture-complete and capture-rewrite for transfer lines
+  depends_on:
+  - transfer-capture
+  size: medium
+  description: 'transfer-assist: complete sources, destinations, `+` merge targets,
+    and `#` drawers or sections on transfer lines, extend separator rewrite and the
+    `@@` notice, and document both.'
+- id: mac
+  title: Bob Mac Capture transfer spans, bands, and verbs
+  depends_on:
+  - transfer-assist
+  size: medium
+  description: 'mac: style the transfer spans, render bob''s moves[] and merges[]
+    as Moves and Merges preview bands, show the Move or Merge footer verb, and write
+    notification copy, while staying a thin client.'
+- id: closeout
+  title: Live verification, cross-links, and accepted memory
+  depends_on:
+  - nav-merge
+  - mac
+  size: small
+  description: 'closeout: verify every gesture end to end in a scratch vault, fix
+    cross-links and stale docs, apply only the accepted memory decisions, and record
+    follow-ups.'
 proposed_by: bbugyi200.apollo.research.36.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 16:11:26
 status: wip
+bead_id: bob-cli-go
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_move_merge_split.md)
+- **PROMPT:** [prompts/202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_move_merge_split.md)
+- **BEAD:** [bob-cli-go](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-go/README.md)
 
 # Plan: Move, merge, and split tasks
 
