@@ -1,50 +1,46 @@
 ---
 tier: epic
 title: Complete capture project-note move execution
-goal:
-  Project-note capture moves complete parent task blocks atomically, links and offers
-  them in draft order, and reports accurate previews and CLI output for bob-cli-gl.5.
+goal: Project-note capture moves complete parent task blocks atomically, links and
+  offers them in draft order, and reports accurate previews and CLI output for bob-cli-gl.5.
 phases:
-  - id: move_execution
-    title: Execute ordered parent moves with atomic batch safety
-    size: medium
-    depends_on: []
-    description:
-      "move_execution: Resolve caret moves against staged parents, render task slots,
-      execute one batch move per item, emit move JSON, and enforce all vault refusals.
-      Correct chained destination-before-source ordering and cover the move-only MV
-      vectors."
-  - id: move_links_offers
-    title: Link moved tasks and integrate project offers
-    size: medium
-    depends_on:
-      - move_execution
-    description:
-      "move_links_offers: Execute colon moves and selected moved offers through
-      existing-task link semantics in draft order with new tasks. Preserve followed
-      links, dependency drops, scheduling and project guards, offer identity, and
-      complete move reports."
-  - id: move_presentation
-    title: Finish move output, help, and conformance verification
-    size: medium
-    depends_on:
-      - move_links_offers
-    description:
-      "move_presentation: Add human move output and the no-move discoverability hint,
-      regenerate capture help, close remaining MV coverage gaps, and record warm dry-run
-      performance. Supply verification evidence to the child epic land agent for
-      bob-cli-gl.5."
+- id: move_execution
+  title: Execute ordered parent moves with atomic batch safety
+  size: medium
+  depends_on: []
+  description: 'move_execution: Resolve caret moves against staged parents, render
+    task slots, execute one batch move per item, emit move JSON, and enforce all vault
+    refusals. Correct chained destination-before-source ordering and cover the move-only
+    MV vectors.'
+- id: move_links_offers
+  title: Link moved tasks and integrate project offers
+  size: medium
+  depends_on:
+  - move_execution
+  description: 'move_links_offers: Execute colon moves and selected moved offers through
+    existing-task link semantics in draft order with new tasks. Preserve followed
+    links, dependency drops, scheduling and project guards, offer identity, and complete
+    move reports.'
+- id: move_presentation
+  title: Finish move output, help, and conformance verification
+  size: medium
+  depends_on:
+  - move_links_offers
+  description: 'move_presentation: Add human move output and the no-move discoverability
+    hint, regenerate capture help, close remaining MV coverage gaps, and record warm
+    dry-run performance. Supply verification evidence to the child epic land agent
+    for bob-cli-gl.5.'
 proposed_by: bbugyi200.apollo.bob-cli-gl.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-gl.5
 create_time: 2026-11-03 16:14:48
 status: wip
+bead_id: bob-cli-gl.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_move_execution.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_move_execution.md)
-- **PARENT:**
-  [202611/capture_move_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_move_bullets.md)
+- **PROMPT:** [prompts/202611/capture_move_execution.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_move_execution.md)
+- **PARENT:** [202611/capture_move_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_move_bullets.md)
+- **BEAD:** [bob-cli-gl.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gl/bob-cli-gl.5.1.md)
 
 # Complete capture project-note move execution
 
