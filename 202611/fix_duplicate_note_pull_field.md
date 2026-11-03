@@ -1,13 +1,20 @@
 ---
 tier: tale
 title: Fix just install by dropping the duplicate note_pull initializer
-goal: master compiles and just install succeeds again, and the note-pull epic beads
-  record how two concurrent fixes for one field broke the build twice.
+goal:
+  master compiles and just install succeeds again, and the note-pull epic beads record
+  how two concurrent fixes for one field broke the build twice.
 size: small
 proposed_by: bbugyi200.athena.17p
 proposed_with: claude/opus
 status: done
 ---
+
+- **AGENTS:**
+  - [bbugyi200.athena.17p](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.17p.md)
+- **COMMITS:**
+  - [e74f4f0](https://github.com/bobs-org/bob-cli/commit/e74f4f08fc92f27842a7339967fd6b993078ff09)
+    — fix(capture): remove duplicate note pull initializer
 
 # Plan: Fix `just install` by dropping the duplicate `note_pull` initializer
 
