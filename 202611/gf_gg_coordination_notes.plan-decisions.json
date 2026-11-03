@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "phase_notes",
+      "kind": "toggle",
+      "ask": "Also post a short coordination note on each unfinished phase bead of both epics?",
+      "why": "Phase workers read only their own bead, and the conflicts surface when they commit",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
