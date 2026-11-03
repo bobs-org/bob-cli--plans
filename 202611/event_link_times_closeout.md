@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish Event link times documentation and land bob-cli-gg
-goal:
-  Correct the two remaining copy defects, verify and deploy the combined feature, and
-  close bob-cli-gg.
+goal: Correct the two remaining copy defects, verify and deploy the combined feature,
+  and close bob-cli-gg.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-gg.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-gg
-create_time: 2026-11-03 12:25:29
-status: wip
+status: done
 ---
 
 - **PARENT:**
