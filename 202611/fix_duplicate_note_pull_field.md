@@ -1,14 +1,12 @@
 ---
 tier: tale
 title: Fix just install by dropping the duplicate note_pull initializer
-goal:
-  master compiles and just install succeeds again, and the note-pull epic beads record
-  how two concurrent fixes for one field broke the build twice.
+goal: master compiles and just install succeeds again, and the note-pull epic beads
+  record how two concurrent fixes for one field broke the build twice.
 size: small
 proposed_by: bbugyi200.athena.17p
 proposed_with: claude/opus
-create_time: 2026-11-03 15:07:28
-status: wip
+status: done
 ---
 
 # Plan: Fix `just install` by dropping the duplicate `note_pull` initializer
