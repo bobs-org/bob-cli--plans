@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish Event link times documentation and land bob-cli-gg
-goal:
-  Correct the two remaining copy defects, verify and deploy the combined feature, and
-  close bob-cli-gg.
+goal: Correct the two remaining copy defects, verify and deploy the combined feature,
+  and close bob-cli-gg.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-gg.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/event_link_times.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/event_link_times.md)
 - **BEAD:**
   [bob-cli-gg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gg/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-gg.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-gg.land.md)
-- **COMMITS:**
-  - [51e661a](https://github.com/bobs-org/bob-plugins/commit/51e661a3a14763b7f8e81c6e7193210b0c3a2647)
-    — docs(ledger-tools): correct Event time pill plugin description
 
 # Finish Event link times documentation and land bob-cli-gg
 
