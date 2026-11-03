@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish and land note-pull capture
-goal: Repair the remaining note-pull contract and latency gaps, verify integration,
-  and close bob-cli-gj.2.1 and parent phase bob-cli-gj.2.
+goal:
+  Repair the remaining note-pull contract and latency gaps, verify integration, and
+  close bob-cli-gj.2.1 and parent phase bob-cli-gj.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gj.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/note_pull_cli.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/note_pull_cli.md)
 - **BEAD:**
   [bob-cli-gj.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gj/bob-cli-gj.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-gj.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-gj.2.1.land.md)
+- **COMMITS:**
+  - [4db3200](https://github.com/bobs-org/bob-cli/commit/4db3200cd6367c43a252322b66e3c6652e8a7295)
+    — fix(capture)\!: finish note-pull contract and landing
 
 # Finish and land note-pull capture
 
