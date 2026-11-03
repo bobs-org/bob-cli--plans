@@ -1,54 +1,50 @@
 ---
 tier: epic
 title: Rust task merge engine for bob-cli-go.4
-goal:
-  Complete and verify the pure task/drawer/section merge engine, including dependency
+goal: Complete and verify the pure task/drawer/section merge engine, including dependency
   repointing, cancellation provenance, ledger offers, idempotency, and MG conformance,
   so the child epic land agent can close bob-cli-go.4.
 phases:
-  - id: payload
-    title: Resolve merge containers and transplant authored payloads
-    size: medium
-    depends_on: []
-    description:
-      "payload: define the pure merge request/context/result types, validate source
-      identities, resolve task/drawer/section containers, and prepare ordered payload
-      transplants with descendant-anchor repair. Test payloads, containers, and
-      structural refusals. Keep this an internal preparation API until the integration
-      phase completes it."
-  - id: retirement
-    title: Repoint dependencies and retire sources with provenance
-    size: medium
-    depends_on:
-      - payload
-    description:
-      "retirement: add snapshot-only dependency repointing and cycle validation,
-      relation or Cancel Log provenance, cancellation/recovery composition, idempotency,
-      and prerequisite and successor reports. Test graph invariants, managed history,
-      and label-only handling of closed sources. Extract the shared overlap filter
-      needed by MG19."
-  - id: integration
-    title: Compose ledger offers and finish the merge planner contract
-    size: medium
-    depends_on:
-      - retirement
-    description:
-      "integration: complete plan_task_merge with ledger-slot offers, explicit
-      selections, ordered postimages, read-set metadata, MergeRecord serialization and
-      canonical copy. Finish MG1-MG20 coverage and invariant tests using the production
-      reconciliation and archive planners, document the engine, and pass the repository
-      checks."
+- id: payload
+  title: Resolve merge containers and transplant authored payloads
+  size: medium
+  depends_on: []
+  description: 'payload: define the pure merge request/context/result types, validate
+    source identities, resolve task/drawer/section containers, and prepare ordered
+    payload transplants with descendant-anchor repair. Test payloads, containers,
+    and structural refusals. Keep this an internal preparation API until the integration
+    phase completes it.'
+- id: retirement
+  title: Repoint dependencies and retire sources with provenance
+  size: medium
+  depends_on:
+  - payload
+  description: 'retirement: add snapshot-only dependency repointing and cycle validation,
+    relation or Cancel Log provenance, cancellation/recovery composition, idempotency,
+    and prerequisite and successor reports. Test graph invariants, managed history,
+    and label-only handling of closed sources. Extract the shared overlap filter needed
+    by MG19.'
+- id: integration
+  title: Compose ledger offers and finish the merge planner contract
+  size: medium
+  depends_on:
+  - retirement
+  description: 'integration: complete plan_task_merge with ledger-slot offers, explicit
+    selections, ordered postimages, read-set metadata, MergeRecord serialization and
+    canonical copy. Finish MG1-MG20 coverage and invariant tests using the production
+    reconciliation and archive planners, document the engine, and pass the repository
+    checks.'
 proposed_by: bbugyi200.apollo.bob-cli-go.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-go.4
 create_time: 2026-11-03 18:14:54
 status: wip
+bead_id: bob-cli-go.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_merge_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_merge_engine.md)
-- **PARENT:**
-  [202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_move_merge_split.md)
+- **PROMPT:** [prompts/202611/task_merge_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_merge_engine.md)
+- **PARENT:** [202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_move_merge_split.md)
+- **BEAD:** [bob-cli-go.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-go/bob-cli-go.4.1.md)
 
 # Complete the Rust task merge engine for bob-cli-go.4
 
