@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "picker_comma",
+      "kind": "choice",
+      "ask": "Should `,` in an open Parent Task picker accept the highlighted task and start the next target?",
+      "why": "`@foo+` opens the picker at once, so `@foo+f,` otherwise needs an extra Return",
+      "choices": [
+        {
+          "key": "accept",
+          "label": "`,` (non-empty filter) or Shift-Return inserts the row plus ` +` and opens the next picker"
+        },
+        {
+          "key": "filter",
+          "label": "`,` keeps typing into the filter; the alias waits until the draft ends in `@foo+fix`"
+        }
+      ],
+      "default": "accept",
+      "effective_default": "accept",
+      "requested_verified": false
+    }
+  ]
+}
