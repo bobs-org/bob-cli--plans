@@ -1,121 +1,118 @@
 ---
 tier: epic
 title: Choose parent tasks to move in with a `- ^^` capture bullet
-goal: "In a project-note capture sealed with `@foo^bar@` or `@foo:bar@`, a first-level
+goal: 'In a project-note capture sealed with `@foo^bar@` or `@foo:bar@`, a first-level
   `- ^^` bullet lets Bryan sort the parent note after Return and before anything is
-  written. A three-state Move card (Leave by default, `^` move, `:` move & link) or `bob
-  capture -m` answers it. The picks land at the `^^` slot in parent order with exactly
-  the vault result that authored `- ^id` / `- :id` bullets produce, in one guarded
-  batch.
+  written. A three-state Move card (Leave by default, `^` move, `:` move & link) or
+  `bob capture -m` answers it. The picks land at the `^^` slot in parent order with
+  exactly the vault result that authored `- ^id` / `- :id` bullets produce, in one
+  guarded batch.
 
-  "
+  '
 decisions:
   memory_decision_record:
-    ask:
-      Add a decision record that `- ^^` is answered after Return, before any write, on
-      `-m`, never `-p`?
+    ask: Add a decision record that `- ^^` is answered after Return, before any write,
+      on `-m`, never `-p`?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: contract
-    title: Contract docs, copy tables, vectors, and the decision record
-    depends_on: []
-    size: medium
-    description: "contract: write the `- ^^` contract into docs/capture.md and the
-      reference pages (grammar rows, copy and refusal tables, the `move_choice` JSON,
-      `-m`, MQ vectors) and, if accepted, the decisions record; no Rust changes.
+- id: contract
+  title: Contract docs, copy tables, vectors, and the decision record
+  depends_on: []
+  size: medium
+  description: 'contract: write the `- ^^` contract into docs/capture.md and the reference
+    pages (grammar rows, copy and refusal tables, the `move_choice` JSON, `-m`, MQ
+    vectors) and, if accepted, the decisions record; no Rust changes.
 
-      "
-  - id: cli-grammar
-    title: Lexer arm, parsers, capture-parse spans, continuation key, grammar bump
-    depends_on:
-      - contract
-    size: medium
-    description: "cli-grammar: claim `- ^^` in the shared move lexer with its teaching
-      errors, report it from capture-parse, advertise `^` as a continuation key on the
-      lone `- ^` picker, bump the grammar, and refuse `^^` in bob capture until
-      cli-report.
+    '
+- id: cli-grammar
+  title: Lexer arm, parsers, capture-parse spans, continuation key, grammar bump
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-grammar: claim `- ^^` in the shared move lexer with its teaching
+    errors, report it from capture-parse, advertise `^` as a continuation key on the
+    lone `- ^` picker, bump the grammar, and refuse `^^` in bob capture until cli-report.
 
-      "
-  - id: cli-consequence
-    title: One planner-true move consequence builder
-    depends_on:
-      - contract
-    size: medium
-    description: "cli-consequence: extract one consequence builder that the planner's
-      `moved_tasks[].detail`, the future `move_choice` rows, and capture-complete all
-      use, fed by the link guard, and fix the In Progress and Blocked copy.
+    '
+- id: cli-consequence
+  title: One planner-true move consequence builder
+  depends_on:
+  - contract
+  size: medium
+  description: 'cli-consequence: extract one consequence builder that the planner''s
+    `moved_tasks[].detail`, the future `move_choice` rows, and capture-complete all
+    use, fed by the link guard, and fix the In Progress and Blocked copy.
 
-      "
-  - id: cli-report
-    title: move_choice report, `-m/--move-in`, answer resolution, and refusals
-    depends_on:
-      - cli-grammar
-      - cli-consequence
-    size: medium
-    description: "cli-report: build the `move_choice` report from the staged parent, add
-      `-m/--move-in`, resolve answers to rows, emit every write-free refusal in order,
-      and print the numbered terminal list; answered runs still refuse until
-      cli-execute.
+    '
+- id: cli-report
+  title: move_choice report, `-m/--move-in`, answer resolution, and refusals
+  depends_on:
+  - cli-grammar
+  - cli-consequence
+  size: medium
+  description: 'cli-report: build the `move_choice` report from the staged parent,
+    add `-m/--move-in`, resolve answers to rows, emit every write-free refusal in
+    order, and print the numbered terminal list; answered runs still refuse until
+    cli-execute.
 
-      "
-  - id: cli-execute
-    title: Mint, splice at the slot, offer exclusion, and output
-    depends_on:
-      - cli-report
-    size: medium
-    description: 'cli-execute: mint IDs for picked ID-less rows, splice picks into the
-      move list at the `^^` slot in parent order, keep them out of successor offers,
-      enforce the `#name` backstop, report `via: "choice"`, and pin MQ equivalence.
+    '
+- id: cli-execute
+  title: Mint, splice at the slot, offer exclusion, and output
+  depends_on:
+  - cli-report
+  size: medium
+  description: 'cli-execute: mint IDs for picked ID-less rows, splice picks into the
+    move list at the `^^` slot in parent order, keep them out of successor offers,
+    enforce the `#name` backstop, report `via: "choice"`, and pin MQ equivalence.
 
-      '
-  - id: mac-draft
-    title: Typing `- ^^` in Bob Mac Capture
-    depends_on:
-      - cli-grammar
-    size: small
-    description: "mac-draft: honor Bob's `action_continuation_keys` in the Move picker
-      so a second `^` leaves `- ^^`, show the footer hint, and colour the choice marker
-      span.
+    '
+- id: mac-draft
+  title: Typing `- ^^` in Bob Mac Capture
+  depends_on:
+  - cli-grammar
+  size: small
+  description: 'mac-draft: honor Bob''s `action_continuation_keys` in the Move picker
+    so a second `^` leaves `- ^^`, show the footer hint, and colour the choice marker
+    span.
 
-      "
-  - id: mac-card
-    title: Move card state, view, and decoding
-    depends_on:
-      - cli-report
-    size: medium
-    description: "mac-card: decode `move_choice`, build the portable three-state card
-      state machine and its tests, and draw the Move card (sigil wells, chips, counter,
-      detail strip, primary label) without wiring it into submit.
+    '
+- id: mac-card
+  title: Move card state, view, and decoding
+  depends_on:
+  - cli-report
+  size: medium
+  description: 'mac-card: decode `move_choice`, build the portable three-state card
+    state machine and its tests, and draw the Move card (sigil wells, chips, counter,
+    detail strip, primary label) without wiring it into submit.
 
-      "
-  - id: mac-flow
-    title: Move card submit flow, chaining, refusals, preview hints, and docs
-    depends_on:
-      - cli-execute
-      - mac-draft
-      - mac-card
-    size: medium
-    description:
-      "mac-flow: open the Move card on Return ahead of Pull-In, send `--move-in`, chain
-      Pull-In and inbox routing, reopen on refusals with surviving marks, add the ghost
-      hint, band line, move hint, old-bob gate, notification, and docs."
+    '
+- id: mac-flow
+  title: Move card submit flow, chaining, refusals, preview hints, and docs
+  depends_on:
+  - cli-execute
+  - mac-draft
+  - mac-card
+  size: medium
+  description: 'mac-flow: open the Move card on Return ahead of Pull-In, send `--move-in`,
+    chain Pull-In and inbox routing, reopen on refusals with surviving marks, add
+    the ghost hint, band line, move hint, old-bob gate, notification, and docs.'
 proposed_by: bbugyi200.apollo.research.37.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-04 08:50:21
 status: wip
+bead_id: bob-cli-h0
 ---
 
-- **PROMPT:**
-  [prompts/202611/move_choice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/move_choice.md)
+- **PROMPT:** [prompts/202611/move_choice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/move_choice.md)
+- **BEAD:** [bob-cli-h0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h0/README.md)
 
 # Plan: Choose parent tasks to move in with a `- ^^` capture bullet
 
