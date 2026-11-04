@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish multi-target capture identity, completion, and landing
-goal:
-  Repair remaining target-run defects, verify integration, and close bob-cli-gm with its
-  plan marked done.
+goal: Repair remaining target-run defects, verify integration, and close bob-cli-gm
+  with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gm.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-gm
-create_time: 2026-11-03 22:54:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
