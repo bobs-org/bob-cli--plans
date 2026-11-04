@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "stamp_format",
+      "kind": "choice",
+      "ask": "Which minute-precision shape should the marker's `captured` stamp use?",
+      "why": "Matches the existing `created` convention and stays unambiguous across hosts and DST.",
+      "choices": [
+        {
+          "key": "offset",
+          "label": "2026-11-04T06:44-0500: `created` minus seconds; an exact instant that can fill added_at"
+        },
+        {
+          "key": "local",
+          "label": "2026-11-04T06:44: Obsidian's date-time shape, but no time zone"
+        },
+        {
+          "key": "spaced",
+          "label": "2026-11-04 06:44: easiest to read in the PDF sidebar; no zone, not ISO 8601"
+        }
+      ],
+      "default": "offset",
+      "effective_default": "offset",
+      "requested_verified": false
+    }
+  ]
+}
