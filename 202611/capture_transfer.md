@@ -1,69 +1,64 @@
 ---
 tier: epic
 title: Capture transfer grammar and execution
-goal:
-  Complete bob-cli-go.10 with one-item capture transfers that move to notes or merge
-  into tasks, drawers, and sections, preserving atomicity, editor contracts, offers,
-  shell safety, and existing capture behavior.
+goal: Complete bob-cli-go.10 with one-item capture transfers that move to notes or
+  merge into tasks, drawers, and sections, preserving atomicity, editor contracts,
+  offers, shell safety, and existing capture behavior.
 parent_bead: bob-cli-go.10
 phases:
-  - id: transfer-lexer
-    title: Shared transfer lexer and shell redirect guard
-    size: medium
-    depends_on: []
-    description:
-      "transfer-lexer: implement the pure span-aware transfer recognizer and its
-      complete grammar vectors, plus the stdout regular-file shell guard. Keep the
-      recognizer test-gated until the next phase wires both consumers; do not bump
-      grammar yet."
-  - id: transfer-resolvers
-    title: Execution and editor transfer parsing with the single grammar bump
-    size: medium
-    depends_on:
-      - transfer-lexer
-    description:
-      "transfer-resolvers: wire the shared recognizer before target-run fan-out in both
-      resolvers, introduce CaptureKind::Transfer and the editor transfer contract, and
-      bump grammar once. Explicitly refuse execution until its adapter lands."
-  - id: transfer-moves
-    title: Staged transfer moves and shared result fields
-    size: medium
-    depends_on:
-      - transfer-resolvers
-    description:
-      "transfer-moves: resolve and validate transfer identities, execute bare-note
-      destinations through batch_move, and report moves and repairs with human output.
-      Preserve atomic draft planning, link relocation, freshness, and dry-run parity."
-  - id: transfer-merges
-    title: Staged transfer merges and draft-level offers
-    size: medium
-    depends_on:
-      - transfer-moves
-    description:
-      "transfer-merges: execute task, drawer, and section destinations through
-      plan_task_merge with Explicit semantics, preserve guarded write ordering, and
-      integrate records, repairs, warnings, and picks into capture's existing pull_in
-      machinery."
-  - id: transfer-delivery
-    title: Transfer documentation and integrated verification
-    size: medium
-    depends_on:
-      - transfer-merges
-    description:
-      "transfer-delivery: publish quoted help and transfer contracts, regenerate
-      documentation, fill cross-item rollback and compatibility coverage, and run
-      scratch-vault and repository gates. Supply closeout evidence for this child epic's
-      land agent; no phase worker closes bob-cli-go.10 or bob-cli-go."
+- id: transfer-lexer
+  title: Shared transfer lexer and shell redirect guard
+  size: medium
+  depends_on: []
+  description: 'transfer-lexer: implement the pure span-aware transfer recognizer
+    and its complete grammar vectors, plus the stdout regular-file shell guard. Keep
+    the recognizer test-gated until the next phase wires both consumers; do not bump
+    grammar yet.'
+- id: transfer-resolvers
+  title: Execution and editor transfer parsing with the single grammar bump
+  size: medium
+  depends_on:
+  - transfer-lexer
+  description: 'transfer-resolvers: wire the shared recognizer before target-run fan-out
+    in both resolvers, introduce CaptureKind::Transfer and the editor transfer contract,
+    and bump grammar once. Explicitly refuse execution until its adapter lands.'
+- id: transfer-moves
+  title: Staged transfer moves and shared result fields
+  size: medium
+  depends_on:
+  - transfer-resolvers
+  description: 'transfer-moves: resolve and validate transfer identities, execute
+    bare-note destinations through batch_move, and report moves and repairs with human
+    output. Preserve atomic draft planning, link relocation, freshness, and dry-run
+    parity.'
+- id: transfer-merges
+  title: Staged transfer merges and draft-level offers
+  size: medium
+  depends_on:
+  - transfer-moves
+  description: 'transfer-merges: execute task, drawer, and section destinations through
+    plan_task_merge with Explicit semantics, preserve guarded write ordering, and
+    integrate records, repairs, warnings, and picks into capture''s existing pull_in
+    machinery.'
+- id: transfer-delivery
+  title: Transfer documentation and integrated verification
+  size: medium
+  depends_on:
+  - transfer-merges
+  description: 'transfer-delivery: publish quoted help and transfer contracts, regenerate
+    documentation, fill cross-item rollback and compatibility coverage, and run scratch-vault
+    and repository gates. Supply closeout evidence for this child epic''s land agent;
+    no phase worker closes bob-cli-go.10 or bob-cli-go.'
 proposed_by: bbugyi200.apollo.bob-cli-go.10
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-04 01:50:42
 status: wip
+bead_id: bob-cli-go.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_transfer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_transfer.md)
-- **PARENT:**
-  [202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_move_merge_split.md)
+- **PROMPT:** [prompts/202611/capture_transfer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_transfer.md)
+- **PARENT:** [202611/task_move_merge_split.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_move_merge_split.md)
+- **BEAD:** [bob-cli-go.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-go/bob-cli-go.10.1.md)
 
 # Capture transfer lines for bob-cli-go.10
 
