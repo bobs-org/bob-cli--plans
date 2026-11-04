@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "new_decision_record",
+      "kind": "toggle",
+      "ask": "Add decisions:ended-synced-meetings-are-born-done recording the new Past-phase rule and why it replaced [/]?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:ended-synced-meetings-are-born-done"
+        ]
+      },
+      "requested": "Can you help me make it so the `bob gcal sync` command creates event tasks with a closed status when the event is in the past? We already seem to create the closed past pomodoro properly, but the event task is created with a wip/pending status.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:ended-synced-meetings-are-born-done",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/ended-synced-meetings-are-born-done.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "supersede_link_by_phase",
+      "kind": "toggle",
+      "ask": "Mark decisions:synced-meetings-link-by-phase superseded in part by the new record, with a back-link?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:synced-meetings-link-by-phase"
+        ]
+      },
+      "corrects": "A Past row is worked from birth (`[/]` and a closed-entry link)",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:synced-meetings-link-by-phase",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Synced Meetings Are Linked By Phase At Birth"
+          ]
+        }
+      ]
+    }
+  ]
+}
