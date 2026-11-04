@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair project-note move integration and finish bob-cli-gl.5.1
-goal: Project-note moves preserve tracked identities, offer eligibility, blocking
-  and final reports; close the verified epic and its parent phase.
+goal:
+  Project-note moves preserve tracked identities, offer eligibility, blocking and final
+  reports; close the verified epic and its parent phase.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-gl.5.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/capture_move_execution.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_move_execution.md)
 - **BEAD:**
   [bob-cli-gl.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gl/bob-cli-gl.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-gl.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-gl.5.1.land.md)
+- **COMMITS:**
+  - [b738d8f](https://github.com/bobs-org/bob-cli/commit/b738d8f23b21ac855d83745bdd415af52dfbdc98)
+    — feat(capture): repair project-note move landing integration
 
 # Repair project-note move integration and finish bob-cli-gl.5.1
 
