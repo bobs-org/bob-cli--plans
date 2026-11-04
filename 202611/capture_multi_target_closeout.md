@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish multi-target capture identity, completion, and landing
-goal: Repair remaining target-run defects, verify integration, and close bob-cli-gm
-  with its plan marked done.
+goal:
+  Repair remaining target-run defects, verify integration, and close bob-cli-gm with its
+  plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gm.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/capture_multi_target.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_multi_target.md)
 - **BEAD:**
   [bob-cli-gm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gm/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-gm.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-gm.land.md)
+- **COMMITS:**
+  - [97b9d13](https://github.com/bobs-org/bob-cli/commit/97b9d13108770debd96f1a9d19363cbfa02214d9)
+    — fix(capture): handle multi-target completion edge cases
 
 # Finish multi-target capture identity, completion, and landing
 
