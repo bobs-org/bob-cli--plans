@@ -1,107 +1,98 @@
 ---
 tier: epic
 title: Transfer previews — see every `>` move and merge before it lands
-goal:
-  "When Bryan types a `>` transfer line (`@a+x @b+y > @c…`) in Bob Mac Capture, the
-  preview reads like the draft: the tasks he named, an arrow, and where they go. Every
-  source shows its real title and fate, the destination shows its real title and
-  container, and every ripple (dependents, warnings, today's links, offers, repairs) is
-  one plain sentence that bob wrote. Below that, landing cards show the exact bytes bob
-  will write to the target, the tombstones, and moved tasks. While the destination is
-  unfinished the panel stays calm and teaches the four destination forms. A refusal
+goal: 'When Bryan types a `>` transfer line (`@a+x @b+y > @c…`) in Bob Mac Capture,
+  the preview reads like the draft: the tasks he named, an arrow, and where they go.
+  Every source shows its real title and fate, the destination shows its real title
+  and container, and every ripple (dependents, warnings, today''s links, offers, repairs)
+  is one plain sentence that bob wrote. Below that, landing cards show the exact bytes
+  bob will write to the target, the tombstones, and moved tasks. While the destination
+  is unfinished the panel stays calm and teaches the four destination forms. A refusal
   reads as a refusal, not as red noise. The Mac app still parses nothing: every fact
-  comes from bob's JSON."
+  comes from bob''s JSON.'
 decisions:
   tombstones:
     ask: How should merged sources appear below the target card?
     choices:
-      cards:
-        A small card per source with its struck line, new LINKS line, and a folded
+      cards: A small card per source with its struck line, new LINKS line, and a folded
         moved-notes row
-      rows_only:
-        Sources stay rows in the transfer card, and the landing area shows only the
-        target
+      rows_only: Sources stay rows in the transfer card, and the landing area shows
+        only the target
     default: cards
-    why:
-      You see every byte bob writes, and folding keeps each source card to about three
-      rows
+    why: You see every byte bob writes, and folding keeps each source card to about
+      three rows
     answer: cards
 phases:
-  - id: bob-landing-blocks
-    title:
-      bob emits landing blocks for transfers (target, tombstones, moved tasks, sections)
-    depends_on: []
-    size: medium
-    description:
-      "bob-landing-blocks: make every capture `>` transfer report batch-level
-      `task_blocks` with new roles `merge_target`, `merge_source`, and `moved`. Moved
-      blocks carry `moved_from` and a before-image taken from the source note. Add a
-      batch-level `section_blocks` array for section merges. All JSON is additive."
-  - id: bob-transfer-records
-    title:
-      bob enriches merge and move records, serializes merge offers, and fixes their copy
-    depends_on: []
-    size: medium
-    description:
-      "bob-transfer-records: add status names, target status, container-created flags,
-      and Bob-authored `consequences[]` sentences (titles, not keys) to MergeRecord; add
-      landing line, section, and status to move records; serialize merge hand-off offers
-      as item `merge_offers`; give merge-only offers their own Pull-In copy; and print
-      titles in the CLI's dependent rows."
-  - id: bob-transfer-pending
-    title: bob describes an unfinished transfer on dry run
-    depends_on: []
-    size: small
-    description:
-      "bob-transfer-pending: when a dry run fails because a transfer's destination is
-      unfinished, attach a read-only `transfer_pending` object to the JSON failure. It
-      holds each source resolved to its title and status (or Bob's resolution error) and
-      the four destination forms, with the one being typed marked active."
-  - id: mac-transfer-card
-    title: Mac transfer card, status line, offers, notifications, and VoiceOver
-    depends_on:
-      - bob-transfer-records
-    size: medium
-    description:
-      "mac-transfer-card: replace the monospace transfer bands and the wire-word
-      standard header with one designed transfer card that mirrors the draft. The card
-      shows the verb, the source rows, an `↓ into` connector, the destination,
-      consequence rows, the TODAY badge, and the offer rows. Also rewrite the status
-      line, notification copy, and VoiceOver summary, regenerate rich recorded fixtures,
-      and add design renders and docs."
-  - id: mac-landing-cards
-    title: Mac landing cards for target, tombstones, moved tasks, and sections
-    depends_on:
-      - bob-landing-blocks
-      - mac-transfer-card
-    size: medium
-    description:
-      "mac-landing-cards: render bob's transfer-role task blocks with role capsules and
-      a `from inbox.md:5` caption. Fold each tombstone's removed runs into one
-      expandable row. Add a section block card, keep bob's block order, and tint the
-      editor's `>` arrow by verb. Add fixtures, design renders, and docs."
-  - id: mac-pending-and-refusals
-    title: Mac calm pending card and transfer refusal card
-    depends_on:
-      - bob-transfer-pending
-      - mac-landing-cards
-    size: medium
-    description:
-      "mac-pending-and-refusals: never flash red while a transfer destination is
-      unfinished. Run the dry run and render bob's `transfer_pending` as a calm card
-      with the resolved sources (typos caught early) and the four destination forms.
-      Render transfer refusals as a designed card with Bob's message. Add fixtures,
-      design renders, docs, and the manual checks list for Bryan."
+- id: bob-landing-blocks
+  title: bob emits landing blocks for transfers (target, tombstones, moved tasks,
+    sections)
+  depends_on: []
+  size: medium
+  description: 'bob-landing-blocks: make every capture `>` transfer report batch-level
+    `task_blocks` with new roles `merge_target`, `merge_source`, and `moved`. Moved
+    blocks carry `moved_from` and a before-image taken from the source note. Add a
+    batch-level `section_blocks` array for section merges. All JSON is additive.'
+- id: bob-transfer-records
+  title: bob enriches merge and move records, serializes merge offers, and fixes their
+    copy
+  depends_on: []
+  size: medium
+  description: 'bob-transfer-records: add status names, target status, container-created
+    flags, and Bob-authored `consequences[]` sentences (titles, not keys) to MergeRecord;
+    add landing line, section, and status to move records; serialize merge hand-off
+    offers as item `merge_offers`; give merge-only offers their own Pull-In copy;
+    and print titles in the CLI''s dependent rows.'
+- id: bob-transfer-pending
+  title: bob describes an unfinished transfer on dry run
+  depends_on: []
+  size: small
+  description: 'bob-transfer-pending: when a dry run fails because a transfer''s destination
+    is unfinished, attach a read-only `transfer_pending` object to the JSON failure.
+    It holds each source resolved to its title and status (or Bob''s resolution error)
+    and the four destination forms, with the one being typed marked active.'
+- id: mac-transfer-card
+  title: Mac transfer card, status line, offers, notifications, and VoiceOver
+  depends_on:
+  - bob-transfer-records
+  size: medium
+  description: 'mac-transfer-card: replace the monospace transfer bands and the wire-word
+    standard header with one designed transfer card that mirrors the draft. The card
+    shows the verb, the source rows, an `↓ into` connector, the destination, consequence
+    rows, the TODAY badge, and the offer rows. Also rewrite the status line, notification
+    copy, and VoiceOver summary, regenerate rich recorded fixtures, and add design
+    renders and docs.'
+- id: mac-landing-cards
+  title: Mac landing cards for target, tombstones, moved tasks, and sections
+  depends_on:
+  - bob-landing-blocks
+  - mac-transfer-card
+  size: medium
+  description: 'mac-landing-cards: render bob''s transfer-role task blocks with role
+    capsules and a `from inbox.md:5` caption. Fold each tombstone''s removed runs
+    into one expandable row. Add a section block card, keep bob''s block order, and
+    tint the editor''s `>` arrow by verb. Add fixtures, design renders, and docs.'
+- id: mac-pending-and-refusals
+  title: Mac calm pending card and transfer refusal card
+  depends_on:
+  - bob-transfer-pending
+  - mac-landing-cards
+  size: medium
+  description: 'mac-pending-and-refusals: never flash red while a transfer destination
+    is unfinished. Run the dry run and render bob''s `transfer_pending` as a calm
+    card with the resolved sources (typos caught early) and the four destination forms.
+    Render transfer refusals as a designed card with Bob''s message. Add fixtures,
+    design renders, docs, and the manual checks list for Bryan.'
 proposed_by: bbugyi200.athena.188
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-04 14:57:17
 status: wip
+bead_id: bob-cli-h4
 ---
 
-- **PROMPT:**
-  [prompts/202611/transfer_previews.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/transfer_previews.md)
+- **PROMPT:** [prompts/202611/transfer_previews.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/transfer_previews.md)
+- **BEAD:** [bob-cli-h4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h4/README.md)
 
 # Plan: Transfer previews — see every `>` move and merge before it lands
 
