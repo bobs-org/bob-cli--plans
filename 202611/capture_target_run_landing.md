@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair target-run boundaries and finish the grammar landing
-goal:
-  Preserve literal and singleton grammar, apply selected terminals to every target, and
-  close bob-cli-gm.1.1 and parent phase bob-cli-gm.1.
+goal: Preserve literal and singleton grammar, apply selected terminals to every target,
+  and close bob-cli-gm.1.1 and parent phase bob-cli-gm.1.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gm.1.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-gm.1.1
-create_time: 2026-11-03 20:10:20
-status: wip
+status: done
 ---
 
 - **PARENT:**
