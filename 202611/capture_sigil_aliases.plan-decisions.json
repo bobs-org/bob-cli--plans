@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scope",
+      "kind": "choice",
+      "ask": "Should . and ; also alias ^ and : at the other picker spots (whole-item ., project-note bullets)?",
+      "why": "Matches the request; .-led text such as .bashrc is common enough to surprise you",
+      "choices": [
+        {
+          "key": "route",
+          "label": "Only @route. / @route; / whole-item ; alias; text like .bashrc or - .env stays literal"
+        },
+        {
+          "key": "pickers",
+          "label": "Whole-item . and bullet - . / - ; / trailing . ; also open pickers; .-led text needs Undo"
+        }
+      ],
+      "default": "route",
+      "effective_default": "route",
+      "requested_verified": false
+    },
+    {
+      "id": "literal_escape",
+      "kind": "choice",
+      "ask": "Should a second . or ; right after its alias turn it back into the literal key, like \\\\ does?",
+      "why": "Undo already restores the literal key; a double tap adds a key path through every picker",
+      "choices": [
+        {
+          "key": "undo",
+          "label": "Command-Z restores the literal key, as for every other rewrite gesture; no new key state"
+        },
+        {
+          "key": "double_tap",
+          "label": "A second same key on an empty picker filter puts the literal back; adds Mac arm state"
+        }
+      ],
+      "default": "undo",
+      "effective_default": "undo",
+      "requested_verified": false
+    }
+  ]
+}
