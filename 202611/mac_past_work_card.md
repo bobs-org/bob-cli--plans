@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Render past Pomodoro stacks in Bob Mac Capture
-goal:
-  Complete bob-cli-h2.6 with chronological past-work cards, live clock refreshes,
+goal: Complete bob-cli-h2.6 with chronological past-work cards, live clock refreshes,
   fixtures, docs, and verification.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.6
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-h2.6
-create_time: 2026-11-04 16:53:28
-status: wip
+status: done
 ---
 
 - **PARENT:**
