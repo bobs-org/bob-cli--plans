@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "offwalk_assign_hint",
+      "kind": "choice",
+      "ask": "Should the footer also preview Alt+P off the walk on open tasks with no priority (`Alt+P set high`)?",
+      "why": "On a no-priority task Alt+P always does what key 1 does, so the hint is noise",
+      "choices": [
+        {
+          "key": "prioritized_only",
+          "label": "No-priority rows keep `]s next` and stay hidden when nothing is due"
+        },
+        {
+          "key": "every_task",
+          "label": "Every open task line shows the hint, so the footer appears on any task line"
+        }
+      ],
+      "default": "prioritized_only",
+      "effective_default": "prioritized_only",
+      "requested_verified": false
+    },
+    {
+      "id": "assign_date_parity",
+      "kind": "choice",
+      "ask": "Should Alt+P on a no-priority task draw its date exactly like key 1, even re-picking the current date?",
+      "why": "Only Blocked rows differ, never Ready ones, and a roll that always moves the date is better",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Alt+P still avoids the current date; only Blocked rows inside P1's window differ"
+        },
+        {
+          "key": "strict",
+          "label": "One nav helper swap makes every row match key 1; the parity test gains an in-window row"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_footer_strand",
+      "kind": "toggle",
+      "ask": "Should the review-footer glossary strand describe the off-walk Alt+P hint and the hint-only footer?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:morning-gtd-review-footer"
+        ]
+      },
+      "corrects": "hides when nothing is due or Tasks is unavailable",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:morning-gtd-review-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Morning GTD Review Footer",
+            "Keep Streak"
+          ]
+        }
+      ]
+    }
+  ]
+}
