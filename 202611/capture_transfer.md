@@ -52,7 +52,7 @@ phases:
 proposed_by: bbugyi200.apollo.bob-cli-go.10
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-04 01:50:42
-status: wip
+status: done
 bead_id: bob-cli-go.10.1
 ---
 
