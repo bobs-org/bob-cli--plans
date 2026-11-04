@@ -1,202 +1,190 @@
 ---
 tier: epic
 title: Work the top-ten task bead bundles from the two-host audit
-goal:
-  Every work item ranked by the 2026-11-04 two-host bead audit is done. bob-plugins `npm
-  test` is green under UTC and New York time. `bob plugins sync` accepts a dirty deploy
-  once its exact bundle is committed, so the vault stops running stale plugins. Obsidian
-  closes keep recorded Pomodoro time. `bob periods brief` attributes archived and
-  multi-link minutes correctly before the 2026-11-09 weekly Review. Vault edits stop
-  leaking SASE plans. bob-mac-capture and bob-cli master CI are green again for the
-  failures nobody else owns. athena alerts on hostile CPU, exec, and egress. Every
+goal: Every work item ranked by the 2026-11-04 two-host bead audit is done. bob-plugins
+  `npm test` is green under UTC and New York time. `bob plugins sync` accepts a dirty
+  deploy once its exact bundle is committed, so the vault stops running stale plugins.
+  Obsidian closes keep recorded Pomodoro time. `bob periods brief` attributes archived
+  and multi-link minutes correctly before the 2026-11-09 weekly Review. Vault edits
+  stop leaking SASE plans. bob-mac-capture and bob-cli master CI are green again for
+  the failures nobody else owns. athena alerts on hostile CPU, exec, and egress. Every
   link-consuming writer keeps notes, and generic ref PDFs render emoji.
 decisions:
   g4_close_policy:
-    ask: Which close behavior becomes canonical when a Pomodoro close defers every link?
+    ask: Which close behavior becomes canonical when a Pomodoro close defers every
+      link?
     choices:
-      keep: Obsidian keeps the closed timed row and its minutes, matching bob capture x
-      delete: bob also deletes the closed row; the shared vector and capture docs change
+      keep: Obsidian keeps the closed timed row and its minutes, matching bob capture
+        x
+      delete: bob also deletes the closed row; the shared vector and capture docs
+        change
     default: keep
     why: Recorded session time survives, per decisions:off-clock-pomodoros-count-apart
     answer: keep
   consumption_parity:
-    ask:
-      Should reconcile, task_complete, and plugin Depends-On consumption keep notes and
-      delete only emptied entries?
+    ask: Should reconcile, task_complete, and plugin Depends-On consumption keep notes
+      and delete only emptied entries?
     default: true
-    why:
-      Today one blocked link loses notes or an unrelated slot depending on the surface
+    why: Today one blocked link loses notes or an unrelated slot depending on the
+      surface
     answer: true
   still_open_past:
     ask: How should the brief's Still open lists behave for periods that already ended?
     choices:
-      rebuild:
-        Rebuild Kept 3+ and No linked minutes as of span end; omit Blocked projects with
-        a note
-      omit: Omit every Still open list for ended periods and print one explanatory line
+      rebuild: Rebuild Kept 3+ and No linked minutes as of span end; omit Blocked
+        projects with a note
+      omit: Omit every Still open list for ended periods and print one explanatory
+        line
       label: Keep today's lists but title them "as of today" for ended periods
     default: rebuild
     why: Recovers what history allows and never prints a wrong Blocked list
     answer: rebuild
   mac_ci_repo_note:
-    ask:
-      Should bob-cli's always-loaded bob-mac-capture repo note tell agents to watch
+    ask: Should bob-cli's always-loaded bob-mac-capture repo note tell agents to watch
       macOS CI after pushes?
     default: true
-    why:
-      bob-cli-1x asks for it; agents see it every turn, not only after opening the repo
+    why: bob-cli-1x asks for it; agents see it every turn, not only after opening
+      the repo
     answer: true
   memory_consumption_record:
-    ask:
-      Should a decisions record capture the consumption-parity and timed-row retention
+    ask: Should a decisions record capture the consumption-parity and timed-row retention
       rule?
     memory:
-      - decisions
-    requested:
-      Can you help me complete the work corresponding with all of the task beads
-      recommended in the task_bead_top10_with_two_host_agent_audit.md file in the
-      research sidecar repo?
+    - decisions
+    requested: Can you help me complete the work corresponding with all of the task
+      beads recommended in the task_bead_top10_with_two_host_agent_audit.md file in
+      the research sidecar repo?
     default: true
     answer: true
 phases:
-  - id: plugin-tests
-    title: Make bob-plugins npm test green
-    depends_on: []
-    size: medium
-    description:
-      "plugin-tests: in bob-plugins, fix the six test-harness defects behind bob-cli-eh,
-      bob-cli-et (freshness half only), bob-cli-ff, bob-cli-f7, bob-cli-f1, and the
-      bob-cli-ej wall-clock gates. Edit tests only. Prove the full suite is green under
-      UTC and America/New_York, then close those beads and the already-fixed bob-cli-dx."
-  - id: plugin-sync-proof
-    title: Let bob plugins sync accept committed dirty deploys
-    depends_on: []
-    size: medium
-    description:
-      "plugin-sync-proof: in src/native/plugins/deploy.rs, let a clean-checkout sync
-      overwrite a dirty deploy stamp from another checkout or host when one commit
-      reachable from HEAD holds the stamped bundle byte for byte. Keep every other
-      refusal. Add tests, help text, and docs. Clear the live drift without --force, and
-      close bob-cli-fy (and bob-cli-e4 once both hosts are synced)."
-  - id: brief-attribution
-    title: Fix archived-task minutes and multi-link splitting in the periods brief
-    depends_on: []
-    size: medium
-    description:
-      "brief-attribution: in src/native/periods/brief.rs, resolve original and done/
-      archive paths to one task identity (bob-cli-gs), and split a multi-link Pomodoro's
-      minutes with the stats root_parent splitter so task rows never outrank their root
-      (bob-cli-gt). Land this before the 2026-11-09 Review."
-  - id: vault-commit-guard
-    title: Stop vault edits from leaking SASE plans into ~/bob
-    depends_on: []
-    size: small
-    description:
-      "vault-commit-guard: rewrite ~/bob/AGENTS.md so agents let bob vault-sync commit,
-      or use plain git for their own files, and never use /sase_git_commit. Replace the
-      stale Obsidian Sync sentence. Make the vault .gitignore keep sdd/ out. Close
-      bob-cli-8n, and propose the SASE-side root cause of bob-cli-gy as a follow-up."
-  - id: mac-ci-green
-    title: Turn bob-mac-capture master CI green and record the CI-watch rule
-    depends_on: []
-    size: medium
-    description:
-      "mac-ci-green: fix the root causes of the bob-cli-h7 Go To failures: the backslash
-      insert helper, the delayed chip-refetch race, the leaked error wrapper, and the
-      15-minute hang. Coordinate with the 185 chain. Verify on the exact-SHA macOS run.
-      Close h7, the six already-fixed Mac CI beads, and bob-cli-1x after recording the
-      watch-CI rule."
-  - id: highlights-tz-tests
-    title: Make the highlights overwrite tests timezone-independent
-    depends_on: []
-    size: small
-    description:
-      "highlights-tz-tests: the two highlights::overwrite_local failures (bob-cli-h6)
-      assert a hardcoded -0400 offset, while CI stamps in UTC. Pin the zone for those
-      bob subprocesses, sweep sibling assertions, and confirm the
-      overwrite-refreshes-captured rule in docs. Then close h6 and the
-      no-longer-reproducing bob-cli-fh."
-  - id: athena-hostile-alerts
-    title: Alert on hostile CPU, writable-dir execution, and mining egress on athena
-    depends_on: []
-    size: medium
-    description:
-      "athena-hostile-alerts: in the tailnet repo, add per-user CPU telemetry
-      (process-exporter on loopback), a textfile collector for writable-dir and
-      deleted-binary execution plus nft mining-port egress counters, and Prometheus
-      rules with promtool tests and staleness alerts. Route them through the existing
-      Alertmanager email path. Deploy through /sase_sudo, prove that synthetic alerts
-      fire and resolve, and close bob-cli-8r."
-  - id: cycler-keeps-timed-close
-    title: Align task-status-cycler's deferred-only close with bob
-    depends_on:
-      - plugin-tests
-    size: small
-    description:
-      "cycler-keeps-timed-close: apply the chosen bob-cli-g4 policy. By default, remove
-      the task-status-cycler deferredOnlyClose/deletedClosedEntry special case so a
-      closed timed row survives while its links still defer. Assert the full
-      expected_day of the shared vector, update the docs, and close g4."
-  - id: brief-polish
-    title: Brief truncation counts, Bryan's words, and Markdown glitches
-    depends_on:
-      - brief-attribution
-    size: medium
-    description:
-      "brief-polish: in the same brief.rs, report totals and +N more behind the
-      Finished/Dropped caps (bob-cli-gv). Make Bryan's words deduplicated, date-ordered,
-      fair across days, and link-safe (bob-cli-gw). Drop empty Part date segments and
-      raw block ids in Still open aliases (bob-cli-gx)."
-  - id: brief-still-open
-    title: Make the brief's Still open lists honest for ended periods
-    depends_on:
-      - brief-polish
-    size: medium
-    description:
-      "brief-still-open: apply the chosen bob-cli-gu semantics so a past period's Still
-      open section stops reporting today's vault. By default, rebuild Kept 3+ and No
-      linked minutes as of span end, and omit Blocked projects with a note."
-  - id: ref-pdf-emoji
-    title: Render emoji and uncovered symbols in generic ref PDFs
-    depends_on:
-      - highlights-tz-tests
-    size: medium
-    description:
-      "ref-pdf-emoji: route the generic pandoc-to-XeLaTeX render in
-      highlights_ref/create.rs through the note-snapshot Noto Emoji fallback, so
-      uncovered codepoints print and extract correctly. Add a golden extraction test,
-      propose the PDF backfill as a follow-up, and close bob-cli-e9."
-  - id: consumption-bob
-    title: Bring reconcile and task_complete consumption to capture's rules
-    depends_on: []
-    size: medium
-    description:
-      "consumption-bob: after bob-cli-h2 and bob-cli-h4 land (or their files go quiet),
-      move reconcile's blocked-link consumption and task_complete retirement onto
-      capture's keep-notes, only-emptied, and identity rules, never deleting a closed
-      timed row. Add the §13.14 parity vectors and write the decisions record
-      (bob-cli-7q, bob half)."
-  - id: consumption-plugins
-    title: Bring bob-plugins Depends-On consumption to the same rules
-    depends_on:
-      - consumption-bob
-      - cycler-keeps-timed-close
-    size: medium
-    description:
-      "consumption-plugins: move bob-plugins Depends-On link consumption off
-      whole-subtree removal onto the same keep-notes, only-emptied, and identity rules.
-      Assert the new §13.14 vectors in the plugin harness, sync the plugins, and close
-      bob-cli-7q."
+- id: plugin-tests
+  title: Make bob-plugins npm test green
+  depends_on: []
+  size: medium
+  description: 'plugin-tests: in bob-plugins, fix the six test-harness defects behind
+    bob-cli-eh, bob-cli-et (freshness half only), bob-cli-ff, bob-cli-f7, bob-cli-f1,
+    and the bob-cli-ej wall-clock gates. Edit tests only. Prove the full suite is
+    green under UTC and America/New_York, then close those beads and the already-fixed
+    bob-cli-dx.'
+- id: plugin-sync-proof
+  title: Let bob plugins sync accept committed dirty deploys
+  depends_on: []
+  size: medium
+  description: 'plugin-sync-proof: in src/native/plugins/deploy.rs, let a clean-checkout
+    sync overwrite a dirty deploy stamp from another checkout or host when one commit
+    reachable from HEAD holds the stamped bundle byte for byte. Keep every other refusal.
+    Add tests, help text, and docs. Clear the live drift without --force, and close
+    bob-cli-fy (and bob-cli-e4 once both hosts are synced).'
+- id: brief-attribution
+  title: Fix archived-task minutes and multi-link splitting in the periods brief
+  depends_on: []
+  size: medium
+  description: 'brief-attribution: in src/native/periods/brief.rs, resolve original
+    and done/ archive paths to one task identity (bob-cli-gs), and split a multi-link
+    Pomodoro''s minutes with the stats root_parent splitter so task rows never outrank
+    their root (bob-cli-gt). Land this before the 2026-11-09 Review.'
+- id: vault-commit-guard
+  title: Stop vault edits from leaking SASE plans into ~/bob
+  depends_on: []
+  size: small
+  description: 'vault-commit-guard: rewrite ~/bob/AGENTS.md so agents let bob vault-sync
+    commit, or use plain git for their own files, and never use /sase_git_commit.
+    Replace the stale Obsidian Sync sentence. Make the vault .gitignore keep sdd/
+    out. Close bob-cli-8n, and propose the SASE-side root cause of bob-cli-gy as a
+    follow-up.'
+- id: mac-ci-green
+  title: Turn bob-mac-capture master CI green and record the CI-watch rule
+  depends_on: []
+  size: medium
+  description: 'mac-ci-green: fix the root causes of the bob-cli-h7 Go To failures:
+    the backslash insert helper, the delayed chip-refetch race, the leaked error wrapper,
+    and the 15-minute hang. Coordinate with the 185 chain. Verify on the exact-SHA
+    macOS run. Close h7, the six already-fixed Mac CI beads, and bob-cli-1x after
+    recording the watch-CI rule.'
+- id: highlights-tz-tests
+  title: Make the highlights overwrite tests timezone-independent
+  depends_on: []
+  size: small
+  description: 'highlights-tz-tests: the two highlights::overwrite_local failures
+    (bob-cli-h6) assert a hardcoded -0400 offset, while CI stamps in UTC. Pin the
+    zone for those bob subprocesses, sweep sibling assertions, and confirm the overwrite-refreshes-captured
+    rule in docs. Then close h6 and the no-longer-reproducing bob-cli-fh.'
+- id: athena-hostile-alerts
+  title: Alert on hostile CPU, writable-dir execution, and mining egress on athena
+  depends_on: []
+  size: medium
+  description: 'athena-hostile-alerts: in the tailnet repo, add per-user CPU telemetry
+    (process-exporter on loopback), a textfile collector for writable-dir and deleted-binary
+    execution plus nft mining-port egress counters, and Prometheus rules with promtool
+    tests and staleness alerts. Route them through the existing Alertmanager email
+    path. Deploy through /sase_sudo, prove that synthetic alerts fire and resolve,
+    and close bob-cli-8r.'
+- id: cycler-keeps-timed-close
+  title: Align task-status-cycler's deferred-only close with bob
+  depends_on:
+  - plugin-tests
+  size: small
+  description: 'cycler-keeps-timed-close: apply the chosen bob-cli-g4 policy. By default,
+    remove the task-status-cycler deferredOnlyClose/deletedClosedEntry special case
+    so a closed timed row survives while its links still defer. Assert the full expected_day
+    of the shared vector, update the docs, and close g4.'
+- id: brief-polish
+  title: Brief truncation counts, Bryan's words, and Markdown glitches
+  depends_on:
+  - brief-attribution
+  size: medium
+  description: 'brief-polish: in the same brief.rs, report totals and +N more behind
+    the Finished/Dropped caps (bob-cli-gv). Make Bryan''s words deduplicated, date-ordered,
+    fair across days, and link-safe (bob-cli-gw). Drop empty Part date segments and
+    raw block ids in Still open aliases (bob-cli-gx).'
+- id: brief-still-open
+  title: Make the brief's Still open lists honest for ended periods
+  depends_on:
+  - brief-polish
+  size: medium
+  description: 'brief-still-open: apply the chosen bob-cli-gu semantics so a past
+    period''s Still open section stops reporting today''s vault. By default, rebuild
+    Kept 3+ and No linked minutes as of span end, and omit Blocked projects with a
+    note.'
+- id: ref-pdf-emoji
+  title: Render emoji and uncovered symbols in generic ref PDFs
+  depends_on:
+  - highlights-tz-tests
+  size: medium
+  description: 'ref-pdf-emoji: route the generic pandoc-to-XeLaTeX render in highlights_ref/create.rs
+    through the note-snapshot Noto Emoji fallback, so uncovered codepoints print and
+    extract correctly. Add a golden extraction test, propose the PDF backfill as a
+    follow-up, and close bob-cli-e9.'
+- id: consumption-bob
+  title: Bring reconcile and task_complete consumption to capture's rules
+  depends_on: []
+  size: medium
+  description: 'consumption-bob: after bob-cli-h2 and bob-cli-h4 land (or their files
+    go quiet), move reconcile''s blocked-link consumption and task_complete retirement
+    onto capture''s keep-notes, only-emptied, and identity rules, never deleting a
+    closed timed row. Add the §13.14 parity vectors and write the decisions record
+    (bob-cli-7q, bob half).'
+- id: consumption-plugins
+  title: Bring bob-plugins Depends-On consumption to the same rules
+  depends_on:
+  - consumption-bob
+  - cycler-keeps-timed-close
+  size: medium
+  description: 'consumption-plugins: move bob-plugins Depends-On link consumption
+    off whole-subtree removal onto the same keep-notes, only-emptied, and identity
+    rules. Assert the new §13.14 vectors in the plugin harness, sync the plugins,
+    and close bob-cli-7q.'
 proposed_by: bbugyi200.athena.18c
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-04 16:39:08
 status: wip
+bead_id: bob-cli-h8
 ---
 
-- **PROMPT:**
-  [prompts/202611/top_ten_bead_bundles.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/top_ten_bead_bundles.md)
+- **PROMPT:** [prompts/202611/top_ten_bead_bundles.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/top_ten_bead_bundles.md)
+- **BEAD:** [bob-cli-h8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h8/README.md)
 
 # Plan: Work the top-ten task bead bundles from the two-host audit
 
