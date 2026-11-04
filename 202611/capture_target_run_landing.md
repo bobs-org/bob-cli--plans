@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Repair target-run boundaries and finish the grammar landing
-goal:
-  Preserve literal and singleton grammar, apply selected terminals to every target, and
-  close bob-cli-gm.1.1 and parent phase bob-cli-gm.1.
+goal: Preserve literal and singleton grammar, apply selected terminals to every target,
+  and close bob-cli-gm.1.1 and parent phase bob-cli-gm.1.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gm.1.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/capture_target_runs_finish.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_target_runs_finish.md)
 - **BEAD:**
   [bob-cli-gm.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gm/bob-cli-gm.1.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-gm.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-gm.1.1.land.md)
-- **COMMITS:**
-  - [ebedfca](https://github.com/bobs-org/bob-cli/commit/ebedfca8e666a9a79e9cc2989aca0a6b78edd983)
-    — feat(capture)\!: complete target-run grammar and landing
 
 # Repair target-run boundaries and finish the grammar landing
 
