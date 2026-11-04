@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Execute past Pomodoro stacks with explicit-entry close
-goal:
-  Complete bob-cli-h2.3 with atomic past recording, chronological placement, strict
+goal: Complete bob-cli-h2.3 with atomic past recording, chronological placement, strict
   overlap refusal, and human and JSON output.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.3
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-h2.3
-create_time: 2026-11-04 13:06:31
-status: wip
+status: done
 ---
 
 - **PARENT:**
