@@ -1,10 +1,9 @@
 ---
 tier: tale
 title: Land note-pull capture after the latency and move-integration fixes
-goal:
-  Bring note-pull capture under its 70 ms p95 budget, keep note-pull rows correct when a
-  later item in the same draft moves a pulled task, then close bob-cli-gj.2.1 and its
-  parent phase bob-cli-gj.2.
+goal: Bring note-pull capture under its 70 ms p95 budget, keep note-pull rows correct
+  when a later item in the same draft moves a pulled task, then close bob-cli-gj.2.1
+  and its parent phase bob-cli-gj.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gj.2.1.land
 proposed_with: claude/opus
@@ -14,11 +13,6 @@ status: done
 
 - **BEAD:**
   [bob-cli-gj.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gj/bob-cli-gj.2.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-gj.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-gj.2.1.land.md)
-- **COMMITS:**
-  - [cbc35ad](https://github.com/bobs-org/bob-cli/commit/cbc35adf64a843f25a8adc9855e823f696b088ed)
-    — feat(capture): optimize note-pull landing with move-aware ownership
 
 # Land note-pull capture after the latency and move-integration fixes
 
