@@ -1,77 +1,71 @@
 ---
 tier: epic
 title: Record past Pomodoros with x=
-goal: "Capture gains `x=<E>[!][=<X>]`, which records already-finished Pomodoros in one
-  step. Each token starts and closes a past session that ends at the current 5-minute
+goal: 'Capture gains `x=<E>[!][=<X>]`, which records already-finished Pomodoros in
+  one step. Each token starts and closes a past session that ends at the current 5-minute
   block. Consecutive tokens stack back to back. A token never overlaps history, except
-  that `!` trims an edge of an older closed row and warns. bob previews, completes, and
-  documents the token, and the Mac app renders it.
+  that `!` trims an edge of an older closed row and warns. bob previews, completes,
+  and documents the token, and the Mac app renders it.
 
-  "
+  '
 phases:
-  - id: grammar
-    title: x= lexer, capture-parse contract, and grammar 12
-    depends_on: []
-    size: large
-    description:
-      "grammar: claim `x=` as a new whole-item session token. This covers the lexer, the
-      PomodoroPast model, teaching errors, chain ownership, stack numbering, editor and
-      capture-parse output, and grammar 12. Execution refuses the token until record
-      lands."
-  - id: complete
-    title: Pomodoro-name completion inside x=
-    depends_on:
-      - grammar
-    size: small
-    description:
-      "complete: capture-complete offers Pomodoro names at the `<E>` name positions of
-      `x=`. It never offers the running session, and replacements stop at `!`, `=`, and
-      `@`."
-  - id: record
-    title: Record engine with explicit-entry close, placement, and output
-    depends_on:
-      - grammar
-    size: large
-    description:
-      "record: execute `x=` stacks. Compute windows, resolve targets, and close the
-      explicit entry at C = min(end, now). File the row chronologically, carry links
-      only when the close carries them, and add human and JSON output. A strict guard
-      refuses every overlap."
-  - id: guard
-    title: Whole-stack overlap guard and ! edge repair
-    depends_on:
-      - record
-    size: medium
-    description:
-      "guard: replace the strict guard with the full per-token `!` rules. Running
-      sessions are protected, the whole stack is validated at once, erase and split are
-      refused, and closed-row edges are trimmed with warnings. Pin the user's five
-      examples end to end."
-  - id: docs
-    title: Capture docs, references, and help for x=
-    depends_on:
-      - guard
-      - complete
-    size: medium
-    description:
-      "docs: document recording a past Pomodoro in docs/capture.md and the syntax, JSON,
-      and compatibility references. Polish CLI help and regenerate the generated pages."
-  - id: mac
-    title: Bob Mac Capture Record past work card
-    depends_on:
-      - docs
-    size: large
-    description:
-      "mac: decode `pomodoro_past` in Bob Mac Capture and render one chronological
-      Record past work card per stack. Style the new spans, and re-run the preview when
-      the clock crosses a 5-minute boundary."
+- id: grammar
+  title: x= lexer, capture-parse contract, and grammar 12
+  depends_on: []
+  size: large
+  description: 'grammar: claim `x=` as a new whole-item session token. This covers
+    the lexer, the PomodoroPast model, teaching errors, chain ownership, stack numbering,
+    editor and capture-parse output, and grammar 12. Execution refuses the token until
+    record lands.'
+- id: complete
+  title: Pomodoro-name completion inside x=
+  depends_on:
+  - grammar
+  size: small
+  description: 'complete: capture-complete offers Pomodoro names at the `<E>` name
+    positions of `x=`. It never offers the running session, and replacements stop
+    at `!`, `=`, and `@`.'
+- id: record
+  title: Record engine with explicit-entry close, placement, and output
+  depends_on:
+  - grammar
+  size: large
+  description: 'record: execute `x=` stacks. Compute windows, resolve targets, and
+    close the explicit entry at C = min(end, now). File the row chronologically, carry
+    links only when the close carries them, and add human and JSON output. A strict
+    guard refuses every overlap.'
+- id: guard
+  title: Whole-stack overlap guard and ! edge repair
+  depends_on:
+  - record
+  size: medium
+  description: 'guard: replace the strict guard with the full per-token `!` rules.
+    Running sessions are protected, the whole stack is validated at once, erase and
+    split are refused, and closed-row edges are trimmed with warnings. Pin the user''s
+    five examples end to end.'
+- id: docs
+  title: Capture docs, references, and help for x=
+  depends_on:
+  - guard
+  - complete
+  size: medium
+  description: 'docs: document recording a past Pomodoro in docs/capture.md and the
+    syntax, JSON, and compatibility references. Polish CLI help and regenerate the
+    generated pages.'
+- id: mac
+  title: Bob Mac Capture Record past work card
+  depends_on:
+  - docs
+  size: large
+  description: 'mac: decode `pomodoro_past` in Bob Mac Capture and render one chronological
+    Record past work card per stack. Style the new spans, and re-run the preview when
+    the clock crosses a 5-minute boundary.'
 decisions:
   memory_decision_record:
-    ask:
-      Add a decisions-web record that past Pomodoros end at now, never touch open
+    ask: Add a decisions-web record that past Pomodoros end at now, never touch open
       sessions, and ! only trims edges?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.38.linker.w0
@@ -80,10 +74,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-04 11:11:54
 status: wip
+bead_id: bob-cli-h2
 ---
 
-- **PROMPT:**
-  [prompts/202611/past_pomodoro_recording.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/past_pomodoro_recording.md)
+- **PROMPT:** [prompts/202611/past_pomodoro_recording.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/past_pomodoro_recording.md)
+- **BEAD:** [bob-cli-h2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h2/README.md)
 
 # Plan: Record past Pomodoros with `x=`
 
