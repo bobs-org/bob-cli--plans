@@ -1,20 +1,19 @@
 ---
 tier: tale
 title: Finish Go To completed-task state and close bob-cli-h3
-goal:
-  Keep Go To scope and task snapshots consistent across concurrent fetches, errors, and
-  chip reopen, then verify and close bob-cli-h3.
+goal: Keep Go To scope and task snapshots consistent across concurrent fetches, errors,
+  and chip reopen, then verify and close bob-cli-h3.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-h3.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-h3
-create_time: 2026-11-04 13:14:22
-status: wip
+status: done
 ---
 
 - **PARENT:**
   [202611/goto_completed_toggle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/goto_completed_toggle.md)
-- **BEAD:** bob-cli-h3
+- **BEAD:**
+  [bob-cli-h3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h3/README.md)
 
 # Finish the Go To completed-task toggle and close bob-cli-h3
 
