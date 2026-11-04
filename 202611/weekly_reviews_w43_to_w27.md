@@ -7,166 +7,150 @@ goal: 'Each of the 17 closed weekly notes 2026-W43 back to 2026-W27 has a `## Re
 
   '
 phases:
-  - id: w43
-    title: Draft the 2026-W43 Review (Oct 19 – 25)
-    depends_on: []
-    size: xlarge
-    description:
-      "w43: draft, save, and commit the Review of 2026-W43 (Mon Oct 19 – Sun Oct 25,
-      parent 2026-Q4) by following the shared drafting contract; change only
-      2026/2026-W43.md."
-  - id: w42
-    title: Draft the 2026-W42 Review (Oct 12 – 18)
-    depends_on:
-      - w43
-    size: xlarge
-    description:
-      "w42: draft, save, and commit the Review of 2026-W42 (Mon Oct 12 – Sun Oct 18,
-      parent 2026-Q4) by following the shared drafting contract; change only
-      2026/2026-W42.md."
-  - id: w41
-    title: Draft the 2026-W41 Review (Oct 5 – 11)
-    depends_on:
-      - w42
-    size: xlarge
-    description:
-      "w41: draft, save, and commit the Review of 2026-W41 (Mon Oct 5 – Sun Oct 11,
-      parent 2026-Q4) by following the shared drafting contract; change only
-      2026/2026-W41.md."
-  - id: w40
-    title: Draft the 2026-W40 Review (Sep 28 – Oct 4)
-    depends_on:
-      - w41
-    size: xlarge
-    description:
-      "w40: draft, save, and commit the Review of 2026-W40 (Mon Sep 28 – Sun Oct 4,
-      parent 2026-Q4) by following the shared drafting contract; change only
-      2026/2026-W40.md."
-  - id: w39
-    title: Draft the 2026-W39 Review (Sep 21 – 27)
-    depends_on:
-      - w40
-    size: xlarge
-    description:
-      "w39: draft, save, and commit the Review of 2026-W39 (Mon Sep 21 – Sun Sep 27,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W39.md."
-  - id: w38
-    title: Draft the 2026-W38 Review (Sep 14 – 20)
-    depends_on:
-      - w39
-    size: xlarge
-    description:
-      "w38: draft, save, and commit the Review of 2026-W38 (Mon Sep 14 – Sun Sep 20,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W38.md."
-  - id: w37
-    title: Draft the 2026-W37 Review (Sep 7 – 13)
-    depends_on:
-      - w38
-    size: xlarge
-    description:
-      "w37: draft, save, and commit the Review of 2026-W37 (Mon Sep 7 – Sun Sep 13,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W37.md."
-  - id: w36
-    title: Draft the 2026-W36 Review (Aug 31 – Sep 6)
-    depends_on:
-      - w37
-    size: xlarge
-    description:
-      "w36: draft, save, and commit the Review of 2026-W36 (Mon Aug 31 – Sun Sep 6,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W36.md."
-  - id: w35
-    title: Draft the 2026-W35 Review (Aug 24 – 30)
-    depends_on:
-      - w36
-    size: xlarge
-    description:
-      "w35: draft, save, and commit the Review of 2026-W35 (Mon Aug 24 – Sun Aug 30,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W35.md."
-  - id: w34
-    title: Draft the 2026-W34 Review (Aug 17 – 23)
-    depends_on:
-      - w35
-    size: xlarge
-    description:
-      "w34: draft, save, and commit the Review of 2026-W34 (Mon Aug 17 – Sun Aug 23,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W34.md."
-  - id: w33
-    title: Draft the 2026-W33 Review (Aug 10 – 16)
-    depends_on:
-      - w34
-    size: xlarge
-    description:
-      "w33: draft, save, and commit the Review of 2026-W33 (Mon Aug 10 – Sun Aug 16,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W33.md."
-  - id: w32
-    title: Draft the 2026-W32 Review (Aug 3 – 9)
-    depends_on:
-      - w33
-    size: xlarge
-    description:
-      "w32: draft, save, and commit the Review of 2026-W32 (Mon Aug 3 – Sun Aug 9,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W32.md."
-  - id: w31
-    title: Draft the 2026-W31 Review (Jul 27 – Aug 2)
-    depends_on:
-      - w32
-    size: xlarge
-    description:
-      "w31: draft, save, and commit the Review of 2026-W31 (Mon Jul 27 – Sun Aug 2,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W31.md."
-  - id: w30
-    title: Draft the 2026-W30 Review (Jul 20 – 26)
-    depends_on:
-      - w31
-    size: xlarge
-    description:
-      "w30: draft, save, and commit the Review of 2026-W30 (Mon Jul 20 – Sun Jul 26,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W30.md."
-  - id: w29
-    title: Draft the 2026-W29 Review (Jul 13 – 19)
-    depends_on:
-      - w30
-    size: xlarge
-    description:
-      "w29: draft, save, and commit the Review of 2026-W29 (Mon Jul 13 – Sun Jul 19,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W29.md."
-  - id: w28
-    title: Draft the 2026-W28 Review (Jul 6 – 12)
-    depends_on:
-      - w29
-    size: xlarge
-    description:
-      "w28: draft, save, and commit the Review of 2026-W28 (Mon Jul 6 – Sun Jul 12,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W28.md."
-  - id: w27
-    title: Draft the 2026-W27 Review (Jun 29 – Jul 5)
-    depends_on:
-      - w28
-    size: xlarge
-    description:
-      "w27: draft, save, and commit the Review of 2026-W27 (Mon Jun 29 – Sun Jul 5,
-      parent 2026-Q3) by following the shared drafting contract; change only
-      2026/2026-W27.md."
+- id: w43
+  title: Draft the 2026-W43 Review (Oct 19 – 25)
+  depends_on: []
+  size: xlarge
+  description: 'w43: draft, save, and commit the Review of 2026-W43 (Mon Oct 19 –
+    Sun Oct 25, parent 2026-Q4) by following the shared drafting contract; change
+    only 2026/2026-W43.md.'
+- id: w42
+  title: Draft the 2026-W42 Review (Oct 12 – 18)
+  depends_on:
+  - w43
+  size: xlarge
+  description: 'w42: draft, save, and commit the Review of 2026-W42 (Mon Oct 12 –
+    Sun Oct 18, parent 2026-Q4) by following the shared drafting contract; change
+    only 2026/2026-W42.md.'
+- id: w41
+  title: Draft the 2026-W41 Review (Oct 5 – 11)
+  depends_on:
+  - w42
+  size: xlarge
+  description: 'w41: draft, save, and commit the Review of 2026-W41 (Mon Oct 5 – Sun
+    Oct 11, parent 2026-Q4) by following the shared drafting contract; change only
+    2026/2026-W41.md.'
+- id: w40
+  title: Draft the 2026-W40 Review (Sep 28 – Oct 4)
+  depends_on:
+  - w41
+  size: xlarge
+  description: 'w40: draft, save, and commit the Review of 2026-W40 (Mon Sep 28 –
+    Sun Oct 4, parent 2026-Q4) by following the shared drafting contract; change only
+    2026/2026-W40.md.'
+- id: w39
+  title: Draft the 2026-W39 Review (Sep 21 – 27)
+  depends_on:
+  - w40
+  size: xlarge
+  description: 'w39: draft, save, and commit the Review of 2026-W39 (Mon Sep 21 –
+    Sun Sep 27, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W39.md.'
+- id: w38
+  title: Draft the 2026-W38 Review (Sep 14 – 20)
+  depends_on:
+  - w39
+  size: xlarge
+  description: 'w38: draft, save, and commit the Review of 2026-W38 (Mon Sep 14 –
+    Sun Sep 20, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W38.md.'
+- id: w37
+  title: Draft the 2026-W37 Review (Sep 7 – 13)
+  depends_on:
+  - w38
+  size: xlarge
+  description: 'w37: draft, save, and commit the Review of 2026-W37 (Mon Sep 7 – Sun
+    Sep 13, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W37.md.'
+- id: w36
+  title: Draft the 2026-W36 Review (Aug 31 – Sep 6)
+  depends_on:
+  - w37
+  size: xlarge
+  description: 'w36: draft, save, and commit the Review of 2026-W36 (Mon Aug 31 –
+    Sun Sep 6, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W36.md.'
+- id: w35
+  title: Draft the 2026-W35 Review (Aug 24 – 30)
+  depends_on:
+  - w36
+  size: xlarge
+  description: 'w35: draft, save, and commit the Review of 2026-W35 (Mon Aug 24 –
+    Sun Aug 30, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W35.md.'
+- id: w34
+  title: Draft the 2026-W34 Review (Aug 17 – 23)
+  depends_on:
+  - w35
+  size: xlarge
+  description: 'w34: draft, save, and commit the Review of 2026-W34 (Mon Aug 17 –
+    Sun Aug 23, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W34.md.'
+- id: w33
+  title: Draft the 2026-W33 Review (Aug 10 – 16)
+  depends_on:
+  - w34
+  size: xlarge
+  description: 'w33: draft, save, and commit the Review of 2026-W33 (Mon Aug 10 –
+    Sun Aug 16, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W33.md.'
+- id: w32
+  title: Draft the 2026-W32 Review (Aug 3 – 9)
+  depends_on:
+  - w33
+  size: xlarge
+  description: 'w32: draft, save, and commit the Review of 2026-W32 (Mon Aug 3 – Sun
+    Aug 9, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W32.md.'
+- id: w31
+  title: Draft the 2026-W31 Review (Jul 27 – Aug 2)
+  depends_on:
+  - w32
+  size: xlarge
+  description: 'w31: draft, save, and commit the Review of 2026-W31 (Mon Jul 27 –
+    Sun Aug 2, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W31.md.'
+- id: w30
+  title: Draft the 2026-W30 Review (Jul 20 – 26)
+  depends_on:
+  - w31
+  size: xlarge
+  description: 'w30: draft, save, and commit the Review of 2026-W30 (Mon Jul 20 –
+    Sun Jul 26, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W30.md.'
+- id: w29
+  title: Draft the 2026-W29 Review (Jul 13 – 19)
+  depends_on:
+  - w30
+  size: xlarge
+  description: 'w29: draft, save, and commit the Review of 2026-W29 (Mon Jul 13 –
+    Sun Jul 19, parent 2026-Q3) by following the shared drafting contract; change
+    only 2026/2026-W29.md.'
+- id: w28
+  title: Draft the 2026-W28 Review (Jul 6 – 12)
+  depends_on:
+  - w29
+  size: xlarge
+  description: 'w28: draft, save, and commit the Review of 2026-W28 (Mon Jul 6 – Sun
+    Jul 12, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W28.md.'
+- id: w27
+  title: Draft the 2026-W27 Review (Jun 29 – Jul 5)
+  depends_on:
+  - w28
+  size: xlarge
+  description: 'w27: draft, save, and commit the Review of 2026-W27 (Mon Jun 29 –
+    Sun Jul 5, parent 2026-Q3) by following the shared drafting contract; change only
+    2026/2026-W27.md.'
 proposed_by: bbugyi200.athena.17u--1
 proposed_with: claude/opus
 create_time: 2026-11-03 19:08:07
 status: wip
+bead_id: bob-cli-gr
 ---
 
-- **PROMPT:**
-  [prompts/202611/weekly_reviews_w43_to_w27.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/weekly_reviews_w43_to_w27.md)
+- **PROMPT:** [prompts/202611/weekly_reviews_w43_to_w27.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/weekly_reviews_w43_to_w27.md)
+- **BEAD:** [bob-cli-gr](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-gr/README.md)
 
 # Plan: Draft the weekly Reviews for 2026-W43 back through 2026-W27
 
