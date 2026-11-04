@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "macos_gate",
+      "kind": "choice",
+      "ask": "Should the coder prove the fix on a real macOS runner with scripts/dev/macos-ci-check before finishing?",
+      "why": "Linux never compiles this cfg branch; macOS lint has hidden its tests for 20+ master pushes",
+      "choices": [
+        {
+          "key": "run",
+          "label": "Push a throwaway ci/precommit branch and wait up to ~90 min for real macOS lint proof"
+        },
+        {
+          "key": "skip",
+          "label": "Finish after Linux checks; the next master CI run is the first macOS proof"
+        }
+      ],
+      "default": "run",
+      "effective_default": "run",
+      "requested_verified": false
+    }
+  ]
+}
