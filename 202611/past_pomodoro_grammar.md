@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Add x= past Pomodoro grammar and capture-parse output
-goal: Complete bob-cli-h2.1 with grammar 12, shared parsing, editor output, stack
-  metadata, and a safe execution refusal until recording lands.
+goal:
+  Complete bob-cli-h2.1 with grammar 12, shared parsing, editor output, stack metadata,
+  and a safe execution refusal until recording lands.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.1
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/past_pomodoro_recording.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/past_pomodoro_recording.md)
 - **BEAD:**
   [bob-cli-h2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h2/bob-cli-h2.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-h2.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-h2.1.md)
+- **COMMITS:**
+  - [ce8f53b](https://github.com/bobs-org/bob-cli/commit/ce8f53b187701003446ad65b350510374b2c161e)
+    — feat(capture)\!: record past Pomodoro grammar (x= lexer, capture-parse, refusal)
 
 # Implement the x= grammar and capture-parse contract
 
