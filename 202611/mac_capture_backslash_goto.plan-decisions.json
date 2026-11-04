@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "literal_backslash",
+      "kind": "choice",
+      "ask": "Should `\\` `\\` type one literal `\\`, so a draft can still start with an escape like `\\#fix`?",
+      "why": "Leading `\\` escapes such as `\\#fix`, `\\# Heading`, `\\%c` would otherwise be untypable",
+      "choices": [
+        {
+          "key": "double",
+          "label": "A second `\\` right away turns the `/` into a literal `\\` (one-shot arm, like the Ctrl-G leader)"
+        },
+        {
+          "key": "none",
+          "label": "No escape gesture; a leading literal `\\` needs a paste or a caret move"
+        }
+      ],
+      "default": "double",
+      "effective_default": "double",
+      "requested_verified": false
+    }
+  ]
+}
