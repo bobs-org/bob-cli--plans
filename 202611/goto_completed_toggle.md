@@ -1,38 +1,35 @@
 ---
 tier: epic
-title: "Go To picker: Command-X toggles completed tasks"
-goal: "In Bob Mac Capture's `/` Go To picker, Command-X toggles whether completed tasks
-  appear in the results. bob supplies them through a new additive `capture-complete
+title: 'Go To picker: Command-X toggles completed tasks'
+goal: 'In Bob Mac Capture''s `/` Go To picker, Command-X toggles whether completed
+  tasks appear in the results. bob supplies them through a new additive `capture-complete
   --closed-tasks` flag, and the Mac app renders them.
 
-  "
+  '
 phases:
-  - id: bob
-    title: "bob-cli: capture-complete --closed-tasks for task_goto"
-    depends_on: []
-    size: medium
-    description:
-      "bob: add the -C/--closed-tasks flag and append newest-first closed rows from the
-      vault catalog to task_goto, with tests and docs."
-  - id: mac
-    title: "bob-mac-capture: Command-X toggle in the Go To picker"
-    depends_on:
-      - bob
-    size: medium
-    description:
-      "mac: route Command-X in the Go To picker to a refetch with --closed-tasks, render
-      a trailing Completed section, degrade on older bob, and update tests and docs."
+- id: bob
+  title: 'bob-cli: capture-complete --closed-tasks for task_goto'
+  depends_on: []
+  size: medium
+  description: 'bob: add the -C/--closed-tasks flag and append newest-first closed
+    rows from the vault catalog to task_goto, with tests and docs.'
+- id: mac
+  title: 'bob-mac-capture: Command-X toggle in the Go To picker'
+  depends_on:
+  - bob
+  size: medium
+  description: 'mac: route Command-X in the Go To picker to a refetch with --closed-tasks,
+    render a trailing Completed section, degrade on older bob, and update tests and
+    docs.'
 decisions:
   completed_scope:
-    ask:
-      Should completed rows come from every vault note, including done/ archives, ref
-      notes, and daily notes?
+    ask: Should completed rows come from every vault note, including done/ archives,
+      ref notes, and daily notes?
     choices:
-      vault: "All closed tasks the &/(( catalog finds: ~3.8k rows, ~170 ms per fetch"
+      vault: 'All closed tasks the &/(( catalog finds: ~3.8k rows, ~170 ms per fetch'
       capture_notes: Only closed tasks from the notes / lists, plus their done/ archives
     default: vault
-    why:
-      Most finished tasks live in done/ archives or ref notes; the catalog already
+    why: Most finished tasks live in done/ archives or ref notes; the catalog already
       exists
     answer: vault
   canceled_rows:
@@ -57,10 +54,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-04 11:50:51
 status: wip
+bead_id: bob-cli-h3
 ---
 
-- **PROMPT:**
-  [prompts/202611/goto_completed_toggle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/goto_completed_toggle.md)
+- **PROMPT:** [prompts/202611/goto_completed_toggle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/goto_completed_toggle.md)
+- **BEAD:** [bob-cli-h3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h3/README.md)
 
 # Go To picker: Command-X toggles completed tasks
 
