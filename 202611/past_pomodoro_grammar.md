@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Add x= past Pomodoro grammar and capture-parse output
-goal:
-  Complete bob-cli-h2.1 with grammar 12, shared parsing, editor output, stack metadata,
-  and a safe execution refusal until recording lands.
+goal: Complete bob-cli-h2.1 with grammar 12, shared parsing, editor output, stack
+  metadata, and a safe execution refusal until recording lands.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.1
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-h2.1
-create_time: 2026-11-04 11:20:12
-status: wip
+status: done
 ---
 
 - **PARENT:**
