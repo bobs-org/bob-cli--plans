@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "choice_alias",
+      "kind": "toggle",
+      "ask": "Should `.` also type the second caret of the `- ^^` Move choice marker, so `- ..` makes `- ^^`?",
+      "why": "`- ^^` is the other start-of-bullet Move gesture, so `.` should type both of its carets",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
