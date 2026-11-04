@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Execute past Pomodoro stacks with explicit-entry close
-goal: Complete bob-cli-h2.3 with atomic past recording, chronological placement, strict
+goal:
+  Complete bob-cli-h2.3 with atomic past recording, chronological placement, strict
   overlap refusal, and human and JSON output.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.3
@@ -14,6 +15,11 @@ status: done
   [202611/past_pomodoro_recording.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/past_pomodoro_recording.md)
 - **BEAD:**
   [bob-cli-h2.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h2/bob-cli-h2.3.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-h2.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-h2.3.md)
+- **COMMITS:**
+  - [ed12f3d](https://github.com/bobs-org/bob-cli/commit/ed12f3d4f38f7fb80a560a44fd2f46e63ded36e8)
+    — feat(capture)\!: execute past Pomodoro stacks with explicit-entry record engine
 
 # Execute past Pomodoro stacks for bob-cli-h2.3
 
