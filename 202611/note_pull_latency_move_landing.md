@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Land note-pull capture after the latency and move-integration fixes
-goal:
-  Bring note-pull capture under its 70 ms p95 budget, keep note-pull rows correct when a
-  later item in the same draft moves a pulled task, then close bob-cli-gj.2.1 and its
-  parent phase bob-cli-gj.2.
+goal: Bring note-pull capture under its 70 ms p95 budget, keep note-pull rows correct
+  when a later item in the same draft moves a pulled task, then close bob-cli-gj.2.1
+  and its parent phase bob-cli-gj.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-gj.2.1.land
 proposed_with: claude/opus
 bead: bob-cli-gj.2.1
-create_time: 2026-11-04 07:29:18
-status: wip
+status: done
 ---
 
 - **BEAD:**
