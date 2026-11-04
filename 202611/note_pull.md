@@ -73,7 +73,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-03 11:56:51
-status: wip
+status: done
 bead_id: bob-cli-gj
 ---
 
