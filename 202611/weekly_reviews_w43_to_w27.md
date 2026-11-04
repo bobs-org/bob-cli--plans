@@ -145,7 +145,7 @@ phases:
 proposed_by: bbugyi200.athena.17u--1
 proposed_with: claude/opus
 create_time: 2026-11-03 19:08:07
-status: wip
+status: done
 bead_id: bob-cli-gr
 ---
 
