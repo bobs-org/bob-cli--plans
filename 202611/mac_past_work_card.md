@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Render past Pomodoro stacks in Bob Mac Capture
-goal: Complete bob-cli-h2.6 with chronological past-work cards, live clock refreshes,
+goal:
+  Complete bob-cli-h2.6 with chronological past-work cards, live clock refreshes,
   fixtures, docs, and verification.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-h2.6
@@ -14,6 +15,11 @@ status: done
   [202611/past_pomodoro_recording.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/past_pomodoro_recording.md)
 - **BEAD:**
   [bob-cli-h2.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h2/bob-cli-h2.6.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-h2.6](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-h2.6.md)
+- **COMMITS:**
+  - [10470e7](https://github.com/bobs-org/bob-mac-capture/commit/10470e7f6c77a9288e51d24bd86a5228307976c7)
+    — feat(mac-capture): render Record past work card for x= stacks
 
 # Render past Pomodoro stacks in Bob Mac Capture
 
