@@ -1,94 +1,84 @@
 ---
 tier: epic
 title: Glue start and past timing to the Pomodoro name
-goal: "Capture `=` and `x=` tokens take their timing glued to a bare Pomodoro name
+goal: 'Capture `=` and `x=` tokens take their timing glued to a bare Pomodoro name
   (`=build-`, `=10-3fix`, `x=fix3`); the `@` and `<X>#` separators are retired with
   teaching errors, and every client, doc, and test teaches only the shorter spellings.
 
-  "
+  '
 decisions:
   hash_names:
-    ask:
-      Should `#` before an unquoted name stay valid only for names a bare spelling
+    ask: Should `#` before an unquoted name stay valid only for names a bare spelling
       cannot express?
     choices:
-      when_needed:
-        "`=#deep-work`, `=3#sase-v18`, `=#2fa` stay valid; `=#fix` and `=3#fix` teach
-        `=fix`, `=3fix`"
-      literal_only:
-        Retire every unquoted `#name`; non-bare names need `=#"DEEP WORK"`; shared
-        vectors change
+      when_needed: '`=#deep-work`, `=3#sase-v18`, `=#2fa` stay valid; `=#fix` and
+        `=3#fix` teach `=fix`, `=3fix`'
+      literal_only: Retire every unquoted `#name`; non-bare names need `=#"DEEP WORK"`;
+        shared vectors change
     default: when_needed
-    why:
-      Bare-spellable names must be typed bare; history names stay one short token away
+    why: Bare-spellable names must be typed bare; history names stay one short token
+      away
     answer: when_needed
   name_rule_scope:
     ask: Should bob also refuse to create new names that a bare start cannot spell?
     choices:
-      grammar:
-        Only the `=`/`x=` grammar changes; such names can still be created and are
-        reached via `#`
-      refuse_new:
-        Capture, `types:`, and `bob types rename`/`split` refuse new names a bare start
-        can't spell
+      grammar: Only the `=`/`x=` grammar changes; such names can still be created
+        and are reached via `#`
+      refuse_new: Capture, `types:`, and `bob types rename`/`split` refuse new names
+        a bare start can't spell
     default: grammar
-    why:
-      The grammar alone delivers the short spellings; Obsidian pickers would bypass a
-      ban anyway
+    why: The grammar alone delivers the short spellings; Obsidian pickers would bypass
+      a ban anyway
     answer: grammar
   memory_record:
-    ask:
-      Should the docs phase add a decisions record for the glued-timing spellings and
-      bare-name rule?
+    ask: Should the docs phase add a decisions record for the glued-timing spellings
+      and bare-name rule?
     memory:
-      - decisions:start-names-glue-to-timing
+    - decisions:start-names-glue-to-timing
     default: false
     answer: false
 phases:
-  - id: start-grammar
-    title: "`=` starts and link `=` suffixes (bob-cli)"
-    depends_on: []
-    size: medium
-    description:
-      "start-grammar: new bare-name rule, glued start lexer with retired-spelling
-      teaching errors, editor spans, completion, composers, start_token JSON, grammar
-      13, help goldens, and start tests."
-  - id: past-grammar
-    title: "`x=` past records (bob-cli)"
-    depends_on:
-      - start-grammar
-    size: medium
-    description:
-      "past-grammar: glued past lexer and teaching errors, spaced-literal merge, past
-      spans and completion, removal of the pomodoro_start_timing need, help goldens, and
-      past tests."
-  - id: docs
-    title: Document the glued spellings (bob-cli)
-    depends_on:
-      - start-grammar
-      - past-grammar
-    size: medium
-    description:
-      "docs: rewrite capture, reference, task-type, and tutorial pages to teach only the
-      glued spellings, then run the docs checks."
-  - id: mac-agenda-hints
-    title: Stop composing `=#` hints in Bob Mac Capture
-    depends_on:
-      - start-grammar
-    size: small
-    description:
-      "mac-agenda-hints: render bob's start_token for Later entries, update the
-      empty-state copy and dim-style keying, refresh tests, and gate on macOS CI."
+- id: start-grammar
+  title: '`=` starts and link `=` suffixes (bob-cli)'
+  depends_on: []
+  size: medium
+  description: 'start-grammar: new bare-name rule, glued start lexer with retired-spelling
+    teaching errors, editor spans, completion, composers, start_token JSON, grammar
+    13, help goldens, and start tests.'
+- id: past-grammar
+  title: '`x=` past records (bob-cli)'
+  depends_on:
+  - start-grammar
+  size: medium
+  description: 'past-grammar: glued past lexer and teaching errors, spaced-literal
+    merge, past spans and completion, removal of the pomodoro_start_timing need, help
+    goldens, and past tests.'
+- id: docs
+  title: Document the glued spellings (bob-cli)
+  depends_on:
+  - start-grammar
+  - past-grammar
+  size: medium
+  description: 'docs: rewrite capture, reference, task-type, and tutorial pages to
+    teach only the glued spellings, then run the docs checks.'
+- id: mac-agenda-hints
+  title: Stop composing `=#` hints in Bob Mac Capture
+  depends_on:
+  - start-grammar
+  size: small
+  description: 'mac-agenda-hints: render bob''s start_token for Later entries, update
+    the empty-state copy and dim-style keying, refresh tests, and gate on macOS CI.'
 proposed_by: bbugyi200.apollo.cf
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 05:23:35
 status: wip
+bead_id: bob-cli-ha
 ---
 
-- **PROMPT:**
-  [prompts/202611/glued_start_timing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/glued_start_timing.md)
+- **PROMPT:** [prompts/202611/glued_start_timing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/glued_start_timing.md)
+- **BEAD:** [bob-cli-ha](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ha/README.md)
 
 # Glue Start And Past Timing To The Pomodoro Name
 
