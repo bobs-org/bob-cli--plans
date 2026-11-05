@@ -2,12 +2,13 @@
 tier: tale
 size: medium
 title: Finish transfer previews — Mac card fixes and the bob-cli-h4 closeout
-goal: Bob Mac Capture transfer previews meet the epic plan with no stale or misleading
-  copy. Flipping a draft between move and merge announces once to VoiceOver, the footer
-  never keeps a pending or refusal title under a valid card, section merges read `into
-  db.md § Future Work`, renamed moves show an orange detail, unchanged-status moves
-  show no transition chip, and the pending card has a real VoiceOver label. Epic bob-cli-h4
-  is then closed with its plan marked done.
+goal:
+  Bob Mac Capture transfer previews meet the epic plan with no stale or misleading copy.
+  Flipping a draft between move and merge announces once to VoiceOver, the footer never
+  keeps a pending or refusal title under a valid card, section merges read `into db.md §
+  Future Work`, renamed moves show an orange detail, unchanged-status moves show no
+  transition chip, and the pending card has a real VoiceOver label. Epic bob-cli-h4 is
+  then closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-h4.land
 proposed_with: claude/opus
 bead: bob-cli-h4
@@ -18,6 +19,11 @@ status: done
   [202611/transfer_previews.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/transfer_previews.md)
 - **BEAD:**
   [bob-cli-h4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-h4/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-h4.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-h4.land.md)
+- **COMMITS:**
+  - [a4aa18a](https://github.com/bobs-org/bob-cli--plans/commit/a4aa18ad7d6b0592be6c1aae3295dd56859bd92e)
+    — chore(plans): mark transfer_previews done for bob-cli-h4
 
 # Finish transfer previews: Mac card fixes and the bob-cli-h4 closeout
 
