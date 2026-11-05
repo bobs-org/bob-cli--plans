@@ -1,118 +1,106 @@
 ---
 tier: epic
 title: Make counted %c read live clipboard history or refuse
-goal: "Counted `%c<N>` reads the clipboard manager that is actually running (Alfred on
-  the Mac), trusts its history only when the newest entry equals the live clipboard,
-  refuses loudly and writes nothing otherwise, and reports which provider supplied each
-  entry and how old it is — in bob's JSON, its human output, a `bob clipboard` status
-  report, and the Mac Clip card.
+goal: 'Counted `%c<N>` reads the clipboard manager that is actually running (Alfred
+  on the Mac), trusts its history only when the newest entry equals the live clipboard,
+  refuses loudly and writes nothing otherwise, and reports which provider supplied
+  each entry and how old it is — in bob''s JSON, its human output, a `bob clipboard`
+  status report, and the Mac Clip card.
 
-  "
+  '
 phases:
-  - id: providers
-    title: History providers, Alfred adapter, Clipy fixes, and config selection
-    depends_on: []
-    size: medium
-    description:
-      "providers: add the HistoryEntry provider boundary, a read-only Alfred adapter,
-      the Clipy tie-break/flavor/concealed fixes, and capture.clipboard_history
-      selection."
-  - id: agreement
-    title: Trust history only when its newest entry equals the live clipboard
-    depends_on:
-      - providers
-    size: medium
-    description:
-      "agreement: replace the lag-tolerant merge with the bounded-wait agreement check,
-      per-provider diagnoses, typed refusal codes, and the stale-history regression
-      test."
-  - id: provenance
-    title: Report history provider and entry ages
-    depends_on:
-      - agreement
-    size: small
-    description:
-      "provenance: add clip.history {provider, entries[{age_seconds, app}]} to capture
-      JSON and one provenance line to human output."
-  - id: mac-card
-    title: Mac Clip card shows provider and ages
-    depends_on:
-      - provenance
-    size: small
-    description:
-      "mac-card: in bob-mac-capture, decode clip.history tolerantly, show provider and
-      ages in the Clip card, and drop the Clipy wording from the panel docs."
-  - id: alfred-pin
-    title: Pin Alfred in the managed bob config
-    depends_on:
-      - agreement
-    size: xsmall
-    description:
-      "alfred-pin: in chezmoi, set capture.clipboard_history to alfred and stop
-      paste_parts from killing and relaunching Clipy, per the paste_parts decision."
-  - id: read-hardening
-    title: One clipboard snapshot per capture and bounded clipboard commands
-    depends_on:
-      - provenance
-    size: medium
-    description:
-      "read-hardening: share one live read and one largest-count history read per
-      capture invocation, and run every clipboard command with a deadline, output cap,
-      and reaping."
-  - id: status-command
-    title: Read-only bob clipboard status report
-    depends_on:
-      - read-hardening
-    size: medium
-    description:
-      "status-command: add top-level `bob clipboard` (Integrations) reporting selection,
-      per-provider health, and whether %c<N> would succeed, never printing contents."
-  - id: mac-acceptance
-    title: Acceptance on the Mac and wait tuning
-    depends_on:
-      - status-command
-    size: small
-    description:
-      "mac-acceptance: build a scratch bob on the Mac, replay the original stale-Clipy
-      failure, run the gated clipboard rows, and tune the wait to Alfred's measured lag."
+- id: providers
+  title: History providers, Alfred adapter, Clipy fixes, and config selection
+  depends_on: []
+  size: medium
+  description: 'providers: add the HistoryEntry provider boundary, a read-only Alfred
+    adapter, the Clipy tie-break/flavor/concealed fixes, and capture.clipboard_history
+    selection.'
+- id: agreement
+  title: Trust history only when its newest entry equals the live clipboard
+  depends_on:
+  - providers
+  size: medium
+  description: 'agreement: replace the lag-tolerant merge with the bounded-wait agreement
+    check, per-provider diagnoses, typed refusal codes, and the stale-history regression
+    test.'
+- id: provenance
+  title: Report history provider and entry ages
+  depends_on:
+  - agreement
+  size: small
+  description: 'provenance: add clip.history {provider, entries[{age_seconds, app}]}
+    to capture JSON and one provenance line to human output.'
+- id: mac-card
+  title: Mac Clip card shows provider and ages
+  depends_on:
+  - provenance
+  size: small
+  description: 'mac-card: in bob-mac-capture, decode clip.history tolerantly, show
+    provider and ages in the Clip card, and drop the Clipy wording from the panel
+    docs.'
+- id: alfred-pin
+  title: Pin Alfred in the managed bob config
+  depends_on:
+  - agreement
+  size: xsmall
+  description: 'alfred-pin: in chezmoi, set capture.clipboard_history to alfred and
+    stop paste_parts from killing and relaunching Clipy, per the paste_parts decision.'
+- id: read-hardening
+  title: One clipboard snapshot per capture and bounded clipboard commands
+  depends_on:
+  - provenance
+  size: medium
+  description: 'read-hardening: share one live read and one largest-count history
+    read per capture invocation, and run every clipboard command with a deadline,
+    output cap, and reaping.'
+- id: status-command
+  title: Read-only bob clipboard status report
+  depends_on:
+  - read-hardening
+  size: medium
+  description: 'status-command: add top-level `bob clipboard` (Integrations) reporting
+    selection, per-provider health, and whether %c<N> would succeed, never printing
+    contents.'
+- id: mac-acceptance
+  title: Acceptance on the Mac and wait tuning
+  depends_on:
+  - status-command
+  size: small
+  description: 'mac-acceptance: build a scratch bob on the Mac, replay the original
+    stale-Clipy failure, run the gated clipboard rows, and tune the wait to Alfred''s
+    measured lag.'
 decisions:
   mac_acceptance:
-    ask:
-      May the acceptance phase change the Mac clipboard over SSH when the Mac has been
-      idle for 10+ minutes?
+    ask: May the acceptance phase change the Mac clipboard over SSH when the Mac has
+      been idle for 10+ minutes?
     choices:
-      idle_gated:
-        Measures Alfred's real lag and ordering; leaves about 15 marker clips in Alfred
-        history
-      read_only:
-        Never touches the clipboard; ordering, timing, and wait tuning stay on Bryan's
-        checklist
+      idle_gated: Measures Alfred's real lag and ordering; leaves about 15 marker
+        clips in Alfred history
+      read_only: Never touches the clipboard; ordering, timing, and wait tuning stay
+        on Bryan's checklist
     default: idle_gated
-    why:
-      Only real copies can measure Alfred's lag, and the idle gate keeps them out of
-      active use
+    why: Only real copies can measure Alfred's lag, and the idle gate keeps them out
+      of active use
     answer: idle_gated
   paste_parts:
-    ask:
-      How should ~/bin/paste_parts treat clipboard managers now that bob reads Alfred?
+    ask: How should ~/bin/paste_parts treat clipboard managers now that bob reads
+      Alfred?
     choices:
-      drop_clipy:
-        Stops killing and relaunching Clipy; its chunk copies keep landing in Alfred
-        history
-      transient:
-        Also marks each chunk TransientType so Alfred should skip it; needs a Mac check
-      leave:
-        No change; running it relaunches a retired Clipy, which the Alfred pin makes
-        harmless
+      drop_clipy: Stops killing and relaunching Clipy; its chunk copies keep landing
+        in Alfred history
+      transient: Also marks each chunk TransientType so Alfred should skip it; needs
+        a Mac check
+      leave: No change; running it relaunches a retired Clipy, which the Alfred pin
+        makes harmless
     default: drop_clipy
     why: Stops resurrecting a retired Clipy without adding unverified pasteboard code
     answer: drop_clipy
   history_decision_record:
-    ask:
-      Add a decisions-web record that counted %c trusts history only when it agrees with
-      the live clipboard?
+    ask: Add a decisions-web record that counted %c trusts history only when it agrees
+      with the live clipboard?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.athena.research.5r.linker.w0
@@ -121,10 +109,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 10:29:51
 status: wip
+bead_id: bob-cli-he
 ---
 
-- **PROMPT:**
-  [prompts/202611/percent_c_history_agreement.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/percent_c_history_agreement.md)
+- **PROMPT:** [prompts/202611/percent_c_history_agreement.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/percent_c_history_agreement.md)
+- **BEAD:** [bob-cli-he](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-he/README.md)
 
 # Plan: Make counted `%c` read live clipboard history or refuse
 
