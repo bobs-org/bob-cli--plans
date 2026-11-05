@@ -2,18 +2,16 @@
 tier: tale
 size: medium
 title: Finish transfer previews — Mac card fixes and the bob-cli-h4 closeout
-goal:
-  Bob Mac Capture transfer previews meet the epic plan with no stale or misleading copy.
-  Flipping a draft between move and merge announces once to VoiceOver, the footer never
-  keeps a pending or refusal title under a valid card, section merges read `into db.md §
-  Future Work`, renamed moves show an orange detail, unchanged-status moves show no
-  transition chip, and the pending card has a real VoiceOver label. Epic bob-cli-h4 is
-  then closed with its plan marked done.
+goal: Bob Mac Capture transfer previews meet the epic plan with no stale or misleading
+  copy. Flipping a draft between move and merge announces once to VoiceOver, the footer
+  never keeps a pending or refusal title under a valid card, section merges read `into
+  db.md § Future Work`, renamed moves show an orange detail, unchanged-status moves
+  show no transition chip, and the pending card has a real VoiceOver label. Epic bob-cli-h4
+  is then closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-h4.land
 proposed_with: claude/opus
 bead: bob-cli-h4
-create_time: 2026-11-05 13:37:41
-status: wip
+status: done
 ---
 
 - **PARENT:**
