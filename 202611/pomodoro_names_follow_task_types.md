@@ -1,158 +1,145 @@
 ---
 tier: epic
 title: Open Pomodoro names follow their tasks' types
-goal: "Every live Task Link under one of today's open, typed Pomodoros has a task type
-  that the entry's name contains, and the name holds no type that none of its links
-  carry. Gestures keep this true at their shared write paths, the close settles each
-  finished session's name, and `bob task reconcile` is the safety net. It repairs open
-  names in both directions and never writes a `[type::]` field.
+goal: 'Every live Task Link under one of today''s open, typed Pomodoros has a task
+  type that the entry''s name contains, and the name holds no type that none of its
+  links carry. Gestures keep this true at their shared write paths, the close settles
+  each finished session''s name, and `bob task reconcile` is the safety net. It repairs
+  open names in both directions and never writes a `[type::]` field.
 
-  "
+  '
 decisions:
   reconcile_rollout:
-    ask:
-      Should reconcile apply name repairs when its phase lands, after a live-vault dry
-      run?
+    ask: Should reconcile apply name repairs when its phase lands, after a live-vault
+      dry run?
     choices:
-      apply:
-        Repairs write as soon as the phase lands; a read-only live-vault dry run checks
-        them first
-      report_first:
-        Ship report-only; a follow-up bead turns on writes after a day or two of reports
+      apply: Repairs write as soon as the phase lands; a read-only live-vault dry
+        run checks them first
+      report_first: Ship report-only; a follow-up bead turns on writes after a day
+        or two of reports
     default: apply
     why: Writer fixes land first, and every repair is reported and git-revertable
     answer: apply
   meet_links_grow_names:
-    ask:
-      Should a MEET Event Task link grow a work entry's name (BUILD to BUILD + MEET), as
-      Enter landing does?
+    ask: Should a MEET Event Task link grow a work entry's name (BUILD to BUILD +
+      MEET), as Enter landing does?
     choices:
-      merge:
-        Reconcile appends MEET like any type; the session counts toward MEET in Stats
+      merge: Reconcile appends MEET like any type; the session counts toward MEET
+        in Stats
       report: Reconcile leaves the name and reports the link; Enter landing is unchanged
     default: merge
-    why:
-      One add rule for landing and reconcile keeps every gesture's output a fixed point
+    why: One add rule for landing and reconcile keeps every gesture's output a fixed
+      point
     answer: merge
   memory_names_decision:
-    ask:
-      Add the decision record open-pomodoro-names-follow-task-links for names following
+    ask: Add the decision record open-pomodoro-names-follow-task-links for names following
       task types?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_glossary:
-    ask:
-      Update the Task Type and Merged Pomodoro glossary strands for name repair, close
-      settle, and new entries?
+    ask: Update the Task Type and Merged Pomodoro glossary strands for name repair,
+      close settle, and new entries?
     memory:
-      - glossary:task-type
-      - glossary:merged-pomodoro
+    - glossary:task-type
+    - glossary:merged-pomodoro
     default: true
     corrects: Disagreement is shown as drift; it is not silently repaired.
     answer: true
 phases:
-  - id: plugin-writer-bugs
-    title: Fix the Obsidian rename regression and the Task Card live-link lookup
-    depends_on: []
-    size: medium
-    description:
-      "plugin-writer-bugs: in bob-navigation-hotkeys, make Pomodoro rename (commit and
-      preview) retype linked tasks again, and make the Task Card type, inbox route, and
-      note-move live-link lookup search open entries only, by vault path plus block ID."
-  - id: agree-rule
-    title: Shared agreement rule, close settle, and Rust ledger applier
-    depends_on: []
-    size: medium
-    description:
-      "agree-rule: add the pure `agree_entry` and `settle_closed` planners, the MEET
-      guard in `relocate`, new shared vector sections, and one Rust applier that agrees
-      chosen entries in a day's text through a pluggable task-type lookup."
-  - id: reconcile-pass
-    title: Type-agreement pass in bob task reconcile
-    depends_on:
-      - agree-rule
-      - plugin-writer-bugs
-    size: medium
-    description:
-      "reconcile-pass: run the applier over today's open entries after blocked-link
-      consumption; report renames and unrepaired cases in additive JSON and human
-      output; narrow and test the `type_mismatch` lint; write the docs, decision record,
-      and task-type glossary."
-  - id: ledger-tools-mirror
-    title: Ledger Tools JS mirror, api.themes additions, and inherited type marks
-    depends_on:
-      - agree-rule
-    size: medium
-    description:
-      "ledger-tools-mirror: copy the vectors, mirror `agreeEntry`, `settleClosed`, and
-      the relocation MEET guard in JS, expose them and an async `agreeLedgerEntries` on
-      api.themes, and let the type mark include inherited types."
-  - id: bob-writers
-    title: Bob-side writers agree the entries they touch
-    depends_on:
-      - agree-rule
-    size: medium
-    description:
-      "bob-writers: run the applier over every entry that a capture batch, `bob task
-      cancel` or `complete`, Ensure Next, or a D8 MoveTo source changes, and match
-      `find_live_link` on path plus block ID."
-  - id: bob-close-and-naming
-    title: Close settle and new typed entries in bob
-    depends_on:
-      - bob-writers
-    size: medium
-    description:
-      "bob-close-and-naming: close names settle to the worked types and the continuation
-      is agreement-stable; a capture `#NAME` / `=name` entry created by the same run
-      retypes the tasks landing in it."
-  - id: nav-writers
-    title: Navigation hotkeys writers agree the entries they touch
-    depends_on:
-      - plugin-writer-bugs
-      - ledger-tools-mirror
-    size: medium
-    description:
-      "nav-writers: agree every open entry that a deferred link cleanup, Ctrl+Shift+M
-      source, or Task Card MoveTo source touches, in the same write; Ctrl+Shift+M into a
-      new named entry retypes."
-  - id: prompt-and-cycler
-    title: Block ID Prompt writers and the task-status-cycler close
-    depends_on:
-      - ledger-tools-mirror
-    size: medium
-    description:
-      "prompt-and-cycler: block-id-prompt unlink, delete, and duplicate prune agree
-      touched entries, and its new-entry picker retypes; the cycler close settles the
-      closed name and keeps the continuation agreement-stable."
-  - id: audit-and-records
-    title: Live-vault audit, docs coherence, and the merged-Pomodoro glossary
-    depends_on:
-      - reconcile-pass
-      - bob-close-and-naming
-      - nav-writers
-      - prompt-and-cycler
-    size: small
-    description:
-      "audit-and-records: check the shared vectors are byte-identical, make the routing
-      and merged-Pomodoro docs read as one contract, update the merged-Pomodoro
-      glossary, and run a live-vault dry run, filing task beads for any writer that
-      still leaks."
+- id: plugin-writer-bugs
+  title: Fix the Obsidian rename regression and the Task Card live-link lookup
+  depends_on: []
+  size: medium
+  description: 'plugin-writer-bugs: in bob-navigation-hotkeys, make Pomodoro rename
+    (commit and preview) retype linked tasks again, and make the Task Card type, inbox
+    route, and note-move live-link lookup search open entries only, by vault path
+    plus block ID.'
+- id: agree-rule
+  title: Shared agreement rule, close settle, and Rust ledger applier
+  depends_on: []
+  size: medium
+  description: 'agree-rule: add the pure `agree_entry` and `settle_closed` planners,
+    the MEET guard in `relocate`, new shared vector sections, and one Rust applier
+    that agrees chosen entries in a day''s text through a pluggable task-type lookup.'
+- id: reconcile-pass
+  title: Type-agreement pass in bob task reconcile
+  depends_on:
+  - agree-rule
+  - plugin-writer-bugs
+  size: medium
+  description: 'reconcile-pass: run the applier over today''s open entries after blocked-link
+    consumption; report renames and unrepaired cases in additive JSON and human output;
+    narrow and test the `type_mismatch` lint; write the docs, decision record, and
+    task-type glossary.'
+- id: ledger-tools-mirror
+  title: Ledger Tools JS mirror, api.themes additions, and inherited type marks
+  depends_on:
+  - agree-rule
+  size: medium
+  description: 'ledger-tools-mirror: copy the vectors, mirror `agreeEntry`, `settleClosed`,
+    and the relocation MEET guard in JS, expose them and an async `agreeLedgerEntries`
+    on api.themes, and let the type mark include inherited types.'
+- id: bob-writers
+  title: Bob-side writers agree the entries they touch
+  depends_on:
+  - agree-rule
+  size: medium
+  description: 'bob-writers: run the applier over every entry that a capture batch,
+    `bob task cancel` or `complete`, Ensure Next, or a D8 MoveTo source changes, and
+    match `find_live_link` on path plus block ID.'
+- id: bob-close-and-naming
+  title: Close settle and new typed entries in bob
+  depends_on:
+  - bob-writers
+  size: medium
+  description: 'bob-close-and-naming: close names settle to the worked types and the
+    continuation is agreement-stable; a capture `#NAME` / `=name` entry created by
+    the same run retypes the tasks landing in it.'
+- id: nav-writers
+  title: Navigation hotkeys writers agree the entries they touch
+  depends_on:
+  - plugin-writer-bugs
+  - ledger-tools-mirror
+  size: medium
+  description: 'nav-writers: agree every open entry that a deferred link cleanup,
+    Ctrl+Shift+M source, or Task Card MoveTo source touches, in the same write; Ctrl+Shift+M
+    into a new named entry retypes.'
+- id: prompt-and-cycler
+  title: Block ID Prompt writers and the task-status-cycler close
+  depends_on:
+  - ledger-tools-mirror
+  size: medium
+  description: 'prompt-and-cycler: block-id-prompt unlink, delete, and duplicate prune
+    agree touched entries, and its new-entry picker retypes; the cycler close settles
+    the closed name and keeps the continuation agreement-stable.'
+- id: audit-and-records
+  title: Live-vault audit, docs coherence, and the merged-Pomodoro glossary
+  depends_on:
+  - reconcile-pass
+  - bob-close-and-naming
+  - nav-writers
+  - prompt-and-cycler
+  size: small
+  description: 'audit-and-records: check the shared vectors are byte-identical, make
+    the routing and merged-Pomodoro docs read as one contract, update the merged-Pomodoro
+    glossary, and run a live-vault dry run, filing task beads for any writer that
+    still leaks.'
 proposed_by: bbugyi200.athena.research.5q.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 10:26:32
 status: wip
+bead_id: bob-cli-hd
 ---
 
-- **PROMPT:**
-  [prompts/202611/pomodoro_names_follow_task_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/pomodoro_names_follow_task_types.md)
+- **PROMPT:** [prompts/202611/pomodoro_names_follow_task_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/pomodoro_names_follow_task_types.md)
+- **BEAD:** [bob-cli-hd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hd/README.md)
 
 # Plan: Open Pomodoro names follow their tasks' types
 
