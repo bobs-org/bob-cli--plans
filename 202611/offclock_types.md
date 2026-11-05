@@ -1,134 +1,128 @@
 ---
 tier: epic
-title: "offclock_types: off-clock by area and task type"
-goal: "Area and project notes accept an `offclock_types` list that sends only tasks of
-  the listed effective types off the clock, with the same result in bob-cli and the
-  Obsidian plugins, and the vault's love.md and body.md are migrated so that only their
-  MEET tasks are off-clock.
+title: 'offclock_types: off-clock by area and task type'
+goal: 'Area and project notes accept an `offclock_types` list that sends only tasks
+  of the listed effective types off the clock, with the same result in bob-cli and
+  the Obsidian plugins, and the vault''s love.md and body.md are migrated so that
+  only their MEET tasks are off-clock.
 
-  "
+  '
 decisions:
   cutover:
-    ask:
-      "When should love.md and body.md drop `offclock: true` after the dual-key step?"
+    ask: 'When should love.md and body.md drop `offclock: true` after the dual-key
+      step?'
     choices:
-      gate:
-        A staged gate removes it once you confirm every host has run just install-all
-      followup:
-        Both keys stay for now; the phase records a follow-up and you remove it later
+      gate: A staged gate removes it once you confirm every host has run just install-all
+      followup: Both keys stay for now; the phase records a follow-up and you remove
+        it later
       now: Removed right away; hosts not yet upgraded record love/body MEETs as Worked
     default: gate
-    why:
-      Hosts not yet upgraded keep today's rule until you confirm every host runs the new
-      code
+    why: Hosts not yet upgraded keep today's rule until you confirm every host runs
+      the new code
     answer: gate
   memory_decision_record:
-    ask:
-      Add an offclock_types decision record and mark
-      off-clock-follows-tag-then-note-default superseded in part?
+    ask: Add an offclock_types decision record and mark off-clock-follows-tag-then-note-default
+      superseded in part?
     memory:
-      - decisions
+    - decisions
     default: true
-    corrects:
-      "project `offclock: true|false` on the task's PT13 root walk; else on-clock."
+    corrects: 'project `offclock: true|false` on the task''s PT13 root walk; else
+      on-clock.'
     answer: true
   memory_glossary:
-    ask:
-      Update the off-clock-pomodoro, area-note, project-note, and event-task glossary
+    ask: Update the off-clock-pomodoro, area-note, project-note, and event-task glossary
       terms for offclock_types?
     memory:
-      - glossary:off-clock-pomodoro
-      - glossary:area-note
-      - glossary:project-note
-      - glossary:event-task
+    - glossary:off-clock-pomodoro
+    - glossary:area-note
+    - glossary:project-note
+    - glossary:event-task
     default: true
-    corrects:
-      "A session goes off the clock exactly when it keeps at least one [[task-link]] and
-      every one resolves off-clock: `#off` (deprecated `#offclock`, `#off-clock`,
+    corrects: 'A session goes off the clock exactly when it keeps at least one [[task-link]]
+      and every one resolves off-clock: `#off` (deprecated `#offclock`, `#off-clock`,
       `#untracked`) or an inherited area/project `offclock: true`, with `#on` and
-      `offclock: false` as overrides"
+      `offclock: false` as overrides'
     answer: true
 phases:
-  - id: clock-type-filter
-    title: bob-cli resolver, lints, shared vectors, and contract docs
-    depends_on: []
-    size: medium
-    description: "clock-type-filter: parse the `offclock_types` key, extract a
-      catalog-free effective-type helper shared with type suggestions, give HomeResolver
-      type rules, apply the nearest-declaration rule in the clock walk, add the shadowed
-      lint and key-naming messages, extend the shared clock vectors with a `config`
-      member and the new cases, and update every bob-cli doc that states the clock rule.
+- id: clock-type-filter
+  title: bob-cli resolver, lints, shared vectors, and contract docs
+  depends_on: []
+  size: medium
+  description: 'clock-type-filter: parse the `offclock_types` key, extract a catalog-free
+    effective-type helper shared with type suggestions, give HomeResolver type rules,
+    apply the nearest-declaration rule in the clock walk, add the shadowed lint and
+    key-naming messages, extend the shared clock vectors with a `config` member and
+    the new cases, and update every bob-cli doc that states the clock rule.
 
-      "
-  - id: clock-surfaces
-    title: gcal list preview and running-entry re-stamps on naming
-    depends_on:
-      - clock-type-filter
-    size: medium
-    description: "clock-surfaces: give the `bob gcal list` probe line `[type:: MEET]` so
-      preview matches sync; make `bob capture-pomodoro-name` and capture's `#type`
-      relocations that rename or move a running entry recompute that entry's clock key
-      in the same write; document that every other retype is corrected at close.
+    '
+- id: clock-surfaces
+  title: gcal list preview and running-entry re-stamps on naming
+  depends_on:
+  - clock-type-filter
+  size: medium
+  description: 'clock-surfaces: give the `bob gcal list` probe line `[type:: MEET]`
+    so preview matches sync; make `bob capture-pomodoro-name` and capture''s `#type`
+    relocations that rename or move a running entry recompute that entry''s clock
+    key in the same write; document that every other retype is corrected at close.
 
-      "
-  - id: type-rename-coverage
-    title: bob types rename and split cover offclock_types lists
-    depends_on:
-      - clock-type-filter
-    size: medium
-    description: "type-rename-coverage: `bob types rename` rewrites matching
-      `offclock_types` items in flow, block, and scalar form inside its existing
-      previewed transaction, removing duplicates when two types merge; `split` leaves
-      the lists alone and counts them in its leftover warning; update
-      docs/task-types.md.
+    '
+- id: type-rename-coverage
+  title: bob types rename and split cover offclock_types lists
+  depends_on:
+  - clock-type-filter
+  size: medium
+  description: 'type-rename-coverage: `bob types rename` rewrites matching `offclock_types`
+    items in flow, block, and scalar form inside its existing previewed transaction,
+    removing duplicates when two types merge; `split` leaves the lists alone and counts
+    them in its leftover warning; update docs/task-types.md.
 
-      "
-  - id: plugin-mirror
-    title: bob-plugins clock mirror and vector copies
-    depends_on:
-      - clock-type-filter
-    size: medium
-    description: "plugin-mirror: in the bob-plugins linked repo, teach bob-ledger-tools'
-      `taskEffectiveClockResolution` the same `offclock_types` rules with a type helper
-      that also handles closed tasks, copy the shared vectors byte for byte into both
-      plugin fixture directories, make the test harnesses honor `config`, update plugin
-      docs, rebuild, test, and run `bob plugins sync`.
+    '
+- id: plugin-mirror
+  title: bob-plugins clock mirror and vector copies
+  depends_on:
+  - clock-type-filter
+  size: medium
+  description: 'plugin-mirror: in the bob-plugins linked repo, teach bob-ledger-tools''
+    `taskEffectiveClockResolution` the same `offclock_types` rules with a type helper
+    that also handles closed tasks, copy the shared vectors byte for byte into both
+    plugin fixture directories, make the test harnesses honor `config`, update plugin
+    docs, rebuild, test, and run `bob plugins sync`.
 
-      "
-  - id: memory-records
-    title: Decision record and glossary updates
-    depends_on:
-      - clock-type-filter
-      - clock-surfaces
-      - type-rename-coverage
-    size: small
-    description: "memory-records: through /sase_memory_write, add the new decisions
-      strand, mark off-clock-follows-tag-then-note-default as superseded in part, update
-      the four glossary terms, then run `sase memory init`, `just docs-gen`, and `just
-      docs-check`.
+    '
+- id: memory-records
+  title: Decision record and glossary updates
+  depends_on:
+  - clock-type-filter
+  - clock-surfaces
+  - type-rename-coverage
+  size: small
+  description: 'memory-records: through /sase_memory_write, add the new decisions
+    strand, mark off-clock-follows-tag-then-note-default as superseded in part, update
+    the four glossary terms, then run `sase memory init`, `just docs-gen`, and `just
+    docs-check`.
 
-      "
-  - id: vault-migration
-    title: Dual-key love.md and body.md, then the cutover
-    depends_on:
-      - clock-surfaces
-      - plugin-mirror
-    size: small
-    description:
-      "vault-migration: record the drift baseline, add a block-list `offclock_types:
-      [MEET]` beside `offclock: true` in love.md and body.md, register the property as
-      multitext, verify with a workspace-built bob, and then handle removing `offclock:
-      true` as the cutover decision says."
+    '
+- id: vault-migration
+  title: Dual-key love.md and body.md, then the cutover
+  depends_on:
+  - clock-surfaces
+  - plugin-mirror
+  size: small
+  description: 'vault-migration: record the drift baseline, add a block-list `offclock_types:
+    [MEET]` beside `offclock: true` in love.md and body.md, register the property
+    as multitext, verify with a workspace-built bob, and then handle removing `offclock:
+    true` as the cutover decision says.'
 proposed_by: bbugyi200.apollo.research.3c.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 10:03:51
 status: wip
+bead_id: bob-cli-hc
 ---
 
-- **PROMPT:**
-  [prompts/202611/offclock_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/offclock_types.md)
+- **PROMPT:** [prompts/202611/offclock_types.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/offclock_types.md)
+- **BEAD:** [bob-cli-hc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hc/README.md)
 
 # Plan: `offclock_types`, off-clock by area and task type
 
