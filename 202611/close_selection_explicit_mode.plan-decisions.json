@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "drop_lists_explicit",
+      "kind": "choice",
+      "ask": "Should a `~<K>` list alone (for example `x~2`) also switch the close to explicit mode?",
+      "why": "One rule (any number means you are listing) with no per-marker exception",
+      "choices": [
+        {
+          "key": "any_number",
+          "label": "x~2 drops 2 and defers the rest (same as x0~2); write x1,3~2 to drop 2 and work 1 and 3"
+        },
+        {
+          "key": "drop_only",
+          "label": "`~` only removes: x~2 drops 2 and every other link keeps its ledger default"
+        }
+      ],
+      "default": "any_number",
+      "effective_default": "any_number",
+      "requested_verified": false
+    },
+    {
+      "id": "event_clock_in_explicit",
+      "kind": "choice",
+      "ask": "In explicit mode, should unlisted Event Task links defer instead of taking their clock default?",
+      "why": "A clock default is still a default include; keeping it would restore an exception",
+      "choices": [
+        {
+          "key": "defer_unlisted",
+          "label": "x!3 defers an unlisted meeting that ended inside the session; write x!1,3 to count it"
+        },
+        {
+          "key": "keep_clock",
+          "label": "Unlisted Event Tasks keep clock defaults in every mode, as a documented exception"
+        }
+      ],
+      "default": "defer_unlisted",
+      "effective_default": "defer_unlisted",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_close_selection_record",
+      "kind": "toggle",
+      "ask": "Add decision record close-selections-list-explicitly and mark the Event Task clock record superseded-in-part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:close-selections-list-explicitly",
+          "decisions:event-task-links-close-by-the-clock"
+        ]
+      },
+      "corrects": "On a timed Pomodoro close, an unlisted plain Task Link to an Event Task ([[glossary:event-task]]) in the same canonical daily note is classified by its local span and the session start `S` and close time `C`",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:close-selections-list-explicitly",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/close-selections-list-explicitly.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:event-task-links-close-by-the-clock",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Event Task Links Close By The Clock"
+          ]
+        }
+      ]
+    }
+  ]
+}
