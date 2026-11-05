@@ -1,81 +1,74 @@
 ---
 tier: epic
 title: Place past Pomodoros on today's timeline with the x= segment suffix
-goal: "`x=E[~|~n|~n+|~~][!][=X]` records past work against an edge of today's timeline
-  (the tail since the last closed Pomodoro, a closed Pomodoro, a gap, or the head before
-  the first row). Placement is exact and guarded, every cut is reported, and a plain
-  `x=` stays byte-for-byte unchanged. bob ships a segment picker, a typed `-` to `~`
-  assist, and a stale-preview guard. Bob Mac Capture renders the suffix, the picker, and
-  a card that names the segment.
+goal: '`x=E[~|~n|~n+|~~][!][=X]` records past work against an edge of today''s timeline
+  (the tail since the last closed Pomodoro, a closed Pomodoro, a gap, or the head
+  before the first row). Placement is exact and guarded, every cut is reported, and
+  a plain `x=` stays byte-for-byte unchanged. bob ships a segment picker, a typed
+  `-` to `~` assist, and a stale-preview guard. Bob Mac Capture renders the suffix,
+  the picker, and a card that names the segment.
 
-  "
+  '
 phases:
-  - id: timeline
-    title: Timeline catalog and pinned layout engine
-    depends_on: []
-    size: medium
-    description:
-      "timeline: add a pure pomodoro_timeline module that turns today's ledger into
-      numbered segments (closed Pomodoros, gaps, tail, head, walls) and lays a run of
-      windows out from a pin with exact, capped, and cut lengths; heavily unit-tested,
-      not yet wired."
-  - id: grammar
-    title: Segment suffix lexer, pins, spans, and teaching errors
-    depends_on: []
-    size: medium
-    description:
-      "grammar: lex the optional suffix at the end of E, carry it on PomodoroPastSpec,
-      compute one pin per run with misplaced/double-pin diagnostics, emit the
-      pomodoro_past_segment span and capture-parse JSON, and replace the old ~/dash
-      teaching errors; execution refuses suffixed tokens until record lands."
-  - id: record
-    title: Record pinned runs end to end and ship grammar 14
-    depends_on:
-      - timeline
-      - grammar
-    size: medium
-    description:
-      "record: wire the timeline and layout into plan.rs for pinned runs (snapshot
-      first, unpinned runs untouched), add guard hints and the same-capture trim rule,
-      report segment and cut in capture JSON and human output, document the feature, and
-      bump the grammar to 14."
-  - id: assists
-    title: Segment picker, dash-to-tilde rewrite, and submit guards
-    depends_on:
-      - record
-    size: medium
-    description:
-      "assists: add the pomodoro_past_segment completion context and candidates (plus
-      zsh), the - to ~ arm of capture-rewrite, the hidden --expect-past-windows
-      stale-preview guard, and the shell-expanded-tilde refusal, with docs and help."
-  - id: decision
-    title: Decision record for segment placement
-    depends_on:
-      - record
-    size: small
-    description:
-      "decision: author the accepted decisions strand that records segment placement,
-      one pin per run, exact typed counts, the now cut, and unchanged ! semantics, then
-      regenerate memory."
-  - id: mac
-    title: Bob Mac Capture segment typing, picker, card, and guard
-    depends_on:
-      - assists
-    size: medium
-    description:
-      "mac: add - to the rewrite trigger keys, style the segment span, render picker
-      rows, decode and show the segment line and cut note on the past card, and send
-      --expect-past-windows with a re-preview on refusal; regenerate fixtures and update
-      protocol docs."
+- id: timeline
+  title: Timeline catalog and pinned layout engine
+  depends_on: []
+  size: medium
+  description: 'timeline: add a pure pomodoro_timeline module that turns today''s
+    ledger into numbered segments (closed Pomodoros, gaps, tail, head, walls) and
+    lays a run of windows out from a pin with exact, capped, and cut lengths; heavily
+    unit-tested, not yet wired.'
+- id: grammar
+  title: Segment suffix lexer, pins, spans, and teaching errors
+  depends_on: []
+  size: medium
+  description: 'grammar: lex the optional suffix at the end of E, carry it on PomodoroPastSpec,
+    compute one pin per run with misplaced/double-pin diagnostics, emit the pomodoro_past_segment
+    span and capture-parse JSON, and replace the old ~/dash teaching errors; execution
+    refuses suffixed tokens until record lands.'
+- id: record
+  title: Record pinned runs end to end and ship grammar 14
+  depends_on:
+  - timeline
+  - grammar
+  size: medium
+  description: 'record: wire the timeline and layout into plan.rs for pinned runs
+    (snapshot first, unpinned runs untouched), add guard hints and the same-capture
+    trim rule, report segment and cut in capture JSON and human output, document the
+    feature, and bump the grammar to 14.'
+- id: assists
+  title: Segment picker, dash-to-tilde rewrite, and submit guards
+  depends_on:
+  - record
+  size: medium
+  description: 'assists: add the pomodoro_past_segment completion context and candidates
+    (plus zsh), the - to ~ arm of capture-rewrite, the hidden --expect-past-windows
+    stale-preview guard, and the shell-expanded-tilde refusal, with docs and help.'
+- id: decision
+  title: Decision record for segment placement
+  depends_on:
+  - record
+  size: small
+  description: 'decision: author the accepted decisions strand that records segment
+    placement, one pin per run, exact typed counts, the now cut, and unchanged ! semantics,
+    then regenerate memory.'
+- id: mac
+  title: Bob Mac Capture segment typing, picker, card, and guard
+  depends_on:
+  - assists
+  size: medium
+  description: 'mac: add - to the rewrite trigger keys, style the segment span, render
+    picker rows, decode and show the segment line and cut note on the past card, and
+    send --expect-past-windows with a re-preview on refusal; regenerate fixtures and
+    update protocol docs.'
 decisions:
   decision_record:
     ask: Add a new accepted decisions strand recording the x= segment-suffix design?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Review the past_pomodoro_segment_suffix.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    requested: Review the past_pomodoro_segment_suffix.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file
     answer: false
 proposed_by: bbugyi200.athena.18s
@@ -84,10 +77,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 14:25:22
 status: wip
+bead_id: bob-cli-hj
 ---
 
-- **PROMPT:**
-  [prompts/202611/past_pomodoro_segment_suffix.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/past_pomodoro_segment_suffix.md)
+- **PROMPT:** [prompts/202611/past_pomodoro_segment_suffix.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/past_pomodoro_segment_suffix.md)
+- **BEAD:** [bob-cli-hj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hj/README.md)
 
 # Plan: Place past Pomodoros on today's timeline (`x=` segment suffix)
 
