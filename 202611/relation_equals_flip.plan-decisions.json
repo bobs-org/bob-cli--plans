@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "filter_scope",
+      "kind": "choice",
+      "ask": "Should `=` flip direction anywhere in a relation picker's filter, exactly like `~` does?",
+      "why": "It mirrors the `~` contract you asked to copy, and relation searches almost never need `=`.",
+      "choices": [
+        {
+          "key": "anywhere",
+          "label": "`=` flips at any filter text, like `~`; a relation filter can no longer contain a typed `=`"
+        },
+        {
+          "key": "empty_only",
+          "label": "`=` flips only while the filter is empty; after a typed query, `=` enters the filter as text"
+        }
+      ],
+      "default": "anywhere",
+      "effective_default": "anywhere",
+      "requested_verified": false
+    }
+  ]
+}
