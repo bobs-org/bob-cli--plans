@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "busy_notice",
+      "kind": "choice",
+      "ask": "Should a Task Card key swallowed by the review-walk settle lock show a short notice?",
+      "why": "A silent swallow looks exactly like a broken keymap, which is this bug report",
+      "choices": [
+        {
+          "key": "notice",
+          "label": "Key is still swallowed, but a toast says \"press Alt+P again\"; double presses show it too"
+        },
+        {
+          "key": "silent",
+          "label": "Stays silent; a fast press right after a landing still looks like a broken key"
+        }
+      ],
+      "default": "notice",
+      "effective_default": "notice",
+      "requested_verified": false
+    },
+    {
+      "id": "e2e",
+      "kind": "choice",
+      "ask": "Should the fix ship with a committed real-Obsidian regression e2e for Alt+P?",
+      "why": "Unit stubs never evaluate CSS, which is how the invisible card shipped with green tests",
+      "choices": [
+        {
+          "key": "repo_e2e",
+          "label": "Commit a real-Obsidian e2e plus offline self-test in npm test, like the decay-ladder e2e"
+        },
+        {
+          "key": "one_off",
+          "label": "Verify once in a throwaway run; commit only unit tests"
+        }
+      ],
+      "default": "repo_e2e",
+      "effective_default": "repo_e2e",
+      "requested_verified": false
+    }
+  ]
+}
