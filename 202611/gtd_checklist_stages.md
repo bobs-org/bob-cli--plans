@@ -1,100 +1,94 @@
 ---
 tier: epic
 title: Checklist stages and period-draft launches for the morning GTD walk
-goal: "PRE and POST checklist rows walk in a deliberate, configured order of named
+goal: 'PRE and POST checklist rows walk in a deliberate, configured order of named
   stages (terminal → periods → browser → everything else in PRE; periods → Morning
-  review in POST) that every review surface shows the same way, and three recurring PRE
-  rows remind Bryan, on each period-review day, to launch the agents that draft last
-  week's, quarter's, and year's period-note Reviews.
+  review in POST) that every review surface shows the same way, and three recurring
+  PRE rows remind Bryan, on each period-review day, to launch the agents that draft
+  last week''s, quarter''s, and year''s period-note Reviews.
 
-  "
+  '
 decisions:
   decision_record:
     ask: Record the checklist-stages design as a new accepted decisions record?
     memory:
-      - decisions
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    - decisions
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     default: true
     answer: false
   glossary_term:
     ask: Add a "Checklist Stage" glossary term so agents share the new vocabulary?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 phases:
-  - id: walk_order
-    title: Checklist stages in the bob-cli evaluator, CLI, and contract
-    depends_on: []
-    size: medium
-    description:
-      "walk_order: parse and validate freshness.pre_stages/post_stages, resolve each
-      PRE/POST row's stage, sort PRE/POST by stage rank then path and line, add three
-      lints, schema-16 JSON, the human stage detail, the shared CS/SC fixture, and the
-      freshness contract and guide docs."
-  - id: period_ids
-    title: Relative period ids (last-week, last-quarter, last-year) in bob periods
-    depends_on: []
-    size: small
-    description:
-      "period_ids: accept last-week, last-quarter, and last-year wherever bob periods
-      show, brief, and draft take a PERIOD, resolved against today, so the launch rows
-      can carry one paste-ready agent prompt forever."
-  - id: ledger_order
-    title: Checklist stages in bob-ledger-tools (JS mirror, namespace v14, footer)
-    depends_on:
-      - walk_order
-    size: medium
-    description:
-      "ledger_order: mirror the stage config, resolver, and comparator in the JS
-      evaluator against a byte-for-byte copy of the shared fixture, expose stage fields
-      under freshness namespace v14 checklistStages, and show the stage in the review
-      footer and landing toasts."
-  - id: stage_labels
-    title: Stage labels beside the sunrise and flag in the editor
-    depends_on:
-      - ledger_order
-    size: medium
-    description:
-      "stage_labels: specify and render a quiet small-caps stage label right after the
-      PRE sunrise / POST flag in Live Preview and Reading view, only for a configured
-      stage tag adjacent to the identity run, with tooltip, reveal, toggle, and
-      light/dark checks."
-  - id: nav_ticks
-    title: Stage-end ticks and staged-advance regression tests in navigation
-    depends_on:
-      - ledger_order
-    size: small
-    description:
-      "nav_ticks: add the quiet STAGE ✓ tick to Ctrl+Enter done lines when a stage's
-      last due row is completed, and lock in queue-order advance when the next staged
-      row sits above the cursor."
-  - id: rollout
-    title: Config, vault rows, end-to-end verification, and the decision record
-    depends_on:
-      - walk_order
-      - period_ids
-      - ledger_order
-      - stage_labels
-      - nav_ticks
-    size: small
-    description:
-      "rollout: add the stage lists to the chezmoi-managed bob config, tag the existing
-      gtd_daily rows, add the three launch rows, reword the review rows, verify the
-      Monday walk, and write the accepted memory records."
+- id: walk_order
+  title: Checklist stages in the bob-cli evaluator, CLI, and contract
+  depends_on: []
+  size: medium
+  description: 'walk_order: parse and validate freshness.pre_stages/post_stages, resolve
+    each PRE/POST row''s stage, sort PRE/POST by stage rank then path and line, add
+    three lints, schema-16 JSON, the human stage detail, the shared CS/SC fixture,
+    and the freshness contract and guide docs.'
+- id: period_ids
+  title: Relative period ids (last-week, last-quarter, last-year) in bob periods
+  depends_on: []
+  size: small
+  description: 'period_ids: accept last-week, last-quarter, and last-year wherever
+    bob periods show, brief, and draft take a PERIOD, resolved against today, so the
+    launch rows can carry one paste-ready agent prompt forever.'
+- id: ledger_order
+  title: Checklist stages in bob-ledger-tools (JS mirror, namespace v14, footer)
+  depends_on:
+  - walk_order
+  size: medium
+  description: 'ledger_order: mirror the stage config, resolver, and comparator in
+    the JS evaluator against a byte-for-byte copy of the shared fixture, expose stage
+    fields under freshness namespace v14 checklistStages, and show the stage in the
+    review footer and landing toasts.'
+- id: stage_labels
+  title: Stage labels beside the sunrise and flag in the editor
+  depends_on:
+  - ledger_order
+  size: medium
+  description: 'stage_labels: specify and render a quiet small-caps stage label right
+    after the PRE sunrise / POST flag in Live Preview and Reading view, only for a
+    configured stage tag adjacent to the identity run, with tooltip, reveal, toggle,
+    and light/dark checks.'
+- id: nav_ticks
+  title: Stage-end ticks and staged-advance regression tests in navigation
+  depends_on:
+  - ledger_order
+  size: small
+  description: 'nav_ticks: add the quiet STAGE ✓ tick to Ctrl+Enter done lines when
+    a stage''s last due row is completed, and lock in queue-order advance when the
+    next staged row sits above the cursor.'
+- id: rollout
+  title: Config, vault rows, end-to-end verification, and the decision record
+  depends_on:
+  - walk_order
+  - period_ids
+  - ledger_order
+  - stage_labels
+  - nav_ticks
+  size: small
+  description: 'rollout: add the stage lists to the chezmoi-managed bob config, tag
+    the existing gtd_daily rows, add the three launch rows, reword the review rows,
+    verify the Monday walk, and write the accepted memory records.'
 proposed_by: bbugyi200.athena.193
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 18:44:49
 status: wip
+bead_id: bob-cli-ho
 ---
 
-- **PROMPT:**
-  [prompts/202611/gtd_checklist_stages.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gtd_checklist_stages.md)
+- **PROMPT:** [prompts/202611/gtd_checklist_stages.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gtd_checklist_stages.md)
+- **BEAD:** [bob-cli-ho](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ho/README.md)
 
 # Checklist stages and period-draft launches for the morning GTD walk
 
