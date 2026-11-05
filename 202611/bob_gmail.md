@@ -1,23 +1,22 @@
 ---
 tier: epic
-title: "bob gmail: mail notes you choose, linked from tasks, sent through Gmail drafts"
-goal: "A Gmail link in a capture, a paste, or a picker becomes a labelled link to an
-  inert, beautifully rendered, append-only mail note in the vault; replies and new mail
-  are written in Obsidian and sent only through a previewed, confirmed Gmail draft; the
-  phone feeds the vault through a `bob` label — all without capture ever touching the
-  network and without sender text ever executing in the vault.
+title: 'bob gmail: mail notes you choose, linked from tasks, sent through Gmail drafts'
+goal: 'A Gmail link in a capture, a paste, or a picker becomes a labelled link to
+  an inert, beautifully rendered, append-only mail note in the vault; replies and
+  new mail are written in Obsidian and sent only through a previewed, confirmed Gmail
+  draft; the phone feeds the vault through a `bob` label — all without capture ever
+  touching the network and without sender text ever executing in the vault.
 
-  "
+  '
 decisions:
   default_body:
     ask: Should saved mail notes keep full message bodies by default?
     choices:
-      full:
-        Save full bodies; `-B headers` per save and `never_save` keep sensitive mail out
+      full: Save full bodies; `-B headers` per save and `never_save` keep sensitive
+        mail out
       headers: Save headers plus Gmail's snippet only; `-B full` per save adds bodies
     default: full
-    why:
-      Offline reading and a durable copy are the point; sensitive mail is the exception
+    why: Offline reading and a durable copy are the point; sensitive mail is the exception
     answer: full
   link_label:
     ask: What should the link that replaces a Gmail URL say?
@@ -25,171 +24,159 @@ decisions:
       subject_who: ✉️ Subject · Who — says what and who; task lines run a little longer
       subject: ✉️ Subject only — shorter task lines; the sender lives inside the note
     default: subject_who
-    why:
-      The subject says what, the counterpart says who; both matter when triaging tasks
+    why: The subject says what, the counterpart says who; both matter when triaging
+      tasks
     answer: subject_who
   memory_gmail_decisions:
-    ask:
-      Should phases add decision records for inert mail snapshots, offline capture
+    ask: Should phases add decision records for inert mail snapshots, offline capture
       links, and draft-first sends?
     memory:
-      - decisions:mail-notes-are-inert-snapshots
-      - decisions:capture-never-fetches-mail
-      - decisions:gmail-sends-go-through-drafts
+    - decisions:mail-notes-are-inert-snapshots
+    - decisions:capture-never-fetches-mail
+    - decisions:gmail-sends-go-through-drafts
     default: false
     answer: false
   memory_mail_note_term:
     ask: Should gmail-save add a Mail Note glossary term?
     memory:
-      - glossary:mail-note
+    - glossary:mail-note
     default: false
     answer: false
   memory_inbox_file:
     ask: Should gmail-pull-attach update the Inbox File term to name gmail_inbox.md?
     memory:
-      - glossary:inbox-file
+    - glossary:inbox-file
     default: true
     corrects: (today `mac_inbox.md` and `gkeep_inbox.md`)
     answer: true
 phases:
-  - id: google-plumbing
-    title: Shared Google and gog plumbing extracted from gcal
-    depends_on: []
-    size: medium
-    description:
-      "google-plumbing: move gcal's service-agnostic gog transport, sign-in, client
-      discovery, account choice, and failure classification into src/native/google/
-      behind a service profile, with gcal behavior byte-identical."
-  - id: gmail-ids
-    title: Offline Gmail URL parser, token decoder, and text scanner
-    depends_on: []
-    size: small
-    description:
-      "gmail-ids: pure parsing of every Gmail URL form, the base-40 token decode to API
-      ids, refusal of compose/chat links, and a scanner that finds Gmail URLs (with
-      their wrappers) in Markdown outside code."
-  - id: mail-body
-    title: Message model and inert body renderer
-    depends_on: []
-    size: large
-    description:
-      "mail-body: typed model of gog's thread JSON plus a pure renderer that turns each
-      message's MIME tree into safe, readable Markdown (HTML sanitize, quote and
-      signature folding, bulletin mode, image handling) and the mandatory inert pass."
-  - id: gmail-shell
-    title: bob gmail noun group, config, login, logout, and doctor
-    depends_on:
-      - google-plumbing
-    size: medium
-    description:
-      "gmail-shell: register `bob gmail`, parse the `gmail:` config block, add Gmail
-      read methods to the gog transport, ship login/logout/doctor on the isolated
-      bob-gmail client, the test harness, catalog rows, and the first docs."
-  - id: mail-note
-    title: Mail note layout, label, path, index, and append-only refresh
-    depends_on:
-      - mail-body
-    size: medium
-    description:
-      "mail-note: assemble rendered messages into the mail note file (frontmatter,
-      summary, cards, markers), compute paths and link labels, parse existing notes,
-      merge refreshes append-only, index saved threads, and template the mail hub."
-  - id: gmail-save
-    title: bob gmail save and list
-    depends_on:
-      - gmail-shell
-      - gmail-ids
-      - mail-note
-    size: large
-    description:
-      "gmail-save: resolve URL/ID/note inputs to a confirmed thread, fetch it, write or
-      refresh the mail note with inline images under the vault lock, honor headers mode,
-      never_save, and the writer host, commit, journal, and list saved threads offline."
-  - id: gmail-link
-    title: bob gmail link — swap Gmail URLs for labelled links, and backfill
-    depends_on:
-      - gmail-save
-    size: medium
-    description:
-      "gmail-link: find Gmail URLs in named notes or the whole vault, save each
-      confirmed thread, replace exactly those URL tokens with labelled wikilinks under
-      the lock, remember dead links, preview with a diff, and report waiting links in
-      list."
-  - id: capture-gmail
-    title: Capture recognizes Gmail URLs and links them after submit
-    depends_on:
-      - gmail-link
-    size: medium
-    description:
-      "capture-gmail: add the gmail_url capture-parse span and dry-run preview data,
-      link already-saved threads offline at submit, and kick a detached single-flight
-      `bob gmail link` worker after commit, with the grammar and docs updated."
-  - id: gmail-search-peek
-    title: bob gmail search, peek, and list --remote
-    depends_on:
-      - gmail-save
-    size: medium
-    description:
-      "gmail-search-peek: bounded thread search for pickers, a read-only metadata peek
-      with a small private cache for live previews, and remote new-message counts for
-      saved threads."
-  - id: plugin-mail
-    title: Bob Mail Obsidian plugin — styles, Link email picker, paste-to-link
-    depends_on:
-      - gmail-search-peek
-    size: medium
-    description:
-      "plugin-mail: new bob-mail plugin in bob-plugins with the mail callout stylesheet,
-      the Link email picker, paste-to-link, Open in Gmail, Refresh this email, Task from
-      this email, and a Command Mode clipboard row."
-  - id: mac-gmail-preview
-    title: Bob Mac Capture shows Gmail links in the panel
-    depends_on:
-      - capture-gmail
-      - gmail-search-peek
-    size: medium
-    description:
-      "mac-gmail-preview: decode and paint the gmail_url span, show each item's Gmail
-      preview line, and after typing settles show the real subject and sender from `bob
-      gmail peek`, green on macOS CI."
-  - id: gmail-compose
-    title: Compose, reply, draft, and confirmed send
-    depends_on:
-      - gmail-save
-    size: large
-    description:
-      "gmail-compose: compose notes and Reply sections, Markdown-to-email rendering with
-      refusals, Gmail drafts recorded by id, an exact digest-bound preview, send by
-      draft id with crash recovery, the compose scope, and the sent card."
-  - id: plugin-compose
-    title: Bob Mail compose surface in Obsidian
-    depends_on:
-      - gmail-compose
-      - plugin-mail
-    size: medium
-    description:
-      "plugin-compose: New email, Reply, Reply all, Save draft, and Send commands in
-      bob-mail, with a send modal that renders bob's exact preview, binds the
-      confirmation to its digest, and offers a short undo countdown."
-  - id: gmail-pull-attach
-    title: bob gmail pull from the bob label, and attachments on demand
-    depends_on:
-      - gmail-save
-    size: medium
-    description:
-      "gmail-pull-attach: a read-only, idempotent pull of threads labelled `bob` into
-      tasks in gmail_inbox.md linking saved notes, plus `bob gmail attach` to import one
-      attachment through the attachment journal."
+- id: google-plumbing
+  title: Shared Google and gog plumbing extracted from gcal
+  depends_on: []
+  size: medium
+  description: 'google-plumbing: move gcal''s service-agnostic gog transport, sign-in,
+    client discovery, account choice, and failure classification into src/native/google/
+    behind a service profile, with gcal behavior byte-identical.'
+- id: gmail-ids
+  title: Offline Gmail URL parser, token decoder, and text scanner
+  depends_on: []
+  size: small
+  description: 'gmail-ids: pure parsing of every Gmail URL form, the base-40 token
+    decode to API ids, refusal of compose/chat links, and a scanner that finds Gmail
+    URLs (with their wrappers) in Markdown outside code.'
+- id: mail-body
+  title: Message model and inert body renderer
+  depends_on: []
+  size: large
+  description: 'mail-body: typed model of gog''s thread JSON plus a pure renderer
+    that turns each message''s MIME tree into safe, readable Markdown (HTML sanitize,
+    quote and signature folding, bulletin mode, image handling) and the mandatory
+    inert pass.'
+- id: gmail-shell
+  title: bob gmail noun group, config, login, logout, and doctor
+  depends_on:
+  - google-plumbing
+  size: medium
+  description: 'gmail-shell: register `bob gmail`, parse the `gmail:` config block,
+    add Gmail read methods to the gog transport, ship login/logout/doctor on the isolated
+    bob-gmail client, the test harness, catalog rows, and the first docs.'
+- id: mail-note
+  title: Mail note layout, label, path, index, and append-only refresh
+  depends_on:
+  - mail-body
+  size: medium
+  description: 'mail-note: assemble rendered messages into the mail note file (frontmatter,
+    summary, cards, markers), compute paths and link labels, parse existing notes,
+    merge refreshes append-only, index saved threads, and template the mail hub.'
+- id: gmail-save
+  title: bob gmail save and list
+  depends_on:
+  - gmail-shell
+  - gmail-ids
+  - mail-note
+  size: large
+  description: 'gmail-save: resolve URL/ID/note inputs to a confirmed thread, fetch
+    it, write or refresh the mail note with inline images under the vault lock, honor
+    headers mode, never_save, and the writer host, commit, journal, and list saved
+    threads offline.'
+- id: gmail-link
+  title: bob gmail link — swap Gmail URLs for labelled links, and backfill
+  depends_on:
+  - gmail-save
+  size: medium
+  description: 'gmail-link: find Gmail URLs in named notes or the whole vault, save
+    each confirmed thread, replace exactly those URL tokens with labelled wikilinks
+    under the lock, remember dead links, preview with a diff, and report waiting links
+    in list.'
+- id: capture-gmail
+  title: Capture recognizes Gmail URLs and links them after submit
+  depends_on:
+  - gmail-link
+  size: medium
+  description: 'capture-gmail: add the gmail_url capture-parse span and dry-run preview
+    data, link already-saved threads offline at submit, and kick a detached single-flight
+    `bob gmail link` worker after commit, with the grammar and docs updated.'
+- id: gmail-search-peek
+  title: bob gmail search, peek, and list --remote
+  depends_on:
+  - gmail-save
+  size: medium
+  description: 'gmail-search-peek: bounded thread search for pickers, a read-only
+    metadata peek with a small private cache for live previews, and remote new-message
+    counts for saved threads.'
+- id: plugin-mail
+  title: Bob Mail Obsidian plugin — styles, Link email picker, paste-to-link
+  depends_on:
+  - gmail-search-peek
+  size: medium
+  description: 'plugin-mail: new bob-mail plugin in bob-plugins with the mail callout
+    stylesheet, the Link email picker, paste-to-link, Open in Gmail, Refresh this
+    email, Task from this email, and a Command Mode clipboard row.'
+- id: mac-gmail-preview
+  title: Bob Mac Capture shows Gmail links in the panel
+  depends_on:
+  - capture-gmail
+  - gmail-search-peek
+  size: medium
+  description: 'mac-gmail-preview: decode and paint the gmail_url span, show each
+    item''s Gmail preview line, and after typing settles show the real subject and
+    sender from `bob gmail peek`, green on macOS CI.'
+- id: gmail-compose
+  title: Compose, reply, draft, and confirmed send
+  depends_on:
+  - gmail-save
+  size: large
+  description: 'gmail-compose: compose notes and Reply sections, Markdown-to-email
+    rendering with refusals, Gmail drafts recorded by id, an exact digest-bound preview,
+    send by draft id with crash recovery, the compose scope, and the sent card.'
+- id: plugin-compose
+  title: Bob Mail compose surface in Obsidian
+  depends_on:
+  - gmail-compose
+  - plugin-mail
+  size: medium
+  description: 'plugin-compose: New email, Reply, Reply all, Save draft, and Send
+    commands in bob-mail, with a send modal that renders bob''s exact preview, binds
+    the confirmation to its digest, and offers a short undo countdown.'
+- id: gmail-pull-attach
+  title: bob gmail pull from the bob label, and attachments on demand
+  depends_on:
+  - gmail-save
+  size: medium
+  description: 'gmail-pull-attach: a read-only, idempotent pull of threads labelled
+    `bob` into tasks in gmail_inbox.md linking saved notes, plus `bob gmail attach`
+    to import one attachment through the attachment journal.'
 proposed_by: bbugyi200.apollo.cn
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-05 12:37:46
 status: wip
+bead_id: bob-cli-hg
 ---
 
-- **PROMPT:**
-  [prompts/202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_gmail.md)
+- **PROMPT:** [prompts/202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_gmail.md)
+- **BEAD:** [bob-cli-hg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hg/README.md)
 
 # Plan: `bob gmail` — mail notes you choose, linked from tasks, sent through Gmail drafts
 
