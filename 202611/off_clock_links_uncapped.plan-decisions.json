@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "off_clock_count_display",
+      "kind": "choice",
+      "ask": "Should the TODAY tooltip and the `bob plan` meter say how many off-clock links were left out?",
+      "why": "Without a note the TODAY count silently stops matching the links visible in the ledger.",
+      "choices": [
+        {
+          "key": "shown",
+          "label": "Tooltip and `bob plan` add \"N off-clock uncapped\" so a smaller count is explained"
+        },
+        {
+          "key": "hidden",
+          "label": "Only JSON `off_clock` reports them; visible text changes only by the smaller count"
+        }
+      ],
+      "default": "shown",
+      "effective_default": "shown",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should a new decisions record capture the off-clock-links-are-uncapped rule?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:off-clock-links-are-uncapped"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:off-clock-links-are-uncapped",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/off-clock-links-are-uncapped.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
