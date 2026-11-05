@@ -1,103 +1,96 @@
 ---
 tier: epic
-title: "Capture `<`: merge existing tasks into the task you are creating"
-goal: "A capture line that creates one open task can end with `< @route+id …` to fold
-  one or more existing tasks into that new task through the explicit merge engine, in
-  one all-or-nothing capture whose vault bytes equal today's two-item `>` draft. Misuse
-  teaches the right spelling with one-key rewrites, and Bob Mac Capture previews the
-  merge as a calm, concise purple band inside the ordinary new-task card.
+title: 'Capture `<`: merge existing tasks into the task you are creating'
+goal: 'A capture line that creates one open task can end with `< @route+id …` to fold
+  one or more existing tasks into that new task through the explicit merge engine,
+  in one all-or-nothing capture whose vault bytes equal today''s two-item `>` draft.
+  Misuse teaches the right spelling with one-key rewrites, and Bob Mac Capture previews
+  the merge as a calm, concise purple band inside the ordinary new-task card.
 
-  "
+  '
 decisions:
   pull_in_title_count:
-    ask:
-      Should the merge-only Pull-In title count only sources that actually lost a live
-      Task Link?
+    ask: Should the merge-only Pull-In title count only sources that actually lost
+      a live Task Link?
     default: true
-    why:
-      The title names the slot the new task takes; an unlinked source vacated no slot.
+    why: The title names the slot the new task takes; an unlinked source vacated no
+      slot.
     answer: true
   memory_task_merge_glossary:
-    ask: Update glossary:task-merge so its list of merge gestures includes capture `<`?
+    ask: Update glossary:task-merge so its list of merge gestures includes capture
+      `<`?
     memory:
-      - glossary:task-merge
+    - glossary:task-merge
     default: true
-    corrects:
-      note section through `bob task merge`, capture's `>`, or the configured `merged
-      into`
+    corrects: note section through `bob task merge`, capture's `>`, or the configured
+      `merged into`
     answer: true
   memory_merge_in_decision:
-    ask:
-      Record a new decision that capture `<` is an explicit merge into the new task,
-      kept a task item?
+    ask: Record a new decision that capture `<` is an explicit merge into the new
+      task, kept a task item?
     memory:
-      - decisions:capture-merge-in-arrow
+    - decisions:capture-merge-in-arrow
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract and docs
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the `<` contract into docs/capture.md, the capture-syntax
-      reference, task-merge.md, and task-relations.md, with MI vectors and search-smoke
-      rows, marked contract-only."
-  - id: grammar
-    title: Grammar, editor parse, and teaching refusals
-    depends_on:
-      - contract
-    size: large
-    description:
-      "grammar: add the shared merge-in scanner, claim it in execution and editor
-      parsing before fan-out, gate it on a single open new task, ship structured
-      rewrites and grammar 15, and refuse execution until the next phase lands."
-  - id: execute
-    title: One-transaction execution, output, and copy fixes
-    depends_on:
-      - grammar
-    size: large
-    description:
-      "execute: stage the new task, then run one explicit merge into it through a helper
-      lifted from the `>` path; report merges, offers, origins, and pending context; fix
-      bob-cli-hi merge copy; add the shell guard."
-  - id: assist
-    title: Pickers, rewrite toggle, and Similar tasks
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "assist: give `<` source slots a merge-only picker with ID-less rows and comma
-      multi-pick, the `+` separator toggle, and capture-related source exclusion with a
-      marker anchor before the arrow."
-  - id: mac
-    title: Bob Mac Capture merge-in band and pickers
-    depends_on:
-      - execute
-      - assist
-    size: large
-    description:
-      "mac: render the Merging-in band inside the new-task card, pending and refusal
-      states with rewrite buttons, merge-in pickers, folded landing groups,
-      submit/status/notification/VoiceOver copy, and raise the grammar gate."
-  - id: memory
-    title: Memory notes
-    depends_on:
-      - execute
-    size: small
-    description:
-      "memory: apply the accepted memory decisions for the Task Merge glossary strand
-      and the optional new decision record."
+- id: contract
+  title: Contract and docs
+  depends_on: []
+  size: medium
+  description: 'contract: write the `<` contract into docs/capture.md, the capture-syntax
+    reference, task-merge.md, and task-relations.md, with MI vectors and search-smoke
+    rows, marked contract-only.'
+- id: grammar
+  title: Grammar, editor parse, and teaching refusals
+  depends_on:
+  - contract
+  size: large
+  description: 'grammar: add the shared merge-in scanner, claim it in execution and
+    editor parsing before fan-out, gate it on a single open new task, ship structured
+    rewrites and grammar 15, and refuse execution until the next phase lands.'
+- id: execute
+  title: One-transaction execution, output, and copy fixes
+  depends_on:
+  - grammar
+  size: large
+  description: 'execute: stage the new task, then run one explicit merge into it through
+    a helper lifted from the `>` path; report merges, offers, origins, and pending
+    context; fix bob-cli-hi merge copy; add the shell guard.'
+- id: assist
+  title: Pickers, rewrite toggle, and Similar tasks
+  depends_on:
+  - grammar
+  size: medium
+  description: 'assist: give `<` source slots a merge-only picker with ID-less rows
+    and comma multi-pick, the `+` separator toggle, and capture-related source exclusion
+    with a marker anchor before the arrow.'
+- id: mac
+  title: Bob Mac Capture merge-in band and pickers
+  depends_on:
+  - execute
+  - assist
+  size: large
+  description: 'mac: render the Merging-in band inside the new-task card, pending
+    and refusal states with rewrite buttons, merge-in pickers, folded landing groups,
+    submit/status/notification/VoiceOver copy, and raise the grammar gate.'
+- id: memory
+  title: Memory notes
+  depends_on:
+  - execute
+  size: small
+  description: 'memory: apply the accepted memory decisions for the Task Merge glossary
+    strand and the optional new decision record.'
 proposed_by: bbugyi200.athena.190
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-11-05 18:05:38
 status: wip
+bead_id: bob-cli-hl
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_arrow.md)
+- **PROMPT:** [prompts/202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_arrow.md)
+- **BEAD:** [bob-cli-hl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hl/README.md)
 
 # Plan: Capture `<` — merge existing tasks into the task you are creating
 
