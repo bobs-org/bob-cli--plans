@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "bound_source",
+      "kind": "choice",
+      "ask": "Should bob-cli report the x= lineup bound as a new capture-pomodoros JSON field?",
+      "why": "bob owns the x= target rules and the close numbering, just as it supplied task_link_count for x",
+      "choices": [
+        {
+          "key": "bob_field",
+          "label": "bob-cli adds max_task_link_count; the x= assist waits for that bob release on the Mac"
+        },
+        {
+          "key": "agenda_items",
+          "label": "Mac-only; Swift counts each open agenda entry's Task Link items; works with today's bob"
+        }
+      ],
+      "default": "bob_field",
+      "effective_default": "bob_field",
+      "requested_verified": false
+    }
+  ]
+}
