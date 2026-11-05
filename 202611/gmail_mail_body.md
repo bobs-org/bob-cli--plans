@@ -1,57 +1,53 @@
 ---
 tier: epic
 title: Gmail message model and inert body renderer
-goal:
-  Complete bob-cli-hg.3 with a pure, tested renderer that preserves readable email
+goal: Complete bob-cli-hg.3 with a pure, tested renderer that preserves readable email
   content while preventing sender text from becoming active vault syntax.
 phases:
-  - id: mime-model
-    title: Model gog thread payloads and decode MIME body candidates
-    size: medium
-    depends_on: []
-    description:
-      "mime-model: add the verified gog thread envelope, typed messages and MIME parts,
-      private body decoding, attachment discovery, and fetched-body inputs described in
-      section 3. Include synthetic wire fixtures and decoding tests."
-  - id: inert-output
-    title: Make sender text inert in every Markdown and YAML context
-    size: medium
-    depends_on:
-      - mime-model
-    description:
-      "inert-output: implement the shared final serialization boundary, safe text
-      helpers, strict link policy, and adversarial property tests in section 4. Preserve
-      only renderer-owned Markdown structure and keep operational identifiers opaque."
-  - id: html-body
-    title: Render HTML bodies with quote folding and safe images
-    size: medium
-    depends_on:
-      - inert-output
-    description:
-      "html-body: add the HTML5 DOM walker, quote and signature extraction, data-table
-      versus layout-table handling, bulletin mode, and image decisions in section 5,
-      using the established inert serializer and synthetic golden tests."
-  - id: body-integration
-    title: Complete the pure message renderer and its acceptance corpus
-    size: medium
-    depends_on:
-      - html-body
-    description:
-      "body-integration: assemble the public RenderedBody interface, plain-text reply
-      splitting, HTML/plain/snippet selection, and fetched-body retry behavior. Complete
-      all parent acceptance fixtures, entry-point property tests, documentation, and
-      downstream consumer examples described in section 6."
+- id: mime-model
+  title: Model gog thread payloads and decode MIME body candidates
+  size: medium
+  depends_on: []
+  description: 'mime-model: add the verified gog thread envelope, typed messages and
+    MIME parts, private body decoding, attachment discovery, and fetched-body inputs
+    described in section 3. Include synthetic wire fixtures and decoding tests.'
+- id: inert-output
+  title: Make sender text inert in every Markdown and YAML context
+  size: medium
+  depends_on:
+  - mime-model
+  description: 'inert-output: implement the shared final serialization boundary, safe
+    text helpers, strict link policy, and adversarial property tests in section 4.
+    Preserve only renderer-owned Markdown structure and keep operational identifiers
+    opaque.'
+- id: html-body
+  title: Render HTML bodies with quote folding and safe images
+  size: medium
+  depends_on:
+  - inert-output
+  description: 'html-body: add the HTML5 DOM walker, quote and signature extraction,
+    data-table versus layout-table handling, bulletin mode, and image decisions in
+    section 5, using the established inert serializer and synthetic golden tests.'
+- id: body-integration
+  title: Complete the pure message renderer and its acceptance corpus
+  size: medium
+  depends_on:
+  - html-body
+  description: 'body-integration: assemble the public RenderedBody interface, plain-text
+    reply splitting, HTML/plain/snippet selection, and fetched-body retry behavior.
+    Complete all parent acceptance fixtures, entry-point property tests, documentation,
+    and downstream consumer examples described in section 6.'
 proposed_by: bbugyi200.apollo.bob-cli-hg.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hg.3
 create_time: 2026-11-05 13:16:19
 status: wip
+bead_id: bob-cli-hg.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_mail_body.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_mail_body.md)
-- **PARENT:**
-  [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **PROMPT:** [prompts/202611/gmail_mail_body.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_mail_body.md)
+- **PARENT:** [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **BEAD:** [bob-cli-hg.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hg/bob-cli-hg.3.1.md)
 
 # Gmail message model and inert body renderer
 
