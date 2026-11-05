@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "fast_tap",
+      "kind": "choice",
+      "ask": "Should a second `\\` that lands before Bob answers the first also end as one literal `\\` (no `#`)?",
+      "why": "The same two keys should give the same text however fast they are typed",
+      "choices": [
+        {
+          "key": "collapse",
+          "label": "Same text at any speed; a fast double-tap costs one extra `capture-rewrite` call"
+        },
+        {
+          "key": "keep",
+          "label": "A second `\\` that beats Bob's reply leaves `\\\\`, the race the approved plan accepted"
+        }
+      ],
+      "default": "collapse",
+      "effective_default": "collapse",
+      "requested_verified": false
+    }
+  ]
+}
