@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "extra_scopes",
+      "kind": "choice",
+      "ask": "Should doctl_login refuse a token that grants more than recovery needs?",
+      "why": "athena was compromised on 2026-10-17; its token should do only what recovery needs",
+      "choices": [
+        {
+          "key": "refuse",
+          "label": "Tokens with any extra non-read scope (droplet:delete, write, ...) are never saved"
+        },
+        {
+          "key": "warn",
+          "label": "Over-scoped tokens are saved after a yellow warning naming the extra scopes"
+        }
+      ],
+      "default": "refuse",
+      "effective_default": "refuse",
+      "requested_verified": false
+    },
+    {
+      "id": "runbook_pointer",
+      "kind": "toggle",
+      "ask": "Should Apollo's recovery runbook tell you to run doctl_login instead of hand-running doctl auth init?",
+      "why": "The runbook is where you look mid-outage; the script checks scopes manual steps never verify",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_tailnet",
+      "kind": "toggle",
+      "ask": "Should the tailnet memory note say doctl_login sets up the token and agents may run it bare as a read-only check?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "tailnet.md"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "tailnet.md",
+          "kind": "note",
+          "scope": "home",
+          "path": "tailnet.md",
+          "type": "reference",
+          "exists": true
+        }
+      ]
+    }
+  ]
+}
