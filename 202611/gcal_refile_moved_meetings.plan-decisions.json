@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "closed_meets",
+      "kind": "toggle",
+      "ask": "Also re-file untouched Bob-written closed MEETs (retime them, or reopen born-done rows moved later)?",
+      "why": "The Swings move after a born-done sync would otherwise leave a stale closed MEET",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decisions",
+      "kind": "toggle",
+      "ask": "Add the meet-filing-follows-google-until-edited record and mark the three records it partly supersedes?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:meet-filing-follows-google-until-edited",
+          "decisions:synced-meetings-link-by-phase",
+          "decisions:bob-gcal-is-read-only-and-proposes-once",
+          "decisions:ended-synced-meetings-are-born-done"
+        ]
+      },
+      "requested": "MEET pomodoros should always be corrected in response to Google Calendar event updates when it is safe to do so (which should be basically always, right?)",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:meet-filing-follows-google-until-edited",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/meet-filing-follows-google-until-edited.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:synced-meetings-link-by-phase",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Synced Meetings Are Linked By Phase At Birth"
+          ]
+        },
+        {
+          "selector": "decisions:bob-gcal-is-read-only-and-proposes-once",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Bob Gcal Is Read Only And Proposes Once"
+          ]
+        },
+        {
+          "selector": "decisions:ended-synced-meetings-are-born-done",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "ended-synced-meetings-are-born-done"
+          ]
+        }
+      ]
+    }
+  ]
+}
