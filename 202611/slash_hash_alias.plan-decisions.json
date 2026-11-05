@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "after_space",
+      "kind": "choice",
+      "ask": "Should a `/` typed after a space (`Buy milk /`, `- /`) also become `#` for the task-type and drawer-bullet menus?",
+      "why": "The request is parity with `\\`, and the task-type menu is the most used `#` menu",
+      "choices": [
+        {
+          "key": "alias",
+          "label": "Same positions as `\\`; a spaced ` / ` or a path like ` /usr/bin` then needs `/` `/` first"
+        },
+        {
+          "key": "literal",
+          "label": "Only a `/` glued to a marker (`@cash/`, `=25/`) aliases; spaced ` / ` and paths stay literal"
+        }
+      ],
+      "default": "alias",
+      "effective_default": "alias",
+      "requested_verified": false
+    }
+  ]
+}
