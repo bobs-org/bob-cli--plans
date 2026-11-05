@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "double_dash",
+      "kind": "choice",
+      "ask": "Should a second `-` on the alias-opened Links To picker restore a literal `--` rather than flip to `~~`?",
+      "why": "The existing Tab em-dash gesture and CLI-flag text both begin with a spaced `--`.",
+      "choices": [
+        {
+          "key": "literal",
+          "label": "`--` stays literal, so `--` Tab em dashes and `--flag` text keep working"
+        },
+        {
+          "key": "reverse",
+          "label": "`--` becomes `~~` (Linked From) like `,,` \u2192 `++`; spaced `--` Tab em dashes need Undo"
+        }
+      ],
+      "default": "literal",
+      "effective_default": "literal",
+      "requested_verified": false
+    },
+    {
+      "id": "escape_restores",
+      "kind": "choice",
+      "ask": "Should Escape on the alias-opened picker, with an empty filter, restore the literal `-`?",
+      "why": "The alias is a guess, and Escape is the natural way to reject it when a picker pops up mid-prose.",
+      "choices": [
+        {
+          "key": "restore",
+          "label": "One Escape closes the picker and leaves the typed `-`"
+        },
+        {
+          "key": "chip",
+          "label": "Escape keeps `~` and shows the reopen chip like every other picker; Undo then restores `-`"
+        }
+      ],
+      "default": "restore",
+      "effective_default": "restore",
+      "requested_verified": false
+    }
+  ]
+}
