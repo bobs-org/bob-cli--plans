@@ -1,138 +1,126 @@
 ---
 tier: epic
 title: Successor card verdicts — mark offers Done or Cancel from the card
-goal: "While reviewing a successor card in Obsidian, in Bob Mac Capture, or through `bob
-  capture`, Bryan can stage Done (Ctrl+X) or Cancel (Ctrl+Shift+X, with an optional
+goal: 'While reviewing a successor card in Obsidian, in Bob Mac Capture, or through
+  `bob capture`, Bryan can stage Done (Ctrl+X) or Cancel (Ctrl+Shift+X, with an optional
   inline reason) on any eligible offer row. Those verdicts apply together with pull-ins
-  in the gesture's existing write pass. The engine reports eligibility and consequences,
-  closes are root-only, cascades are recover-only, failures are reported honestly, and
-  the card uses Bob's existing ✓/⊘ visual grammar.
+  in the gesture''s existing write pass. The engine reports eligibility and consequences,
+  closes are root-only, cascades are recover-only, failures are reported honestly,
+  and the card uses Bob''s existing ✓/⊘ visual grammar.
 
-  "
+  '
 decisions:
   memory_verdict_record:
-    ask:
-      Add decision record successor-cards-resolve-with-staged-verdicts to the decisions
+    ask: Add decision record successor-cards-resolve-with-staged-verdicts to the decisions
       web?
     memory:
-      - decisions:successor-cards-resolve-with-staged-verdicts
+    - decisions:successor-cards-resolve-with-staged-verdicts
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_offers_supersede:
-    ask:
-      Mark decisions:unblocked-tasks-are-offered superseded in part by the new record?
+    ask: Mark decisions:unblocked-tasks-are-offered superseded in part by the new
+      record?
     memory:
-      - decisions:unblocked-tasks-are-offered
+    - decisions:unblocked-tasks-are-offered
     default: true
-    corrects:
-      Unpicked rows recover without a link and resurface through the existing freshness
-      rules.
+    corrects: Unpicked rows recover without a link and resurface through the existing
+      freshness rules.
     answer: true
   memory_glossary:
-    ask:
-      Teach the successor-offer glossary strand that card rows can also be marked Done
-      or Cancel?
+    ask: Teach the successor-offer glossary strand that card rows can also be marked
+      Done or Cancel?
     memory:
-      - glossary:successor-offer
+    - glossary:successor-offer
     default: false
     answer: false
 phases:
-  - id: contract
-    title: Contract, vectors table, and decision record
-    depends_on: []
-    size: medium
-    description:
-      "contract: write the binding bob-cli docs contract in docs/task-dependencies.md
-      §12.22–12.23 and the §12.5/§12.13/§12.14 additions (the SV vector table, canonical
-      copy, CLI/JSON/API shapes), plus the memory changes the accepted decisions
-      authorize."
-  - id: engine
-    title: Rust offer-close engine and per-row close descriptors
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "engine: build the pure Rust offer-close engine (eligibility, root-only Done,
-      Task-Card-parity Cancel, recover-only cascade, consequence copy), attach a `close`
-      descriptor to every capture offer row, and publish
-      tests/fixtures/offer_close/vectors.json."
-  - id: cli
-    title: bob capture -x/-X flags, batch post-pass, and receipts
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "cli: add `-x/--complete-offer` and `-X/--cancel-offer`, resolve and validate
-      verdicts, apply them in a capture post-pass, and emit offer.verdict,
-      pull_in.close, offer_closes[], refusals, human output, help, completion, and docs."
-  - id: nav-card
-    title: Obsidian successor picker verdict UI (api.successors v4)
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "nav-card: add per-row verdict state, keys, the inline cancel reason, the visuals,
-      footer, two-step Esc, and hover buttons to SuccessorOfferPickerModal, and bump
-      api.successors to v4 with the {picks, closes} result."
-  - id: nav-apis
-    title: Nav cancel API v1 and Unblocked notice v4
-    depends_on:
-      - nav-card
-    size: small
-    description:
-      "nav-apis: expose a pure Task-Card-parity cancel planner as api.cancel v1, and
-      extend api.notice to v4 with offer-close rows, refusal lines, tickler lines, and a
-      guarded Undo action."
-  - id: cycler
-    title: Cycler eligibility, verdict apply step, receipts, and undo
-    depends_on:
-      - engine
-      - nav-apis
-    size: large
-    description:
-      "cycler: compute close descriptors that match the shared vectors, attach them when
-      nav v4 is present, apply returned closes in a guarded verdict step with
-      recover-only cascades, send receipts with Undo restores, and pin the walk and
-      reopen rules."
-  - id: promotion
-    title: Verdicts on the Obsidian project-promotion card
-    depends_on:
-      - cycler
-    size: small
-    description:
-      "promotion: expose the cycler's describe/apply offer-close functions as cycler api
-      v5 and wire them into nav's project-promotion successor card. The task-merge card
-      stays pull-in-only."
-  - id: mac-core
-    title: CaptureCore decoding, outcome model, argv, and fixtures
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "mac-core: decode the new bob fields and refusals, add the portable
-      CapturePullInOutcomes model, gate `--complete-offer` and `--cancel-offer` argv on
-      pull_in.close, and generate fixtures from a real bob."
-  - id: mac-card
-    title: Mac Pull-In card verdict UI
-    depends_on:
-      - mac-core
-    size: large
-    description:
-      "mac-card: wire the outcome model into the Pull-In card (⌃X/⌃⇧X routing, inline
-      reason field, glyphs, capsule, consequence strip, labels, two-step Esc, reopen on
-      refusal with choices intact, VoiceOver actions), then update docs and gate on the
-      exact-SHA macOS CI run."
+- id: contract
+  title: Contract, vectors table, and decision record
+  depends_on: []
+  size: medium
+  description: 'contract: write the binding bob-cli docs contract in docs/task-dependencies.md
+    §12.22–12.23 and the §12.5/§12.13/§12.14 additions (the SV vector table, canonical
+    copy, CLI/JSON/API shapes), plus the memory changes the accepted decisions authorize.'
+- id: engine
+  title: Rust offer-close engine and per-row close descriptors
+  depends_on:
+  - contract
+  size: medium
+  description: 'engine: build the pure Rust offer-close engine (eligibility, root-only
+    Done, Task-Card-parity Cancel, recover-only cascade, consequence copy), attach
+    a `close` descriptor to every capture offer row, and publish tests/fixtures/offer_close/vectors.json.'
+- id: cli
+  title: bob capture -x/-X flags, batch post-pass, and receipts
+  depends_on:
+  - engine
+  size: medium
+  description: 'cli: add `-x/--complete-offer` and `-X/--cancel-offer`, resolve and
+    validate verdicts, apply them in a capture post-pass, and emit offer.verdict,
+    pull_in.close, offer_closes[], refusals, human output, help, completion, and docs.'
+- id: nav-card
+  title: Obsidian successor picker verdict UI (api.successors v4)
+  depends_on:
+  - contract
+  size: medium
+  description: 'nav-card: add per-row verdict state, keys, the inline cancel reason,
+    the visuals, footer, two-step Esc, and hover buttons to SuccessorOfferPickerModal,
+    and bump api.successors to v4 with the {picks, closes} result.'
+- id: nav-apis
+  title: Nav cancel API v1 and Unblocked notice v4
+  depends_on:
+  - nav-card
+  size: small
+  description: 'nav-apis: expose a pure Task-Card-parity cancel planner as api.cancel
+    v1, and extend api.notice to v4 with offer-close rows, refusal lines, tickler
+    lines, and a guarded Undo action.'
+- id: cycler
+  title: Cycler eligibility, verdict apply step, receipts, and undo
+  depends_on:
+  - engine
+  - nav-apis
+  size: large
+  description: 'cycler: compute close descriptors that match the shared vectors, attach
+    them when nav v4 is present, apply returned closes in a guarded verdict step with
+    recover-only cascades, send receipts with Undo restores, and pin the walk and
+    reopen rules.'
+- id: promotion
+  title: Verdicts on the Obsidian project-promotion card
+  depends_on:
+  - cycler
+  size: small
+  description: 'promotion: expose the cycler''s describe/apply offer-close functions
+    as cycler api v5 and wire them into nav''s project-promotion successor card. The
+    task-merge card stays pull-in-only.'
+- id: mac-core
+  title: CaptureCore decoding, outcome model, argv, and fixtures
+  depends_on:
+  - cli
+  size: medium
+  description: 'mac-core: decode the new bob fields and refusals, add the portable
+    CapturePullInOutcomes model, gate `--complete-offer` and `--cancel-offer` argv
+    on pull_in.close, and generate fixtures from a real bob.'
+- id: mac-card
+  title: Mac Pull-In card verdict UI
+  depends_on:
+  - mac-core
+  size: large
+  description: 'mac-card: wire the outcome model into the Pull-In card (⌃X/⌃⇧X routing,
+    inline reason field, glyphs, capsule, consequence strip, labels, two-step Esc,
+    reopen on refusal with choices intact, VoiceOver actions), then update docs and
+    gate on the exact-SHA macOS CI run.'
 proposed_by: bbugyi200.athena.191
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: cli
 create_time: 2026-11-05 18:41:45
 status: wip
+bead_id: bob-cli-hn
 ---
+
+- **BEAD:** [bob-cli-hn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hn/README.md)
 
 # Plan: Successor card verdicts — mark offers Done or Cancel from the card
 
