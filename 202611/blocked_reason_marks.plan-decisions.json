@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "precedence",
+      "kind": "choice",
+      "ask": "When a task is both held by its own prerequisite and in a blocked project, which mark wins?",
+      "why": "In a project note every resident would show ^; the own blocker's chips sit right beneath it",
+      "choices": [
+        {
+          "key": "own_first",
+          "label": "Own prerequisite shows & even inside a blocked project; residents stand out"
+        },
+        {
+          "key": "project_first",
+          "label": "Project-blocked rows always show ^, matching blocked.md's grouping exactly"
+        }
+      ],
+      "default": "own_first",
+      "effective_default": "own_first",
+      "requested_verified": false
+    },
+    {
+      "id": "prj_glyph",
+      "kind": "choice",
+      "ask": "Which glyph should the project-blocked (held by its project) checkbox draw?",
+      "why": "Matches Bob's typographic checkbox alphabet; a one-mask swap later if it doesn't land",
+      "choices": [
+        {
+          "key": "chevron",
+          "label": "A ^ chevron mask; ties to ^prj and reads as \"the reason is above you\""
+        },
+        {
+          "key": "folder_lock",
+          "label": "A Lucide folder-lock mask; more literal for strangers, busier at 16 px"
+        }
+      ],
+      "default": "chevron",
+      "effective_default": "chevron",
+      "requested_verified": false
+    },
+    {
+      "id": "hollow_tint",
+      "kind": "choice",
+      "ask": "How strongly should rows waiting for a date (hollow marks) tint the line?",
+      "why": "The research's point is that real blockers should be the only loud red rows",
+      "choices": [
+        {
+          "key": "quiet",
+          "label": "About 5.5% red tint with a 45% rail; held-by-work rows stand out (109 vs 478)"
+        },
+        {
+          "key": "full",
+          "label": "Today's 13% red tint and full rail; only the checkbox changes"
+        }
+      ],
+      "default": "quiet",
+      "effective_default": "quiet",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Record an accepted decision that Blocked checkboxes show their reason while storage stays [?]?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
