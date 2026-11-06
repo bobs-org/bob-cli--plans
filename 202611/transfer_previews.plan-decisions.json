@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tombstones",
+      "kind": "choice",
+      "ask": "How should merged sources appear below the target card?",
+      "why": "You see every byte bob writes, and folding keeps each source card to about three rows",
+      "choices": [
+        {
+          "key": "cards",
+          "label": "A small card per source with its struck line, new LINKS line, and a folded moved-notes row"
+        },
+        {
+          "key": "rows_only",
+          "label": "Sources stay rows in the transfer card, and the landing area shows only the target"
+        }
+      ],
+      "default": "cards",
+      "effective_default": "cards",
+      "requested_verified": false
+    }
+  ]
+}
