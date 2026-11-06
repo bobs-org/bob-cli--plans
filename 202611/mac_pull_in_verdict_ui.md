@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Mac Pull-In card Done and Cancel verdicts
-goal: Complete bob-cli-hn.9 with staged verdict UI, preserved refusal choices, and
-  verified macOS integration.
+goal:
+  Complete bob-cli-hn.9 with staged verdict UI, preserved refusal choices, and verified
+  macOS integration.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-hn.9
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/successor_card_verdicts.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_card_verdicts.md)
 - **BEAD:**
   [bob-cli-hn.9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hn/bob-cli-hn.9.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-hn.9](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-hn.9.md)
+- **COMMITS:**
+  - [6f4e279](https://github.com/bobs-org/bob-mac-capture/commit/6f4e27990823b7174d5902f08f20f52c1390c53f)
+    — feat(mac-capture): stage Done and Cancel verdicts on Pull-In card
 
 # Mac Pull-In card: stage Done and Cancel verdicts
 
