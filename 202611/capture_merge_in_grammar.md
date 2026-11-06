@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Capture merge-in grammar and editor contract
-goal: Complete bob-cli-hl.2 with shared merge-in parsing, teaching rewrites, grammar
+goal:
+  Complete bob-cli-hl.2 with shared merge-in parsing, teaching rewrites, grammar
   revision publication, and a safe execution refusal until the execute phase lands.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-hl.2
@@ -14,6 +15,11 @@ status: done
   [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
 - **BEAD:**
   [bob-cli-hl.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hl/bob-cli-hl.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-hl.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-hl.2.md)
+- **COMMITS:**
+  - [53c1d1a](https://github.com/bobs-org/bob-cli/commit/53c1d1ad4cbff2d8567718deb2175b887ebdb686)
+    — feat(capture)\!: complete merge-in grammar and teaching refusals
 
 # Capture merge-in grammar and editor contract
 
