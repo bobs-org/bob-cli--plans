@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "plugin_diffs",
+      "kind": "choice",
+      "ask": "During install-all, should plugin-sync diffs go to the step log instead of the terminal?",
+      "why": "Diffs run up to 60 lines per file and the digest already says what changed",
+      "choices": [
+        {
+          "key": "log",
+          "label": "Terminal shows one row per changed plugin plus warnings; diffs go to the log; -v shows all"
+        },
+        {
+          "key": "stream",
+          "label": "Today's raw sync output with diffs; one plugin update can scroll the digest away"
+        }
+      ],
+      "default": "log",
+      "effective_default": "log",
+      "requested_verified": false
+    },
+    {
+      "id": "verified_paragraphs",
+      "kind": "choice",
+      "ask": "How should the digest render a commit body's trailing \"Verified:\" paragraph?",
+      "why": "Verification is provenance, not news; one row proves it and the text is one git log away",
+      "choices": [
+        {
+          "key": "fold",
+          "label": "One dim row cut with \u2026; saves 2-3 rows per commit so full messages fit more often"
+        },
+        {
+          "key": "dim",
+          "label": "The whole paragraph in dim text, as the research mocks show"
+        },
+        {
+          "key": "show",
+          "label": "The whole paragraph in normal weight, like the rest of the body"
+        }
+      ],
+      "default": "fold",
+      "effective_default": "fold",
+      "requested_verified": false
+    }
+  ]
+}
