@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair the Gmail renderer and finish bob-cli-hg.3.1 landing
-goal: Make sender output inert and complete, integrate typed transport, and close
-  the renderer epic and parent phase normally.
+goal:
+  Make sender output inert and complete, integrate typed transport, and close the
+  renderer epic and parent phase normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-hg.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/gmail_mail_body.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_mail_body.md)
 - **BEAD:**
   [bob-cli-hg.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hg/bob-cli-hg.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-hg.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-hg.3.1.land.md)
+- **COMMITS:**
+  - [232e94b](https://github.com/bobs-org/bob-cli/commit/232e94bbf507e17b31790d434f4288ff31adbae6)
+    — feat(gmail): repair renderer landing and finish hg.3.1
 
 # Repair the Gmail renderer and finish bob-cli-hg.3.1 landing
 
