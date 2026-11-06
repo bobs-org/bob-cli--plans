@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "placement",
+      "kind": "choice",
+      "ask": "Where should the time pill sit on a ledger Task Link row?",
+      "why": "Mirrors the Events row (time, name, off chip) and gcal sync's time-ordered MEET links",
+      "choices": [
+        {
+          "key": "before",
+          "label": "Leads the link like the Events row, so MEET links read as a column of times"
+        },
+        {
+          "key": "after",
+          "label": "Trails the link, like bob's \"Swings! (0800-0815)\" copy; \ud83d\udd13/\ud83d\udd11/off must skip it"
+        }
+      ],
+      "default": "before",
+      "effective_default": "before",
+      "requested_verified": false
+    }
+  ]
+}
