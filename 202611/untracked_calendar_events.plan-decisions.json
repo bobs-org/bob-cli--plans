@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "untracked_counts",
+      "kind": "choice",
+      "ask": "Should an untracked session also drop out of Pomodoro counts, not just minutes?",
+      "why": "#untracked means not tracked; a lunch counted as a Pomodoro would still inflate the day",
+      "choices": [
+        {
+          "key": "exclude",
+          "label": "Untracked sessions vanish from every aggregate (minutes, counts, homes, Day strip)"
+        },
+        {
+          "key": "minutes_only",
+          "label": "Untracked sessions still count as one Pomodoro each; only their minutes drop"
+        }
+      ],
+      "default": "exclude",
+      "effective_default": "exclude",
+      "requested_verified": false
+    },
+    {
+      "id": "obsidian_meet_start",
+      "kind": "choice",
+      "ask": "Should Obsidian's se<X> + Tab mirror capture's new MEET start behavior?",
+      "why": "one gesture should write the same ledger from both front doors, pinned by shared vectors",
+      "choices": [
+        {
+          "key": "full",
+          "label": "se + Tab on a MEET uses the event-run span and [t::] rule, plus the run-past-event Notice"
+        },
+        {
+          "key": "tracked_only",
+          "label": "se<X> + Tab keeps its timing but omits [t::] when the MEET's event run is untracked"
+        },
+        {
+          "key": "none",
+          "label": "Obsidian starts stay as today; an untracked MEET started there keeps [t::]"
+        }
+      ],
+      "default": "full",
+      "effective_default": "full",
+      "requested_verified": false
+    },
+    {
+      "id": "warn_untracked",
+      "kind": "choice",
+      "ask": "Should non-MEET starts and extends also warn when they run past an untracked event?",
+      "why": "untracked means off the clock, not optional; the warning never blocks",
+      "choices": [
+        {
+          "key": "all",
+          "label": "Every open Event Task warns, tracked or untracked (a lunch is still a commitment)"
+        },
+        {
+          "key": "tracked_only",
+          "label": "Untracked events never warn (better if they are mostly focus blockers)"
+        }
+      ],
+      "default": "all",
+      "effective_default": "all",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_event_task_glossary",
+      "kind": "toggle",
+      "ask": "Should glossary:event-task say an #untracked Event Task keeps its session off the clock?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:event-task"
+        ]
+      },
+      "corrects": "Its `[root:: NOTE]` attributes meeting time to an area or project, and a Pomodoro Task Link under the daily note's ledger records the session.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:event-task",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Event Task",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Project Note"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_untracked_record",
+      "kind": "toggle",
+      "ask": "Should a new record say untracked sessions omit [t::], superseding part of synced-meetings-link-by-phase?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:synced-meetings-link-by-phase",
+          "decisions:untracked-sessions-omit-t-field"
+        ]
+      },
+      "corrects": "Back-to-back or overlapping past meetings share one closed MEET whose span is the cluster (next start \u2264 cluster end).",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:synced-meetings-link-by-phase",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Synced Meetings Are Linked By Phase At Birth"
+          ]
+        },
+        {
+          "selector": "decisions:untracked-sessions-omit-t-field",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/untracked-sessions-omit-t-field.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
