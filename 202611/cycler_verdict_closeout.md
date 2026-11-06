@@ -22,7 +22,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-06 09:49:41
-status: wip
+status: done
 ---
 
 # Deploy and close the cycler verdict landing
