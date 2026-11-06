@@ -1,60 +1,55 @@
 ---
 tier: epic
 title: Complete Gmail save and offline list
-goal:
-  Finish bob-cli-hg.6 with confirmed thread saving, inert local images, append-only
+goal: Finish bob-cli-hg.6 with confirmed thread saving, inert local images, append-only
   refresh, exact-path vault commits, and offline saved-mail listing.
 phases:
-  - id: resolve-policy
-    title: Confirm Gmail identities and apply save refusal rules
-    size: medium
-    depends_on: []
-    description:
-      "resolve-policy: implement the shared read-only URL/ID/note resolver and
-      never_save policy described in sections 3 and 4.1. Confirm exact account/thread
-      identity, preserve typed failures, add read-only label-name lookup, and extend the
-      fake gog with faithful synthetic scenarios. Do not write the vault."
-  - id: prepare-content
-    title: Prepare inert messages and local inline image imports
-    size: medium
-    depends_on:
-      - resolve-policy
-    description:
-      "prepare-content: implement in-memory attachment-body hydration through gog's
-      narrowly allowed Discovery read, headers mode, and CID image planning with size
-      caps, hash deduplication, logo suppression, safe paths, and trusted resized
-      embeds. Return prepared content and binary imports without writing."
-  - id: save-transaction
-    title: Save and refresh mail notes under the vault lock
-    size: medium
-    depends_on:
-      - prepare-content
-    description:
-      "save-transaction: implement the save CLI and reusable staged save API, writer
-      gate, parent-at-birth, hubs, agent warning, lock/re-read/retry, atomic text writes
-      and safe image promotion, exact-path commit, and post-commit journals. Add save
-      catalog coverage, docs, and adversarial transaction tests."
-  - id: list-diagnostics
-    title: List saved mail offline and diagnose identity health
-    size: medium
-    depends_on:
-      - save-transaction
-    description:
-      "list-diagnostics: implement real bare/explicit list with pagination and
-      backlinks, body-free JSON, decoder and duplicate diagnostics, catalog/help/docs
-      updates, and the remaining cross-layer acceptance checks. Leave remote refresh and
-      link-failure footer population to the existing outer epic phases."
+- id: resolve-policy
+  title: Confirm Gmail identities and apply save refusal rules
+  size: medium
+  depends_on: []
+  description: 'resolve-policy: implement the shared read-only URL/ID/note resolver
+    and never_save policy described in sections 3 and 4.1. Confirm exact account/thread
+    identity, preserve typed failures, add read-only label-name lookup, and extend
+    the fake gog with faithful synthetic scenarios. Do not write the vault.'
+- id: prepare-content
+  title: Prepare inert messages and local inline image imports
+  size: medium
+  depends_on:
+  - resolve-policy
+  description: 'prepare-content: implement in-memory attachment-body hydration through
+    gog''s narrowly allowed Discovery read, headers mode, and CID image planning with
+    size caps, hash deduplication, logo suppression, safe paths, and trusted resized
+    embeds. Return prepared content and binary imports without writing.'
+- id: save-transaction
+  title: Save and refresh mail notes under the vault lock
+  size: medium
+  depends_on:
+  - prepare-content
+  description: 'save-transaction: implement the save CLI and reusable staged save
+    API, writer gate, parent-at-birth, hubs, agent warning, lock/re-read/retry, atomic
+    text writes and safe image promotion, exact-path commit, and post-commit journals.
+    Add save catalog coverage, docs, and adversarial transaction tests.'
+- id: list-diagnostics
+  title: List saved mail offline and diagnose identity health
+  size: medium
+  depends_on:
+  - save-transaction
+  description: 'list-diagnostics: implement real bare/explicit list with pagination
+    and backlinks, body-free JSON, decoder and duplicate diagnostics, catalog/help/docs
+    updates, and the remaining cross-layer acceptance checks. Leave remote refresh
+    and link-failure footer population to the existing outer epic phases.'
 proposed_by: bbugyi200.apollo.bob-cli-hg.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hg.6
 create_time: 2026-11-05 23:47:33
 status: wip
+bead_id: bob-cli-hg.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_save_list.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_save_list.md)
-- **PARENT:**
-  [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **PROMPT:** [prompts/202611/gmail_save_list.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_save_list.md)
+- **PARENT:** [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **BEAD:** [bob-cli-hg.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hg/bob-cli-hg.6.1.md)
 
 # Complete bob-cli-hg.6: Gmail save and offline list
 
