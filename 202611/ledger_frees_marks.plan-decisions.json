@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "pill_text",
+      "kind": "choice",
+      "ask": "Should the mark spell out the word \"frees\" next to the key?",
+      "why": "The point is to catch your eye while you plan, and \"frees 2\" needs no legend.",
+      "choices": [
+        {
+          "key": "words",
+          "label": "Reads \"\ud83d\udd11 frees 2\": readable without hovering and word-for-word the BLOCKS row summary"
+        },
+        {
+          "key": "compact",
+          "label": "Reads \"\ud83d\udd11 2\": about half as wide, so you learn what it means from the tooltip"
+        }
+      ],
+      "default": "words",
+      "effective_default": "words",
+      "requested_verified": false
+    }
+  ]
+}
