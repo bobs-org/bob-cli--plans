@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "readme_snapshot",
+      "kind": "choice",
+      "ask": "Also fix the stale README contract-table snapshot test (bob-cli-hs) so `just check` is green?",
+      "why": "bob-cli-hs is independent of the verdict feature and awaits its own triage gate",
+      "choices": [
+        {
+          "key": "separate",
+          "label": "Leave bob-cli-hs to its own triage; close notes cite it as the known red check"
+        },
+        {
+          "key": "fix",
+          "label": "Repair that docs test here, run `just check` green, and close bob-cli-hs"
+        }
+      ],
+      "default": "separate",
+      "effective_default": "separate",
+      "requested_verified": false
+    }
+  ]
+}
