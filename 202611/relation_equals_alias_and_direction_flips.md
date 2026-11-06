@@ -1,72 +1,66 @@
 ---
 tier: epic
 title: Relation = alias, direction flips, and the == escape
-goal: "In Bob Mac Capture, `=` is the only relation alias for `~`, and it opens Links To
-  only where Bob's gate allows. A `~` or `=` glued to a complete `~note:id` /
-  `~~note:id` flips its direction. The relation label card flips direction with `~` /
-  `=` and re-asks Bob for the new direction. A fast `==` types one literal `=` on every
-  surface where `=` stands for `~`. Bob stays the only grammar authority, and `bob
-  capture` / `capture-parse` stay literal.
+goal: 'In Bob Mac Capture, `=` is the only relation alias for `~`, and it opens Links
+  To only where Bob''s gate allows. A `~` or `=` glued to a complete `~note:id` /
+  `~~note:id` flips its direction. The relation label card flips direction with `~`
+  / `=` and re-asks Bob for the new direction. A fast `==` types one literal `=` on
+  every surface where `=` stands for `~`. Bob stays the only grammar authority, and
+  `bob capture` / `capture-parse` stay literal.
 
-  "
+  '
 phases:
-  - id: card-flip
-    title: Mac relation label card flips direction
-    depends_on: []
-    size: medium
-    description:
-      "card-flip: in the Mac relation label card, `~`/`=` flip the relation in choose
-      mode, edit the token, re-fetch catalog and verdicts, and support a fast `==`
-      literal escape. Also adds teaching keycaps and fixes Escape from a Shift-Return
-      card. Mac only."
-  - id: bob-grammar
-    title: Bob capture-rewrite relation grammar
-    depends_on: []
-    size: medium
-    description:
-      "bob-grammar: in bob-cli capture-rewrite, an `=` opener replaces the relation `-`
-      alias, `~~=` gives `~`, and a new `toggle_relation_direction` rule flips a
-      complete token on a glued `~`/`=`. Ships with docs, help, and tests as
-      `feat(capture)!`."
-  - id: mac-equals-opener
-    title: Mac adopts the = opener and post-token flip
-    depends_on:
-      - card-flip
-      - bob-grammar
-    size: medium
-    description:
-      "mac-equals-opener: the Mac forwards `=` and token-glued `~` to Bob and replaces
-      the dash arm with an equals opener arm that keeps the Space/Escape restores. It
-      applies `toggle_relation_direction` natively without a picker and deletes every
-      relation `-` path."
-  - id: equals-escape
-    title: Fast == escape in the editor and picker
-    depends_on:
-      - mac-equals-opener
-    size: medium
-    description:
-      "equals-escape: one shared equals-gesture record with a ~350 ms key-to-key window,
-      so a fast second `=` undoes whatever the first `=` did and types one `=`. Covers
-      the editor before and after Bob replies, every flip, and the picker; the card
-      reuses it."
-  - id: records
-    title: Decision record, relation docs, and parity follow-up
-    depends_on:
-      - bob-grammar
-      - equals-escape
-    size: small
-    description:
-      "records: author the decision record for the new gestures and partly supersede the
-      card's catalog-fetched-once claim. Add the docs/task-relations.md sentence, and
-      file the Obsidian label-stage parity bead."
+- id: card-flip
+  title: Mac relation label card flips direction
+  depends_on: []
+  size: medium
+  description: 'card-flip: in the Mac relation label card, `~`/`=` flip the relation
+    in choose mode, edit the token, re-fetch catalog and verdicts, and support a fast
+    `==` literal escape. Also adds teaching keycaps and fixes Escape from a Shift-Return
+    card. Mac only.'
+- id: bob-grammar
+  title: Bob capture-rewrite relation grammar
+  depends_on: []
+  size: medium
+  description: 'bob-grammar: in bob-cli capture-rewrite, an `=` opener replaces the
+    relation `-` alias, `~~=` gives `~`, and a new `toggle_relation_direction` rule
+    flips a complete token on a glued `~`/`=`. Ships with docs, help, and tests as
+    `feat(capture)!`.'
+- id: mac-equals-opener
+  title: Mac adopts the = opener and post-token flip
+  depends_on:
+  - card-flip
+  - bob-grammar
+  size: medium
+  description: 'mac-equals-opener: the Mac forwards `=` and token-glued `~` to Bob
+    and replaces the dash arm with an equals opener arm that keeps the Space/Escape
+    restores. It applies `toggle_relation_direction` natively without a picker and
+    deletes every relation `-` path.'
+- id: equals-escape
+  title: Fast == escape in the editor and picker
+  depends_on:
+  - mac-equals-opener
+  size: medium
+  description: 'equals-escape: one shared equals-gesture record with a ~350 ms key-to-key
+    window, so a fast second `=` undoes whatever the first `=` did and types one `=`.
+    Covers the editor before and after Bob replies, every flip, and the picker; the
+    card reuses it.'
+- id: records
+  title: Decision record, relation docs, and parity follow-up
+  depends_on:
+  - bob-grammar
+  - equals-escape
+  size: small
+  description: 'records: author the decision record for the new gestures and partly
+    supersede the card''s catalog-fetched-once claim. Add the docs/task-relations.md
+    sentence, and file the Obsidian label-stage parity bead.'
 decisions:
   memory_relation_flip_record:
-    ask:
-      Add the = alias / direction-flip decision record and mark the card's fetch-once
+    ask: Add the = alias / direction-flip decision record and mark the card's fetch-once
       claim superseded?
     memory:
-      - decisions:relation-card-tab-accepts-ctrl-d-hides
-      - decisions
+    - decisions:relation-card-tab-accepts-ctrl-d-hides
+    - decisions
     corrects: the catalog fetched once on open
     default: true
     answer: true
@@ -76,10 +70,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-06 12:50:19
 status: wip
+bead_id: bob-cli-hz
 ---
 
-- **PROMPT:**
-  [prompts/202611/relation_equals_alias_and_direction_flips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/relation_equals_alias_and_direction_flips.md)
+- **PROMPT:** [prompts/202611/relation_equals_alias_and_direction_flips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/relation_equals_alias_and_direction_flips.md)
+- **BEAD:** [bob-cli-hz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hz/README.md)
 
 # Plan: Relation `=` alias, direction flips, and the `==` escape
 
