@@ -1,70 +1,64 @@
 ---
 tier: epic
 title: Gmail compose, reply, draft, and confirmed send
-goal:
-  Complete bob-cli-hg.12 with editable compose/reply notes, exact draft previews,
+goal: Complete bob-cli-hg.12 with editable compose/reply notes, exact draft previews,
   confirmed draft-id sends, crash recovery, and preserved sent notes.
 phases:
-  - id: compose-notes
-    title: Compose note model and new/reply commands
-    size: medium
-    depends_on: []
-    description:
-      "compose-notes: implement the source-region model, safe note creation, reply/all
-      insertion, CLI exclusions, and preservation tests in section 4.1."
-  - id: compose-render
-    title: Outgoing Markdown renderer and attachment snapshots
-    size: medium
-    depends_on:
-      - compose-notes
-    description:
-      "compose-render: implement conservative HTML/plain output, syntax refusals,
-      flattened links, and validated attachment snapshots from section 4.2."
-  - id: gmail-drafts
-    title: Draft transport, persistence, and exact preview
-    size: medium
-    depends_on:
-      - compose-render
-    description:
-      "gmail-drafts: implement remote create/update/readback, compose scope checks,
-      durable identity, and canonical preview/digest without exposing send; see section
-      4.3."
-  - id: send-recovery
-    title: Durable send state and recovery engine
-    size: medium
-    depends_on:
-      - gmail-drafts
-    description:
-      "send-recovery: implement durable state transitions, serialization, draft-id-only
-      dispatch, and recovery classification with fault tests; keep the engine internal
-      as in section 4.4."
-  - id: send-finalize
-    title: Confirmed send command and sent-note finalization
-    size: medium
-    depends_on:
-      - send-recovery
-    description:
-      "send-finalize: expose confirmed send, integrate recovery and sent-card refresh,
-      promote compose notes in place, and preserve authored edits as in section 4.5."
-  - id: compose-docs
-    title: Compose guide and consumer contract acceptance
-    size: small
-    depends_on:
-      - send-finalize
-    description:
-      "compose-docs: finish the guide and Bob Mail JSON fixtures, audit acceptance
-      coverage, and supply land evidence from section 4.6; do not close ancestor beads."
+- id: compose-notes
+  title: Compose note model and new/reply commands
+  size: medium
+  depends_on: []
+  description: 'compose-notes: implement the source-region model, safe note creation,
+    reply/all insertion, CLI exclusions, and preservation tests in section 4.1.'
+- id: compose-render
+  title: Outgoing Markdown renderer and attachment snapshots
+  size: medium
+  depends_on:
+  - compose-notes
+  description: 'compose-render: implement conservative HTML/plain output, syntax refusals,
+    flattened links, and validated attachment snapshots from section 4.2.'
+- id: gmail-drafts
+  title: Draft transport, persistence, and exact preview
+  size: medium
+  depends_on:
+  - compose-render
+  description: 'gmail-drafts: implement remote create/update/readback, compose scope
+    checks, durable identity, and canonical preview/digest without exposing send;
+    see section 4.3.'
+- id: send-recovery
+  title: Durable send state and recovery engine
+  size: medium
+  depends_on:
+  - gmail-drafts
+  description: 'send-recovery: implement durable state transitions, serialization,
+    draft-id-only dispatch, and recovery classification with fault tests; keep the
+    engine internal as in section 4.4.'
+- id: send-finalize
+  title: Confirmed send command and sent-note finalization
+  size: medium
+  depends_on:
+  - send-recovery
+  description: 'send-finalize: expose confirmed send, integrate recovery and sent-card
+    refresh, promote compose notes in place, and preserve authored edits as in section
+    4.5.'
+- id: compose-docs
+  title: Compose guide and consumer contract acceptance
+  size: small
+  depends_on:
+  - send-finalize
+  description: 'compose-docs: finish the guide and Bob Mail JSON fixtures, audit acceptance
+    coverage, and supply land evidence from section 4.6; do not close ancestor beads.'
 proposed_by: bbugyi200.apollo.bob-cli-hg.12
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hg.12
 create_time: 2026-11-06 07:12:27
 status: wip
+bead_id: bob-cli-hg.12.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_compose.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_compose.md)
-- **PARENT:**
-  [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **PROMPT:** [prompts/202611/gmail_compose.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_compose.md)
+- **PARENT:** [202611/bob_gmail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_gmail.md)
+- **BEAD:** [bob-cli-hg.12.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hg/bob-cli-hg.12.1.md)
 
 # Gmail compose, reply, draft, and confirmed send
 
