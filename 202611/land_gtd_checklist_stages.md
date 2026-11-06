@@ -2,7 +2,8 @@
 tier: tale
 size: small
 title: Finish and land the checklist-stages epic (bob-cli-ho)
-goal: Staged POST rows stop claiming they close the review, every Ctrl+Enter and Ctrl+Alt+F
+goal:
+  Staged POST rows stop claiming they close the review, every Ctrl+Enter and Ctrl+Alt+F
   done line that finishes a checklist stage shows its STAGE ✓ tick, the nav and bob-cli
   docs describe both, and epic bob-cli-ho is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-ho.land
@@ -15,6 +16,11 @@ status: done
   [202611/gtd_checklist_stages.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gtd_checklist_stages.md)
 - **BEAD:**
   [bob-cli-ho](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ho/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ho.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ho.land.md)
+- **COMMITS:**
+  - [e33de46](https://github.com/bobs-org/bob-cli--plans/commit/e33de460fbdeab0013adf87c82ed6d0c37e5d4fc)
+    — docs(plan): mark checklist stages epic complete
 
 # Finish and land the checklist-stages epic (bob-cli-ho)
 
