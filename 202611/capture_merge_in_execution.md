@@ -1,66 +1,61 @@
 ---
 tier: epic
 title: Complete capture merge-in execution for bob-cli-hl.3
-goal:
-  Capture < creates its target and merges every source atomically, with accurate
+goal: Capture < creates its target and merges every source atomically, with accurate
   previews, offers, teaching errors, and verified CLI output.
 phases:
-  - id: adapter
-    title: Share explicit merge planning and track capture-born targets
-    size: medium
-    description:
-      "adapter: extract the > explicit-merge adapter unchanged, share source validation
-      and task refs, and report target.created from capture-wide task birth identity.
-      Keep the < execution refusal until the execute phase."
-    depends_on: []
-  - id: origins
-    title: Carry merge payload origins into final task previews
-    size: medium
-    description:
-      "origins: carry internal source identity and insertion ranges from the merge
-      engine through capture tracking to task_blocks lines, including > and label
-      merges, without text matching or new serialized engine fields."
-    depends_on:
-      - adapter
-  - id: execute
-    title: Enable atomic merge into newly captured tasks
-    size: medium
-    description:
-      "execute: stage the ordinary new task and its authored inputs, settle its ID,
-      resolve source conflicts, call the shared explicit merge helper once, wire results
-      and offers, and replace the transitional refusal tests with execution tests."
-    depends_on:
-      - origins
-  - id: feedback
-    title: Complete pending context, merge copy, and stdin redirect refusal
-    size: medium
-    description:
-      "feedback: implement merge_in_pending, fd-0 shell protection, existing-merge
-      teaching copy, the new-target human header, and bob-cli-hi G2/G4/G5 with the
-      approved pruned-source title count."
-    depends_on:
-      - origins
-  - id: acceptance
-    title: Prove equivalence, rollback, and final contract coverage
-    size: medium
-    description:
-      "acceptance: complete the MI execution matrix, byte-equivalence and reconcile
-      tests, actual guarded-write rollback coverage, and shipped documentation markers;
-      prepare verified closure evidence for the child epic land agent."
-    depends_on:
-      - execute
-      - feedback
+- id: adapter
+  title: Share explicit merge planning and track capture-born targets
+  size: medium
+  description: 'adapter: extract the > explicit-merge adapter unchanged, share source
+    validation and task refs, and report target.created from capture-wide task birth
+    identity. Keep the < execution refusal until the execute phase.'
+  depends_on: []
+- id: origins
+  title: Carry merge payload origins into final task previews
+  size: medium
+  description: 'origins: carry internal source identity and insertion ranges from
+    the merge engine through capture tracking to task_blocks lines, including > and
+    label merges, without text matching or new serialized engine fields.'
+  depends_on:
+  - adapter
+- id: execute
+  title: Enable atomic merge into newly captured tasks
+  size: medium
+  description: 'execute: stage the ordinary new task and its authored inputs, settle
+    its ID, resolve source conflicts, call the shared explicit merge helper once,
+    wire results and offers, and replace the transitional refusal tests with execution
+    tests.'
+  depends_on:
+  - origins
+- id: feedback
+  title: Complete pending context, merge copy, and stdin redirect refusal
+  size: medium
+  description: 'feedback: implement merge_in_pending, fd-0 shell protection, existing-merge
+    teaching copy, the new-target human header, and bob-cli-hi G2/G4/G5 with the approved
+    pruned-source title count.'
+  depends_on:
+  - origins
+- id: acceptance
+  title: Prove equivalence, rollback, and final contract coverage
+  size: medium
+  description: 'acceptance: complete the MI execution matrix, byte-equivalence and
+    reconcile tests, actual guarded-write rollback coverage, and shipped documentation
+    markers; prepare verified closure evidence for the child epic land agent.'
+  depends_on:
+  - execute
+  - feedback
 proposed_by: bbugyi200.athena.bob-cli-hl.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hl.3
 create_time: 2026-11-05 19:49:40
 status: wip
+bead_id: bob-cli-hl.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_merge_in_execution.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_execution.md)
-- **PARENT:**
-  [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
+- **PROMPT:** [prompts/202611/capture_merge_in_execution.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_execution.md)
+- **PARENT:** [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
+- **BEAD:** [bob-cli-hl.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hl/bob-cli-hl.3.1.md)
 
 # Complete capture merge-in execution
 
