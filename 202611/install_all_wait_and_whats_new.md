@@ -1,128 +1,118 @@
 ---
 tier: epic
-title: "just install-all: a wait worth sitting through"
-goal: '`just install-all` (and plain `just install`) stop looking hung during their long
-  bob-cli and Bob Mac Capture builds. All three repos are pulled first, then one
-  fit-to-screen "What''s new" digest shows the commits since each repo''s last
+title: 'just install-all: a wait worth sitting through'
+goal: '`just install-all` (and plain `just install`) stop looking hung during their
+  long bob-cli and Bob Mac Capture builds. All three repos are pulled first, then
+  one fit-to-screen "What''s new" digest shows the commits since each repo''s last
   successful install on this host, with full messages when they fit. Each build then
-  runs behind one live status line: activity, elapsed time, and an ETA that only
-  per-host history of comparable builds can earn. Compiler chatter goes to a log,
-  failures print an excerpt, and the run ends with a summary, a terminal bell, and on
-  macOS a Notification Center banner. A missing or failing helper always falls back to
-  today''s behavior.
+  runs behind one live status line: activity, elapsed time, and an ETA that only per-host
+  history of comparable builds can earn. Compiler chatter goes to a log, failures
+  print an excerpt, and the run ends with a summary, a terminal bell, and on macOS
+  a Notification Center banner. A missing or failing helper always falls back to today''s
+  behavior.
 
   '
 decisions:
   plugin_diffs:
-    ask:
-      During install-all, should plugin-sync diffs go to the step log instead of the
-      terminal?
+    ask: During install-all, should plugin-sync diffs go to the step log instead of
+      the terminal?
     choices:
-      log:
-        Terminal shows one row per changed plugin plus warnings; diffs go to the log; -v
-        shows all
-      stream:
-        Today's raw sync output with diffs; one plugin update can scroll the digest away
+      log: Terminal shows one row per changed plugin plus warnings; diffs go to the
+        log; -v shows all
+      stream: Today's raw sync output with diffs; one plugin update can scroll the
+        digest away
     default: log
     why: Diffs run up to 60 lines per file and the digest already says what changed
     answer: log
   verified_paragraphs:
     ask: How should the digest render a commit body's trailing "Verified:" paragraph?
     choices:
-      fold:
-        One dim row cut with …; saves 2-3 rows per commit so full messages fit more
-        often
+      fold: One dim row cut with …; saves 2-3 rows per commit so full messages fit
+        more often
       dim: The whole paragraph in dim text, as the research mocks show
       show: The whole paragraph in normal weight, like the rest of the body
     default: fold
-    why:
-      Verification is provenance, not news; one row proves it and the text is one git
-      log away
+    why: Verification is provenance, not news; one row proves it and the text is one
+      git log away
     answer: fold
 phases:
-  - id: ui-core
-    title: install_ui package core, state store, and script test harness
-    depends_on: []
-    size: medium
-    description:
-      "ui-core: create the stdlib Python 3.9 `scripts/lib/install_ui/` package (entry
-      point, term.py, state.py, watermark subcommands), the bash 3.2-safe
-      `scripts/lib/install_ui.sh` loader, bob-cli watermark recording in `just install`,
-      and a unittest suite with portability gates wired into `just check-scripts`."
-  - id: digest-engine
-    title: What's new digest engine
-    depends_on:
-      - ui-core
-    size: medium
-    description:
-      "digest-engine: implement `install_ui digest`. It resolves ranges from the install
-      watermark, extracts commits, strips SASE trailers, groups by Conventional Commit
-      type, chooses the richest of four levels that fits the screen, and renders the
-      section plus a digest.json record. Tests use real temp Git repos."
-  - id: live-runner
-    title: Live status line runner and build history
-    depends_on:
-      - ui-core
-    size: medium
-    description:
-      "live-runner: implement `install_ui run`. It is the single-writer live status line
-      around a child build, with Cargo and SwiftPM phase parsers, a chatter filter,
-      logs, a failure excerpt, signal-safe cleanup, change-kind prediction, runs.jsonl
-      recording, and the learning and last-similar-build ETA rungs. `record` and `kind`
-      subcommands round it out. Tests run under real PTYs."
-  - id: pull-first-run
-    title: Pull everything first, print the digest, end with a signal
-    depends_on:
-      - digest-engine
-    size: medium
-    description:
-      "pull-first-run: restructure scripts/install_all to pull all three repos up front,
-      show aligned pull rows in the header, carry full SHAs across the self-re-exec
-      (with the legacy upgrade path), print the digest, and advance sibling watermarks.
-      It also drops the nested INSTALL banner and adds the bell and macOS completion
-      banner. Includes an end-to-end sandbox harness."
-  - id: quiet-builds
-    title: Route builds and plugin sync through the live line
-    depends_on:
-      - live-runner
-      - pull-first-run
-    size: medium
-    description:
-      "quiet-builds: run the bob-cli Cargo build (in `just install`) and the Mac Capture
-      install (after a TTY signing preflight) through the live runner with a
-      started-file fallback. Quiet the plugin sync per DECISIONS plugin_diffs, add
-      install-all -v/--verbose and BOB_INSTALL_VERBOSE, make Ctrl-C stop the run
-      cleanly, and extend the end-to-end tests."
-  - id: earned-eta
-    title: Earned ETA ranges, plan line, and comparative summary
-    depends_on:
-      - quiet-builds
-    size: medium
-    description:
-      'earned-eta: complete the estimator ladder (p20-p80 range after 5 consistent
-      samples, a bar anchored to the slow end, "taking longer than usual"), add the
-      pre-build plan line and the summary''s "about usual" comparison, and replay a
-      compact digest in the summary only when the digest scrolled off.'
-  - id: docs-acceptance
-    title: Docs refresh and real-terminal acceptance
-    depends_on:
-      - earned-eta
-    size: small
-    description:
-      "docs-acceptance: rewrite docs/guides/install-everything.md around the new run,
-      note the live line and BOB_INSTALL_VERBOSE in docs/start/install.md, pass `just
-      docs-check`, capture real-Cargo PTY transcripts as bead attachments, and record
-      the Mac verification and build-speed follow-ups."
+- id: ui-core
+  title: install_ui package core, state store, and script test harness
+  depends_on: []
+  size: medium
+  description: 'ui-core: create the stdlib Python 3.9 `scripts/lib/install_ui/` package
+    (entry point, term.py, state.py, watermark subcommands), the bash 3.2-safe `scripts/lib/install_ui.sh`
+    loader, bob-cli watermark recording in `just install`, and a unittest suite with
+    portability gates wired into `just check-scripts`.'
+- id: digest-engine
+  title: What's new digest engine
+  depends_on:
+  - ui-core
+  size: medium
+  description: 'digest-engine: implement `install_ui digest`. It resolves ranges from
+    the install watermark, extracts commits, strips SASE trailers, groups by Conventional
+    Commit type, chooses the richest of four levels that fits the screen, and renders
+    the section plus a digest.json record. Tests use real temp Git repos.'
+- id: live-runner
+  title: Live status line runner and build history
+  depends_on:
+  - ui-core
+  size: medium
+  description: 'live-runner: implement `install_ui run`. It is the single-writer live
+    status line around a child build, with Cargo and SwiftPM phase parsers, a chatter
+    filter, logs, a failure excerpt, signal-safe cleanup, change-kind prediction,
+    runs.jsonl recording, and the learning and last-similar-build ETA rungs. `record`
+    and `kind` subcommands round it out. Tests run under real PTYs.'
+- id: pull-first-run
+  title: Pull everything first, print the digest, end with a signal
+  depends_on:
+  - digest-engine
+  size: medium
+  description: 'pull-first-run: restructure scripts/install_all to pull all three
+    repos up front, show aligned pull rows in the header, carry full SHAs across the
+    self-re-exec (with the legacy upgrade path), print the digest, and advance sibling
+    watermarks. It also drops the nested INSTALL banner and adds the bell and macOS
+    completion banner. Includes an end-to-end sandbox harness.'
+- id: quiet-builds
+  title: Route builds and plugin sync through the live line
+  depends_on:
+  - live-runner
+  - pull-first-run
+  size: medium
+  description: 'quiet-builds: run the bob-cli Cargo build (in `just install`) and
+    the Mac Capture install (after a TTY signing preflight) through the live runner
+    with a started-file fallback. Quiet the plugin sync per DECISIONS plugin_diffs,
+    add install-all -v/--verbose and BOB_INSTALL_VERBOSE, make Ctrl-C stop the run
+    cleanly, and extend the end-to-end tests.'
+- id: earned-eta
+  title: Earned ETA ranges, plan line, and comparative summary
+  depends_on:
+  - quiet-builds
+  size: medium
+  description: 'earned-eta: complete the estimator ladder (p20-p80 range after 5 consistent
+    samples, a bar anchored to the slow end, "taking longer than usual"), add the
+    pre-build plan line and the summary''s "about usual" comparison, and replay a
+    compact digest in the summary only when the digest scrolled off.'
+- id: docs-acceptance
+  title: Docs refresh and real-terminal acceptance
+  depends_on:
+  - earned-eta
+  size: small
+  description: 'docs-acceptance: rewrite docs/guides/install-everything.md around
+    the new run, note the live line and BOB_INSTALL_VERBOSE in docs/start/install.md,
+    pass `just docs-check`, capture real-Cargo PTY transcripts as bead attachments,
+    and record the Mac verification and build-speed follow-ups.'
 proposed_by: bbugyi200.athena.199
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-11-06 15:11:23
 status: wip
+bead_id: bob-cli-i0
 ---
 
-- **PROMPT:**
-  [prompts/202611/install_all_wait_and_whats_new.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/install_all_wait_and_whats_new.md)
+- **PROMPT:** [prompts/202611/install_all_wait_and_whats_new.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/install_all_wait_and_whats_new.md)
+- **BEAD:** [bob-cli-i0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-i0/README.md)
 
 # Plan: `just install-all`, a wait worth sitting through
 
