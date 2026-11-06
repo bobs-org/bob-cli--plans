@@ -1,58 +1,53 @@
 ---
 tier: epic
 title: Complete cycler successor-card verdicts
-goal:
-  Obsidian successor cards safely apply Done and Cancel alongside pull-ins, recover
+goal: Obsidian successor cards safely apply Done and Cancel alongside pull-ins, recover
   dependents without another offer round, report exact guarded Undo, and advance the
   review walk once without landing on a resolved task.
 phases:
-  - id: contract_parity
-    title: Repair the shared offer-close contract and executable vectors
-    size: medium
-    depends_on: []
-    description:
-      "contract_parity: align the landed Rust descriptor copy and shared SV fixtures
-      with the approved parent design, make the engine vectors executable, and preserve
-      existing close bytes and recovery policy."
-  - id: descriptors
-    title: Add cycler close descriptors and normalize staged choices
-    size: medium
-    depends_on:
-      - contract_parity
-    description:
-      "descriptors: copy the canonical vectors, implement pure eligibility and
-      consequence simulation for all five offer groups, and normalize disjoint picks and
-      closes without enabling verdict controls yet."
-  - id: verdict_apply
-    title: Apply guarded verdicts and recover dependents with Undo snapshots
-    size: medium
-    depends_on:
-      - descriptors
-    description:
-      "verdict_apply: implement the internal Now verdict transaction, per-row stale
-      refusal, root-only Done and Cancel, joint recover-only cascades, truthful
-      receipts, and exact guarded Undo snapshots; leave gesture wiring dormant."
-  - id: gesture_integration
-    title: Connect verdicts to gestures, notices, reopen, and the review walk
-    size: medium
-    depends_on:
-      - verdict_apply
-    description:
-      "gesture_integration: enable descriptors for compatible nav, revalidate
-      verdict-only and mixed submissions, run the verdict step after picks, deliver one
-      receipt with Undo, preserve reopen behavior, and exclude resolved rows from the
-      single walk advance; update docs and verify the complete feature."
+- id: contract_parity
+  title: Repair the shared offer-close contract and executable vectors
+  size: medium
+  depends_on: []
+  description: 'contract_parity: align the landed Rust descriptor copy and shared
+    SV fixtures with the approved parent design, make the engine vectors executable,
+    and preserve existing close bytes and recovery policy.'
+- id: descriptors
+  title: Add cycler close descriptors and normalize staged choices
+  size: medium
+  depends_on:
+  - contract_parity
+  description: 'descriptors: copy the canonical vectors, implement pure eligibility
+    and consequence simulation for all five offer groups, and normalize disjoint picks
+    and closes without enabling verdict controls yet.'
+- id: verdict_apply
+  title: Apply guarded verdicts and recover dependents with Undo snapshots
+  size: medium
+  depends_on:
+  - descriptors
+  description: 'verdict_apply: implement the internal Now verdict transaction, per-row
+    stale refusal, root-only Done and Cancel, joint recover-only cascades, truthful
+    receipts, and exact guarded Undo snapshots; leave gesture wiring dormant.'
+- id: gesture_integration
+  title: Connect verdicts to gestures, notices, reopen, and the review walk
+  size: medium
+  depends_on:
+  - verdict_apply
+  description: 'gesture_integration: enable descriptors for compatible nav, revalidate
+    verdict-only and mixed submissions, run the verdict step after picks, deliver
+    one receipt with Undo, preserve reopen behavior, and exclude resolved rows from
+    the single walk advance; update docs and verify the complete feature.'
 proposed_by: bbugyi200.athena.bob-cli-hn.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hn.6
 create_time: 2026-11-05 20:37:45
 status: wip
+bead_id: bob-cli-hn.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/cycler_offer_verdicts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_offer_verdicts.md)
-- **PARENT:**
-  [202611/successor_card_verdicts.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_card_verdicts.md)
+- **PROMPT:** [prompts/202611/cycler_offer_verdicts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_offer_verdicts.md)
+- **PARENT:** [202611/successor_card_verdicts.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_card_verdicts.md)
+- **BEAD:** [bob-cli-hn.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hn/bob-cli-hn.6.1.md)
 
 # Cycler successor-card verdicts for bob-cli-hn.6
 
