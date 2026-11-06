@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_verdict_record",
+      "kind": "toggle",
+      "ask": "Add decision record successor-cards-resolve-with-staged-verdicts to the decisions web?",
+      "default": true,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:successor-cards-resolve-with-staged-verdicts"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "quote_not_found",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:successor-cards-resolve-with-staged-verdicts",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/successor-cards-resolve-with-staged-verdicts.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_offers_supersede",
+      "kind": "toggle",
+      "ask": "Mark decisions:unblocked-tasks-are-offered superseded in part by the new record?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:unblocked-tasks-are-offered"
+        ]
+      },
+      "corrects": "Unpicked rows recover without a link and resurface through the existing freshness rules.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:unblocked-tasks-are-offered",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Unblocked Tasks Are Offered, Never Auto-Linked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Teach the successor-offer glossary strand that card rows can also be marked Done or Cancel?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:successor-offer"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:successor-offer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Successor Offer",
+            "Pomodoro",
+            "Task Link",
+            "Project Note",
+            "Capture",
+            "Task Successor",
+            "Task Relation",
+            "Task Freshness"
+          ]
+        }
+      ]
+    }
+  ]
+}
