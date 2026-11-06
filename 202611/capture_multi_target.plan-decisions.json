@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "split_edges",
+      "kind": "choice",
+      "ask": "Refuse a line whose @file+id markers sit at both edges, instead of keeping the trailing one as note text?",
+      "why": "Someone who names targets at both edges means all of them; silently misfiling is worse",
+      "choices": [
+        {
+          "key": "refuse",
+          "label": "`@a+x note @b+y` fails with a teaching error to put every target in one run"
+        },
+        {
+          "key": "literal",
+          "label": "Today's leading-wins rule stays; `@b+y` is written into the note under ^x"
+        }
+      ],
+      "default": "refuse",
+      "effective_default": "refuse",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_bulk_capture",
+      "kind": "toggle",
+      "ask": "Teach the Bulk Capture glossary strand that one line's @file+id run fans out into one item per task?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:bulk-capture"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:bulk-capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Bulk Capture",
+            "Capture",
+            "Pomodoro",
+            "Project Note",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
