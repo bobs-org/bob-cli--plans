@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "copy_form",
+      "kind": "choice",
+      "ask": "When bob knows an image's original path, which form should `y` copy?",
+      "why": "A copied path should work wherever it is pasted",
+      "choices": [
+        {
+          "key": "absolute",
+          "label": "/Users/bryan/tmp/screenshots/x.png. Works in any app, file dialog, or quoted shell argument"
+        },
+        {
+          "key": "tilde",
+          "label": "~/tmp/screenshots/x.png. Matches what you typed, but only shells and Finder expand ~"
+        }
+      ],
+      "default": "absolute",
+      "effective_default": "absolute",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Record \"attachment origins live in a per-host journal\" as a decisions-web record?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:attachment-origins-live-in-per-host-journal"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:attachment-origins-live-in-per-host-journal",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/attachment-origins-live-in-per-host-journal.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
