@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "g4_close_policy",
+      "kind": "choice",
+      "ask": "Which close behavior becomes canonical when a Pomodoro close defers every link?",
+      "why": "Recorded session time survives, per decisions:off-clock-pomodoros-count-apart",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Obsidian keeps the closed timed row and its minutes, matching bob capture x"
+        },
+        {
+          "key": "delete",
+          "label": "bob also deletes the closed row; the shared vector and capture docs change"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "consumption_parity",
+      "kind": "toggle",
+      "ask": "Should reconcile, task_complete, and plugin Depends-On consumption keep notes and delete only emptied entries?",
+      "why": "Today one blocked link loses notes or an unrelated slot depending on the surface",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "still_open_past",
+      "kind": "choice",
+      "ask": "How should the brief's Still open lists behave for periods that already ended?",
+      "why": "Recovers what history allows and never prints a wrong Blocked list",
+      "choices": [
+        {
+          "key": "rebuild",
+          "label": "Rebuild Kept 3+ and No linked minutes as of span end; omit Blocked projects with a note"
+        },
+        {
+          "key": "omit",
+          "label": "Omit every Still open list for ended periods and print one explanatory line"
+        },
+        {
+          "key": "label",
+          "label": "Keep today's lists but title them \"as of today\" for ended periods"
+        }
+      ],
+      "default": "rebuild",
+      "effective_default": "rebuild",
+      "requested_verified": false
+    },
+    {
+      "id": "mac_ci_repo_note",
+      "kind": "toggle",
+      "ask": "Should bob-cli's always-loaded bob-mac-capture repo note tell agents to watch macOS CI after pushes?",
+      "why": "bob-cli-1x asks for it; agents see it every turn, not only after opening the repo",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_consumption_record",
+      "kind": "toggle",
+      "ask": "Should a decisions record capture the consumption-parity and timed-row retention rule?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "requested": "Can you help me complete the work corresponding with all of the task beads recommended in the task_bead_top10_with_two_host_agent_audit.md file in the research sidecar repo?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
