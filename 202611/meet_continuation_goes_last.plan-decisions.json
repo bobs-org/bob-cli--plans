@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "close_card_says_last",
+      "kind": "toggle",
+      "ask": "Should close output say the MEET continuation was placed last (JSON flag, human line, Mac card)?",
+      "why": "Without it the Mac close card still reads \"Next: MEET\", as if nothing moved.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
