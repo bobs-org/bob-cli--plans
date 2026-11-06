@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "root_counts",
+      "kind": "choice",
+      "ask": "Should each root on the new roots line show how many Today tasks it holds?",
+      "why": "The balance between roots is the line's most useful fact, for one faint digit.",
+      "choices": [
+        {
+          "key": "counts",
+          "label": "Faint tabular count after each label (\u25cb bob 5), like the Day strip legend"
+        },
+        {
+          "key": "names",
+          "label": "Bare labels (\u25cb bob) like the \u2605 type line; counts move to the tooltip"
+        }
+      ],
+      "default": "counts",
+      "effective_default": "counts",
+      "requested_verified": false
+    },
+    {
+      "id": "root_ring_hue",
+      "kind": "choice",
+      "ask": "Which colour should each root's ring wear?",
+      "why": "Labels already identify roots; a stable identity colour beats one that shifts all day.",
+      "choices": [
+        {
+          "key": "area",
+          "label": "Stable area hue, like the ledger home chips; same-area roots share a colour"
+        },
+        {
+          "key": "strip",
+          "label": "The Day strip's distinct bar colour when worked today; may change mid-day"
+        }
+      ],
+      "default": "area",
+      "effective_default": "area",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions record that the daily plan caps Task Links only, never types?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    }
+  ]
+}
