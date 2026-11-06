@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "continue_bullet",
+      "kind": "toggle",
+      "ask": "Should accepting a bullet drawer row also open a nested `  - ` bullet when the drawer has no notes yet?",
+      "why": "Picking FUTURE WORK lands the caret where its first note goes",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decisions_record",
+      "kind": "toggle",
+      "ask": "Add a capture-bullets decision record and mark capture-sigils-say-where-what-how superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "corrects": "A `#` standing alone at an item edge names a [[task-type]]: `#fix` types a new task or retypes the selected existing task in the same transaction.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_drawer_glossary",
+      "kind": "toggle",
+      "ask": "Update the Task Drawer glossary entry for bullet-start drawer names and drawer bullets?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-drawer"
+        ]
+      },
+      "corrects": "a free-standing `#fix` at an item edge types the task",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-drawer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Drawer",
+            "Capture",
+            "Project Note",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Task Link",
+            "Task Freshness"
+          ]
+        }
+      ]
+    }
+  ]
+}
