@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ledger_rows",
+      "kind": "choice",
+      "ask": "Should dedicated Pomodoro Task Links in daily-note ledgers also wear the ring?",
+      "why": "Every ledger row is a Task Link already, so a ring there adds noise but no new information.",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Ledger rows keep their \ud83c\udf45 / \u25d0 / type-drift slot; only prose links in daily notes get rings"
+        },
+        {
+          "key": "mark",
+          "label": "Every ledger row also wears a ring (\u25d0 rows keep only \u25d0); status at a glance, one glyph per row"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "dim_closed_links",
+      "kind": "toggle",
+      "ask": "Should links to Done or Cancelled tasks also dim their link text, not just show the closed ring?",
+      "why": "The ring already says \"closed\"; leaving the link text alone keeps Obsidian's link styling intact.",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    }
+  ]
+}
