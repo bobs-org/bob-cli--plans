@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Mac Pull-In card Done and Cancel verdicts
-goal:
-  Complete bob-cli-hn.9 with staged verdict UI, preserved refusal choices, and verified
-  macOS integration.
+goal: Complete bob-cli-hn.9 with staged verdict UI, preserved refusal choices, and
+  verified macOS integration.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-hn.9
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-hn.9
-create_time: 2026-11-05 22:45:04
-status: wip
+status: done
 ---
 
 - **PARENT:**
