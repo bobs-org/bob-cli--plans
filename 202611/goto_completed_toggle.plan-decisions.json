@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "completed_scope",
+      "kind": "choice",
+      "ask": "Should completed rows come from every vault note, including done/ archives, ref notes, and daily notes?",
+      "why": "Most finished tasks live in done/ archives or ref notes; the catalog already exists",
+      "choices": [
+        {
+          "key": "vault",
+          "label": "All closed tasks the &/(( catalog finds: ~3.8k rows, ~170 ms per fetch"
+        },
+        {
+          "key": "capture_notes",
+          "label": "Only closed tasks from the notes / lists, plus their done/ archives"
+        }
+      ],
+      "default": "vault",
+      "effective_default": "vault",
+      "requested_verified": false
+    },
+    {
+      "id": "canceled_rows",
+      "kind": "choice",
+      "ask": "When completed tasks are shown, should canceled tasks show too?",
+      "why": "Both are closed history; the & and (( completed groups already include both",
+      "choices": [
+        {
+          "key": "closed",
+          "label": "Done and canceled tasks both list; canceled rows keep their glyph"
+        },
+        {
+          "key": "done_only",
+          "label": "Only done tasks list; canceled tasks stay hidden"
+        }
+      ],
+      "default": "closed",
+      "effective_default": "closed",
+      "requested_verified": false
+    },
+    {
+      "id": "sticky_toggle",
+      "kind": "choice",
+      "ask": "Should the toggle stay on for later / searches until you turn it off?",
+      "why": "Open tasks are the usual target; a forgotten toggle would bury them",
+      "choices": [
+        {
+          "key": "session",
+          "label": "Each new / draft starts open-only; the toggle lasts for that draft"
+        },
+        {
+          "key": "sticky",
+          "label": "The app remembers the last state until you toggle it off or quit"
+        }
+      ],
+      "default": "session",
+      "effective_default": "session",
+      "requested_verified": false
+    }
+  ]
+}
