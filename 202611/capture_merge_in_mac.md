@@ -1,67 +1,61 @@
 ---
 tier: epic
 title: Complete Bob Mac Capture merge-in bands and pickers
-goal:
-  Bob Mac Capture safely previews and submits new-task merge-in captures with source
-  pickers, explicit rewrites, compact landing groups, and verified macOS behavior,
+goal: Bob Mac Capture safely previews and submits new-task merge-in captures with
+  source pickers, explicit rewrites, compact landing groups, and verified macOS behavior,
   completing bob-cli-hl.5.
 phases:
-  - id: wire
-    title: Decode merge-in contracts and record fixture responses
-    size: medium
-    depends_on: []
-    description:
-      "wire: add tolerant merge_in, diagnostic rewrite, merge_in_pending, block-line
-      origin, and related-link decoding. Record reproducible synthetic Bob responses and
-      portable decoding tests, preserving existing transfer contracts."
-  - id: editor
-    title: Integrate merge-in source pickers and explicit diagnostic rewrites
-    size: medium
-    depends_on:
-      - wire
-    description:
-      "editor: add a distinct merge-in source picker role, Bob-authored continuations
-      and Add block ID splicing, span colors, revision-safe pending state, and a generic
-      explicit diagnostic rewrite action. Keep incomplete captures unsubmitable."
-  - id: band
-    title: Render merge-in bands and capture outcome copy
-    size: medium
-    depends_on:
-      - editor
-    description:
-      "band: build CaptureMergeInPresentation and render complete, pending, and refusal
-      states inside the new-task card. Reuse transfer rows and Pull-In controls,
-      preserve Similar tasks, and implement footer, status, notification, and settled
-      accessibility copy."
-  - id: landing
-    title: Fold merge landing groups and remove duplicate target blocks
-    size: medium
-    depends_on:
-      - band
-    description:
-      "landing: fold contiguous merge-target rows by Bob's origin identity for both
-      arrows, preserve authored children and source tombstones, and show each created
-      target's exact block once. Verify keyboard disclosure and narrow layouts."
-  - id: rollout
-    title: Raise the grammar gate and verify the integrated Mac experience
-    size: medium
-    depends_on:
-      - landing
-    description:
-      "rollout: require the shipped merge-in grammar revision, update affected gate
-      fixtures, document preview and picker behavior, complete integrated regression and
-      rendered-layout coverage, and provide exact-SHA macOS verification evidence."
+- id: wire
+  title: Decode merge-in contracts and record fixture responses
+  size: medium
+  depends_on: []
+  description: 'wire: add tolerant merge_in, diagnostic rewrite, merge_in_pending,
+    block-line origin, and related-link decoding. Record reproducible synthetic Bob
+    responses and portable decoding tests, preserving existing transfer contracts.'
+- id: editor
+  title: Integrate merge-in source pickers and explicit diagnostic rewrites
+  size: medium
+  depends_on:
+  - wire
+  description: 'editor: add a distinct merge-in source picker role, Bob-authored continuations
+    and Add block ID splicing, span colors, revision-safe pending state, and a generic
+    explicit diagnostic rewrite action. Keep incomplete captures unsubmitable.'
+- id: band
+  title: Render merge-in bands and capture outcome copy
+  size: medium
+  depends_on:
+  - editor
+  description: 'band: build CaptureMergeInPresentation and render complete, pending,
+    and refusal states inside the new-task card. Reuse transfer rows and Pull-In controls,
+    preserve Similar tasks, and implement footer, status, notification, and settled
+    accessibility copy.'
+- id: landing
+  title: Fold merge landing groups and remove duplicate target blocks
+  size: medium
+  depends_on:
+  - band
+  description: 'landing: fold contiguous merge-target rows by Bob''s origin identity
+    for both arrows, preserve authored children and source tombstones, and show each
+    created target''s exact block once. Verify keyboard disclosure and narrow layouts.'
+- id: rollout
+  title: Raise the grammar gate and verify the integrated Mac experience
+  size: medium
+  depends_on:
+  - landing
+  description: 'rollout: require the shipped merge-in grammar revision, update affected
+    gate fixtures, document preview and picker behavior, complete integrated regression
+    and rendered-layout coverage, and provide exact-SHA macOS verification evidence.'
 proposed_by: bbugyi200.athena.bob-cli-hl.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-hl.5
 create_time: 2026-11-06 01:47:44
 status: wip
+bead_id: bob-cli-hl.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_merge_in_mac.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_mac.md)
-- **PARENT:**
-  [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
+- **PROMPT:** [prompts/202611/capture_merge_in_mac.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_merge_in_mac.md)
+- **PARENT:** [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
+- **BEAD:** [bob-cli-hl.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hl/bob-cli-hl.5.1.md)
 
 # Complete the Bob Mac Capture phase of capture merge-in
 
