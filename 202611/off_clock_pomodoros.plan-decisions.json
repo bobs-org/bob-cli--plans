@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "settled_status",
+      "kind": "choice",
+      "ask": "When an ended off-clock event settles into a closed session, should its Event Task row be completed?",
+      "why": "settling exists so off-clock life needs no gestures; [/] would park every lunch in Pending",
+      "choices": [
+        {
+          "key": "done",
+          "label": "Completed ([x] + done date), as a timed close completes a meeting that ended inside it"
+        },
+        {
+          "key": "in_progress",
+          "label": "Marked [/] like a past row sync creates; you complete or cancel it yourself"
+        }
+      ],
+      "default": "done",
+      "effective_default": "done",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_off_clock_glossary",
+      "kind": "toggle",
+      "ask": "Should a new glossary strand define the Off-Clock Pomodoro?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:off-clock-pomodoro"
+        ]
+      },
+      "requested": "Add an excellent new glossary term for \"untracked pomodoro\" (or whatever we decide to call these).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:off-clock-pomodoro",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/off-clock-pomodoro.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_corrections",
+      "kind": "toggle",
+      "ask": "Should the pomodoro and event-task glossary strands describe off-clock sessions as [off::] Off-Clock Pomodoros?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:pomodoro",
+          "glossary:event-task"
+        ]
+      },
+      "corrects": "An `#untracked` tag keeps the session that links it off the clock (a timed ledger row without `[t::]`), so its `[root::]` attributes no minutes.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:pomodoro",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:event-task",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Event Task",
+            "Pomodoro",
+            "Task Link",
+            "Keep Streak",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Project Note"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_off_clock_record",
+      "kind": "toggle",
+      "ask": "Should a new off-clock-pomodoros-count-apart record supersede untracked-sessions-omit-t-field?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:off-clock-pomodoros-count-apart",
+          "decisions:untracked-sessions-omit-t-field"
+        ]
+      },
+      "corrects": "Stats, homes, `bob pomodoro --worked`, and the agenda skip untracked sessions' minutes and counts.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:off-clock-pomodoros-count-apart",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/off-clock-pomodoros-count-apart.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:untracked-sessions-omit-t-field",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_settle_record",
+      "kind": "toggle",
+      "ask": "Should a new ended-off-clock-events-settle decision record describe settling?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:ended-off-clock-events-settle"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:ended-off-clock-events-settle",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/ended-off-clock-events-settle.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
