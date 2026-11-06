@@ -116,7 +116,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: cli
 create_time: 2026-11-05 18:41:45
-status: wip
+status: done
 bead_id: bob-cli-hn
 ---
 
