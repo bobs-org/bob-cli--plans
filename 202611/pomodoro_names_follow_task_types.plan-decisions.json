@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "reconcile_rollout",
+      "kind": "choice",
+      "ask": "Should reconcile apply name repairs when its phase lands, after a live-vault dry run?",
+      "why": "Writer fixes land first, and every repair is reported and git-revertable",
+      "choices": [
+        {
+          "key": "apply",
+          "label": "Repairs write as soon as the phase lands; a read-only live-vault dry run checks them first"
+        },
+        {
+          "key": "report_first",
+          "label": "Ship report-only; a follow-up bead turns on writes after a day or two of reports"
+        }
+      ],
+      "default": "apply",
+      "effective_default": "apply",
+      "requested_verified": false
+    },
+    {
+      "id": "meet_links_grow_names",
+      "kind": "choice",
+      "ask": "Should a MEET Event Task link grow a work entry's name (BUILD to BUILD + MEET), as Enter landing does?",
+      "why": "One add rule for landing and reconcile keeps every gesture's output a fixed point",
+      "choices": [
+        {
+          "key": "merge",
+          "label": "Reconcile appends MEET like any type; the session counts toward MEET in Stats"
+        },
+        {
+          "key": "report",
+          "label": "Reconcile leaves the name and reports the link; Enter landing is unchanged"
+        }
+      ],
+      "default": "merge",
+      "effective_default": "merge",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_names_decision",
+      "kind": "toggle",
+      "ask": "Add the decision record open-pomodoro-names-follow-task-links for names following task types?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Update the Task Type and Merged Pomodoro glossary strands for name repair, close settle, and new entries?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-type",
+          "glossary:merged-pomodoro"
+        ]
+      },
+      "corrects": "Disagreement is shown as drift; it is not silently repaired.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-type",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Type",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:merged-pomodoro",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Merged Pomodoro",
+            "Pomodoro",
+            "Task Type",
+            "Task Successor",
+            "Capture",
+            "Task Link",
+            "Project Note",
+            "Task Relation",
+            "Task Freshness"
+          ]
+        }
+      ]
+    }
+  ]
+}
