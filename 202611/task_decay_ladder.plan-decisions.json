@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "early_keeps",
+      "kind": "choice",
+      "ask": "How should Alt+F on a WIP or Next task that is not due (early or linked today) behave?",
+      "why": "Every entry then marks a real due review, so its count is truthful",
+      "choices": [
+        {
+          "key": "quiet",
+          "label": "Stamp quietly with an \"early \u00b7 not counted\" notice; no prompt, no log entry"
+        },
+        {
+          "key": "prompt",
+          "label": "Prompt and always log an uncounted \"kept early in Next\" entry; \ud83e\udd37 when blank"
+        }
+      ],
+      "default": "quiet",
+      "effective_default": "quiet",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_task_decay_term",
+      "kind": "toggle",
+      "ask": "Add the new glossary:task-decay strand that defines the unified decay ladder?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-decay"
+        ]
+      },
+      "requested": "We should add a new glossary term for \"task decay\" that does a good job of explaining this new / improved policy.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-decay",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/task-decay.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_decay_decision",
+      "kind": "toggle",
+      "ask": "Record decisions:task-decay-is-one-ladder and mark the four records it supersedes in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:task-decay-is-one-ladder",
+          "decisions:rotten-keeps-use-priority-decay",
+          "decisions:rotten-keeps-are-logged",
+          "decisions:next-keeps-ask-an-optional-rotten-reason",
+          "decisions:task-lanes-are-sticky"
+        ]
+      },
+      "corrects": "Next keeps never change `[keeps::]` and never count toward the streak.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:task-decay-is-one-ladder",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/task-decay-is-one-ladder.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:rotten-keeps-use-priority-decay",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Keeps Decay Through The Priority Ladder"
+          ]
+        },
+        {
+          "selector": "decisions:rotten-keeps-are-logged",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Keeps Are Logged"
+          ]
+        },
+        {
+          "selector": "decisions:next-keeps-ask-an-optional-rotten-reason",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Next Keeps Ask For An Optional Rotten Log Reason"
+          ]
+        },
+        {
+          "selector": "decisions:task-lanes-are-sticky",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_freshness_strands",
+      "kind": "toggle",
+      "ask": "Correct the keep-streak, rotten-log, and task-freshness glossary strands for the ladder?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:keep-streak",
+          "glossary:rotten-log",
+          "glossary:task-freshness"
+        ]
+      },
+      "corrects": "human stamp clears it, and automation never touches it.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:keep-streak",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Keep Streak"
+          ]
+        },
+        {
+          "selector": "glossary:rotten-log",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Log",
+            "Keep Streak"
+          ]
+        },
+        {
+          "selector": "glossary:task-freshness",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Freshness"
+          ]
+        }
+      ]
+    }
+  ]
+}
