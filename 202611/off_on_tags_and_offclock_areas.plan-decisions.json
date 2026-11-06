@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_decision_records",
+      "kind": "toggle",
+      "ask": "Should new clock-rule and capture clock-tag decision records partly supersede the two records they amend?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:off-clock-follows-tag-then-note-default",
+          "decisions:off-clock-pomodoros-count-apart",
+          "decisions:capture-reserves-clock-tags",
+          "decisions:capture-sigils-say-where-what-how"
+        ]
+      },
+      "corrects": "it is off-clock only when at least one remains and every link resolves to a task whose own line has the standalone `#offclock` tag or an alias.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:off-clock-follows-tag-then-note-default",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/off-clock-follows-tag-then-note-default.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:off-clock-pomodoros-count-apart",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Off-Clock Pomodoros Are Recorded And Counted Apart"
+          ]
+        },
+        {
+          "selector": "decisions:capture-reserves-clock-tags",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/capture-reserves-clock-tags.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:capture-sigils-say-where-what-how",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Sigils Say Where What How"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Should the glossary describe #off, #on, and offclock note defaults (off-clock-pomodoro, event-task, area/project notes)?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:off-clock-pomodoro",
+          "glossary:event-task",
+          "glossary:area-note",
+          "glossary:project-note"
+        ]
+      },
+      "corrects": "A session goes off the clock exactly when it keeps at least one [[task-link]] and every one resolves to a task tagged `#offclock` (aliases `#untracked`, `#off-clock`)",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:off-clock-pomodoro",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Off-Clock Pomodoro",
+            "Pomodoro",
+            "Keep Streak",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:event-task",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Event Task",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note"
+          ]
+        },
+        {
+          "selector": "glossary:area-note",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Area Note",
+            "Project Note",
+            "Capture",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:project-note",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Project Note"
+          ]
+        }
+      ]
+    }
+  ]
+}
