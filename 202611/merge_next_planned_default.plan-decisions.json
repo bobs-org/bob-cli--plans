@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "meet_in_the_way",
+      "kind": "choice",
+      "ask": "When a MEET placeholder sits right below the source, should bare =* pass over it?",
+      "why": "MEET never merges, and its one placeholder holds all future meetings, not a slot",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Absorb the next mergeable planned entry below MEET; the preview names it"
+        },
+        {
+          "key": "stop",
+          "label": "Refuse with a teaching error that names MEET and suggests =*#name"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "record_decision",
+      "kind": "toggle",
+      "ask": "Record a decisions-web strand for the bare =* default and its rejected alternatives?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:bare-merge-absorbs-next-planned"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:bare-merge-absorbs-next-planned",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/bare-merge-absorbs-next-planned.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
