@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "new_task_named_link",
+      "kind": "choice",
+      "ask": "When a capture creates a task inside a named Pomodoro of another type, should it merge rather than retype?",
+      "why": "One landing rule everywhere; a free `#type` marker still types a new task explicitly",
+      "choices": [
+        {
+          "key": "merge",
+          "label": "The new task keeps its inherited type and the Pomodoro gains it, the same rule as every link"
+        },
+        {
+          "key": "retype",
+          "label": "New tasks still take the Pomodoro's type; only existing tasks merge"
+        }
+      ],
+      "default": "merge",
+      "effective_default": "merge",
+      "requested_verified": false
+    },
+    {
+      "id": "shed_on_move",
+      "kind": "toggle",
+      "ask": "Should Ctrl+Shift+M drop a merged Pomodoro's type when the last Task Link of that type moves out?",
+      "why": "A type travels with its tasks. Close uses the same shed rule, so names never go stale",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_merged_pomodoro",
+      "kind": "toggle",
+      "ask": "Add a \"Merged Pomodoro\" glossary term?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:merged-pomodoro"
+        ]
+      },
+      "requested": "We should add an excellent new glossary term for \"merged pomodoro\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:merged-pomodoro",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/merged-pomodoro.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_links_merge_record",
+      "kind": "toggle",
+      "ask": "Record a decision that linking merges types and never retypes tasks?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:links-merge-types"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:links-merge-types",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/links-merge-types.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
