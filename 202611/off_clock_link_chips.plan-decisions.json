@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "history_rows",
+      "kind": "toggle",
+      "ask": "Also chip links under closed entries and in past daily notes, not just today's open Pomodoros?",
+      "why": "The clock belongs to the task, like the #off tag it stands in for; home chips mark history too.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "prose_links",
+      "kind": "toggle",
+      "ask": "Also put the chip after prose task links (the ones wearing a status ring), not only ledger rows?",
+      "why": "The clock only decides Pomodoro sessions; chips across every love-note link would be noise.",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    }
+  ]
+}
