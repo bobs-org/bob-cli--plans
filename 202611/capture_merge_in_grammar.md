@@ -1,20 +1,19 @@
 ---
 tier: tale
 title: Capture merge-in grammar and editor contract
-goal:
-  Complete bob-cli-hl.2 with shared merge-in parsing, teaching rewrites, grammar
+goal: Complete bob-cli-hl.2 with shared merge-in parsing, teaching rewrites, grammar
   revision publication, and a safe execution refusal until the execute phase lands.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-hl.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-hl.2
-create_time: 2026-11-05 18:30:09
-status: wip
+status: done
 ---
 
 - **PARENT:**
   [202611/capture_merge_in_arrow.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_merge_in_arrow.md)
-- **BEAD:** bob-cli-hl.2
+- **BEAD:**
+  [bob-cli-hl.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hl/bob-cli-hl.2.md)
 
 # Capture merge-in grammar and editor contract
 
