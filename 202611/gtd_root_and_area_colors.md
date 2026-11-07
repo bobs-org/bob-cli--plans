@@ -1,86 +1,83 @@
 ---
 tier: epic
 title: Root the daily ^gtd row at gtd and give areas and projects configurable colors
-goal: "New daily notes root their ^gtd row at gtd.md and the built-in Review time keeps
-  counting that time. Any area or project note can set its own color with a `color:`
-  slot, either a palette hue or grey, and every Bob surface honors it, so the gtd area
-  renders grey like the PLAN type in the Day and period stats strips.
+goal: 'New daily notes root their ^gtd row at gtd.md and the built-in Review time
+  keeps counting that time. Any area or project note can set its own color with a
+  `color:` slot, either a palette hue or grey, and every Bob surface honors it, so
+  the gtd area renders grey like the PLAN type in the Day and period stats strips.
 
-  "
+  '
 decisions:
   history:
     ask: Which existing daily notes should have their ^gtd row re-rooted at gtd?
     choices:
-      recent:
-        Notes dated 2026-11-07 or later; today's strip shows gtd now, older days keep
+      recent: Notes dated 2026-11-07 or later; today's strip shows gtd now, older
+        days keep gtd_daily
+      template: Only notes created from the template after the change; today keeps
         gtd_daily
-      template:
-        Only notes created from the template after the change; today keeps gtd_daily
-      all:
-        Every daily note (about 143); past strips and Stats merge gtd_daily time into
-        gtd
+      all: Every daily note (about 143); past strips and Stats merge gtd_daily time
+        into gtd
     default: recent
     why: '"Start using" means going forward, and old gtd_daily time turns grey anyway'
     answer: all
   gtd_link:
     ask: Also change the daily ^gtd row's visible link from [[gtd_daily]] to [[gtd]]?
     default: false
-    why: "[[gtd_daily]] still opens the PRE/POST checklist the row stands for"
+    why: '[[gtd_daily]] still opens the PRE/POST checklist the row stands for'
     answer: false
   memory_root_parent:
-    ask:
-      Correct the Root Parent glossary entry to say daily review time is rooted at gtd?
+    ask: Correct the Root Parent glossary entry to say daily review time is rooted
+      at gtd?
     memory:
-      - glossary:root-parent
-    corrects:
-      Daily review time is now the time attributed to tasks rooted at `gtd_daily`.
+    - glossary:root-parent
+    corrects: Daily review time is now the time attributed to tasks rooted at `gtd_daily`.
     default: true
     answer: true
   memory_area_color_record:
-    ask: Add a decisions record for nearest-note area/project colors and the grey mute?
+    ask: Add a decisions record for nearest-note area/project colors and the grey
+      mute?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: cli
-    title: bob-cli nearest-note colors, grey mute, and Review time on gtd
-    depends_on: []
-    size: medium
-    description:
-      "cli: in bob-cli, resolve each home's hue from the nearest area or project
-      `color:` slot (palette hue or grey), report `hue_source`, give root groups the
-      root's own hue, mute types named after a grey top-level area, point the built-in
-      review_time at gtd, extend the shared vectors, and update docs and memory."
-  - id: plugins
-    title: bob-plugins mirrors and grey root lanes
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "plugins: in bob-plugins, mirror nearest-note colors and the grey mute in the
-      home-chip and type-hue mirrors, keep muted roots gray in every root lane, copy the
-      shared vectors byte for byte, then test, build, and run `bob plugins sync`."
-  - id: vault
-    title: Vault adoption and live verification
-    depends_on:
-      - cli
-      - plugins
-    size: small
-    description:
-      "vault: install bob from master, re-root the daily template's ^gtd row at gtd, set
-      gtd.md to `color: grey`, rewrite the daily notes the history decision picks, and
-      verify the live stats JSON and strips."
+- id: cli
+  title: bob-cli nearest-note colors, grey mute, and Review time on gtd
+  depends_on: []
+  size: medium
+  description: 'cli: in bob-cli, resolve each home''s hue from the nearest area or
+    project `color:` slot (palette hue or grey), report `hue_source`, give root groups
+    the root''s own hue, mute types named after a grey top-level area, point the built-in
+    review_time at gtd, extend the shared vectors, and update docs and memory.'
+- id: plugins
+  title: bob-plugins mirrors and grey root lanes
+  depends_on:
+  - cli
+  size: medium
+  description: 'plugins: in bob-plugins, mirror nearest-note colors and the grey mute
+    in the home-chip and type-hue mirrors, keep muted roots gray in every root lane,
+    copy the shared vectors byte for byte, then test, build, and run `bob plugins
+    sync`.'
+- id: vault
+  title: Vault adoption and live verification
+  depends_on:
+  - cli
+  - plugins
+  size: small
+  description: 'vault: install bob from master, re-root the daily template''s ^gtd
+    row at gtd, set gtd.md to `color: grey`, rewrite the daily notes the history decision
+    picks, and verify the live stats JSON and strips.'
 proposed_by: bbugyi200.athena.19s
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-07 17:26:26
 status: wip
+bead_id: bob-cli-ij
 ---
 
-- **PROMPT:**
-  [prompts/202611/gtd_root_and_area_colors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gtd_root_and_area_colors.md)
+- **PROMPT:** [prompts/202611/gtd_root_and_area_colors.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gtd_root_and_area_colors.md)
+- **BEAD:** [bob-cli-ij](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ij/README.md)
 
 # Plan: Root the daily ^gtd row at gtd and give areas and projects configurable colors
 
