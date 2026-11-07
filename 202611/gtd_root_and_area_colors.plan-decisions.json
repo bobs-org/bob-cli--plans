@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "history",
+      "kind": "choice",
+      "ask": "Which existing daily notes should have their ^gtd row re-rooted at gtd?",
+      "why": "\"Start using\" means going forward, and old gtd_daily time turns grey anyway",
+      "choices": [
+        {
+          "key": "recent",
+          "label": "Notes dated 2026-11-07 or later; today's strip shows gtd now, older days keep gtd_daily"
+        },
+        {
+          "key": "template",
+          "label": "Only notes created from the template after the change; today keeps gtd_daily"
+        },
+        {
+          "key": "all",
+          "label": "Every daily note (about 143); past strips and Stats merge gtd_daily time into gtd"
+        }
+      ],
+      "default": "recent",
+      "effective_default": "recent",
+      "requested_verified": false
+    },
+    {
+      "id": "gtd_link",
+      "kind": "toggle",
+      "ask": "Also change the daily ^gtd row's visible link from [[gtd_daily]] to [[gtd]]?",
+      "why": "[[gtd_daily]] still opens the PRE/POST checklist the row stands for",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_root_parent",
+      "kind": "toggle",
+      "ask": "Correct the Root Parent glossary entry to say daily review time is rooted at gtd?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:root-parent"
+        ]
+      },
+      "corrects": "Daily review time is now the time attributed to tasks rooted at `gtd_daily`.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:root-parent",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Root Parent",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note",
+            "Task Type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_area_color_record",
+      "kind": "toggle",
+      "ask": "Add a decisions record for nearest-note area/project colors and the grey mute?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Close Selections List Explicitly",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Consumption Keeps Notes And Recorded Time",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "meet-filing-follows-google-until-edited",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Note Defaults Filter By Task Type",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Open Pomodoro Names Follow Task Links",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Equals Alias And Flips",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
