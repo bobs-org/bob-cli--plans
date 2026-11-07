@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cutover",
+      "kind": "choice",
+      "ask": "Swap legacy crontab lines atomically via a temporary cron.retire: list that sync removes with the block?",
+      "why": "Agents can't act after their own commit lands, and the Mac is often asleep",
+      "choices": [
+        {
+          "key": "retire",
+          "label": "Atomic, unattended cutover on athena and the Mac; legacy lines sit in the file until cleanup"
+        },
+        {
+          "key": "supervised",
+          "label": "No retire feature; manual cutover on athena and later the Mac, with brief skipped or doubled runs"
+        }
+      ],
+      "default": "retire",
+      "effective_default": "retire",
+      "requested_verified": false
+    },
+    {
+      "id": "mac_schedule",
+      "kind": "choice",
+      "ask": "Should the Mac jobs adopt the staggered schedule and --retry-timeout 120 that docs/vault-git-sync.md documents?",
+      "why": "The docs explain the staggering; the live table looks like accidental drift",
+      "choices": [
+        {
+          "key": "documented",
+          "label": "Stagger at :00/:05/:10 with --retry-timeout 120 as documented; changes what runs on the Mac"
+        },
+        {
+          "key": "live",
+          "label": "Keep today's three */15 lines with no retry timeout, and rewrite the docs to match"
+        }
+      ],
+      "default": "documented",
+      "effective_default": "documented",
+      "requested_verified": false
+    },
+    {
+      "id": "log_dir",
+      "kind": "choice",
+      "ask": "Should cronrun write job logs to ~/.local/state/cron/<job>.log instead of the legacy /var/tmp paths?",
+      "why": "Job-keyed logs are what cronctl logs and status can find on every machine",
+      "choices": [
+        {
+          "key": "state",
+          "label": "One size-capped log per job under ~/.local/state/cron, read via cronctl logs; docs updated"
+        },
+        {
+          "key": "var_tmp",
+          "label": "Keep each legacy /var/tmp filename through a new optional per-job log: field"
+        }
+      ],
+      "default": "state",
+      "effective_default": "state",
+      "requested_verified": false
+    },
+    {
+      "id": "crontab_memory_note",
+      "kind": "toggle",
+      "ask": "Create a global reference memory note crontab.md making cron: data the only source of truth for cron jobs?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "crontab.md"
+        ]
+      },
+      "requested": "Make sure agents have first-class support (i.e. easy ability to read/write my crontab on any machine from any machine) for this new and improved way of managing my crontabs.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "crontab.md",
+          "kind": "note",
+          "scope": "project",
+          "path": "sase/memory/crontab.md",
+          "type": "reference",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "tailnet_memory_link",
+      "kind": "toggle",
+      "ask": "Add a one-line [[crontab.md]] cross-link to tailnet.md, since cronctl addresses machines by these aliases?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "tailnet.md"
+        ]
+      },
+      "requested": "Review the crontab_as_code_via_chezmoi.md file in the research sidecar repo for context and inspiration before planning. I agree with all of the requirements recommended in that research file",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "tailnet.md",
+          "kind": "note",
+          "scope": "home",
+          "path": "tailnet.md",
+          "type": "reference",
+          "exists": true
+        }
+      ]
+    }
+  ]
+}
