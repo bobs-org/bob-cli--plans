@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "restore_october_task",
+      "kind": "toggle",
+      "ask": "Also restore the Oct 23 highlight task the same bug dropped from sase.md, as an open task?",
+      "why": "Sync dropped it without Bryan's input; restoring it puts the keep-or-cancel choice back with him",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "notify_on_quarantine",
+      "kind": "toggle",
+      "ask": "Send a desktop notification when a conflict still falls back to remote-wins quarantine?",
+      "why": "Both losses so far went unnoticed until a task was found missing",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "copy_on_auto_merge",
+      "kind": "toggle",
+      "ask": "Also write a _conflicts/ copy of the local file when a conflict is auto-merged?",
+      "why": "The invariant checks only accept unions that keep every line from both sides",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_obsidian_conflicts",
+      "kind": "toggle",
+      "ask": "Update obsidian.md's Conflicts bullet to describe the same-point insertion auto-merge?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "obsidian.md"
+        ]
+      },
+      "corrects": "**Conflicts:** supported conflicts keep the remote version in place and preserve local copies under `_conflicts/`, logged in `_conflicts/sync_conflicts.md`.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "obsidian.md",
+          "kind": "note",
+          "scope": "home",
+          "path": "obsidian.md",
+          "type": "reference",
+          "exists": true
+        }
+      ]
+    }
+  ]
+}
