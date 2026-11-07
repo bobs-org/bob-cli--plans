@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cron_enabled",
+      "kind": "toggle",
+      "ask": "Ship the bob-gmail-sync cron job enabled, so it starts as soon as the Mac converges?",
+      "why": "Adjustment A12; the Mac needs a reinstalled bob first, or cron fails every 15 minutes",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "gmail_watch_record",
+      "kind": "toggle",
+      "ask": "Add a decisions record saying a Gmail watch starts with a label and ends when its task closes?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:gmail-watch-ends-when-its-task-closes"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:gmail-watch-ends-when-its-task-closes",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/gmail-watch-ends-when-its-task-closes.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "reply_hold_record",
+      "kind": "toggle",
+      "ask": "Record the awaiting-reply hold as a decision and mark unblocked-tasks-resurface-as-ticklers superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:gmail-reply-wait-is-a-tagged-hold",
+          "decisions:unblocked-tasks-resurface-as-ticklers"
+        ]
+      },
+      "corrects": "Writers are reconcile Unblock; capture/cycler close recovery",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:gmail-reply-wait-is-a-tagged-hold",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/gmail-reply-wait-is-a-tagged-hold.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:unblocked-tasks-resurface-as-ticklers",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Unblocked Tasks Resurface As Ticklers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inbox_glossary",
+      "kind": "toggle",
+      "ask": "Fix the Inbox File glossary term, which says bob gmail pull files labelled threads in gmail_inbox.md?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:inbox-file"
+        ]
+      },
+      "corrects": "files labelled Gmail threads in `gmail_inbox.md`",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:inbox-file",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Inbox File",
+            "Capture",
+            "Pomodoro",
+            "Task Type",
+            "Project Note",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
