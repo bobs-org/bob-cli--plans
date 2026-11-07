@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "gap_rule",
+      "kind": "choice",
+      "ask": "Cap a rewritten Tasks section's trailing gap at one blank line (vs. only discounting a dropped group's separator)?",
+      "why": "Matches the emitter's internal blank-run collapse and self-heals the vault",
+      "choices": [
+        {
+          "key": "cap",
+          "label": "Stops growth and heals inflated notes on next reconcile; deliberate 2+ blank gaps get normalized"
+        },
+        {
+          "key": "targeted",
+          "label": "Keeps deliberate multi-blank gaps; already-inflated notes never heal and need manual cleanup"
+        }
+      ],
+      "default": "cap",
+      "effective_default": "cap",
+      "requested_verified": false
+    },
+    {
+      "id": "vault_cleanup",
+      "kind": "choice",
+      "ask": "Should the coder also hand-trim the extra blank lines in the live ~/bob notes now?",
+      "why": "The fix heals these notes itself; agent edits to the live vault risk sync conflicts",
+      "choices": [
+        {
+          "key": "leave",
+          "label": "Vault untouched; the first reconcile by the fixed bob on each host heals the gaps"
+        },
+        {
+          "key": "trim_now",
+          "label": "Coder trims the 8 inflated notes now; gaps regrow nightly until the release reaches hosts"
+        }
+      ],
+      "default": "leave",
+      "effective_default": "leave",
+      "requested_verified": false
+    }
+  ]
+}
