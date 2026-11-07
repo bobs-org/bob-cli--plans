@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "agent_recipe",
+      "kind": "choice",
+      "ask": "Should the sase_gmail skill gain a narrow section teaching agents the Mac SSH draft recipe?",
+      "why": "a plain `ssh mac bob \u2026` finds no gog, and the skill currently forbids drafting outright",
+      "choices": [
+        {
+          "key": "skill",
+          "label": "Add the section (draft only on request, never send) and deploy it after the gate verifies the Mac"
+        },
+        {
+          "key": "none",
+          "label": "Leave the skill read-only; agents learn the recipe only from your prompts"
+        }
+      ],
+      "default": "skill",
+      "effective_default": "skill",
+      "requested_verified": false
+    },
+    {
+      "id": "followup_drafts",
+      "kind": "choice",
+      "ask": "After you approve the gate, should the follow-up agent create the Dan Dowd and Samuel Lam Gmail drafts?",
+      "why": "those drafts were your previous request, and drafting never sends",
+      "choices": [
+        {
+          "key": "draft",
+          "label": "Run `bob gmail draft` on both existing notes and report the stored previews; nothing is sent"
+        },
+        {
+          "key": "skip",
+          "label": "Stop after verification; you ask for the drafts later"
+        }
+      ],
+      "default": "draft",
+      "effective_default": "draft",
+      "requested_verified": false
+    },
+    {
+      "id": "keychain_cleanup",
+      "kind": "choice",
+      "ask": "Should the script delete the six old gogcli macOS keychain items once the file keyring is verified?",
+      "why": "the keychain copy is already encrypted and keeping it makes rollback lossless",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Leave them unused as an instant rollback path (`gog auth keyring auto`)"
+        },
+        {
+          "key": "delete",
+          "label": "Remove them after a y/N prompt so only the file keyring holds the refresh tokens"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
