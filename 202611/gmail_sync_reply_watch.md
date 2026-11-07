@@ -1,124 +1,110 @@
 ---
 tier: epic
-title:
-  bob gmail sync — label-routed Gmail threads watched for replies until their task
-  closes
-goal:
-  "Labelling a Gmail thread `bob` (plus an optional `#/<note>` or `+/<note>` routing
+title: bob gmail sync — label-routed Gmail threads watched for replies until their
+  task closes
+goal: 'Labelling a Gmail thread `bob` (plus an optional `#/<note>` or `+/<note>` routing
   label) files one task into that area or project note and keeps watching the thread
-  until the task is closed: your reply puts the task on an awaiting-reply hold drawn as
-  a hollow paper plane, their reply lifts it and resurfaces the task in the next review,
-  and `bob gmail sync` runs every 15 minutes on the Mac from the chezmoi cron data."
+  until the task is closed: your reply puts the task on an awaiting-reply hold drawn
+  as a hollow paper plane, their reply lifts it and resurfaces the task in the next
+  review, and `bob gmail sync` runs every 15 minutes on the Mac from the chezmoi cron
+  data.'
 phases:
-  - id: routing
-    title: Sync config and the routing-label resolver
-    depends_on: []
-    size: medium
-    description:
-      "routing: add the gmail.sync config keys with pull fallbacks, a pure resolver that
-      turns a thread's prefixed Gmail labels into one area or project note or a typed
-      route problem, and doctor rows that audit every routing label."
-  - id: turns
-    title: Turn classification and mail-note turn fields
-    depends_on: []
-    size: medium
-    description:
-      "turns: classify each Gmail message as your move, their move, automated, bounce,
-      or ignored, fold a thread into whose turn it is, write turn and turn_since into
-      mail notes, and upgrade an untouched mail.base with a Waiting for reply view."
-  - id: sync
-    title: The bob gmail sync command, filing, adoption, and the pull alias
-    depends_on:
-      - routing
-    size: large
-    description:
-      "sync: build bob gmail sync with paged ids-only discovery, the enrollment journal,
-      the watching-task scan, adoption, label-routed filing through capture's task
-      writer, loud route-problem rows in gmail_inbox.md, human and JSON reports, and
-      pull as its permanent hidden alias."
-  - id: watch
-    title: The awaiting-reply hold and the reply lift
-    depends_on:
-      - sync
-      - turns
-    size: large
-    description:
-      "watch: fetch watched threads every run, refresh their mail notes, and apply each
-      new turn to every open linking task, holding on your send and lifting with an
-      [unblocked:: today] return on their reply, including the send finalize hook and
-      the running-session guard."
-  - id: health
-    title: Route repair, alert-once problems, staleness, and doctor sync
-    depends_on:
-      - watch
-    size: medium
-    description:
-      "health: refile a gmail_inbox.md row once its routing label resolves, report
-      persisting route problems without failing again, raise a staleness alarm when
-      syncs keep skipping, and add a doctor sync row."
-  - id: mark
-    title: The hollow paper-plane awaiting block mark
-    depends_on: []
-    size: medium
-    description:
-      "mark: specify and ship the awaiting blocked-reason mark (hollow paper plane,
-      waiting family) with its precedence, tooltip, tag fold, Tasks query CSS,
-      conformance vectors, and contrast tests across bob-cli docs and bob-plugins."
-  - id: signals
-    title: Reply badge, no-reply pill, and the daily-note Gmail sync
-    depends_on:
-      - turns
-      - sync
-      - mark
-    size: medium
-    description:
-      "signals: add the display-only reply badge on mail links, the muted no-reply pill
-      on nudge-due rows, the Also replied tooltip pip, and a once-per-day Ledger Tools
-      gmail sync when today's daily note is created."
-  - id: cron
-    title: Chezmoi gmail config and the bob-gmail-sync cron job
-    depends_on:
-      - watch
-      - health
-    size: small
-    description:
-      "cron: add Bryan's gmail block (route prefixes # and +, three reply-wait days) to
-      the chezmoi bob config and a Mac bob-gmail-sync job at 7,22,37,52 to the cron
-      data, then document the slot in bob-cli."
+- id: routing
+  title: Sync config and the routing-label resolver
+  depends_on: []
+  size: medium
+  description: 'routing: add the gmail.sync config keys with pull fallbacks, a pure
+    resolver that turns a thread''s prefixed Gmail labels into one area or project
+    note or a typed route problem, and doctor rows that audit every routing label.'
+- id: turns
+  title: Turn classification and mail-note turn fields
+  depends_on: []
+  size: medium
+  description: 'turns: classify each Gmail message as your move, their move, automated,
+    bounce, or ignored, fold a thread into whose turn it is, write turn and turn_since
+    into mail notes, and upgrade an untouched mail.base with a Waiting for reply view.'
+- id: sync
+  title: The bob gmail sync command, filing, adoption, and the pull alias
+  depends_on:
+  - routing
+  size: large
+  description: 'sync: build bob gmail sync with paged ids-only discovery, the enrollment
+    journal, the watching-task scan, adoption, label-routed filing through capture''s
+    task writer, loud route-problem rows in gmail_inbox.md, human and JSON reports,
+    and pull as its permanent hidden alias.'
+- id: watch
+  title: The awaiting-reply hold and the reply lift
+  depends_on:
+  - sync
+  - turns
+  size: large
+  description: 'watch: fetch watched threads every run, refresh their mail notes,
+    and apply each new turn to every open linking task, holding on your send and lifting
+    with an [unblocked:: today] return on their reply, including the send finalize
+    hook and the running-session guard.'
+- id: health
+  title: Route repair, alert-once problems, staleness, and doctor sync
+  depends_on:
+  - watch
+  size: medium
+  description: 'health: refile a gmail_inbox.md row once its routing label resolves,
+    report persisting route problems without failing again, raise a staleness alarm
+    when syncs keep skipping, and add a doctor sync row.'
+- id: mark
+  title: The hollow paper-plane awaiting block mark
+  depends_on: []
+  size: medium
+  description: 'mark: specify and ship the awaiting blocked-reason mark (hollow paper
+    plane, waiting family) with its precedence, tooltip, tag fold, Tasks query CSS,
+    conformance vectors, and contrast tests across bob-cli docs and bob-plugins.'
+- id: signals
+  title: Reply badge, no-reply pill, and the daily-note Gmail sync
+  depends_on:
+  - turns
+  - sync
+  - mark
+  size: medium
+  description: 'signals: add the display-only reply badge on mail links, the muted
+    no-reply pill on nudge-due rows, the Also replied tooltip pip, and a once-per-day
+    Ledger Tools gmail sync when today''s daily note is created.'
+- id: cron
+  title: Chezmoi gmail config and the bob-gmail-sync cron job
+  depends_on:
+  - watch
+  - health
+  size: small
+  description: 'cron: add Bryan''s gmail block (route prefixes # and +, three reply-wait
+    days) to the chezmoi bob config and a Mac bob-gmail-sync job at 7,22,37,52 to
+    the cron data, then document the slot in bob-cli.'
 decisions:
   cron_enabled:
-    ask:
-      Ship the bob-gmail-sync cron job enabled, so it starts as soon as the Mac
+    ask: Ship the bob-gmail-sync cron job enabled, so it starts as soon as the Mac
       converges?
     default: false
-    why:
-      Adjustment A12; the Mac needs a reinstalled bob first, or cron fails every 15
-      minutes
+    why: Adjustment A12; the Mac needs a reinstalled bob first, or cron fails every
+      15 minutes
     answer: false
   gmail_watch_record:
-    ask:
-      Add a decisions record saying a Gmail watch starts with a label and ends when its
-      task closes?
+    ask: Add a decisions record saying a Gmail watch starts with a label and ends
+      when its task closes?
     memory:
-      - decisions:gmail-watch-ends-when-its-task-closes
+    - decisions:gmail-watch-ends-when-its-task-closes
     default: false
     answer: false
   reply_hold_record:
-    ask:
-      Record the awaiting-reply hold as a decision and mark
-      unblocked-tasks-resurface-as-ticklers superseded in part?
+    ask: Record the awaiting-reply hold as a decision and mark unblocked-tasks-resurface-as-ticklers
+      superseded in part?
     memory:
-      - decisions:gmail-reply-wait-is-a-tagged-hold
-      - decisions:unblocked-tasks-resurface-as-ticklers
+    - decisions:gmail-reply-wait-is-a-tagged-hold
+    - decisions:unblocked-tasks-resurface-as-ticklers
     default: true
     corrects: Writers are reconcile Unblock; capture/cycler close recovery
     answer: true
   inbox_glossary:
-    ask:
-      Fix the Inbox File glossary term, which says bob gmail pull files labelled threads
-      in gmail_inbox.md?
+    ask: Fix the Inbox File glossary term, which says bob gmail pull files labelled
+      threads in gmail_inbox.md?
     memory:
-      - glossary:inbox-file
+    - glossary:inbox-file
     default: true
     corrects: files labelled Gmail threads in `gmail_inbox.md`
     answer: true
@@ -128,10 +114,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-07 17:21:19
 status: wip
+bead_id: bob-cli-ii
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_reply_watch.md)
+- **PROMPT:** [prompts/202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_reply_watch.md)
+- **BEAD:** [bob-cli-ii](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ii/README.md)
 
 # bob gmail sync: label-routed Gmail threads watched for replies
 
