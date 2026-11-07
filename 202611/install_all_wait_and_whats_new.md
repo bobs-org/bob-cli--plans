@@ -107,7 +107,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-11-06 15:11:23
-status: wip
+status: done
 bead_id: bob-cli-i0
 ---
 
