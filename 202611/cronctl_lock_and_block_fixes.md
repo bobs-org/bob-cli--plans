@@ -1,10 +1,11 @@
 ---
 tier: tale
 size: small
-title: Fix cronctl's mkdir-lock spin and unterminated-block merge, then close epic
-  bob-cli-ib
-goal: cronctl sync can no longer hang chezmoi update -a or merge a crontab line into
-  the END marker, fleet SSH calls give up on a dead link, and epic bob-cli-ib is closed.
+title:
+  Fix cronctl's mkdir-lock spin and unterminated-block merge, then close epic bob-cli-ib
+goal:
+  cronctl sync can no longer hang chezmoi update -a or merge a crontab line into the END
+  marker, fleet SSH calls give up on a dead link, and epic bob-cli-ib is closed.
 proposed_by: bbugyi200.athena.bob-cli-ib.land
 proposed_with: claude/opus
 bead: bob-cli-ib
@@ -15,6 +16,11 @@ status: done
   [202611/crontab_as_code.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/crontab_as_code.md)
 - **BEAD:**
   [bob-cli-ib](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ib/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ib.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ib.land.md)
+- **COMMITS:**
+  - [a6e7a9e](https://github.com/bobs-org/bob-cli--plans/commit/a6e7a9ec0c0ec03ba49fe7d3afc2b9321e1478d7)
+    — chore(plans): mark the crontab_as_code epic done
 
 # Fix cronctl's mkdir-lock spin and unterminated-block merge, then close bob-cli-ib
 
