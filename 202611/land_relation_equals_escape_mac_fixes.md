@@ -1,12 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Finish bob-cli-hz — repair the Mac fast == escape and its tests, then close
-  the epic
-goal: In Bob Mac Capture, a fast `==` after Bob's `=` opener reply types one literal
-  `=` and dismisses Links To. The equals window rejects out-of-order timestamps. Every
-  bob-cli-hz macOS test suite is green in CI, apart from the bob-cli-h7 baseline.
-  Epic bob-cli-hz is closed and its plan marked done.
+title:
+  Finish bob-cli-hz — repair the Mac fast == escape and its tests, then close the epic
+goal:
+  In Bob Mac Capture, a fast `==` after Bob's `=` opener reply types one literal `=` and
+  dismisses Links To. The equals window rejects out-of-order timestamps. Every
+  bob-cli-hz macOS test suite is green in CI, apart from the bob-cli-h7 baseline. Epic
+  bob-cli-hz is closed and its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-hz.land
 proposed_with: claude/opus
 bead: bob-cli-hz
@@ -17,6 +18,11 @@ status: done
   [202611/relation_equals_alias_and_direction_flips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/relation_equals_alias_and_direction_flips.md)
 - **BEAD:**
   [bob-cli-hz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-hz/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-hz.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-hz.land.md)
+- **COMMITS:**
+  - [1e0a092](https://github.com/bobs-org/bob-mac-capture/commit/1e0a092441d0a2bc0a50fc5c42ec09fd7463ce89)
+    — fix(mac-capture): repair fast == escape and record race (bob-cli-hz)
 
 # Finish epic bob-cli-hz: repair the Mac fast `==` escape, then close the epic
 
