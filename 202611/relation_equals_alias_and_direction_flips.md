@@ -69,7 +69,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-06 12:50:19
-status: wip
+status: done
 bead_id: bob-cli-hz
 ---
 
