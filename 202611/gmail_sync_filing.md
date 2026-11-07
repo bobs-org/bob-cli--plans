@@ -1,58 +1,53 @@
 ---
 tier: epic
 title: Gmail sync discovery, enrollment, and routed filing
-goal:
-  Complete bob-cli-ii.3 with idempotent label-routed task filing, local watch
-  membership, adoption, bounded retries, one scoped transaction, clear reports, and a
-  behavior-identical hidden pull alias.
+goal: Complete bob-cli-ii.3 with idempotent label-routed task filing, local watch
+  membership, adoption, bounded retries, one scoped transaction, clear reports, and
+  a behavior-identical hidden pull alias.
 phases:
-  - id: membership
-    title: Enrollment journal and watching-task membership
-    size: medium
-    depends_on: []
-    description:
-      "membership: implement the body-free enrollment fold and append API, the
-      vault-wide watching-task scan, and adoption decisions with focused tests."
-  - id: discovery
-    title: Paged discovery and bounded run coordination
-    size: medium
-    depends_on:
-      - membership
-    description:
-      "discovery: implement ids-only discovery, per-account exclusion, and shared pacing
-      and transient retry support, preserving dry-run and watch-only behavior."
-  - id: filing
-    title: One transaction for routed mail notes and tasks
-    size: medium
-    depends_on:
-      - membership
-      - discovery
-    description:
-      "filing: share the prepared save path with sync, plan routed and problem tasks
-      through capture, and apply all successful filings under one lock and scoped commit
-      before recording enrollment events, with recovery and race tests."
-  - id: command
-    title: Sync command, permanent pull alias, reports, and documentation
-    size: medium
-    depends_on:
-      - membership
-      - discovery
-      - filing
-    description:
-      "command: wire the sync pipeline and hidden pull alias, human and JSON reports,
-      command catalog and completion, end-to-end fake-gog coverage, docs, and the
-      inherited approved Inbox File glossary correction."
+- id: membership
+  title: Enrollment journal and watching-task membership
+  size: medium
+  depends_on: []
+  description: 'membership: implement the body-free enrollment fold and append API,
+    the vault-wide watching-task scan, and adoption decisions with focused tests.'
+- id: discovery
+  title: Paged discovery and bounded run coordination
+  size: medium
+  depends_on:
+  - membership
+  description: 'discovery: implement ids-only discovery, per-account exclusion, and
+    shared pacing and transient retry support, preserving dry-run and watch-only behavior.'
+- id: filing
+  title: One transaction for routed mail notes and tasks
+  size: medium
+  depends_on:
+  - membership
+  - discovery
+  description: 'filing: share the prepared save path with sync, plan routed and problem
+    tasks through capture, and apply all successful filings under one lock and scoped
+    commit before recording enrollment events, with recovery and race tests.'
+- id: command
+  title: Sync command, permanent pull alias, reports, and documentation
+  size: medium
+  depends_on:
+  - membership
+  - discovery
+  - filing
+  description: 'command: wire the sync pipeline and hidden pull alias, human and JSON
+    reports, command catalog and completion, end-to-end fake-gog coverage, docs, and
+    the inherited approved Inbox File glossary correction.'
 proposed_by: bbugyi200.athena.bob-cli-ii.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ii.3
 create_time: 2026-11-07 18:12:55
 status: wip
+bead_id: bob-cli-ii.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_sync_filing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_filing.md)
-- **PARENT:**
-  [202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_reply_watch.md)
+- **PROMPT:** [prompts/202611/gmail_sync_filing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_filing.md)
+- **PARENT:** [202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_reply_watch.md)
+- **BEAD:** [bob-cli-ii.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ii/bob-cli-ii.3.1.md)
 
 # Complete Gmail sync filing and enrollment for bob-cli-ii.3
 
