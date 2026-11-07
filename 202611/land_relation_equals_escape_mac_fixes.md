@@ -1,18 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  Finish bob-cli-hz — repair the Mac fast == escape and its tests, then close the epic
-goal:
-  In Bob Mac Capture, a fast `==` after Bob's `=` opener reply types one literal `=` and
-  dismisses Links To. The equals window rejects out-of-order timestamps. Every
-  bob-cli-hz macOS test suite is green in CI, apart from the bob-cli-h7 baseline. Epic
-  bob-cli-hz is closed and its plan marked done.
+title: Finish bob-cli-hz — repair the Mac fast == escape and its tests, then close
+  the epic
+goal: In Bob Mac Capture, a fast `==` after Bob's `=` opener reply types one literal
+  `=` and dismisses Links To. The equals window rejects out-of-order timestamps. Every
+  bob-cli-hz macOS test suite is green in CI, apart from the bob-cli-h7 baseline.
+  Epic bob-cli-hz is closed and its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-hz.land
 proposed_with: claude/opus
 bead: bob-cli-hz
-create_time: 2026-11-06 23:00:07
-status: wip
+status: done
 ---
 
 - **PARENT:**
