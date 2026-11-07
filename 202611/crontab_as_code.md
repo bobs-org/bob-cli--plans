@@ -1,129 +1,112 @@
 ---
 tier: epic
 title: Crontabs as code through chezmoi, with first-class agent access
-goal:
-  "One committed cron: block in the chezmoi repo is the single source of truth for every
-  machine's user crontab; chezmoi update -a converges each machine's own marked block
-  without touching other lines, and agents can read and write any machine's crontab from
-  any machine through cronctl, a /crontab skill, and a global memory note."
+goal: 'One committed cron: block in the chezmoi repo is the single source of truth
+  for every machine''s user crontab; chezmoi update -a converges each machine''s own
+  marked block without touching other lines, and agents can read and write any machine''s
+  crontab from any machine through cronctl, a /crontab skill, and a global memory
+  note.'
 phases:
-  - id: render
-    title: Cron data schema, partials, and per-machine rendering
-    depends_on: []
-    size: medium
-    description:
-      "render: add the cron: schema, validating chezmoi partials, the per-machine
-      managed.crontab and retire.crontab targets, and render tests on chezmoi v2.13.1
-      and the latest release."
-  - id: cronrun
-    title: Machine-agnostic job runner
-    depends_on: []
-    size: small
-    description:
-      "cronrun: add ~/bin/cronrun, which derives the job environment at run time, guards
-      overlaps, logs, records status, mails only failures, and offers a side-effect-free
-      --dry-run."
-  - id: sync
-    title: Local reconciler, hook, and offline cronctl commands
-    depends_on:
-      - render
-    size: medium
-    description:
-      "sync: create cronctl with list, render, and check plus the marked-block sync
-      reconciler, and the run_onchange hook that runs it when this machine's block
-      changes."
-  - id: remote
-    title: Fleet commands for status, diff, apply, logs, run, and edit
-    depends_on:
-      - sync
-      - cronrun
-    size: medium
-    description:
-      "remote: add SSH-streamed fleet commands so any machine can read live state and
-      converge any machine to a pushed revision without a bootstrap step."
-  - id: agent-docs
-    title: Crontab skill, memory note, README, and alias cleanup
-    depends_on:
-      - remote
-    size: small
-    description:
-      "agent-docs: teach agents the read and write flow through a global /crontab skill
-      and reference memory note, document the human flow, and retire legacy cron
-      aliases."
-  - id: migrate
-    title: Move athena and Mac jobs into the data and cut over
-    depends_on:
-      - remote
-      - cronrun
-      - agent-docs
-    size: medium
-    description:
-      "migrate: move the live athena and Mac jobs into cron: data with an atomic
-      cutover, update bob-cli docs, and converge the fleet through a post-commit apply."
+- id: render
+  title: Cron data schema, partials, and per-machine rendering
+  depends_on: []
+  size: medium
+  description: 'render: add the cron: schema, validating chezmoi partials, the per-machine
+    managed.crontab and retire.crontab targets, and render tests on chezmoi v2.13.1
+    and the latest release.'
+- id: cronrun
+  title: Machine-agnostic job runner
+  depends_on: []
+  size: small
+  description: 'cronrun: add ~/bin/cronrun, which derives the job environment at run
+    time, guards overlaps, logs, records status, mails only failures, and offers a
+    side-effect-free --dry-run.'
+- id: sync
+  title: Local reconciler, hook, and offline cronctl commands
+  depends_on:
+  - render
+  size: medium
+  description: 'sync: create cronctl with list, render, and check plus the marked-block
+    sync reconciler, and the run_onchange hook that runs it when this machine''s block
+    changes.'
+- id: remote
+  title: Fleet commands for status, diff, apply, logs, run, and edit
+  depends_on:
+  - sync
+  - cronrun
+  size: medium
+  description: 'remote: add SSH-streamed fleet commands so any machine can read live
+    state and converge any machine to a pushed revision without a bootstrap step.'
+- id: agent-docs
+  title: Crontab skill, memory note, README, and alias cleanup
+  depends_on:
+  - remote
+  size: small
+  description: 'agent-docs: teach agents the read and write flow through a global
+    /crontab skill and reference memory note, document the human flow, and retire
+    legacy cron aliases.'
+- id: migrate
+  title: Move athena and Mac jobs into the data and cut over
+  depends_on:
+  - remote
+  - cronrun
+  - agent-docs
+  size: medium
+  description: 'migrate: move the live athena and Mac jobs into cron: data with an
+    atomic cutover, update bob-cli docs, and converge the fleet through a post-commit
+    apply.'
 decisions:
   cutover:
-    ask:
-      "Swap legacy crontab lines atomically via a temporary cron.retire: list that sync
-      removes with the block?"
+    ask: 'Swap legacy crontab lines atomically via a temporary cron.retire: list that
+      sync removes with the block?'
     choices:
-      retire:
-        Atomic, unattended cutover on athena and the Mac; legacy lines sit in the file
-        until cleanup
-      supervised:
-        No retire feature; manual cutover on athena and later the Mac, with brief
-        skipped or doubled runs
+      retire: Atomic, unattended cutover on athena and the Mac; legacy lines sit in
+        the file until cleanup
+      supervised: No retire feature; manual cutover on athena and later the Mac, with
+        brief skipped or doubled runs
     default: retire
     why: Agents can't act after their own commit lands, and the Mac is often asleep
     answer: retire
   mac_schedule:
-    ask:
-      Should the Mac jobs adopt the staggered schedule and --retry-timeout 120 that
-      docs/vault-git-sync.md documents?
+    ask: Should the Mac jobs adopt the staggered schedule and --retry-timeout 120
+      that docs/vault-git-sync.md documents?
     choices:
-      documented:
-        Stagger at :00/:05/:10 with --retry-timeout 120 as documented; changes what runs
-        on the Mac
-      live:
-        Keep today's three */15 lines with no retry timeout, and rewrite the docs to
-        match
+      documented: Stagger at :00/:05/:10 with --retry-timeout 120 as documented; changes
+        what runs on the Mac
+      live: Keep today's three */15 lines with no retry timeout, and rewrite the docs
+        to match
     default: documented
     why: The docs explain the staggering; the live table looks like accidental drift
     answer: documented
   log_dir:
-    ask:
-      Should cronrun write job logs to ~/.local/state/cron/<job>.log instead of the
-      legacy /var/tmp paths?
+    ask: Should cronrun write job logs to ~/.local/state/cron/<job>.log instead of
+      the legacy /var/tmp paths?
     choices:
-      state:
-        One size-capped log per job under ~/.local/state/cron, read via cronctl logs;
-        docs updated
-      var_tmp:
-        "Keep each legacy /var/tmp filename through a new optional per-job log: field"
+      state: One size-capped log per job under ~/.local/state/cron, read via cronctl
+        logs; docs updated
+      var_tmp: 'Keep each legacy /var/tmp filename through a new optional per-job
+        log: field'
     default: state
     why: Job-keyed logs are what cronctl logs and status can find on every machine
     answer: state
   crontab_memory_note:
-    ask:
-      "Create a global reference memory note crontab.md making cron: data the only
-      source of truth for cron jobs?"
+    ask: 'Create a global reference memory note crontab.md making cron: data the only
+      source of truth for cron jobs?'
     memory:
-      - crontab.md
+    - crontab.md
     default: true
-    requested:
-      Make sure agents have first-class support (i.e. easy ability to read/write my
-      crontab on any machine from any machine) for this new and improved way of managing
-      my crontabs.
+    requested: Make sure agents have first-class support (i.e. easy ability to read/write
+      my crontab on any machine from any machine) for this new and improved way of
+      managing my crontabs.
     answer: true
   tailnet_memory_link:
-    ask:
-      Add a one-line [[crontab.md]] cross-link to tailnet.md, since cronctl addresses
+    ask: Add a one-line [[crontab.md]] cross-link to tailnet.md, since cronctl addresses
       machines by these aliases?
     memory:
-      - tailnet.md
+    - tailnet.md
     default: true
-    requested:
-      Review the crontab_as_code_via_chezmoi.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    requested: Review the crontab_as_code_via_chezmoi.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file
     answer: true
 proposed_by: bbugyi200.athena.research.5w.linker.w1
@@ -132,10 +115,11 @@ decided_by: reviewer
 decided_via: telegram
 create_time: 2026-11-07 12:43:36
 status: wip
+bead_id: bob-cli-ib
 ---
 
-- **PROMPT:**
-  [prompts/202611/crontab_as_code.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/crontab_as_code.md)
+- **PROMPT:** [prompts/202611/crontab_as_code.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/crontab_as_code.md)
+- **BEAD:** [bob-cli-ib](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ib/README.md)
 
 # Crontabs as code through chezmoi, with first-class agent access
 
