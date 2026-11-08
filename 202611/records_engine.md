@@ -1,57 +1,52 @@
 ---
 tier: epic
 title: Records engine schema, indexing, rendering, and planning
-goal:
-  Complete bob-cli-ir.2 with one validated records engine for later CLI and capture
+goal: Complete bob-cli-ir.2 with one validated records engine for later CLI and capture
   consumers, safe byte-preserving updates, real-note fixtures, and a published contract.
 phases:
-  - id: schema-stems
-    title: Records schema, value validation, and filename fixtures
-    size: medium
-    depends_on: []
-    description:
-      "schema-stems: implement the isolated records config loader, ordered schema and
-      shared value validation types, filename normalization, and the frozen real-note
-      fixtures."
-  - id: folder-index
-    title: Lazy per-folder records index and suggestions
-    size: medium
-    depends_on:
-      - schema-stems
-    description:
-      "folder-index: implement frontmatter-only folder discovery, case-insensitive stem
-      lookup, diagnostics, collapsed value frequencies, nearest matches, and performance
-      evidence."
-  - id: render-edit
-    title: Typed record rendering and byte-preserving updates
-    size: medium
-    depends_on:
-      - schema-stems
-    description:
-      "render-edit: render new record notes and implement conservative field and note
-      edits that preserve every untouched byte, with real-note goldens and round-trip
-      tests."
-  - id: planner-contract
-    title: Records planner, engine integration, and contract documentation
-    size: medium
-    depends_on:
-      - folder-index
-      - render-edit
-    description:
-      "planner-contract: compose the engine into side-effect-free creation plans with
-      field states, properties, defaults, collisions, and typed diagnostics; publish the
-      records contract and config reference and verify the complete engine."
+- id: schema-stems
+  title: Records schema, value validation, and filename fixtures
+  size: medium
+  depends_on: []
+  description: 'schema-stems: implement the isolated records config loader, ordered
+    schema and shared value validation types, filename normalization, and the frozen
+    real-note fixtures.'
+- id: folder-index
+  title: Lazy per-folder records index and suggestions
+  size: medium
+  depends_on:
+  - schema-stems
+  description: 'folder-index: implement frontmatter-only folder discovery, case-insensitive
+    stem lookup, diagnostics, collapsed value frequencies, nearest matches, and performance
+    evidence.'
+- id: render-edit
+  title: Typed record rendering and byte-preserving updates
+  size: medium
+  depends_on:
+  - schema-stems
+  description: 'render-edit: render new record notes and implement conservative field
+    and note edits that preserve every untouched byte, with real-note goldens and
+    round-trip tests.'
+- id: planner-contract
+  title: Records planner, engine integration, and contract documentation
+  size: medium
+  depends_on:
+  - folder-index
+  - render-edit
+  description: 'planner-contract: compose the engine into side-effect-free creation
+    plans with field states, properties, defaults, collisions, and typed diagnostics;
+    publish the records contract and config reference and verify the complete engine.'
 proposed_by: bbugyi200.athena.bob-cli-ir.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ir.2
 create_time: 2026-11-08 11:17:50
 status: wip
+bead_id: bob-cli-ir.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/records_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/records_engine.md)
-- **PARENT:**
-  [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **PROMPT:** [prompts/202611/records_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/records_engine.md)
+- **PARENT:** [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **BEAD:** [bob-cli-ir.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.2.1.md)
 
 # Records engine for bob-cli-ir.2
 
