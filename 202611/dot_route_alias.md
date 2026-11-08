@@ -1,76 +1,68 @@
 ---
 tier: epic
-title: "`.` falls back to `@` in capture drafts"
-goal:
-  Typing `.sase.foo ` after task text in Bob Mac Capture renders `@sase^foo `; the first
-  `.` opens route completion, and a fast `..` types one literal `.`.
+title: '`.` falls back to `@` in capture drafts'
+goal: Typing `.sase.foo ` after task text in Bob Mac Capture renders `@sase^foo `;
+  the first `.` opens route completion, and a fast `..` types one literal `.`.
 decisions:
   leading_dot:
-    ask:
-      Should `.` also become `@` at an item or bullet-body start, such as on an empty
-      draft?
+    ask: Should `.` also become `@` at an item or bullet-body start, such as on an
+      empty draft?
     choices:
-      after_text:
-        Only a `.` after a space that follows task text becomes `@`; line starts stay
-        literal
-      item_start_too:
-        A `.` at an item or bullet start also becomes `@`; leading dotfiles and `.5`
-        need `..`
+      after_text: Only a `.` after a space that follows task text becomes `@`; line
+        starts stay literal
+      item_start_too: A `.` at an item or bullet start also becomes `@`; leading dotfiles
+        and `.5` need `..`
     default: after_text
     why: Matches your example and the `=` alias rule, and keeps a whole-item `.` free
     answer: after_text
   escape_speed:
     ask: Should the `..` escape require the second `.` within 350 ms of the first?
     choices:
-      fast:
-        Only a fast second `.` escapes, like fast `==`; a slow one types after the `@`
-      any_speed:
-        The next `.` escapes at any speed, like `\` `\`; a slow `..` never leaves `@.`
+      fast: Only a fast second `.` escapes, like fast `==`; a slow one types after
+        the `@`
+      any_speed: The next `.` escapes at any speed, like `\` `\`; a slow `..` never
+        leaves `@.`
     default: fast
-    why:
-      You asked for "twice fast enough"; it reuses the `=` alias's 350 ms window and
-      probe
+    why: You asked for "twice fast enough"; it reuses the `=` alias's 350 ms window
+      and probe
     answer: fast
   restore_keys:
-    ask:
-      Should Space and Escape on the alias-opened, still-empty route list restore the
-      literal `.`?
+    ask: Should Space and Escape on the alias-opened, still-empty route list restore
+      the literal `.`?
     choices:
-      restore:
-        Space gives `. ` and Escape gives `.`, closing the list, like the `=` opener
-      keep_at:
-        Space types after the `@` and Escape only closes the list; only `..` and Undo
-        restore
+      restore: Space gives `. ` and Escape gives `.`, closing the list, like the `=`
+        opener
+      keep_at: Space types after the `@` and Escape only closes the list; only `..`
+        and Undo restore
     default: restore
     why: A bare `@` then a space is never a valid route, and it matches the `=` opener
     answer: restore
 phases:
-  - id: bob-dot-route-alias
-    title: bob capture-rewrite turns a spaced `.` into `@`
-    size: small
-    depends_on: []
-    description:
-      "bob-dot-route-alias: add the spaced `.` → `@` fallback to `expand_sigil_alias`
-      behind Bob's route-completion gate, with unit and CLI tests, help text, and
-      capture docs."
-  - id: mac-dot-fast-escape
-    title: Mac Capture escapes the `.` → `@` alias with a fast `..`
-    size: medium
-    depends_on: []
-    description:
-      "mac-dot-fast-escape: generalize the `=` gesture arm and probe by key so a fast
-      `..` after Bob's `@` reply types one `.`, add Space/Escape restores, fake-bob
-      tests, and docs."
+- id: bob-dot-route-alias
+  title: bob capture-rewrite turns a spaced `.` into `@`
+  size: small
+  depends_on: []
+  description: 'bob-dot-route-alias: add the spaced `.` → `@` fallback to `expand_sigil_alias`
+    behind Bob''s route-completion gate, with unit and CLI tests, help text, and capture
+    docs.'
+- id: mac-dot-fast-escape
+  title: Mac Capture escapes the `.` → `@` alias with a fast `..`
+  size: medium
+  depends_on: []
+  description: 'mac-dot-fast-escape: generalize the `=` gesture arm and probe by key
+    so a fast `..` after Bob''s `@` reply types one `.`, add Space/Escape restores,
+    fake-bob tests, and docs.'
 proposed_by: bbugyi200.apollo.d0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-08 16:46:38
 status: wip
+bead_id: bob-cli-iu
 ---
 
-- **PROMPT:**
-  [prompts/202611/dot_route_alias.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/dot_route_alias.md)
+- **PROMPT:** [prompts/202611/dot_route_alias.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/dot_route_alias.md)
+- **BEAD:** [bob-cli-iu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-iu/README.md)
 
 # `.` falls back to `@` in capture drafts
 
