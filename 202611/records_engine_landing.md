@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish records-engine safety and nested landing
-goal:
-  Repair the remaining engine defects, verify the shared contract, and close
-  bob-cli-ir.2.1 and parent phase bob-cli-ir.2.
+goal: Repair the remaining engine defects, verify the shared contract, and close bob-cli-ir.2.1
+  and parent phase bob-cli-ir.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ir.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ir.2.1
-create_time: 2026-11-08 13:41:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
