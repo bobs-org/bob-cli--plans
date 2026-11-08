@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Repair Gmail sync recovery and finish the nested landing
-goal:
-  Gmail sync satisfies its remaining pacing, recovery, reporting, and acceptance
+goal: Gmail sync satisfies its remaining pacing, recovery, reporting, and acceptance
   requirements, then bob-cli-in, bob-cli-ii.3.1, and bob-cli-ii.3 close normally with
   verified evidence.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-in.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-in
-create_time: 2026-11-08 10:46:17
-status: wip
+status: done
 ---
 
 - **PARENT:**
