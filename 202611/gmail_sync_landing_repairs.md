@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Gmail sync landing gaps and close bob-cli-ii.3.1
-goal:
-  Complete the remaining sync integration and recovery work, verify it, and close the
-  child epic and parent sync phase normally.
+goal: Complete the remaining sync integration and recovery work, verify it, and close
+  the child epic and parent sync phase normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ii.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ii.3.1
-create_time: 2026-11-07 22:23:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
