@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "shift_enter",
+      "kind": "choice",
+      "ask": "Should Shift+Enter stop doing anything in the relation lists once Ctrl+Enter takes over?",
+      "why": "You asked for instead-of; a no-op can't unlink a CURRENT row via Obsidian's plain-Enter fallback",
+      "choices": [
+        {
+          "key": "consume",
+          "label": "Shift+Enter becomes a no-op in relation lists; it can never fall through to plain Enter"
+        },
+        {
+          "key": "alias",
+          "label": "Shift+Enter keeps opening the label field as an untaught alias; only hints and docs move"
+        }
+      ],
+      "default": "consume",
+      "effective_default": "consume",
+      "requested_verified": false
+    }
+  ]
+}
