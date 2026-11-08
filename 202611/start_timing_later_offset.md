@@ -1,82 +1,74 @@
 ---
 tier: epic
 title: Signed Pomodoro start timing — `+N` starts later
-goal:
-  Inside a start's `<X>`, `-` starts earlier and `+` starts later (a lone sign is one
-  five-minute unit), so `=fix2+` writes exactly what `=fix2 ++` writes, `@foo:bar=+3`
+goal: Inside a start's `<X>`, `-` starts earlier and `+` starts later (a lone sign
+  is one five-minute unit), so `=fix2+` writes exactly what `=fix2 ++` writes, `@foo:bar=+3`
   links and starts a task 15 minutes later in one item, `x=` stays a past-only record
   with teaching refusals, and Obsidian `se<X>` keeps byte-for-byte parity.
 decisions:
   record_signed_start_timing:
-    ask:
-      Should bare_plus record the accepted design as the new decision strand
-      decisions:start-timing-is-signed?
+    ask: Should bare_plus record the accepted design as the new decision strand decisions:start-timing-is-signed?
     memory:
-      - decisions:start-timing-is-signed
+    - decisions:start-timing-is-signed
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: signed_timing
-    title: Signed `<X>` grammar, later clock, contracts, and link starts in bob-cli
-    size: medium
-    depends_on: []
-    description:
-      "signed_timing: extend `<X>` from `[D][-[N]]` to `[D][±[N]]` in bob-cli. Add
-      `later_units` to the start spec and summary, move the start later in
-      `start_block_minute`, refuse `+0` and two signs, accept every leading-`+` form
-      (`=+3`, `=3+2`, `=+fix`, `=3+1#deep-work`, `@foo:bar=+3`, `^foo:bar=3+`), carry
-      the sign into fit drafts and the human parse line, teach `x=3+`/`x=+`, bump the
-      grammar revision, extend the shared MEET vectors, and document it. Trailing `+`
-      after a bare name stays a name byte until bare_plus."
-  - id: bare_plus
-    title: Trailing `+` after bare names is timing; `#` spells names ending in `+`
-    size: medium
-    depends_on:
-      - signed_timing
-    description:
-      "bare_plus: a bare start name now ends at its last byte that is neither a digit
-      nor `+`, so `=fix2+`, `=fix+3`, `=bugs+2`, and `@foo:bar=fix2+` are timing while
-      `=bob+decks` and `=bob+2fa` are unchanged. Refuse `=c++`/`=fix++` with a three-way
-      hint, make `=#c++` legal, teach `x=fix+`, keep timing in completion round trips,
-      emit trailing timing in bare-name fit drafts, fix the stale `=bugs+2` docs, add
-      the differential test, bump the grammar revision, and record
-      decisions:start-timing-is-signed."
-  - id: link_body
-    title: Refuse operator-only bodies after a link start, teaching the glued spelling
-    size: small
-    depends_on:
-      - bare_plus
-    description:
-      "link_body: an `@route:id[#name]=<X>` item whose remaining text is only
-      session-operator tokens (`@foo:bar= ++3`) is refused instead of creating a task
-      titled `++3`; a single `++N` body teaches the folded spelling (`@foo:bar=+3`,
-      `@foo:bar=fix2+`), and the `^route:id=<X> ++N` near miss teaches the same fold.
-      Bump the grammar revision and document it."
-  - id: obsidian_parity
-    title: Obsidian bob-ledger-tools `se<X>` learns `+` in bob-plugins
-    size: small
-    depends_on:
-      - signed_timing
-    description:
-      "obsidian_parity: in bob-plugins, teach the bob-ledger-tools `se<X>` snippet
-      `se+`, `se+3`, `se3+`, and `se3+2` with the same later-start math, refuse `se+0`
-      and two signs, carry the sign into the MEET-conflict fit token, re-copy the shared
-      meet_event_run vectors from bob-cli, map signed tokens in the harness, update the
-      plugin docs, build, test, and run `bob plugins sync`."
+- id: signed_timing
+  title: Signed `<X>` grammar, later clock, contracts, and link starts in bob-cli
+  size: medium
+  depends_on: []
+  description: 'signed_timing: extend `<X>` from `[D][-[N]]` to `[D][±[N]]` in bob-cli.
+    Add `later_units` to the start spec and summary, move the start later in `start_block_minute`,
+    refuse `+0` and two signs, accept every leading-`+` form (`=+3`, `=3+2`, `=+fix`,
+    `=3+1#deep-work`, `@foo:bar=+3`, `^foo:bar=3+`), carry the sign into fit drafts
+    and the human parse line, teach `x=3+`/`x=+`, bump the grammar revision, extend
+    the shared MEET vectors, and document it. Trailing `+` after a bare name stays
+    a name byte until bare_plus.'
+- id: bare_plus
+  title: Trailing `+` after bare names is timing; `#` spells names ending in `+`
+  size: medium
+  depends_on:
+  - signed_timing
+  description: 'bare_plus: a bare start name now ends at its last byte that is neither
+    a digit nor `+`, so `=fix2+`, `=fix+3`, `=bugs+2`, and `@foo:bar=fix2+` are timing
+    while `=bob+decks` and `=bob+2fa` are unchanged. Refuse `=c++`/`=fix++` with a
+    three-way hint, make `=#c++` legal, teach `x=fix+`, keep timing in completion
+    round trips, emit trailing timing in bare-name fit drafts, fix the stale `=bugs+2`
+    docs, add the differential test, bump the grammar revision, and record decisions:start-timing-is-signed.'
+- id: link_body
+  title: Refuse operator-only bodies after a link start, teaching the glued spelling
+  size: small
+  depends_on:
+  - bare_plus
+  description: 'link_body: an `@route:id[#name]=<X>` item whose remaining text is
+    only session-operator tokens (`@foo:bar= ++3`) is refused instead of creating
+    a task titled `++3`; a single `++N` body teaches the folded spelling (`@foo:bar=+3`,
+    `@foo:bar=fix2+`), and the `^route:id=<X> ++N` near miss teaches the same fold.
+    Bump the grammar revision and document it.'
+- id: obsidian_parity
+  title: Obsidian bob-ledger-tools `se<X>` learns `+` in bob-plugins
+  size: small
+  depends_on:
+  - signed_timing
+  description: 'obsidian_parity: in bob-plugins, teach the bob-ledger-tools `se<X>`
+    snippet `se+`, `se+3`, `se3+`, and `se3+2` with the same later-start math, refuse
+    `se+0` and two signs, carry the sign into the MEET-conflict fit token, re-copy
+    the shared meet_event_run vectors from bob-cli, map signed tokens in the harness,
+    update the plugin docs, build, test, and run `bob plugins sync`.'
 proposed_by: bbugyi200.athena.research.5x.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-08 05:50:20
 status: wip
+bead_id: bob-cli-im
 ---
 
-- **PROMPT:**
-  [prompts/202611/start_timing_later_offset.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/start_timing_later_offset.md)
+- **PROMPT:** [prompts/202611/start_timing_later_offset.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/start_timing_later_offset.md)
+- **BEAD:** [bob-cli-im](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-im/README.md)
 
 # Signed Pomodoro start timing: `+N` starts later
 
