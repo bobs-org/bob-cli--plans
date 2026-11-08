@@ -1,95 +1,89 @@
 ---
 tier: epic
 title: ⌘↵ opens a highlight's page in Highlights
-goal: "In Obsidian, ⌘↵ on a reference-note highlight, a 🔖 bookmark line, or a Task Link
-  to an annotation task opens the exact PDF in Highlights and lands on that highlight's
-  page. A status-bar chip and a highlighter rail show beforehand what ⌘↵ will do, on
-  reading tasks too. One Bob toast announces each press before Highlights takes focus.
+goal: 'In Obsidian, ⌘↵ on a reference-note highlight, a 🔖 bookmark line, or a Task
+  Link to an annotation task opens the exact PDF in Highlights and lands on that highlight''s
+  page. A status-bar chip and a highlighter rail show beforehand what ⌘↵ will do,
+  on reading tasks too. One Bob toast announces each press before Highlights takes
+  focus.
 
-  "
+  '
 decisions:
   page_jump_decision_record:
-    ask:
-      Add a decisions-web record "Highlights page jumps go through Hammerspoon by exact
-      file identity"?
+    ask: Add a decisions-web record "Highlights page jumps go through Hammerspoon
+      by exact file identity"?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: hs_page_url
-    title: Hammerspoon page-jump URL handler
-    depends_on: []
-    size: medium
-    description:
-      "hs_page_url: in chezmoi, bind hammerspoon://bob-highlights-page. It waits for the
-      exact PDF to settle in front, jumps through the existing page runner with ⌃O
-      history, re-checks the landing, and reports the result inside Highlights. Includes
-      busted specs and README."
-  - id: locator
-    title: Pure annotation locator
-    depends_on: []
-    size: medium
-    description:
-      "locator: in bob-plugins, a pure fragment that maps a ref-note line to its managed
-      ^h- block. It returns the block kind, the 1-based page (caption or piece), a
-      snippet, and the rail range. It also parses 🔖 links and the archive PDF wikilink.
-      Tested against golden fixtures copied from bob-cli."
-  - id: open_at_page
-    title: Resolver, exact-path launch, and page request
-    depends_on:
-      - locator
-      - hs_page_url
-    size: medium
-    description:
-      "open_at_page: extend the ⌘↵ command so that one resolver handles reading tasks,
-      🔖 lines, Task Links, and managed blocks. It follows hops, stubs, and the
-      unique-ID fallback, and opens ref_history archives through their annotated_pdf. It
-      opens the exact path, then sends the Hammerspoon page request. Adds a dry mode, an
-      announce seam with plain notices, a re-entry lock, and the additive api page
-      option."
-  - id: toast
-    title: The Highlights toast card
-    depends_on:
-      - open_at_page
-    size: small
-    description:
-      "toast: replace the plain announce notices with one rich .bob-nh-notice Highlights
-      card in highlighter ink. It shows a page receipt, the title, and a quote snippet,
-      appears before dispatch, and updates in place on failure."
-  - id: hints
-    title: Availability chip, rail, and 📖 tooltip
-    depends_on:
-      - toast
-    size: medium
-    description:
-      "hints: a status-bar chip and a line rail, both driven by the dry resolver, show
-      what ⌘↵ will open. Adds a session toggle and the ledger-tools 📖 tooltip mention.
-      Tests that the hint always matches what the key does."
-  - id: contract_docs
-    title: bob-cli client contract docs and decision record
-    depends_on:
-      - open_at_page
-      - hs_page_url
-    size: small
-    description:
-      "contract_docs: declare the generated captions, piece metadata, and block shapes
-      as a client contract in bob-cli docs. Extend the ⌘↵ sentence in docs/ref.md and
-      record the Hammerspoon page-jump decision."
+- id: hs_page_url
+  title: Hammerspoon page-jump URL handler
+  depends_on: []
+  size: medium
+  description: 'hs_page_url: in chezmoi, bind hammerspoon://bob-highlights-page. It
+    waits for the exact PDF to settle in front, jumps through the existing page runner
+    with ⌃O history, re-checks the landing, and reports the result inside Highlights.
+    Includes busted specs and README.'
+- id: locator
+  title: Pure annotation locator
+  depends_on: []
+  size: medium
+  description: 'locator: in bob-plugins, a pure fragment that maps a ref-note line
+    to its managed ^h- block. It returns the block kind, the 1-based page (caption
+    or piece), a snippet, and the rail range. It also parses 🔖 links and the archive
+    PDF wikilink. Tested against golden fixtures copied from bob-cli.'
+- id: open_at_page
+  title: Resolver, exact-path launch, and page request
+  depends_on:
+  - locator
+  - hs_page_url
+  size: medium
+  description: 'open_at_page: extend the ⌘↵ command so that one resolver handles reading
+    tasks, 🔖 lines, Task Links, and managed blocks. It follows hops, stubs, and the
+    unique-ID fallback, and opens ref_history archives through their annotated_pdf.
+    It opens the exact path, then sends the Hammerspoon page request. Adds a dry mode,
+    an announce seam with plain notices, a re-entry lock, and the additive api page
+    option.'
+- id: toast
+  title: The Highlights toast card
+  depends_on:
+  - open_at_page
+  size: small
+  description: 'toast: replace the plain announce notices with one rich .bob-nh-notice
+    Highlights card in highlighter ink. It shows a page receipt, the title, and a
+    quote snippet, appears before dispatch, and updates in place on failure.'
+- id: hints
+  title: Availability chip, rail, and 📖 tooltip
+  depends_on:
+  - toast
+  size: medium
+  description: 'hints: a status-bar chip and a line rail, both driven by the dry resolver,
+    show what ⌘↵ will open. Adds a session toggle and the ledger-tools 📖 tooltip mention.
+    Tests that the hint always matches what the key does.'
+- id: contract_docs
+  title: bob-cli client contract docs and decision record
+  depends_on:
+  - open_at_page
+  - hs_page_url
+  size: small
+  description: 'contract_docs: declare the generated captions, piece metadata, and
+    block shapes as a client contract in bob-cli docs. Extend the ⌘↵ sentence in docs/ref.md
+    and record the Hammerspoon page-jump decision.'
 proposed_by: bbugyi200.apollo.research.3o.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-08 10:40:39
 status: wip
+bead_id: bob-cli-iq
 ---
 
-- **PROMPT:**
-  [prompts/202611/highlights_annotation_page_jump.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/highlights_annotation_page_jump.md)
+- **PROMPT:** [prompts/202611/highlights_annotation_page_jump.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/highlights_annotation_page_jump.md)
+- **BEAD:** [bob-cli-iq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-iq/README.md)
 
 # Plan: ⌘↵ opens a highlight's page in Highlights
 
