@@ -1,52 +1,48 @@
 ---
 tier: epic
 title: Close-outcome letter aliases (x → !, s → *) in Bob Mac Capture
-goal: "In the Bob Mac Capture editor, a plain lowercase `x` typed where a close
-  selection accepts an outcome marker becomes `!`, and a plain lowercase `s` becomes
-  `*`. Examples: `xx` → `x!`, `xs` → `x*`, `x1s` → `x1*`, `x=1=s` → `x=1=*`, and
-  `@r:id=xx` → `@r:id=x!`. Bob's `capture-rewrite` alone decides where the alias fires.
-  `bob capture`, `capture-parse`, paste, and CLI text keep the letters. Typing speed
-  never changes the outcome: keys typed before Bob answers are held and replayed, and a
-  fast Return never files the literal draft.
+goal: 'In the Bob Mac Capture editor, a plain lowercase `x` typed where a close selection
+  accepts an outcome marker becomes `!`, and a plain lowercase `s` becomes `*`. Examples:
+  `xx` → `x!`, `xs` → `x*`, `x1s` → `x1*`, `x=1=s` → `x=1=*`, and `@r:id=xx` → `@r:id=x!`.
+  Bob''s `capture-rewrite` alone decides where the alias fires. `bob capture`, `capture-parse`,
+  paste, and CLI text keep the letters. Typing speed never changes the outcome: keys
+  typed before Bob answers are held and replayed, and a fast Return never files the
+  literal draft.
 
-  "
+  '
 phases:
-  - id: bob-close-alias
-    title: Bob capture-rewrite close-outcome alias
-    depends_on: []
-    size: medium
-    description:
-      "bob-close-alias: add an x/s branch to the expand_sigil_alias rule in bob-cli
-      capture-rewrite. It locates a close slot on the draft before the key, then checks
-      the swapped selection with the close lexer. Ships with unit and CLI tests,
-      capture-rewrite help, and capture docs as a non-breaking feat(capture)."
-  - id: mac-type-ahead-hold
-    title: Mac type-ahead hold for meaning-changing rewrite aliases
-    depends_on: []
-    size: medium
-    description:
-      "mac-type-ahead-hold: generalize the past-segment dash Return deferral into a
-      meaning-changing-alias flag. Add a bounded type-ahead hold that buffers key-downs
-      while such a rewrite is in flight and replays them after Bob answers. Its first
-      client is the existing x= dash alias. Mac only."
-  - id: mac-close-alias
-    title: Mac forwards x/s to Bob's close-outcome alias
-    depends_on:
-      - bob-close-alias
-      - mac-type-ahead-hold
-    size: medium
-    description:
-      "mac-close-alias: forward lowercase non-repeat x/s keys through a lexical send
-      prefilter into the rewrite lane, mark them meaning-changing so the hold and Return
-      deferral cover them, and add a one-time old-bob probe. Adds recorded fixtures,
-      tests, Mac docs, the optional decision record, and an end-to-end check."
+- id: bob-close-alias
+  title: Bob capture-rewrite close-outcome alias
+  depends_on: []
+  size: medium
+  description: 'bob-close-alias: add an x/s branch to the expand_sigil_alias rule
+    in bob-cli capture-rewrite. It locates a close slot on the draft before the key,
+    then checks the swapped selection with the close lexer. Ships with unit and CLI
+    tests, capture-rewrite help, and capture docs as a non-breaking feat(capture).'
+- id: mac-type-ahead-hold
+  title: Mac type-ahead hold for meaning-changing rewrite aliases
+  depends_on: []
+  size: medium
+  description: 'mac-type-ahead-hold: generalize the past-segment dash Return deferral
+    into a meaning-changing-alias flag. Add a bounded type-ahead hold that buffers
+    key-downs while such a rewrite is in flight and replays them after Bob answers.
+    Its first client is the existing x= dash alias. Mac only.'
+- id: mac-close-alias
+  title: Mac forwards x/s to Bob's close-outcome alias
+  depends_on:
+  - bob-close-alias
+  - mac-type-ahead-hold
+  size: medium
+  description: 'mac-close-alias: forward lowercase non-repeat x/s keys through a lexical
+    send prefilter into the rewrite lane, mark them meaning-changing so the hold and
+    Return deferral cover them, and add a one-time old-bob probe. Adds recorded fixtures,
+    tests, Mac docs, the optional decision record, and an end-to-end check.'
 decisions:
   memory_close_alias_record:
-    ask:
-      Add a new decisions strand, "Close Outcomes Have Letter Aliases In The Editor",
+    ask: Add a new decisions strand, "Close Outcomes Have Letter Aliases In The Editor",
       once the feature lands?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.3r.linker.w0
@@ -55,10 +51,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-08 11:42:37
 status: wip
+bead_id: bob-cli-is
 ---
 
-- **PROMPT:**
-  [prompts/202611/close_outcome_x_s_typing_aliases.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/close_outcome_x_s_typing_aliases.md)
+- **PROMPT:** [prompts/202611/close_outcome_x_s_typing_aliases.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/close_outcome_x_s_typing_aliases.md)
+- **BEAD:** [bob-cli-is](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-is/README.md)
 
 # Plan: Close-outcome letter aliases (`x` → `!`, `s` → `*`)
 
