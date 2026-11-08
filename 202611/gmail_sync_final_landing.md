@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair Gmail sync recovery and finish the nested landing
-goal: Gmail sync satisfies its remaining pacing, recovery, reporting, and acceptance
+goal:
+  Gmail sync satisfies its remaining pacing, recovery, reporting, and acceptance
   requirements, then bob-cli-in, bob-cli-ii.3.1, and bob-cli-ii.3 close normally with
   verified evidence.
 size: medium
@@ -15,6 +16,11 @@ status: done
   [202611/gmail_sync_ii3_completion.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_ii3_completion.md)
 - **BEAD:**
   [bob-cli-in](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-in/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-in.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-in.land.md)
+- **COMMITS:**
+  - [1cf8d96](https://github.com/bobs-org/bob-cli/commit/1cf8d96b37fa250521d77990e5da19f40b79f233)
+    — fix(gmail): land remaining sync retry, recovery, and watch-membership defects
 
 # Finish the remaining Gmail sync defects and complete its landing
 
