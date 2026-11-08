@@ -1,71 +1,67 @@
 ---
 tier: epic
 title: Gmail reply holds, reply lifts, and send finalization
-goal:
-  Watched Gmail tasks react once to new outgoing or incoming messages, preserve manual
-  edits between messages, and recover safely after deferrals or failures.
+goal: Watched Gmail tasks react once to new outgoing or incoming messages, preserve
+  manual edits between messages, and recover safely after deferrals or failures.
 phases:
-  - id: line_rules
-    title: Reply hold and lift edits with the running-session guard
-    size: medium
-    description:
-      "line_rules: implement pure hold/lift transformations, freshness scope, Tasks
-      status validation, and reusable running-session lookup, with conformance tests."
-    depends_on: []
-  - id: watch_inputs
-    title: Watch journal folding and remote preparation
-    size: medium
-    description:
-      "watch_inputs: add body-free turn/gone journal types and metadata-first watch
-      preparation through the coordinated read layer, including task-level multi-thread
-      effect planning."
-    depends_on:
-      - line_rules
-  - id: watch_transaction
-    title: Apply watched turns through the existing sync transaction
-    size: medium
-    description:
-      "watch_transaction: integrate watch refreshes and task edits into filing's
-      coalesced transaction and recovery, revalidating membership and deferring running
-      holds without losing a turn."
-    depends_on:
-      - watch_inputs
-  - id: polling
-    title: Wire polling, reports, and lifecycle acceptance tests
-    size: medium
-    description:
-      "polling: connect prepared watched threads to sync and its pull alias, implement
-      watch output and counts, and verify the polling lifecycle with fake Gmail."
-    depends_on:
-      - watch_transaction
-  - id: send_hook
-    title: Apply the same watch effect after a confirmed send
-    size: medium
-    description:
-      "send_hook: extend acknowledged-send finalization and completion recovery to apply
-      the shared watcher plan under the send lock without resending or losing deferred
-      markers."
-    depends_on:
-      - polling
-  - id: contracts
-    title: Document the lifecycle and publish the approved memory changes
-    size: small
-    description:
-      "contracts: update Gmail, freshness, vault-format, and reconciliation contracts
-      and publish the two reply-hold decision changes authorized by the ancestor epic."
-    depends_on:
-      - send_hook
+- id: line_rules
+  title: Reply hold and lift edits with the running-session guard
+  size: medium
+  description: 'line_rules: implement pure hold/lift transformations, freshness scope,
+    Tasks status validation, and reusable running-session lookup, with conformance
+    tests.'
+  depends_on: []
+- id: watch_inputs
+  title: Watch journal folding and remote preparation
+  size: medium
+  description: 'watch_inputs: add body-free turn/gone journal types and metadata-first
+    watch preparation through the coordinated read layer, including task-level multi-thread
+    effect planning.'
+  depends_on:
+  - line_rules
+- id: watch_transaction
+  title: Apply watched turns through the existing sync transaction
+  size: medium
+  description: 'watch_transaction: integrate watch refreshes and task edits into filing''s
+    coalesced transaction and recovery, revalidating membership and deferring running
+    holds without losing a turn.'
+  depends_on:
+  - watch_inputs
+- id: polling
+  title: Wire polling, reports, and lifecycle acceptance tests
+  size: medium
+  description: 'polling: connect prepared watched threads to sync and its pull alias,
+    implement watch output and counts, and verify the polling lifecycle with fake
+    Gmail.'
+  depends_on:
+  - watch_transaction
+- id: send_hook
+  title: Apply the same watch effect after a confirmed send
+  size: medium
+  description: 'send_hook: extend acknowledged-send finalization and completion recovery
+    to apply the shared watcher plan under the send lock without resending or losing
+    deferred markers.'
+  depends_on:
+  - polling
+- id: contracts
+  title: Document the lifecycle and publish the approved memory changes
+  size: small
+  description: 'contracts: update Gmail, freshness, vault-format, and reconciliation
+    contracts and publish the two reply-hold decision changes authorized by the ancestor
+    epic.'
+  depends_on:
+  - send_hook
 proposed_by: bbugyi200.athena.bob-cli-ii.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ii.4
 create_time: 2026-11-08 12:01:27
 status: wip
+bead_id: bob-cli-ii.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_reply_watch.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_reply_watch.md)
-- **PARENT:**
-  [202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_reply_watch.md)
+- **PROMPT:** [prompts/202611/gmail_reply_watch.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_reply_watch.md)
+- **PARENT:** [202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_reply_watch.md)
+- **BEAD:** [bob-cli-ii.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ii/bob-cli-ii.4.1.md)
 
 # Gmail reply-watch implementation for bob-cli-ii.4
 
