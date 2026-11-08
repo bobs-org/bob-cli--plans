@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "leading_dot",
+      "kind": "choice",
+      "ask": "Should `.` also become `@` at an item or bullet-body start, such as on an empty draft?",
+      "why": "Matches your example and the `=` alias rule, and keeps a whole-item `.` free",
+      "choices": [
+        {
+          "key": "after_text",
+          "label": "Only a `.` after a space that follows task text becomes `@`; line starts stay literal"
+        },
+        {
+          "key": "item_start_too",
+          "label": "A `.` at an item or bullet start also becomes `@`; leading dotfiles and `.5` need `..`"
+        }
+      ],
+      "default": "after_text",
+      "effective_default": "after_text",
+      "requested_verified": false
+    },
+    {
+      "id": "escape_speed",
+      "kind": "choice",
+      "ask": "Should the `..` escape require the second `.` within 350 ms of the first?",
+      "why": "You asked for \"twice fast enough\"; it reuses the `=` alias's 350 ms window and probe",
+      "choices": [
+        {
+          "key": "fast",
+          "label": "Only a fast second `.` escapes, like fast `==`; a slow one types after the `@`"
+        },
+        {
+          "key": "any_speed",
+          "label": "The next `.` escapes at any speed, like `\\` `\\`; a slow `..` never leaves `@.`"
+        }
+      ],
+      "default": "fast",
+      "effective_default": "fast",
+      "requested_verified": false
+    },
+    {
+      "id": "restore_keys",
+      "kind": "choice",
+      "ask": "Should Space and Escape on the alias-opened, still-empty route list restore the literal `.`?",
+      "why": "A bare `@` then a space is never a valid route, and it matches the `=` opener",
+      "choices": [
+        {
+          "key": "restore",
+          "label": "Space gives `. ` and Escape gives `.`, closing the list, like the `=` opener"
+        },
+        {
+          "key": "keep_at",
+          "label": "Space types after the `@` and Escape only closes the list; only `..` and Undo restore"
+        }
+      ],
+      "default": "restore",
+      "effective_default": "restore",
+      "requested_verified": false
+    }
+  ]
+}
