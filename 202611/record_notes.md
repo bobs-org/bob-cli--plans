@@ -1,180 +1,165 @@
 ---
 tier: epic
 title: Record Notes — capture and manage custom-typed notes
-goal: "Bryan can create and update notes of config-declared record types (restaurants,
+goal: 'Bryan can create and update notes of config-declared record types (restaurants,
   podcasts, TV shows, movies) from one capture spelling, `<title> @<dir>/`, with bob
   guiding every required field. The same engine powers a `bob records` CLI for agents
-  and a lint that keeps every writer honest. The Mac panel shows a Record Card and a
-  whole-note preview. Every write is planned in full, never replaces a file, and refuses
-  duplicates.
+  and a lint that keeps every writer honest. The Mac panel shows a Record Card and
+  a whole-note preview. Every write is planned in full, never replaces a file, and
+  refuses duplicates.
 
-  "
+  '
 decisions:
   seed_records:
-    ask:
-      Seed records from existing want-to lists (maybe_eat.md's 12 rows, open TV and
-      movie watch tasks)?
+    ask: Seed records from existing want-to lists (maybe_eat.md's 12 rows, open TV
+      and movie watch tasks)?
     default: true
-    why:
-      The To Try and To Watch views are non-empty on day one, and the engine is proven
-      on real data
+    why: The To Try and To Watch views are non-empty on day one, and the engine is
+      proven on real data
     answer: true
   memory_glossary_capture:
-    ask:
-      Update the Capture glossary term so the things an item may create include record
-      notes?
+    ask: Update the Capture glossary term so the things an item may create include
+      record notes?
     memory:
-      - glossary:capture
+    - glossary:capture
     default: true
-    corrects:
-      item may create a task (default `mac_inbox.md`, an [[inbox-file]]), bullet,
-      sub-bullet, or project note
+    corrects: item may create a task (default `mac_inbox.md`, an [[inbox-file]]),
+      bullet, sub-bullet, or project note
     answer: true
   memory_glossary_record_note:
-    ask:
-      Add a Record Note glossary term (aliases record, record type) to the memory
+    ask: Add a Record Note glossary term (aliases record, record type) to the memory
       glossary?
     memory:
-      - glossary:record-note
+    - glossary:record-note
     default: false
     answer: false
   memory_decision_record_types:
-    ask:
-      Add an accepted decision record for Record Notes (config schema, @dir/ spelling,
+    ask: Add an accepted decision record for Record Notes (config schema, @dir/ spelling,
       no-replace writes)?
     memory:
-      - decisions:record-types-are-config-declared-folders
+    - decisions:record-types-are-config-declared-folders
     default: false
     answer: false
 phases:
-  - id: no-replace-install
-    title: Capture installs new files without ever replacing one
-    depends_on: []
-    size: small
-    description:
-      "no-replace-install: install every newly created capture file with a hard-link
-      no-replace step, so a file that appears mid-commit is refused, never overwritten."
-  - id: records-engine
-    title: Records schema, catalog, renderer, and planner
-    depends_on: []
-    size: large
-    description:
-      "records-engine: add the records config block and its validation, the per-folder
-      catalog, the filename rule, the YAML renderer, and the record planner in a new
-      records module, plus the records contract doc."
-  - id: records-cli
-    title: bob records list, show, check, and new
-    depends_on:
-      - records-engine
-      - no-replace-install
-    size: medium
-    description:
-      "records-cli: add the bob records command group (list, show, check, new) with
-      polished output, JSON, shell completion, catalog entries, and generated CLI docs."
-  - id: records-vault
-    title: Restaurant and podcast schemas go live in config and the vault
-    depends_on:
-      - records-cli
-    size: small
-    description:
-      "records-vault: add the restaurant and podcast records config through chezmoi,
-      teach eat.base and podcasts.base the to_try status, point the type notes at bob
-      records show, and report the check findings."
-  - id: capture-records
-    title: Capture grammar for new records
-    depends_on:
-      - records-engine
-      - no-replace-install
-    size: large
-    description:
-      "capture-records: teach capture the @dir/ and @dir/^stem record items with key::
-      field bullets and dated note bullets, the parse record object, dry-run note_files,
-      refusals, the @eat near-miss warning, and capture-targets record rows."
-  - id: capture-record-assist
-    title: Guided field entry in capture-complete
-    depends_on:
-      - capture-records
-    size: large
-    description:
-      "capture-record-assist: add the record_field and record_value completion contexts
-      with continuations, the next-missing-field request, ranked folder values, record
-      route rows, and the heading-menu New restaurant row that defuses the slash-to-hash
-      rewrite."
-  - id: capture-record-append
-    title: Add to an existing record with @dir/stem
-    depends_on:
-      - capture-record-assist
-    size: large
-    description:
-      "capture-record-append: make @dir/<stem> append dated notes and set fields on an
-      existing record as an exact byte-preserving edit, complete existing records after
-      @dir/, turn record_exists into a one-key fix, and add bob records update."
-  - id: capture-similar-records
-    title: Similar records in capture-related
-    depends_on:
-      - capture-record-append
-    size: medium
-    description:
-      "capture-similar-records: extend capture-related so record items get settled
-      same-folder near-title matches with Open, Add to it, and Discard actions."
-  - id: records-media-types
-    title: bob records init plus show and movie types
-    depends_on:
-      - records-vault
-      - capture-record-append
-    size: medium
-    description:
-      "records-media-types: add bob records init to scaffold a type's folder, type note,
-      collection note, and Base, then ship the show (tv/) and movie (movies/) types in
-      config and the vault."
-  - id: mac-record-card
-    title: Mac Record Card and guided entry
-    depends_on:
-      - capture-record-assist
-    size: large
-    description:
-      "mac-record-card: decode the parse record object and record contexts in Bob Mac
-      Capture, draw the Record Card in the picker-card slot, wire Tab through missing
-      fields and record-aware Return, and style the record spans."
-  - id: mac-record-preview
-    title: Mac new-note preview and success line
-    depends_on:
-      - mac-record-card
-      - capture-records
-    size: large
-    description:
-      "mac-record-preview: render dry-run note_files as a property sheet plus body with
-      a View Markdown disclosure, and show the record success summary."
-  - id: mac-record-revisits
-    title: Mac updates, existing-record rows, and Similar records
-    depends_on:
-      - mac-record-preview
-      - capture-similar-records
-    size: medium
-    description:
-      "mac-record-revisits: present record updates as before-and-after property rows,
-      show existing-record completion rows, and extend the Similar band to record items
-      with the Add to it action."
-  - id: records-wrapup
-    title: Guide, documentation audit, end-to-end proof, and memory
-    depends_on:
-      - records-media-types
-      - mac-record-revisits
-    size: small
-    description:
-      "records-wrapup: write the records guide, audit every records doc and help page,
-      run an end-to-end walkthrough in a temporary vault, and apply the accepted memory
-      decisions."
+- id: no-replace-install
+  title: Capture installs new files without ever replacing one
+  depends_on: []
+  size: small
+  description: 'no-replace-install: install every newly created capture file with
+    a hard-link no-replace step, so a file that appears mid-commit is refused, never
+    overwritten.'
+- id: records-engine
+  title: Records schema, catalog, renderer, and planner
+  depends_on: []
+  size: large
+  description: 'records-engine: add the records config block and its validation, the
+    per-folder catalog, the filename rule, the YAML renderer, and the record planner
+    in a new records module, plus the records contract doc.'
+- id: records-cli
+  title: bob records list, show, check, and new
+  depends_on:
+  - records-engine
+  - no-replace-install
+  size: medium
+  description: 'records-cli: add the bob records command group (list, show, check,
+    new) with polished output, JSON, shell completion, catalog entries, and generated
+    CLI docs.'
+- id: records-vault
+  title: Restaurant and podcast schemas go live in config and the vault
+  depends_on:
+  - records-cli
+  size: small
+  description: 'records-vault: add the restaurant and podcast records config through
+    chezmoi, teach eat.base and podcasts.base the to_try status, point the type notes
+    at bob records show, and report the check findings.'
+- id: capture-records
+  title: Capture grammar for new records
+  depends_on:
+  - records-engine
+  - no-replace-install
+  size: large
+  description: 'capture-records: teach capture the @dir/ and @dir/^stem record items
+    with key:: field bullets and dated note bullets, the parse record object, dry-run
+    note_files, refusals, the @eat near-miss warning, and capture-targets record rows.'
+- id: capture-record-assist
+  title: Guided field entry in capture-complete
+  depends_on:
+  - capture-records
+  size: large
+  description: 'capture-record-assist: add the record_field and record_value completion
+    contexts with continuations, the next-missing-field request, ranked folder values,
+    record route rows, and the heading-menu New restaurant row that defuses the slash-to-hash
+    rewrite.'
+- id: capture-record-append
+  title: Add to an existing record with @dir/stem
+  depends_on:
+  - capture-record-assist
+  size: large
+  description: 'capture-record-append: make @dir/<stem> append dated notes and set
+    fields on an existing record as an exact byte-preserving edit, complete existing
+    records after @dir/, turn record_exists into a one-key fix, and add bob records
+    update.'
+- id: capture-similar-records
+  title: Similar records in capture-related
+  depends_on:
+  - capture-record-append
+  size: medium
+  description: 'capture-similar-records: extend capture-related so record items get
+    settled same-folder near-title matches with Open, Add to it, and Discard actions.'
+- id: records-media-types
+  title: bob records init plus show and movie types
+  depends_on:
+  - records-vault
+  - capture-record-append
+  size: medium
+  description: 'records-media-types: add bob records init to scaffold a type''s folder,
+    type note, collection note, and Base, then ship the show (tv/) and movie (movies/)
+    types in config and the vault.'
+- id: mac-record-card
+  title: Mac Record Card and guided entry
+  depends_on:
+  - capture-record-assist
+  size: large
+  description: 'mac-record-card: decode the parse record object and record contexts
+    in Bob Mac Capture, draw the Record Card in the picker-card slot, wire Tab through
+    missing fields and record-aware Return, and style the record spans.'
+- id: mac-record-preview
+  title: Mac new-note preview and success line
+  depends_on:
+  - mac-record-card
+  - capture-records
+  size: large
+  description: 'mac-record-preview: render dry-run note_files as a property sheet
+    plus body with a View Markdown disclosure, and show the record success summary.'
+- id: mac-record-revisits
+  title: Mac updates, existing-record rows, and Similar records
+  depends_on:
+  - mac-record-preview
+  - capture-similar-records
+  size: medium
+  description: 'mac-record-revisits: present record updates as before-and-after property
+    rows, show existing-record completion rows, and extend the Similar band to record
+    items with the Add to it action.'
+- id: records-wrapup
+  title: Guide, documentation audit, end-to-end proof, and memory
+  depends_on:
+  - records-media-types
+  - mac-record-revisits
+  size: small
+  description: 'records-wrapup: write the records guide, audit every records doc and
+    help page, run an end-to-end walkthrough in a temporary vault, and apply the accepted
+    memory decisions.'
 proposed_by: bbugyi200.athena.1a0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-08 11:06:10
 status: wip
+bead_id: bob-cli-ir
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_notes.md)
+- **PROMPT:** [prompts/202611/record_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_notes.md)
+- **BEAD:** [bob-cli-ir](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/README.md)
 
 # Plan: Record Notes — capture and manage custom-typed notes
 
