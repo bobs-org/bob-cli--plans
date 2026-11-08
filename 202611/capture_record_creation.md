@@ -1,55 +1,50 @@
 ---
 tier: epic
 title: Capture creates record notes
-goal:
-  Complete bob-cli-ir.5 with shared record grammar and editor metadata, safe
-  transactional creation, previews, discovery, documentation, and verified integration.
+goal: Complete bob-cli-ir.5 with shared record grammar and editor metadata, safe transactional
+  creation, previews, discovery, documentation, and verified integration.
 phases:
-  - id: record-language
-    title: Recognize record items before task marker parsing
-    size: medium
-    depends_on: []
-    description:
-      "record-language: add shared record route claiming, opaque field and note parsing,
-      marker refusals, editor spans, and fail-closed execution scaffolding."
-  - id: record-parse
-    title: Resolve record metadata and expose discovery rows
-    size: medium
-    depends_on:
-      - record-language
-    description:
-      "record-parse: adapt the existing records planner for capture-parse, implement
-      record diagnostics and the collection-route fix, and add capture-targets record
-      rows without polluting task-only consumers."
-  - id: record-writes
-    title: Create records through the capture transaction
-    size: medium
-    depends_on:
-      - record-parse
-    description:
-      "record-writes: wire the shared resolver into batch planning, install records
-      through the existing no-replace path, and expose note_files plus human preview,
-      refusal, and success output."
-  - id: record-contract
-    title: Publish the record capture contract and acceptance evidence
-    size: small
-    depends_on:
-      - record-writes
-    description:
-      "record-contract: finish the capture documentation, apply the inherited approved
-      Capture glossary correction, and run the cross-surface acceptance matrix for
-      bob-cli-ir.5."
+- id: record-language
+  title: Recognize record items before task marker parsing
+  size: medium
+  depends_on: []
+  description: 'record-language: add shared record route claiming, opaque field and
+    note parsing, marker refusals, editor spans, and fail-closed execution scaffolding.'
+- id: record-parse
+  title: Resolve record metadata and expose discovery rows
+  size: medium
+  depends_on:
+  - record-language
+  description: 'record-parse: adapt the existing records planner for capture-parse,
+    implement record diagnostics and the collection-route fix, and add capture-targets
+    record rows without polluting task-only consumers.'
+- id: record-writes
+  title: Create records through the capture transaction
+  size: medium
+  depends_on:
+  - record-parse
+  description: 'record-writes: wire the shared resolver into batch planning, install
+    records through the existing no-replace path, and expose note_files plus human
+    preview, refusal, and success output.'
+- id: record-contract
+  title: Publish the record capture contract and acceptance evidence
+  size: small
+  depends_on:
+  - record-writes
+  description: 'record-contract: finish the capture documentation, apply the inherited
+    approved Capture glossary correction, and run the cross-surface acceptance matrix
+    for bob-cli-ir.5.'
 proposed_by: bbugyi200.athena.bob-cli-ir.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ir.5
 create_time: 2026-11-08 18:25:54
 status: wip
+bead_id: bob-cli-ir.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_record_creation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_record_creation.md)
-- **PARENT:**
-  [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **PROMPT:** [prompts/202611/capture_record_creation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_record_creation.md)
+- **PARENT:** [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **BEAD:** [bob-cli-ir.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.5.1.md)
 
 # Capture creates record notes
 
