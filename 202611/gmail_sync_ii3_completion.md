@@ -1,58 +1,55 @@
 ---
 tier: epic
 title: Finish bob gmail sync and close bob-cli-ii.3
-goal: "bob gmail sync meets its approved filing, coordination, reporting, recovery,
-  alias, and documentation contract with the acceptance coverage the repair tale
-  promised, so bob-cli-ii.3.1 and phase bob-cli-ii.3 close with verified evidence.
+goal: 'bob gmail sync meets its approved filing, coordination, reporting, recovery,
+  alias, and documentation contract with the acceptance coverage the repair tale promised,
+  so bob-cli-ii.3.1 and phase bob-cli-ii.3 close with verified evidence.
 
-  "
+  '
 phases:
-  - id: coordination
-    title: Request coordination, failure state, and report counts
-    depends_on: []
-    size: medium
-    description:
-      "coordination: make every Gmail read latch auth aborts and give-ups in one
-      injectable coordinator, turn search and preparation failures into a body-free
-      failure state without discarding adoption or recovery, account the -r budget only
-      for waits, and fix the report's membership snapshot and warnings, with unit tests
-      for each."
-  - id: recovery
-    title: Host-local, idempotent commit and journal recovery
-    depends_on:
-      - coordination
-    size: medium
-    description:
-      "recovery: move the sync recovery evidence to host-local state, make its replay
-      idempotent per event and ownership-checked per path, stop writing auxiliary files
-      on runs that save no note, keep in-flight filings from being filed twice, and add
-      the temporary-Git-vault recovery tests."
-  - id: acceptance
-    title: End-to-end acceptance matrix, alias parity, and lint scaffolding
-    depends_on:
-      - recovery
-    size: medium
-    description:
-      "acceptance: add the missing tests/gmail_sync.rs composition coverage, including
-      byte-identical sync versus pull in separate fixed-time fixtures, and remove the
-      stale dead_code allowances left from the command phase."
-  - id: docs
-    title: Sync documentation, help, and generated CLI reference
-    depends_on:
-      - acceptance
-    size: small
-    description:
-      "docs: correct the route-prefix and missing-label claims, document the sync JSON
-      contract, host-local state, and -r semantics, add the watch-only -l 0 example
-      where the generated reference renders it, and pass the docs gates."
+- id: coordination
+  title: Request coordination, failure state, and report counts
+  depends_on: []
+  size: medium
+  description: 'coordination: make every Gmail read latch auth aborts and give-ups
+    in one injectable coordinator, turn search and preparation failures into a body-free
+    failure state without discarding adoption or recovery, account the -r budget only
+    for waits, and fix the report''s membership snapshot and warnings, with unit tests
+    for each.'
+- id: recovery
+  title: Host-local, idempotent commit and journal recovery
+  depends_on:
+  - coordination
+  size: medium
+  description: 'recovery: move the sync recovery evidence to host-local state, make
+    its replay idempotent per event and ownership-checked per path, stop writing auxiliary
+    files on runs that save no note, keep in-flight filings from being filed twice,
+    and add the temporary-Git-vault recovery tests.'
+- id: acceptance
+  title: End-to-end acceptance matrix, alias parity, and lint scaffolding
+  depends_on:
+  - recovery
+  size: medium
+  description: 'acceptance: add the missing tests/gmail_sync.rs composition coverage,
+    including byte-identical sync versus pull in separate fixed-time fixtures, and
+    remove the stale dead_code allowances left from the command phase.'
+- id: docs
+  title: Sync documentation, help, and generated CLI reference
+  depends_on:
+  - acceptance
+  size: small
+  description: 'docs: correct the route-prefix and missing-label claims, document
+    the sync JSON contract, host-local state, and -r semantics, add the watch-only
+    -l 0 example where the generated reference renders it, and pass the docs gates.'
 proposed_by: bbugyi200.athena.19v
 proposed_with: claude/opus
 create_time: 2026-11-08 06:23:51
 status: wip
+bead_id: bob-cli-in
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_sync_ii3_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_ii3_completion.md)
+- **PROMPT:** [prompts/202611/gmail_sync_ii3_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_sync_ii3_completion.md)
+- **BEAD:** [bob-cli-in](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-in/README.md)
 
 # Finish bob gmail sync and close bob-cli-ii.3
 
