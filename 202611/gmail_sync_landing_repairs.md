@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Gmail sync landing gaps and close bob-cli-ii.3.1
-goal: Complete the remaining sync integration and recovery work, verify it, and close
-  the child epic and parent sync phase normally.
+goal:
+  Complete the remaining sync integration and recovery work, verify it, and close the
+  child epic and parent sync phase normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ii.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,12 @@ status: done
   [202611/gmail_sync_filing.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_filing.md)
 - **BEAD:**
   [bob-cli-ii.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ii/bob-cli-ii.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ii.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ii.3.1.land.md)
+- **COMMITS:**
+  - [f904135](https://github.com/bobs-org/bob-cli/commit/f9041354c191eb8bb781abc000821675f9bb7cdb)
+    — fix(gmail): repair sync landing gaps for filing, coordination, reports, and
+    recovery
 
 # Repair Gmail sync's remaining landing gaps and close bob-cli-ii.3.1
 
