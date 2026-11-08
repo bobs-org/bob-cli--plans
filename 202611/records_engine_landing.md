@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish records-engine safety and nested landing
-goal: Repair the remaining engine defects, verify the shared contract, and close bob-cli-ir.2.1
-  and parent phase bob-cli-ir.2.
+goal:
+  Repair the remaining engine defects, verify the shared contract, and close
+  bob-cli-ir.2.1 and parent phase bob-cli-ir.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ir.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/records_engine.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/records_engine.md)
 - **BEAD:**
   [bob-cli-ir.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ir.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.2.1.land.md)
+- **COMMITS:**
+  - [8ff0d8e](https://github.com/bobs-org/bob-cli/commit/8ff0d8ed5a43b34977a6acaf4473159fe977e600)
+    — feat(records): harden planning and byte-preserving updates
 
 # Finish records-engine safety and land bob-cli-ir.2.1
 
