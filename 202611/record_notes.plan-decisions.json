@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "seed_records",
+      "kind": "toggle",
+      "ask": "Seed records from existing want-to lists (maybe_eat.md's 12 rows, open TV and movie watch tasks)?",
+      "why": "The To Try and To Watch views are non-empty on day one, and the engine is proven on real data",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_capture",
+      "kind": "toggle",
+      "ask": "Update the Capture glossary term so the things an item may create include record notes?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture"
+        ]
+      },
+      "corrects": "item may create a task (default `mac_inbox.md`, an [[inbox-file]]), bullet, sub-bullet, or project note",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture",
+            "Project Note",
+            "Pomodoro",
+            "Task Type",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_record_note",
+      "kind": "toggle",
+      "ask": "Add a Record Note glossary term (aliases record, record type) to the memory glossary?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:record-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:record-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/record-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record_types",
+      "kind": "toggle",
+      "ask": "Add an accepted decision record for Record Notes (config schema, @dir/ spelling, no-replace writes)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:record-types-are-config-declared-folders"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:record-types-are-config-declared-folders",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/record-types-are-config-declared-folders.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
