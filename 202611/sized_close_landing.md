@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish sized-close acceptance and land bob-cli-ix
-goal:
-  Complete the sized-close Mac presentation, documentation, and execution evidence, then
-  close bob-cli-ix and mark its plan done.
+goal: Complete the sized-close Mac presentation, documentation, and execution evidence,
+  then close bob-cli-ix and mark its plan done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ix.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ix
-create_time: 2026-11-09 09:05:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
