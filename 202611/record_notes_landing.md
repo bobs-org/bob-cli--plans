@@ -2,18 +2,19 @@
 tier: tale
 size: medium
 title: Finish and land Record Notes (bob-cli-ir)
-goal: 'Fix the last defects the Record Notes epic left behind: a missing blank line
-  before a new section, a broken Mac build, and two Mac reference pages it pushed
-  over the word cap. If the decision approves it, add the record-note glossary term
-  Bryan asked for. Then close epic bob-cli-ir.
+goal: "Fix the last defects the Record Notes epic left behind: a missing blank line
+  before a new section, a broken Mac build, and two Mac reference pages it pushed over
+  the word cap. If the decision approves it, add the record-note glossary term Bryan
+  asked for. Then close epic bob-cli-ir.
 
-  '
+  "
 decisions:
   memory_glossary_record_note:
-    ask: Add the Record Note glossary term (aliases record, record type) that Bryan's
+    ask:
+      Add the Record Note glossary term (aliases record, record type) that Bryan's
       bob-cli-ir note asks for?
     memory:
-    - glossary:record-note
+      - glossary:record-note
     default: false
     answer: false
 proposed_by: bbugyi200.athena.bob-cli-ir.land
@@ -27,6 +28,11 @@ status: done
   [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
 - **BEAD:**
   [bob-cli-ir](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ir.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.land.md)
+- **COMMITS:**
+  - [f9ec4e2](https://github.com/bobs-org/bob-cli--plans/commit/f9ec4e21ce29dba45de124eac8ff8b72ad3b3490)
+    — chore: mark Record Notes epic and landing tale done
 
 # Finish and land Record Notes (bob-cli-ir)
 
