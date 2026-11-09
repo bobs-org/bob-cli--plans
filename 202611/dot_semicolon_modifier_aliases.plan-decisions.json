@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "leading_dot",
+      "kind": "choice",
+      "ask": "Should `.` also become `&` at an item or bullet start, such as an empty draft's first `.`?",
+      "why": "Matches the accepted `.` \u2192 `@` leading_dot answer, which kept leading dots literal",
+      "choices": [
+        {
+          "key": "after_text",
+          "label": "Only after a space or tab that follows text, like `.` \u2192 `@`; leading dots stay literal"
+        },
+        {
+          "key": "item_start_too",
+          "label": "Also at item, bullet, and checkbox starts; a leading `.bashrc` or `.5` needs `..`"
+        }
+      ],
+      "default": "after_text",
+      "effective_default": "after_text",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_capture_alias",
+      "kind": "toggle",
+      "ask": "Should the Capture Alias glossary strand list `.` \u2192 `&`, `;` \u2192 `*`, and the fast `;;` escape?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "the app applies that one edit natively, so Undo restores the typed key. The aliases:",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
