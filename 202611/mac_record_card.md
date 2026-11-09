@@ -1,60 +1,56 @@
 ---
 tier: epic
 title: Mac Record Card and guided entry
-goal:
-  Complete bob-cli-ir.10 with a thin-client Record Card, undoable guided field entry,
-  record-aware keyboard behavior, accessible styling, and compiled Swift verified by
-  exact-SHA macOS CI.
+goal: Complete bob-cli-ir.10 with a thin-client Record Card, undoable guided field
+  entry, record-aware keyboard behavior, accessible styling, and compiled Swift verified
+  by exact-SHA macOS CI.
 phases:
-  - id: field-addressing
-    title: Address Record Card fields through Bob completion
-    size: medium
-    depends_on: []
-    description:
-      "field-addressing: add the bounded bob-cli completion support needed for named
-      Record Card fields and starting free-form entry, keeping every edit Bob-authored.
-      Preserve next-missing-field behavior; document and test the additive contract."
-  - id: card-contract
-    title: Decode records and define portable card state
-    size: medium
-    depends_on:
-      - field-addressing
-    description:
-      "card-contract: add tolerant record parse/completion/target models and
-      process-client requests in bob-mac-capture, generate fixtures from real Bob, and
-      implement a portable Record Card presentation and focus reducer with
-      backward-compatibility tests."
-  - id: guided-interaction
-    title: Connect record completion and keyboard entry
-    size: medium
-    depends_on:
-      - card-contract
-    description:
-      "guided-interaction: integrate record state, Bob-authored completion edits and
-      continuations into the Mac panel, with Tab/Shift-Tab, record-aware Return, layered
-      Escape, undo, item-scoped focus, and stale-response protection. Test the panel and
-      key router and document the keyboard behavior."
-  - id: card-surface
-    title: Render the Record Card and semantic editor styling
-    size: medium
-    depends_on:
-      - guided-interaction
-    description:
-      "card-surface: render the Record Card in the picker slot with persistent labels,
-      choices, value lists, optional-field disclosure, defaults, path and note count.
-      Style record spans, implement accessibility and Reduce Motion behavior, verify
-      narrow/wide layouts, and finish the capture-preview documentation."
+- id: field-addressing
+  title: Address Record Card fields through Bob completion
+  size: medium
+  depends_on: []
+  description: 'field-addressing: add the bounded bob-cli completion support needed
+    for named Record Card fields and starting free-form entry, keeping every edit
+    Bob-authored. Preserve next-missing-field behavior; document and test the additive
+    contract.'
+- id: card-contract
+  title: Decode records and define portable card state
+  size: medium
+  depends_on:
+  - field-addressing
+  description: 'card-contract: add tolerant record parse/completion/target models
+    and process-client requests in bob-mac-capture, generate fixtures from real Bob,
+    and implement a portable Record Card presentation and focus reducer with backward-compatibility
+    tests.'
+- id: guided-interaction
+  title: Connect record completion and keyboard entry
+  size: medium
+  depends_on:
+  - card-contract
+  description: 'guided-interaction: integrate record state, Bob-authored completion
+    edits and continuations into the Mac panel, with Tab/Shift-Tab, record-aware Return,
+    layered Escape, undo, item-scoped focus, and stale-response protection. Test the
+    panel and key router and document the keyboard behavior.'
+- id: card-surface
+  title: Render the Record Card and semantic editor styling
+  size: medium
+  depends_on:
+  - guided-interaction
+  description: 'card-surface: render the Record Card in the picker slot with persistent
+    labels, choices, value lists, optional-field disclosure, defaults, path and note
+    count. Style record spans, implement accessibility and Reduce Motion behavior,
+    verify narrow/wide layouts, and finish the capture-preview documentation.'
 proposed_by: bbugyi200.athena.bob-cli-ir.10
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ir.10
 create_time: 2026-11-09 02:49:39
 status: wip
+bead_id: bob-cli-ir.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_record_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_record_card.md)
-- **PARENT:**
-  [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **PROMPT:** [prompts/202611/mac_record_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_record_card.md)
+- **PARENT:** [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **BEAD:** [bob-cli-ir.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.10.1.md)
 
 # Mac Record Card and guided entry
 
