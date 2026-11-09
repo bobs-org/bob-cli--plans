@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Turn bob-cli-ix's red Mac CI green and close the epic
-goal:
-  Bob Mac Capture's sized-close tests pass on macOS CI because they edit fixtures
+goal: Bob Mac Capture's sized-close tests pass on macOS CI because they edit fixtures
   structurally and expect uppercase X to stay off Bob, and epic bob-cli-ix is closed.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-ix.land
 proposed_with: claude/opus
 bead: bob-cli-ix
-create_time: 2026-11-09 11:04:50
-status: wip
+status: done
 ---
 
 - **BEAD:**
