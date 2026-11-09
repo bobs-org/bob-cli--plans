@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair guarded archive landing gaps and close the writer epic
-goal:
-  Fix four reproduced archive regressions, verify integration, and close bob-cli-j5.2.1
+goal: Fix four reproduced archive regressions, verify integration, and close bob-cli-j5.2.1
   and parent phase bob-cli-j5.2 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-j5.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j5.2.1
-create_time: 2026-11-09 15:27:17
-status: wip
+status: done
 ---
 
 - **PARENT:**
