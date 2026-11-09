@@ -1,70 +1,64 @@
 ---
 tier: epic
 title: Complete archive pairing and guarded rename-following
-goal:
-  All archive consumers share one safe metadata-first binding, archive runs follow
+goal: All archive consumers share one safe metadata-first binding, archive runs follow
   source renames with recoverable writes, and every run reports archive health.
 phases:
-  - id: pair-index
-    title: Build the shared archive pair index and migrate stats
-    size: medium
-    depends_on: []
-    description:
-      "pair-index: implement metadata-first bidirectional archive resolution with
-      explicit conflict results; migrate stats attribution and reference-task insertion
-      to exercise both lookup directions, with renamed-source and conflict regression
-      tests."
-  - id: guarded-removals
-    title: Add recoverable removals to the guarded writer
-    size: medium
-    depends_on: []
-    description:
-      "guarded-removals: extend guarded write operations, preflight, membership
-      accounting, recovery evidence, and partial-apply reporting to support removing a
-      captured file safely."
-  - id: pair-readers
-    title: Migrate the remaining archive readers
-    size: medium
-    depends_on:
-      - pair-index
-    description:
-      "pair-readers: replace archive inference in capture-related candidates,
-      reference-task residence, Highlights preview ID reservation, and reference-task
-      migration with the shared resolver, retaining existing read performance and
-      explicit conflict behavior."
-  - id: archive-health
-    title: Use resolved pairs in archiving and report archive health
-    size: medium
-    depends_on:
-      - pair-index
-    description:
-      "archive-health: resolve archive destinations and historical link repair from
-      captured inputs; report binding conflicts and all five required health findings in
-      human and JSON output, including preview and refused plans, without silently
-      repairing findings."
-  - id: follow-renames
-    title: Follow source renames in one guarded archive plan
-    size: medium
-    depends_on:
-      - guarded-removals
-      - pair-readers
-      - archive-health
-    description:
-      "follow-renames: plan canonical archive creates, metadata and inbound-link
-      repairs, dependency-ID repairs, and guarded removal of old paths for every
-      resolved pair; verify collision refusal, partial failure evidence, idempotence,
-      and the live read-only preview."
+- id: pair-index
+  title: Build the shared archive pair index and migrate stats
+  size: medium
+  depends_on: []
+  description: 'pair-index: implement metadata-first bidirectional archive resolution
+    with explicit conflict results; migrate stats attribution and reference-task insertion
+    to exercise both lookup directions, with renamed-source and conflict regression
+    tests.'
+- id: guarded-removals
+  title: Add recoverable removals to the guarded writer
+  size: medium
+  depends_on: []
+  description: 'guarded-removals: extend guarded write operations, preflight, membership
+    accounting, recovery evidence, and partial-apply reporting to support removing
+    a captured file safely.'
+- id: pair-readers
+  title: Migrate the remaining archive readers
+  size: medium
+  depends_on:
+  - pair-index
+  description: 'pair-readers: replace archive inference in capture-related candidates,
+    reference-task residence, Highlights preview ID reservation, and reference-task
+    migration with the shared resolver, retaining existing read performance and explicit
+    conflict behavior.'
+- id: archive-health
+  title: Use resolved pairs in archiving and report archive health
+  size: medium
+  depends_on:
+  - pair-index
+  description: 'archive-health: resolve archive destinations and historical link repair
+    from captured inputs; report binding conflicts and all five required health findings
+    in human and JSON output, including preview and refused plans, without silently
+    repairing findings.'
+- id: follow-renames
+  title: Follow source renames in one guarded archive plan
+  size: medium
+  depends_on:
+  - guarded-removals
+  - pair-readers
+  - archive-health
+  description: 'follow-renames: plan canonical archive creates, metadata and inbound-link
+    repairs, dependency-ID repairs, and guarded removal of old paths for every resolved
+    pair; verify collision refusal, partial failure evidence, idempotence, and the
+    live read-only preview.'
 proposed_by: bbugyi200.athena.bob-cli-j5.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-j5.4
 create_time: 2026-11-09 16:44:31
 status: wip
+bead_id: bob-cli-j5.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/archive_pairing_and_rename.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/archive_pairing_and_rename.md)
-- **PARENT:**
-  [202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/done_notes_archiving_fixes.md)
+- **PROMPT:** [prompts/202611/archive_pairing_and_rename.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/archive_pairing_and_rename.md)
+- **PARENT:** [202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/done_notes_archiving_fixes.md)
+- **BEAD:** [bob-cli-j5.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/bob-cli-j5.4.1.md)
 
 # Complete archive pairing and rename-following for bob-cli-j5.4
 
