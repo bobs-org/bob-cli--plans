@@ -1,56 +1,51 @@
 ---
 tier: epic
 title: Notebook routes write notes
-goal:
-  Complete bob-cli-j8.3 with shared notebook capture parsing, guarded note writes,
+goal: Complete bob-cli-j8.3 with shared notebook capture parsing, guarded note writes,
   accurate previews, opt-in targets, and verified contracts.
 phases:
-  - id: notebook-route-language
-    title: Resolve notebook routes and parse individual note captures
-    size: medium
-    depends_on: []
-    description:
-      "notebook-route-language: build the invocation-local NotebookRoutePolicy and
-      implement strict/editor parsing for individual notebook notes and sub-notes, with
-      executable captures refusing safely until the writer lands."
-  - id: notebook-draft-language
-    title: Compose notebook routes with lists, globals, and capture directives
-    size: medium
-    depends_on:
-      - notebook-route-language
-    description:
-      "notebook-draft-language: finish list and global destination inheritance, URL and
-      template precedence, teaching refusals, and universal section-plus-block-ID
-      syntax; bump the grammar and keep unsupported execution fail-closed."
-  - id: notebook-note-writes
-    title: Write notebook notes through the guarded capture transaction
-    size: medium
-    depends_on:
-      - notebook-draft-language
-    description:
-      "notebook-note-writes: implement section resolution, note and sub-note placement,
-      named notes, forced CLI destinations, clipboard composition, read guards, and
-      matching JSON/human previews and success output."
-  - id: notebook-capture-contract
-    title: Expose notebook capture targets and verify the complete contract
-    size: medium
-    depends_on:
-      - notebook-note-writes
-    description:
-      "notebook-capture-contract: add the opt-in notebook target scanner and route rows,
-      suppress Similar tasks for notebook items, complete cross-surface regressions and
-      docs, and provide closure evidence for bob-cli-j8.3."
+- id: notebook-route-language
+  title: Resolve notebook routes and parse individual note captures
+  size: medium
+  depends_on: []
+  description: 'notebook-route-language: build the invocation-local NotebookRoutePolicy
+    and implement strict/editor parsing for individual notebook notes and sub-notes,
+    with executable captures refusing safely until the writer lands.'
+- id: notebook-draft-language
+  title: Compose notebook routes with lists, globals, and capture directives
+  size: medium
+  depends_on:
+  - notebook-route-language
+  description: 'notebook-draft-language: finish list and global destination inheritance,
+    URL and template precedence, teaching refusals, and universal section-plus-block-ID
+    syntax; bump the grammar and keep unsupported execution fail-closed.'
+- id: notebook-note-writes
+  title: Write notebook notes through the guarded capture transaction
+  size: medium
+  depends_on:
+  - notebook-draft-language
+  description: 'notebook-note-writes: implement section resolution, note and sub-note
+    placement, named notes, forced CLI destinations, clipboard composition, read guards,
+    and matching JSON/human previews and success output.'
+- id: notebook-capture-contract
+  title: Expose notebook capture targets and verify the complete contract
+  size: medium
+  depends_on:
+  - notebook-note-writes
+  description: 'notebook-capture-contract: add the opt-in notebook target scanner
+    and route rows, suppress Similar tasks for notebook items, complete cross-surface
+    regressions and docs, and provide closure evidence for bob-cli-j8.3.'
 proposed_by: bbugyi200.apollo.bob-cli-j8.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-j8.3
 create_time: 2026-11-09 13:50:24
 status: wip
+bead_id: bob-cli-j8.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/notebook_capture_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_capture_notes.md)
-- **PARENT:**
-  [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
+- **PROMPT:** [prompts/202611/notebook_capture_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_capture_notes.md)
+- **PARENT:** [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
+- **BEAD:** [bob-cli-j8.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.3.1.md)
 
 # Notebook routes write notes
 
