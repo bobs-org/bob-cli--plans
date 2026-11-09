@@ -3,75 +3,68 @@ tier: epic
 title: Capture alias typing tips
 goal: 'When Bryan Shift-types a capture sigil that an unshifted alias key would have
   typed at that exact spot, the list or picker the sigil opens shows one bob-proved
-  "Next time" line in its first frame. The tip fades as the alias becomes habit, and it
-  never slows or changes capture.
+  "Next time" line in its first frame. The tip fades as the alias becomes habit, and
+  it never slows or changes capture.
 
   '
 phases:
-  - id: bob-alias-tips
-    title: bob proves tips and stamps alias ids
-    depends_on: []
-    size: medium
-    description:
-      "bob-alias-tips: stamp an AliasId on every forward sigil alias, add the
-      sigil_alias_tip reverse check that runs the whole rewrite pipeline, emit tip and
-      alias JSON from capture-rewrite, and pin it with round-trip, negative, and CLI
-      tests plus docs."
-  - id: mac-tip-core
-    title: Portable tip model, policy, and ledger
-    depends_on: []
-    size: medium
-    description:
-      "mac-tip-core: decode the new capture-rewrite fields in CaptureCore and add the
-      lesson map, presentation strings, the pure fade-by-fluency policy, session rules,
-      and the UserDefaults JSON ledger with weekly counts, all unit-tested."
-  - id: mac-completion-tips
-    title: Trigger, tip lane, and the completion-list host
-    depends_on:
-      - bob-alias-tips
-      - mac-tip-core
-    size: medium
-    description:
-      "mac-completion-tips: record physically Shift- or Option-typed @ and # sigils, run
-      the non-blocking alias-tip lane, admit tips only in the list's first frame, count
-      adoption and escapes, add the Settings toggle and reset, pin the shared tip row in
-      CompletionList, and add the Typing tips docs page."
-  - id: mac-picker-tips
-    title: The picker host for the remaining lessons
-    depends_on:
-      - mac-completion-tips
-    size: medium
-    description:
-      "mac-picker-tips: widen the trigger to ^ : + ~ & *, admit tips in the picker's
-      first frame in the chosen slot, add accessibility, escapes, tests, and docs, apply
-      the accepted memory decisions, and propose the three-week stop-rule review."
+- id: bob-alias-tips
+  title: bob proves tips and stamps alias ids
+  depends_on: []
+  size: medium
+  description: 'bob-alias-tips: stamp an AliasId on every forward sigil alias, add
+    the sigil_alias_tip reverse check that runs the whole rewrite pipeline, emit tip
+    and alias JSON from capture-rewrite, and pin it with round-trip, negative, and
+    CLI tests plus docs.'
+- id: mac-tip-core
+  title: Portable tip model, policy, and ledger
+  depends_on: []
+  size: medium
+  description: 'mac-tip-core: decode the new capture-rewrite fields in CaptureCore
+    and add the lesson map, presentation strings, the pure fade-by-fluency policy,
+    session rules, and the UserDefaults JSON ledger with weekly counts, all unit-tested.'
+- id: mac-completion-tips
+  title: Trigger, tip lane, and the completion-list host
+  depends_on:
+  - bob-alias-tips
+  - mac-tip-core
+  size: medium
+  description: 'mac-completion-tips: record physically Shift- or Option-typed @ and
+    # sigils, run the non-blocking alias-tip lane, admit tips only in the list''s
+    first frame, count adoption and escapes, add the Settings toggle and reset, pin
+    the shared tip row in CompletionList, and add the Typing tips docs page.'
+- id: mac-picker-tips
+  title: The picker host for the remaining lessons
+  depends_on:
+  - mac-completion-tips
+  size: medium
+  description: 'mac-picker-tips: widen the trigger to ^ : + ~ & *, admit tips in the
+    picker''s first frame in the chosen slot, add accessibility, escapes, tests, and
+    docs, apply the accepted memory decisions, and propose the three-week stop-rule
+    review.'
 decisions:
   picker_tip_slot:
-    ask:
-      Should picker tips sit at the foot of the picker card, the same slot the
+    ask: Should picker tips sit at the foot of the picker card, the same slot the
       completion-list tip uses?
     choices:
-      card_foot:
-        Last line of the picker card under a hairline; the key legend keeps only live
-        keys
-      key_legend:
-        Extra line under the panel footer's live key hints; picker card height never
-        changes
+      card_foot: Last line of the picker card under a hairline; the key legend keeps
+        only live keys
+      key_legend: Extra line under the panel footer's live key hints; picker card
+        height never changes
     default: card_foot
-    why:
-      One placement rule for every host, and a not-live key never sits among live key
-      hints
+    why: One placement rule for every host, and a not-live key never sits among live
+      key hints
     answer: card_foot
   memory_capture_alias_glossary:
     ask: Should the Capture Alias glossary strand gain one sentence about typing tips?
     memory:
-      - glossary:capture-alias
+    - glossary:capture-alias
     default: false
     answer: true
   memory_typing_tips_decision:
     ask: Should the decisions web gain a typing-tips record once picker tips ship?
     memory:
-      - decisions:typing-tips-are-bob-proved
+    - decisions:typing-tips-are-bob-proved
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.3y.linker.w0
@@ -80,10 +73,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 12:18:37
 status: wip
+bead_id: bob-cli-j9
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_alias_typing_tips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_alias_typing_tips.md)
+- **PROMPT:** [prompts/202611/capture_alias_typing_tips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_alias_typing_tips.md)
+- **BEAD:** [bob-cli-j9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j9/README.md)
 
 # Capture alias typing tips
 
