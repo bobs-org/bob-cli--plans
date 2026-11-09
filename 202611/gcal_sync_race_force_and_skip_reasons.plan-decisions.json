@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "force_edits",
+      "kind": "choice",
+      "ask": "Should `-F` also overwrite your edits to rows still in the note?",
+      "why": "You asked -F to disregard edits; status, children, and sessions stay safe either way",
+      "choices": [
+        {
+          "key": "reset",
+          "label": "Present rows get Google's time, title, badges, and root back; status, children, history stay"
+        },
+        {
+          "key": "keep",
+          "label": "Present rows stay exactly as they are; `-F` only restores missing rows and links"
+        }
+      ],
+      "default": "reset",
+      "effective_default": "reset",
+      "requested_verified": false
+    },
+    {
+      "id": "replaced_events",
+      "kind": "choice",
+      "ask": "When all of today's Bob rows and the Events stamp vanish at once, should sync hold, not tombstone?",
+      "why": "Never re-adds without consent, yet never mistakes a clobbered note for your deletions",
+      "choices": [
+        {
+          "key": "hold",
+          "label": "Sync writes nothing that day and says the note was replaced; `bob gcal sync -F` restores it"
+        },
+        {
+          "key": "restore",
+          "label": "Sync re-adds the lost rows on its next run; a deliberately wiped section comes back once"
+        },
+        {
+          "key": "tombstone",
+          "label": "Keep today's rule; each missing row counts as your deletion and only `-F` restores it"
+        }
+      ],
+      "default": "hold",
+      "effective_default": "hold",
+      "requested_verified": false
+    },
+    {
+      "id": "force_short",
+      "kind": "choice",
+      "ask": "Should force use bob's usual `-F|--force` rather than `-f`, which sync already uses for `--format`?",
+      "why": "bob spells force `-F` wherever `-f` is `--format` (plugins sync, periods, freshness)",
+      "choices": [
+        {
+          "key": "capital_f",
+          "label": "`-F|--force`; `-f` stays `--format` as on every gcal command and in the create hook"
+        },
+        {
+          "key": "lowercase_f",
+          "label": "`-f|--force` as asked; sync's `--format` moves to `-F`, a `!` break for `-f json` callers"
+        }
+      ],
+      "default": "capital_f",
+      "effective_default": "capital_f",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_force_record",
+      "kind": "toggle",
+      "ask": "Add the decision record `decisions:gcal-force-resets-the-day` for the reset and replaced-section rule?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:gcal-force-resets-the-day"
+        ]
+      },
+      "requested": "As a part of this change, let's add a new `-f|--force` option to the `bob gcal sync` command that disregards any previous edits/deletions and re-writes the appropriate event tasks and pomodoros to today's daily file as if it were the first time that command were run for that day.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:gcal-force-resets-the-day",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/gcal-force-resets-the-day.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_propose_once_mark",
+      "kind": "toggle",
+      "ask": "Mark `decisions:bob-gcal-is-read-only-and-proposes-once` partly superseded by the new record?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:bob-gcal-is-read-only-and-proposes-once"
+        ]
+      },
+      "corrects": "deleted rows are tombstoned and never re-added",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:bob-gcal-is-read-only-and-proposes-once",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Bob Gcal Is Read Only And Proposes Once"
+          ]
+        }
+      ]
+    }
+  ]
+}
