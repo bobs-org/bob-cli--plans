@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Notebook catalogs, sync, creation, and nightly maintenance
-goal:
-  Complete bob-cli-j8.2 with stable per-host notebook catalogs, guarded sync and
+goal: Complete bob-cli-j8.2 with stable per-host notebook catalogs, guarded sync and
   creation, and nightly repair.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.2
-create_time: 2026-11-09 13:50:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
