@@ -1,75 +1,68 @@
 ---
 tier: epic
 title: Restore today's lost task links and guard the vault against silent task loss
-goal: "The task links lost on 2026-11-09 resolve again. A block-ID rename becomes one
-  unit: a single undo either reverts it in every note or leaves no link dangling.
-  Keep-linked tasks stop getting URL-derived IDs like ^https-keep-google-com. And any
-  future change that removes a linked task, or quietly drops an open one, is named by
-  bob vault-sync within a minute, with the commit to restore it from, instead of being
-  discovered by accident days later.
+goal: 'The task links lost on 2026-11-09 resolve again. A block-ID rename becomes
+  one unit: a single undo either reverts it in every note or leaves no link dangling.
+  Keep-linked tasks stop getting URL-derived IDs like ^https-keep-google-com. And
+  any future change that removes a linked task, or quietly drops an open one, is named
+  by bob vault-sync within a minute, with the commit to restore it from, instead of
+  being discovered by accident days later.
 
-  "
+  '
 decisions:
   undo_follows_rename:
-    ask:
-      When a block-ID rename is undone in its own note, should the plugin also revert
-      that rename's links in other notes?
+    ask: When a block-ID rename is undone in its own note, should the plugin also
+      revert that rename's links in other notes?
     default: true
-    why:
-      One undo then means one whole rename, and no link is ever left pointing at a
-      vanished ID.
+    why: One undo then means one whole rename, and no link is ever left pointing at
+      a vanished ID.
     answer: true
   notify_unlinked_losses:
-    ask:
-      Should vault-sync also send a desktop notification when an open task with no
-      inbound links disappears?
+    ask: Should vault-sync also send a desktop notification when an open task with
+      no inbound links disappears?
     default: false
-    why:
-      Bryan deletes unlinked scratch tasks often; status and the log still record every
-      one.
+    why: Bryan deletes unlinked scratch tasks often; status and the log still record
+      every one.
     answer: false
 phases:
-  - id: restore
-    title: Restore the 2026-11-09 losses and re-audit the vault
-    depends_on: []
-    size: small
-    description:
-      "restore: re-apply ^auto-label-kelly-emails in bob.md so three dangling links
-      resolve, confirm it survives Mac sync, re-run the loss audit, and leave the
-      Haircut row to bob-cli-iz."
-  - id: rename_atomic
-    title: Make block-ID renames one undo step and undo-coherent across notes
-    depends_on: []
-    size: medium
-    description:
-      "rename_atomic: reproduce the split undo in real Obsidian, apply each note's
-      rename edits as one editor transaction, write closed notes with a
-      compare-and-swap, and follow an undone rename across notes."
-  - id: keep_ids
-    title: Stop Keep links from seeding block IDs
-    depends_on: []
-    size: small
-    description:
-      "keep_ids: find the writer that mints ^https-keep-google-com IDs for Keep-linked
-      tasks and make it mint from the task's prose."
-  - id: loss_tripwire
-    title: vault-sync task-loss tripwire
-    depends_on: []
-    size: medium
-    description:
-      "loss_tripwire: before each commit, find task block IDs this host removed that
-      inbound links still need, or open tasks that vanished; confirm after a settle
-      window, then record, log, and notify without editing notes."
+- id: restore
+  title: Restore the 2026-11-09 losses and re-audit the vault
+  depends_on: []
+  size: small
+  description: 'restore: re-apply ^auto-label-kelly-emails in bob.md so three dangling
+    links resolve, confirm it survives Mac sync, re-run the loss audit, and leave
+    the Haircut row to bob-cli-iz.'
+- id: rename_atomic
+  title: Make block-ID renames one undo step and undo-coherent across notes
+  depends_on: []
+  size: medium
+  description: 'rename_atomic: reproduce the split undo in real Obsidian, apply each
+    note''s rename edits as one editor transaction, write closed notes with a compare-and-swap,
+    and follow an undone rename across notes.'
+- id: keep_ids
+  title: Stop Keep links from seeding block IDs
+  depends_on: []
+  size: small
+  description: 'keep_ids: find the writer that mints ^https-keep-google-com IDs for
+    Keep-linked tasks and make it mint from the task''s prose.'
+- id: loss_tripwire
+  title: vault-sync task-loss tripwire
+  depends_on: []
+  size: medium
+  description: 'loss_tripwire: before each commit, find task block IDs this host removed
+    that inbound links still need, or open tasks that vanished; confirm after a settle
+    window, then record, log, and notify without editing notes.'
 proposed_by: bbugyi200.apollo.d4
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 07:43:09
 status: wip
+bead_id: bob-cli-j0
 ---
 
-- **PROMPT:**
-  [prompts/202611/lost_task_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/lost_task_guards.md)
+- **PROMPT:** [prompts/202611/lost_task_guards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/lost_task_guards.md)
+- **BEAD:** [bob-cli-j0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j0/README.md)
 
 # Plan: Restore today's lost task links and guard the vault against silent task loss
 
