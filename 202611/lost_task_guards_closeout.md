@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Finish the lost-task guards and close bob-cli-j0
-goal:
-  Undo and redo remain coherent during cross-note writes, task-loss reports ignore
+goal: Undo and redo remain coherent during cross-note writes, task-loss reports ignore
   unrelated legacy links, and bob-cli-j0 is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j0.land
@@ -15,11 +14,6 @@ status: done
   [202611/lost_task_guards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/lost_task_guards.md)
 - **BEAD:**
   [bob-cli-j0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j0/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-j0.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j0.land.md)
-- **COMMITS:**
-  - [a2045cc](https://github.com/bobs-org/bob-plugins/commit/a2045cc9c1c4f4206b425df6985fca91a81928cb)
-    — fix(block-id-prompt): queue editor events during closed rename follow
 
 # Finish the lost-task guards and close bob-cli-j0
 
