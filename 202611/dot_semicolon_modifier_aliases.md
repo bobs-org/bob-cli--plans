@@ -1,56 +1,49 @@
 ---
 tier: epic
-title: "`.` and `;` fall back to `&` and `*` in capture drafts"
-goal: "In Bob Mac Capture, a `.` or `;` typed where the `^`, `@`, and `:` aliases do not
-  apply, but a bare `&` or `*` would open the Depends On or Blocks picker, becomes that
-  sigil and opens that picker (`@home .` → `@home &`, `Buy milk ;` → `Buy milk *`). It
-  escapes the same way the spaced `.` → `@` alias does.
+title: '`.` and `;` fall back to `&` and `*` in capture drafts'
+goal: 'In Bob Mac Capture, a `.` or `;` typed where the `^`, `@`, and `:` aliases
+  do not apply, but a bare `&` or `*` would open the Depends On or Blocks picker,
+  becomes that sigil and opens that picker (`@home .` → `@home &`, `Buy milk ;` →
+  `Buy milk *`). It escapes the same way the spaced `.` → `@` alias does.
 
-  "
+  '
 phases:
-  - id: bob-modifier-aliases
-    title: bob capture-rewrite turns `.` into `&` and `;` into `*`
-    depends_on: []
-    size: medium
-    description:
-      "bob-modifier-aliases: add the completion-gated `.` → `&` and `;` → `*` fallbacks
-      after the existing `.`/`;` rules, with unit and CLI tests, help and docs inside
-      the word budgets, and the glossary alias list."
-  - id: mac-modifier-alias-escapes
-    title: Mac Capture escapes the `&` and `*` aliases
-    depends_on:
-      - bob-modifier-aliases
-    size: medium
-    description:
-      "mac-modifier-alias-escapes: generalize the reply-keyed equals-gesture arm to `.`
-      → `&` and `;` → `*` (fast `..`/`;;`, pre-reply probe, Space/Escape restores on the
-      alias-opened empty picker), with tests, Mac docs, and the glossary escape
-      sentence."
+- id: bob-modifier-aliases
+  title: bob capture-rewrite turns `.` into `&` and `;` into `*`
+  depends_on: []
+  size: medium
+  description: 'bob-modifier-aliases: add the completion-gated `.` → `&` and `;` →
+    `*` fallbacks after the existing `.`/`;` rules, with unit and CLI tests, help
+    and docs inside the word budgets, and the glossary alias list.'
+- id: mac-modifier-alias-escapes
+  title: Mac Capture escapes the `&` and `*` aliases
+  depends_on:
+  - bob-modifier-aliases
+  size: medium
+  description: 'mac-modifier-alias-escapes: generalize the reply-keyed equals-gesture
+    arm to `.` → `&` and `;` → `*` (fast `..`/`;;`, pre-reply probe, Space/Escape
+    restores on the alias-opened empty picker), with tests, Mac docs, and the glossary
+    escape sentence.'
 decisions:
   leading_dot:
-    ask:
-      Should `.` also become `&` at an item or bullet start, such as an empty draft's
+    ask: Should `.` also become `&` at an item or bullet start, such as an empty draft's
       first `.`?
     choices:
-      after_text:
-        Only after a space or tab that follows text, like `.` → `@`; leading dots stay
-        literal
-      item_start_too:
-        Also at item, bullet, and checkbox starts; a leading `.bashrc` or `.5` needs
-        `..`
+      after_text: Only after a space or tab that follows text, like `.` → `@`; leading
+        dots stay literal
+      item_start_too: Also at item, bullet, and checkbox starts; a leading `.bashrc`
+        or `.5` needs `..`
     default: after_text
-    why:
-      Matches the accepted `.` → `@` leading_dot answer, which kept leading dots literal
+    why: Matches the accepted `.` → `@` leading_dot answer, which kept leading dots
+      literal
     answer: after_text
   memory_capture_alias:
-    ask:
-      Should the Capture Alias glossary strand list `.` → `&`, `;` → `*`, and the fast
-      `;;` escape?
+    ask: Should the Capture Alias glossary strand list `.` → `&`, `;` → `*`, and the
+      fast `;;` escape?
     memory:
-      - glossary:capture-alias
-    corrects:
-      "the app applies that one edit natively, so Undo restores the typed key. The
-      aliases:"
+    - glossary:capture-alias
+    corrects: 'the app applies that one edit natively, so Undo restores the typed
+      key. The aliases:'
     default: true
     answer: true
 proposed_by: bbugyi200.athena.1aj
@@ -59,10 +52,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 11:06:43
 status: wip
+bead_id: bob-cli-j6
 ---
 
-- **PROMPT:**
-  [prompts/202611/dot_semicolon_modifier_aliases.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/dot_semicolon_modifier_aliases.md)
+- **PROMPT:** [prompts/202611/dot_semicolon_modifier_aliases.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/dot_semicolon_modifier_aliases.md)
+- **BEAD:** [bob-cli-j6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j6/README.md)
 
 # `.` and `;` fall back to `&` and `*` in capture drafts
 
