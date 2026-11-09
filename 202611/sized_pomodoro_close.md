@@ -1,74 +1,67 @@
 ---
 tier: epic
-title: "Nx: close the running Pomodoro at a stated size"
-goal: "Typing `2x!2` closes the running Pomodoro at exactly 2 five-minute blocks from
-  its start (or refuses with a named fix), with honest clocks, one card, additive JSON,
-  documented grammar, a decision record, and a Bob Mac Capture card that shows the size.
+title: 'Nx: close the running Pomodoro at a stated size'
+goal: 'Typing `2x!2` closes the running Pomodoro at exactly 2 five-minute blocks from
+  its start (or refuses with a named fix), with honest clocks, one card, additive
+  JSON, documented grammar, a decision record, and a Bob Mac Capture card that shows
+  the size.
 
-  "
+  '
 phases:
-  - id: grammar
-    title: Claim `Nx` in both parsers
-    depends_on: []
-    size: large
-    description:
-      "grammar: add the shared size lexer and `PomodoroCloseSpec.size`, claim sized
-      whole-item, chain, and link closes plus their teaching errors in the execution and
-      editor parsers, extend `capture-parse` spans/JSON and the close-outcome aliases,
-      and make `bob capture` refuse sized specs until execution lands."
-  - id: execute
-    title: Run sized closes with exact-or-refuse
-    depends_on:
-      - grammar
-    size: large
-    description:
-      "execute: stage exactly 5N minutes from the session start, close at C = min(S +
-      5N, now) through all three close entry points, refuse with coded two-line errors,
-      add `pomodoro_close.size` JSON, the sized human caption and `tip:`, and bump the
-      grammar revision to 20."
-  - id: docs
-    title: Document `Nx` and record the decision
-    depends_on:
-      - execute
-    size: medium
-    description:
-      "docs: update capture.md, the capture-syntax reference, and capture/capture-parse
-      help, regenerate CLI docs, and add the exact-or-refuse decision record when its
-      decision is on."
-  - id: mac
-    title: Present sized closes in Bob Mac Capture
-    depends_on:
-      - execute
-    size: medium
-    description:
-      "mac: decode `size`, draw both-direction arrows and the `Nx · as of HH:MM` chip,
-      widen the close-alias prefilter for digit prefixes, record fixtures from a real
-      bob, and watch macOS CI to green."
+- id: grammar
+  title: Claim `Nx` in both parsers
+  depends_on: []
+  size: large
+  description: 'grammar: add the shared size lexer and `PomodoroCloseSpec.size`, claim
+    sized whole-item, chain, and link closes plus their teaching errors in the execution
+    and editor parsers, extend `capture-parse` spans/JSON and the close-outcome aliases,
+    and make `bob capture` refuse sized specs until execution lands.'
+- id: execute
+  title: Run sized closes with exact-or-refuse
+  depends_on:
+  - grammar
+  size: large
+  description: 'execute: stage exactly 5N minutes from the session start, close at
+    C = min(S + 5N, now) through all three close entry points, refuse with coded two-line
+    errors, add `pomodoro_close.size` JSON, the sized human caption and `tip:`, and
+    bump the grammar revision to 20.'
+- id: docs
+  title: Document `Nx` and record the decision
+  depends_on:
+  - execute
+  size: medium
+  description: 'docs: update capture.md, the capture-syntax reference, and capture/capture-parse
+    help, regenerate CLI docs, and add the exact-or-refuse decision record when its
+    decision is on.'
+- id: mac
+  title: Present sized closes in Bob Mac Capture
+  depends_on:
+  - execute
+  size: medium
+  description: 'mac: decode `size`, draw both-direction arrows and the `Nx · as of
+    HH:MM` chip, widen the close-alias prefilter for digit prefixes, record fixtures
+    from a real bob, and watch macOS CI to green.'
 decisions:
   chain_scope:
-    ask:
-      Should a sized close chain only at the front of its line, so text after a close or
-      start keeps its meaning?
+    ask: Should a sized close chain only at the front of its line, so text after a
+      close or start keeps its meaning?
     choices:
-      front: "`x 2x faster` logs `2x faster`; `--1 2x!2` and `2x =` still chain"
-      like_x:
-        "`2x` chains wherever `x` does but never heads a trail; `x 2x faster` fails"
+      front: '`x 2x faster` logs `2x faster`; `--1 2x!2` and `2x =` still chain'
+      like_x: '`2x` chains wherever `x` does but never heads a trail; `x 2x faster`
+        fails'
     default: front
-    why:
-      After a close or start a sized close can never succeed, so claiming it only breaks
-      log text
+    why: After a close or start a sized close can never succeed, so claiming it only
+      breaks log text
     answer: front
   decision_record:
-    ask:
-      Should the docs phase add a decisions record for the sized close's exact-or-refuse
+    ask: Should the docs phase add a decisions record for the sized close's exact-or-refuse
       rule?
     memory:
-      - decisions:sized-close-records-exact-blocks
+    - decisions:sized-close-records-exact-blocks
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 proposed_by: bbugyi200.apollo.research.3s.linker.w0
 proposed_with: claude/opus
@@ -76,10 +69,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 05:24:35
 status: wip
+bead_id: bob-cli-ix
 ---
 
-- **PROMPT:**
-  [prompts/202611/sized_pomodoro_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/sized_pomodoro_close.md)
+- **PROMPT:** [prompts/202611/sized_pomodoro_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/sized_pomodoro_close.md)
+- **BEAD:** [bob-cli-ix](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ix/README.md)
 
 # `Nx`: close the running Pomodoro at a stated size
 
