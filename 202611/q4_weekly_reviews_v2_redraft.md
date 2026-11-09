@@ -50,7 +50,7 @@ phases:
 proposed_by: bbugyi200.athena.1ac.f0
 proposed_with: claude/opus
 create_time: 2026-11-09 10:47:00
-status: wip
+status: done
 bead_id: bob-cli-j4
 ---
 
