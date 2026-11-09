@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Finish and land existing-record updates (bob-cli-ir.7.1)
-goal: Close the verified gaps in capture and records-CLI existing-record updates,
-  then land epic bob-cli-ir.7.1 and its parent phase bob-cli-ir.7.
+goal:
+  Close the verified gaps in capture and records-CLI existing-record updates, then land
+  epic bob-cli-ir.7.1 and its parent phase bob-cli-ir.7.
 proposed_by: bbugyi200.athena.bob-cli-ir.7.1.land
 proposed_with: claude/opus
 bead: bob-cli-ir.7.1
@@ -14,6 +15,11 @@ status: done
   [202611/record_append.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_append.md)
 - **BEAD:**
   [bob-cli-ir.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.7.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ir.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.7.1.land.md)
+- **COMMITS:**
+  - [941ee72](https://github.com/bobs-org/bob-cli/commit/941ee724de7c4767e02623585ad62a0893ca98d2)
+    — feat(capture): land existing-record update fixes
 
 # Plan: Finish and land existing-record updates (bob-cli-ir.7.1)
 
