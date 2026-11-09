@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Execute sized Pomodoro closes with exact-or-refuse timing
-goal:
-  Complete bob-cli-ix.2 with atomic sized closes across all three entry points, truthful
-  output, and verified clock and rollback behavior.
+goal: Complete bob-cli-ix.2 with atomic sized closes across all three entry points,
+  truthful output, and verified clock and rollback behavior.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ix.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ix.2
-create_time: 2026-11-09 07:02:22
-status: wip
+status: done
 ---
 
 - **PARENT:**
