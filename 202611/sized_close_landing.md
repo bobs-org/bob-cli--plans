@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish sized-close acceptance and land bob-cli-ix
-goal: Complete the sized-close Mac presentation, documentation, and execution evidence,
-  then close bob-cli-ix and mark its plan done.
+goal:
+  Complete the sized-close Mac presentation, documentation, and execution evidence, then
+  close bob-cli-ix and mark its plan done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ix.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/sized_pomodoro_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/sized_pomodoro_close.md)
 - **BEAD:**
   [bob-cli-ix](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ix/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ix.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ix.land.md)
+- **COMMITS:**
+  - [d47f175](https://github.com/bobs-org/bob-cli--plans/commit/d47f1751e8c6d6e341fea69e0ee034943da41de8)
+    — chore(plans): mark sized_pomodoro_close done for bob-cli-ix
 
 # Finish the sized-close contract and land bob-cli-ix
 
