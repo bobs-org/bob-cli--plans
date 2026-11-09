@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "collapse_assist",
+      "kind": "toggle",
+      "ask": "Should `#`, `/`, `^`, `.`, `+`, or `,` typed right after a complete `@@route` collapse it to `@route#`/`^`/`+`?",
+      "why": "Keeps a typed @@foo#bar, @@foo+baz, or @@foo^id working while @@ keeps one meaning",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_notebook",
+      "kind": "toggle",
+      "ask": "Should the plan add the new Notebook glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:notebook"
+        ]
+      },
+      "requested": "We should add an excellent new \"notebook\" glossary term to describe this concept.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:notebook",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/notebook.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_notebook_decision",
+      "kind": "toggle",
+      "ask": "Should the plan add the notebook decision record and mark capture-sigils superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:notebook-routes-write-notes",
+          "decisions:capture-sigils-say-where-what-how"
+        ]
+      },
+      "corrects": "`%c`, `%n`, `%t`, and `%l` at an item edge declare clip, Pomodoro-note, template, and listen directives.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:notebook-routes-write-notes",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/notebook-routes-write-notes.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:capture-sigils-say-where-what-how",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Sigils Say Where What How"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_corrections",
+      "kind": "toggle",
+      "ask": "Should the plan update the Capture, Project Note Capture, and Capture Alias strands for notebooks?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture",
+          "glossary:project-note-capture",
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "item may create a task (default `mac_inbox.md`, an [[inbox-file]]), bullet, sub-bullet, project note (a [[project-note-capture]]), or record note",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture",
+            "Project Note",
+            "Task Type",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:project-note-capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Project Note Capture",
+            "Capture",
+            "Project Note",
+            "Pomodoro",
+            "Task Type",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
