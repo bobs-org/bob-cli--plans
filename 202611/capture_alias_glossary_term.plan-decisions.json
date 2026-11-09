@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_capture_alias_strand",
+      "kind": "toggle",
+      "ask": "Should a new glossary:capture-alias strand define Capture Alias and republish the roster?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias",
+          "glossary"
+        ]
+      },
+      "requested": "Can you help me add an excellent new \"capture alias\" glossary term that describes the various single-character substitutions that the bob-mac-capture app makes?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/capture-alias.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "glossary",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Annotation Section",
+            "Area Note",
+            "Bulk Capture",
+            "Capture",
+            "Command Mode",
+            "Day Strip",
+            "Event Task",
+            "Inbox File",
+            "Keep Streak",
+            "Leaf Project",
+            "Mac Menu Bar Pomodoro Indicator",
+            "Merged Pomodoro",
+            "Morning GTD Review Footer",
+            "Off-Clock Pomodoro",
+            "Period Note",
+            "Pomodoro",
+            "Project Note",
+            "Project Note Capture",
+            "Project Task",
+            "Reference Note",
+            "Reference Task",
+            "Root Parent",
+            "Rotten Log",
+            "Schedule Log",
+            "Stats Dash",
+            "Stats Strip",
+            "Successor Offer",
+            "Task Decay",
+            "Task Dependency Link",
+            "Task Drawer",
+            "Task Freshness",
+            "Task Link",
+            "Task Mention",
+            "Task Merge",
+            "Task Relation",
+            "Task Split",
+            "Task Successor",
+            "Task Type",
+            "Top-Level Project",
+            "Work Log"
+          ]
+        }
+      ]
+    }
+  ]
+}
