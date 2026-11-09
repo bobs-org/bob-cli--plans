@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Retire interrupted close-alias replay and land bob-cli-is
-goal: Keep buffered edits in their original editor and drop buffered submits when
-  replay is interrupted, correct the remaining syntax-reference omission, and close
-  epic bob-cli-is.
+goal:
+  Keep buffered edits in their original editor and drop buffered submits when replay is
+  interrupted, correct the remaining syntax-reference omission, and close epic
+  bob-cli-is.
 proposed_by: bbugyi200.apollo.bob-cli-is.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-is
@@ -15,6 +16,11 @@ status: done
   [202611/close_outcome_x_s_typing_aliases.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/close_outcome_x_s_typing_aliases.md)
 - **BEAD:**
   [bob-cli-is](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-is/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-is.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-is.land.md)
+- **COMMITS:**
+  - [274eeae](https://github.com/bobs-org/bob-cli/commit/274eeae7e910526bd6b534a703f83759a5a1463d)
+    — docs(capture): distinguish Mac xx/xs typing from grammar close
 
 # Finish the close-outcome alias landing
 
