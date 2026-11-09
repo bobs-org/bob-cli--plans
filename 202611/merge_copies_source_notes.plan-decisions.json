@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "glossary_merge_terms",
+      "kind": "toggle",
+      "ask": "Correct the Task Merge and Task Relation glossary strands, which say a merge cuts or moves source notes?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-merge",
+          "glossary:task-relation"
+        ]
+      },
+      "corrects": "It cuts the selected source blocks and appends their notes to the destination,",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-merge",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Merge",
+            "Task Drawer",
+            "Capture",
+            "Task Relation",
+            "Project Note",
+            "Pomodoro",
+            "Task Type",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:task-relation",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Relation",
+            "Capture",
+            "Pomodoro",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note",
+            "Task Type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions memory record stating that a merge copies source notes and never moves them?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:merge-copies-source-notes"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:merge-copies-source-notes",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/merge-copies-source-notes.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
