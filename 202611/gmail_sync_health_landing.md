@@ -1,12 +1,13 @@
 ---
 tier: tale
 title: Finish the bob gmail sync health repairs and land epic bob-cli-ii
-goal: '`bob gmail sync` route repair edits and moves the right inbox row even when
-  earlier edits in the same run have changed the file. A refile is reported only when
-  it really happened, and it repairs links to the moved block across the vault. A
-  thread reported gone keeps its warning. The staleness alarm fires only after busy-skips
-  have gone on for two hours. The guard test stops flaking. Then epic bob-cli-ii is
-  closed with verified evidence.'
+goal:
+  "`bob gmail sync` route repair edits and moves the right inbox row even when earlier
+  edits in the same run have changed the file. A refile is reported only when it really
+  happened, and it repairs links to the moved block across the vault. A thread reported
+  gone keeps its warning. The staleness alarm fires only after busy-skips have gone on
+  for two hours. The guard test stops flaking. Then epic bob-cli-ii is closed with
+  verified evidence."
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ii.land
 proposed_with: claude/opus
@@ -18,6 +19,11 @@ status: done
   [202611/gmail_sync_reply_watch.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_sync_reply_watch.md)
 - **BEAD:**
   [bob-cli-ii](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ii/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ii.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ii.land.md)
+- **COMMITS:**
+  - [7502b05](https://github.com/bobs-org/bob-cli--plans/commit/7502b0512dde99ce238c74a6b363d6b937ffe0db)
+    — docs(plan): mark gmail_sync_reply_watch done
 
 # Finish the bob gmail sync health repairs and land epic bob-cli-ii
 
