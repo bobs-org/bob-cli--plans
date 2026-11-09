@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Notebook catalogs, sync, creation, and nightly maintenance
-goal: Complete bob-cli-j8.2 with stable per-host notebook catalogs, guarded sync and
+goal:
+  Complete bob-cli-j8.2 with stable per-host notebook catalogs, guarded sync and
   creation, and nightly repair.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.2
@@ -14,6 +15,11 @@ status: done
   [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
 - **BEAD:**
   [bob-cli-j8.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.2.md)
+- **COMMITS:**
+  - [55468bf](https://github.com/bobs-org/bob-cli/commit/55468bffc8f5bbbbb5f7b2440c8cfbd9f1d32452)
+    — feat(notebooks): generate Notebooks catalogs with sync, create, and a nightly step
 
 # Notebook catalogs, sync, creation, and nightly maintenance
 
