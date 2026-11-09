@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "record_row_gaps",
+      "kind": "choice",
+      "ask": "Also fix the two latent record-row Add to it defects (native-editor range, + key) found here?",
+      "why": "Keeps the unblock fast and conflict-free; the live Record Notes lander owns the feature",
+      "choices": [
+        {
+          "key": "note",
+          "label": "Mac fix stays three compile lines; both defects go on bob-cli-ir for its live lander"
+        },
+        {
+          "key": "fix",
+          "label": "Also fix the native Add to it range and the + key, with CI-only Mac regression tests"
+        }
+      ],
+      "default": "note",
+      "effective_default": "note",
+      "requested_verified": false
+    },
+    {
+      "id": "install_excerpt",
+      "kind": "choice",
+      "ask": "Make install-all's failure excerpt start at the first real compiler error?",
+      "why": "Small, precise fix for why the reported output showed only warnings, not the errors",
+      "choices": [
+        {
+          "key": "fix",
+          "label": "Change live.py _failure_excerpt plus unit tests, verified by just check-scripts"
+        },
+        {
+          "key": "task",
+          "label": "No bob-cli change now; file a bug task bead through /sase_new_task"
+        }
+      ],
+      "default": "fix",
+      "effective_default": "fix",
+      "requested_verified": false
+    }
+  ]
+}
