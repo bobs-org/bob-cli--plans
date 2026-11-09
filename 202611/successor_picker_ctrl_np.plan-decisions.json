@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "footer_hint",
+      "kind": "choice",
+      "ask": "Should the successor picker footer also advertise the new ^N / ^P keys?",
+      "why": "Footer already has 6-7 chips and never showed \u2191/\u2193; other Bob pickers already teach Ctrl+N/P",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Footer stays exactly as today; Ctrl+N/P work but stay unadvertised, like \u2191/\u2193 already are"
+        },
+        {
+          "key": "add",
+          "label": "Every footer variant gains a `^N ^P move` chip after Tab; one more chip in a long footer"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    }
+  ]
+}
