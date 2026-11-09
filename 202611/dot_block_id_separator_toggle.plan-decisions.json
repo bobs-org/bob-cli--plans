@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "task_bullet_ids",
+      "kind": "toggle",
+      "ask": "Should a glued `.` also toggle bullet task IDs (`- Task :id.` \u2192 `- Task ^id`)?",
+      "why": "Same rule and lane as the marker toggle; a key working on one but not the other would surprise",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "semicolon_toggle",
+      "kind": "toggle",
+      "ask": "Should `;` (the `:` alias) also switch `@route^id;` to `@route:id`, like a typed `:`?",
+      "why": "You asked for `.` only, and `.` already flips both ways",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_capture_alias",
+      "kind": "toggle",
+      "ask": "Should the Capture Alias glossary list the glued `.` toggle beside the `^`/`:` separator toggle?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
