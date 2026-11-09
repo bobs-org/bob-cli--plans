@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish and land existing-record updates (bob-cli-ir.7.1)
-goal:
-  Close the verified gaps in capture and records-CLI existing-record updates, then land
-  epic bob-cli-ir.7.1 and its parent phase bob-cli-ir.7.
+goal: Close the verified gaps in capture and records-CLI existing-record updates,
+  then land epic bob-cli-ir.7.1 and its parent phase bob-cli-ir.7.
 proposed_by: bbugyi200.athena.bob-cli-ir.7.1.land
 proposed_with: claude/opus
 bead: bob-cli-ir.7.1
-create_time: 2026-11-09 06:24:11
-status: wip
+status: done
 ---
 
 - **PARENT:**
