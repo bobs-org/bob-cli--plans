@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_glossary_record_note",
+      "kind": "toggle",
+      "ask": "Add the Record Note glossary term (aliases record, record type) that Bryan's bob-cli-ir note asks for?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:record-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:record-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/record-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
