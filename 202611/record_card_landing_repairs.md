@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Record Card completion presentation and land the epic
-goal: Make Record Card choices visible and reliable, verify the repaired tree, and
-  close bob-cli-ir.10.1 and parent phase bob-cli-ir.10.
+goal:
+  Make Record Card choices visible and reliable, verify the repaired tree, and close
+  bob-cli-ir.10.1 and parent phase bob-cli-ir.10.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ir.10.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/mac_record_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/mac_record_card.md)
 - **BEAD:**
   [bob-cli-ir.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.10.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ir.10.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.10.1.land.md)
+- **COMMITS:**
+  - [c09e2bc](https://github.com/bobs-org/bob-mac-capture/commit/c09e2bcd6538e90c56030374900550a1d6053817)
+    — fix(capture): agree Record Card completion with keyboard acceptance
 
 # Finish Record Card completion presentation and land bob-cli-ir.10.1
 
