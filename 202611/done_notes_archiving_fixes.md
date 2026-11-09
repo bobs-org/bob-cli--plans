@@ -1,32 +1,30 @@
 ---
 tier: epic
 title: Fix done-notes archiving without changing the done/ layout
-goal: "`bob task archive` moves only what it should, from notes that should feed done/,
+goal: '`bob task archive` moves only what it should, from notes that should feed done/,
   at a predictable time, through a writer as safe as `bob task move`. Archive pairing
   survives renames, every Bob path check agrees on what done/ means, and an archived
   task can come back with one command or one plugin gesture.
 
-  "
+  '
 decisions:
   keep_window:
     ask: Which keep window should replace the count-of-10 archive gate?
     choices:
-      week_cap:
-        Keep the newest 10 closures from the last 7 days; busy notes keep about a day
-      iso_week:
-        Archive everything closed before this ISO week; the visible window swings 0-6
-        days
-      days_only:
-        Keep 7 days with no cap; bob.md and sase.md keep about 65 closed rows each
+      week_cap: Keep the newest 10 closures from the last 7 days; busy notes keep
+        about a day
+      iso_week: Archive everything closed before this ISO week; the visible window
+        swings 0-6 days
+      days_only: Keep 7 days with no cap; bob.md and sase.md keep about 65 closed
+        rows each
     default: week_cap
     why: Quiet notes stay current for a week and busy notes stay small
     answer: week_cap
   finished_projects:
     ask: Should finished projects stay frozen as their own records?
     choices:
-      frozen:
-        Their 243 closed rows stay in place for good; reopening a project needs no
-        restore
+      frozen: Their 243 closed rows stay in place for good; reopening a project needs
+        no restore
       archive_rows: Their non-^prj closed rows archive like any active project's
     default: frozen
     why: A finished project note is already its own record, and ^prj links stay live
@@ -34,118 +32,109 @@ decisions:
   rename_following:
     ask: When a source note is renamed, should its archive file be renamed to match?
     choices:
-      rename:
-        Rename the archive to the canonical name and repair inbound done/ links in the
-        same run
-      bind:
-        "Keep the old archive name; readers follow done_tasks:/parent: metadata instead"
+      rename: Rename the archive to the canonical name and repair inbound done/ links
+        in the same run
+      bind: 'Keep the old archive name; readers follow done_tasks:/parent: metadata
+        instead'
     default: rename
     why: About 30 code paths still assume the filename rule
     answer: rename
   plugin_reopen:
-    ask: Should reopening an archived task from a plugin restore it to its source note?
+    ask: Should reopening an archived task from a plugin restore it to its source
+      note?
     choices:
-      restore:
-        The plugin runs bob task restore --reopen and the task returns open to its
-        source
-      refuse:
-        The plugin refuses the in-place reopen and shows a Notice naming bob task
-        restore
+      restore: The plugin runs bob task restore --reopen and the task returns open
+        to its source
+      refuse: The plugin refuses the in-place reopen and shows a Notice naming bob
+        task restore
     default: restore
     why: One gesture still works, and no open task is ever left inside done/
     answer: restore
   memory_archive_decision:
     ask: Record the new done-archive policy as a decisions memory strand?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: selection
-    title: Safe archive selection
-    depends_on: []
-    size: medium
-    description:
-      "selection: restrict archiving to area and project notes, never move ^prj lines or
-      roots with open subtasks or open parents, ignore fences, comments, and
-      frontmatter, read closed statuses from Tasks settings, and start the
-      docs/task-archive.md contract."
-  - id: guarded-writer
-    title: Guarded archive writer with preview and JSON
-    depends_on:
-      - selection
-    size: large
-    description:
-      "guarded-writer: run every archive write under the shared lock through the guarded
-      write engine with stale checks, recovery, replay detection, pre-apply
-      verification, and same-write regrouping; add -n/--dry-run and -f/--format json."
-  - id: link-repair
-    title: Correct archive link repair
-    depends_on:
-      - guarded-writer
-    size: medium
-    description:
-      "link-repair: carry renamed block IDs into local links, qualify same-note heading
-      links, skip code, follow the shared case rules, and hold blocks with duplicate IDs
-      instead of silently skipping their repair."
-  - id: pairing
-    title: One archive pairing resolver, rename-following, and health diagnostics
-    depends_on:
-      - link-repair
-    size: large
-    description:
-      "pairing: add one metadata-first source/archive resolver, move every
-      filename-derived caller onto it, follow source renames per the rename_following
-      decision, and report orphan, duplicate, open-in-archive, duplicate-ID, and
-      undated-row diagnostics."
-  - id: keep-window
-    title: Keep window and month headings
-    depends_on:
-      - pairing
-    size: medium
-    description:
-      "keep-window: replace the count gate with the chosen keep window, keep -t as an
-      optional minimum batch, file new roots under close-month headings, and confirm the
-      rule with a read-only live-vault dry run."
-  - id: restore
-    title: bob task restore
-    depends_on:
-      - pairing
-    size: medium
-    description:
-      "restore: let the task-move engine take a done/ source and add a thin bob task
-      restore that defaults to the bound source, optionally reopens, and refuses
-      recurring occurrences, merge tombstones, and ^prj lines."
-  - id: path-contract
-    title: One done/ path contract in bob-cli
-    depends_on:
-      - keep-window
-      - restore
-    size: medium
-    description:
-      "path-contract: replace every Rust done/ path predicate, inline check, and walker
-      skip with one first-component, case-sensitive helper pinned by shared test
-      vectors."
-  - id: plugins
-    title: Plugin path helper and archived-task reopen
-    depends_on:
-      - path-contract
-      - restore
-    size: medium
-    description:
-      "plugins: give each bob-plugins plugin that checks done/ paths the same helper
-      pinned to the shared vectors, and route reopening an archived task per the
-      plugin_reopen decision."
+- id: selection
+  title: Safe archive selection
+  depends_on: []
+  size: medium
+  description: 'selection: restrict archiving to area and project notes, never move
+    ^prj lines or roots with open subtasks or open parents, ignore fences, comments,
+    and frontmatter, read closed statuses from Tasks settings, and start the docs/task-archive.md
+    contract.'
+- id: guarded-writer
+  title: Guarded archive writer with preview and JSON
+  depends_on:
+  - selection
+  size: large
+  description: 'guarded-writer: run every archive write under the shared lock through
+    the guarded write engine with stale checks, recovery, replay detection, pre-apply
+    verification, and same-write regrouping; add -n/--dry-run and -f/--format json.'
+- id: link-repair
+  title: Correct archive link repair
+  depends_on:
+  - guarded-writer
+  size: medium
+  description: 'link-repair: carry renamed block IDs into local links, qualify same-note
+    heading links, skip code, follow the shared case rules, and hold blocks with duplicate
+    IDs instead of silently skipping their repair.'
+- id: pairing
+  title: One archive pairing resolver, rename-following, and health diagnostics
+  depends_on:
+  - link-repair
+  size: large
+  description: 'pairing: add one metadata-first source/archive resolver, move every
+    filename-derived caller onto it, follow source renames per the rename_following
+    decision, and report orphan, duplicate, open-in-archive, duplicate-ID, and undated-row
+    diagnostics.'
+- id: keep-window
+  title: Keep window and month headings
+  depends_on:
+  - pairing
+  size: medium
+  description: 'keep-window: replace the count gate with the chosen keep window, keep
+    -t as an optional minimum batch, file new roots under close-month headings, and
+    confirm the rule with a read-only live-vault dry run.'
+- id: restore
+  title: bob task restore
+  depends_on:
+  - pairing
+  size: medium
+  description: 'restore: let the task-move engine take a done/ source and add a thin
+    bob task restore that defaults to the bound source, optionally reopens, and refuses
+    recurring occurrences, merge tombstones, and ^prj lines.'
+- id: path-contract
+  title: One done/ path contract in bob-cli
+  depends_on:
+  - keep-window
+  - restore
+  size: medium
+  description: 'path-contract: replace every Rust done/ path predicate, inline check,
+    and walker skip with one first-component, case-sensitive helper pinned by shared
+    test vectors.'
+- id: plugins
+  title: Plugin path helper and archived-task reopen
+  depends_on:
+  - path-contract
+  - restore
+  size: medium
+  description: 'plugins: give each bob-plugins plugin that checks done/ paths the
+    same helper pinned to the shared vectors, and route reopening an archived task
+    per the plugin_reopen decision.'
 proposed_by: bbugyi200.athena.1ai
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 11:04:07
 status: wip
+bead_id: bob-cli-j5
 ---
 
-- **PROMPT:**
-  [prompts/202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/done_notes_archiving_fixes.md)
+- **PROMPT:** [prompts/202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/done_notes_archiving_fixes.md)
+- **BEAD:** [bob-cli-j5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/README.md)
 
 # Plan: Fix done-notes archiving without changing the done/ layout
 
