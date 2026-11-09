@@ -1,64 +1,61 @@
 ---
 tier: epic
 title: Redraft 2026Q4's v1 weekly Reviews under the v2 instructions
-goal: "Every closed 2026-Q4 week still carrying a v1 Review (W40–W44) has a v2 Review
+goal: 'Every closed 2026-Q4 week still carrying a v1 Review (W40–W44) has a v2 Review
   saved through `bob periods draft`, so the first quarterly review on 2027-01-04 reads
   work-first, one-line Headlines instead of stats-first ones.
 
-  "
+  '
 phases:
-  - id: redraft-w44
-    title: Redraft the 2026-W44 Review under v2
-    depends_on: []
-    size: xlarge
-    description:
-      'redraft-w44: prove the false `edited` state comes only from bob''s archive link
-      moves, then force-redraft W44 (Oct 26 – Nov 1) under its v2 callout, commit only
-      that note, and check W45''s "also carried in W44" mark against the new list.'
-  - id: redraft-w43
-    title: Redraft the 2026-W43 Review under v2
-    depends_on:
-      - redraft-w44
-    size: xlarge
-    description:
-      'redraft-w43: redraft the drafted W43 (Oct 19 – 25) under its v2 callout without
-      -F, commit only that note, and check the new W44 Review''s "also carried in W43"
-      marks.'
-  - id: redraft-w42
-    title: Redraft the 2026-W42 Review under v2
-    depends_on:
-      - redraft-w43
-    size: xlarge
-    description:
-      'redraft-w42: redraft the drafted W42 (Oct 12 – 18) under its v2 callout without
-      -F, commit only that note, and check the new W43 Review''s "also carried in W42"
-      marks.'
-  - id: redraft-w41
-    title: Redraft the 2026-W41 Review under v2
-    depends_on:
-      - redraft-w42
-    size: xlarge
-    description:
-      'redraft-w41: prove the false `edited` state comes only from bob''s archive link
-      move, then force-redraft W41 (Oct 5 – 11) under its v2 callout, commit only that
-      note, and check the new W42 Review''s "also carried in W41" marks.'
-  - id: redraft-w40
-    title: Redraft the 2026-W40 Review under v2
-    depends_on:
-      - redraft-w41
-    size: xlarge
-    description:
-      'redraft-w40: redraft the drafted W40 (Sep 28 – Oct 4) under its v2 callout
-      without -F, commit only that note, and check the new W41 Review''s "also carried
-      in W40" marks; W39 (Q3) stays v1.'
+- id: redraft-w44
+  title: Redraft the 2026-W44 Review under v2
+  depends_on: []
+  size: xlarge
+  description: 'redraft-w44: prove the false `edited` state comes only from bob''s
+    archive link moves, then force-redraft W44 (Oct 26 – Nov 1) under its v2 callout,
+    commit only that note, and check W45''s "also carried in W44" mark against the
+    new list.'
+- id: redraft-w43
+  title: Redraft the 2026-W43 Review under v2
+  depends_on:
+  - redraft-w44
+  size: xlarge
+  description: 'redraft-w43: redraft the drafted W43 (Oct 19 – 25) under its v2 callout
+    without -F, commit only that note, and check the new W44 Review''s "also carried
+    in W43" marks.'
+- id: redraft-w42
+  title: Redraft the 2026-W42 Review under v2
+  depends_on:
+  - redraft-w43
+  size: xlarge
+  description: 'redraft-w42: redraft the drafted W42 (Oct 12 – 18) under its v2 callout
+    without -F, commit only that note, and check the new W43 Review''s "also carried
+    in W42" marks.'
+- id: redraft-w41
+  title: Redraft the 2026-W41 Review under v2
+  depends_on:
+  - redraft-w42
+  size: xlarge
+  description: 'redraft-w41: prove the false `edited` state comes only from bob''s
+    archive link move, then force-redraft W41 (Oct 5 – 11) under its v2 callout, commit
+    only that note, and check the new W42 Review''s "also carried in W41" marks.'
+- id: redraft-w40
+  title: Redraft the 2026-W40 Review under v2
+  depends_on:
+  - redraft-w41
+  size: xlarge
+  description: 'redraft-w40: redraft the drafted W40 (Sep 28 – Oct 4) under its v2
+    callout without -F, commit only that note, and check the new W41 Review''s "also
+    carried in W40" marks; W39 (Q3) stays v1.'
 proposed_by: bbugyi200.athena.1ac.f0
 proposed_with: claude/opus
 create_time: 2026-11-09 10:47:00
 status: wip
+bead_id: bob-cli-j3
 ---
 
-- **PROMPT:**
-  [prompts/202611/q4_weekly_reviews_v2_redraft.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/q4_weekly_reviews_v2_redraft.md)
+- **PROMPT:** [prompts/202611/q4_weekly_reviews_v2_redraft.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/q4_weekly_reviews_v2_redraft.md)
+- **BEAD:** [bob-cli-j3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j3/README.md)
 
 # Plan: Redraft 2026Q4's v1 weekly Reviews under the v2 instructions
 
