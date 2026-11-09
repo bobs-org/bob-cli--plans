@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ci_watchdog",
+      "kind": "choice",
+      "ask": "Raise the macOS CI Test watchdog from 15 to 20 minutes so a slow runner cannot fail a passing suite?",
+      "why": "The watchdog is repo-wide hang policy outside this phase; typical runs take 11-12 minutes",
+      "choices": [
+        {
+          "key": "raise",
+          "label": "Watchdog fires at 1200 s, inside the 25-minute step timeout; real hangs surface 5 min later"
+        },
+        {
+          "key": "keep",
+          "label": "Watchdog stays at 900 s; a slow runner can fail a passing run, which gets one rerun and a note"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
