@@ -2,27 +2,25 @@
 tier: tale
 size: medium
 title: Finish and land Record Notes (bob-cli-ir)
-goal: "Fix the last defects the Record Notes epic left behind: a missing blank line
-  before a new section, a broken Mac build, and two Mac reference pages it pushed over
-  the word cap. If the decision approves it, add the record-note glossary term Bryan
-  asked for. Then close epic bob-cli-ir.
+goal: 'Fix the last defects the Record Notes epic left behind: a missing blank line
+  before a new section, a broken Mac build, and two Mac reference pages it pushed
+  over the word cap. If the decision approves it, add the record-note glossary term
+  Bryan asked for. Then close epic bob-cli-ir.
 
-  "
+  '
 decisions:
   memory_glossary_record_note:
-    ask:
-      Add the Record Note glossary term (aliases record, record type) that Bryan's
+    ask: Add the Record Note glossary term (aliases record, record type) that Bryan's
       bob-cli-ir note asks for?
     memory:
-      - glossary:record-note
+    - glossary:record-note
     default: false
     answer: false
 proposed_by: bbugyi200.athena.bob-cli-ir.land
 proposed_with: claude/opus
 bead: bob-cli-ir
 decided_by: auto
-create_time: 2026-11-09 14:13:50
-status: wip
+status: done
 ---
 
 - **PARENT:**
