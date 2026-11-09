@@ -1,49 +1,45 @@
 ---
 tier: epic
 title: Notebook catalog cards, live chips, and linked headers in Obsidian
-goal:
-  Complete bob-cli-j8.6 with notebook catalog cards and live metadata in Reading view
-  and Live Preview, linked notebook headers, and debounced structural sync.
+goal: Complete bob-cli-j8.6 with notebook catalog cards and live metadata in Reading
+  view and Live Preview, linked notebook headers, and debounced structural sync.
 phases:
-  - id: notebook-ui-data
-    title: Notebook report cache and debounced catalog sync
-    size: medium
-    depends_on: []
-    description:
-      "notebook-ui-data: implement the notebook JSON adapter, shared report cache,
-      lifecycle, frontmatter fingerprints, and single-flight three-second sync trigger
-      in bob-ledger-tools, with deterministic tests for refresh races and failures."
-  - id: notebook-ui-catalog
-    title: Notebook catalog cards and live chips in both Obsidian views
-    size: medium
-    depends_on:
-      - notebook-ui-data
-    description:
-      "notebook-ui-catalog: use the shared notebook report to style and decorate
-      generated catalogs in Reading view and Live Preview, including host hue, tree
-      rules, row counts, recency, add-summary navigation, and the heading sync action;
-      test both surfaces and preserve Markdown bytes and native links."
-  - id: notebook-ui-header
-    title: Linked notebook headers, settings, and integration proof
-    size: medium
-    depends_on:
-      - notebook-ui-catalog
-    description:
-      "notebook-ui-header: render linked ancestry and child-notebook chips in both
-      views, add the persistent notebook-chips setting, finish plugin docs and manifest
-      metadata, and verify theme, width, editing, lifecycle, and deployed-plugin
-      behavior."
+- id: notebook-ui-data
+  title: Notebook report cache and debounced catalog sync
+  size: medium
+  depends_on: []
+  description: 'notebook-ui-data: implement the notebook JSON adapter, shared report
+    cache, lifecycle, frontmatter fingerprints, and single-flight three-second sync
+    trigger in bob-ledger-tools, with deterministic tests for refresh races and failures.'
+- id: notebook-ui-catalog
+  title: Notebook catalog cards and live chips in both Obsidian views
+  size: medium
+  depends_on:
+  - notebook-ui-data
+  description: 'notebook-ui-catalog: use the shared notebook report to style and decorate
+    generated catalogs in Reading view and Live Preview, including host hue, tree
+    rules, row counts, recency, add-summary navigation, and the heading sync action;
+    test both surfaces and preserve Markdown bytes and native links.'
+- id: notebook-ui-header
+  title: Linked notebook headers, settings, and integration proof
+  size: medium
+  depends_on:
+  - notebook-ui-catalog
+  description: 'notebook-ui-header: render linked ancestry and child-notebook chips
+    in both views, add the persistent notebook-chips setting, finish plugin docs and
+    manifest metadata, and verify theme, width, editing, lifecycle, and deployed-plugin
+    behavior.'
 proposed_by: bbugyi200.apollo.bob-cli-j8.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-j8.6
 create_time: 2026-11-09 15:14:59
 status: wip
+bead_id: bob-cli-j8.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/notebook_catalog_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_catalog_ui.md)
-- **PARENT:**
-  [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
+- **PROMPT:** [prompts/202611/notebook_catalog_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_catalog_ui.md)
+- **PARENT:** [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
+- **BEAD:** [bob-cli-j8.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.6.1.md)
 
 # Notebook catalog UI for bob-cli-j8.6
 
