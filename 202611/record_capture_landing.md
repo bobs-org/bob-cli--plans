@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair record capture contract gaps and finish its landing
-goal:
-  Complete the remaining grammar and adapter requirements of bob-cli-ir.5.1, then close
-  that epic and its parent phase bob-cli-ir.5.
+goal: Complete the remaining grammar and adapter requirements of bob-cli-ir.5.1, then
+  close that epic and its parent phase bob-cli-ir.5.
 proposed_by: bbugyi200.athena.bob-cli-ir.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ir.5.1
-create_time: 2026-11-08 23:14:53
-status: wip
+status: done
 ---
 
 - **PARENT:**
