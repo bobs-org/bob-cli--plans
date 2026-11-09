@@ -1,128 +1,108 @@
 ---
 tier: epic
-title: Make bob gcal sync race-proof, resettable with --force, and explicit about skips
-goal:
-  A daily-note creation race can never again erase synced Event Tasks for good, `bob
-  gcal sync --force` rewrites a day from Google as on its first sync, and every Google
-  event sync leaves out is listed with a specific reason and fix.
+title: Make bob gcal sync race-proof, resettable with --force, and explicit about
+  skips
+goal: A daily-note creation race can never again erase synced Event Tasks for good,
+  `bob gcal sync --force` rewrites a day from Google as on its first sync, and every
+  Google event sync leaves out is listed with a specific reason and fix.
 phases:
-  - id: templater_guard
-    title: Refuse to sync into a note Templater has not rendered
-    size: small
-    depends_on: []
-    description:
-      'templater_guard: bob-cli. Detect pending Templater tags in the daily note and
-      return a structured `waiting` (note_missing / pomodoros_missing / note_unrendered)
-      instead of writing, including on the locked re-read. See plan section "Phase
-      templater_guard".'
-  - id: ledger_tools_readiness
-    title: Start the create hook only after Templater finishes
-    size: small
-    depends_on: []
-    description:
-      'ledger_tools_readiness: bob-plugins. Ledger Tools waits for a rendered, settled
-      daily note before spawning `bob gcal sync` (and Gmail), calls `--format json`,
-      accepts the `held` status, and surfaces waiting/held notices. See plan section
-      "Phase ledger_tools_readiness".'
-  - id: skip_reasons
-    title: Name every skipped event and stop re-tombstoning
-    size: medium
-    depends_on:
-      - templater_guard
-    description:
-      'skip_reasons: bob-cli. One shared skip vocabulary for sync and list; sync lists
-      every left-out event with reason and hint, reports in-sync counts, stops
-      re-tombstoning gone rows every run, and revives a tombstoned row pasted back. See
-      plan section "Phase skip_reasons".'
-  - id: force_reset
-    title: Add the --force day reset to bob gcal sync
-    size: medium
-    depends_on:
-      - skip_reasons
-      - ledger_tools_readiness
-    description:
-      'force_reset: bob-cli. New force flag, `gcal.reset` journal record and fold, a
-      planner reset that restores missing rows with their old block ids and re-applies
-      Google over present rows, beautiful reset output, docs, and tests. See plan
-      section "Phase force_reset".'
-  - id: replaced_hold
-    title: Hold a replaced Events section and record the deletion policy
-    size: small
-    depends_on:
-      - force_reset
-    description:
-      'replaced_hold: bob-cli. When every row Bob wrote for the day and the Events stamp
-      vanish together, do what the replaced_events decision says (default: hold with
-      status `held`), update list/doctor/docs, and write the decision records. See plan
-      section "Phase replaced_hold".'
+- id: templater_guard
+  title: Refuse to sync into a note Templater has not rendered
+  size: small
+  depends_on: []
+  description: 'templater_guard: bob-cli. Detect pending Templater tags in the daily
+    note and return a structured `waiting` (note_missing / pomodoros_missing / note_unrendered)
+    instead of writing, including on the locked re-read. See plan section "Phase templater_guard".'
+- id: ledger_tools_readiness
+  title: Start the create hook only after Templater finishes
+  size: small
+  depends_on: []
+  description: 'ledger_tools_readiness: bob-plugins. Ledger Tools waits for a rendered,
+    settled daily note before spawning `bob gcal sync` (and Gmail), calls `--format
+    json`, accepts the `held` status, and surfaces waiting/held notices. See plan
+    section "Phase ledger_tools_readiness".'
+- id: skip_reasons
+  title: Name every skipped event and stop re-tombstoning
+  size: medium
+  depends_on:
+  - templater_guard
+  description: 'skip_reasons: bob-cli. One shared skip vocabulary for sync and list;
+    sync lists every left-out event with reason and hint, reports in-sync counts,
+    stops re-tombstoning gone rows every run, and revives a tombstoned row pasted
+    back. See plan section "Phase skip_reasons".'
+- id: force_reset
+  title: Add the --force day reset to bob gcal sync
+  size: medium
+  depends_on:
+  - skip_reasons
+  - ledger_tools_readiness
+  description: 'force_reset: bob-cli. New force flag, `gcal.reset` journal record
+    and fold, a planner reset that restores missing rows with their old block ids
+    and re-applies Google over present rows, beautiful reset output, docs, and tests.
+    See plan section "Phase force_reset".'
+- id: replaced_hold
+  title: Hold a replaced Events section and record the deletion policy
+  size: small
+  depends_on:
+  - force_reset
+  description: 'replaced_hold: bob-cli. When every row Bob wrote for the day and the
+    Events stamp vanish together, do what the replaced_events decision says (default:
+    hold with status `held`), update list/doctor/docs, and write the decision records.
+    See plan section "Phase replaced_hold".'
 decisions:
   force_edits:
     ask: Should `-F` also overwrite your edits to rows still in the note?
     choices:
-      reset:
-        Present rows get Google's time, title, badges, and root back; status, children,
-        history stay
-      keep:
-        Present rows stay exactly as they are; `-F` only restores missing rows and links
+      reset: Present rows get Google's time, title, badges, and root back; status,
+        children, history stay
+      keep: Present rows stay exactly as they are; `-F` only restores missing rows
+        and links
     default: reset
-    why:
-      You asked -F to disregard edits; status, children, and sessions stay safe either
-      way
+    why: You asked -F to disregard edits; status, children, and sessions stay safe
+      either way
     answer: reset
   replaced_events:
-    ask:
-      When all of today's Bob rows and the Events stamp vanish at once, should sync
-      hold, not tombstone?
+    ask: When all of today's Bob rows and the Events stamp vanish at once, should
+      sync hold, not tombstone?
     choices:
-      hold:
-        Sync writes nothing that day and says the note was replaced; `bob gcal sync -F`
-        restores it
-      restore:
-        Sync re-adds the lost rows on its next run; a deliberately wiped section comes
-        back once
-      tombstone:
-        Keep today's rule; each missing row counts as your deletion and only `-F`
-        restores it
+      hold: Sync writes nothing that day and says the note was replaced; `bob gcal
+        sync -F` restores it
+      restore: Sync re-adds the lost rows on its next run; a deliberately wiped section
+        comes back once
+      tombstone: Keep today's rule; each missing row counts as your deletion and only
+        `-F` restores it
     default: hold
-    why:
-      Never re-adds without consent, yet never mistakes a clobbered note for your
+    why: Never re-adds without consent, yet never mistakes a clobbered note for your
       deletions
     answer: hold
   force_short:
-    ask:
-      Should force use bob's usual `-F|--force` rather than `-f`, which sync already
+    ask: Should force use bob's usual `-F|--force` rather than `-f`, which sync already
       uses for `--format`?
     choices:
-      capital_f:
-        "`-F|--force`; `-f` stays `--format` as on every gcal command and in the create
-        hook"
-      lowercase_f:
-        "`-f|--force` as asked; sync's `--format` moves to `-F`, a `!` break for `-f
-        json` callers"
+      capital_f: '`-F|--force`; `-f` stays `--format` as on every gcal command and
+        in the create hook'
+      lowercase_f: '`-f|--force` as asked; sync''s `--format` moves to `-F`, a `!`
+        break for `-f json` callers'
     default: capital_f
-    why:
-      bob spells force `-F` wherever `-f` is `--format` (plugins sync, periods,
+    why: bob spells force `-F` wherever `-f` is `--format` (plugins sync, periods,
       freshness)
     answer: capital_f
   memory_force_record:
-    ask:
-      Add the decision record `decisions:gcal-force-resets-the-day` for the reset and
-      replaced-section rule?
+    ask: Add the decision record `decisions:gcal-force-resets-the-day` for the reset
+      and replaced-section rule?
     memory:
-      - decisions:gcal-force-resets-the-day
+    - decisions:gcal-force-resets-the-day
     default: true
-    requested:
-      As a part of this change, let's add a new `-f|--force` option to the `bob gcal
-      sync` command that disregards any previous edits/deletions and re-writes the
-      appropriate event tasks and pomodoros to today's daily file as if it were the
-      first time that command were run for that day.
+    requested: As a part of this change, let's add a new `-f|--force` option to the
+      `bob gcal sync` command that disregards any previous edits/deletions and re-writes
+      the appropriate event tasks and pomodoros to today's daily file as if it were
+      the first time that command were run for that day.
     answer: true
   memory_propose_once_mark:
-    ask:
-      Mark `decisions:bob-gcal-is-read-only-and-proposes-once` partly superseded by the
-      new record?
+    ask: Mark `decisions:bob-gcal-is-read-only-and-proposes-once` partly superseded
+      by the new record?
     memory:
-      - decisions:bob-gcal-is-read-only-and-proposes-once
+    - decisions:bob-gcal-is-read-only-and-proposes-once
     default: true
     corrects: deleted rows are tombstoned and never re-added
     answer: true
@@ -132,10 +112,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 07:12:08
 status: wip
+bead_id: bob-cli-iz
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_sync_race_force_and_skip_reasons.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_sync_race_force_and_skip_reasons.md)
+- **PROMPT:** [prompts/202611/gcal_sync_race_force_and_skip_reasons.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_sync_race_force_and_skip_reasons.md)
+- **BEAD:** [bob-cli-iz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-iz/README.md)
 
 # Problem and outcome
 
