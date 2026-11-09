@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Retire interrupted close-alias replay and land bob-cli-is
-goal:
-  Keep buffered edits in their original editor and drop buffered submits when replay is
-  interrupted, correct the remaining syntax-reference omission, and close epic
-  bob-cli-is.
+goal: Keep buffered edits in their original editor and drop buffered submits when
+  replay is interrupted, correct the remaining syntax-reference omission, and close
+  epic bob-cli-is.
 proposed_by: bbugyi200.apollo.bob-cli-is.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-is
-create_time: 2026-11-08 18:51:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
