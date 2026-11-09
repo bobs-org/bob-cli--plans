@@ -1,48 +1,44 @@
 ---
 tier: epic
 title: Guarded archive writer with preview and JSON
-goal:
-  Archive writes preserve concurrent edits and recoverable history, detect exact
+goal: Archive writes preserve concurrent edits and recoverable history, detect exact
   replays, regroup sources, and expose a side-effect-free preview and versioned JSON
   report.
 phases:
-  - id: guarded-create
-    title: Support recoverable creation in the guarded write engine
-    size: medium
-    depends_on: []
-    description:
-      "guarded-create: extend task_status_hooks_write to create previously missing files
-      safely, preserving replacement guards and recording missing before-images for
-      recovery."
-  - id: archive-snapshot
-    title: Plan archive changes from captured inputs
-    size: medium
-    depends_on:
-      - guarded-create
-    description:
-      "archive-snapshot: capture every archive-planning input once, detect exact block
-      replays, regroup changed sources, and validate final postimages before
-      constructing the guarded WritePlan."
-  - id: archive-command
-    title: Apply archive plans under the lock and expose preview and JSON
-    size: medium
-    depends_on:
-      - archive-snapshot
-    description:
-      "archive-command: integrate bounded guarded retries with standalone and nightly
-      execution, add dry-run and versioned JSON reports, preserve scoped Git behavior,
-      and finish documentation and command regressions."
+- id: guarded-create
+  title: Support recoverable creation in the guarded write engine
+  size: medium
+  depends_on: []
+  description: 'guarded-create: extend task_status_hooks_write to create previously
+    missing files safely, preserving replacement guards and recording missing before-images
+    for recovery.'
+- id: archive-snapshot
+  title: Plan archive changes from captured inputs
+  size: medium
+  depends_on:
+  - guarded-create
+  description: 'archive-snapshot: capture every archive-planning input once, detect
+    exact block replays, regroup changed sources, and validate final postimages before
+    constructing the guarded WritePlan.'
+- id: archive-command
+  title: Apply archive plans under the lock and expose preview and JSON
+  size: medium
+  depends_on:
+  - archive-snapshot
+  description: 'archive-command: integrate bounded guarded retries with standalone
+    and nightly execution, add dry-run and versioned JSON reports, preserve scoped
+    Git behavior, and finish documentation and command regressions.'
 proposed_by: bbugyi200.athena.bob-cli-j5.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-j5.2
 create_time: 2026-11-09 12:19:08
 status: wip
+bead_id: bob-cli-j5.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/guarded_archive_writer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/guarded_archive_writer.md)
-- **PARENT:**
-  [202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/done_notes_archiving_fixes.md)
+- **PROMPT:** [prompts/202611/guarded_archive_writer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/guarded_archive_writer.md)
+- **PARENT:** [202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/done_notes_archiving_fixes.md)
+- **BEAD:** [bob-cli-j5.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/bob-cli-j5.2.1.md)
 
 # Guarded archive writer, preview, and JSON
 
