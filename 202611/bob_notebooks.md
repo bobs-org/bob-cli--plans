@@ -1,187 +1,180 @@
 ---
 tier: epic
 title: Notebooks — a home for notes under areas and projects
-goal: 'Bob gains a `type: "[[notebook]]"` note kind for task-free note bullets
-  (optionally under `##` sections) that always hangs under an area, project, or
-  notebook. Capture writes notes into notebooks through the existing `@nb` forms,
-  creates notebooks with `@parent^id@ %n <summary>`, and every area or project shows a
-  beautiful generated `## Notebooks` catalog. 26 existing notes, 11 of them rescued from
-  the zorg dead end, become the first notebooks.
+goal: 'Bob gains a `type: "[[notebook]]"` note kind for task-free note bullets (optionally
+  under `##` sections) that always hangs under an area, project, or notebook. Capture
+  writes notes into notebooks through the existing `@nb` forms, creates notebooks
+  with `@parent^id@ %n <summary>`, and every area or project shows a beautiful generated
+  `## Notebooks` catalog. 26 existing notes, 11 of them rescued from the zorg dead
+  end, become the first notebooks.
 
   '
 decisions:
   collapse_assist:
-    ask:
-      Should `#`, `/`, `^`, `.`, `+`, or `,` typed right after a complete `@@route`
+    ask: Should `#`, `/`, `^`, `.`, `+`, or `,` typed right after a complete `@@route`
       collapse it to `@route#`/`^`/`+`?
     default: true
-    why:
-      Keeps a typed @@foo#bar, @@foo+baz, or @@foo^id working while @@ keeps one meaning
+    why: Keeps a typed @@foo#bar, @@foo+baz, or @@foo^id working while @@ keeps one
+      meaning
     answer: true
   memory_glossary_notebook:
     ask: Should the plan add the new Notebook glossary strand?
     memory:
-      - glossary:notebook
+    - glossary:notebook
     default: true
-    requested:
-      We should add an excellent new "notebook" glossary term to describe this concept.
+    requested: We should add an excellent new "notebook" glossary term to describe
+      this concept.
     answer: true
   memory_notebook_decision:
-    ask:
-      Should the plan add the notebook decision record and mark capture-sigils
+    ask: Should the plan add the notebook decision record and mark capture-sigils
       superseded in part?
     memory:
-      - decisions:notebook-routes-write-notes
-      - decisions:capture-sigils-say-where-what-how
+    - decisions:notebook-routes-write-notes
+    - decisions:capture-sigils-say-where-what-how
     default: true
-    corrects:
-      "`%c`, `%n`, `%t`, and `%l` at an item edge declare clip, Pomodoro-note, template,
-      and listen directives."
+    corrects: '`%c`, `%n`, `%t`, and `%l` at an item edge declare clip, Pomodoro-note,
+      template, and listen directives.'
     answer: true
   memory_glossary_corrections:
-    ask:
-      Should the plan update the Capture, Project Note Capture, and Capture Alias
+    ask: Should the plan update the Capture, Project Note Capture, and Capture Alias
       strands for notebooks?
     memory:
-      - glossary:capture
-      - glossary:project-note-capture
-      - glossary:capture-alias
+    - glossary:capture
+    - glossary:project-note-capture
+    - glossary:capture-alias
     default: true
-    corrects:
-      item may create a task (default `mac_inbox.md`, an [[inbox-file]]), bullet,
-      sub-bullet, project note (a [[project-note-capture]]), or record note
+    corrects: item may create a task (default `mac_inbox.md`, an [[inbox-file]]),
+      bullet, sub-bullet, project note (a [[project-note-capture]]), or record note
     answer: true
 phases:
-  - id: notebook-core
-    title: Notebook recognition, bob notebooks list and check, and the contract doc
-    depends_on: []
-    size: large
-    description: 'notebook-core: recognize `type: "[[notebook]]"`, add the notebooks
-      module (one vault scan, path-aware parents, owner and root through the existing
-      Root Parent walk, title, summary, sections, counts), the `bob notebooks list` and
-      `check` commands with beautiful human output and JSON, teaching refusals wherever
-      a notebook is offered as a task or reference home, and `docs/notebooks.md`.
+- id: notebook-core
+  title: Notebook recognition, bob notebooks list and check, and the contract doc
+  depends_on: []
+  size: large
+  description: 'notebook-core: recognize `type: "[[notebook]]"`, add the notebooks
+    module (one vault scan, path-aware parents, owner and root through the existing
+    Root Parent walk, title, summary, sections, counts), the `bob notebooks list`
+    and `check` commands with beautiful human output and JSON, teaching refusals wherever
+    a notebook is offered as a task or reference home, and `docs/notebooks.md`.
 
-      '
-  - id: notebook-catalog
-    title: The generated Notebooks catalog, bob notebooks sync and create, nightly step
-    depends_on:
-      - notebook-core
-    size: large
-    description: "notebook-catalog: render and place the machine-owned `## Notebooks`
-      catalog in every area or project with notebooks beneath it, add `bob notebooks
-      sync` (locked, committed, byte-stable) and its lock-free nightly step, add `bob
-      notebooks create` on a shared new-notebook renderer, and report catalog state in
-      list and check.
+    '
+- id: notebook-catalog
+  title: The generated Notebooks catalog, bob notebooks sync and create, nightly step
+  depends_on:
+  - notebook-core
+  size: large
+  description: 'notebook-catalog: render and place the machine-owned `## Notebooks`
+    catalog in every area or project with notebooks beneath it, add `bob notebooks
+    sync` (locked, committed, byte-stable) and its lock-free nightly step, add `bob
+    notebooks create` on a shared new-notebook renderer, and report catalog state
+    in list and check.
 
-      "
-  - id: capture-notebook-notes
-    title: Capture writes notes into notebooks (the destination decides)
-    depends_on:
-      - notebook-core
-    size: large
-    description: "capture-notebook-notes: add the memoized notebook route policy and
-      teach capture that a notebook route writes notes: `@nb`, `@nb#section` (exact,
-      created on demand, near misses refused), `@nb^id`, `@nb#section^id` (new on every
-      route), `@nb+id` sub-notes, lists, draft-wide `@@nb`, URLs, `--route`, teaching
-      refusals, parse modes, previews, notebook capture-targets rows, and the grammar
-      bump.
+    '
+- id: capture-notebook-notes
+  title: Capture writes notes into notebooks (the destination decides)
+  depends_on:
+  - notebook-core
+  size: large
+  description: 'capture-notebook-notes: add the memoized notebook route policy and
+    teach capture that a notebook route writes notes: `@nb`, `@nb#section` (exact,
+    created on demand, near misses refused), `@nb^id`, `@nb#section^id` (new on every
+    route), `@nb+id` sub-notes, lists, draft-wide `@@nb`, URLs, `--route`, teaching
+    refusals, parse modes, previews, notebook capture-targets rows, and the grammar
+    bump.
 
-      "
-  - id: capture-notebook-create
-    title: Create notebooks with @parent^id@ %n
-    depends_on:
-      - capture-notebook-notes
-      - notebook-catalog
-    size: large
-    description: "capture-notebook-create: make `%n` on a `^`-sealed project capture
-      create `<parent>_<id>.md` as a notebook whose summary is the item text, seed notes
-      and ALL-CAPS sections from its bullets, make it visible to later items in the same
-      draft, rewrite the affected catalogs in the same all-or-nothing batch, and fix the
-      stale `%n` sentence tracked by bob-cli-j3.
+    '
+- id: capture-notebook-create
+  title: Create notebooks with @parent^id@ %n
+  depends_on:
+  - capture-notebook-notes
+  - notebook-catalog
+  size: large
+  description: 'capture-notebook-create: make `%n` on a `^`-sealed project capture
+    create `<parent>_<id>.md` as a notebook whose summary is the item text, seed notes
+    and ALL-CAPS sections from its bullets, make it visible to later items in the
+    same draft, rewrite the affected catalogs in the same all-or-nothing batch, and
+    fix the stale `%n` sentence tracked by bob-cli-j3.
 
-      "
-  - id: capture-notebook-assist
-    title: Notebook completion, block IDs, and the @@ collapse assist
-    depends_on:
-      - capture-notebook-create
-    size: large
-    description: "capture-notebook-assist: give capture-complete notebook route rows,
-      `##` section rows with a create row, `@nb^` ID suggestions marked
-      `destination_kind`, `@nb+` note-bullet rows with ID minting through
-      capture-task-id, an enabled `%n` row on sealed items, and (per collapse_assist)
-      the capture-rewrite `@@route` collapse.
+    '
+- id: capture-notebook-assist
+  title: Notebook completion, block IDs, and the @@ collapse assist
+  depends_on:
+  - capture-notebook-create
+  size: large
+  description: 'capture-notebook-assist: give capture-complete notebook route rows,
+    `##` section rows with a create row, `@nb^` ID suggestions marked `destination_kind`,
+    `@nb+` note-bullet rows with ID minting through capture-task-id, an enabled `%n`
+    row on sealed items, and (per collapse_assist) the capture-rewrite `@@route` collapse.
 
-      "
-  - id: plugins-notebook-catalog
-    title: Beautiful catalog card, live chips, and the notebook header in Obsidian
-    depends_on:
-      - notebook-catalog
-    size: large
-    description: "plugins-notebook-catalog: in bob-ledger-tools, style the
-      `[!notebooks]` catalog as a hue-accented card with a tree rule in Reading view and
-      Live Preview, add live note-count, recency, add-summary, and stale-sync chips from
-      `bob notebooks list -f json`, render a breadcrumb and child-notebook header inside
-      notebooks, and trigger a debounced `bob notebooks sync` on notebook frontmatter
-      changes.
+    '
+- id: plugins-notebook-catalog
+  title: Beautiful catalog card, live chips, and the notebook header in Obsidian
+  depends_on:
+  - notebook-catalog
+  size: large
+  description: 'plugins-notebook-catalog: in bob-ledger-tools, style the `[!notebooks]`
+    catalog as a hue-accented card with a tree rule in Reading view and Live Preview,
+    add live note-count, recency, add-summary, and stale-sync chips from `bob notebooks
+    list -f json`, render a breadcrumb and child-notebook header inside notebooks,
+    and trigger a debounced `bob notebooks sync` on notebook frontmatter changes.
 
-      "
-  - id: plugins-notebook-gestures
-    title: Obsidian block-ID prompt, pickers, and Create notebook here
-    depends_on:
-      - notebook-catalog
-    size: medium
-    description: "plugins-notebook-gestures: make the block-ID prompt suggest IDs for
-      plain note bullets, classify notebooks (with a notebook icon) in navigation,
-      filter the parent picker by the notebook parent rules, and add a Create notebook
-      here command backed by `bob notebooks create`.
+    '
+- id: plugins-notebook-gestures
+  title: Obsidian block-ID prompt, pickers, and Create notebook here
+  depends_on:
+  - notebook-catalog
+  size: medium
+  description: 'plugins-notebook-gestures: make the block-ID prompt suggest IDs for
+    plain note bullets, classify notebooks (with a notebook icon) in navigation, filter
+    the parent picker by the notebook parent rules, and add a Create notebook here
+    command backed by `bob notebooks create`.
 
-      "
-  - id: mac-notebook-capture
-    title: Bob Mac Capture presents notebooks
-    depends_on:
-      - capture-notebook-assist
-    size: large
-    description: 'mac-notebook-capture: decode unknown block-ID intents as unsupported
-      instead of link, show `kind: "notebook"` targets with a book icon and summary,
-      keep notebooks out of File-under, render notebook note, sub-note, and creation
-      previews and success lines, and present note-bullet rows in the `+` picker.
+    '
+- id: mac-notebook-capture
+  title: Bob Mac Capture presents notebooks
+  depends_on:
+  - capture-notebook-assist
+  size: large
+  description: 'mac-notebook-capture: decode unknown block-ID intents as unsupported
+    instead of link, show `kind: "notebook"` targets with a book icon and summary,
+    keep notebooks out of File-under, render notebook note, sub-note, and creation
+    previews and success lines, and present note-bullet rows in the `+` picker.
 
-      '
-  - id: notebook-vault
-    title: Notebook type note, template, Base, and the wave-1 migration
-    depends_on:
-      - capture-notebook-notes
-      - notebook-catalog
-    size: medium
-    description: "notebook-vault: once every host runs a bob with notebook capture, add
-      the `notebook.md` type note, `notebooks.base`, and `_templates/new_notebook.md`,
-      then migrate the wave-1 manifest (type, quoted parent, summary, H1; nothing else),
-      run `bob notebooks sync` and `check`, and prove the success criteria.
+    '
+- id: notebook-vault
+  title: Notebook type note, template, Base, and the wave-1 migration
+  depends_on:
+  - capture-notebook-notes
+  - notebook-catalog
+  size: medium
+  description: 'notebook-vault: once every host runs a bob with notebook capture,
+    add the `notebook.md` type note, `notebooks.base`, and `_templates/new_notebook.md`,
+    then migrate the wave-1 manifest (type, quoted parent, summary, H1; nothing else),
+    run `bob notebooks sync` and `check`, and prove the success criteria.
 
-      "
-  - id: notebooks-wrapup
-    title: End-to-end proof, docs audit, memory, and the wave-2 bead
-    depends_on:
-      - notebook-vault
-      - mac-notebook-capture
-      - plugins-notebook-catalog
-      - plugins-notebook-gestures
-    size: medium
-    description:
-      "notebooks-wrapup: walk every notebook gesture end to end in a temporary vault,
-      audit every notebook doc and help page, apply the accepted memory decisions, and
-      file the wave-2 migration task bead."
+    '
+- id: notebooks-wrapup
+  title: End-to-end proof, docs audit, memory, and the wave-2 bead
+  depends_on:
+  - notebook-vault
+  - mac-notebook-capture
+  - plugins-notebook-catalog
+  - plugins-notebook-gestures
+  size: medium
+  description: 'notebooks-wrapup: walk every notebook gesture end to end in a temporary
+    vault, audit every notebook doc and help page, apply the accepted memory decisions,
+    and file the wave-2 migration task bead.'
 proposed_by: bbugyi200.apollo.research.3x.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 12:11:24
 status: wip
+bead_id: bob-cli-j8
 ---
 
-- **PROMPT:**
-  [prompts/202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_notebooks.md)
+- **PROMPT:** [prompts/202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_notebooks.md)
+- **BEAD:** [bob-cli-j8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/README.md)
 
 # Plan: Notebooks — a home for notes under areas and projects
 
