@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "add_project_note_capture_term",
+      "kind": "toggle",
+      "ask": "Should the plan add the new Project Note Capture glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:project-note-capture"
+        ]
+      },
+      "requested": "Can you help me add an excellent new \"project note capture\" (aka \"project capture\") glossary term that describes the `@foo[:^]bar@` capture syntax?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:project-note-capture",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/project-note-capture.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "link_from_capture_strand",
+      "kind": "toggle",
+      "ask": "Should the Capture strand name project-note capture where it lists what an item may create?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:capture"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture",
+            "Project Note",
+            "Task Type",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
