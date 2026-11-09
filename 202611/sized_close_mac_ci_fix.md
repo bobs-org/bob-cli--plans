@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Turn bob-cli-ix's red Mac CI green and close the epic
-goal: Bob Mac Capture's sized-close tests pass on macOS CI because they edit fixtures
+goal:
+  Bob Mac Capture's sized-close tests pass on macOS CI because they edit fixtures
   structurally and expect uppercase X to stay off Bob, and epic bob-cli-ix is closed.
 size: small
 proposed_by: bbugyi200.apollo.bob-cli-ix.land
@@ -12,6 +13,12 @@ status: done
 
 - **BEAD:**
   [bob-cli-ix](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ix/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ix.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ix.land.md)
+- **COMMITS:**
+  - [90fa59d](https://github.com/bobs-org/bob-mac-capture/commit/90fa59dfa38374fc2ea95c6166c9b61337122a7c)
+    — test(mac-capture): edit sized-close fixtures structurally and keep uppercase X off
+    Bob
 
 # Turn bob-cli-ix's red Mac CI green and close the epic
 
