@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Notebook recognition, diagnostics, and read-only CLI
-goal:
-  Complete bob-cli-j8.1 with a shared notebook index, list and check commands, teaching
-  refusals, and the notebook contract documentation.
+goal: Complete bob-cli-j8.1 with a shared notebook index, list and check commands,
+  teaching refusals, and the notebook contract documentation.
 proposed_by: bbugyi200.apollo.bob-cli-j8.1
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.1
-create_time: 2026-11-09 12:20:36
-status: wip
+status: done
 ---
 
 - **PARENT:**
