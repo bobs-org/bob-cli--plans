@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair guarded archive landing gaps and close the writer epic
-goal: Fix four reproduced archive regressions, verify integration, and close bob-cli-j5.2.1
+goal:
+  Fix four reproduced archive regressions, verify integration, and close bob-cli-j5.2.1
   and parent phase bob-cli-j5.2 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-j5.2.1.land
@@ -14,6 +15,11 @@ status: done
   [202611/guarded_archive_writer.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/guarded_archive_writer.md)
 - **BEAD:**
   [bob-cli-j5.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/bob-cli-j5.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-j5.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-j5.2.1.land.md)
+- **COMMITS:**
+  - [2455d9d](https://github.com/bobs-org/bob-cli/commit/2455d9dbcaaa67936cf9b1eaaa8e842cd409422b)
+    — fix(archive): repair guarded landing validation
 
 # Finish guarded archive verification and land bob-cli-j5.2.1
 
