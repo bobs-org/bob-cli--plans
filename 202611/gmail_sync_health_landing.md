@@ -1,19 +1,17 @@
 ---
 tier: tale
 title: Finish the bob gmail sync health repairs and land epic bob-cli-ii
-goal:
-  "`bob gmail sync` route repair edits and moves the right inbox row even when earlier
-  edits in the same run have changed the file. A refile is reported only when it really
-  happened, and it repairs links to the moved block across the vault. A thread reported
-  gone keeps its warning. The staleness alarm fires only after busy-skips have gone on
-  for two hours. The guard test stops flaking. Then epic bob-cli-ii is closed with
-  verified evidence."
+goal: '`bob gmail sync` route repair edits and moves the right inbox row even when
+  earlier edits in the same run have changed the file. A refile is reported only when
+  it really happened, and it repairs links to the moved block across the vault. A
+  thread reported gone keeps its warning. The staleness alarm fires only after busy-skips
+  have gone on for two hours. The guard test stops flaking. Then epic bob-cli-ii is
+  closed with verified evidence.'
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ii.land
 proposed_with: claude/opus
 bead: bob-cli-ii
-create_time: 2026-11-08 19:39:41
-status: wip
+status: done
 ---
 
 - **PARENT:**
