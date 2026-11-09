@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish the lost-task guards and close bob-cli-j0
-goal:
-  Undo and redo remain coherent during cross-note writes, task-loss reports ignore
+goal: Undo and redo remain coherent during cross-note writes, task-loss reports ignore
   unrelated legacy links, and bob-cli-j0 is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j0.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j0
-create_time: 2026-11-09 09:04:50
-status: wip
+status: done
 ---
 
 - **PARENT:**
