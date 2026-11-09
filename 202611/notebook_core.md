@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Notebook recognition, diagnostics, and read-only CLI
-goal: Complete bob-cli-j8.1 with a shared notebook index, list and check commands,
-  teaching refusals, and the notebook contract documentation.
+goal:
+  Complete bob-cli-j8.1 with a shared notebook index, list and check commands, teaching
+  refusals, and the notebook contract documentation.
 proposed_by: bbugyi200.apollo.bob-cli-j8.1
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.1
@@ -14,6 +15,11 @@ status: done
   [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
 - **BEAD:**
   [bob-cli-j8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.1.md)
+- **COMMITS:**
+  - [0a74731](https://github.com/bobs-org/bob-cli/commit/0a74731b24809ad1b7572de977ac8c7a2f9cc59b)
+    — feat(notebooks): recognize notebooks with list, check, and contract docs
 
 # Notebook core
 
