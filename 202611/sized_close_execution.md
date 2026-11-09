@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Execute sized Pomodoro closes with exact-or-refuse timing
-goal: Complete bob-cli-ix.2 with atomic sized closes across all three entry points,
-  truthful output, and verified clock and rollback behavior.
+goal:
+  Complete bob-cli-ix.2 with atomic sized closes across all three entry points, truthful
+  output, and verified clock and rollback behavior.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ix.2
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/sized_pomodoro_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/sized_pomodoro_close.md)
 - **BEAD:**
   [bob-cli-ix.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ix/bob-cli-ix.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ix.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ix.2.md)
+- **COMMITS:**
+  - [135793b](https://github.com/bobs-org/bob-cli/commit/135793bf355c18cf44788d0114c68549bcb0d9bb)
+    — feat(capture): close the running Pomodoro at a stated size
 
 # Execute sized Pomodoro closes for bob-cli-ix.2
 
