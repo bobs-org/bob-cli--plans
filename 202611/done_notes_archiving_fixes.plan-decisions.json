@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "keep_window",
+      "kind": "choice",
+      "ask": "Which keep window should replace the count-of-10 archive gate?",
+      "why": "Quiet notes stay current for a week and busy notes stay small",
+      "choices": [
+        {
+          "key": "week_cap",
+          "label": "Keep the newest 10 closures from the last 7 days; busy notes keep about a day"
+        },
+        {
+          "key": "iso_week",
+          "label": "Archive everything closed before this ISO week; the visible window swings 0-6 days"
+        },
+        {
+          "key": "days_only",
+          "label": "Keep 7 days with no cap; bob.md and sase.md keep about 65 closed rows each"
+        }
+      ],
+      "default": "week_cap",
+      "effective_default": "week_cap",
+      "requested_verified": false
+    },
+    {
+      "id": "finished_projects",
+      "kind": "choice",
+      "ask": "Should finished projects stay frozen as their own records?",
+      "why": "A finished project note is already its own record, and ^prj links stay live",
+      "choices": [
+        {
+          "key": "frozen",
+          "label": "Their 243 closed rows stay in place for good; reopening a project needs no restore"
+        },
+        {
+          "key": "archive_rows",
+          "label": "Their non-^prj closed rows archive like any active project's"
+        }
+      ],
+      "default": "frozen",
+      "effective_default": "frozen",
+      "requested_verified": false
+    },
+    {
+      "id": "rename_following",
+      "kind": "choice",
+      "ask": "When a source note is renamed, should its archive file be renamed to match?",
+      "why": "About 30 code paths still assume the filename rule",
+      "choices": [
+        {
+          "key": "rename",
+          "label": "Rename the archive to the canonical name and repair inbound done/ links in the same run"
+        },
+        {
+          "key": "bind",
+          "label": "Keep the old archive name; readers follow done_tasks:/parent: metadata instead"
+        }
+      ],
+      "default": "rename",
+      "effective_default": "rename",
+      "requested_verified": false
+    },
+    {
+      "id": "plugin_reopen",
+      "kind": "choice",
+      "ask": "Should reopening an archived task from a plugin restore it to its source note?",
+      "why": "One gesture still works, and no open task is ever left inside done/",
+      "choices": [
+        {
+          "key": "restore",
+          "label": "The plugin runs bob task restore --reopen and the task returns open to its source"
+        },
+        {
+          "key": "refuse",
+          "label": "The plugin refuses the in-place reopen and shows a Notice naming bob task restore"
+        }
+      ],
+      "default": "restore",
+      "effective_default": "restore",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_archive_decision",
+      "kind": "toggle",
+      "ask": "Record the new done-archive policy as a decisions memory strand?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Awaiting A Gmail Reply Is A Tagged Schedule Hold",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Close Selections List Explicitly",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Consumption Keeps Notes And Recorded Time",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Force Resets The Day",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "meet-filing-follows-google-until-edited",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Note Defaults Filter By Task Type",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Open Pomodoro Names Follow Task Links",
+            "Projects Block Their Tasks From The ^prj Line",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Equals Alias And Flips",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
