@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "retire_cleanup",
+      "kind": "choice",
+      "ask": "Also delete the spent cron.retire migration aid and close bead bob-cli-if in this change?",
+      "why": "cronctl status already says it can go, and this change runs the same check/diff/apply",
+      "choices": [
+        {
+          "key": "delete",
+          "label": "Remove cron.retire in the same commit, converge athena too, and close bob-cli-if"
+        },
+        {
+          "key": "keep",
+          "label": "Leave cron.retire in place; bob-cli-if stays READY for a separate run"
+        }
+      ],
+      "default": "delete",
+      "effective_default": "delete",
+      "requested_verified": false
+    }
+  ]
+}
