@@ -1,66 +1,61 @@
 ---
 tier: epic
 title: Existing-record updates through capture and the records CLI
-goal:
-  Complete bob-cli-ir.7 so capture and bob records update edit existing records without
-  changing unrelated bytes, with accurate previews and guided input.
+goal: Complete bob-cli-ir.7 so capture and bob records update edit existing records
+  without changing unrelated bytes, with accurate previews and guided input.
 phases:
-  - id: update-planner
-    title: Shared snapshot-based record update planner
-    size: medium
-    depends_on: []
-    description:
-      "update-planner: add exact existing-record resolution and shared update planning
-      around the existing byte-preserving edit primitive, with current values, changed
-      fields, and nonblocking legacy diagnostics. Prove snapshot and field semantics."
-  - id: update-language
-    title: Record update grammar and editor parse
-    size: medium
-    depends_on:
-      - update-planner
-    description:
-      "update-language: recognize @dir/stem as RecordUpdate in strict and editor
-      parsing, resolve update metadata through the shared planner, expose current field
-      values, and preserve record claiming, opaque values, and precise byte ranges."
-  - id: update-writes
-    title: Transactional capture updates and exact previews
-    size: medium
-    depends_on:
-      - update-language
-    description:
-      "update-writes: stage record updates from the capture batch overlay through the
-      existing guarded writer, expose update note_files and block diffs, and test
-      repeated updates, one-line notes, rollback, dry-run parity, and concurrent edits."
-  - id: update-assist
-    title: Existing-record completion and Add to it fixes
-    size: medium
-    depends_on:
-      - update-writes
-    description:
-      "update-assist: add record_target completion and update-aware field assistance;
-      author one reusable create-to-update draft rewrite for record_exists and the
-      following similar-records phase. Document and test exact replacements and
-      continuations."
-  - id: update-cli
-    title: Records update CLI and dependent shell completion
-    size: medium
-    depends_on:
-      - update-writes
-    description:
-      "update-cli: add bob records update, its command catalog entry, and read-only
-      shell completion for TYPE, existing STEM, and schema KEY=VALUE inputs; generate
-      help documentation and prove parity with capture's shared update planner."
+- id: update-planner
+  title: Shared snapshot-based record update planner
+  size: medium
+  depends_on: []
+  description: 'update-planner: add exact existing-record resolution and shared update
+    planning around the existing byte-preserving edit primitive, with current values,
+    changed fields, and nonblocking legacy diagnostics. Prove snapshot and field semantics.'
+- id: update-language
+  title: Record update grammar and editor parse
+  size: medium
+  depends_on:
+  - update-planner
+  description: 'update-language: recognize @dir/stem as RecordUpdate in strict and
+    editor parsing, resolve update metadata through the shared planner, expose current
+    field values, and preserve record claiming, opaque values, and precise byte ranges.'
+- id: update-writes
+  title: Transactional capture updates and exact previews
+  size: medium
+  depends_on:
+  - update-language
+  description: 'update-writes: stage record updates from the capture batch overlay
+    through the existing guarded writer, expose update note_files and block diffs,
+    and test repeated updates, one-line notes, rollback, dry-run parity, and concurrent
+    edits.'
+- id: update-assist
+  title: Existing-record completion and Add to it fixes
+  size: medium
+  depends_on:
+  - update-writes
+  description: 'update-assist: add record_target completion and update-aware field
+    assistance; author one reusable create-to-update draft rewrite for record_exists
+    and the following similar-records phase. Document and test exact replacements
+    and continuations.'
+- id: update-cli
+  title: Records update CLI and dependent shell completion
+  size: medium
+  depends_on:
+  - update-writes
+  description: 'update-cli: add bob records update, its command catalog entry, and
+    read-only shell completion for TYPE, existing STEM, and schema KEY=VALUE inputs;
+    generate help documentation and prove parity with capture''s shared update planner.'
 proposed_by: bbugyi200.athena.bob-cli-ir.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ir.7
 create_time: 2026-11-09 02:47:01
 status: wip
+bead_id: bob-cli-ir.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_append.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_append.md)
-- **PARENT:**
-  [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **PROMPT:** [prompts/202611/record_append.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_append.md)
+- **PARENT:** [202611/record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_notes.md)
+- **BEAD:** [bob-cli-ir.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.7.1.md)
 
 # Complete existing-record updates for bob-cli-ir.7
 
