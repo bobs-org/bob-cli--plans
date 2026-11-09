@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "chain_scope",
+      "kind": "choice",
+      "ask": "Should a sized close chain only at the front of its line, so text after a close or start keeps its meaning?",
+      "why": "After a close or start a sized close can never succeed, so claiming it only breaks log text",
+      "choices": [
+        {
+          "key": "front",
+          "label": "`x 2x faster` logs `2x faster`; `--1 2x!2` and `2x =` still chain"
+        },
+        {
+          "key": "like_x",
+          "label": "`2x` chains wherever `x` does but never heads a trail; `x 2x faster` fails"
+        }
+      ],
+      "default": "front",
+      "effective_default": "front",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should the docs phase add a decisions record for the sized close's exact-or-refuse rule?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:sized-close-records-exact-blocks"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:sized-close-records-exact-blocks",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/sized-close-records-exact-blocks.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
