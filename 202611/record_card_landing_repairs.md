@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish Record Card completion presentation and land the epic
-goal:
-  Make Record Card choices visible and reliable, verify the repaired tree, and close
-  bob-cli-ir.10.1 and parent phase bob-cli-ir.10.
+goal: Make Record Card choices visible and reliable, verify the repaired tree, and
+  close bob-cli-ir.10.1 and parent phase bob-cli-ir.10.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ir.10.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ir.10.1
-create_time: 2026-11-09 07:31:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
