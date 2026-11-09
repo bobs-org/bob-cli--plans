@@ -1,65 +1,60 @@
 ---
 tier: epic
 title: Merge copies source notes instead of moving them
-goal: "Every task merge, including the `merged into` relation label, copies the source
-  task's notes to the destination while the cancelled source tombstone keeps its
+goal: 'Every task merge, including the `merged into` relation label, copies the source
+  task''s notes to the destination while the cancelled source tombstone keeps its
   original notes, so links into those notes keep resolving where they always did.
 
-  "
+  '
 decisions:
   glossary_merge_terms:
-    ask:
-      Correct the Task Merge and Task Relation glossary strands, which say a merge cuts
-      or moves source notes?
+    ask: Correct the Task Merge and Task Relation glossary strands, which say a merge
+      cuts or moves source notes?
     memory:
-      - glossary:task-merge
-      - glossary:task-relation
+    - glossary:task-merge
+    - glossary:task-relation
     default: true
-    corrects:
-      It cuts the selected source blocks and appends their notes to the destination,
+    corrects: It cuts the selected source blocks and appends their notes to the destination,
     answer: true
   decision_record:
-    ask:
-      Add a decisions memory record stating that a merge copies source notes and never
-      moves them?
+    ask: Add a decisions memory record stating that a merge copies source notes and
+      never moves them?
     memory:
-      - decisions:merge-copies-source-notes
+    - decisions:merge-copies-source-notes
     default: false
     answer: false
 phases:
-  - id: engine
-    title: Merge engine copies source notes instead of cutting them
-    depends_on: []
-    size: medium
-    description:
-      "engine: stop cutting source bodies, strip identity from copies, keep in-copy
-      links on S's originals, update wording, docs, memory, and tests."
-  - id: nav-copy
-    title: Nav Links-stage merge strip says copies
-    depends_on:
-      - engine
-    size: small
-    description:
-      "nav-copy: change the Links-stage consequence strip to copies N notes, update
-      tests and docs, rebuild, and sync plugins."
-  - id: mac-copy
-    title: Bob Mac Capture merge source row says copied
-    depends_on:
-      - engine
-    size: small
-    description:
-      "mac-copy: change the transfer card merge source detail to N notes copied, update
-      tests, compile, and watch macOS CI."
+- id: engine
+  title: Merge engine copies source notes instead of cutting them
+  depends_on: []
+  size: medium
+  description: 'engine: stop cutting source bodies, strip identity from copies, keep
+    in-copy links on S''s originals, update wording, docs, memory, and tests.'
+- id: nav-copy
+  title: Nav Links-stage merge strip says copies
+  depends_on:
+  - engine
+  size: small
+  description: 'nav-copy: change the Links-stage consequence strip to copies N notes,
+    update tests and docs, rebuild, and sync plugins.'
+- id: mac-copy
+  title: Bob Mac Capture merge source row says copied
+  depends_on:
+  - engine
+  size: small
+  description: 'mac-copy: change the transfer card merge source detail to N notes
+    copied, update tests, compile, and watch macOS CI.'
 proposed_by: bbugyi200.athena.1an
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-09 18:00:11
 status: wip
+bead_id: bob-cli-je
 ---
 
-- **PROMPT:**
-  [prompts/202611/merge_copies_source_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merge_copies_source_notes.md)
+- **PROMPT:** [prompts/202611/merge_copies_source_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/merge_copies_source_notes.md)
+- **BEAD:** [bob-cli-je](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-je/README.md)
 
 # Merge copies source notes; it never moves them
 
