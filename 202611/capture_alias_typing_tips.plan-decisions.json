@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "picker_tip_slot",
+      "kind": "choice",
+      "ask": "Should picker tips sit at the foot of the picker card, the same slot the completion-list tip uses?",
+      "why": "One placement rule for every host, and a not-live key never sits among live key hints",
+      "choices": [
+        {
+          "key": "card_foot",
+          "label": "Last line of the picker card under a hairline; the key legend keeps only live keys"
+        },
+        {
+          "key": "key_legend",
+          "label": "Extra line under the panel footer's live key hints; picker card height never changes"
+        }
+      ],
+      "default": "card_foot",
+      "effective_default": "card_foot",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_capture_alias_glossary",
+      "kind": "toggle",
+      "ask": "Should the Capture Alias glossary strand gain one sentence about typing tips?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_typing_tips_decision",
+      "kind": "toggle",
+      "ask": "Should the decisions web gain a typing-tips record once picker tips ship?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:typing-tips-are-bob-proved"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:typing-tips-are-bob-proved",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/typing-tips-are-bob-proved.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
