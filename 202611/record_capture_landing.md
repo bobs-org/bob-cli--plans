@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Repair record capture contract gaps and finish its landing
-goal: Complete the remaining grammar and adapter requirements of bob-cli-ir.5.1, then
-  close that epic and its parent phase bob-cli-ir.5.
+goal:
+  Complete the remaining grammar and adapter requirements of bob-cli-ir.5.1, then close
+  that epic and its parent phase bob-cli-ir.5.
 proposed_by: bbugyi200.athena.bob-cli-ir.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ir.5.1
@@ -14,6 +15,11 @@ status: done
   [202611/capture_record_creation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_record_creation.md)
 - **BEAD:**
   [bob-cli-ir.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ir.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.5.1.land.md)
+- **COMMITS:**
+  - [903dd39](https://github.com/bobs-org/bob-cli--plans/commit/903dd39e46ee3ab3f21e34f3f97208acf6715a55)
+    — docs(plans): mark record capture creation phase done
 
 # Repair record capture contract gaps and finish its landing
 
