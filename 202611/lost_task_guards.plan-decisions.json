@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "undo_follows_rename",
+      "kind": "toggle",
+      "ask": "When a block-ID rename is undone in its own note, should the plugin also revert that rename's links in other notes?",
+      "why": "One undo then means one whole rename, and no link is ever left pointing at a vanished ID.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "notify_unlinked_losses",
+      "kind": "toggle",
+      "ask": "Should vault-sync also send a desktop notification when an open task with no inbound links disappears?",
+      "why": "Bryan deletes unlinked scratch tasks often; status and the log still record every one.",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    }
+  ]
+}
