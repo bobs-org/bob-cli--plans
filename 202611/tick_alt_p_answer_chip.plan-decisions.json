@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "landing_glow",
+      "kind": "choice",
+      "ask": "Should the Alt+P chip glow once each time the review walk lands on a new TICK row?",
+      "why": "One short settle draws the eye from the editor to the answer without looping",
+      "choices": [
+        {
+          "key": "glow",
+          "label": "The chip's tint fades from 32% to 13% over 900 ms once per row; reduced motion stays static"
+        },
+        {
+          "key": "still",
+          "label": "The chip is always static and stands out by shape and color alone"
+        }
+      ],
+      "default": "glow",
+      "effective_default": "glow",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_review_footer",
+      "kind": "toggle",
+      "ask": "Should the review-footer glossary strand describe the TICK Alt+P chip and its narrow-bar shedding order?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:morning-gtd-review-footer"
+        ]
+      },
+      "corrects": "and as space runs out it drops groups from the end of the walk (marking the cut with `\u2026`), then detail, hint, and meter.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:morning-gtd-review-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Morning GTD Review Footer",
+            "Keep Streak"
+          ]
+        }
+      ]
+    }
+  ]
+}
