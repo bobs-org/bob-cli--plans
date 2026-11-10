@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "hash_fallback",
+      "kind": "choice",
+      "ask": "Should `\\` still type `#` in the four field spots where `/` stays literal (`=\\`, `[[note\\`, `=/a\\`, `=*a\\`)?",
+      "why": "You asked to migrate `\\` to `%`; one meaning per key is easier to remember.",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "`\\` only ever types `%`; in those four spots you type `#` by hand"
+        },
+        {
+          "key": "keep",
+          "label": "`\\` types `%` at directive spots and `#` only where `/` cannot; one key, two meanings"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_capture_alias",
+      "kind": "toggle",
+      "ask": "Should the Capture Alias glossary strand be corrected to say `/` types `#` and `\\` types `%`?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "`\\` or `/` \u2192 `#` wherever a `#` menu would open",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Notebook",
+            "Task Freshness",
+            "Task Successor",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent"
+          ]
+        }
+      ]
+    }
+  ]
+}
