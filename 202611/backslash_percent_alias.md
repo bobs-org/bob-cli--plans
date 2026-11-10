@@ -2,60 +2,56 @@
 tier: epic
 title: Migrate the backslash capture alias from
 goal: 'In Bob Mac Capture, typing `\` where a bare `%` would open the directive menu
-  becomes `%` and opens that menu, `/` remains the only unshifted key for `#`, and both
-  repos'' docs, tips, and tests match.
+  becomes `%` and opens that menu, `/` remains the only unshifted key for `#`, and
+  both repos'' docs, tips, and tests match.
 
   '
 decisions:
   hash_fallback:
-    ask:
-      Should `\` still type `#` in the four field spots where `/` stays literal (`=\`,
-      `[[note\`, `=/a\`, `=*a\`)?
+    ask: Should `\` still type `#` in the four field spots where `/` stays literal
+      (`=\`, `[[note\`, `=/a\`, `=*a\`)?
     choices:
       drop: '`\` only ever types `%`; in those four spots you type `#` by hand'
-      keep:
-        '`\` types `%` at directive spots and `#` only where `/` cannot; one key, two
-        meanings'
+      keep: '`\` types `%` at directive spots and `#` only where `/` cannot; one key,
+        two meanings'
     default: drop
     why: You asked to migrate `\` to `%`; one meaning per key is easier to remember.
     answer: drop
   glossary_capture_alias:
-    ask:
-      Should the Capture Alias glossary strand be corrected to say `/` types `#` and `\`
-      types `%`?
+    ask: Should the Capture Alias glossary strand be corrected to say `/` types `#`
+      and `\` types `%`?
     memory:
-      - glossary:capture-alias
+    - glossary:capture-alias
     default: true
     corrects: '`\` or `/` → `#` wherever a `#` menu would open'
     answer: true
 phases:
-  - id: bob-directive-alias
-    title: bob-cli rewrite, tip, help, docs, and memory
-    depends_on: []
-    size: medium
-    description:
-      'bob-directive-alias: make capture-rewrite alias `\` to `%` where the directive
-      menu opens, retire the `\` hash alias and collapse trigger, add the directive_menu
-      tip, and update help, docs, tests, and the glossary strand.'
-  - id: mac-directive-alias
-    title: Bob Mac Capture double-tap, tips, and docs
-    depends_on:
-      - bob-directive-alias
-    size: medium
-    description:
-      "mac-directive-alias: generalize the app's backslash/slash double-tap arm and
-      probe to a `%` reply, add the `%` tip trigger and directive_menu lesson, refresh
-      fixtures, tests, and docs, and land through macOS CI."
+- id: bob-directive-alias
+  title: bob-cli rewrite, tip, help, docs, and memory
+  depends_on: []
+  size: medium
+  description: 'bob-directive-alias: make capture-rewrite alias `\` to `%` where the
+    directive menu opens, retire the `\` hash alias and collapse trigger, add the
+    directive_menu tip, and update help, docs, tests, and the glossary strand.'
+- id: mac-directive-alias
+  title: Bob Mac Capture double-tap, tips, and docs
+  depends_on:
+  - bob-directive-alias
+  size: medium
+  description: 'mac-directive-alias: generalize the app''s backslash/slash double-tap
+    arm and probe to a `%` reply, add the `%` tip trigger and directive_menu lesson,
+    refresh fixtures, tests, and docs, and land through macOS CI.'
 proposed_by: bbugyi200.athena.1b1
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-10 15:05:09
 status: wip
+bead_id: bob-cli-jt
 ---
 
-- **PROMPT:**
-  [prompts/202611/backslash_percent_alias.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backslash_percent_alias.md)
+- **PROMPT:** [prompts/202611/backslash_percent_alias.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backslash_percent_alias.md)
+- **BEAD:** [bob-cli-jt](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-jt/README.md)
 
 # Migrate the `\` capture alias from `#` to `%` (directive completion)
 
