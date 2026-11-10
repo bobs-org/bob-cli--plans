@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "auto_sync",
+      "kind": "toggle",
+      "ask": "On the writer Mac, should saving or clearing a note immediately sync each affected day whose daily note exists?",
+      "why": "Today's row reflects the note at once instead of waiting for the next sync",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "mac_chord",
+      "kind": "choice",
+      "ask": "Which chord should open the Event note mode in Bob Mac Capture?",
+      "why": "E for event sits beside \u2318J, and you write notes right after an RSVP, often mid-draft",
+      "choices": [
+        {
+          "key": "cmd_e",
+          "label": "\u2318E from any draft; the capture draft waits untouched until you come back"
+        },
+        {
+          "key": "cmd_e_blank",
+          "label": "\u2318E only in an empty draft, matching \u2318J's join-event rule"
+        },
+        {
+          "key": "leader",
+          "label": "Ctrl-G e under the existing editor leader; adds no new top-level chord"
+        }
+      ],
+      "default": "cmd_e",
+      "effective_default": "cmd_e",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_record",
+      "kind": "toggle",
+      "ask": "Record this design as a decision record that partly supersedes the buffer and gcal-root records?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:private-event-notes-beat-google-per-field",
+          "decisions:event-buffers-widen-the-span",
+          "decisions:gcal-root-follows-google-until-edited"
+        ]
+      },
+      "corrects": "Description-only grammar means a description you cannot edit cannot take a Google-owned buffer.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:private-event-notes-beat-google-per-field",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/private-event-notes-beat-google-per-field.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:event-buffers-widen-the-span",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Event Buffers Widen The Occupied Span"
+          ]
+        },
+        {
+          "selector": "decisions:gcal-root-follows-google-until-edited",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Gcal Root Follows Google Until Edited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Add a \"Private Event Note\" glossary term so it isn't confused with daily, area, and project notes?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:private-event-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:private-event-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/private-event-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
