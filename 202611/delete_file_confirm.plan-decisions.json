@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "old_notes",
+      "kind": "choice",
+      "ask": "Should every note older than the fresh window ask before Ctrl+Shift+D deletes it?",
+      "why": "Asking is the safe default; every recent legitimate delete hit a note under a day old",
+      "choices": [
+        {
+          "key": "age",
+          "label": "Every older Markdown note asks, except a blank note that nothing links to"
+        },
+        {
+          "key": "signals",
+          "label": "Only linked, task-holding, or area/project/notebook older notes ask"
+        }
+      ],
+      "default": "age",
+      "effective_default": "age",
+      "requested_verified": false
+    },
+    {
+      "id": "rapid_repeat",
+      "kind": "choice",
+      "ask": "Should any delete within 5 seconds of the previous one ask, even for a fresh note?",
+      "why": "The incident was a second press landing on whatever file Obsidian focused next",
+      "choices": [
+        {
+          "key": "guard",
+          "label": "A fast second press always asks, catching the double press that took dev.md"
+        },
+        {
+          "key": "signals_only",
+          "label": "Only the file's own signals decide; a double press on two fresh notes deletes both"
+        }
+      ],
+      "default": "guard",
+      "effective_default": "guard",
+      "requested_verified": false
+    },
+    {
+      "id": "fresh_window",
+      "kind": "choice",
+      "ask": "Should a note count as fresh (deletable without asking) for 24 hours after its created stamp?",
+      "why": "Bryan's test notes and accidental future daily notes are deleted the same day",
+      "choices": [
+        {
+          "key": "day",
+          "label": "Fresh for 24 hours, covering every legitimate delete in the vault history"
+        },
+        {
+          "key": "hour",
+          "label": "Fresh for 1 hour only, so yesterday's scratch and test notes ask too"
+        }
+      ],
+      "default": "day",
+      "effective_default": "day",
+      "requested_verified": false
+    }
+  ]
+}
