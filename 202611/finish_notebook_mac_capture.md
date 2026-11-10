@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish Bob Mac Capture notebook presentation
-goal:
-  Correct nested notebook creation copy, finish focused regression evidence, and close
-  bob-cli-j8.8.
+goal: Correct nested notebook creation copy, finish focused regression evidence, and
+  close bob-cli-j8.8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.8
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.8
-create_time: 2026-11-10 06:08:10
-status: wip
+status: done
 ---
 
 - **BEAD:**
