@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair notebook UI lifecycle and finish bob-cli-j8.6.1
-goal:
-  Notebook cards and headers refresh correctly in both Obsidian views, and verified
+goal: Notebook cards and headers refresh correctly in both Obsidian views, and verified
   repairs close bob-cli-j8.6.1 and parent phase bob-cli-j8.6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.6.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.6.1
-create_time: 2026-11-09 19:11:51
-status: wip
+status: done
 ---
 
 - **PARENT:**
