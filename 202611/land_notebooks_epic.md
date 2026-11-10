@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Finish and land the Notebooks epic (bob-cli-j8)
-goal: Fix the notebook checker false positive and the stray Retry card in daily notes,
-  make the generated Notebooks catalog marker-free, retarget the Mac CI gate, trim
+goal:
+  Fix the notebook checker false positive and the stray Retry card in daily notes, make
+  the generated Notebooks catalog marker-free, retarget the Mac CI gate, trim
   json-outputs.md, then close bob-cli-j8.
 proposed_by: bbugyi200.apollo.bob-cli-j8.land
 proposed_with: claude/opus
@@ -15,6 +16,11 @@ status: done
   [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
 - **BEAD:**
   [bob-cli-j8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.land.md)
+- **COMMITS:**
+  - [cf32872](https://github.com/bobs-org/bob-cli--plans/commit/cf328729bac6158fa9111a1a2090d871e2c0cbce)
+    — docs(plans): mark notebooks epic done
 
 # Finish and land the Notebooks epic (bob-cli-j8)
 
