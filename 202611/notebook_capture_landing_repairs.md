@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Repair notebook capture integrity and finish its landing
-goal:
-  Fix the remaining notebook capture contract violations, verify the integrated tree,
-  and close bob-cli-j8.3.1 and its delegated parent phase bob-cli-j8.3.
+goal: Fix the remaining notebook capture contract violations, verify the integrated
+  tree, and close bob-cli-j8.3.1 and its delegated parent phase bob-cli-j8.3.
 proposed_by: bbugyi200.apollo.bob-cli-j8.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.3.1
-create_time: 2026-11-09 20:48:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
