@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "routed_scope",
+      "kind": "choice",
+      "ask": "Should a bare `@route` or `@route#section` also make a spaced `.` prefer `&`, not just `@route:id`/`^id`/`+id`?",
+      "why": "After any route, a second `@` turns the first into prose or raises duplicate_capture_marker",
+      "choices": [
+        {
+          "key": "any_route",
+          "label": "`Buy milk @foo .` gives `&` too; a trailing prose `@name .` also gives `&`"
+        },
+        {
+          "key": "block_id",
+          "label": "Only block-ID markers count; `Buy milk @foo .` keeps `@`, which turns `@foo` into prose"
+        }
+      ],
+      "default": "any_route",
+      "effective_default": "any_route",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_capture_alias",
+      "kind": "toggle",
+      "ask": "Should the glossary capture-alias strand be updated for the new spaced `.` precedence?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "`*` opens the Depends On / Blocks picker and no `^`, `@`, or `:` alias applies",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
