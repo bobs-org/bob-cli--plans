@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Preserve code text in merge copies and finish bob-cli-je
-goal: Preserve literal code in copied task notes, verify archive integration, correct
-  the landing-card docs, and close bob-cli-je.
+goal:
+  Preserve literal code in copied task notes, verify archive integration, correct the
+  landing-card docs, and close bob-cli-je.
 proposed_by: bbugyi200.athena.bob-cli-je.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-je
@@ -14,6 +15,11 @@ status: done
   [202611/merge_copies_source_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/merge_copies_source_notes.md)
 - **BEAD:**
   [bob-cli-je](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-je/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-je.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-je.land.md)
+- **COMMITS:**
+  - [6d063ff](https://github.com/bobs-org/bob-cli/commit/6d063ff58f38b17d734528d54092dbc80b031b51)
+    — fix(task-merge): preserve code text in merge copies and harden fence handling
 
 # Preserve code text in merge copies and finish bob-cli-je
 
