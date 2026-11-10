@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "relay",
+      "kind": "choice",
+      "ask": "Which authenticated path should the Mac's Postfix use to deliver cron mail?",
+      "why": "Reuses athena's existing Mailjet relay and SPF record; adds no new credential",
+      "choices": [
+        {
+          "key": "athena",
+          "label": "Relay via athena's Mailjet smarthost over the tailnet; no new secret, needs athena up"
+        },
+        {
+          "key": "gmail",
+          "label": "Send via smtp.gmail.com with an app password stored on Kelly's laptop; no athena dependency"
+        }
+      ],
+      "default": "athena",
+      "effective_default": "athena",
+      "requested_verified": false
+    },
+    {
+      "id": "hostname",
+      "kind": "choice",
+      "ask": "Should the Mac's network-supplied hostname be fixed so cronctl can manage its crontab again?",
+      "why": "HostName is unset, so the name follows the network; pinning removes the cause",
+      "choices": [
+        {
+          "key": "pin",
+          "label": "Pin HostName to Kellys-MacBook-Pro.local in the Mac sudo batch; name stops following DHCP"
+        },
+        {
+          "key": "enroll",
+          "label": "Add Kellys-MBP to cron.machines.mac; no sudo, but a new network name breaks it again"
+        },
+        {
+          "key": "skip",
+          "label": "Leave it; cronctl keeps reporting mac as identity_mismatch and refuses to apply"
+        }
+      ],
+      "default": "pin",
+      "effective_default": "pin",
+      "requested_verified": false
+    }
+  ]
+}
