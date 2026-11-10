@@ -44,7 +44,7 @@ parent_bead: bob-cli-jf
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-10 06:47:58
-status: wip
+status: done
 bead_id: bob-cli-jf.1
 ---
 
