@@ -1,20 +1,19 @@
 ---
 tier: epic
 title: Private event notes for Google Calendar events
-goal: "Bryan can give any Google Calendar event (including events other people own and
-  invitations he has not answered yet) Bob-only metadata at RSVP time: `@route`,
+goal: 'Bryan can give any Google Calendar event (including events other people own
+  and invitations he has not answered yet) Bob-only metadata at RSVP time: `@route`,
   `#off`/`#on`, `-30 reason`, `+15 reason`, and prose. He can write it from the CLI,
-  over SSH, or from Bob Mac Capture. The metadata lands on the event's Event Task
-  exactly as if those lines were in the Google description, and it beats that
-  description field by field. Bob never writes to Google: it validates notes at write
-  time, previews them faithfully, and never drops one silently.
+  over SSH, or from Bob Mac Capture. The metadata lands on the event''s Event Task
+  exactly as if those lines were in the Google description, and it beats that description
+  field by field. Bob never writes to Google: it validates notes at write time, previews
+  them faithfully, and never drops one silently.
 
-  "
+  '
 decisions:
   auto_sync:
-    ask:
-      On the writer Mac, should saving or clearing a note immediately sync each affected
-      day whose daily note exists?
+    ask: On the writer Mac, should saving or clearing a note immediately sync each
+      affected day whose daily note exists?
     default: true
     why: Today's row reflects the note at once instead of waiting for the next sync
     answer: true
@@ -25,118 +24,109 @@ decisions:
       cmd_e_blank: ⌘E only in an empty draft, matching ⌘J's join-event rule
       leader: Ctrl-G e under the existing editor leader; adds no new top-level chord
     default: cmd_e
-    why:
-      E for event sits beside ⌘J, and you write notes right after an RSVP, often
+    why: E for event sits beside ⌘J, and you write notes right after an RSVP, often
       mid-draft
     answer: cmd_e
   memory_record:
-    ask:
-      Record this design as a decision record that partly supersedes the buffer and
-      gcal-root records?
+    ask: Record this design as a decision record that partly supersedes the buffer
+      and gcal-root records?
     memory:
-      - decisions:private-event-notes-beat-google-per-field
-      - decisions:event-buffers-widen-the-span
-      - decisions:gcal-root-follows-google-until-edited
+    - decisions:private-event-notes-beat-google-per-field
+    - decisions:event-buffers-widen-the-span
+    - decisions:gcal-root-follows-google-until-edited
     default: true
-    corrects:
-      Description-only grammar means a description you cannot edit cannot take a
-      Google-owned buffer.
+    corrects: Description-only grammar means a description you cannot edit cannot
+      take a Google-owned buffer.
     answer: true
   memory_glossary:
-    ask:
-      Add a "Private Event Note" glossary term so it isn't confused with daily, area,
-      and project notes?
+    ask: Add a "Private Event Note" glossary term so it isn't confused with daily,
+      area, and project notes?
     memory:
-      - glossary:private-event-note
+    - glossary:private-event-note
     default: false
     answer: false
 phases:
-  - id: engine
-    title: Note store and per-field layering engine
-    depends_on: []
-    size: medium
-    description:
-      "engine: add the `gcal.note` journal record and its last-writer-wins fold, parse
-      notes on the plain-text description path, and layer occurrence and series notes
-      over Google's description in `snapshot::fetch_day`. Give the root a note-first
-      source, keep note bullets outside the cap, mark notes in `list` and `sync`, add
-      list JSON identity fields, and test it all with hand-written journal records."
-  - id: select
-    title: bob gcal note command, event selection and read-only modes
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "select: add the `bob gcal note` command skeleton and its option pre-pass. Select
-      an event by title query across a 90-day window, `-D`, a pasted Google Calendar
-      URL, or `-i`/`-C`. Add the TTY picker and the This event / All events scope
-      prompt, widen the organizer fields, and add the list (`-l`, `-a`) and show modes
-      with their JSON contract, help, and catalog row."
-  - id: hardening
-    title: Note provenance in gcal.row and fail-safe reads
-    depends_on:
-      - engine
-    size: small
-    description:
-      "hardening: journal which fields a private note contributed to each `gcal.row`,
-      hold those fields with a warning when a note can no longer be read because journal
-      lines are malformed, and word `kept_description` for the input that actually
-      changed."
-  - id: write
-    title: Writing, previewing, and applying notes
-    depends_on:
-      - select
-    size: medium
-    description:
-      "write: normalize one-line and multi-line input into canonical lines using shared
-      vectors, and reject bad routes and conflicts at write time. Show the faithful
-      'lands as' preview and terminal time rail, then save or clear. Report saved versus
-      applied, and on the writer run the immediate sync. Add the preview and save JSON
-      with highlight spans, golden JSON fixtures for the Mac, and the
-      `docs/gcal-notes.md` contract."
-  - id: extras
-    title: Editor, adopt, doctor check, and fragile-description hint
-    depends_on:
-      - write
-    size: small
-    description:
-      "extras: add `-e` editing in $EDITOR with a scissors help block and `-A` to adopt
-      directive and reason lines from a fragile Google description. Add a doctor `notes`
-      check for orphans, unresolved routes, and foreign accounts, and a `bob gcal list`
-      hint for directives that live only in someone else's description."
-  - id: records
-    title: Decision record, glossary term, and guide
-    depends_on:
-      - write
-      - hardening
-    size: small
-    description:
-      "records: add the 'Private Event Notes Beat Google Per Field' decision record with
-      supersession marks and the glossary term (each per its memory decision), add the
-      'Plan an event you don't own' guide, and record the follow-ups this epic leaves
-      out."
-  - id: mac
-    title: Bob Mac Capture Event note mode
-    depends_on:
-      - write
-      - records
-    size: large
-    description:
-      "mac: in the bob-mac-capture linked repo, add an Event note mode to the capture
-      panel: open it with a chord, the status menu, or a Calendar-band row; pick from
-      upcoming events, edit with bob's highlight spans, and see a live hatched time rail
-      with the 'lands as' preview. Save, clear, and undo, all through `bob gcal note -f
-      json`, with docs, tests, and green exact-SHA macOS CI."
+- id: engine
+  title: Note store and per-field layering engine
+  depends_on: []
+  size: medium
+  description: 'engine: add the `gcal.note` journal record and its last-writer-wins
+    fold, parse notes on the plain-text description path, and layer occurrence and
+    series notes over Google''s description in `snapshot::fetch_day`. Give the root
+    a note-first source, keep note bullets outside the cap, mark notes in `list` and
+    `sync`, add list JSON identity fields, and test it all with hand-written journal
+    records.'
+- id: select
+  title: bob gcal note command, event selection and read-only modes
+  depends_on:
+  - engine
+  size: medium
+  description: 'select: add the `bob gcal note` command skeleton and its option pre-pass.
+    Select an event by title query across a 90-day window, `-D`, a pasted Google Calendar
+    URL, or `-i`/`-C`. Add the TTY picker and the This event / All events scope prompt,
+    widen the organizer fields, and add the list (`-l`, `-a`) and show modes with
+    their JSON contract, help, and catalog row.'
+- id: hardening
+  title: Note provenance in gcal.row and fail-safe reads
+  depends_on:
+  - engine
+  size: small
+  description: 'hardening: journal which fields a private note contributed to each
+    `gcal.row`, hold those fields with a warning when a note can no longer be read
+    because journal lines are malformed, and word `kept_description` for the input
+    that actually changed.'
+- id: write
+  title: Writing, previewing, and applying notes
+  depends_on:
+  - select
+  size: medium
+  description: 'write: normalize one-line and multi-line input into canonical lines
+    using shared vectors, and reject bad routes and conflicts at write time. Show
+    the faithful ''lands as'' preview and terminal time rail, then save or clear.
+    Report saved versus applied, and on the writer run the immediate sync. Add the
+    preview and save JSON with highlight spans, golden JSON fixtures for the Mac,
+    and the `docs/gcal-notes.md` contract.'
+- id: extras
+  title: Editor, adopt, doctor check, and fragile-description hint
+  depends_on:
+  - write
+  size: small
+  description: 'extras: add `-e` editing in $EDITOR with a scissors help block and
+    `-A` to adopt directive and reason lines from a fragile Google description. Add
+    a doctor `notes` check for orphans, unresolved routes, and foreign accounts, and
+    a `bob gcal list` hint for directives that live only in someone else''s description.'
+- id: records
+  title: Decision record, glossary term, and guide
+  depends_on:
+  - write
+  - hardening
+  size: small
+  description: 'records: add the ''Private Event Notes Beat Google Per Field'' decision
+    record with supersession marks and the glossary term (each per its memory decision),
+    add the ''Plan an event you don''t own'' guide, and record the follow-ups this
+    epic leaves out.'
+- id: mac
+  title: Bob Mac Capture Event note mode
+  depends_on:
+  - write
+  - records
+  size: large
+  description: 'mac: in the bob-mac-capture linked repo, add an Event note mode to
+    the capture panel: open it with a chord, the status menu, or a Calendar-band row;
+    pick from upcoming events, edit with bob''s highlight spans, and see a live hatched
+    time rail with the ''lands as'' preview. Save, clear, and undo, all through `bob
+    gcal note -f json`, with docs, tests, and green exact-SHA macOS CI.'
 proposed_by: bbugyi200.apollo.research.3z.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-10 05:59:44
 status: wip
+bead_id: bob-cli-ji
 ---
 
-- **PROMPT:**
-  [prompts/202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/private_gcal_event_notes.md)
+- **PROMPT:** [prompts/202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/private_gcal_event_notes.md)
+- **BEAD:** [bob-cli-ji](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ji/README.md)
 
 # Plan: Private event notes for Google Calendar events
 
