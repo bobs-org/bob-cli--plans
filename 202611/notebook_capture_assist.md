@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Complete notebook capture assistance
-goal:
-  Finish notebook completion, note-bullet ID assignment, and the approved global-route
+goal: Finish notebook completion, note-bullet ID assignment, and the approved global-route
   collapse assist for bob-cli-j8.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.5
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.5
-create_time: 2026-11-10 00:28:41
-status: wip
+status: done
 ---
 
 - **PARENT:**
