@@ -1,13 +1,13 @@
 ---
 tier: epic
 title: Period stats strips with a Roots chart, a Types chart, and a working switch
-goal: "Every week, quarter, year, and all-time note heads with a calm, honest strip: the
-  facts, then a Roots chart (top N root parents, N from config, 5 in chezmoi) and a
-  Types chart (configured task types only) on one shared child-period axis, a ●/■ switch
-  that cycles Both → Roots → Types with its own memory, identity colors, and density
-  rules per period kind.
+goal: 'Every week, quarter, year, and all-time note heads with a calm, honest strip:
+  the facts, then a Roots chart (top N root parents, N from config, 5 in chezmoi)
+  and a Types chart (configured task types only) on one shared child-period axis,
+  a ●/■ switch that cycles Both → Roots → Types with its own memory, identity colors,
+  and density rules per period kind.
 
-  "
+  '
 decisions:
   plan_type_color:
     ask: Should PLAN wear aqua in type charts instead of the exempt gray mute?
@@ -15,90 +15,82 @@ decisions:
     default: false
     answer: false
   sase_color_pin:
-    ask:
-      "Should the plan pin `color: orange` on the vault's sase.md so it keeps one hue
-      everywhere?"
-    why:
-      Without a pin, sase flips between orange and aqua depending on whether dev is
-      charted
+    ask: 'Should the plan pin `color: orange` on the vault''s sase.md so it keeps
+      one hue everywhere?'
+    why: Without a pin, sase flips between orange and aqua depending on whether dev
+      is charted
     default: true
     answer: true
   memory_glossary_stats_strip:
-    ask:
-      Should the Stats Strip glossary strand describe the two period charts instead of a
-      root-stacked parts row?
+    ask: Should the Stats Strip glossary strand describe the two period charts instead
+      of a root-stacked parts row?
     memory:
-      - glossary:stats-strip
-    corrects:
-      above the day, a parts row with one column per child period, stacked by root
+    - glossary:stats-strip
+    corrects: above the day, a parts row with one column per child period, stacked
+      by root
     default: true
     answer: true
   memory_decision_period_charts:
     ask: Should a decision record capture the two-chart period strip rules?
     memory:
-      - decisions
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    - decisions
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     default: true
     answer: false
 phases:
-  - id: strip_polish
-    title: Fix the current period strip and make colors follow identity
-    depends_on: []
-    size: medium
-    description:
-      "strip_polish: plugin-only fixes on today's strip (legend hues, legend rank, tick
-      baselines, honest heights, year values, so-far, tooltip labels), isolate period
-      strips from the Day strip switch, and make the shared root/type color passes
-      identity-ordered."
-  - id: type_split
-    title: Configured task-type minutes in Stats
-    depends_on: []
-    size: medium
-    description:
-      "type_split: add a task_type parts dimension to Pomodoro metrics that splits each
-      session's counted minutes over its configured types only, with unnamed and
-      label-only buckets, plus docs."
-  - id: period_charts
-    title: bob periods show charts and stacks contract
-    depends_on:
-      - type_split
-    size: medium
-    description:
-      "period_charts: parse stats.period_strip.top_roots, emit charts plus per-column
-      and per-child stacks and display_short, fix long-period coverage copy, document
-      the contract, and set top_roots 5 in chezmoi."
-  - id: chart_painter
-    title: Two-chart period strip painter and its own switch
-    depends_on:
-      - strip_polish
-      - period_charts
-    size: medium
-    description:
-      "chart_painter: paint Roots above Types on one shared axis from bob's charts and
-      stacks, with legend titles, identity hues, honest geometry, the period-only switch
-      and command, the older-bob fallback, tests, and week/quarter previews."
-  - id: long_periods
-    title: Year and all-time density, parts table, polish, and memory
-    depends_on:
-      - chart_painter
-    size: medium
-    description:
-      "long_periods: year and all-time density rules, the measured year fallback,
-      all-time untracked collapse, parts-table mini-bars, legend hover dimming, forced
-      colors, the full preview matrix, docs, and the memory updates."
+- id: strip_polish
+  title: Fix the current period strip and make colors follow identity
+  depends_on: []
+  size: medium
+  description: 'strip_polish: plugin-only fixes on today''s strip (legend hues, legend
+    rank, tick baselines, honest heights, year values, so-far, tooltip labels), isolate
+    period strips from the Day strip switch, and make the shared root/type color passes
+    identity-ordered.'
+- id: type_split
+  title: Configured task-type minutes in Stats
+  depends_on: []
+  size: medium
+  description: 'type_split: add a task_type parts dimension to Pomodoro metrics that
+    splits each session''s counted minutes over its configured types only, with unnamed
+    and label-only buckets, plus docs.'
+- id: period_charts
+  title: bob periods show charts and stacks contract
+  depends_on:
+  - type_split
+  size: medium
+  description: 'period_charts: parse stats.period_strip.top_roots, emit charts plus
+    per-column and per-child stacks and display_short, fix long-period coverage copy,
+    document the contract, and set top_roots 5 in chezmoi.'
+- id: chart_painter
+  title: Two-chart period strip painter and its own switch
+  depends_on:
+  - strip_polish
+  - period_charts
+  size: medium
+  description: 'chart_painter: paint Roots above Types on one shared axis from bob''s
+    charts and stacks, with legend titles, identity hues, honest geometry, the period-only
+    switch and command, the older-bob fallback, tests, and week/quarter previews.'
+- id: long_periods
+  title: Year and all-time density, parts table, polish, and memory
+  depends_on:
+  - chart_painter
+  size: medium
+  description: 'long_periods: year and all-time density rules, the measured year fallback,
+    all-time untracked collapse, parts-table mini-bars, legend hover dimming, forced
+    colors, the full preview matrix, docs, and the memory updates.'
 proposed_by: bbugyi200.apollo.research.41.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-10 11:49:22
 status: wip
+bead_id: bob-cli-js
 ---
 
-- **PROMPT:**
-  [prompts/202611/period_strip_two_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_strip_two_charts.md)
+- **PROMPT:** [prompts/202611/period_strip_two_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_strip_two_charts.md)
+- **BEAD:** [bob-cli-js](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-js/README.md)
 
 # Period stats strips: a Roots chart, a Types chart, and a switch that works
 
