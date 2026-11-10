@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "set_choice_row",
+      "kind": "choice",
+      "ask": "How should a Record Card choice row that already has a value show it?",
+      "why": "It matches other set rows, update rows, and the committed record summary",
+      "choices": [
+        {
+          "key": "value",
+          "label": "Only Bob's display string, like other set rows; unset choice rows keep capsules"
+        },
+        {
+          "key": "highlight",
+          "label": "All choice capsules stay, with the set one emphasized; long choice lists stay wide"
+        }
+      ],
+      "default": "value",
+      "effective_default": "value",
+      "requested_verified": false
+    },
+    {
+      "id": "route_emoji",
+      "kind": "choice",
+      "ask": "Also fix the editor route emoji so it cleanly replaces the @ instead of sitting on top of it?",
+      "why": "Same screenshot and feature; small and self-contained",
+      "choices": [
+        {
+          "key": "conceal",
+          "label": "The @ glyph hides under an emoji fitted to one cell; draft bytes and offsets unchanged"
+        },
+        {
+          "key": "defer",
+          "label": "The overlay stays as is and a small bug task bead records the root cause"
+        }
+      ],
+      "default": "conceal",
+      "effective_default": "conceal",
+      "requested_verified": false
+    }
+  ]
+}
