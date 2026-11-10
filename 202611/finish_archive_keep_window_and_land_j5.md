@@ -2,16 +2,14 @@
 tier: tale
 size: medium
 title: Finish the archive keep window and land epic bob-cli-j5
-goal:
-  "`bob task archive` honors the approved week_cap keep window in full: configurable
+goal: '`bob task archive` honors the approved week_cap keep window in full: configurable
   `archive.keep_days`/`archive.keep_max`, the per-note `archive_keep: N|off` override,
-  undated roots archived as oldest under `## Undated`, and new month headings placed in
-  chronological order. Then epic bob-cli-j5 is closed."
+  undated roots archived as oldest under `## Undated`, and new month headings placed
+  in chronological order. Then epic bob-cli-j5 is closed.'
 proposed_by: bbugyi200.athena.bob-cli-j5.land
 proposed_with: claude/opus
 bead: bob-cli-j5
-create_time: 2026-11-10 01:56:32
-status: wip
+status: done
 ---
 
 - **PARENT:**
