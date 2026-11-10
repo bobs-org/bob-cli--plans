@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Preserve code text in merge copies and finish bob-cli-je
-goal:
-  Preserve literal code in copied task notes, verify archive integration, correct the
-  landing-card docs, and close bob-cli-je.
+goal: Preserve literal code in copied task notes, verify archive integration, correct
+  the landing-card docs, and close bob-cli-je.
 proposed_by: bbugyi200.athena.bob-cli-je.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-je
-create_time: 2026-11-09 19:38:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
