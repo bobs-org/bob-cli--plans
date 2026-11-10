@@ -2,9 +2,8 @@
 tier: tale
 size: medium
 title: Repair notebook capture integrity and finish its landing
-goal:
-  Fix the remaining notebook capture contract violations, verify the integrated tree,
-  and close bob-cli-j8.3.1 and its delegated parent phase bob-cli-j8.3.
+goal: Fix the remaining notebook capture contract violations, verify the integrated
+  tree, and close bob-cli-j8.3.1 and its delegated parent phase bob-cli-j8.3.
 proposed_by: bbugyi200.apollo.bob-cli-j8.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.3.1
@@ -15,11 +14,6 @@ status: done
   [202611/notebook_capture_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/notebook_capture_notes.md)
 - **BEAD:**
   [bob-cli-j8.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.3.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-j8.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.3.1.land.md)
-- **COMMITS:**
-  - [843642f](https://github.com/bobs-org/bob-cli/commit/843642f9fc34e0edf60b126751bb221d2fe6283c)
-    — feat(capture)\!: repair notebook capture landing
 
 # Repair notebook capture integrity and finish its landing
 
