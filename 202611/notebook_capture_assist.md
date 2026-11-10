@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Complete notebook capture assistance
-goal: Finish notebook completion, note-bullet ID assignment, and the approved global-route
+goal:
+  Finish notebook completion, note-bullet ID assignment, and the approved global-route
   collapse assist for bob-cli-j8.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.5
@@ -14,6 +15,11 @@ status: done
   [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
 - **BEAD:**
   [bob-cli-j8.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.5.md)
+- **COMMITS:**
+  - [93cf930](https://github.com/bobs-org/bob-cli/commit/93cf930ca2a8221bdbe4b1dad602ef49669f3f18)
+    — feat(capture)\!: complete notebook capture assistance
 
 # Complete notebook capture assistance (bob-cli-j8.5)
 
