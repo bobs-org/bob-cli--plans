@@ -2,10 +2,11 @@
 tier: tale
 size: medium
 title: Finish the archive keep window and land epic bob-cli-j5
-goal: '`bob task archive` honors the approved week_cap keep window in full: configurable
+goal:
+  "`bob task archive` honors the approved week_cap keep window in full: configurable
   `archive.keep_days`/`archive.keep_max`, the per-note `archive_keep: N|off` override,
-  undated roots archived as oldest under `## Undated`, and new month headings placed
-  in chronological order. Then epic bob-cli-j5 is closed.'
+  undated roots archived as oldest under `## Undated`, and new month headings placed in
+  chronological order. Then epic bob-cli-j5 is closed."
 proposed_by: bbugyi200.athena.bob-cli-j5.land
 proposed_with: claude/opus
 bead: bob-cli-j5
@@ -16,6 +17,11 @@ status: done
   [202611/done_notes_archiving_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/done_notes_archiving_fixes.md)
 - **BEAD:**
   [bob-cli-j5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-j5.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-j5.land.md)
+- **COMMITS:**
+  - [1cfdc54](https://github.com/bobs-org/bob-cli--plans/commit/1cfdc54eea9f3d39eb0940e784d8585bbb3fdbd9)
+    — docs(plan): mark archive epic complete
 
 # Plan: Finish the archive keep window and land epic bob-cli-j5
 
