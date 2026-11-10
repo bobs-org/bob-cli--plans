@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Bob Mac Capture notebook presentation
-goal: Correct nested notebook creation copy, finish focused regression evidence, and
-  close bob-cli-j8.8.
+goal:
+  Correct nested notebook creation copy, finish focused regression evidence, and close
+  bob-cli-j8.8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.8
 proposed_with: codex/gpt-6-astra
@@ -12,6 +13,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-j8.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.8.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.8](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.8.md)
+- **COMMITS:**
+  - [3fb3a2b](https://github.com/bobs-org/bob-mac-capture/commit/3fb3a2bea591fd9756722cf8b313d0394ffdf746)
+    — fix(capture): name nested notebook parent and restore Mac tests
 
 # Finish Bob Mac Capture notebook presentation
 
