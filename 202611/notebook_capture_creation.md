@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Create notebooks from sealed capture items
-goal: Make caret-sealed capture with percent-n create and seed notebooks atomically
-  with their catalogs, available to later draft items.
+goal:
+  Make caret-sealed capture with percent-n create and seed notebooks atomically with
+  their catalogs, available to later draft items.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.4
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/bob_notebooks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bob_notebooks.md)
 - **BEAD:**
   [bob-cli-j8.4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.4.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.4](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.4.md)
+- **COMMITS:**
+  - [ab021e2](https://github.com/bobs-org/bob-cli/commit/ab021e2db09c3776d737e9380a236f823bcb42b4)
+    — feat(capture)\!: create notebooks from sealed @parent^id@ %n drafts
 
 # Create notebooks from sealed capture items
 
