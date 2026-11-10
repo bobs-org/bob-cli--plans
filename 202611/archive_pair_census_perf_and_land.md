@@ -2,10 +2,9 @@
 tier: tale
 size: medium
 title: Restore archive pair-index read performance and land bob-cli-j5.4.1
-goal:
-  Archive pair resolution costs no more than max(25 ms, 15%) over pre-epic read latency
-  on every reader, with unchanged semantics, and epic bob-cli-j5.4.1 and its parent
-  phase bob-cli-j5.4 are closed with verified evidence.
+goal: Archive pair resolution costs no more than max(25 ms, 15%) over pre-epic read
+  latency on every reader, with unchanged semantics, and epic bob-cli-j5.4.1 and its
+  parent phase bob-cli-j5.4 are closed with verified evidence.
 proposed_by: bbugyi200.athena.bob-cli-j5.4.1.land
 proposed_with: claude/opus
 bead: bob-cli-j5.4.1
@@ -16,11 +15,6 @@ status: done
   [202611/archive_pairing_and_rename.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/archive_pairing_and_rename.md)
 - **BEAD:**
   [bob-cli-j5.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j5/bob-cli-j5.4.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-j5.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-j5.4.1.land.md)
-- **COMMITS:**
-  - [d65be1c](https://github.com/bobs-org/bob-cli/commit/d65be1ce02b66f9a08c6a31049990aa74cccca65)
-    — perf(archive): cache pair facts for read-only consumers
 
 # Restore archive pair-index read performance, then land bob-cli-j5.4.1
 
