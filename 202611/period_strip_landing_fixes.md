@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-goal:
-  Week, quarter, year, and all-time notes really paint the Roots and Types charts in
-  Obsidian, with the designed ghosts, stubs, labels, legend fit, and motion; the plugin
-  is deployed; and epic bob-cli-js is closed with its plan marked done.
-title:
-  Finish landing the two-chart period strip (real-DOM paint, ghosts and stubs, year
-  fallback labels, legend fit, fade) and close epic bob-cli-js
+goal: Week, quarter, year, and all-time notes really paint the Roots and Types charts
+  in Obsidian, with the designed ghosts, stubs, labels, legend fit, and motion; the
+  plugin is deployed; and epic bob-cli-js is closed with its plan marked done.
+title: Finish landing the two-chart period strip (real-DOM paint, ghosts and stubs,
+  year fallback labels, legend fit, fade) and close epic bob-cli-js
 proposed_by: bbugyi200.apollo.bob-cli-js.land
 proposed_with: claude/opus
 bead: bob-cli-js
-create_time: 2026-11-10 15:20:30
-status: wip
+status: done
 ---
 
 - **PARENT:**
