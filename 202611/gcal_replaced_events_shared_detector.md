@@ -1,13 +1,11 @@
 ---
 tier: tale
 size: medium
-title:
-  Share the replaced-Events detector between gcal sync and list, fix its docs, and close
-  epic bob-cli-iz
-goal:
-  "`bob gcal list` and `bob gcal sync` agree, live, on when a day's Events section was
-  replaced; a context-only day never holds by mistake; the gcal docs describe the held
-  outcome where readers look for it; and epic bob-cli-iz is closed."
+title: Share the replaced-Events detector between gcal sync and list, fix its docs,
+  and close epic bob-cli-iz
+goal: '`bob gcal list` and `bob gcal sync` agree, live, on when a day''s Events section
+  was replaced; a context-only day never holds by mistake; the gcal docs describe
+  the held outcome where readers look for it; and epic bob-cli-iz is closed.'
 proposed_by: bbugyi200.athena.bob-cli-iz.land
 proposed_with: claude/opus
 bead: bob-cli-iz
@@ -18,11 +16,6 @@ status: done
   [202611/gcal_sync_race_force_and_skip_reasons.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gcal_sync_race_force_and_skip_reasons.md)
 - **BEAD:**
   [bob-cli-iz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-iz/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-iz.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-iz.land.md)
-- **COMMITS:**
-  - [8ad8e27](https://github.com/bobs-org/bob-cli/commit/8ad8e2703c1a9d52f5a5cd8ef4dc77e8009788e4)
-    — fix(gcal): share the replaced-Events detector between sync and list
 
 # Why this tale exists
 
