@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair notebook UI lifecycle and finish bob-cli-j8.6.1
-goal: Notebook cards and headers refresh correctly in both Obsidian views, and verified
+goal:
+  Notebook cards and headers refresh correctly in both Obsidian views, and verified
   repairs close bob-cli-j8.6.1 and parent phase bob-cli-j8.6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.6.1.land
@@ -14,6 +15,11 @@ status: done
   [202611/notebook_catalog_ui.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/notebook_catalog_ui.md)
 - **BEAD:**
   [bob-cli-j8.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-j8/bob-cli-j8.6.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-j8.6.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-j8.6.1.land.md)
+- **COMMITS:**
+  - [e2abff0](https://github.com/bobs-org/bob-cli--plans/commit/e2abff08c97d314b215c515c46e2ae26c9e64c07)
+    — chore(plans): mark notebook catalog UI plans done
 
 # Repair notebook UI lifecycle and finish bob-cli-j8.6.1
 
