@@ -1,47 +1,43 @@
 ---
 tier: epic
-title:
-  Restore bob-mac-capture master and stop linked clones from mutating their host repo
-goal: "bobs-org/bob-mac-capture master again holds only Mac history (29147289 plus the
-  genuine Mac commits pushed since), no checkout on athena, apollo, or the Mac still
-  carries the bob-cli history that was pushed onto it, `just docs-check` passes again,
-  and SASE can no longer rewrite or push a host checkout when a linked or sidecar path
-  has no Git directory of its own.
+title: Restore bob-mac-capture master and stop linked clones from mutating their host
+  repo
+goal: 'bobs-org/bob-mac-capture master again holds only Mac history (29147289 plus
+  the genuine Mac commits pushed since), no checkout on athena, apollo, or the Mac
+  still carries the bob-cli history that was pushed onto it, `just docs-check` passes
+  again, and SASE can no longer rewrite or push a host checkout when a linked or sidecar
+  path has no Git directory of its own.
 
-  "
+  '
 decisions:
   restore_method:
-    ask: How should bob-mac-capture master drop the 2253 bob-cli commits pushed onto it?
+    ask: How should bob-mac-capture master drop the 2253 bob-cli commits pushed onto
+      it?
     choices:
-      rewrite:
-        Force-move master to 29147289 plus replayed Mac commits (gated); clean every
-        checkout
-      revert:
-        Fast-forward one commit that deletes bob-cli's files; bob-cli history stays
-        forever
+      rewrite: Force-move master to 29147289 plus replayed Mac commits (gated); clean
+        every checkout
+      revert: Fast-forward one commit that deletes bob-cli's files; bob-cli history
+        stays forever
     default: rewrite
-    why:
-      Keeps Mac history and clone size free of bob-cli; cleanup covers stale checkouts
+    why: Keeps Mac history and clone size free of bob-cli; cleanup covers stale checkouts
     answer: rewrite
 phases:
-  - id: restore
-    title: Restore bob-mac-capture master and clean polluted checkouts
-    depends_on: []
-    size: medium
-    description:
-      "restore: rebuild master as 29147289 plus every genuine Mac commit now on top of
-      9a0bb25c, then publish it per restore_method (rewrite gate with cross-machine
-      checkout cleanup, or a fast-forward revert commit), verify docs-check and the
-      exact-SHA macOS CI run, and record the old-to-new SHA mapping."
-  - id: guard
-    title: SASE refuses Git mutations outside a linked checkout's own worktree
-    depends_on: []
-    size: medium
-    description:
-      "guard: in the sase repo, make linked and sidecar materialization verify that a
-      reused path is a Git worktree rooted at itself before any origin rewrite, fetch,
-      merge, or exclude write, and make the push path refuse a checkout whose toplevel
-      or origin is not the one SASE expects, with regression tests."
+- id: restore
+  title: Restore bob-mac-capture master and clean polluted checkouts
+  depends_on: []
+  size: medium
+  description: 'restore: rebuild master as 29147289 plus every genuine Mac commit
+    now on top of 9a0bb25c, then publish it per restore_method (rewrite gate with
+    cross-machine checkout cleanup, or a fast-forward revert commit), verify docs-check
+    and the exact-SHA macOS CI run, and record the old-to-new SHA mapping.'
+- id: guard
+  title: SASE refuses Git mutations outside a linked checkout's own worktree
+  depends_on: []
+  size: medium
+  description: 'guard: in the sase repo, make linked and sidecar materialization verify
+    that a reused path is a Git worktree rooted at itself before any origin rewrite,
+    fetch, merge, or exclude write, and make the push path refuse a checkout whose
+    toplevel or origin is not the one SASE expects, with regression tests.'
 proposed_by: bbugyi200.athena.bob-cli-jf
 proposed_with: claude/opus
 parent_bead: bob-cli-jf
@@ -49,10 +45,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-10 06:47:58
 status: wip
+bead_id: bob-cli-jf.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/bob_mac_capture_history_restore.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_mac_capture_history_restore.md)
+- **PROMPT:** [prompts/202611/bob_mac_capture_history_restore.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_mac_capture_history_restore.md)
+- **BEAD:** [bob-cli-jf.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-jf/bob-cli-jf.1.md)
 
 # Plan: Restore bob-mac-capture master and stop linked clones from mutating their host repo
 
