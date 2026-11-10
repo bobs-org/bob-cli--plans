@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-goal: Week, quarter, year, and all-time notes really paint the Roots and Types charts
-  in Obsidian, with the designed ghosts, stubs, labels, legend fit, and motion; the
-  plugin is deployed; and epic bob-cli-js is closed with its plan marked done.
-title: Finish landing the two-chart period strip (real-DOM paint, ghosts and stubs,
-  year fallback labels, legend fit, fade) and close epic bob-cli-js
+goal:
+  Week, quarter, year, and all-time notes really paint the Roots and Types charts in
+  Obsidian, with the designed ghosts, stubs, labels, legend fit, and motion; the plugin
+  is deployed; and epic bob-cli-js is closed with its plan marked done.
+title:
+  Finish landing the two-chart period strip (real-DOM paint, ghosts and stubs, year
+  fallback labels, legend fit, fade) and close epic bob-cli-js
 proposed_by: bbugyi200.apollo.bob-cli-js.land
 proposed_with: claude/opus
 bead: bob-cli-js
@@ -16,6 +18,11 @@ status: done
   [202611/period_strip_two_charts.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_strip_two_charts.md)
 - **BEAD:**
   [bob-cli-js](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-js/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-js.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-js.land.md)
+- **COMMITS:**
+  - [991e270](https://github.com/bobs-org/bob-cli/commit/991e270e4eae5d6f979c8cae902b90a0174cf9c6)
+    — docs(stats): record period strip geometry, fills, and budgets beside Controls
 
 # Finish landing epic bob-cli-js: make the period charts actually paint, then close the epic
 
