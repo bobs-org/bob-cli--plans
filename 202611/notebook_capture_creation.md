@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Create notebooks from sealed capture items
-goal:
-  Make caret-sealed capture with percent-n create and seed notebooks atomically with
-  their catalogs, available to later draft items.
+goal: Make caret-sealed capture with percent-n create and seed notebooks atomically
+  with their catalogs, available to later draft items.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-j8.4
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-j8.4
-create_time: 2026-11-09 22:45:22
-status: wip
+status: done
 ---
 
 - **PARENT:**
