@@ -1,88 +1,81 @@
 ---
 tier: epic
 title: Complete Bob Mac Capture Event note mode
-goal:
-  "Complete bob-cli-ji.7: open a private event note from any capture draft with
+goal: 'Complete bob-cli-ji.7: open a private event note from any capture draft with
   Command-E, the status menu, or a Calendar row; choose an event and scope; edit with
-  Bob's highlights and a faithful hatched time rail; save, clear, and undo through bob
-  gcal note JSON while preserving capture text and undo history. Ship the documentation
-  and verify the exact Swift tree with macOS CI."
+  Bob''s highlights and a faithful hatched time rail; save, clear, and undo through
+  bob gcal note JSON while preserving capture text and undo history. Ship the documentation
+  and verify the exact Swift tree with macOS CI.'
 phases:
-  - id: contract
-    title: Complete event-note fixtures and the Swift process contract
-    depends_on: []
-    size: medium
-    description:
-      "contract: produce full normalized bob-cli JSON fixtures, expose structured
-      effective buffer reasons and effective fields on show, then add typed CaptureCore
-      responses and isolated gcal-note client methods using decodeReport. Copy the
-      fixtures into fake-bob and cover exit-2 reports, compatibility, argv, and
-      overlapping UTF-8 spans. Read the Contract section."
-  - id: session
-    title: Event-note session, request ordering, and mutation undo
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "session: implement a dedicated event-note model with list/filter/select, explicit
-      scope, separate per-scope drafts, debounced preview, serialized save/clear/undo,
-      capability state, and stale-response rejection. Test its complete lifecycle with
-      bounded fake-bob operations before panel wiring. Read the Session section."
-  - id: rail
-    title: Shared hatched meeting and buffer rail
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "rail: extract the agenda capsule and buffer-wing rendering into a reusable view,
-      draw real diagonal hatching, and add the event-note rail driven by Bob's
-      structured times, hue, and reasons. Preserve agenda styles and sizing; add
-      geometry and light/dark render coverage. Read the Rail section."
-  - id: picker
-    title: Mode entry points, capture preservation, and event picker
-    depends_on:
-      - session
-    size: medium
-    description:
-      "picker: wire Command-E, Event Note status menu, and Calendar-row URL entry into a
-      surface inside the capture panel with a grouped keyboard picker. Keep the actual
-      capture editor and its undo manager alive; route focus, sizing, Escape,
-      capability, and panel switches without capture writes. Cover the entry and
-      restoration paths in hosted tests. Read Picker and entry."
-  - id: editor
-    title: Highlighted editor, live preview, and save controls
-    depends_on:
-      - picker
-      - rail
-    size: medium
-    description:
-      "editor: add the fixed identity header, recurring scope control, multiline AppKit
-      editor, UTF-8 highlight/error overlays, shared rail, Lands as block, status and
-      footer keys. Wire save, clear, and last-mutation undo to the session model.
-      Complete hosted end-to-end and render tests, including draft/undo restoration and
-      unsupported Bob. Read Editor and acceptance."
-  - id: docs
-    title: Document the shipped mode and assemble completion evidence
-    depends_on:
-      - editor
-    size: small
-    description:
-      "docs: add the Mac event-notes page and nav entry, short keyboard/protocol/
-      idle-agenda links, and On your Mac in the bob-cli guide. Correct the mode's
-      pending wording, run mounted docs gates, and collect phase and exact-SHA CI
-      evidence for the child epic's land agent. Do not close bob-cli-ji.7 or any
-      ancestor from this phase. Read Documentation and Landing."
+- id: contract
+  title: Complete event-note fixtures and the Swift process contract
+  depends_on: []
+  size: medium
+  description: 'contract: produce full normalized bob-cli JSON fixtures, expose structured
+    effective buffer reasons and effective fields on show, then add typed CaptureCore
+    responses and isolated gcal-note client methods using decodeReport. Copy the fixtures
+    into fake-bob and cover exit-2 reports, compatibility, argv, and overlapping UTF-8
+    spans. Read the Contract section.'
+- id: session
+  title: Event-note session, request ordering, and mutation undo
+  depends_on:
+  - contract
+  size: medium
+  description: 'session: implement a dedicated event-note model with list/filter/select,
+    explicit scope, separate per-scope drafts, debounced preview, serialized save/clear/undo,
+    capability state, and stale-response rejection. Test its complete lifecycle with
+    bounded fake-bob operations before panel wiring. Read the Session section.'
+- id: rail
+  title: Shared hatched meeting and buffer rail
+  depends_on:
+  - contract
+  size: medium
+  description: 'rail: extract the agenda capsule and buffer-wing rendering into a
+    reusable view, draw real diagonal hatching, and add the event-note rail driven
+    by Bob''s structured times, hue, and reasons. Preserve agenda styles and sizing;
+    add geometry and light/dark render coverage. Read the Rail section.'
+- id: picker
+  title: Mode entry points, capture preservation, and event picker
+  depends_on:
+  - session
+  size: medium
+  description: 'picker: wire Command-E, Event Note status menu, and Calendar-row URL
+    entry into a surface inside the capture panel with a grouped keyboard picker.
+    Keep the actual capture editor and its undo manager alive; route focus, sizing,
+    Escape, capability, and panel switches without capture writes. Cover the entry
+    and restoration paths in hosted tests. Read Picker and entry.'
+- id: editor
+  title: Highlighted editor, live preview, and save controls
+  depends_on:
+  - picker
+  - rail
+  size: medium
+  description: 'editor: add the fixed identity header, recurring scope control, multiline
+    AppKit editor, UTF-8 highlight/error overlays, shared rail, Lands as block, status
+    and footer keys. Wire save, clear, and last-mutation undo to the session model.
+    Complete hosted end-to-end and render tests, including draft/undo restoration
+    and unsupported Bob. Read Editor and acceptance.'
+- id: docs
+  title: Document the shipped mode and assemble completion evidence
+  depends_on:
+  - editor
+  size: small
+  description: 'docs: add the Mac event-notes page and nav entry, short keyboard/protocol/
+    idle-agenda links, and On your Mac in the bob-cli guide. Correct the mode''s pending
+    wording, run mounted docs gates, and collect phase and exact-SHA CI evidence for
+    the child epic''s land agent. Do not close bob-cli-ji.7 or any ancestor from this
+    phase. Read Documentation and Landing.'
 proposed_by: bbugyi200.apollo.bob-cli-ji.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ji.7
 create_time: 2026-11-10 10:29:43
 status: wip
+bead_id: bob-cli-ji.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_event_note_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_event_note_mode.md)
-- **PARENT:**
-  [202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/private_gcal_event_notes.md)
+- **PROMPT:** [prompts/202611/mac_event_note_mode.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_event_note_mode.md)
+- **PARENT:** [202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/private_gcal_event_notes.md)
+- **BEAD:** [bob-cli-ji.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ji/bob-cli-ji.7.1.md)
 
 # Complete Bob Mac Capture Event note mode
 
