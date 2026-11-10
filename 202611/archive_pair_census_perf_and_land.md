@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Restore archive pair-index read performance and land bob-cli-j5.4.1
-goal:
-  Archive pair resolution costs no more than max(25 ms, 15%) over pre-epic read latency
-  on every reader, with unchanged semantics, and epic bob-cli-j5.4.1 and its parent
-  phase bob-cli-j5.4 are closed with verified evidence.
+goal: Archive pair resolution costs no more than max(25 ms, 15%) over pre-epic read
+  latency on every reader, with unchanged semantics, and epic bob-cli-j5.4.1 and its
+  parent phase bob-cli-j5.4 are closed with verified evidence.
 proposed_by: bbugyi200.athena.bob-cli-j5.4.1.land
 proposed_with: claude/opus
 bead: bob-cli-j5.4.1
-create_time: 2026-11-09 20:30:02
-status: wip
+status: done
 ---
 
 - **PARENT:**
