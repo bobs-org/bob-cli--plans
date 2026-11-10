@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "unblock",
+      "kind": "choice",
+      "ask": "Should the Mac's Remote Login get Full Disk Access so the agent can make the root Postfix change?",
+      "why": "Keeps the Mac remotely repairable; the /crontab skill already names it as the Mac EPERM fix",
+      "choices": [
+        {
+          "key": "fda",
+          "label": "You enable remote-user Full Disk Access; the agent does every root step over SSH"
+        },
+        {
+          "key": "local",
+          "label": "Remote Login stays locked down; you paste the root commands on the Mac, now and after upgrades"
+        }
+      ],
+      "default": "fda",
+      "effective_default": "fda",
+      "requested_verified": false
+    }
+  ]
+}
