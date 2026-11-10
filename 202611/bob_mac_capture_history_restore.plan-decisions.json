@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "restore_method",
+      "kind": "choice",
+      "ask": "How should bob-mac-capture master drop the 2253 bob-cli commits pushed onto it?",
+      "why": "Keeps Mac history and clone size free of bob-cli; cleanup covers stale checkouts",
+      "choices": [
+        {
+          "key": "rewrite",
+          "label": "Force-move master to 29147289 plus replayed Mac commits (gated); clean every checkout"
+        },
+        {
+          "key": "revert",
+          "label": "Fast-forward one commit that deletes bob-cli's files; bob-cli history stays forever"
+        }
+      ],
+      "default": "rewrite",
+      "effective_default": "rewrite",
+      "requested_verified": false
+    }
+  ]
+}
