@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "drop_reason_counts",
+      "kind": "toggle",
+      "ask": "Should the typing-tips ledger count why each proved tip was not shown?",
+      "why": "The ledger alone could not name the cause of this bug; reason counts would have.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
