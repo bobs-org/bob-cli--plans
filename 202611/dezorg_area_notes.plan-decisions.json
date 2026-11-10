@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "legacy_home",
+      "kind": "choice",
+      "ask": "Should zorg-era legacy sections move out of the area notes into new legacy_<area> notebooks?",
+      "why": "Repeats your 2026-11-02 abby \u2192 legacy_dad move; area notes keep only live content",
+      "choices": [
+        {
+          "key": "notebooks",
+          "label": "Move them verbatim into 8 legacy_<area> notebooks; rewrite ~320 links in ~136 files"
+        },
+        {
+          "key": "in_place",
+          "label": "Leave them at the bottom of each area note; no new notebooks, no moved-link rewrites"
+        }
+      ],
+      "default": "notebooks",
+      "effective_default": "notebooks",
+      "requested_verified": false
+    },
+    {
+      "id": "converter_keys",
+      "kind": "choice",
+      "ask": "Should the converter's other keys (id, aliases, tags, inbox's status and area) go too?",
+      "why": "No newer area note has them, and nothing in bob or the vault reads them on area notes",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "Remove them from 5 notes; the Meetings alias and frontmatter-tag search hits go away"
+        },
+        {
+          "key": "keep",
+          "label": "Remove only the 7 zorg keys; the converter keys stay"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    },
+    {
+      "id": "restore_job_legacy",
+      "kind": "choice",
+      "ask": "Should legacy_job.md get back the two zorg-era job entries cut from job.md on 2026-10-12?",
+      "why": "legacy_job.md was made a minute before the cut to hold those notes, and says so",
+      "choices": [
+        {
+          "key": "restore",
+          "label": "Copy them from git history into legacy_job.md, so 5 dangling job.md links resolve"
+        },
+        {
+          "key": "skip",
+          "label": "legacy_job.md stays a one-line stub, and those 5 links keep dangling"
+        }
+      ],
+      "default": "restore",
+      "effective_default": "restore",
+      "requested_verified": false
+    }
+  ]
+}
