@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Share the replaced-Events detector between gcal sync and list, fix its docs, and close
-  epic bob-cli-iz
-goal:
-  "`bob gcal list` and `bob gcal sync` agree, live, on when a day's Events section was
-  replaced; a context-only day never holds by mistake; the gcal docs describe the held
-  outcome where readers look for it; and epic bob-cli-iz is closed."
+title: Share the replaced-Events detector between gcal sync and list, fix its docs,
+  and close epic bob-cli-iz
+goal: '`bob gcal list` and `bob gcal sync` agree, live, on when a day''s Events section
+  was replaced; a context-only day never holds by mistake; the gcal docs describe
+  the held outcome where readers look for it; and epic bob-cli-iz is closed.'
 proposed_by: bbugyi200.athena.bob-cli-iz.land
 proposed_with: claude/opus
 bead: bob-cli-iz
-create_time: 2026-11-09 21:09:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
