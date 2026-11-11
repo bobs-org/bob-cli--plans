@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish album index write safety and preview parity
-goal:
-  Repair the remaining album-index defects and complete the landing of bob-cli-k3.5.1
+goal: Repair the remaining album-index defects and complete the landing of bob-cli-k3.5.1
   and parent phase bob-cli-k3.5.
 proposed_by: bbugyi200.athena.bob-cli-k3.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-k3.5.1
-create_time: 2026-11-11 17:48:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
