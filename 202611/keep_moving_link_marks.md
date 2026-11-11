@@ -1,93 +1,85 @@
 ---
 tier: epic
-title:
-  Keep-moving marks — show `⏭ N` after a Task Link whose close will keep its project
-  moving
-goal:
-  "In today's ledger, a quiet `⏭ N` mark after a Task Link forecasts the `Keep ‹N›
-  moving` successor picker that closing that task will really open: N is exactly the
-  number of rows that group will offer, it appears only on the link whose close triggers
-  the group, and it is silent whenever that cannot be proven. Keep-moving first stops
-  skipping standalone top-level projects (only umbrella projects are skipped), so the
-  screenshot's `job_email_recruiters` link shows `⏭ 4` and Ctrl+Enter then offers those
-  same four tasks."
+title: Keep-moving marks — show `⏭ N` after a Task Link whose close will keep its
+  project moving
+goal: 'In today''s ledger, a quiet `⏭ N` mark after a Task Link forecasts the `Keep
+  ‹N› moving` successor picker that closing that task will really open: N is exactly
+  the number of rows that group will offer, it appears only on the link whose close
+  triggers the group, and it is silent whenever that cannot be proven. Keep-moving
+  first stops skipping standalone top-level projects (only umbrella projects are skipped),
+  so the screenshot''s `job_email_recruiters` link shows `⏭ 4` and Ctrl+Enter then
+  offers those same four tasks.'
 phases:
-  - id: umbrella-rule
-    title: Umbrella rule in the contract, memory, and Rust
-    depends_on: []
-    size: medium
-    description:
-      "umbrella-rule: in bob-cli, redefine leaf projects as every recognised project
-      except umbrellas (root projects whose ^prj carries a Sub-projects line); update
-      §12.15–§12.17, projects/pomodoro-homes/json-outputs docs, the accepted memory
-      decisions, and Rust is_leaf_project plus its LP/KM tests."
-  - id: umbrella-cycler
-    title: Umbrella rule and `_generated/` fix in the Obsidian cycler
-    depends_on:
-      - umbrella-rule
-    size: small
-    description:
-      "umbrella-cycler: in the bob-plugins task-status-cycler, apply the umbrella rule
-      in successorLeafProject using the planner's held note text, stop generated tag
-      pages from making parent stems ambiguous, update LP/KM tests and docs, build, and
-      sync."
-  - id: mark-contract
-    title: Keep-moving mark display contract
-    depends_on:
-      - umbrella-rule
-    size: small
-    description:
-      "mark-contract: in bob-cli docs, add docs/keep-moving-marks.md (the authoritative
-      display contract with the KB/KT/KP vectors from this plan), register it,
-      cross-link it from frees-marks and §12.15, and move the off-clock chip contract to
-      side 4."
-  - id: mark-core
-    title: Pure keep-moving mark core and cross-plugin parity
-    depends_on:
-      - umbrella-cycler
-      - mark-contract
-    size: medium
-    description:
-      "mark-core: in bob-ledger-tools, add the pure, synchronous gates, leaf predicate,
-      offer count, tooltip, DOM builder, and widget class, plus config readers, the
-      vector tests, and an identity-set parity test against the cycler's real successor
-      planner."
-  - id: mark-surface
-    title: Live Preview, Reading view, look, and liveness
-    depends_on:
-      - mark-core
-    size: medium
-    description:
-      "mark-surface: in bob-ledger-tools, render the mark in Live Preview and Reading
-      view, with the shared source-text cache, refresh triggers, baton-pass tick,
-      toggle, CSS, off-clock chip at side 4, docs, a real-Obsidian e2e, build, and sync."
-  - id: audit
-    title: Real-vault audit against capture and the picker
-    depends_on:
-      - mark-surface
-    size: small
-    description:
-      "audit: on a scratch vault only, compare every rendered mark with `bob capture
-      --dry-run` keep_moving rows and with the Obsidian picker. Confirm the screenshot
-      case shows `⏭ 4` and record the results in the contract's Live verification
-      section."
+- id: umbrella-rule
+  title: Umbrella rule in the contract, memory, and Rust
+  depends_on: []
+  size: medium
+  description: 'umbrella-rule: in bob-cli, redefine leaf projects as every recognised
+    project except umbrellas (root projects whose ^prj carries a Sub-projects line);
+    update §12.15–§12.17, projects/pomodoro-homes/json-outputs docs, the accepted
+    memory decisions, and Rust is_leaf_project plus its LP/KM tests.'
+- id: umbrella-cycler
+  title: Umbrella rule and `_generated/` fix in the Obsidian cycler
+  depends_on:
+  - umbrella-rule
+  size: small
+  description: 'umbrella-cycler: in the bob-plugins task-status-cycler, apply the
+    umbrella rule in successorLeafProject using the planner''s held note text, stop
+    generated tag pages from making parent stems ambiguous, update LP/KM tests and
+    docs, build, and sync.'
+- id: mark-contract
+  title: Keep-moving mark display contract
+  depends_on:
+  - umbrella-rule
+  size: small
+  description: 'mark-contract: in bob-cli docs, add docs/keep-moving-marks.md (the
+    authoritative display contract with the KB/KT/KP vectors from this plan), register
+    it, cross-link it from frees-marks and §12.15, and move the off-clock chip contract
+    to side 4.'
+- id: mark-core
+  title: Pure keep-moving mark core and cross-plugin parity
+  depends_on:
+  - umbrella-cycler
+  - mark-contract
+  size: medium
+  description: 'mark-core: in bob-ledger-tools, add the pure, synchronous gates, leaf
+    predicate, offer count, tooltip, DOM builder, and widget class, plus config readers,
+    the vector tests, and an identity-set parity test against the cycler''s real successor
+    planner.'
+- id: mark-surface
+  title: Live Preview, Reading view, look, and liveness
+  depends_on:
+  - mark-core
+  size: medium
+  description: 'mark-surface: in bob-ledger-tools, render the mark in Live Preview
+    and Reading view, with the shared source-text cache, refresh triggers, baton-pass
+    tick, toggle, CSS, off-clock chip at side 4, docs, a real-Obsidian e2e, build,
+    and sync.'
+- id: audit
+  title: Real-vault audit against capture and the picker
+  depends_on:
+  - mark-surface
+  size: small
+  description: 'audit: on a scratch vault only, compare every rendered mark with `bob
+    capture --dry-run` keep_moving rows and with the Obsidian picker. Confirm the
+    screenshot case shows `⏭ 4` and record the results in the contract''s Live verification
+    section.'
 decisions:
   memory_decision_record:
-    ask: Add a decisions:keep-moving-skips-only-umbrellas record for the new leaf rule?
+    ask: Add a decisions:keep-moving-skips-only-umbrellas record for the new leaf
+      rule?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_leaf:
-    ask:
-      Rewrite the Leaf Project glossary strand so a leaf is any project except an
-      umbrella?
+    ask: Rewrite the Leaf Project glossary strand so a leaf is any project except
+      an umbrella?
     memory:
-      - glossary:leaf-project
+    - glossary:leaf-project
     default: true
     corrects: are roots, never leaves.
     answer: true
@@ -97,10 +89,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 07:57:56
 status: wip
+bead_id: bob-cli-k7
 ---
 
-- **PROMPT:**
-  [prompts/202611/keep_moving_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/keep_moving_link_marks.md)
+- **PROMPT:** [prompts/202611/keep_moving_link_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/keep_moving_link_marks.md)
+- **BEAD:** [bob-cli-k7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k7/README.md)
 
 # Keep-moving marks: show `⏭ N` where closing a Task Link will really offer N
 
