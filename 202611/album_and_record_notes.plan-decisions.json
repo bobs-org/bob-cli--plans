@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ledger_mining",
+      "kind": "toggle",
+      "ask": "Should the epic link the 2024\u20132025 spending ledger to restaurant records and backfill `visited`?",
+      "why": "Turns 2 of 104 visited dates into about 80, from real dated spending lines",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_terms",
+      "kind": "toggle",
+      "ask": "Should the plan add the Album Note and Record Note glossary strands?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:album-note",
+          "glossary:record-note"
+        ]
+      },
+      "requested": "As a part of this change, we should add excellent new glossary terms for \"album note\" and \"record note\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:album-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/album-note.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "glossary:record-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/record-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_edits",
+      "kind": "toggle",
+      "ask": "Should the plan update the Capture, Notebook, and Area Note strands for albums and records?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture",
+          "glossary:notebook",
+          "glossary:area-note"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:notebook",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Notebook",
+            "Keep Streak",
+            "Pomodoro",
+            "Task Type",
+            "Area Note",
+            "Project Note",
+            "Root Parent",
+            "Capture",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:area-note",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Area Note",
+            "Project Note",
+            "Capture",
+            "Task Type",
+            "Notebook",
+            "Pomodoro",
+            "Task Link",
+            "Keep Streak",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_albums_decision",
+      "kind": "toggle",
+      "ask": "Should the plan add the albums-own-record-schemas decision record?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:albums-own-record-schemas"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:albums-own-record-schemas",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/albums-own-record-schemas.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
