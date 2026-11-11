@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cwd_scope",
+      "kind": "choice",
+      "ask": "Should enclosing-checkout repo resolution apply to the whole `bob plugins` family?",
+      "why": "list and sync disagreeing about the repo from the same cwd is a worse trap than the original bug.",
+      "choices": [
+        {
+          "key": "family",
+          "label": "list, bare default, and sync all resolve the same repo from the cwd, so they never disagree"
+        },
+        {
+          "key": "sync_only",
+          "label": "only sync resolves from the cwd; list keeps env/default resolution and may name a different repo"
+        }
+      ],
+      "default": "family",
+      "effective_default": "family",
+      "requested_verified": false
+    },
+    {
+      "id": "fetch_fallback",
+      "kind": "choice",
+      "ask": "When the repo-refresh `git pull` fails, should sync fall back to `git fetch`?",
+      "why": "the command already chose network by not passing --no-pull; fetch is the safe subset of pull.",
+      "choices": [
+        {
+          "key": "fetch",
+          "label": "refresh remote refs without touching the worktree so refusal remedies name the landed build"
+        },
+        {
+          "key": "status_quo",
+          "label": "keep pull-or-nothing; a dirty linked worktree leaves remote refs stale and remedies generic"
+        }
+      ],
+      "default": "fetch",
+      "effective_default": "fetch",
+      "requested_verified": false
+    }
+  ]
+}
