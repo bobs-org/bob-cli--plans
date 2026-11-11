@@ -1,65 +1,60 @@
 ---
 tier: epic
 title: Bank views and safe editing in Obsidian
-goal:
-  Finish bob-cli-kd.6 with month and queue cards, a daily chip, safe bank-row editing,
-  styled rows in both Obsidian views, and verified plugin deployment.
+goal: Finish bob-cli-kd.6 with month and queue cards, a daily chip, safe bank-row
+  editing, styled rows in both Obsidian views, and verified plugin deployment.
 phases:
-  - id: bank-ui-data
-    title: Bank JSON data service and shared presentation models
-    size: medium
-    depends_on: []
-    description:
-      "bank-ui-data: implement the bank JSON boundary, cached reads, invalidation,
-      source-location helpers, and synthetic fixtures in bob-plugins. Follow the
-      bank-ui-data section."
-  - id: bank-ui-gestures
-    title: Safe bank gestures, commands, and typing helpers
-    size: medium
-    depends_on:
-      - bank-ui-data
-    description:
-      "bank-ui-gestures: implement exact-selection acknowledgment, open-today and
-      acknowledge-day commands, Enter continuation, category suggestions, and bank-row
-      guards in ledger-tools and task-status-cycler. Follow the bank-ui-gestures
-      section."
-  - id: bank-ui-cards
-    title: Month and queue cards with the daily bank chip
-    size: medium
-    depends_on:
-      - bank-ui-gestures
-    description:
-      "bank-ui-cards: render bob-bank month and queue fences and the daily bob-plan chip
-      using the shared data and action services. Follow the bank-ui-cards section."
-  - id: bank-ui-marks
-    title: Bank row and day-heading rendering in both Obsidian views
-    size: medium
-    depends_on:
-      - bank-ui-cards
-    description:
-      "bank-ui-marks: add Live Preview and Reading view bank decorations, mark gating,
-      bank-property hiding, and dollar-sign math protection. Follow the bank-ui-marks
-      section."
-  - id: bank-ui-proof
-    title: Fixture walkthrough, documentation, and deployment proof
-    size: medium
-    depends_on:
-      - bank-ui-marks
-    description:
-      "bank-ui-proof: verify the combined bank UI in a synthetic vault, finish plugin
-      documentation, run the required gates, deploy, and publish evidence for the child
-      epic land agent. Follow the bank-ui-proof section; do not close any ancestor bead."
+- id: bank-ui-data
+  title: Bank JSON data service and shared presentation models
+  size: medium
+  depends_on: []
+  description: 'bank-ui-data: implement the bank JSON boundary, cached reads, invalidation,
+    source-location helpers, and synthetic fixtures in bob-plugins. Follow the bank-ui-data
+    section.'
+- id: bank-ui-gestures
+  title: Safe bank gestures, commands, and typing helpers
+  size: medium
+  depends_on:
+  - bank-ui-data
+  description: 'bank-ui-gestures: implement exact-selection acknowledgment, open-today
+    and acknowledge-day commands, Enter continuation, category suggestions, and bank-row
+    guards in ledger-tools and task-status-cycler. Follow the bank-ui-gestures section.'
+- id: bank-ui-cards
+  title: Month and queue cards with the daily bank chip
+  size: medium
+  depends_on:
+  - bank-ui-gestures
+  description: 'bank-ui-cards: render bob-bank month and queue fences and the daily
+    bob-plan chip using the shared data and action services. Follow the bank-ui-cards
+    section.'
+- id: bank-ui-marks
+  title: Bank row and day-heading rendering in both Obsidian views
+  size: medium
+  depends_on:
+  - bank-ui-cards
+  description: 'bank-ui-marks: add Live Preview and Reading view bank decorations,
+    mark gating, bank-property hiding, and dollar-sign math protection. Follow the
+    bank-ui-marks section.'
+- id: bank-ui-proof
+  title: Fixture walkthrough, documentation, and deployment proof
+  size: medium
+  depends_on:
+  - bank-ui-marks
+  description: 'bank-ui-proof: verify the combined bank UI in a synthetic vault, finish
+    plugin documentation, run the required gates, deploy, and publish evidence for
+    the child epic land agent. Follow the bank-ui-proof section; do not close any
+    ancestor bead.'
 proposed_by: bbugyi200.athena.bob-cli-kd.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kd.6
 create_time: 2026-11-11 14:27:32
 status: wip
+bead_id: bob-cli-kd.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_obsidian.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_obsidian.md)
-- **PARENT:**
-  [202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_daily_acknowledgment.md)
+- **PROMPT:** [prompts/202611/bank_obsidian.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_obsidian.md)
+- **PARENT:** [202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_daily_acknowledgment.md)
+- **BEAD:** [bob-cli-kd.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kd/bob-cli-kd.6.1.md)
 
 # Bank views and safe editing in Obsidian
 
