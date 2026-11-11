@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "recapture",
+      "kind": "toggle",
+      "ask": "Should the final phase install the new bob and re-run the keep_moving_link_marks capture?",
+      "why": "The hook already does this on every report write; the failure only left the reference missing.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
