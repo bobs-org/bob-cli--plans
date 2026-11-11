@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish private event note boundary cases and land bob-cli-ji.8
-goal:
-  Repair the remaining note command defects, synchronize Mac fixtures, and complete the
-  epic and ready parent closeouts.
+goal: Repair the remaining note command defects, synchronize Mac fixtures, and complete
+  the epic and ready parent closeouts.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ji.8.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ji.8
-create_time: 2026-11-11 01:39:07
-status: wip
+status: done
 ---
 
 - **PARENT:**
