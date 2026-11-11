@@ -16,6 +16,11 @@ status: wip
   [202611/cmd_y_copy_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/cmd_y_copy_card.md)
 - **BEAD:**
   [bob-cli-kc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kc/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-kc.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-kc.land.md)
+- **COMMITS:**
+  - [d532aad](https://github.com/bobs-org/bob-plugins/commit/d532aad74573f4a8e66a0fb8fb0a4a33c7415b9d)
+    — fix(copy-card): reject fenced tasks and honor copy config
 
 # Finish the Cmd+Y Copy card and land bob-cli-kc
 
