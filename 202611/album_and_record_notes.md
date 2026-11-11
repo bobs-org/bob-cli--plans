@@ -1,196 +1,190 @@
 ---
 tier: epic
 title: Album notes — every record collection hangs under the area it serves
-goal: 'Every record note reaches an area of responsibility. Each record collection (eat,
-  podcasts, tv, movies) becomes an album note: `type: "[[album]]"` under its owner area,
-  holding its record schema in frontmatter instead of `config.yml`, de-zorged, and
-  showing a generated, grouped `[!records]` index. Every owner area or project shows a
-  beautiful generated `## Albums` catalog. Records become `type: "[[record]]"` children
-  of their album. Schema and data version together in the vault, a broken album fails
-  alone, and glossary terms for album note and record note are published.
+goal: 'Every record note reaches an area of responsibility. Each record collection
+  (eat, podcasts, tv, movies) becomes an album note: `type: "[[album]]"` under its
+  owner area, holding its record schema in frontmatter instead of `config.yml`, de-zorged,
+  and showing a generated, grouped `[!records]` index. Every owner area or project
+  shows a beautiful generated `## Albums` catalog. Records become `type: "[[record]]"`
+  children of their album. Schema and data version together in the vault, a broken
+  album fails alone, and glossary terms for album note and record note are published.
 
   '
 decisions:
   ledger_mining:
-    ask:
-      Should the epic link the 2024–2025 spending ledger to restaurant records and
-      backfill `visited`?
+    ask: Should the epic link the 2024–2025 spending ledger to restaurant records
+      and backfill `visited`?
     default: true
     why: Turns 2 of 104 visited dates into about 80, from real dated spending lines
     answer: true
   memory_glossary_terms:
     ask: Should the plan add the Album Note and Record Note glossary strands?
     memory:
-      - glossary:album-note
-      - glossary:record-note
+    - glossary:album-note
+    - glossary:record-note
     default: true
-    requested:
-      As a part of this change, we should add excellent new glossary terms for "album
-      note" and "record note".
+    requested: As a part of this change, we should add excellent new glossary terms
+      for "album note" and "record note".
     answer: true
   memory_glossary_edits:
-    ask:
-      Should the plan update the Capture, Notebook, and Area Note strands for albums and
-      records?
+    ask: Should the plan update the Capture, Notebook, and Area Note strands for albums
+      and records?
     memory:
-      - glossary:capture
-      - glossary:notebook
-      - glossary:area-note
+    - glossary:capture
+    - glossary:notebook
+    - glossary:area-note
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_albums_decision:
     ask: Should the plan add the albums-own-record-schemas decision record?
     memory:
-      - decisions:albums-own-record-schemas
+    - decisions:albums-own-record-schemas
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: vault-cleanup
-    title: Vault-only cleanup — owners, the eat.md de-zorg, and record health
-    depends_on: []
-    size: medium
-    description: "vault-cleanup: with today's bob and no code, point eat at body,
-      podcasts at dev, and tv at fun; de-zorg eat.md into a legacy_eat notebook under
-      body after carrying footnote 17; rewrite the mapped block links; strip
-      `companions`; fill the six empty categories; fold the location spellings; and gate
-      on zero `bob records check` findings and no new broken links.
+- id: vault-cleanup
+  title: Vault-only cleanup — owners, the eat.md de-zorg, and record health
+  depends_on: []
+  size: medium
+  description: 'vault-cleanup: with today''s bob and no code, point eat at body, podcasts
+    at dev, and tv at fun; de-zorg eat.md into a legacy_eat notebook under body after
+    carrying footnote 17; rewrite the mapped block links; strip `companions`; fill
+    the six empty categories; fold the location spellings; and gate on zero `bob records
+    check` findings and no new broken links.
 
-      "
-  - id: album-model
-    title: Album recognition, the vault schema registry, and bob albums list and check
-    depends_on: []
-    size: large
-    description: 'album-model: recognize `type: "[[album]]"` and `type: "[[record]]"`,
-      parse album frontmatter (top-level facts plus one nested `record:` schema) with
-      key-path and line diagnostics, build the vault-aware record-kind registry with
-      per-album isolation and the album-wins transition rule over config, and ship the
-      read-only `bob albums list` and `check` with beautiful human output and JSON.
+    '
+- id: album-model
+  title: Album recognition, the vault schema registry, and bob albums list and check
+  depends_on: []
+  size: large
+  description: 'album-model: recognize `type: "[[album]]"` and `type: "[[record]]"`,
+    parse album frontmatter (top-level facts plus one nested `record:` schema) with
+    key-path and line diagnostics, build the vault-aware record-kind registry with
+    per-album isolation and the album-wins transition rule over config, and ship the
+    read-only `bob albums list` and `check` with beautiful human output and JSON.
 
-      '
-  - id: catalog-engine
-    title: Shared host-catalog region engine extracted from notebooks
-    depends_on: []
-    size: medium
-    description: "catalog-engine: extract the notebook catalog's owned-callout region,
-      host planning, and guarded sync transaction into a shared engine parameterized by
-      callout name, heading, head title, and placement, keeping every notebook byte and
-      test identical, so the albums catalog and records index reuse it.
+    '
+- id: catalog-engine
+  title: Shared host-catalog region engine extracted from notebooks
+  depends_on: []
+  size: medium
+  description: 'catalog-engine: extract the notebook catalog''s owned-callout region,
+    host planning, and guarded sync transaction into a shared engine parameterized
+    by callout name, heading, head title, and placement, keeping every notebook byte
+    and test identical, so the albums catalog and records index reuse it.
 
-      "
-  - id: album-records
-    title: Records, capture, and completion read schemas from albums
-    depends_on:
-      - album-model
-    size: large
-    description: 'album-records: route all eight config call sites through the registry
-      so record kinds follow `--bob-dir`, write album records as `type: "[[record]]"`
-      under their album, teach `bob records check` the album membership rules, enrich
-      capture, capture-targets, and JSON additively with album identity, and make a bare
-      album route (`Blaze @eat`) a teaching refusal.
+    '
+- id: album-records
+  title: Records, capture, and completion read schemas from albums
+  depends_on:
+  - album-model
+  size: large
+  description: 'album-records: route all eight config call sites through the registry
+    so record kinds follow `--bob-dir`, write album records as `type: "[[record]]"`
+    under their album, teach `bob records check` the album membership rules, enrich
+    capture, capture-targets, and JSON additively with album identity, and make a
+    bare album route (`Blaze @eat`) a teaching refusal.
 
-      '
-  - id: album-index
-    title:
-      The generated records index inside each album, rebuilt with every record write
-    depends_on:
-      - album-records
-      - catalog-engine
-    size: large
-    description: "album-index: render the bob-owned `[!records]` index (tally title,
-      groups in declared status order, sub-groups by `index_by`, faceted rows), rebuild
-      it in the same transaction as every capture or `bob records` write from the album
-      slice alone, and add `bob albums sync` plus its nightly step.
+    '
+- id: album-index
+  title: The generated records index inside each album, rebuilt with every record
+    write
+  depends_on:
+  - album-records
+  - catalog-engine
+  size: large
+  description: 'album-index: render the bob-owned `[!records]` index (tally title,
+    groups in declared status order, sub-groups by `index_by`, faceted rows), rebuild
+    it in the same transaction as every capture or `bob records` write from the album
+    slice alone, and add `bob albums sync` plus its nightly step.
 
-      "
-  - id: album-catalog
-    title: The Albums catalog in owner notes, and bob albums create
-    depends_on:
-      - album-index
-    size: large
-    description: "album-catalog: write one stable `[!albums]` row per album into each
-      owner's `## Albums` section on the shared engine (placed after `## Notebooks`),
-      extend sync, list, and check to catalogs, protect the section from capture, and
-      add `bob albums create`, which also replaces `records init` for album kinds.
+    '
+- id: album-catalog
+  title: The Albums catalog in owner notes, and bob albums create
+  depends_on:
+  - album-index
+  size: large
+  description: 'album-catalog: write one stable `[!albums]` row per album into each
+    owner''s `## Albums` section on the shared engine (placed after `## Notebooks`),
+    extend sync, list, and check to catalogs, protect the section from capture, and
+    add `bob albums create`, which also replaces `records init` for album kinds.
 
-      "
-  - id: plugins-albums
-    title: Obsidian album cards, live chips, and the album header
-    depends_on:
-      - album-catalog
-    size: large
-    description: "plugins-albums: in bob-ledger-tools, style the `[!albums]` and
-      `[!records]` callouts as hue-accented cards, draw live count, lead-group, peek,
-      and freshness chips from `bob albums list -f json`, fold long index groups, render
-      the album header with breadcrumb, add-record affordance, and schema card, and run
-      a debounced `bob albums sync`.
+    '
+- id: plugins-albums
+  title: Obsidian album cards, live chips, and the album header
+  depends_on:
+  - album-catalog
+  size: large
+  description: 'plugins-albums: in bob-ledger-tools, style the `[!albums]` and `[!records]`
+    callouts as hue-accented cards, draw live count, lead-group, peek, and freshness
+    chips from `bob albums list -f json`, fold long index groups, render the album
+    header with breadcrumb, add-record affordance, and schema card, and run a debounced
+    `bob albums sync`.
 
-      "
-  - id: mac-albums
-    title: Bob Mac Capture presents albums
-    depends_on:
-      - album-records
-    size: medium
-    description: "mac-albums: show each record route's album title, owner, and summary
-      from the additive capture-targets fields, render the bare-album refusal with its
-      one-key `@eat/` rewrite, and name the album in record previews and success lines,
-      gated on the exact-SHA macOS CI run.
+    '
+- id: mac-albums
+  title: Bob Mac Capture presents albums
+  depends_on:
+  - album-records
+  size: medium
+  description: 'mac-albums: show each record route''s album title, owner, and summary
+    from the additive capture-targets fields, render the bare-album refusal with its
+    one-key `@eat/` rewrite, and name the album in record previews and success lines,
+    gated on the exact-SHA macOS CI run.
 
-      "
-  - id: vault-cutover
-    title: Album cutover in the vault, then delete records from chezmoi
-    depends_on:
-      - vault-cleanup
-      - album-catalog
-    size: medium
-    description: "vault-cutover: once every host runs album-aware bob, move each schema
-      into its album's frontmatter under an equivalence gate, add the album and record
-      type notes, merge and delete the four kind stubs, retype the 152 records, update
-      the Base filters, sync the indexes and catalogs, and delete `records:` from
-      chezmoi.
+    '
+- id: vault-cutover
+  title: Album cutover in the vault, then delete records from chezmoi
+  depends_on:
+  - vault-cleanup
+  - album-catalog
+  size: medium
+  description: 'vault-cutover: once every host runs album-aware bob, move each schema
+    into its album''s frontmatter under an equivalence gate, add the album and record
+    type notes, merge and delete the four kind stubs, retype the 152 records, update
+    the Base filters, sync the indexes and catalogs, and delete `records:` from chezmoi.
 
-      "
-  - id: ledger-mining
-    title: Link the spending ledger to restaurant records and backfill visited
-    depends_on:
-      - vault-cutover
-    size: medium
-    description: "ledger-mining: when accepted, rewrite the 653 mappable `[[eat#<lid>]]`
-      spending links in historical `_habit.md` notes to their records and backfill each
-      restaurant's `visited` from its latest ledger date in one reviewed commit;
-      otherwise close as a no-op.
+    '
+- id: ledger-mining
+  title: Link the spending ledger to restaurant records and backfill visited
+  depends_on:
+  - vault-cutover
+  size: medium
+  description: 'ledger-mining: when accepted, rewrite the 653 mappable `[[eat#<lid>]]`
+    spending links in historical `_habit.md` notes to their records and backfill each
+    restaurant''s `visited` from its latest ledger date in one reviewed commit; otherwise
+    close as a no-op.
 
-      "
-  - id: albums-wrapup
-    title: Retire config-declared records, end-to-end proof, docs audit, and memory
-    depends_on:
-      - plugins-albums
-      - mac-albums
-      - vault-cutover
-      - ledger-mining
-    size: medium
-    description:
-      "albums-wrapup: remove the config `records:` reader and its transition fallback,
-      turn `records init` into a hidden teaching refusal, walk every album gesture end
-      to end in a temporary vault, audit every album and record doc, and publish the
-      accepted glossary strands and decision record."
+    '
+- id: albums-wrapup
+  title: Retire config-declared records, end-to-end proof, docs audit, and memory
+  depends_on:
+  - plugins-albums
+  - mac-albums
+  - vault-cutover
+  - ledger-mining
+  size: medium
+  description: 'albums-wrapup: remove the config `records:` reader and its transition
+    fallback, turn `records init` into a hidden teaching refusal, walk every album
+    gesture end to end in a temporary vault, audit every album and record doc, and
+    publish the accepted glossary strands and decision record.'
 proposed_by: bbugyi200.apollo.research.43.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 04:56:41
 status: wip
+bead_id: bob-cli-k3
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/README.md)
 
 # Plan: Album notes — every record collection hangs under the area it serves
 
