@@ -1,103 +1,90 @@
 ---
 tier: epic
 title: Security and bug audit fixes
-goal: "Confirmed findings from a five-area audit (gcal sync injection, web-clip SSRF
+goal: 'Confirmed findings from a five-area audit (gcal sync injection, web-clip SSRF
   guard gaps, vault-sync data-loss races, bank parser bugs, subprocess and script
   defects) are fixed with regression tests.
 
-  "
+  '
 decisions:
   partial_registry_targets:
-    ask:
-      Should bob capture targets keep config-defined record routes when the album
+    ask: Should bob capture targets keep config-defined record routes when the album
       registry walk is partial?
     choices:
-      drop_all:
-        Keep the current drop — a partial walk hides every record route row; add a
-        policy comment only.
-      config_fallback:
-        Emit config-defined record types on a partial walk; withhold only album-derived
-        rows.
+      drop_all: Keep the current drop — a partial walk hides every record route row;
+        add a policy comment only.
+      config_fallback: Emit config-defined record types on a partial walk; withhold
+        only album-derived rows.
     default: drop_all
-    why:
-      The completion provider mirrors the same never-act-on-incomplete-registry policy;
-      looks intended.
+    why: The completion provider mirrors the same never-act-on-incomplete-registry
+      policy; looks intended.
     answer: drop_all
   dns_rebinding_depth:
-    ask:
-      Should web clip pin subresource connections to the vetted IP to fully close the
-      DNS-rebinding window?
+    ask: Should web clip pin subresource connections to the vetted IP to fully close
+      the DNS-rebinding window?
     choices:
-      cache_scope:
-        Scope the host-verdict cache to one capture and accept the residual rebinding
-        race.
-      pin_ip:
-        Pin vetted hosts to their resolved IPs; heavier machinery that may break real
-        captures.
+      cache_scope: Scope the host-verdict cache to one capture and accept the residual
+        rebinding race.
+      pin_ip: Pin vetted hosts to their resolved IPs; heavier machinery that may break
+        real captures.
     default: cache_scope
-    why:
-      Single-user tool; pinning adds a proxy layer whose breakage cost outweighs the
-      narrow race.
+    why: Single-user tool; pinning adds a proxy layer whose breakage cost outweighs
+      the narrow race.
     answer: cache_scope
 phases:
-  - id: gcal-escaping
-    title: Gcal hostile title and badge URL escaping
-    depends_on: []
-    size: small
-    description:
-      "gcal-escaping: collapse newlines/control whitespace in calendar titles and
-      percent-encode whitespace in badge URLs so a synced event can no longer forge
-      daily-note Markdown; extend the hostile-title e2e test with multi-line cases."
-  - id: web-clip-fetch-guard
-    title: Web clip out-of-band fetch guard
-    depends_on: []
-    size: medium
-    description:
-      "web-clip-fetch-guard: route image/PDF APIRequestContext fetches through the
-      private-network guard with per-hop redirect checks, escape < in the reader CSS
-      title, and fix the sanitize-order bug that disabled inline-SVG externalization."
-  - id: vault-sync-durability
-    title: Vault sync and rewrite write durability
-    depends_on: []
-    size: medium
-    description:
-      "vault-sync-durability: literal git pathspecs, a pre-restore byte recheck in
-      clobber quarantine, conflict copies before merge aborts, fsync before rename in
-      the atomic-write helpers, and per-file stale rechecks in the rewrite transaction."
-  - id: bank-parser-fixes
-    title: Bank month-note parser fixes
-    depends_on: []
-    size: small
-    description:
-      "bank-parser-fixes: validate trailing tokens before the out-of-month early return
-      in day-heading parsing, parse frontmatter from BOM-stripped text, and correct the
-      latent write-planner anchors to match the documented contract."
-  - id: subprocess-hardening
-    title: Subprocess reaper and notify hardening
-    depends_on: []
-    size: small
-    description:
-      "subprocess-hardening: bound the post-exit pipe-drain phase with a deadline, fix
-      the straggler-kill PID-reuse ordering, and reject huge sleep values that panic
-      Duration::from_secs_f64 in bob pomodoro notify."
-  - id: script-small-fixes
-    title: Shell and migration script fixes
-    depends_on: []
-    size: small
-    description:
-      "script-small-fixes: honor bob_notify's --no-timeout escalation, make the tracker
-      migration CRLF-safe and atomic with working duplicate-anchor detection, and settle
-      the decision-gated partial-registry capture-targets behavior."
+- id: gcal-escaping
+  title: Gcal hostile title and badge URL escaping
+  depends_on: []
+  size: small
+  description: 'gcal-escaping: collapse newlines/control whitespace in calendar titles
+    and percent-encode whitespace in badge URLs so a synced event can no longer forge
+    daily-note Markdown; extend the hostile-title e2e test with multi-line cases.'
+- id: web-clip-fetch-guard
+  title: Web clip out-of-band fetch guard
+  depends_on: []
+  size: medium
+  description: 'web-clip-fetch-guard: route image/PDF APIRequestContext fetches through
+    the private-network guard with per-hop redirect checks, escape < in the reader
+    CSS title, and fix the sanitize-order bug that disabled inline-SVG externalization.'
+- id: vault-sync-durability
+  title: Vault sync and rewrite write durability
+  depends_on: []
+  size: medium
+  description: 'vault-sync-durability: literal git pathspecs, a pre-restore byte recheck
+    in clobber quarantine, conflict copies before merge aborts, fsync before rename
+    in the atomic-write helpers, and per-file stale rechecks in the rewrite transaction.'
+- id: bank-parser-fixes
+  title: Bank month-note parser fixes
+  depends_on: []
+  size: small
+  description: 'bank-parser-fixes: validate trailing tokens before the out-of-month
+    early return in day-heading parsing, parse frontmatter from BOM-stripped text,
+    and correct the latent write-planner anchors to match the documented contract.'
+- id: subprocess-hardening
+  title: Subprocess reaper and notify hardening
+  depends_on: []
+  size: small
+  description: 'subprocess-hardening: bound the post-exit pipe-drain phase with a
+    deadline, fix the straggler-kill PID-reuse ordering, and reject huge sleep values
+    that panic Duration::from_secs_f64 in bob pomodoro notify.'
+- id: script-small-fixes
+  title: Shell and migration script fixes
+  depends_on: []
+  size: small
+  description: 'script-small-fixes: honor bob_notify''s --no-timeout escalation, make
+    the tracker migration CRLF-safe and atomic with working duplicate-anchor detection,
+    and settle the decision-gated partial-registry capture-targets behavior.'
 proposed_by: bbugyi200.athena.1bj
 proposed_with: claude/claude-fable-5
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 13:33:42
 status: wip
+bead_id: bob-cli-kf
 ---
 
-- **PROMPT:**
-  [prompts/202611/security_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/security_audit_fixes.md)
+- **PROMPT:** [prompts/202611/security_audit_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/security_audit_fixes.md)
+- **BEAD:** [bob-cli-kf](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kf/README.md)
 
 # Plan: Security and bug audit fixes
 
