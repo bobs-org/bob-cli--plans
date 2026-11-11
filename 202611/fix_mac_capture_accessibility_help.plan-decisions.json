@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "fix_shape",
+      "kind": "choice",
+      "ask": "Should the invalid modifier line be deleted outright?",
+      "why": "Apple docs say help(_:) configures the accessibility hint, so a hint modifier duplicates it.",
+      "choices": [
+        {
+          "key": "delete",
+          "label": "Line 1598 is removed; the adjacent .help() already sets tooltip and accessibility hint."
+        },
+        {
+          "key": "hint",
+          "label": "Line 1598 becomes .accessibilityHint(...), repo convention, but the hint is then set twice."
+        }
+      ],
+      "default": "delete",
+      "effective_default": "delete",
+      "requested_verified": false
+    }
+  ]
+}
