@@ -1,139 +1,139 @@
 ---
 tier: epic
 title: Bank — acknowledge every transaction daily, prove it weekly
-goal: "Bryan restarts his daily bank habit right away. Every posted transaction and
-  deposit becomes one checkbox row in a monthly bank note under a new `bank` sub-area of
-  `cash`. Typing a row acknowledges it. A weekly `bob bank import` of a Wells Fargo QFX
-  file writes, unchecked, only the rows he missed, and a balance proof shows that
+goal: 'Bryan restarts his daily bank habit right away. Every posted transaction and
+  deposit becomes one checkbox row in a monthly bank note under a new `bank` sub-area
+  of `cash`. Typing a row acknowledges it. A weekly `bob bank import` of a Wells Fargo
+  QFX file writes, unchecked, only the rows he missed, and a balance proof shows that
   nothing was skipped. Every total is computed when it is drawn (terminal, month card,
   queue card, daily chip) and never written into notes. A missed week costs one sitting
   to catch up, not a retyping spiral.
 
-  "
+  '
 decisions:
   accounts:
     ask: Which accounts should bank.md track from day one?
     choices:
-      checking: Wells Fargo checking only; a card is added later with one bank.md entry
-      checking_card:
-        Also a credit card you spend on, with its card payments marked transfer
+      checking: Wells Fargo checking only; a card is added later with one bank.md
+        entry
+      checking_card: Also a credit card you spend on, with its card payments marked
+        transfer
     default: checking
     why: The vault shows no card in use, and the old @BANK habit was checking-only
     answer: checking
   subscriptions_scope:
     ask: Which recurring charges should the follow-up subscriptions album hold?
     choices:
-      discretionary:
-        Only keep-or-cancel charges; mortgage, loans, and insurance stay categories
-      all_recurring:
-        Every recurring charge, so the album also shows a fixed monthly burn
+      discretionary: Only keep-or-cancel charges; mortgage, loans, and insurance stay
+        categories
+      all_recurring: Every recurring charge, so the album also shows a fixed monthly
+        burn
     default: discretionary
-    why:
-      Obligations aren't keep-or-cancel choices, and auditing those choices is the
-      album's job
+    why: Obligations aren't keep-or-cancel choices, and auditing those choices is
+      the album's job
     answer: discretionary
   memory_bank_glossary:
     ask: Should the wrap-up add Bank Month Note and Bank Row glossary strands?
     memory:
-      - glossary:bank-month-note
-      - glossary:bank-row
+    - glossary:bank-month-note
+    - glossary:bank-row
     default: false
     answer: true
   memory_bank_decision:
     ask: Should the wrap-up add the bank-rows-not-records decision record?
     memory:
-      - decisions:bank-rows-not-records
+    - decisions:bank-rows-not-records
     default: false
     answer: false
 phases:
-  - id: bank-restart
-    title: Restart the habit in the vault with no code
-    depends_on: []
-    size: small
-    description: "bank-restart: create `bank.md` under `cash` with its `bank:` config,
-      the `bank_month` type note, and this month's bank month note in the final
-      template. Capture the daily PRE chore, retire the decaying
-      `^daily-bank-records-again` as superseded, and gate on link and task counts.
+- id: bank-restart
+  title: Restart the habit in the vault with no code
+  depends_on: []
+  size: small
+  description: 'bank-restart: create `bank.md` under `cash` with its `bank:` config,
+    the `bank_month` type note, and this month''s bank month note in the final template.
+    Capture the daily PRE chore, retire the decaying `^daily-bank-records-again` as
+    superseded, and gate on link and task counts.
 
-      "
-  - id: bank-grammar
-    title: The bank module, row grammar, and bob bank check
-    depends_on: []
-    size: medium
-    description: "bank-grammar: add `src/native/bank/` with the `bank:` config parser
-      (key-path diagnostics), the row and day-heading grammar, the canonical renderers
-      and insertion planners, and the month-note scanner. Ship the read-only `bob bank
-      check` lint in the Integrations section, and write `docs/bank.md` as the contract.
+    '
+- id: bank-grammar
+  title: The bank module, row grammar, and bob bank check
+  depends_on: []
+  size: medium
+  description: 'bank-grammar: add `src/native/bank/` with the `bank:` config parser
+    (key-path diagnostics), the row and day-heading grammar, the canonical renderers
+    and insertion planners, and the month-note scanner. Ship the read-only `bob bank
+    check` lint in the Integrations section, and write `docs/bank.md` as the contract.
 
-      "
-  - id: bank-cli
-    title: Read the bank — list, report, ensure, and ack
-    depends_on:
-      - bank-grammar
-    size: medium
-    description: "bank-cli: add the bare `bob bank` waiting queue, `report` with the
-      totals semantics, and two capture-style guarded writes: `ensure` (month note and
-      day heading) and `ack` (tick shown rows). Give each beautiful human output and
-      `schema_version: 1` JSON, with account status stubbed as `unverified`.
+    '
+- id: bank-cli
+  title: Read the bank — list, report, ensure, and ack
+  depends_on:
+  - bank-grammar
+  size: medium
+  description: 'bank-cli: add the bare `bob bank` waiting queue, `report` with the
+    totals semantics, and two capture-style guarded writes: `ensure` (month note and
+    day heading) and `ack` (tick shown rows). Give each beautiful human output and
+    `schema_version: 1` JSON, with account status stubbed as `unverified`.
 
-      "
-  - id: bank-import
-    title: Weekly QFX import that writes only what you missed
-    depends_on:
-      - bank-cli
-    size: large
-    description: "bank-import: parse Wells Fargo QFX (OFX 1.x SGML and 2.x XML) plus one
-      CSV profile; resolve accounts without numbers; journal hashed identities per host;
-      match typed rows; name rows from rules, learned payees, and restaurant records;
-      write unchecked rows in one guarded, committed transaction with an exact dry run;
-      add the weekly PRE chore.
+    '
+- id: bank-import
+  title: Weekly QFX import that writes only what you missed
+  depends_on:
+  - bank-cli
+  size: large
+  description: 'bank-import: parse Wells Fargo QFX (OFX 1.x SGML and 2.x XML) plus
+    one CSV profile; resolve accounts without numbers; journal hashed identities per
+    host; match typed rows; name rows from rules, learned payees, and restaurant records;
+    write unchecked rows in one guarded, committed transaction with an exact dry run;
+    add the weekly PRE chore.
 
-      "
-  - id: bank-balance
-    title: Prove every transaction — coverage, presence, balance
-    depends_on:
-      - bank-import
-    size: medium
-    description: "bank-balance: derive each account's anchor from the bank's own
-      numbers, prove coverage, presence, and balance, report possible twins, unmatched
-      typed rows, and edited amounts, and fill account status in check, list, report,
-      and import. Add `import -F` to restore deleted rows deliberately.
+    '
+- id: bank-balance
+  title: Prove every transaction — coverage, presence, balance
+  depends_on:
+  - bank-import
+  size: medium
+  description: 'bank-balance: derive each account''s anchor from the bank''s own numbers,
+    prove coverage, presence, and balance, report possible twins, unmatched typed
+    rows, and edited amounts, and fill account status in check, list, report, and
+    import. Add `import -F` to restore deleted rows deliberately.
 
-      "
-  - id: bank-obsidian
-    title: Obsidian bank cards, styled rows, and the daily chip
-    depends_on:
-      - bank-cli
-    size: large
-    description: "bank-obsidian: in bob-ledger-tools, draw the `bob-bank` month and
-      queue cards, style bank rows and day headings, add the quiet daily-note chip, the
-      open-today and acknowledge commands, Enter continuation with `- [x] $`, and
-      category suggestions. Guard bank rows against task gestures, then `bob plugins
-      sync`.
+    '
+- id: bank-obsidian
+  title: Obsidian bank cards, styled rows, and the daily chip
+  depends_on:
+  - bank-cli
+  size: large
+  description: 'bank-obsidian: in bob-ledger-tools, draw the `bob-bank` month and
+    queue cards, style bank rows and day headings, add the quiet daily-note chip,
+    the open-today and acknowledge commands, Enter continuation with `- [x] $`, and
+    category suggestions. Guard bank rows against task gestures, then `bob plugins
+    sync`.
 
-      "
-  - id: bank-wrapup
-    title: End-to-end proof, the guide, docs audit, memory, and follow-ups
-    depends_on:
-      - bank-restart
-      - bank-balance
-      - bank-obsidian
-    size: medium
-    description:
-      "bank-wrapup: walk every bank gesture end to end in a temporary vault, write the
-      how-to guide, audit every bank doc against shipped behaviour, check the real
-      vault, apply only the accepted memory decisions, and propose the subscriptions
-      album (blocked on bob-cli-k3) and the later views as follow-ups."
+    '
+- id: bank-wrapup
+  title: End-to-end proof, the guide, docs audit, memory, and follow-ups
+  depends_on:
+  - bank-restart
+  - bank-balance
+  - bank-obsidian
+  size: medium
+  description: 'bank-wrapup: walk every bank gesture end to end in a temporary vault,
+    write the how-to guide, audit every bank doc against shipped behaviour, check
+    the real vault, apply only the accepted memory decisions, and propose the subscriptions
+    album (blocked on bob-cli-k3) and the later views as follow-ups.'
 proposed_by: bbugyi200.athena.1be
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 11:24:14
 status: wip
+bead_id: bob-cli-kd
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_daily_acknowledgment.md)
+- **PROMPT:** [prompts/202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_daily_acknowledgment.md)
+- **BEAD:** [bob-cli-kd](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kd/README.md)
 
 <!-- sase:links:start -->
 
