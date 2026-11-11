@@ -1,57 +1,52 @@
 ---
 tier: epic
 title: Weekly bank import with deterministic matching and one guarded commit
-goal:
-  "Complete bob-cli-kd.4: import posted Wells Fargo QFX/OFX and CSV transactions once,
-  preserve typed rows and edits, journal private identities, and install the Monday PRE
-  chore after the command is verified."
+goal: 'Complete bob-cli-kd.4: import posted Wells Fargo QFX/OFX and CSV transactions
+  once, preserve typed rows and edits, journal private identities, and install the
+  Monday PRE chore after the command is verified.'
 phases:
-  - id: sources-journal
-    title: Parse bank exports and establish the shared journal
-    depends_on: []
-    size: medium
-    description:
-      "sources-journal: parse both OFX dialects and the Wells Fargo CSV profile, resolve
-      account aliases, hash identities, and expose a validated per-host bank journal
-      with bounded diagnostics and balance-phase input types."
-  - id: match-name-plan
-    title: Plan only missing rows and preserve existing writing
-    depends_on:
-      - sources-journal
-    size: medium
-    description:
-      "match-name-plan: build a pure whole-batch planner for seen identities, typed-row
-      matching, learned and configured naming, restaurant links, month edits, and
-      journal events, with exact deterministic previews."
-  - id: import-command
-    title: Ship the guarded import command and recovery tests
-    depends_on:
-      - match-name-plan
-    size: medium
-    description:
-      "import-command: integrate bob bank import, ordered guarded journal appends inside
-      the shared transaction, scoped commit and sync, human and JSON output, and
-      end-to-end refusal, replay, and recovery tests."
-  - id: docs-ritual
-    title: Document the import and install the Monday ritual
-    depends_on:
-      - import-command
-    size: small
-    description:
-      "docs-ritual: finish the import and sync documentation, regenerate CLI references,
-      verify the installed command, and idempotently capture the weekly Bank import PRE
-      chore; leave closure evidence for the land agent."
+- id: sources-journal
+  title: Parse bank exports and establish the shared journal
+  depends_on: []
+  size: medium
+  description: 'sources-journal: parse both OFX dialects and the Wells Fargo CSV profile,
+    resolve account aliases, hash identities, and expose a validated per-host bank
+    journal with bounded diagnostics and balance-phase input types.'
+- id: match-name-plan
+  title: Plan only missing rows and preserve existing writing
+  depends_on:
+  - sources-journal
+  size: medium
+  description: 'match-name-plan: build a pure whole-batch planner for seen identities,
+    typed-row matching, learned and configured naming, restaurant links, month edits,
+    and journal events, with exact deterministic previews.'
+- id: import-command
+  title: Ship the guarded import command and recovery tests
+  depends_on:
+  - match-name-plan
+  size: medium
+  description: 'import-command: integrate bob bank import, ordered guarded journal
+    appends inside the shared transaction, scoped commit and sync, human and JSON
+    output, and end-to-end refusal, replay, and recovery tests.'
+- id: docs-ritual
+  title: Document the import and install the Monday ritual
+  depends_on:
+  - import-command
+  size: small
+  description: 'docs-ritual: finish the import and sync documentation, regenerate
+    CLI references, verify the installed command, and idempotently capture the weekly
+    Bank import PRE chore; leave closure evidence for the land agent.'
 proposed_by: bbugyi200.athena.bob-cli-kd.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kd.4
 create_time: 2026-11-11 14:24:03
 status: wip
+bead_id: bob-cli-kd.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_import.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_import.md)
-- **PARENT:**
-  [202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_daily_acknowledgment.md)
+- **PROMPT:** [prompts/202611/bank_import.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_import.md)
+- **PARENT:** [202611/bank_daily_acknowledgment.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_daily_acknowledgment.md)
+- **BEAD:** [bob-cli-kd.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kd/bob-cli-kd.4.1.md)
 
 # Plan: Weekly bank import
 
