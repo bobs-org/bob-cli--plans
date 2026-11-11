@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair album model validation and finish its landing
-goal: Correct the album resolver and reports, verify the final tree, and close bob-cli-k3.2.1
-  and parent phase bob-cli-k3.2.
+goal:
+  Correct the album resolver and reports, verify the final tree, and close
+  bob-cli-k3.2.1 and parent phase bob-cli-k3.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-k3.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/album_model.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_model.md)
 - **BEAD:**
   [bob-cli-k3.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-k3.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.2.1.land.md)
+- **COMMITS:**
+  - [ba3f51b](https://github.com/bobs-org/bob-cli/commit/ba3f51bad3bd491d66e739a895ce4de99149329f)
+    — fix(albums): confine routes, recover nouns, and restore report diagnostics
 
 # Finish album-model validation and land bob-cli-k3.2.1
 
