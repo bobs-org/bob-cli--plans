@@ -1,50 +1,47 @@
 ---
 tier: epic
 title: Print SVG image embeds in bob ref create Markdown PDFs
-goal: "A Markdown bob ref create never fails on an SVG image embed; each SVG prints as a
-  vector PDF, else a same-stem sibling raster, else a visible placeholder with a
-  warning.
+goal: 'A Markdown bob ref create never fails on an SVG image embed; each SVG prints
+  as a vector PDF, else a same-stem sibling raster, else a visible placeholder with
+  a warning.
 
-  "
+  '
 decisions:
   recapture:
-    ask:
-      Should the final phase install the new bob and re-run the keep_moving_link_marks
+    ask: Should the final phase install the new bob and re-run the keep_moving_link_marks
       capture?
     default: true
-    why:
-      The hook already does this on every report write; the failure only left the
+    why: The hook already does this on every report write; the failure only left the
       reference missing.
     answer: true
 phases:
-  - id: svg-image-guard
-    title: Always-on SVG image guard
-    depends_on: []
-    size: medium
-    description:
-      "svg-image-guard: add an always-on Lua image filter that swaps SVG embeds for a
-      same-stem sibling raster or an Image-not-printable placeholder, reports them as
-      images:/warning: lines, fixes the misleading svg.sty hint, and documents the
-      behavior."
-  - id: svg-vector-render
-    title: Vector SVG rendering through the Chrome diagram renderer
-    depends_on:
-      - svg-image-guard
-    size: medium
-    description:
-      "svg-vector-render: extend the Mermaid diagram pass and adapter protocol so local
-      SVG embeds render to vector PDFs in the same browser launch, falling back to the
-      guard, then optionally recapture the failed report."
+- id: svg-image-guard
+  title: Always-on SVG image guard
+  depends_on: []
+  size: medium
+  description: 'svg-image-guard: add an always-on Lua image filter that swaps SVG
+    embeds for a same-stem sibling raster or an Image-not-printable placeholder, reports
+    them as images:/warning: lines, fixes the misleading svg.sty hint, and documents
+    the behavior.'
+- id: svg-vector-render
+  title: Vector SVG rendering through the Chrome diagram renderer
+  depends_on:
+  - svg-image-guard
+  size: medium
+  description: 'svg-vector-render: extend the Mermaid diagram pass and adapter protocol
+    so local SVG embeds render to vector PDFs in the same browser launch, falling
+    back to the guard, then optionally recapture the failed report.'
 proposed_by: bbugyi200.apollo.d9
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 07:53:16
 status: wip
+bead_id: bob-cli-k6
 ---
 
-- **PROMPT:**
-  [prompts/202611/ref_create_svg_images.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_create_svg_images.md)
+- **PROMPT:** [prompts/202611/ref_create_svg_images.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_create_svg_images.md)
+- **BEAD:** [bob-cli-k6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k6/README.md)
 
 # Print SVG image embeds in `bob ref create` Markdown PDFs
 
