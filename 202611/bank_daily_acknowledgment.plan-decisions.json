@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "accounts",
+      "kind": "choice",
+      "ask": "Which accounts should bank.md track from day one?",
+      "why": "The vault shows no card in use, and the old @BANK habit was checking-only",
+      "choices": [
+        {
+          "key": "checking",
+          "label": "Wells Fargo checking only; a card is added later with one bank.md entry"
+        },
+        {
+          "key": "checking_card",
+          "label": "Also a credit card you spend on, with its card payments marked transfer"
+        }
+      ],
+      "default": "checking",
+      "effective_default": "checking",
+      "requested_verified": false
+    },
+    {
+      "id": "subscriptions_scope",
+      "kind": "choice",
+      "ask": "Which recurring charges should the follow-up subscriptions album hold?",
+      "why": "Obligations aren't keep-or-cancel choices, and auditing those choices is the album's job",
+      "choices": [
+        {
+          "key": "discretionary",
+          "label": "Only keep-or-cancel charges; mortgage, loans, and insurance stay categories"
+        },
+        {
+          "key": "all_recurring",
+          "label": "Every recurring charge, so the album also shows a fixed monthly burn"
+        }
+      ],
+      "default": "discretionary",
+      "effective_default": "discretionary",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_bank_glossary",
+      "kind": "toggle",
+      "ask": "Should the wrap-up add Bank Month Note and Bank Row glossary strands?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:bank-month-note",
+          "glossary:bank-row"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:bank-month-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/bank-month-note.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "glossary:bank-row",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/bank-row.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_bank_decision",
+      "kind": "toggle",
+      "ask": "Should the wrap-up add the bank-rows-not-records decision record?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:bank-rows-not-records"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:bank-rows-not-records",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/bank-rows-not-records.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
