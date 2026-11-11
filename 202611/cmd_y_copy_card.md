@@ -3,9 +3,9 @@ tier: epic
 title: Cmd+Y Copy card — keyed paths, the task's block ID, and your own templates
 goal: 'Cmd+Y in Obsidian opens a compact, filter-less Copy card where every row copies
   with one key (P Path stays the ↵ default), the cursor''s task contributes an I Block
-  ID row, and copy.templates in ~/.config/bob/config.yml adds rows such as "the
-  ^{block_id} task in the {path}". Preview and clipboard never disagree, and copying
-  never writes the vault.
+  ID row, and copy.templates in ~/.config/bob/config.yml adds rows such as "the ^{block_id}
+  task in the {path}". Preview and clipboard never disagree, and copying never writes
+  the vault.
 
   '
 decisions:
@@ -17,55 +17,53 @@ decisions:
   copy_card_record:
     ask: Should the config phase add a decisions-web record for the Copy card rules?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: model
-    title: Pure Copy card model, template grammar, and config loader
-    depends_on: []
-    size: medium
-    description:
-      "model: add Obsidian-free fragments for the row table, the owning-task resolver,
-      the single-pass template grammar, copy.templates loading and validation, the
-      frozen card model, and key resolution, with exhaustive unit tests."
-  - id: card
-    title: Copy card modal, Cmd+Y wiring, styles, and docs
-    depends_on:
-      - model
-    size: medium
-    description:
-      "card: replace YankPathPickerModal with a CopyCardModal on Bob's key-card tokens,
-      wire Cmd+Y and a yank-block-id palette command through a new plugin mixin, add the
-      styles, render and key tests, the copy-card docs page, then build and sync."
-  - id: e2e
-    title: Real-Obsidian e2e, light and dark screenshots, and polish
-    depends_on:
-      - card
-    size: medium
-    description:
-      "e2e: drive the card in an isolated scratch vault over CDP, assert the clipboard
-      for every key and state, capture light and dark screenshots of each state, and fix
-      whatever the screenshots show is misaligned, clipped, or low-contrast."
-  - id: config
-    title: Ship the Task ref template and document copy.templates
-    depends_on:
-      - card
-    size: small
-    description:
-      "config: add the copy.templates block with the Task ref template to chezmoi's Bob
-      config and apply it, and add a copy section to bob-cli's configuration reference
-      that links the plugin page."
+- id: model
+  title: Pure Copy card model, template grammar, and config loader
+  depends_on: []
+  size: medium
+  description: 'model: add Obsidian-free fragments for the row table, the owning-task
+    resolver, the single-pass template grammar, copy.templates loading and validation,
+    the frozen card model, and key resolution, with exhaustive unit tests.'
+- id: card
+  title: Copy card modal, Cmd+Y wiring, styles, and docs
+  depends_on:
+  - model
+  size: medium
+  description: 'card: replace YankPathPickerModal with a CopyCardModal on Bob''s key-card
+    tokens, wire Cmd+Y and a yank-block-id palette command through a new plugin mixin,
+    add the styles, render and key tests, the copy-card docs page, then build and
+    sync.'
+- id: e2e
+  title: Real-Obsidian e2e, light and dark screenshots, and polish
+  depends_on:
+  - card
+  size: medium
+  description: 'e2e: drive the card in an isolated scratch vault over CDP, assert
+    the clipboard for every key and state, capture light and dark screenshots of each
+    state, and fix whatever the screenshots show is misaligned, clipped, or low-contrast.'
+- id: config
+  title: Ship the Task ref template and document copy.templates
+  depends_on:
+  - card
+  size: small
+  description: 'config: add the copy.templates block with the Task ref template to
+    chezmoi''s Bob config and apply it, and add a copy section to bob-cli''s configuration
+    reference that links the plugin page.'
 proposed_by: bbugyi200.athena.1bg
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 11:19:05
 status: wip
+bead_id: bob-cli-kc
 ---
 
-- **PROMPT:**
-  [prompts/202611/cmd_y_copy_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cmd_y_copy_card.md)
+- **PROMPT:** [prompts/202611/cmd_y_copy_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cmd_y_copy_card.md)
+- **BEAD:** [bob-cli-kc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kc/README.md)
 
 # Plan: Cmd+Y Copy card
 
