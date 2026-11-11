@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "reload_history",
+      "kind": "choice",
+      "ask": "Should every disk reload of an open note stay out of that editor's undo history?",
+      "why": "CodeMirror's model for remote edits; today u reverts synced writes that sync back as Bryan's",
+      "choices": [
+        {
+          "key": "always",
+          "label": "Redo always survives a reload, and u never reverts a background write"
+        },
+        {
+          "key": "only_when_redo_pending",
+          "label": "Only reloads during a pending redo stay out; u can still revert other background writes"
+        }
+      ],
+      "default": "always",
+      "effective_default": "always",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Record the policy as a new decisions-web record (disk-reloads-stay-out-of-undo)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:disk-reloads-stay-out-of-undo"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:disk-reloads-stay-out-of-undo",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/disk-reloads-stay-out-of-undo.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
