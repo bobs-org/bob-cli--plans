@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Restore task-wikilink snapshot and ranking CPU budgets
-goal: Restore the existing task-wikilink latency budgets with a measured production
-  fix and preserved picker behavior.
+goal:
+  Restore the existing task-wikilink latency budgets with a measured production fix and
+  preserved picker behavior.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-kj.6
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/impact_ranked_bead_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/impact_ranked_bead_fixes.md)
 - **BEAD:**
   [bob-cli-kj.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kj/bob-cli-kj.6.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-kj.6](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-kj.6.md)
+- **COMMITS:**
+  - [70408bf](https://github.com/bobs-org/bob-plugins/commit/70408bf815ce899ca2e5965e9fca8c1d8703ceee)
+    — fix(block-id-prompt): restore task-wikilink snapshot and rank CPU budgets
 
 # Restore task-wikilink snapshot and ranking CPU budgets
 
