@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "flash_doc",
+      "kind": "toggle",
+      "ask": "Also note in the Bob Vim Yank Flash doc that the vault maps normal-mode `Y` to `y$`?",
+      "why": "Keeps Bryan's own plugin doc true to his editor; the nav-hotkeys doc notes vimrc bindings too.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
