@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "partial_registry_targets",
+      "kind": "choice",
+      "ask": "Should bob capture targets keep config-defined record routes when the album registry walk is partial?",
+      "why": "The completion provider mirrors the same never-act-on-incomplete-registry policy; looks intended.",
+      "choices": [
+        {
+          "key": "drop_all",
+          "label": "Keep the current drop \u2014 a partial walk hides every record route row; add a policy comment only."
+        },
+        {
+          "key": "config_fallback",
+          "label": "Emit config-defined record types on a partial walk; withhold only album-derived rows."
+        }
+      ],
+      "default": "drop_all",
+      "effective_default": "drop_all",
+      "requested_verified": false
+    },
+    {
+      "id": "dns_rebinding_depth",
+      "kind": "choice",
+      "ask": "Should web clip pin subresource connections to the vetted IP to fully close the DNS-rebinding window?",
+      "why": "Single-user tool; pinning adds a proxy layer whose breakage cost outweighs the narrow race.",
+      "choices": [
+        {
+          "key": "cache_scope",
+          "label": "Scope the host-verdict cache to one capture and accept the residual rebinding race."
+        },
+        {
+          "key": "pin_ip",
+          "label": "Pin vetted hosts to their resolved IPs; heavier machinery that may break real captures."
+        }
+      ],
+      "default": "cache_scope",
+      "effective_default": "cache_scope",
+      "requested_verified": false
+    }
+  ]
+}
