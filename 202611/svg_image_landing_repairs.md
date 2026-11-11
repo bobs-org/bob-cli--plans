@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish SVG image handling and land bob-cli-k6
-goal:
-  Fix SVG eligibility, ordering, root sanitization, and overwrite diagnostics, then
-  verify and close bob-cli-k6.
+goal: Fix SVG eligibility, ordering, root sanitization, and overwrite diagnostics,
+  then verify and close bob-cli-k6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-k6.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-k6
-create_time: 2026-11-11 09:57:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
