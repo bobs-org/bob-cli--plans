@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish private event note boundary cases and land bob-cli-ji.8
-goal: Repair the remaining note command defects, synchronize Mac fixtures, and complete
-  the epic and ready parent closeouts.
+goal:
+  Repair the remaining note command defects, synchronize Mac fixtures, and complete the
+  epic and ready parent closeouts.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ji.8.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/finish_private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/finish_private_gcal_event_notes.md)
 - **BEAD:**
   [bob-cli-ji.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ji/bob-cli-ji.8.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ji.8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ji.8.land.md)
+- **COMMITS:**
+  - [05ec825](https://github.com/bobs-org/bob-cli/commit/05ec8253f144ed6e5947f659a17eb50dea45d251)
+    — fix(gcal): finish private note landing boundary cases
 
 # Finish private event note boundary cases and land bob-cli-ji.8
 
