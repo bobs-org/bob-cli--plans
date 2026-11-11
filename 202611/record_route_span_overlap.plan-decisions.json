@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "card_changes",
+      "kind": "toggle",
+      "ask": "Should the Record Card also list an update's planned note changes, so they show without pressing Escape?",
+      "why": "The report is that changes are invisible while the card is up; Return can capture from it",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
