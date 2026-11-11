@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish backslash alias documentation and land bob-cli-jt
-goal:
-  Correct the remaining alias documentation, mark the contract break, and close
+goal: Correct the remaining alias documentation, mark the contract break, and close
   bob-cli-jt with its plan done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-jt.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-jt
-create_time: 2026-11-10 19:18:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
