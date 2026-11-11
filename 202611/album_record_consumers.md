@@ -1,56 +1,52 @@
 ---
 tier: epic
 title: Album schemas for records, capture, and completion
-goal:
-  Complete bob-cli-k3.4 so every record consumer uses its effective vault's album
+goal: Complete bob-cli-k3.4 so every record consumer uses its effective vault's album
   schemas, records carry album identity, and albums refuse tasks.
 phases:
-  - id: record-context
-    title: Shared resolved record identity and source-aware rendering
-    size: medium
-    depends_on: []
-    description:
-      "record-context: add the shared consumer adapter over the landed album registry,
-      preserve source and album presentation metadata, and make shared record rendering
-      distinguish album records from config records without changing legacy callers yet."
-  - id: records-surface
-    title: Album-aware records commands and membership checks
-    size: medium
-    depends_on:
-      - record-context
-    description:
-      "records-surface: route records commands through the shared context, accept noun
-      and stem selectors, add source and album output, retain invalid collection counts,
-      and implement album membership and checkbox checks."
-  - id: capture-albums
-    title: Capture album records and refuse album task homes
-    size: medium
-    depends_on:
-      - record-context
-    description:
-      "capture-albums: carry per-route album resolution through parse and capture, write
-      and update album records with additive metadata, isolate broken albums, and
-      implement album task refusals with owner guidance and editor rewrites."
-  - id: album-completion
-    title: Album-aware targets and completion
-    size: medium
-    depends_on:
-      - capture-albums
-    description:
-      "album-completion: move capture-targets, both capture-complete config callers, and
-      the three shell completion providers to the shared registry adapter; enrich album
-      rows and prove every completion surface honors the effective vault."
+- id: record-context
+  title: Shared resolved record identity and source-aware rendering
+  size: medium
+  depends_on: []
+  description: 'record-context: add the shared consumer adapter over the landed album
+    registry, preserve source and album presentation metadata, and make shared record
+    rendering distinguish album records from config records without changing legacy
+    callers yet.'
+- id: records-surface
+  title: Album-aware records commands and membership checks
+  size: medium
+  depends_on:
+  - record-context
+  description: 'records-surface: route records commands through the shared context,
+    accept noun and stem selectors, add source and album output, retain invalid collection
+    counts, and implement album membership and checkbox checks.'
+- id: capture-albums
+  title: Capture album records and refuse album task homes
+  size: medium
+  depends_on:
+  - record-context
+  description: 'capture-albums: carry per-route album resolution through parse and
+    capture, write and update album records with additive metadata, isolate broken
+    albums, and implement album task refusals with owner guidance and editor rewrites.'
+- id: album-completion
+  title: Album-aware targets and completion
+  size: medium
+  depends_on:
+  - capture-albums
+  description: 'album-completion: move capture-targets, both capture-complete config
+    callers, and the three shell completion providers to the shared registry adapter;
+    enrich album rows and prove every completion surface honors the effective vault.'
 proposed_by: bbugyi200.athena.bob-cli-k3.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-k3.4
 create_time: 2026-11-11 09:19:32
 status: wip
+bead_id: bob-cli-k3.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_record_consumers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_record_consumers.md)
-- **PARENT:**
-  [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_record_consumers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_record_consumers.md)
+- **PARENT:** [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.4.1.md)
 
 # Album schemas for records, capture, and completion
 
