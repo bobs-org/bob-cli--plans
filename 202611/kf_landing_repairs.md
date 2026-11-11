@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish and land the security and bug audit epic
-goal:
-  The six remaining defects in bob-cli-kf's own changes are fixed with regression tests,
-  just check passes, and epic bob-cli-kf is closed with its plan marked done.
+goal: The six remaining defects in bob-cli-kf's own changes are fixed with regression
+  tests, just check passes, and epic bob-cli-kf is closed with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-kf.land
 proposed_with: claude/opus
 bead: bob-cli-kf
-create_time: 2026-11-11 15:48:51
-status: wip
+status: done
 ---
 
 - **PARENT:**
