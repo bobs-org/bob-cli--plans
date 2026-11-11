@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "prj_glyph",
+      "kind": "choice",
+      "ask": "Which glyph should replace the '#task #prj' identity pair?",
+      "why": "The ^prj task states the project outcome, and ring-plus-dot stays legible at 0.8em",
+      "choices": [
+        {
+          "key": "target",
+          "label": "A stroked target (ring plus center dot): the project outcome; simplest, crispest at 0.8em"
+        },
+        {
+          "key": "milestone",
+          "label": "A stroked signpost (Lucide milestone): reads as project milestone; busier at small sizes"
+        },
+        {
+          "key": "folder",
+          "label": "A stroked folder: the classic project container; generic, and projects here are outcomes"
+        }
+      ],
+      "default": "target",
+      "effective_default": "target",
+      "requested_verified": false
+    },
+    {
+      "id": "hide_ink",
+      "kind": "choice",
+      "ask": "What ink should the '#hide' eye-off mark use?",
+      "why": "Family grammar: identity-slot shapes in teal, trailing machine state in quiet grey",
+      "choices": [
+        {
+          "key": "grey",
+          "label": "The quiet grey metadata ink of the date marks: a dormant-state signal that stays out of the way"
+        },
+        {
+          "key": "teal",
+          "label": "The family teal identity ink: consistent with identity glyphs but claims a kind for a state"
+        }
+      ],
+      "default": "grey",
+      "effective_default": "grey",
+      "requested_verified": false
+    },
+    {
+      "id": "hide_scope",
+      "kind": "choice",
+      "ask": "Where should the '#hide' eye-off mark render?",
+      "why": "bob's review predicate hides any tagged task, so the truthful mark follows the engine",
+      "choices": [
+        {
+          "key": "all_task_lines",
+          "label": "Every task line with an exact whole-token tag; matches the engine, which hides any task"
+        },
+        {
+          "key": "canonical_rows",
+          "label": "Only prj and ref identity rows; an ordinary hidden task would keep a misleading pill"
+        }
+      ],
+      "default": "all_task_lines",
+      "effective_default": "all_task_lines",
+      "requested_verified": false
+    },
+    {
+      "id": "pickers",
+      "kind": "choice",
+      "ask": "Should picker and Task Card display text also drop '#prj' and '#hide' like '#ref'?",
+      "why": "Picker text spans two more plugins and suites; a follow-up bead keeps this tale bounded",
+      "choices": [
+        {
+          "key": "defer",
+          "label": "Rendering only in this tale; file picker-text parity as one follow-up task bead"
+        },
+        {
+          "key": "include",
+          "label": "Also strip the tags from picker text in bob-navigation-hotkeys and block-id-prompt now"
+        }
+      ],
+      "default": "defer",
+      "effective_default": "defer",
+      "requested_verified": false
+    }
+  ]
+}
