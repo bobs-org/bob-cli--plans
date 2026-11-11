@@ -1,54 +1,50 @@
 ---
 tier: epic
 title: Album model — schema parsing, vault registry, and read-only reports
-goal:
-  Complete bob-cli-k3.2 with album and record recognition, album-local schema
-  diagnostics, a vault-aware registry with album-wins transition semantics, and
-  read-only bob albums list/check reports. Preserve current config-based records
-  behavior until the parent epic's consumer migration and retirement.
+goal: Complete bob-cli-k3.2 with album and record recognition, album-local schema
+  diagnostics, a vault-aware registry with album-wins transition semantics, and read-only
+  bob albums list/check reports. Preserve current config-based records behavior until
+  the parent epic's consumer migration and retirement.
 phases:
-  - id: album-schema
-    title: Parse album declarations through shared record schema validation
-    depends_on: []
-    size: medium
-    description:
-      "album-schema: add album/record type predicates and the album declaration model;
-      refactor record schema helpers around source-aware diagnostics; parse top-level
-      album facts and the ordered record mapping with precise file/line/key paths,
-      retaining claims when validation fails. Preserve config parser behavior and cover
-      the local schema rules in unit tests."
-  - id: album-registry
-    title: Discover album claims, isolate failures, and integrate the vault snapshot
-    depends_on:
-      - album-schema
-    size: medium
-    description:
-      "album-registry: implement full discovery and bounded route resolution,
-      source-tagged RecordType results, album-wins config fallback, cross-album
-      conflicts, owner/root findings, and structural recognition in the notebook
-      snapshot. Keep invalid albums and their records visible and expose schema
-      diagnostics without disabling unrelated albums or notebook catalogs."
-  - id: album-reports
-    title: Ship albums list/check with complete reports, completion, and docs
-    depends_on:
-      - album-registry
-    size: medium
-    description:
-      "album-reports: build deterministic schema-version-1 reports from the registry and
-      per-folder RecordCatalog; add albums list/check and bare list routing, root
-      filtering, colored human output, command catalog and completion integration,
-      contract tests, and generated documentation."
+- id: album-schema
+  title: Parse album declarations through shared record schema validation
+  depends_on: []
+  size: medium
+  description: 'album-schema: add album/record type predicates and the album declaration
+    model; refactor record schema helpers around source-aware diagnostics; parse top-level
+    album facts and the ordered record mapping with precise file/line/key paths, retaining
+    claims when validation fails. Preserve config parser behavior and cover the local
+    schema rules in unit tests.'
+- id: album-registry
+  title: Discover album claims, isolate failures, and integrate the vault snapshot
+  depends_on:
+  - album-schema
+  size: medium
+  description: 'album-registry: implement full discovery and bounded route resolution,
+    source-tagged RecordType results, album-wins config fallback, cross-album conflicts,
+    owner/root findings, and structural recognition in the notebook snapshot. Keep
+    invalid albums and their records visible and expose schema diagnostics without
+    disabling unrelated albums or notebook catalogs.'
+- id: album-reports
+  title: Ship albums list/check with complete reports, completion, and docs
+  depends_on:
+  - album-registry
+  size: medium
+  description: 'album-reports: build deterministic schema-version-1 reports from the
+    registry and per-folder RecordCatalog; add albums list/check and bare list routing,
+    root filtering, colored human output, command catalog and completion integration,
+    contract tests, and generated documentation.'
 proposed_by: bbugyi200.apollo.bob-cli-k3.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-k3.2
 create_time: 2026-11-11 05:07:01
 status: wip
+bead_id: bob-cli-k3.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_model.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_model.md)
-- **PARENT:**
-  [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_model.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_model.md)
+- **PARENT:** [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.2.1.md)
 
 # Scope and authority
 
