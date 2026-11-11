@@ -1,116 +1,103 @@
 ---
 tier: epic
 title: Fix the impact-ranked open task beads
-goal: "The three red verification gates every landing re-triages (macOS CI, bob-cli
-  docs-check, the bob-plugins wikilink perf budgets) are green again and the two
-  diagnosed user-facing bugs are fixed, so beads bob-cli-jx, -jy, -h9, -jz, -jr, -k8,
-  -f8, and -hp can be closed with verified evidence.
+goal: 'The three red verification gates every landing re-triages (macOS CI, bob-cli
+  docs-check, the bob-plugins wikilink perf budgets) are green again and the two diagnosed
+  user-facing bugs are fixed, so beads bob-cli-jx, -jy, -h9, -jz, -jr, -k8, -f8, and
+  -hp can be closed with verified evidence.
 
-  "
+  '
 decisions:
   docs_headroom:
-    ask:
-      Should the five docs pages be trimmed to 5800 words or fewer instead of just under
-      the 6000 cap?
+    ask: Should the five docs pages be trimmed to 5800 words or fewer instead of just
+      under the 6000 cap?
     choices:
-      headroom:
-        Trim each page to 5800 words or fewer so concurrent epics do not immediately
+      headroom: Trim each page to 5800 words or fewer so concurrent epics do not immediately
         re-trip the cap
       minimal: Trim only to just under 6000, preserving the most existing prose
     default: headroom
     why: These pages were pushed back over the cap five times in two weeks.
     answer: headroom
   split_pages:
-    ask:
-      May the docs phase split a section into a new mounted reference page when trimming
-      would drop facts?
+    ask: May the docs phase split a section into a new mounted reference page when
+      trimming would drop facts?
     choices:
-      trim_only:
-        Trim duplicated prose only; a page that cannot reach target keeping its facts is
-        reported
-      allow_split:
-        Split one coherent section into its own mounted page, preserving existing
-        published URLs
+      trim_only: Trim duplicated prose only; a page that cannot reach target keeping
+        its facts is reported
+      allow_split: Split one coherent section into its own mounted page, preserving
+        existing published URLs
     default: trim_only
-    why:
-      Every page is only 1-4% over the cap; deduplication reaches target without IA/URL
-      risk.
+    why: Every page is only 1-4% over the cap; deduplication reaches target without
+      IA/URL risk.
     answer: trim_only
   bob_now:
-    ask:
-      Should the created-offset phase also make an RFC 3339 BOB_NOW with an explicit
+    ask: Should the created-offset phase also make an RFC 3339 BOB_NOW with an explicit
       offset be honored?
     choices:
-      honor:
-        Fix BOB_NOW parsing to honor an explicit offset, with its own regression test
+      honor: Fix BOB_NOW parsing to honor an explicit offset, with its own regression
+        test
       note_only: Only investigate and record findings on bob-cli-k8 for a follow-up
     default: honor
-    why:
-      The documented RFC 3339 form silently falls back to the clock; the worker is
-      already in that file.
+    why: The documented RFC 3339 form silently falls back to the clock; the worker
+      is already in that file.
     answer: honor
 phases:
-  - id: mac-typecheck
-    title: Isolation-correct alias test teardowns
-    depends_on: []
-    size: small
-    description:
-      "mac-typecheck: fix the two @MainActor test classes that mutate ledgerSuites from
-      nonisolated tearDown so bob-mac-capture `just typecheck-tests` passes on clean
-      master (bead bob-cli-jy)."
-  - id: docs-trims
-    title: Mounted reference pages back under the word cap
-    depends_on: []
-    size: medium
-    description:
-      "docs-trims: trim the four bob-mac-capture pages and one bob-plugins page that
-      fail the 6000-word reference budget, keeping contract facts, and verify with each
-      repo's docs gate plus bob-cli just docs-check (beads bob-cli-h9, bob-cli-jz)."
-  - id: stats-borrow
-    title: Stats RefCell double-borrow panic
-    depends_on: []
-    size: small
-    description:
-      "stats-borrow: restructure HomesEngine::finish so remember/ensure_root never
-      re-borrow the resolver, add a regression test for single-metric ranges covering
-      today, and record bob-cli-hp close evidence from just check (beads bob-cli-jr,
-      bob-cli-hp)."
-  - id: created-offset
-    title: Configured-timezone created stamps
-    depends_on: []
-    size: small
-    description:
-      "created-offset: pass the configured timezone into capture_project_note's shared
-      timestamp helpers so created/captured stamps carry the right offset on UTC-clock
-      hosts, with a TZ=Etc/UTC regression test (bead bob-cli-k8)."
-  - id: mac-tip-tests
-    title: Deterministic alias-tip CI timeouts
-    depends_on:
-      - mac-typecheck
-    size: large
-    description:
-      "mac-tip-tests: diagnose and fix the three CaptureAliasTipPanelTests waitUntil
-      timeouts red on every macOS CI run, without weakening assertions, and watch the
-      exact-SHA run fully green (bead bob-cli-jx)."
-  - id: wikilink-perf
-    title: Task-wikilink CPU budget investigation
-    depends_on: []
-    size: large
-    description:
-      "wikilink-perf: establish reproducible measurements for the block-id-prompt
-      task-wikilink snapshot/order and keystroke-rank CPU budget failures, then land a
-      production fix, measurement fix, or justified budget — never a silent bump (bead
-      bob-cli-f8)."
+- id: mac-typecheck
+  title: Isolation-correct alias test teardowns
+  depends_on: []
+  size: small
+  description: 'mac-typecheck: fix the two @MainActor test classes that mutate ledgerSuites
+    from nonisolated tearDown so bob-mac-capture `just typecheck-tests` passes on
+    clean master (bead bob-cli-jy).'
+- id: docs-trims
+  title: Mounted reference pages back under the word cap
+  depends_on: []
+  size: medium
+  description: 'docs-trims: trim the four bob-mac-capture pages and one bob-plugins
+    page that fail the 6000-word reference budget, keeping contract facts, and verify
+    with each repo''s docs gate plus bob-cli just docs-check (beads bob-cli-h9, bob-cli-jz).'
+- id: stats-borrow
+  title: Stats RefCell double-borrow panic
+  depends_on: []
+  size: small
+  description: 'stats-borrow: restructure HomesEngine::finish so remember/ensure_root
+    never re-borrow the resolver, add a regression test for single-metric ranges covering
+    today, and record bob-cli-hp close evidence from just check (beads bob-cli-jr,
+    bob-cli-hp).'
+- id: created-offset
+  title: Configured-timezone created stamps
+  depends_on: []
+  size: small
+  description: 'created-offset: pass the configured timezone into capture_project_note''s
+    shared timestamp helpers so created/captured stamps carry the right offset on
+    UTC-clock hosts, with a TZ=Etc/UTC regression test (bead bob-cli-k8).'
+- id: mac-tip-tests
+  title: Deterministic alias-tip CI timeouts
+  depends_on:
+  - mac-typecheck
+  size: large
+  description: 'mac-tip-tests: diagnose and fix the three CaptureAliasTipPanelTests
+    waitUntil timeouts red on every macOS CI run, without weakening assertions, and
+    watch the exact-SHA run fully green (bead bob-cli-jx).'
+- id: wikilink-perf
+  title: Task-wikilink CPU budget investigation
+  depends_on: []
+  size: large
+  description: 'wikilink-perf: establish reproducible measurements for the block-id-prompt
+    task-wikilink snapshot/order and keystroke-rank CPU budget failures, then land
+    a production fix, measurement fix, or justified budget — never a silent bump (bead
+    bob-cli-f8).'
 proposed_by: bbugyi200.athena.1bm
 proposed_with: claude/claude-fable-5
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 17:20:01
 status: wip
+bead_id: bob-cli-kj
 ---
 
-- **PROMPT:**
-  [prompts/202611/impact_ranked_bead_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/impact_ranked_bead_fixes.md)
+- **PROMPT:** [prompts/202611/impact_ranked_bead_fixes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/impact_ranked_bead_fixes.md)
+- **BEAD:** [bob-cli-kj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kj/README.md)
 
 # Fix the impact-ranked open task beads
 
