@@ -1,47 +1,43 @@
 ---
 tier: epic
 title: Owner album catalogs and guarded album creation
-goal:
-  Owner notes show stable Albums catalogs, sync and check cover their health, and albums
-  create atomically installs an album, its Base, and affected catalogs to complete
-  bob-cli-k3.6.
+goal: Owner notes show stable Albums catalogs, sync and check cover their health,
+  and albums create atomically installs an album, its Base, and affected catalogs
+  to complete bob-cli-k3.6.
 phases:
-  - id: catalog-model
-    title: Plan owner album catalogs and expose their health
-    size: medium
-    depends_on: []
-    description:
-      "catalog-model: add the pure Albums catalog planner, owner/root membership, stable
-      rows, and additive list/check catalog reporting with regression coverage."
-  - id: catalog-sync
-    title: Sync catalogs with indexes and protect generated sections
-    size: medium
-    depends_on:
-      - catalog-model
-    description:
-      "catalog-sync: compose catalog and index edits into standalone/nightly guarded
-      transactions, protect Albums capture sections and completion, and document the
-      shipped catalog behavior."
-  - id: album-create
-    title: Create albums and their Base and catalogs atomically
-    size: medium
-    depends_on:
-      - catalog-sync
-    description:
-      "album-create: ship albums create with validation, dry-run, guarded
-      album/Base/catalog writes, completion/help, and album-claimed records init
-      refusals; finish creation documentation and end-to-end coverage."
+- id: catalog-model
+  title: Plan owner album catalogs and expose their health
+  size: medium
+  depends_on: []
+  description: 'catalog-model: add the pure Albums catalog planner, owner/root membership,
+    stable rows, and additive list/check catalog reporting with regression coverage.'
+- id: catalog-sync
+  title: Sync catalogs with indexes and protect generated sections
+  size: medium
+  depends_on:
+  - catalog-model
+  description: 'catalog-sync: compose catalog and index edits into standalone/nightly
+    guarded transactions, protect Albums capture sections and completion, and document
+    the shipped catalog behavior.'
+- id: album-create
+  title: Create albums and their Base and catalogs atomically
+  size: medium
+  depends_on:
+  - catalog-sync
+  description: 'album-create: ship albums create with validation, dry-run, guarded
+    album/Base/catalog writes, completion/help, and album-claimed records init refusals;
+    finish creation documentation and end-to-end coverage.'
 proposed_by: bbugyi200.athena.bob-cli-k3.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-k3.6
 create_time: 2026-11-11 18:31:17
 status: wip
+bead_id: bob-cli-k3.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_catalog_and_create.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_catalog_and_create.md)
-- **PARENT:**
-  [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_catalog_and_create.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_catalog_and_create.md)
+- **PARENT:** [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.6.1.md)
 
 # Owner album catalogs and guarded album creation
 
