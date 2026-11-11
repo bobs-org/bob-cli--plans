@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish the album consumer landing
-goal:
-  Repair album routing and diagnostic boundaries, complete docs and acceptance, then
-  close bob-cli-k3.4.1 and parent phase bob-cli-k3.4.
+goal: Repair album routing and diagnostic boundaries, complete docs and acceptance,
+  then close bob-cli-k3.4.1 and parent phase bob-cli-k3.4.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-k3.4.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/album_record_consumers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_record_consumers.md)
 - **BEAD:**
   [bob-cli-k3.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.4.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-k3.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.4.1.land.md)
-- **COMMITS:**
-  - [6e42159](https://github.com/bobs-org/bob-cli/commit/6e4215971c02e0f88e12616fee37159fe455f0e1)
-    — feat(capture)\!: finish the album consumer landing repairs
 
 # Finish the album consumer landing
 
