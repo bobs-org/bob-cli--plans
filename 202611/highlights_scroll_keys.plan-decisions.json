@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "line_step",
+      "kind": "choice",
+      "ask": "Should \u2303E / \u2303Y move about one line of body text per press?",
+      "why": "You asked for line-by-line, and your 30 ms key repeat already makes a held 20-point step fast",
+      "choices": [
+        {
+          "key": "one_line",
+          "label": "20 points per press, about one body-text line at fit-width zoom"
+        },
+        {
+          "key": "two_lines",
+          "label": "40 points per press, about two lines; twice as fast when held"
+        }
+      ],
+      "default": "one_line",
+      "effective_default": "one_line",
+      "requested_verified": false
+    }
+  ]
+}
