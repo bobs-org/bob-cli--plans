@@ -1,68 +1,63 @@
 ---
 tier: epic
 title: Finish private event notes — correctness fixes and the missing extras
-goal:
-  "Close the gaps the bob-cli-ji land audit found in `bob gcal note`: previews that show
-  a stale note, options that are silently swallowed as note text, orphan clear commands
-  that fail, an account-blind note fold, held rows reported as updates, and an
-  incomplete extras phase (`-e`, `-A`, the doctor `notes` check, and the
-  fragile-description hint). Every fix ships with tests, and the JSON stays compatible
-  with Bob Mac Capture."
+goal: 'Close the gaps the bob-cli-ji land audit found in `bob gcal note`: previews
+  that show a stale note, options that are silently swallowed as note text, orphan
+  clear commands that fail, an account-blind note fold, held rows reported as updates,
+  and an incomplete extras phase (`-e`, `-A`, the doctor `notes` check, and the fragile-description
+  hint). Every fix ships with tests, and the JSON stays compatible with Bob Mac Capture.'
 phases:
-  - id: engine
-    title: Account-aware note fold, honest held rows, and accurate note provenance
-    depends_on: []
-    size: medium
-    description:
-      "engine: fold private notes per account so a foreign note never hides this
-      account's note, report held rows as held (not updated, no duplicate gcal.row per
-      run), make the note `fields` summary list only fields the note actually won, strip
-      aliased title routes when a note route wins, and add the missing no-hold test."
-  - id: select
-    title: Exact selection, argv pre-pass, orphans, and list/show fixes
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "select: build `-i`/URL previews from the pre-note Google event, honor this
-      command's options anywhere before `--`, make the printed orphan clear commands
-      work, keep lookup failures from becoming orphans, check cancelled/declined/gone
-      before past-hiding, key the list JSON by mode, guard show by account, print the
-      URL fallback warning, and enrich the picker rows."
-  - id: write
-    title: Write contract, validation warnings, human output, and missing tests
-    depends_on:
-      - select
-    size: medium
-    description:
-      "write: fill `errors[].suggestions`, emit `clock` and `invalid` spans, add the
-      missing directive-lookalike and reason option-like warnings, label the rail with
-      the root, colour canonical lines and dim the lands-as block on a TTY, finish the
-      docs, add the missing normalization vectors and tests, and regenerate the golden
-      fixtures."
-  - id: extras
-    title: Finish -e, -A, the doctor notes check, and the fragile-description hint
-    depends_on:
-      - write
-    size: medium
-    description:
-      "extras: bring `-e` (TTY, vi fallback, git scissors, Edit again loop, empty
-      clears), `-A` (bare buffers, existing-note refusal, success wording), the doctor
-      `notes` check (shared fold, cancelled/declined/series orphans, 25-lookup cap,
-      malformed records, per-issue fixes), and the `bob gcal list` fragile hint
-      (conditions, wording, `fragile_directives` JSON) up to the approved plan, with
-      tests and docs."
+- id: engine
+  title: Account-aware note fold, honest held rows, and accurate note provenance
+  depends_on: []
+  size: medium
+  description: 'engine: fold private notes per account so a foreign note never hides
+    this account''s note, report held rows as held (not updated, no duplicate gcal.row
+    per run), make the note `fields` summary list only fields the note actually won,
+    strip aliased title routes when a note route wins, and add the missing no-hold
+    test.'
+- id: select
+  title: Exact selection, argv pre-pass, orphans, and list/show fixes
+  depends_on:
+  - engine
+  size: medium
+  description: 'select: build `-i`/URL previews from the pre-note Google event, honor
+    this command''s options anywhere before `--`, make the printed orphan clear commands
+    work, keep lookup failures from becoming orphans, check cancelled/declined/gone
+    before past-hiding, key the list JSON by mode, guard show by account, print the
+    URL fallback warning, and enrich the picker rows.'
+- id: write
+  title: Write contract, validation warnings, human output, and missing tests
+  depends_on:
+  - select
+  size: medium
+  description: 'write: fill `errors[].suggestions`, emit `clock` and `invalid` spans,
+    add the missing directive-lookalike and reason option-like warnings, label the
+    rail with the root, colour canonical lines and dim the lands-as block on a TTY,
+    finish the docs, add the missing normalization vectors and tests, and regenerate
+    the golden fixtures.'
+- id: extras
+  title: Finish -e, -A, the doctor notes check, and the fragile-description hint
+  depends_on:
+  - write
+  size: medium
+  description: 'extras: bring `-e` (TTY, vi fallback, git scissors, Edit again loop,
+    empty clears), `-A` (bare buffers, existing-note refusal, success wording), the
+    doctor `notes` check (shared fold, cancelled/declined/series orphans, 25-lookup
+    cap, malformed records, per-issue fixes), and the `bob gcal list` fragile hint
+    (conditions, wording, `fragile_directives` JSON) up to the approved plan, with
+    tests and docs.'
 proposed_by: bbugyi200.apollo.bob-cli-ji.land
 proposed_with: claude/opus
 parent_bead: bob-cli-ji
 create_time: 2026-11-10 22:31:44
 status: wip
+bead_id: bob-cli-ji.8
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_private_gcal_event_notes.md)
-- **PARENT:**
-  [202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/private_gcal_event_notes.md)
+- **PROMPT:** [prompts/202611/finish_private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_private_gcal_event_notes.md)
+- **PARENT:** [202611/private_gcal_event_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/private_gcal_event_notes.md)
+- **BEAD:** [bob-cli-ji.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ji/bob-cli-ji.8.md)
 
 # Plan: Finish private event notes — correctness fixes and the missing extras
 
