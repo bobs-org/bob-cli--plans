@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair album model validation and finish its landing
-goal:
-  Correct the album resolver and reports, verify the final tree, and close
-  bob-cli-k3.2.1 and parent phase bob-cli-k3.2.
+goal: Correct the album resolver and reports, verify the final tree, and close bob-cli-k3.2.1
+  and parent phase bob-cli-k3.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-k3.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-k3.2.1
-create_time: 2026-11-11 08:37:48
-status: wip
+status: done
 ---
 
 - **PARENT:**
