@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ray_lyles",
+      "kind": "choice",
+      "ask": "Should the Ray Lyles reply pass on the Chicago role?",
+      "why": "Bryan lives in New Jersey, and every other live lead is NYC-commutable or remote",
+      "choices": [
+        {
+          "key": "decline",
+          "label": "Pass on the Chicago role; stay open to NYC-area or remote roles"
+        },
+        {
+          "key": "call",
+          "label": "Ask for the 10\u201315 minute call and say relocation would need talking through"
+        }
+      ],
+      "default": "decline",
+      "effective_default": "decline",
+      "requested_verified": false
+    },
+    {
+      "id": "jack_channel",
+      "kind": "choice",
+      "ask": "Should Jack C.'s reply be LinkedIn message text instead of a Gmail draft?",
+      "why": "Bob's Reply would hit inmail-hit-reply@linkedin.com; email delivery into LinkedIn is unverified",
+      "choices": [
+        {
+          "key": "linkedin",
+          "label": "Print the reply for Bryan to paste into LinkedIn; no Gmail draft is created"
+        },
+        {
+          "key": "gmail",
+          "label": "Draft a standalone Bob compose note to the InMail's reply.linkedin.com Reply-To address"
+        }
+      ],
+      "default": "linkedin",
+      "effective_default": "linkedin",
+      "requested_verified": false
+    },
+    {
+      "id": "dan_timing",
+      "kind": "choice",
+      "ask": "Should Dan's reply carry over the start-date paragraph from Bryan's unsent Nov 7 draft?",
+      "why": "Bryan wrote it on Nov 7, it never reached Dan, and interviews are now being arranged",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Tell Dan the earliest realistic start is about a month out and ask when Luzern wants someone"
+        },
+        {
+          "key": "omit",
+          "label": "Leave start timing for the interview conversations"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    }
+  ]
+}
