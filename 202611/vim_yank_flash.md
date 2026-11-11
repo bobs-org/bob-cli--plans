@@ -1,38 +1,38 @@
 ---
 tier: epic
 title: Bob Vim Yank Flash
-goal: "Every Vim yank in Obsidian briefly highlights exactly the text it copied, like
+goal: 'Every Vim yank in Obsidian briefly highlights exactly the text it copied, like
   the SASE prompt input, with no change to editing behavior and nothing drawn when
   unsure.
 
-  "
+  '
 phases:
-  - id: flash-plugin
-    title: Build the plugin, unit tests and docs; deploy it disabled
-    depends_on: []
-    size: medium
-    description:
-      "flash-plugin: create the hand-edited bob-vim-yank-flash plugin (pushText wrapper,
-      selection-text check, StateField and ViewPlugin decorations, inset-overlay
-      styles), its node unit tests, and its docs page and inventory. Then add the vault
-      .gitignore entry and sync it to the vault without enabling it."
-  - id: obsidian-e2e
-    title: Prove it in real Obsidian, then enable it in the vault
-    depends_on:
-      - flash-plugin
-    size: medium
-    description:
-      "obsidian-e2e: add a CDP real-Obsidian e2e and its offline self-test, run it under
-      xvfb on athena, fix what it finds, document the Obsidian upgrade check, and enable
-      the plugin in the vault's community-plugins.json after a passing run."
+- id: flash-plugin
+  title: Build the plugin, unit tests and docs; deploy it disabled
+  depends_on: []
+  size: medium
+  description: 'flash-plugin: create the hand-edited bob-vim-yank-flash plugin (pushText
+    wrapper, selection-text check, StateField and ViewPlugin decorations, inset-overlay
+    styles), its node unit tests, and its docs page and inventory. Then add the vault
+    .gitignore entry and sync it to the vault without enabling it.'
+- id: obsidian-e2e
+  title: Prove it in real Obsidian, then enable it in the vault
+  depends_on:
+  - flash-plugin
+  size: medium
+  description: 'obsidian-e2e: add a CDP real-Obsidian e2e and its offline self-test,
+    run it under xvfb on athena, fix what it finds, document the Obsidian upgrade
+    check, and enable the plugin in the vault''s community-plugins.json after a passing
+    run.'
 proposed_by: bbugyi200.athena.1bd
 proposed_with: claude/opus
 create_time: 2026-11-11 10:46:17
 status: wip
+bead_id: bob-cli-kb
 ---
 
-- **PROMPT:**
-  [prompts/202611/vim_yank_flash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/vim_yank_flash.md)
+- **PROMPT:** [prompts/202611/vim_yank_flash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/vim_yank_flash.md)
+- **BEAD:** [bob-cli-kb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kb/README.md)
 
 # Plan: Bob Vim Yank Flash, a brief highlight on exactly what a Vim yank copies
 
