@@ -1,49 +1,45 @@
 ---
 tier: epic
 title: Keep each album's records index current
-goal:
-  "Complete bob-cli-k3.5: albums show a deterministic grouped records index, every
+goal: 'Complete bob-cli-k3.5: albums show a deterministic grouped records index, every
   album-backed record write updates it atomically, and albums sync plus nightly repair
-  stale indexes with guarded writes and accurate reports."
+  stale indexes with guarded writes and accurate reports.'
 phases:
-  - id: index-rendering
-    title: Render the records index and report its state
-    depends_on: []
-    size: medium
-    description:
-      "index-rendering: share grouping and row ordering between the pure records
-      renderer and album reports, plan the records region through host_catalog, and
-      expose index state and stale findings with fixture coverage."
-  - id: record-writes
-    title: Rebuild the index inside record transactions
-    depends_on:
-      - index-rendering
-    size: medium
-    description:
-      "record-writes: overlay staged record frontmatter on the cached album folder,
-      stage one final album edit with capture and records new/update, preserve preimage
-      guards and preview parity, and keep ordinary tasks lazy."
-  - id: index-sync
-    title: Repair indexes through albums sync and nightly
-    depends_on:
-      - index-rendering
-      - record-writes
-    size: medium
-    description:
-      "index-sync: expose albums sync using host_catalog transactions, run its lock-free
-      core after notebooks in nightly, document the command and JSON, and verify no-op,
-      isolation, and failure behavior."
+- id: index-rendering
+  title: Render the records index and report its state
+  depends_on: []
+  size: medium
+  description: 'index-rendering: share grouping and row ordering between the pure
+    records renderer and album reports, plan the records region through host_catalog,
+    and expose index state and stale findings with fixture coverage.'
+- id: record-writes
+  title: Rebuild the index inside record transactions
+  depends_on:
+  - index-rendering
+  size: medium
+  description: 'record-writes: overlay staged record frontmatter on the cached album
+    folder, stage one final album edit with capture and records new/update, preserve
+    preimage guards and preview parity, and keep ordinary tasks lazy.'
+- id: index-sync
+  title: Repair indexes through albums sync and nightly
+  depends_on:
+  - index-rendering
+  - record-writes
+  size: medium
+  description: 'index-sync: expose albums sync using host_catalog transactions, run
+    its lock-free core after notebooks in nightly, document the command and JSON,
+    and verify no-op, isolation, and failure behavior.'
 proposed_by: bbugyi200.athena.bob-cli-k3.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-k3.5
 create_time: 2026-11-11 13:48:48
 status: wip
+bead_id: bob-cli-k3.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_records_index.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_records_index.md)
-- **PARENT:**
-  [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_records_index.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_records_index.md)
+- **PARENT:** [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.5.1.md)
 
 # Plan: Keep each album's records index current
 
