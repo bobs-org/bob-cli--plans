@@ -1,133 +1,121 @@
 ---
 tier: epic
 title: Notebook section bullets in capture
-goal: "In any capture draft whose bullets land directly in a notebook body (a route-only
-  `@nb` list or a `@parent^id@ %n` creation item), typing `- #` or `- /` opens a
-  Bob-authored section menu listing the notebook's `##` sections (plus sections created
-  earlier in the draft), accepting a row writes `- #Git` and drops the caret on the
-  first nested note, and parse, menu, dry-run, and commit always agree on which section
+goal: 'In any capture draft whose bullets land directly in a notebook body (a route-only
+  `@nb` list or a `@parent^id@ %n` creation item), typing `- #` or `- /` opens a Bob-authored
+  section menu listing the notebook''s `##` sections (plus sections created earlier
+  in the draft), accepting a row writes `- #Git` and drops the caret on the first
+  nested note, and parse, menu, dry-run, and commit always agree on which section
   each note lands in.
 
-  "
+  '
 decisions:
   create_row_return:
     ask: When a lone "＋ New section" row is the only match, should Return accept it?
     choices:
-      preselect_clean:
-        Preselect it unless it is a near miss; Return opens the first note line
-      tab_only:
-        Never preselect it (research rule); Tab or arrows accept it, Return submits the
-        draft
+      preselect_clean: Preselect it unless it is a near miss; Return opens the first
+        note line
+      tab_only: Never preselect it (research rule); Tab or arrows accept it, Return
+        submits the draft
     default: preselect_clean
-    why:
-      Return on a deliberate new name should not submit an incomplete draft; near misses
-      still ask
+    why: Return on a deliberate new name should not submit an incomplete draft; near
+      misses still ask
     answer: preselect_clean
   typed_capitals:
-    ask:
-      Should sections created from an unquoted selector keep the capitals you typed
+    ask: Should sections created from an unquoted selector keep the capitals you typed
       (#API-keys → API Keys)?
     default: true
-    why:
-      Acronyms survive without quoting, and every menu row previews the exact title
+    why: Acronyms survive without quoting, and every menu row previews the exact title
       first
     answer: true
   memory_decision_records:
-    ask:
-      Record the section-bullet and notebook-aware-rewrite decisions, and mark the
-      records they partly supersede?
+    ask: Record the section-bullet and notebook-aware-rewrite decisions, and mark
+      the records they partly supersede?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary:
     ask: Update the Notebook and Task Drawer glossary entries for section bullets?
     memory:
-      - glossary:notebook
-      - glossary:task-drawer
+    - glossary:notebook
+    - glossary:task-drawer
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: resolver
-    title: One section resolver, a staged view, and the silent-wrong fixes
-    depends_on: []
-    size: medium
-    description:
-      "resolver: extend the notebook section resolver with an Ambiguous outcome and
-      optional typed-capitals titles, add the staged section view (disk plus earlier
-      draft operations) behind parse and the glued `@nb#` menu, stop the drawer menu and
-      drawer probe on notebook note bullets, and fix the list summary noun."
-  - id: grammar
-    title: Grammar 26 section bullets for @nb lists and %n creation
-    depends_on:
-      - resolver
-    size: large
-    description:
-      'grammar: lex `- #Section` bullets in notebook bodies, fan their nested notes into
-      that section, place plain siblings in the top region (fixing `%n` order), make a
-      bare `#` and a bare `@nb#` incomplete, add spans, needs, teaching diagnostics, the
-      `\#` escape, docs, and the breaking grammar bump.'
-  - id: menu
-    title: The notebook section menu and Bob-authored place-menu chrome
-    depends_on:
-      - grammar
-    size: medium
-    description:
-      "menu: add the `notebook_section_bullet` completion context with title-preferring
-      replacements, the nested continuation, provenance groups, note counts,
-      consequences, refused rows, and create-row rules; add additive `place_menu` chrome
-      to drawer, glued notebook section, and section-bullet responses."
-  - id: alias
-    title: Notebook-aware slash alias in capture-rewrite
-    depends_on:
-      - menu
-    size: small
-    description:
-      "alias: let `capture-rewrite` read notebook route frontmatter only when a typed
-      `/` sits at a first-level bullet start, so `- /` becomes `- #` exactly where the
-      section menu opens and stops firing on notebook note detail; update the help
-      contract and alias tips."
-  - id: mac
-    title: Bob Mac Capture place menu, highlighting, and grouped preview
-    depends_on:
-      - grammar
-      - menu
-      - alias
-    size: large
-    description:
-      "mac: in bob-mac-capture, generalize the drawer menu into one place menu painted
-      from Bob's chrome, open it for section bullets and glued notebook sections, keep
-      the empty-notebook hint, group the notebook batch preview by section, regenerate
-      fixtures, update protocol docs, and watch macOS CI to green."
-  - id: memory
-    title: Decision records and glossary
-    depends_on:
-      - grammar
-      - menu
-      - alias
-    size: small
-    description:
-      "memory: write the section-bullet and notebook-aware-rewrite decision records,
-      mark the partly superseded records, update the Notebook and Task Drawer glossary
-      entries, and regenerate the decisions docs page."
+- id: resolver
+  title: One section resolver, a staged view, and the silent-wrong fixes
+  depends_on: []
+  size: medium
+  description: 'resolver: extend the notebook section resolver with an Ambiguous outcome
+    and optional typed-capitals titles, add the staged section view (disk plus earlier
+    draft operations) behind parse and the glued `@nb#` menu, stop the drawer menu
+    and drawer probe on notebook note bullets, and fix the list summary noun.'
+- id: grammar
+  title: Grammar 26 section bullets for @nb lists and %n creation
+  depends_on:
+  - resolver
+  size: large
+  description: 'grammar: lex `- #Section` bullets in notebook bodies, fan their nested
+    notes into that section, place plain siblings in the top region (fixing `%n` order),
+    make a bare `#` and a bare `@nb#` incomplete, add spans, needs, teaching diagnostics,
+    the `\#` escape, docs, and the breaking grammar bump.'
+- id: menu
+  title: The notebook section menu and Bob-authored place-menu chrome
+  depends_on:
+  - grammar
+  size: medium
+  description: 'menu: add the `notebook_section_bullet` completion context with title-preferring
+    replacements, the nested continuation, provenance groups, note counts, consequences,
+    refused rows, and create-row rules; add additive `place_menu` chrome to drawer,
+    glued notebook section, and section-bullet responses.'
+- id: alias
+  title: Notebook-aware slash alias in capture-rewrite
+  depends_on:
+  - menu
+  size: small
+  description: 'alias: let `capture-rewrite` read notebook route frontmatter only
+    when a typed `/` sits at a first-level bullet start, so `- /` becomes `- #` exactly
+    where the section menu opens and stops firing on notebook note detail; update
+    the help contract and alias tips.'
+- id: mac
+  title: Bob Mac Capture place menu, highlighting, and grouped preview
+  depends_on:
+  - grammar
+  - menu
+  - alias
+  size: large
+  description: 'mac: in bob-mac-capture, generalize the drawer menu into one place
+    menu painted from Bob''s chrome, open it for section bullets and glued notebook
+    sections, keep the empty-notebook hint, group the notebook batch preview by section,
+    regenerate fixtures, update protocol docs, and watch macOS CI to green.'
+- id: memory
+  title: Decision records and glossary
+  depends_on:
+  - grammar
+  - menu
+  - alias
+  size: small
+  description: 'memory: write the section-bullet and notebook-aware-rewrite decision
+    records, mark the partly superseded records, update the Notebook and Task Drawer
+    glossary entries, and regenerate the decisions docs page.'
 proposed_by: bbugyi200.athena.1b9
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-11 09:22:44
 status: wip
+bead_id: bob-cli-ka
 ---
 
-- **PROMPT:**
-  [prompts/202611/notebook_section_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_section_bullets.md)
+- **PROMPT:** [prompts/202611/notebook_section_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/notebook_section_bullets.md)
+- **BEAD:** [bob-cli-ka](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ka/README.md)
 
 # Plan: Notebook section bullets in capture
 
