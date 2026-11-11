@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "docs_headroom",
+      "kind": "choice",
+      "ask": "Should the five docs pages be trimmed to 5800 words or fewer instead of just under the 6000 cap?",
+      "why": "These pages were pushed back over the cap five times in two weeks.",
+      "choices": [
+        {
+          "key": "headroom",
+          "label": "Trim each page to 5800 words or fewer so concurrent epics do not immediately re-trip the cap"
+        },
+        {
+          "key": "minimal",
+          "label": "Trim only to just under 6000, preserving the most existing prose"
+        }
+      ],
+      "default": "headroom",
+      "effective_default": "headroom",
+      "requested_verified": false
+    },
+    {
+      "id": "split_pages",
+      "kind": "choice",
+      "ask": "May the docs phase split a section into a new mounted reference page when trimming would drop facts?",
+      "why": "Every page is only 1-4% over the cap; deduplication reaches target without IA/URL risk.",
+      "choices": [
+        {
+          "key": "trim_only",
+          "label": "Trim duplicated prose only; a page that cannot reach target keeping its facts is reported"
+        },
+        {
+          "key": "allow_split",
+          "label": "Split one coherent section into its own mounted page, preserving existing published URLs"
+        }
+      ],
+      "default": "trim_only",
+      "effective_default": "trim_only",
+      "requested_verified": false
+    },
+    {
+      "id": "bob_now",
+      "kind": "choice",
+      "ask": "Should the created-offset phase also make an RFC 3339 BOB_NOW with an explicit offset be honored?",
+      "why": "The documented RFC 3339 form silently falls back to the clock; the worker is already in that file.",
+      "choices": [
+        {
+          "key": "honor",
+          "label": "Fix BOB_NOW parsing to honor an explicit offset, with its own regression test"
+        },
+        {
+          "key": "note_only",
+          "label": "Only investigate and record findings on bob-cli-k8 for a follow-up"
+        }
+      ],
+      "default": "honor",
+      "effective_default": "honor",
+      "requested_verified": false
+    }
+  ]
+}
