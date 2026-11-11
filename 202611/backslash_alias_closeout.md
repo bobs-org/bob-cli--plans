@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish backslash alias documentation and land bob-cli-jt
-goal: Correct the remaining alias documentation, mark the contract break, and close
+goal:
+  Correct the remaining alias documentation, mark the contract break, and close
   bob-cli-jt with its plan done.
 size: small
 proposed_by: bbugyi200.athena.bob-cli-jt.land
@@ -14,6 +15,11 @@ status: done
   [202611/backslash_percent_alias.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backslash_percent_alias.md)
 - **BEAD:**
   [bob-cli-jt](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-jt/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-jt.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-jt.land.md)
+- **COMMITS:**
+  - [e315de7](https://github.com/bobs-org/bob-cli--plans/commit/e315de7c8dd45e26f96b64ec50065d3d91265f44)
+    — docs: mark backslash_percent_alias done
 
 # Finish the backslash alias documentation and close bob-cli-jt
 
