@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish SVG image handling and land bob-cli-k6
-goal: Fix SVG eligibility, ordering, root sanitization, and overwrite diagnostics,
-  then verify and close bob-cli-k6.
+goal:
+  Fix SVG eligibility, ordering, root sanitization, and overwrite diagnostics, then
+  verify and close bob-cli-k6.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-k6.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/ref_create_svg_images.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/ref_create_svg_images.md)
 - **BEAD:**
   [bob-cli-k6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k6/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-k6.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-k6.land.md)
+- **COMMITS:**
+  - [55960e6](https://github.com/bobs-org/bob-cli--plans/commit/55960e6383f7af8f98d6b53d172d28e7c1b0acbe)
+    — chore(plans): mark ref_create_svg_images done
 
 # Finish SVG image handling and land bob-cli-k6
 
