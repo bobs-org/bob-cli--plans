@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "leaf_rule",
+      "kind": "choice",
+      "ask": "Should keep-moving return to the pre-k7 leaf rule (a leaf project is not its own root parent)?",
+      "why": "The rule chased job_email_recruiters' mis-parented frontmatter, which Bryan has since corrected",
+      "choices": [
+        {
+          "key": "revert",
+          "label": "Top-level, root:true, orphan, and unresolved-parent projects stop being leaves (pre-k7)"
+        },
+        {
+          "key": "keep_umbrella",
+          "label": "The k7 rule stands; only stale contract text about job_email_recruiters is refreshed"
+        }
+      ],
+      "default": "revert",
+      "effective_default": "revert",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Under leaf_rule = revert, restore the pre-k7 Leaf Project glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:leaf-project"
+        ]
+      },
+      "corrects": "A standalone [[top-level-project]], a `root: true` project with no sub-projects, and an orphan project are leaves.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:leaf-project",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Leaf Project",
+            "Pomodoro",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note",
+            "Notebook",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent"
+          ]
+        }
+      ]
+    }
+  ]
+}
