@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Restore task-wikilink snapshot and ranking CPU budgets
-goal:
-  Restore the existing task-wikilink latency budgets with a measured production fix and
-  preserved picker behavior.
+goal: Restore the existing task-wikilink latency budgets with a measured production
+  fix and preserved picker behavior.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-kj.6
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-kj.6
-create_time: 2026-11-11 17:44:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
