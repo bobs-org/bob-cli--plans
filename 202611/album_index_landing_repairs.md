@@ -2,7 +2,8 @@
 tier: tale
 size: medium
 title: Finish album index write safety and preview parity
-goal: Repair the remaining album-index defects and complete the landing of bob-cli-k3.5.1
+goal:
+  Repair the remaining album-index defects and complete the landing of bob-cli-k3.5.1
   and parent phase bob-cli-k3.5.
 proposed_by: bbugyi200.athena.bob-cli-k3.5.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/album_records_index.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_records_index.md)
 - **BEAD:**
   [bob-cli-k3.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-k3.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.5.1.land.md)
+- **COMMITS:**
+  - [3fb7c92](https://github.com/bobs-org/bob-cli--plans/commit/3fb7c92ac664441a58dc057714133101ec4cff40)
+    — docs(plans): mark album index plan done
 
 # Finish the album index landing
 
