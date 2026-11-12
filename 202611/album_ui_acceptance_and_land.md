@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Album UI acceptance proof and landing for bob-cli-k3.7.1
-goal:
-  Build and run the album real-Obsidian acceptance proof that the bob-cli-k3.7.1 plan
-  assigns to its land agent, fix any defects it finds, deploy, then close bob-cli-k3.7.1
+goal: Build and run the album real-Obsidian acceptance proof that the bob-cli-k3.7.1
+  plan assigns to its land agent, fix any defects it finds, deploy, then close bob-cli-k3.7.1
   and its parent phase bob-cli-k3.7.
 proposed_by: bbugyi200.athena.bob-cli-k3.7.1.land
 proposed_with: claude/opus
 bead: bob-cli-k3.7.1
-create_time: 2026-11-12 10:42:06
-status: wip
+status: done
 ---
 
 - **PARENT:**
