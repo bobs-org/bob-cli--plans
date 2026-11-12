@@ -1,107 +1,97 @@
 ---
 tier: epic
 title: Walker footers follow the active bracket walk
-goal: "Obsidian's status bar shows exactly one walker footer that matches the persisted
+goal: 'Obsidian''s status bar shows exactly one walker footer that matches the persisted
   bracket walk: the review footer only while `s` is active (with a calm clear state
   instead of hiding), a new lane footer for `w`, a new links compass for `n`, a quiet
-  review-due dot on the selector's `s` letter, byte-compatible legacy fallbacks, updated
-  docs, and a published Walker Footer glossary term.
+  review-due dot on the selector''s `s` letter, byte-compatible legacy fallbacks,
+  updated docs, and a published Walker Footer glossary term.
 
-  "
+  '
 phases:
-  - id: navapi
-    title: nav api.walkMode v1 and the walk-mode doorbell
-    depends_on: []
-    size: small
-    description:
-      "navapi: expose the persisted bracket-repeat mode through an additive nav api
-      namespace (current/select) plus a workspace doorbell event fired on mode change
-      and once at setup; no visible change."
-  - id: host
-    title: Ledger walker-footer host and the gated s panel
-    depends_on:
-      - navapi
-    size: medium
-    description:
-      "host: route the existing ledger status item by walk mode, show the review footer
-      only while s is selected with a Review-clear state and ]] next hints, hide on
-      w/n/unset for now, and keep a byte-compatible legacy fallback when the nav api is
-      absent."
-  - id: lanes
-    title: Lane footer for the w walk
-    depends_on:
-      - host
-    size: medium
-    description:
-      "lanes: add the w panel as a pure view over api.laneWalk v2 queue counts
-      (WIP/NEXT/READY with n/cap only when over, TODAY meter), with validated-row
-      positions, lane answer hints, toast-matching clear states, and a dash-parity test."
-  - id: links
-    title: nav links() and the links footer for the n walk
-    depends_on:
-      - lanes
-    size: medium
-    description:
-      "links: add a read-only walkMode.links() preview built on nav's own prev/next
-      matcher and an n panel destination compass with directional arms, dashed create
-      targets, generation-checked async, and a parity test against openLabeledBodyLink."
-  - id: dot
-    title: Review attention dot on the selector's s
-    depends_on:
-      - links
-    size: small
-    description:
-      "dot: ledger pushes a display-only attention value when review commitments are due
-      off-s; nav paints a tiny tier-tinted dot on the selector's s letter with
-      tooltip/aria counts, forced-colors support, and no motion."
-  - id: visual
-    title: Visual previews, e2e, and placement
-    depends_on:
-      - dot
-    size: medium
-    description:
-      "visual: generalize the review-footer preview script into a walker preview
-      covering every panel state, add motion/accessibility polish and e2e checks
-      (selector rect stable across s/w/n), and verify the adjacent-to-selector placement
-      in real Obsidian with current placement as fallback."
-  - id: ship
-    title: Docs, memory, and deploy
-    depends_on:
-      - visual
-    size: medium
-    description:
-      "ship: update bob-plugins and bob-cli docs that say the review footer is
-      persistent, publish the Walker Footer glossary strand and the two strand
-      amendments per the accepted memory decisions, optionally record the decision
-      record, and deploy with bob plugins sync."
+- id: navapi
+  title: nav api.walkMode v1 and the walk-mode doorbell
+  depends_on: []
+  size: small
+  description: 'navapi: expose the persisted bracket-repeat mode through an additive
+    nav api namespace (current/select) plus a workspace doorbell event fired on mode
+    change and once at setup; no visible change.'
+- id: host
+  title: Ledger walker-footer host and the gated s panel
+  depends_on:
+  - navapi
+  size: medium
+  description: 'host: route the existing ledger status item by walk mode, show the
+    review footer only while s is selected with a Review-clear state and ]] next hints,
+    hide on w/n/unset for now, and keep a byte-compatible legacy fallback when the
+    nav api is absent.'
+- id: lanes
+  title: Lane footer for the w walk
+  depends_on:
+  - host
+  size: medium
+  description: 'lanes: add the w panel as a pure view over api.laneWalk v2 queue counts
+    (WIP/NEXT/READY with n/cap only when over, TODAY meter), with validated-row positions,
+    lane answer hints, toast-matching clear states, and a dash-parity test.'
+- id: links
+  title: nav links() and the links footer for the n walk
+  depends_on:
+  - lanes
+  size: medium
+  description: 'links: add a read-only walkMode.links() preview built on nav''s own
+    prev/next matcher and an n panel destination compass with directional arms, dashed
+    create targets, generation-checked async, and a parity test against openLabeledBodyLink.'
+- id: dot
+  title: Review attention dot on the selector's s
+  depends_on:
+  - links
+  size: small
+  description: 'dot: ledger pushes a display-only attention value when review commitments
+    are due off-s; nav paints a tiny tier-tinted dot on the selector''s s letter with
+    tooltip/aria counts, forced-colors support, and no motion.'
+- id: visual
+  title: Visual previews, e2e, and placement
+  depends_on:
+  - dot
+  size: medium
+  description: 'visual: generalize the review-footer preview script into a walker
+    preview covering every panel state, add motion/accessibility polish and e2e checks
+    (selector rect stable across s/w/n), and verify the adjacent-to-selector placement
+    in real Obsidian with current placement as fallback.'
+- id: ship
+  title: Docs, memory, and deploy
+  depends_on:
+  - visual
+  size: medium
+  description: 'ship: update bob-plugins and bob-cli docs that say the review footer
+    is persistent, publish the Walker Footer glossary strand and the two strand amendments
+    per the accepted memory decisions, optionally record the decision record, and
+    deploy with bob plugins sync.'
 decisions:
   mem_walker_footer:
     ask: Publish the new Walker Footer glossary strand?
     memory:
-      - glossary:walker-footer
-    requested:
-      We should add an excellent new "walker footer" glossary term to describe these
-      footers (note that a "review footer" should be considered a type of "walker
+    - glossary:walker-footer
+    requested: We should add an excellent new "walker footer" glossary term to describe
+      these footers (note that a "review footer" should be considered a type of "walker
       footer").
     default: true
     answer: true
   mem_strand_amends:
-    ask:
-      Amend the review-footer and task-freshness strands to describe the gated s member?
+    ask: Amend the review-footer and task-freshness strands to describe the gated
+      s member?
     memory:
-      - glossary:morning-gtd-review-footer
-      - glossary:task-freshness
-    corrects:
-      When nothing is due, it hides unless the cursor is on an open task with a
-      priority; then it shows only `⟳ Nothing due` plus that preview.
+    - glossary:morning-gtd-review-footer
+    - glossary:task-freshness
+    corrects: When nothing is due, it hides unless the cursor is on an open task with
+      a priority; then it shows only `⟳ Nothing due` plus that preview.
     default: true
     answer: true
   mem_decision_record:
-    ask:
-      Also record a walker-footer-follows-bracket-walk decision record in the decisions
+    ask: Also record a walker-footer-follows-bracket-walk decision record in the decisions
       web?
     memory:
-      - decisions:walker-footer-follows-bracket-walk
+    - decisions:walker-footer-follows-bracket-walk
     default: false
     answer: false
 proposed_by: bbugyi200.athena.1bu
@@ -110,10 +100,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 12:30:10
 status: wip
+bead_id: bob-cli-ky
 ---
 
-- **PROMPT:**
-  [prompts/202611/walker_footers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/walker_footers.md)
+- **PROMPT:** [prompts/202611/walker_footers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/walker_footers.md)
+- **BEAD:** [bob-cli-ky](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ky/README.md)
 
 # Plan: Walker footers follow the active bracket walk
 
