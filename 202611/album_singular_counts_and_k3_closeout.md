@@ -2,12 +2,11 @@
 tier: tale
 size: small
 title: Album counts say "1 restaurant", then close the album-notes epic bob-cli-k3
-goal:
-  An album with exactly one record reads "1 restaurant" (not "1 restaurants") in its
-  generated `[!records]` tally and on its owner `[!albums]` card, and "⚠️ 1 needs a
-  status" (not "need"). bob reports the display singular additively in album JSON. The
-  retired config-records parser stops compiling into production code. Then the epic
-  bob-cli-k3 is closed and its plan is marked done.
+goal: An album with exactly one record reads "1 restaurant" (not "1 restaurants")
+  in its generated `[!records]` tally and on its owner `[!albums]` card, and "⚠️ 1
+  needs a status" (not "need"). bob reports the display singular additively in album
+  JSON. The retired config-records parser stops compiling into production code. Then
+  the epic bob-cli-k3 is closed and its plan is marked done.
 proposed_by: bbugyi200.athena.bob-cli-k3.land
 proposed_with: claude/opus
 bead: bob-cli-k3
@@ -18,11 +17,6 @@ status: done
   [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
 - **BEAD:**
   [bob-cli-k3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-k3.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.land.md)
-- **COMMITS:**
-  - [b04120b](https://github.com/bobs-org/bob-cli/commit/b04120b0e2d633a63f98b5a7ee75ba4edeb28fc2)
-    — feat(albums): singular record counts and retired config-reader gate
 
 # Album counts say "1 restaurant", then close the album-notes epic
 
