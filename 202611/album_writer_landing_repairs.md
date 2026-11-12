@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair the guarded album writer and finish its landing
-goal:
-  Make schema Undo, consequences and atomic batches correct, prove the guarded writer,
-  and close bob-cli-kr.2.1 and parent phase bob-cli-kr.2.
+goal: Make schema Undo, consequences and atomic batches correct, prove the guarded
+  writer, and close bob-cli-kr.2.1 and parent phase bob-cli-kr.2.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-kr.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-kr.2.1
-create_time: 2026-11-12 11:53:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
