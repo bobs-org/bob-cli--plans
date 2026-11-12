@@ -1,67 +1,62 @@
 ---
 tier: epic
 title: Security and bug audit fixes
-goal: "The 19 verified findings from the five-area security/bug audit of bob-cli are
+goal: 'The 19 verified findings from the five-area security/bug audit of bob-cli are
   fixed with regression tests: git pathspec globbing can no longer revert the wrong
-  vault file, calendar titles can no longer inject tags/links, the web clipper's
+  vault file, calendar titles can no longer inject tags/links, the web clipper''s
   private- network guard holds across redirects and WebSockets, vault writes are guarded
   and crash-durable, and the small verified defects are corrected.
 
-  "
+  '
 phases:
-  - id: git-literal-pathspecs
-    title: Literal git pathspecs for vault filenames
-    depends_on: []
-    size: small
-    description:
-      "git-literal-pathspecs: switch the highlights_ref recovery/mutation and
-      collect_done git call sites that pass concrete vault filenames from
-      ob::git_command to ob::git_command_literal, reject pathspec magic in recovery's
-      validated_paths, and add glob-filename regression tests."
-  - id: gcal-title-hardening
-    title: Gcal remote-text trust boundary
-    depends_on: []
-    size: medium
-    description:
-      "gcal-title-hardening: extend gcal escape_title to neutralize mid-line tags,
-      wikilinks, and Markdown links in organizer-authored event titles; fix the gog 429
-      substring misclassification; optionally gate #on/#off clock tags on
-      organizer_is_self per the memory decision."
-  - id: web-clip-guards
-    title: Web-clip network guards and image handling
-    depends_on: []
-    size: medium
-    description:
-      "web-clip-guards: re-validate the final navigation URL and redirect chain against
-      host_is_global, block unguarded WebSocket handshakes, parse img attributes
-      positionally so data-bob-origin query strings cannot drop images, and make the
-      origin re.sub replacement literal."
-  - id: durable-vault-writes
-    title: Durable and race-free vault writes
-    depends_on: []
-    size: medium
-    description:
-      "durable-vault-writes: bind bank ensure's write-guard preimage to its single
-      planning snapshot, install clip attachments via hard_link/create_new, fsync the
-      three non-flushing atomic_write variants and the gkeep token write, and verify
-      ownership of the shared-tmp script-cache fallback."
-  - id: small-audit-fixes
-    title: Small verified fixes
-    depends_on: []
-    size: medium
-    description:
-      "small-audit-fixes: prefix-match the pomodoro OVERDUE status, close the perl
-      two-arg open in bob_pomodoro, report damaged albums as io instead of note_changed,
-      require FILE args on bank import, and strip migration anchors by match span."
+- id: git-literal-pathspecs
+  title: Literal git pathspecs for vault filenames
+  depends_on: []
+  size: small
+  description: 'git-literal-pathspecs: switch the highlights_ref recovery/mutation
+    and collect_done git call sites that pass concrete vault filenames from ob::git_command
+    to ob::git_command_literal, reject pathspec magic in recovery''s validated_paths,
+    and add glob-filename regression tests.'
+- id: gcal-title-hardening
+  title: Gcal remote-text trust boundary
+  depends_on: []
+  size: medium
+  description: 'gcal-title-hardening: extend gcal escape_title to neutralize mid-line
+    tags, wikilinks, and Markdown links in organizer-authored event titles; fix the
+    gog 429 substring misclassification; optionally gate #on/#off clock tags on organizer_is_self
+    per the memory decision.'
+- id: web-clip-guards
+  title: Web-clip network guards and image handling
+  depends_on: []
+  size: medium
+  description: 'web-clip-guards: re-validate the final navigation URL and redirect
+    chain against host_is_global, block unguarded WebSocket handshakes, parse img
+    attributes positionally so data-bob-origin query strings cannot drop images, and
+    make the origin re.sub replacement literal.'
+- id: durable-vault-writes
+  title: Durable and race-free vault writes
+  depends_on: []
+  size: medium
+  description: 'durable-vault-writes: bind bank ensure''s write-guard preimage to
+    its single planning snapshot, install clip attachments via hard_link/create_new,
+    fsync the three non-flushing atomic_write variants and the gkeep token write,
+    and verify ownership of the shared-tmp script-cache fallback.'
+- id: small-audit-fixes
+  title: Small verified fixes
+  depends_on: []
+  size: medium
+  description: 'small-audit-fixes: prefix-match the pomodoro OVERDUE status, close
+    the perl two-arg open in bob_pomodoro, report damaged albums as io instead of
+    note_changed, require FILE args on bank import, and strip migration anchors by
+    match span.'
 decisions:
   gate_organizer_clock_tags:
-    ask:
-      "Should gcal ignore #on/#off clock tags on third-party-organized invites,
-      superseding part of the off-clock record?"
+    ask: 'Should gcal ignore #on/#off clock tags on third-party-organized invites,
+      superseding part of the off-clock record?'
     default: false
     memory:
-      - decisions:off-clock-follows-tag-then-note-default
-      - decisions
+    - decisions:off-clock-follows-tag-then-note-default
+    - decisions
     answer: false
 proposed_by: bbugyi200.athena.1bo
 proposed_with: claude/claude-fable-5
@@ -69,10 +64,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 05:24:34
 status: wip
+bead_id: bob-cli-kq
 ---
 
-- **PROMPT:**
-  [prompts/202611/security_audit_fixes_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/security_audit_fixes_1.md)
+- **PROMPT:** [prompts/202611/security_audit_fixes_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/security_audit_fixes_1.md)
+- **BEAD:** [bob-cli-kq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kq/README.md)
 
 # Security and Bug Audit Fixes
 
