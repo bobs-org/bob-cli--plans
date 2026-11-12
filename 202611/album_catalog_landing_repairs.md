@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish guarded album creation and land the catalog epic
-goal:
-  Close the destination and claim guard gaps, verify integrated album behavior, and
-  normally close bob-cli-k3.6.1 and parent phase bob-cli-k3.6.
+goal: Close the destination and claim guard gaps, verify integrated album behavior,
+  and normally close bob-cli-k3.6.1 and parent phase bob-cli-k3.6.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-k3.6.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-k3.6.1
-create_time: 2026-11-11 22:22:31
-status: wip
+status: done
 ---
 
 - **PARENT:**
