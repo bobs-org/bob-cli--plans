@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "bare_colon",
+      "kind": "choice",
+      "ask": "Should a bare ':' (no query letters typed yet) already open the menu?",
+      "why": "Bryan asked for ':' itself to trigger the menu; recents make the bare menu useful",
+      "choices": [
+        {
+          "key": "open",
+          "label": "Opens on the ':' keystroke with recents and popular emoji; Enter right after ':' picks the top row"
+        },
+        {
+          "key": "first_char",
+          "label": "Waits for the first query character; a bare ':' stays inert and Enter still makes a newline"
+        }
+      ],
+      "default": "open",
+      "effective_default": "open",
+      "requested_verified": false
+    },
+    {
+      "id": "closing_colon",
+      "kind": "choice",
+      "ask": "Should typing a full ':name:' shortcode auto-replace it with the emoji without a menu selection?",
+      "why": "Never rewriting text the user did not select keeps a plain-text vault predictable",
+      "choices": [
+        {
+          "key": "autocommit",
+          "label": "The closing ':' of an exact shortcode inserts the emoji at once; may rewrite wanted literal text"
+        },
+        {
+          "key": "inert",
+          "label": "The closing ':' only dismisses the menu; emoji are inserted solely by selecting a row"
+        }
+      ],
+      "default": "inert",
+      "effective_default": "inert",
+      "requested_verified": false
+    },
+    {
+      "id": "enablement",
+      "kind": "choice",
+      "ask": "After deploy, should the agent enable the plugin by adding bob-emoji to community-plugins.json?",
+      "why": "community-plugins.json is already git-tracked in the vault; one reload makes the feature live",
+      "choices": [
+        {
+          "key": "auto",
+          "label": "Appends the id to the git-tracked vault file, so enablement syncs to every host; live after reload"
+        },
+        {
+          "key": "manual",
+          "label": "Leaves enablement to Bryan via Settings -> Community plugins on one host"
+        }
+      ],
+      "default": "auto",
+      "effective_default": "auto",
+      "requested_verified": false
+    }
+  ]
+}
