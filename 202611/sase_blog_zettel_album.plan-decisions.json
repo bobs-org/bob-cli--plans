@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "seed_records",
+      "kind": "choice",
+      "ask": "Should the implementing agent also pre-create one \ud83c\udf31 seed record per current outline topic?",
+      "why": "Claim-authoring is the heart of Bryan's S0; placeholder claims hollow out the required-claim rule",
+      "choices": [
+        {
+          "key": "none",
+          "label": "Album and guide only; Bryan seeds every claim himself via the guide's batch-capture template"
+        },
+        {
+          "key": "stubs",
+          "label": "Also create one \ud83c\udf31 record per outline topic with a placeholder claim Bryan must replace"
+        }
+      ],
+      "default": "none",
+      "effective_default": "none",
+      "requested_verified": false
+    }
+  ]
+}
