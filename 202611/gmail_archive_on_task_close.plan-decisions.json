@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cancelled_archives",
+      "kind": "choice",
+      "ask": "Should a Cancelled ([-]) close archive the thread, like Done?",
+      "why": "The request's own \"out of sight\" parenthetical; a done-only arm stays cheap to add later.",
+      "choices": [
+        {
+          "key": "cancelled_too",
+          "label": "A cancelled last task also drains its thread; out of sight means out of the Inbox."
+        },
+        {
+          "key": "done_only",
+          "label": "Only [x]/[X] closes archive; a [-] close leaves the thread in the Inbox."
+        }
+      ],
+      "default": "cancelled_too",
+      "effective_default": "cancelled_too",
+      "requested_verified": false
+    },
+    {
+      "id": "receipt_label",
+      "kind": "choice",
+      "ask": "What should the Gmail receipt label be named?",
+      "why": "Reads as an explanation in the Gmail sidebar, not just an action log.",
+      "choices": [
+        {
+          "key": "closed",
+          "label": "bob/closed -- says why the thread left the Inbox."
+        },
+        {
+          "key": "archived",
+          "label": "bob/archived -- says what Bob did."
+        },
+        {
+          "key": "done",
+          "label": "bob/done -- matches the task vocabulary."
+        }
+      ],
+      "default": "closed",
+      "effective_default": "closed",
+      "requested_verified": false
+    },
+    {
+      "id": "burst_limit",
+      "kind": "choice",
+      "ask": "What default should the archive_max burst breaker use?",
+      "why": "Invisible in normal weeks, still pauses a real bulk-close incident.",
+      "choices": [
+        {
+          "key": "ten",
+          "label": "archive_max 10, about two weeks of current volume."
+        },
+        {
+          "key": "five",
+          "label": "archive_max 5 for the first month, raised later."
+        }
+      ],
+      "default": "ten",
+      "effective_default": "ten",
+      "requested_verified": false
+    },
+    {
+      "id": "bead_i4",
+      "kind": "choice",
+      "ask": "Close bead bob-cli-i4 (opt-in unlabel of bob after pull) as superseded by this design?",
+      "why": "i4 strips the label this feature reads as live consent; built as specified they conflict.",
+      "choices": [
+        {
+          "key": "close",
+          "label": "Closes with a note pointing here; a nested-label scheme can still serve its phone-queue goal."
+        },
+        {
+          "key": "park",
+          "label": "Stays open but frozen; nobody builds it until the label-consent conflict is re-decided."
+        }
+      ],
+      "default": "close",
+      "effective_default": "close",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Record the accepted design as the new decisions-web strand closing-a-task-archives-its-bob-mail-once?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:closing-a-task-archives-its-bob-mail-once"
+        ]
+      },
+      "requested": "I would like to make it so the `bob gmail sync` command starts archiving emails in gmail automatically when appropriate. Can you help me implement this?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:closing-a-task-archives-its-bob-mail-once",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/closing-a-task-archives-its-bob-mail-once.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
