@@ -1,80 +1,73 @@
 ---
 tier: epic
 title: Gmail archive on task close
-goal: "bob gmail sync archives a bob-labelled thread's saved messages exactly once when
-  every linking Obsidian task is closed, visibly, undoably, and opt-in; Bryan is opted
-  in and a gated live run on the Mac writer verifies the expected threads were archived.
+goal: 'bob gmail sync archives a bob-labelled thread''s saved messages exactly once
+  when every linking Obsidian task is closed, visibly, undoably, and opt-in; Bryan
+  is opted in and a gated live run on the Mac writer verifies the expected threads
+  were archived.
 
-  "
+  '
 phases:
-  - id: spike
-    title: Mutation-path spike
-    depends_on: []
-    size: small
-    description:
-      "spike: De-risk the mutation path before any code lands: audit gog's HTTP retry
-      behavior on the mutation path in the upstream checkout, verify the write-call flag
-      fence composes, settle whether label:bob search matches messages labelled only
-      bob/closed, and draft the honest gmail.modify consent copy. Findings land as
-      phase-bead notes; anything that bends the core contract is flagged loudly."
-  - id: core
-    title: Archive-on-close machinery in bob-cli
-    depends_on:
-      - spike
-    size: large
-    description:
-      "core: Implement the opt-in gmail.sync.archive machinery: closed-task scan
-      including done/, eligibility fold with one-shot journal events, the
-      property-tested label-diff contract, the fenced per-thread batch modify apply with
-      receipt-label crash reconcile, login -s modify, doctor rows, report rows and
-      additive JSON, burst breaker with -c, -n, first-enable backlog confirm, docs
-      rewrites under a feat(gmail)!: subject, the new decision record, and the
-      bob-cli-i4 supersession."
-  - id: receipts
-    title: Undo command and receipt surfaces
-    depends_on:
-      - core
-    size: large
-    description:
-      "receipts: Make every archive legible and undoable. In bob-cli the bob gmail
-      unarchive command, the gmail_archived frontmatter and mail-note banner lifecycle,
-      the desktop notification, and the recent_archive JSON. In bob-plugins the
-      display-only task chip, the banner's Move-back button, the mail.base
-      Archived-by-Bob view, and the morning notice line."
-  - id: polish
-    title: Close-time notice polish
-    depends_on:
-      - receipts
-    size: small
-    description:
-      "polish: In bob-plugins, show the no-network close-time notice when a managed Done
-      lands on a row watching an enrolled mail note while archive is enabled, and
-      optionally a back-in-inbox chip on let-go rows. Pure rendering of what bob
-      reports; no network calls, no vault writes."
-  - id: enable
-    title: Gated live enable and verification
-    depends_on:
-      - polish
-    size: medium
-    description:
-      "enable: Opt Bryan in and verify live with him in the loop: set gmail.sync.archive
-      on in the chezmoi bob config, update the Mac's bob to a released build, have Bryan
-      grant login -s modify, preview the backlog with sync -d, run the digest-confirmed
-      live sync through a gate, verify every closed-task bob-labelled thread archived
-      with its receipt, and exercise unarchive and let-go on a test thread."
+- id: spike
+  title: Mutation-path spike
+  depends_on: []
+  size: small
+  description: 'spike: De-risk the mutation path before any code lands: audit gog''s
+    HTTP retry behavior on the mutation path in the upstream checkout, verify the
+    write-call flag fence composes, settle whether label:bob search matches messages
+    labelled only bob/closed, and draft the honest gmail.modify consent copy. Findings
+    land as phase-bead notes; anything that bends the core contract is flagged loudly.'
+- id: core
+  title: Archive-on-close machinery in bob-cli
+  depends_on:
+  - spike
+  size: large
+  description: 'core: Implement the opt-in gmail.sync.archive machinery: closed-task
+    scan including done/, eligibility fold with one-shot journal events, the property-tested
+    label-diff contract, the fenced per-thread batch modify apply with receipt-label
+    crash reconcile, login -s modify, doctor rows, report rows and additive JSON,
+    burst breaker with -c, -n, first-enable backlog confirm, docs rewrites under a
+    feat(gmail)!: subject, the new decision record, and the bob-cli-i4 supersession.'
+- id: receipts
+  title: Undo command and receipt surfaces
+  depends_on:
+  - core
+  size: large
+  description: 'receipts: Make every archive legible and undoable. In bob-cli the
+    bob gmail unarchive command, the gmail_archived frontmatter and mail-note banner
+    lifecycle, the desktop notification, and the recent_archive JSON. In bob-plugins
+    the display-only task chip, the banner''s Move-back button, the mail.base Archived-by-Bob
+    view, and the morning notice line.'
+- id: polish
+  title: Close-time notice polish
+  depends_on:
+  - receipts
+  size: small
+  description: 'polish: In bob-plugins, show the no-network close-time notice when
+    a managed Done lands on a row watching an enrolled mail note while archive is
+    enabled, and optionally a back-in-inbox chip on let-go rows. Pure rendering of
+    what bob reports; no network calls, no vault writes.'
+- id: enable
+  title: Gated live enable and verification
+  depends_on:
+  - polish
+  size: medium
+  description: 'enable: Opt Bryan in and verify live with him in the loop: set gmail.sync.archive
+    on in the chezmoi bob config, update the Mac''s bob to a released build, have
+    Bryan grant login -s modify, preview the backlog with sync -d, run the digest-confirmed
+    live sync through a gate, verify every closed-task bob-labelled thread archived
+    with its receipt, and exercise unarchive and let-go on a test thread.'
 decisions:
   cancelled_archives:
     ask: Should a Cancelled ([-]) close archive the thread, like Done?
     choices:
-      cancelled_too:
-        A cancelled last task also drains its thread; out of sight means out of the
+      cancelled_too: A cancelled last task also drains its thread; out of sight means
+        out of the Inbox.
+      done_only: Only [x]/[X] closes archive; a [-] close leaves the thread in the
         Inbox.
-      done_only:
-        Only [x]/[X] closes archive; a [-] close leaves the thread in the Inbox.
     default: cancelled_too
-    why:
-      The request's own "out of sight" parenthetical; a done-only arm stays cheap to add
-      later.
+    why: The request's own "out of sight" parenthetical; a done-only arm stays cheap
+      to add later.
     answer: cancelled_too
   receipt_label:
     ask: What should the Gmail receipt label be named?
@@ -94,31 +87,24 @@ decisions:
     why: Invisible in normal weeks, still pauses a real bulk-close incident.
     answer: ten
   bead_i4:
-    ask:
-      Close bead bob-cli-i4 (opt-in unlabel of bob after pull) as superseded by this
-      design?
+    ask: Close bead bob-cli-i4 (opt-in unlabel of bob after pull) as superseded by
+      this design?
     choices:
-      close:
-        Closes with a note pointing here; a nested-label scheme can still serve its
-        phone-queue goal.
-      park:
-        Stays open but frozen; nobody builds it until the label-consent conflict is
-        re-decided.
+      close: Closes with a note pointing here; a nested-label scheme can still serve
+        its phone-queue goal.
+      park: Stays open but frozen; nobody builds it until the label-consent conflict
+        is re-decided.
     default: close
-    why:
-      i4 strips the label this feature reads as live consent; built as specified they
-      conflict.
+    why: i4 strips the label this feature reads as live consent; built as specified
+      they conflict.
     answer: close
   decision_record:
-    ask:
-      Record the accepted design as the new decisions-web strand
-      closing-a-task-archives-its-bob-mail-once?
+    ask: Record the accepted design as the new decisions-web strand closing-a-task-archives-its-bob-mail-once?
     memory:
-      - decisions:closing-a-task-archives-its-bob-mail-once
+    - decisions:closing-a-task-archives-its-bob-mail-once
     default: true
-    requested:
-      I would like to make it so the `bob gmail sync` command starts archiving emails in
-      gmail automatically when appropriate. Can you help me implement this?
+    requested: I would like to make it so the `bob gmail sync` command starts archiving
+      emails in gmail automatically when appropriate. Can you help me implement this?
     answer: false
 proposed_by: bbugyi200.athena.1bt
 proposed_with: claude/claude-fable-5
@@ -126,10 +112,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 11:11:50
 status: wip
+bead_id: bob-cli-kx
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_on_task_close.md)
+- **PROMPT:** [prompts/202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_on_task_close.md)
+- **BEAD:** [bob-cli-kx](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kx/README.md)
 
 # Gmail archive on task close for `bob gmail sync`
 
