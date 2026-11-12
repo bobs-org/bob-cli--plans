@@ -1,56 +1,51 @@
 ---
 tier: epic
 title: Editable album Schema Card
-goal:
-  Complete bob-cli-kr.4 with previewed per-gesture schema edits, guarded Undo, album and
-  record entry points, validated YAML return, and deployed integration proof.
+goal: Complete bob-cli-kr.4 with previewed per-gesture schema edits, guarded Undo,
+  album and record entry points, validated YAML return, and deployed integration proof.
 phases:
-  - id: update-session
-    title: Guarded schema update service and edit session
-    size: medium
-    depends_on: []
-    description:
-      "update-session: extend the shared album subprocess service with typed update
-      results and a tested preview/apply/Undo session, editor-save ordering, and
-      sync-only recovery."
-  - id: editable-card
-    title: Schema Card gesture stages and consequence UI
-    size: medium
-    depends_on:
-      - update-session
-    description:
-      "editable-card: connect the existing Schema Card to the update session, implement
-      every v1 gesture and typed field editor, and preserve focus, accessibility, and
-      mobile degradation."
-  - id: schema-entrypoints
-    title: Album and record entry points and YAML return
-    size: medium
-    depends_on:
-      - editable-card
-    description:
-      "schema-entrypoints: add palette and Command Mode surface entry points, the
-      album-only Task Card chord fallback, and a pane-scoped YAML excursion with
-      validated Done."
-  - id: editor-acceptance
-    title: Schema editor integration and real Obsidian acceptance
-    size: medium
-    depends_on:
-      - schema-entrypoints
-    description:
-      "editor-acceptance: extend the existing scratch-vault album harness to prove real
-      writer preview/apply/Undo, stale-save refusal, source validation, and keyboard and
-      visual behavior; finish reference docs and deployment evidence."
+- id: update-session
+  title: Guarded schema update service and edit session
+  size: medium
+  depends_on: []
+  description: 'update-session: extend the shared album subprocess service with typed
+    update results and a tested preview/apply/Undo session, editor-save ordering,
+    and sync-only recovery.'
+- id: editable-card
+  title: Schema Card gesture stages and consequence UI
+  size: medium
+  depends_on:
+  - update-session
+  description: 'editable-card: connect the existing Schema Card to the update session,
+    implement every v1 gesture and typed field editor, and preserve focus, accessibility,
+    and mobile degradation.'
+- id: schema-entrypoints
+  title: Album and record entry points and YAML return
+  size: medium
+  depends_on:
+  - editable-card
+  description: 'schema-entrypoints: add palette and Command Mode surface entry points,
+    the album-only Task Card chord fallback, and a pane-scoped YAML excursion with
+    validated Done.'
+- id: editor-acceptance
+  title: Schema editor integration and real Obsidian acceptance
+  size: medium
+  depends_on:
+  - schema-entrypoints
+  description: 'editor-acceptance: extend the existing scratch-vault album harness
+    to prove real writer preview/apply/Undo, stale-save refusal, source validation,
+    and keyboard and visual behavior; finish reference docs and deployment evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-kr.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kr.4
 create_time: 2026-11-12 13:46:47
 status: wip
+bead_id: bob-cli-kr.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_schema_card_editor.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_card_editor.md)
-- **PARENT:**
-  [202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_schema_render_and_edit.md)
+- **PROMPT:** [prompts/202611/album_schema_card_editor.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_card_editor.md)
+- **PARENT:** [202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_schema_render_and_edit.md)
+- **BEAD:** [bob-cli-kr.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kr/bob-cli-kr.4.1.md)
 
 # Editable album Schema Card
 
