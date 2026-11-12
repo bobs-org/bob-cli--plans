@@ -1,25 +1,27 @@
 ---
 tier: tale
 size: medium
-title: Keep the task-wikilink CPU budgets green inside full npm test, then land bob-cli-kj
-goal: 'bob-plugins `scripts/test-block-id-prompt-task-wikilink-index-performance.cjs`
-  passes inside the full `npm test` on athena in at least three consecutive runs,
-  with its 1500 ms / 16 ms / 50 ms / 12 ms budgets unchanged and a gate that still
-  catches real slowdowns. Then bob-cli-f8 and the epic bob-cli-kj close with verified
-  evidence.
+title:
+  Keep the task-wikilink CPU budgets green inside full npm test, then land bob-cli-kj
+goal: "bob-plugins `scripts/test-block-id-prompt-task-wikilink-index-performance.cjs`
+  passes inside the full `npm test` on athena in at least three consecutive runs, with
+  its 1500 ms / 16 ms / 50 ms / 12 ms budgets unchanged and a gate that still catches
+  real slowdowns. Then bob-cli-f8 and the epic bob-cli-kj close with verified evidence.
 
-  '
+  "
 decisions:
   sibling_timing_tests:
-    ask: If a serial perf stage is added, should the io/ju/ki/km ledger timing files
-      move into it too?
+    ask:
+      If a serial perf stage is added, should the io/ju/ki/km ledger timing files move
+      into it too?
     choices:
-      leave: Only CPU-budget perf files move; the four ledger flakes keep their own
-        beads
-      include: Also move the four ledger timing files and close each bead that then
-        stays green
+      leave:
+        Only CPU-budget perf files move; the four ledger flakes keep their own beads
+      include:
+        Also move the four ledger timing files and close each bead that then stays green
     default: leave
-    why: Those beads ask for per-test repairs; moving whole files serializes many
+    why:
+      Those beads ask for per-test repairs; moving whole files serializes many
       functional tests
     answer: leave
 proposed_by: bbugyi200.athena.bob-cli-kj.land
@@ -33,6 +35,11 @@ status: done
   [202611/impact_ranked_bead_fixes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/impact_ranked_bead_fixes.md)
 - **BEAD:**
   [bob-cli-kj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kj/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-kj.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-kj.land.md)
+- **COMMITS:**
+  - [538d626](https://github.com/bobs-org/bob-cli--plans/commit/538d626be23e696eafb965691291b732733b429f)
+    — docs: mark impact-ranked epic and wikilink-perf tale done
 
 # Keep the task-wikilink CPU budgets green inside full npm test, then land bob-cli-kj
 
