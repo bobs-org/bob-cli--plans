@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "commit_granularity",
+      "kind": "choice",
+      "ask": "Should each safe Schema Card gesture commit immediately as its own scoped commit?",
+      "why": "Matches bob's one-writer transaction model and keeps every schema change independently revertable",
+      "choices": [
+        {
+          "key": "gesture",
+          "label": "One scoped commit per gesture; Undo replays inverse ops; history stays honest and revertable"
+        },
+        {
+          "key": "session",
+          "label": "The card batches edits into a draft; one commit per explicit save; Undo exists only pre-save"
+        }
+      ],
+      "default": "gesture",
+      "effective_default": "gesture",
+      "requested_verified": false
+    },
+    {
+      "id": "mobile",
+      "kind": "choice",
+      "ask": "Should album schema surfaces degrade gracefully on Obsidian mobile?",
+      "why": "Follows the album service's existing desktop-gated subprocess pattern at little extra cost",
+      "choices": [
+        {
+          "key": "degrade",
+          "label": "Header and chips render read-only on mobile with an edit-in-YAML hint; no subprocess writes"
+        },
+        {
+          "key": "skip",
+          "label": "Desktop-only; on mobile the native record row stays visible and untouched"
+        }
+      ],
+      "default": "degrade",
+      "effective_default": "degrade",
+      "requested_verified": false
+    },
+    {
+      "id": "chord",
+      "kind": "choice",
+      "ask": "Should Ctrl+Shift+P open the Schema Card on album notes, where the Task Card chord is idle?",
+      "why": "The chord is otherwise idle on album notes and the mnemonic stays coherent",
+      "choices": [
+        {
+          "key": "overload",
+          "label": "The Task Card chord opens the Schema Card on album notes, editing the properties of what you are on"
+        },
+        {
+          "key": "separate",
+          "label": "The Schema Card opens only from the header, the command palette, and Command Mode"
+        }
+      ],
+      "default": "overload",
+      "effective_default": "overload",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision",
+      "kind": "toggle",
+      "ask": "Should the land agent record the album-schemas-are-edited-through-bob decision strand?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:album-schemas-edited-through-bob"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:album-schemas-edited-through-bob",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/album-schemas-edited-through-bob.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
