@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tag_spelling",
+      "kind": "choice",
+      "ask": "Which exact tag should sync write on unacked external Event Task rows?",
+      "why": "It names the row's state, pairs with the command noun, and research chose it.",
+      "choices": [
+        {
+          "key": "unacked",
+          "label": "#unacked \u2014 names the state; matches the `bob gcal ack` command (research pick)"
+        },
+        {
+          "key": "needs_ack",
+          "label": "#needs_ack \u2014 names the action; reads as an imperative in the vault"
+        }
+      ],
+      "default": "unacked",
+      "effective_default": "unacked",
+      "requested_verified": false
+    },
+    {
+      "id": "mem_decision_record",
+      "kind": "toggle",
+      "ask": "File the new decision record decisions:external-gcal-events-are-acked-once?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:external-gcal-events-are-acked-once"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:external-gcal-events-are-acked-once",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/external-gcal-events-are-acked-once.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "mem_glossary_term",
+      "kind": "toggle",
+      "ask": "Add the new glossary strand glossary:event-ack for the Event Ack term?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:event-ack"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:event-ack",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/event-ack.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
