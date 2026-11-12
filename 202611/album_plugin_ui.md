@@ -1,65 +1,59 @@
 ---
 tier: epic
 title: Obsidian album cards, live chips, headers, and navigation
-goal:
-  Complete bob-cli-k3.7 with report-driven album and record cards, album headers,
+goal: Complete bob-cli-k3.7 with report-driven album and record cards, album headers,
   correct parent and task-home pickers, and a tested, documented plugin deployment.
 phases:
-  - id: album-data
-    title: Shared album reports and debounced sync
-    size: medium
-    depends_on: []
-    description:
-      "album-data: implement schema-v1 report and sync decoders, shared
-      stale-while-revalidate service, filtered frontmatter invalidation, three-second
-      sync debounce, lifecycle wiring, real CLI fixtures, and tests."
-  - id: owner-cards
-    title: Owner album cards and lead-group navigation
-    size: medium
-    depends_on:
-      - album-data
-    description:
-      "owner-cards: implement hue-accented albums callouts in Reading view and Live
-      Preview, count/lead-group/peek/age/health chips, responsive layout, accessible
-      group navigation, and focused renderer tests."
-  - id: records-cards
-    title: Record index cards with folds and date chips
-    size: medium
-    depends_on:
-      - owner-cards
-    description:
-      "records-cards: implement styled records tally, view-only folding after the first
-      group above twelve rows, record date chips, refresh-safe view state, group-jump
-      integration, and renderer tests."
-  - id: album-header
-    title: Album breadcrumb and read-only schema header
-    size: medium
-    depends_on:
-      - records-cards
-    description:
-      "album-header: implement path-resolved breadcrumb, copy-capture affordance,
-      report-driven schema card, album-only record-property hiding, Reading/Live Preview
-      lifecycle, and header tests."
-  - id: album-navigation
-    title: Album and record kinds in navigation
-    size: medium
-    depends_on:
-      - album-header
-    description:
-      "album-navigation: implement accessible album/record icons, album and record
-      parent-picker rules with commit-time checks, task-home exclusions, and focused
-      navigation regressions."
+- id: album-data
+  title: Shared album reports and debounced sync
+  size: medium
+  depends_on: []
+  description: 'album-data: implement schema-v1 report and sync decoders, shared stale-while-revalidate
+    service, filtered frontmatter invalidation, three-second sync debounce, lifecycle
+    wiring, real CLI fixtures, and tests.'
+- id: owner-cards
+  title: Owner album cards and lead-group navigation
+  size: medium
+  depends_on:
+  - album-data
+  description: 'owner-cards: implement hue-accented albums callouts in Reading view
+    and Live Preview, count/lead-group/peek/age/health chips, responsive layout, accessible
+    group navigation, and focused renderer tests.'
+- id: records-cards
+  title: Record index cards with folds and date chips
+  size: medium
+  depends_on:
+  - owner-cards
+  description: 'records-cards: implement styled records tally, view-only folding after
+    the first group above twelve rows, record date chips, refresh-safe view state,
+    group-jump integration, and renderer tests.'
+- id: album-header
+  title: Album breadcrumb and read-only schema header
+  size: medium
+  depends_on:
+  - records-cards
+  description: 'album-header: implement path-resolved breadcrumb, copy-capture affordance,
+    report-driven schema card, album-only record-property hiding, Reading/Live Preview
+    lifecycle, and header tests.'
+- id: album-navigation
+  title: Album and record kinds in navigation
+  size: medium
+  depends_on:
+  - album-header
+  description: 'album-navigation: implement accessible album/record icons, album and
+    record parent-picker rules with commit-time checks, task-home exclusions, and
+    focused navigation regressions.'
 proposed_by: bbugyi200.athena.bob-cli-k3.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-k3.7
 create_time: 2026-11-11 23:10:16
 status: wip
+bead_id: bob-cli-k3.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_plugin_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_plugin_ui.md)
-- **PARENT:**
-  [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **PROMPT:** [prompts/202611/album_plugin_ui.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_plugin_ui.md)
+- **PARENT:** [202611/album_and_record_notes.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_and_record_notes.md)
+- **BEAD:** [bob-cli-k3.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.7.1.md)
 
 # Album cards, headers, and navigation in Obsidian
 
