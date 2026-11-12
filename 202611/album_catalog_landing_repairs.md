@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish guarded album creation and land the catalog epic
-goal:
-  Close the destination and claim guard gaps, verify integrated album behavior, and
-  normally close bob-cli-k3.6.1 and parent phase bob-cli-k3.6.
+goal: Close the destination and claim guard gaps, verify integrated album behavior,
+  and normally close bob-cli-k3.6.1 and parent phase bob-cli-k3.6.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-k3.6.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/album_catalog_and_create.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_catalog_and_create.md)
 - **BEAD:**
   [bob-cli-k3.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.6.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-k3.6.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.6.1.land.md)
-- **COMMITS:**
-  - [0c8df96](https://github.com/bobs-org/bob-cli/commit/0c8df969406611b9db4170ce5cb24df1eca15385)
-    — fix(albums): guard create collisions, catalog deps, and records-init claims
 
 # Finish guarded album creation and land the catalog epic
 
