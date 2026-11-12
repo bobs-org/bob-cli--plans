@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Repair the guarded album writer and finish its landing
-goal:
-  Make schema Undo, consequences and atomic batches correct, prove the guarded writer,
-  and close bob-cli-kr.2.1 and parent phase bob-cli-kr.2.
+goal: Make schema Undo, consequences and atomic batches correct, prove the guarded
+  writer, and close bob-cli-kr.2.1 and parent phase bob-cli-kr.2.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-kr.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/album_schema_writer.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_schema_writer.md)
 - **BEAD:**
   [bob-cli-kr.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kr/bob-cli-kr.2.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-kr.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-kr.2.1.land.md)
-- **COMMITS:**
-  - [27dd275](https://github.com/bobs-org/bob-cli/commit/27dd275664eb928df33f88cc952604b1dc18f106)
-    — feat(albums): repair guarded writer landing
 
 # Repair the guarded album writer and finish its landing
 
