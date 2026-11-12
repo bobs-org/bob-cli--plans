@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "day_interaction",
+      "kind": "choice",
+      "ask": "Should -n combine with explicit -D days into one deduped run?",
+      "why": "The day set already dedupes and sorts, so union composes with zero special cases.",
+      "choices": [
+        {
+          "key": "union",
+          "label": "Merge into one sorted, deduped day set; -n 2 -D tomorrow syncs yesterday through tomorrow"
+        },
+        {
+          "key": "conflict",
+          "label": "Reject -n together with an explicit -D; each run uses one spelling"
+        }
+      ],
+      "default": "union",
+      "effective_default": "union",
+      "requested_verified": false
+    },
+    {
+      "id": "n_bound",
+      "kind": "choice",
+      "ask": "Should -n reject values above 366?",
+      "why": "A full year covers any real catch-up and catches pasted-year typos like -n 2026.",
+      "choices": [
+        {
+          "key": "capped",
+          "label": "N must be 1..=366; larger values fail fast with a hint"
+        },
+        {
+          "key": "uncapped",
+          "label": "Any positive N is accepted"
+        }
+      ],
+      "default": "capped",
+      "effective_default": "capped",
+      "requested_verified": false
+    }
+  ]
+}
