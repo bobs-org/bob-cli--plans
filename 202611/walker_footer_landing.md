@@ -2,10 +2,11 @@
 tier: tale
 size: medium
 title: Finish landing the walker-footer epic (bob-cli-ky)
-goal: 'Close the gaps the bob-cli-ky land agent found: stale walkMode v2 test assertions,
+goal:
+  "Close the gaps the bob-cli-ky land agent found: stale walkMode v2 test assertions,
   the missing review-attention-dot tests, a ledger-unload dot clear, the real-Obsidian
-  selector-geometry e2e the visual phase skipped, and the nav-hotkeys reference page''s
-  word cap; then close epic bob-cli-ky.'
+  selector-geometry e2e the visual phase skipped, and the nav-hotkeys reference page's
+  word cap; then close epic bob-cli-ky."
 proposed_by: bbugyi200.athena.bob-cli-ky.land
 proposed_with: claude/opus
 bead: bob-cli-ky
@@ -14,6 +15,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-ky](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ky/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ky.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ky.land.md)
+- **COMMITS:**
+  - [435c1ae](https://github.com/bobs-org/bob-cli--plans/commit/435c1ae87894d5e4bfd3656442380524161f91a4)
+    — docs(plans): land walker_footers epic plan for bracket-walk footers
 
 # Plan: Finish landing the walker-footer epic (bob-cli-ky)
 
