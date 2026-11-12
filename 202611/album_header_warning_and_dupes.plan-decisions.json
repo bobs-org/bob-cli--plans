@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "walk_top",
+      "kind": "choice",
+      "ask": "Should the owner walk end silently at the first non-area/project ancestor?",
+      "why": "Every real chain tops out at area.md, so both render identically; stop is the smaller change",
+      "choices": [
+        {
+          "key": "stop",
+          "label": "The first resolved non-home ancestor ends the chain with no warning"
+        },
+        {
+          "key": "pass_through",
+          "label": "Keep walking through non-home notes like pomodoroHomeResolve, collecting crumbs above"
+        }
+      ],
+      "default": "stop",
+      "effective_default": "stop",
+      "requested_verified": false
+    }
+  ]
+}
