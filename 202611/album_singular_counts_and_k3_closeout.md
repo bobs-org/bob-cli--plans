@@ -2,17 +2,15 @@
 tier: tale
 size: small
 title: Album counts say "1 restaurant", then close the album-notes epic bob-cli-k3
-goal:
-  An album with exactly one record reads "1 restaurant" (not "1 restaurants") in its
-  generated `[!records]` tally and on its owner `[!albums]` card, and "⚠️ 1 needs a
-  status" (not "need"). bob reports the display singular additively in album JSON. The
-  retired config-records parser stops compiling into production code. Then the epic
-  bob-cli-k3 is closed and its plan is marked done.
+goal: An album with exactly one record reads "1 restaurant" (not "1 restaurants")
+  in its generated `[!records]` tally and on its owner `[!albums]` card, and "⚠️ 1
+  needs a status" (not "need"). bob reports the display singular additively in album
+  JSON. The retired config-records parser stops compiling into production code. Then
+  the epic bob-cli-k3 is closed and its plan is marked done.
 proposed_by: bbugyi200.athena.bob-cli-k3.land
 proposed_with: claude/opus
 bead: bob-cli-k3
-create_time: 2026-11-12 13:58:44
-status: wip
+status: done
 ---
 
 - **PARENT:**
