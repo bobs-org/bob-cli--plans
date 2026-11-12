@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Album UI acceptance proof and landing for bob-cli-k3.7.1
-goal: Build and run the album real-Obsidian acceptance proof that the bob-cli-k3.7.1
-  plan assigns to its land agent, fix any defects it finds, deploy, then close bob-cli-k3.7.1
+goal:
+  Build and run the album real-Obsidian acceptance proof that the bob-cli-k3.7.1 plan
+  assigns to its land agent, fix any defects it finds, deploy, then close bob-cli-k3.7.1
   and its parent phase bob-cli-k3.7.
 proposed_by: bbugyi200.athena.bob-cli-k3.7.1.land
 proposed_with: claude/opus
@@ -15,6 +16,11 @@ status: done
   [202611/album_plugin_ui.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_plugin_ui.md)
 - **BEAD:**
   [bob-cli-k3.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-k3/bob-cli-k3.7.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-k3.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-k3.7.1.land.md)
+- **COMMITS:**
+  - [8cef0d5](https://github.com/bobs-org/bob-cli/commit/8cef0d56c8c987de0d0acbc31d260b72c6c37953)
+    — docs(records): link albums section to Obsidian Album cards page
 
 # Album UI acceptance proof and landing
 
