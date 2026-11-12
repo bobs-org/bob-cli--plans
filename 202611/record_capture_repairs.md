@@ -1,88 +1,75 @@
 ---
 tier: epic
-title:
-  Record capture repairs — route-row accept, bare-album preview, retired-config test
-  fallout
-goal: "Accepting a record route row in Bob Mac Capture works again and continues into
-  the field flow, a bare album route previews as a teaching refusal with its one-key fix
-  instead of a generic failure, and bob-cli's record-surface tests run on album fixtures
-  so master CI and the release train unblock.
+title: Record capture repairs — route-row accept, bare-album preview, retired-config
+  test fallout
+goal: 'Accepting a record route row in Bob Mac Capture works again and continues into
+  the field flow, a bare album route previews as a teaching refusal with its one-key
+  fix instead of a generic failure, and bob-cli''s record-surface tests run on album
+  fixtures so master CI and the release train unblock.
 
-  "
+  '
 phases:
-  - id: cli-tests
-    title: Migrate the record-surface tests off the retired records config (bob-cli)
-    depends_on: []
-    size: medium
-    description:
-      "cli-tests: port the RecordVault and sibling fixtures from the retired records:
-      config to real album notes across capture_complete, capture_parse,
-      capture_related, capture album_index, albums registry, bank import_run, and the
-      CLI suite, and refresh the stale root-help snapshot, so the 45 lib and 2 CLI
-      failures at b04120b0 go green without product changes."
-  - id: mac-accept
-    title: Record route rows accept again (bob-mac-capture)
-    depends_on: []
-    size: medium
-    description:
-      "mac-accept: narrow acceptSelectedCompletion's record dispatch to Record Card
-      contexts so route lists accept record rows through the generic replacement path
-      with their next-missing-field continuation, apply the plus_commit_record_rows
-      decision in commitRouteCompletionOnAcceptKey, and add Return/Tab/click and
-      cached-targets regression tests."
-  - id: mac-preview
-    title: Graceful bare-album refusal and a live rewrite button (bob-mac-capture)
-    depends_on:
-      - mac-accept
-    size: medium
-    description:
-      "mac-preview: give the live preview a dedicated album_holds_no_tasks refusal
-      presentation per the album_refusal_presentation decision, gate the footer rewrite
-      button on parse currency and clear latestParse on reset so it cannot go stale, and
-      cover both with fake-bob dry-run fixture tests."
+- id: cli-tests
+  title: Migrate the record-surface tests off the retired records config (bob-cli)
+  depends_on: []
+  size: medium
+  description: 'cli-tests: port the RecordVault and sibling fixtures from the retired
+    records: config to real album notes across capture_complete, capture_parse, capture_related,
+    capture album_index, albums registry, bank import_run, and the CLI suite, and
+    refresh the stale root-help snapshot, so the 45 lib and 2 CLI failures at b04120b0
+    go green without product changes.'
+- id: mac-accept
+  title: Record route rows accept again (bob-mac-capture)
+  depends_on: []
+  size: medium
+  description: 'mac-accept: narrow acceptSelectedCompletion''s record dispatch to
+    Record Card contexts so route lists accept record rows through the generic replacement
+    path with their next-missing-field continuation, apply the plus_commit_record_rows
+    decision in commitRouteCompletionOnAcceptKey, and add Return/Tab/click and cached-targets
+    regression tests.'
+- id: mac-preview
+  title: Graceful bare-album refusal and a live rewrite button (bob-mac-capture)
+  depends_on:
+  - mac-accept
+  size: medium
+  description: 'mac-preview: give the live preview a dedicated album_holds_no_tasks
+    refusal presentation per the album_refusal_presentation decision, gate the footer
+    rewrite button on parse currency and clear latestParse on reset so it cannot go
+    stale, and cover both with fake-bob dry-run fixture tests.'
 decisions:
   plus_commit_record_rows:
     ask: Should the typed `+`/`,` quick-commit keep auto-committing record route rows?
     choices:
-      skip:
-        Typed `+`/`,` never commits a record row; the record flow starts only from an
-        explicit accept
-      continue:
-        Record rows quick-commit like ordinary routes, then schedule the
-        next-missing-field request
+      skip: Typed `+`/`,` never commits a record row; the record flow starts only
+        from an explicit accept
+      continue: Record rows quick-commit like ordinary routes, then schedule the next-missing-field
+        request
     default: skip
-    why:
-      after `@movies/ ` a `+` route or comma is ungrammatical and would write a
+    why: after `@movies/ ` a `+` route or comma is ungrammatical and would write a
       malformed draft
     answer: skip
   album_refusal_presentation:
-    ask:
-      Should a bare-album refusal (`album_holds_no_tasks`) stop rendering as a generic
-      preview failure?
+    ask: Should a bare-album refusal (`album_holds_no_tasks`) stop rendering as a
+      generic preview failure?
     choices:
-      refusal:
-        Footer shows Bob's teach text beside the rewrite button; no red callout, Retry,
-        or duplicate
-      callout:
-        Keep the red error callout but drop the "Preview failed" overwrite and the
-        duplicate message
+      refusal: Footer shows Bob's teach text beside the rewrite button; no red callout,
+        Retry, or duplicate
+      callout: Keep the red error callout but drop the "Preview failed" overwrite
+        and the duplicate message
     default: refusal
-    why:
-      it is an expected teaching state, and the current Retry button submits the
+    why: it is an expected teaching state, and the current Retry button submits the
       known-refused draft
     answer: refusal
   config_backed_album_test:
-    ask:
-      Should the retired config-backed capture test be repurposed rather than deleted?
+    ask: Should the retired config-backed capture test be repurposed rather than deleted?
     choices:
-      repurpose:
-        Rewrite it to assert a records config block alone no longer resolves a record
-        route
-      delete:
-        Remove the test; the retirement is covered by docs and the album-based tests
+      repurpose: Rewrite it to assert a records config block alone no longer resolves
+        a record route
+      delete: Remove the test; the retirement is covered by docs and the album-based
+        tests
     default: repurpose
-    why:
-      the retirement is a deliberate documented contract and deserves one guarding test
+    why: the retirement is a deliberate documented contract and deserves one guarding
+      test
     answer: repurpose
 proposed_by: bbugyi200.apollo.dp
 proposed_with: claude/claude-fable-5
@@ -90,10 +77,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 16:11:20
 status: wip
+bead_id: bob-cli-l3
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_capture_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_capture_repairs.md)
+- **PROMPT:** [prompts/202611/record_capture_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_capture_repairs.md)
+- **BEAD:** [bob-cli-l3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l3/README.md)
 
 # Record capture repairs: route-row accept, bare-album preview, and the retired `records:` config test fallout
 
