@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "chip_scope",
+      "kind": "choice",
+      "ask": "Where should the \u2318\u21b5 Gmail hint chip appear?",
+      "why": "The chip never lies and adds no standing noise; review landings surface it when it matters.",
+      "choices": [
+        {
+          "key": "cursor",
+          "label": "Only on the cursor's row \u2014 quietest; walk landings reveal it since landing moves the cursor"
+        },
+        {
+          "key": "always",
+          "label": "On every qualifying row while marks are on \u2014 more discoverable, one standing chip per row"
+        }
+      ],
+      "default": "cursor",
+      "effective_default": "cursor",
+      "requested_verified": false
+    },
+    {
+      "id": "line_scope",
+      "kind": "choice",
+      "ask": "Should Cmd+Enter act on any line carrying a mail wikilink, or only on task rows?",
+      "why": "One predicate shared by chip and keymap is simpler to specify, test, and trust.",
+      "choices": [
+        {
+          "key": "any_line",
+          "label": "Any line whose own text carries a resolving mail wikilink \u2014 one uniform predicate everywhere"
+        },
+        {
+          "key": "task_only",
+          "label": "Only task rows and their link-only mail children; log-bullet mail links do nothing"
+        }
+      ],
+      "default": "any_line",
+      "effective_default": "any_line",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_gmail_task",
+      "kind": "toggle",
+      "ask": "Create the new glossary strand defining \"Gmail Task\" (sase/memory/glossary/gmail-task.md)?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:gmail-task"
+        ]
+      },
+      "requested": "As a part of this change, we should add an excellent new \"gmail task\" glossary term.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:gmail-task",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/gmail-task.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
