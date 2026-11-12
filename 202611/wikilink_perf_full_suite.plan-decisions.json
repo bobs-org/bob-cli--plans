@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "sibling_timing_tests",
+      "kind": "choice",
+      "ask": "If a serial perf stage is added, should the io/ju/ki/km ledger timing files move into it too?",
+      "why": "Those beads ask for per-test repairs; moving whole files serializes many functional tests",
+      "choices": [
+        {
+          "key": "leave",
+          "label": "Only CPU-budget perf files move; the four ledger flakes keep their own beads"
+        },
+        {
+          "key": "include",
+          "label": "Also move the four ledger timing files and close each bead that then stays green"
+        }
+      ],
+      "default": "leave",
+      "effective_default": "leave",
+      "requested_verified": false
+    }
+  ]
+}
