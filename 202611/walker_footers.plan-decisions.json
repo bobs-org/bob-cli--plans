@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "mem_walker_footer",
+      "kind": "toggle",
+      "ask": "Publish the new Walker Footer glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:walker-footer"
+        ]
+      },
+      "requested": "We should add an excellent new \"walker footer\" glossary term to describe these footers (note that a \"review footer\" should be considered a type of \"walker footer\").",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:walker-footer",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/walker-footer.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "mem_strand_amends",
+      "kind": "toggle",
+      "ask": "Amend the review-footer and task-freshness strands to describe the gated s member?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:morning-gtd-review-footer",
+          "glossary:task-freshness"
+        ]
+      },
+      "corrects": "When nothing is due, it hides unless the cursor is on an open task with a priority; then it shows only `\u27f3 Nothing due` plus that preview.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:morning-gtd-review-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Morning GTD Review Footer",
+            "Keep Streak"
+          ]
+        },
+        {
+          "selector": "glossary:task-freshness",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Freshness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem_decision_record",
+      "kind": "toggle",
+      "ask": "Also record a walker-footer-follows-bracket-walk decision record in the decisions web?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:walker-footer-follows-bracket-walk"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:walker-footer-follows-bracket-walk",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/walker-footer-follows-bracket-walk.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
