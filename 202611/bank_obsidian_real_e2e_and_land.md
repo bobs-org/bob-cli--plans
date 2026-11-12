@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Prove the bank UI in real Obsidian, then land bob-cli-kd.6.1 and bob-cli-kd.6
-goal: A real-Obsidian synthetic-vault harness proves every bank UI contract (including
-  no math rendering), its evidence is an audited artifact, and bob-cli-kd.6.1 and
-  its parent phase bob-cli-kd.6 are closed.
+goal:
+  A real-Obsidian synthetic-vault harness proves every bank UI contract (including no
+  math rendering), its evidence is an audited artifact, and bob-cli-kd.6.1 and its
+  parent phase bob-cli-kd.6 are closed.
 proposed_by: bbugyi200.athena.bob-cli-kd.6.1.land
 proposed_with: claude/opus
 bead: bob-cli-kd.6.1
@@ -15,6 +16,11 @@ status: done
   [202611/bank_obsidian.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_obsidian.md)
 - **BEAD:**
   [bob-cli-kd.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kd/bob-cli-kd.6.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-kd.6.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-kd.6.1.land.md)
+- **COMMITS:**
+  - [442089c](https://github.com/bobs-org/bob-cli--plans/commit/442089c7ccd576b665729e545f9226fbd444f5e7)
+    — chore(plans): mark bank_obsidian epic and landing tale done
 
 # Prove the bank UI in real Obsidian, then land bob-cli-kd.6.1 and bob-cli-kd.6
 
