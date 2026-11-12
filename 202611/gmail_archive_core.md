@@ -1,86 +1,79 @@
 ---
 tier: epic
 title: Gmail archive-on-close core
-goal: "Complete bob-cli-kx.2 with opt-in one-shot Gmail archiving, positive closed-task
-  evidence, constrained label writes, crash recovery, digest-confirmed backlog and burst
-  handling, accurate reports, and verified documentation.
+goal: 'Complete bob-cli-kx.2 with opt-in one-shot Gmail archiving, positive closed-task
+  evidence, constrained label writes, crash recovery, digest-confirmed backlog and
+  burst handling, accurate reports, and verified documentation.
 
-  "
+  '
 phases:
-  - id: access
-    title: Archive configuration and modify grant
-    size: medium
-    depends_on: []
-    description:
-      "access: Add validated default-off archive configuration and isolated login -s
-      modify with accurate scope reporting, preserving existing readonly and compose
-      behavior. Implement section 1 and its tests."
-  - id: evidence
-    title: Positive closed-task and saved-message evidence
-    size: medium
-    depends_on:
-      - access
-    description:
-      "evidence: Add a strict archive-specific task scan including done/, reuse watch
-      placement and identity resolution, hold merge tombstones, and capture parsed
-      saved-message IDs. Implement section 2 and its tests."
-  - id: state
-    title: One-shot archive journal and enable baseline
-    size: medium
-    depends_on:
-      - evidence
-    description:
-      "state: Implement the body-free archive journal, observed-open and close
-      generations, historical backlog classification, consumption, receipt recovery
-      folding, and re-arm semantics. Implement section 3 and its tests."
-  - id: transport
-    title: Constrained label mutations and fake transport
-    size: medium
-    depends_on:
-      - state
-    description:
-      "transport: Add the pure property-tested label-diff contract, exact fenced message
-      batch modify and receipt-label creation, and a stateful fake gog with race and
-      failure injection. Implement section 4 and its tests."
-  - id: preview
-    title: Archive eligibility and digest-confirmed batch planning
-    size: medium
-    depends_on:
-      - transport
-    description:
-      "preview: Implement read-only archive planning, deterministic digests, historical
-      backlog and whole-burst confirmation, -c/-n parsing, and lock-free dry-run
-      projection. Implement section 5 and its tests."
-  - id: apply
-    title: Archive apply, let-go, and crash reconciliation
-    size: medium
-    depends_on:
-      - preview
-    description:
-      "apply: Integrate the archive phase after durable filing/watch application, with
-      fresh per-thread metadata, frozen IDs, ownership release, receipt reconciliation,
-      isolated failures, and authentication aborts. Implement section 6 and its tests."
-  - id: contract
-    title: Reports, doctor, documentation, and conformance audit
-    size: medium
-    depends_on:
-      - apply
-    description:
-      "contract: Finish quiet-breaking human and additive JSON reports, archive doctor
-      rows, docs/help regeneration, and the complete core C1-C20 conformance audit.
-      Record supersession evidence for the outer land agent and run the required gates.
-      Implement section 7."
+- id: access
+  title: Archive configuration and modify grant
+  size: medium
+  depends_on: []
+  description: 'access: Add validated default-off archive configuration and isolated
+    login -s modify with accurate scope reporting, preserving existing readonly and
+    compose behavior. Implement section 1 and its tests.'
+- id: evidence
+  title: Positive closed-task and saved-message evidence
+  size: medium
+  depends_on:
+  - access
+  description: 'evidence: Add a strict archive-specific task scan including done/,
+    reuse watch placement and identity resolution, hold merge tombstones, and capture
+    parsed saved-message IDs. Implement section 2 and its tests.'
+- id: state
+  title: One-shot archive journal and enable baseline
+  size: medium
+  depends_on:
+  - evidence
+  description: 'state: Implement the body-free archive journal, observed-open and
+    close generations, historical backlog classification, consumption, receipt recovery
+    folding, and re-arm semantics. Implement section 3 and its tests.'
+- id: transport
+  title: Constrained label mutations and fake transport
+  size: medium
+  depends_on:
+  - state
+  description: 'transport: Add the pure property-tested label-diff contract, exact
+    fenced message batch modify and receipt-label creation, and a stateful fake gog
+    with race and failure injection. Implement section 4 and its tests.'
+- id: preview
+  title: Archive eligibility and digest-confirmed batch planning
+  size: medium
+  depends_on:
+  - transport
+  description: 'preview: Implement read-only archive planning, deterministic digests,
+    historical backlog and whole-burst confirmation, -c/-n parsing, and lock-free
+    dry-run projection. Implement section 5 and its tests.'
+- id: apply
+  title: Archive apply, let-go, and crash reconciliation
+  size: medium
+  depends_on:
+  - preview
+  description: 'apply: Integrate the archive phase after durable filing/watch application,
+    with fresh per-thread metadata, frozen IDs, ownership release, receipt reconciliation,
+    isolated failures, and authentication aborts. Implement section 6 and its tests.'
+- id: contract
+  title: Reports, doctor, documentation, and conformance audit
+  size: medium
+  depends_on:
+  - apply
+  description: 'contract: Finish quiet-breaking human and additive JSON reports, archive
+    doctor rows, docs/help regeneration, and the complete core C1-C20 conformance
+    audit. Record supersession evidence for the outer land agent and run the required
+    gates. Implement section 7.'
 proposed_by: bbugyi200.athena.bob-cli-kx.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kx.2
 create_time: 2026-11-12 11:37:40
 status: wip
+bead_id: bob-cli-kx.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_archive_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_core.md)
-- **PARENT:**
-  [202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_on_task_close.md)
+- **PROMPT:** [prompts/202611/gmail_archive_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_core.md)
+- **PARENT:** [202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_on_task_close.md)
+- **BEAD:** [bob-cli-kx.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kx/bob-cli-kx.2.1.md)
 
 # Gmail archive core: implementation of bob-cli-kx.2
 
