@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "echo_day",
+      "kind": "choice",
+      "ask": "Should the sync run's final human line always name the synced day?",
+      "why": "One uniform line keeps every toast self-contained with no second date rule.",
+      "choices": [
+        {
+          "key": "always",
+          "label": "Every echo reads \"synced <Ddd YYYY-MM-DD> \u00b7 <HH:MM> \u00b7 <account>\", today included"
+        },
+        {
+          "key": "other_day_only",
+          "label": "Same-day syncs keep the short \"synced <HH:MM>\" echo; only other days name the day"
+        }
+      ],
+      "default": "always",
+      "effective_default": "always",
+      "requested_verified": false
+    },
+    {
+      "id": "tab_recent",
+      "kind": "choice",
+      "ask": "Should Tab on a RECENT single-run row open argument mode prefilled with that run's recorded args?",
+      "why": "Editing the last run's args is the gesture Bryan reached for when Tab \"did nothing\".",
+      "choices": [
+        {
+          "key": "prefill",
+          "label": "Recent rows with a catalog entry open argument mode with the recorded args ready to edit"
+        },
+        {
+          "key": "hint_only",
+          "label": "Recent rows only show a footer hint on Tab; args stay reachable from entry and typed rows"
+        }
+      ],
+      "default": "prefill",
+      "effective_default": "prefill",
+      "requested_verified": false
+    },
+    {
+      "id": "e2e",
+      "kind": "choice",
+      "ask": "Should a real-Obsidian e2e drive an actual Tab keypress through the command sheet?",
+      "why": "Handler logic is already unit-tested; only a real Obsidian run settles the reported symptom.",
+      "choices": [
+        {
+          "key": "real_obsidian",
+          "label": "CDP e2e in a scratch vault sends a trusted Tab and asserts argument mode renders"
+        },
+        {
+          "key": "dom_only",
+          "label": "Only fake-DOM dispatch tests; cannot rule out an Obsidian-level routing failure"
+        }
+      ],
+      "default": "real_obsidian",
+      "effective_default": "real_obsidian",
+      "requested_verified": false
+    }
+  ]
+}
