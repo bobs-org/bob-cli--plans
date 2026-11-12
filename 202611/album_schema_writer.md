@@ -1,50 +1,47 @@
 ---
 tier: epic
 title: Guarded album schema update writer
-goal: "Complete bob-cli-kr.2 with a dry-runnable albums update command that validates
+goal: 'Complete bob-cli-kr.2 with a dry-runnable albums update command that validates
   ordered schema edits, preserves unrelated bytes, commits the rebuilt index atomically,
   and returns safe inverse operations for Undo.
 
-  "
+  '
 phases:
-  - id: schema-ops
-    title: Validate ordered schema operations and their consequences
-    size: medium
-    description:
-      "schema-ops: implement the typed update protocol, pure ordered operations,
-      complete-record impact accounting, shared Rust validation, typed refusals, and
-      semantic inverse operations. No public command yet."
-    depends_on: []
-  - id: schema-spans
-    title: Preserve schema spans and compose a reversible index edit
-    size: medium
-    description:
-      "schema-spans: implement conservative nested YAML span edits, exact inverse
-      restoration metadata, and the read-only album update planner combining schema and
-      records-index changes with guarded dependencies."
-    depends_on:
-      - schema-ops
-  - id: schema-command
-    title: Ship the guarded albums update command and its contract
-    size: medium
-    description:
-      "schema-command: expose albums update through the CLI and completion, integrate
-      the planner with the shared transaction and a no-sync no-op path, document the
-      JSON protocol, and prove refusals, rollback, concurrency, scoped commits, and sync
-      outcomes."
-    depends_on:
-      - schema-spans
+- id: schema-ops
+  title: Validate ordered schema operations and their consequences
+  size: medium
+  description: 'schema-ops: implement the typed update protocol, pure ordered operations,
+    complete-record impact accounting, shared Rust validation, typed refusals, and
+    semantic inverse operations. No public command yet.'
+  depends_on: []
+- id: schema-spans
+  title: Preserve schema spans and compose a reversible index edit
+  size: medium
+  description: 'schema-spans: implement conservative nested YAML span edits, exact
+    inverse restoration metadata, and the read-only album update planner combining
+    schema and records-index changes with guarded dependencies.'
+  depends_on:
+  - schema-ops
+- id: schema-command
+  title: Ship the guarded albums update command and its contract
+  size: medium
+  description: 'schema-command: expose albums update through the CLI and completion,
+    integrate the planner with the shared transaction and a no-sync no-op path, document
+    the JSON protocol, and prove refusals, rollback, concurrency, scoped commits,
+    and sync outcomes.'
+  depends_on:
+  - schema-spans
 proposed_by: bbugyi200.apollo.bob-cli-kr.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kr.2
 create_time: 2026-11-12 07:56:39
 status: wip
+bead_id: bob-cli-kr.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_schema_writer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_writer.md)
-- **PARENT:**
-  [202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_schema_render_and_edit.md)
+- **PROMPT:** [prompts/202611/album_schema_writer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_writer.md)
+- **PARENT:** [202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_schema_render_and_edit.md)
+- **BEAD:** [bob-cli-kr.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kr/bob-cli-kr.2.1.md)
 
 # Guarded album schema editing through bob
 
