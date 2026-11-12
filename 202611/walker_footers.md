@@ -99,7 +99,7 @@ proposed_with: claude/claude-fable-5
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 12:30:10
-status: wip
+status: done
 bead_id: bob-cli-ky
 ---
 
