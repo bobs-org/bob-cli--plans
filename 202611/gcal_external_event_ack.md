@@ -1,100 +1,94 @@
 ---
 tier: epic
 title: Ack external Google Calendar events (bob gcal ack)
-goal: "Every external Google Calendar event bound for an Event Task is asked about once
-  through a one-key `bob gcal ack` review queue; until acked (or noted) its open row
-  wears a hard-to-miss Bob-owned warning tag, sync keeps creating rows regardless, and a
-  weekly vault chore drives the sweep.
+goal: 'Every external Google Calendar event bound for an Event Task is asked about
+  once through a one-key `bob gcal ack` review queue; until acked (or noted) its open
+  row wears a hard-to-miss Bob-owned warning tag, sync keeps creating rows regardless,
+  and a weekly vault chore drives the sweep.
 
-  "
+  '
 decisions:
   tag_spelling:
     ask: Which exact tag should sync write on unacked external Event Task rows?
     choices:
-      unacked:
-        "#unacked — names the state; matches the `bob gcal ack` command (research pick)"
-      needs_ack: "#needs_ack — names the action; reads as an imperative in the vault"
+      unacked: '#unacked — names the state; matches the `bob gcal ack` command (research
+        pick)'
+      needs_ack: '#needs_ack — names the action; reads as an imperative in the vault'
     default: unacked
-    why: It names the row's state, pairs with the command noun, and research chose it.
+    why: It names the row's state, pairs with the command noun, and research chose
+      it.
     answer: unacked
   mem_decision_record:
     ask: File the new decision record decisions:external-gcal-events-are-acked-once?
     memory:
-      - decisions:external-gcal-events-are-acked-once
+    - decisions:external-gcal-events-are-acked-once
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   mem_glossary_term:
     ask: Add the new glossary strand glossary:event-ack for the Event Ack term?
     memory:
-      - glossary:event-ack
+    - glossary:event-ack
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: journal
-    title: gcal.ack journal kind, ack fold, and the external classifier
-    depends_on: []
-    size: medium
-    description:
-      "journal: add the gcal.ack record (parse, fold into an AckBook, append),
-      note-history ack evidence, the load_state skip, the account guard, reset/-F
-      survival, model.rs is_external(), and the gcal.ack config kill switch."
-  - id: tag
-    title: Unacked row tag reconciliation and sync/list surfaces
-    depends_on:
-      - journal
-    size: medium
-    description:
-      "tag: teach split_suffix the warning-tag marker, reconcile the tag through the
-      want/present/last table in the sync planner (including the delete-the-tag inferred
-      ack), journal the additive unacked row field, and surface warnings in sync and
-      list human and JSON output."
-  - id: cli
-    title: The bob gcal ack command
-    depends_on:
-      - journal
-      - tag
-    size: large
-    description:
-      "cli: build the interactive one-key review queue (termios raw mode), the note
-      branch through the shared note writer, one-shot/list/clear/dry-run/JSON forms,
-      exit codes, the note.rs sibling-list fix, doctor acks section, stale-seen notices,
-      and shell completion."
-  - id: docs
-    title: Docs, decision record, and glossary
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "docs: author docs/gcal-acks.md, update docs/gcal.md (commands, row-ownership
-      table, JSON, known limits) and docs/gcal-notes.md cross-links, keep
-      docs-gen/docs-check green, and file the decision record and glossary strand
-      through /sase_memory_write."
-  - id: vault
-    title: Weekly reminder row at rollout
-    depends_on:
-      - cli
-    size: small
-    description:
-      "vault: after the release train ships the command, add the weekly Monday ack chore
-      row to ~/bob/gtd_daily.md and sanity-check the rollout."
+- id: journal
+  title: gcal.ack journal kind, ack fold, and the external classifier
+  depends_on: []
+  size: medium
+  description: 'journal: add the gcal.ack record (parse, fold into an AckBook, append),
+    note-history ack evidence, the load_state skip, the account guard, reset/-F survival,
+    model.rs is_external(), and the gcal.ack config kill switch.'
+- id: tag
+  title: Unacked row tag reconciliation and sync/list surfaces
+  depends_on:
+  - journal
+  size: medium
+  description: 'tag: teach split_suffix the warning-tag marker, reconcile the tag
+    through the want/present/last table in the sync planner (including the delete-the-tag
+    inferred ack), journal the additive unacked row field, and surface warnings in
+    sync and list human and JSON output.'
+- id: cli
+  title: The bob gcal ack command
+  depends_on:
+  - journal
+  - tag
+  size: large
+  description: 'cli: build the interactive one-key review queue (termios raw mode),
+    the note branch through the shared note writer, one-shot/list/clear/dry-run/JSON
+    forms, exit codes, the note.rs sibling-list fix, doctor acks section, stale-seen
+    notices, and shell completion.'
+- id: docs
+  title: Docs, decision record, and glossary
+  depends_on:
+  - cli
+  size: medium
+  description: 'docs: author docs/gcal-acks.md, update docs/gcal.md (commands, row-ownership
+    table, JSON, known limits) and docs/gcal-notes.md cross-links, keep docs-gen/docs-check
+    green, and file the decision record and glossary strand through /sase_memory_write.'
+- id: vault
+  title: Weekly reminder row at rollout
+  depends_on:
+  - cli
+  size: small
+  description: 'vault: after the release train ships the command, add the weekly Monday
+    ack chore row to ~/bob/gtd_daily.md and sanity-check the rollout.'
 proposed_by: bbugyi200.athena.1c2
 proposed_with: claude/claude-fable-5
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 16:39:02
 status: wip
+bead_id: bob-cli-l5
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_external_event_ack.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_external_event_ack.md)
+- **PROMPT:** [prompts/202611/gcal_external_event_ack.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_external_event_ack.md)
+- **BEAD:** [bob-cli-l5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l5/README.md)
 
 # Plan: Ack external Google Calendar events (`bob gcal ack`)
 
