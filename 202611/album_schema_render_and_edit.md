@@ -1,97 +1,85 @@
 ---
 tier: epic
-title: "Album record schema: render in the header, edit through bob"
-goal: "The record frontmatter mapping on album notes renders as beautiful, honest header
-  chrome instead of a truncated JSON row, and every common schema edit becomes one safe,
-  previewed, revertable gesture through bob, with YAML editing kept first-class.
+title: 'Album record schema: render in the header, edit through bob'
+goal: 'The record frontmatter mapping on album notes renders as beautiful, honest
+  header chrome instead of a truncated JSON row, and every common schema edit becomes
+  one safe, previewed, revertable gesture through bob, with YAML editing kept first-class.
 
-  "
+  '
 phases:
-  - id: report-additions
-    title: Complete album schema JSON and the Obsidian-style emitter
-    depends_on: []
-    size: medium
-    description:
-      "report-additions: add suggest, default, bounds, line, filled, per-choice counts,
-      dated_notes, legacy, and a semantic schema fingerprint to album list JSON, and
-      emit the record block in Obsidian's YAML sequence style with round-trip fixtures."
-  - id: schema-writer
-    title: The bob albums update writer
-    depends_on:
-      - report-additions
-    size: large
-    description:
-      "schema-writer: add bob albums update with a JSON ops envelope, dry-run diffs and
-      impact counts, a fingerprint guard, Rust-side validation, span-preserving emit,
-      one scoped transactional commit with index rebuild, typed refusals, and inverse
-      ops."
-  - id: header-reshape
-    title: Collapsed schema summary, chip view, and read-only Schema Card
-    depends_on:
-      - report-additions
-    size: medium
-    description:
-      "header-reshape: reshape the album header's schema surface into a
-      collapsed-by-default summary line, an expandable chip view with usage counts, a
-      read-only Schema Card modal, and a YAML jump with lint marks from bob's issues."
-  - id: card-editor
-    title: Editable Schema Card gestures with consequences and Undo
-    depends_on:
-      - header-reshape
-      - schema-writer
-    size: large
-    description:
-      "card-editor: make the Schema Card keyboard-first editable through bob albums
-      update, with per-gesture dry-run consequence lines, scoped commits, an inverse-ops
-      Undo, taught refusals, and palette, Command Mode, and record-note entry points."
+- id: report-additions
+  title: Complete album schema JSON and the Obsidian-style emitter
+  depends_on: []
+  size: medium
+  description: 'report-additions: add suggest, default, bounds, line, filled, per-choice
+    counts, dated_notes, legacy, and a semantic schema fingerprint to album list JSON,
+    and emit the record block in Obsidian''s YAML sequence style with round-trip fixtures.'
+- id: schema-writer
+  title: The bob albums update writer
+  depends_on:
+  - report-additions
+  size: large
+  description: 'schema-writer: add bob albums update with a JSON ops envelope, dry-run
+    diffs and impact counts, a fingerprint guard, Rust-side validation, span-preserving
+    emit, one scoped transactional commit with index rebuild, typed refusals, and
+    inverse ops.'
+- id: header-reshape
+  title: Collapsed schema summary, chip view, and read-only Schema Card
+  depends_on:
+  - report-additions
+  size: medium
+  description: 'header-reshape: reshape the album header''s schema surface into a
+    collapsed-by-default summary line, an expandable chip view with usage counts,
+    a read-only Schema Card modal, and a YAML jump with lint marks from bob''s issues.'
+- id: card-editor
+  title: Editable Schema Card gestures with consequences and Undo
+  depends_on:
+  - header-reshape
+  - schema-writer
+  size: large
+  description: 'card-editor: make the Schema Card keyboard-first editable through
+    bob albums update, with per-gesture dry-run consequence lines, scoped commits,
+    an inverse-ops Undo, taught refusals, and palette, Command Mode, and record-note
+    entry points.'
 decisions:
   commit_granularity:
-    ask:
-      Should each safe Schema Card gesture commit immediately as its own scoped commit?
+    ask: Should each safe Schema Card gesture commit immediately as its own scoped
+      commit?
     choices:
-      gesture:
-        One scoped commit per gesture; Undo replays inverse ops; history stays honest
-        and revertable
-      session:
-        The card batches edits into a draft; one commit per explicit save; Undo exists
-        only pre-save
+      gesture: One scoped commit per gesture; Undo replays inverse ops; history stays
+        honest and revertable
+      session: The card batches edits into a draft; one commit per explicit save;
+        Undo exists only pre-save
     default: gesture
-    why:
-      Matches bob's one-writer transaction model and keeps every schema change
+    why: Matches bob's one-writer transaction model and keeps every schema change
       independently revertable
     answer: gesture
   mobile:
     ask: Should album schema surfaces degrade gracefully on Obsidian mobile?
     choices:
-      degrade:
-        Header and chips render read-only on mobile with an edit-in-YAML hint; no
-        subprocess writes
+      degrade: Header and chips render read-only on mobile with an edit-in-YAML hint;
+        no subprocess writes
       skip: Desktop-only; on mobile the native record row stays visible and untouched
     default: degrade
-    why:
-      Follows the album service's existing desktop-gated subprocess pattern at little
-      extra cost
+    why: Follows the album service's existing desktop-gated subprocess pattern at
+      little extra cost
     answer: degrade
   chord:
-    ask:
-      Should Ctrl+Shift+P open the Schema Card on album notes, where the Task Card chord
-      is idle?
+    ask: Should Ctrl+Shift+P open the Schema Card on album notes, where the Task Card
+      chord is idle?
     choices:
-      overload:
-        The Task Card chord opens the Schema Card on album notes, editing the properties
-        of what you are on
-      separate:
-        The Schema Card opens only from the header, the command palette, and Command
-        Mode
+      overload: The Task Card chord opens the Schema Card on album notes, editing
+        the properties of what you are on
+      separate: The Schema Card opens only from the header, the command palette, and
+        Command Mode
     default: overload
     why: The chord is otherwise idle on album notes and the mnemonic stays coherent
     answer: overload
   memory_decision:
-    ask:
-      Should the land agent record the album-schemas-are-edited-through-bob decision
+    ask: Should the land agent record the album-schemas-are-edited-through-bob decision
       strand?
     memory:
-      - decisions:album-schemas-edited-through-bob
+    - decisions:album-schemas-edited-through-bob
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.4b.linker.w0
@@ -100,10 +88,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-12 07:00:40
 status: wip
+bead_id: bob-cli-kr
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_render_and_edit.md)
+- **PROMPT:** [prompts/202611/album_schema_render_and_edit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_schema_render_and_edit.md)
+- **BEAD:** [bob-cli-kr](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kr/README.md)
 
 # Album record schema: render in the header, edit through bob
 
