@@ -2,10 +2,11 @@
 tier: tale
 size: medium
 title: Finish notebook section menu round-trips and close epic bob-cli-ka
-goal: Every notebook section menu row (bullet and glued, existing and create, typed
-  capitals included) splices, parses, and dry-runs to exactly the section and action
-  it advertises; empty notebook menus keep Bob's place_menu chrome; and epic bob-cli-ka
-  is closed with its plan marked done.
+goal:
+  Every notebook section menu row (bullet and glued, existing and create, typed capitals
+  included) splices, parses, and dry-runs to exactly the section and action it
+  advertises; empty notebook menus keep Bob's place_menu chrome; and epic bob-cli-ka is
+  closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-ka.land
 proposed_with: claude/opus
 bead: bob-cli-ka
@@ -16,6 +17,11 @@ status: done
   [202611/notebook_section_bullets.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/notebook_section_bullets.md)
 - **BEAD:**
   [bob-cli-ka](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ka/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ka.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ka.land.md)
+- **COMMITS:**
+  - [f04f277](https://github.com/bobs-org/bob-cli--plans/commit/f04f277ede3a093b25217d3e621cf1786d0d4293)
+    — docs(plans): mark notebook section bullets complete
 
 # Finish notebook section menu round-trips and close epic bob-cli-ka
 
