@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "plus_commit_record_rows",
+      "kind": "choice",
+      "ask": "Should the typed `+`/`,` quick-commit keep auto-committing record route rows?",
+      "why": "after `@movies/ ` a `+` route or comma is ungrammatical and would write a malformed draft",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Typed `+`/`,` never commits a record row; the record flow starts only from an explicit accept"
+        },
+        {
+          "key": "continue",
+          "label": "Record rows quick-commit like ordinary routes, then schedule the next-missing-field request"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "album_refusal_presentation",
+      "kind": "choice",
+      "ask": "Should a bare-album refusal (`album_holds_no_tasks`) stop rendering as a generic preview failure?",
+      "why": "it is an expected teaching state, and the current Retry button submits the known-refused draft",
+      "choices": [
+        {
+          "key": "refusal",
+          "label": "Footer shows Bob's teach text beside the rewrite button; no red callout, Retry, or duplicate"
+        },
+        {
+          "key": "callout",
+          "label": "Keep the red error callout but drop the \"Preview failed\" overwrite and the duplicate message"
+        }
+      ],
+      "default": "refusal",
+      "effective_default": "refusal",
+      "requested_verified": false
+    },
+    {
+      "id": "config_backed_album_test",
+      "kind": "choice",
+      "ask": "Should the retired config-backed capture test be repurposed rather than deleted?",
+      "why": "the retirement is a deliberate documented contract and deserves one guarding test",
+      "choices": [
+        {
+          "key": "repurpose",
+          "label": "Rewrite it to assert a records config block alone no longer resolves a record route"
+        },
+        {
+          "key": "delete",
+          "label": "Remove the test; the retirement is covered by docs and the album-based tests"
+        }
+      ],
+      "default": "repurpose",
+      "effective_default": "repurpose",
+      "requested_verified": false
+    }
+  ]
+}
