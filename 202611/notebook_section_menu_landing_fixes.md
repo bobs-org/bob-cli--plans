@@ -2,16 +2,14 @@
 tier: tale
 size: medium
 title: Finish notebook section menu round-trips and close epic bob-cli-ka
-goal:
-  Every notebook section menu row (bullet and glued, existing and create, typed capitals
-  included) splices, parses, and dry-runs to exactly the section and action it
-  advertises; empty notebook menus keep Bob's place_menu chrome; and epic bob-cli-ka is
-  closed with its plan marked done.
+goal: Every notebook section menu row (bullet and glued, existing and create, typed
+  capitals included) splices, parses, and dry-runs to exactly the section and action
+  it advertises; empty notebook menus keep Bob's place_menu chrome; and epic bob-cli-ka
+  is closed with its plan marked done.
 proposed_by: bbugyi200.athena.bob-cli-ka.land
 proposed_with: claude/opus
 bead: bob-cli-ka
-create_time: 2026-11-11 18:47:28
-status: wip
+status: done
 ---
 
 - **PARENT:**
