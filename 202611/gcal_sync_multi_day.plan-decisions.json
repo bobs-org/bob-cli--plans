@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "fetch_batching",
+      "kind": "choice",
+      "ask": "Should one run batch Google event fetches across the requested days?",
+      "why": "The common case (today plus tomorrow) becomes one events call per calendar total",
+      "choices": [
+        {
+          "key": "runs",
+          "label": "One events call per calendar per contiguous day run, partitioned per day in bob"
+        },
+        {
+          "key": "per_day",
+          "label": "One events call per calendar per day; only version/account/calendars setup is shared"
+        }
+      ],
+      "default": "runs",
+      "effective_default": "runs",
+      "requested_verified": false
+    },
+    {
+      "id": "json_shape",
+      "kind": "choice",
+      "ask": "Should multi-day JSON print one wrapper document instead of one line per day?",
+      "why": "Every gcal JSON surface today is a single document; single-day output stays byte-identical",
+      "choices": [
+        {
+          "key": "wrapper",
+          "label": "One document with a days array holding the unchanged per-day report objects"
+        },
+        {
+          "key": "jsonl",
+          "label": "One per-day report object per line as each day completes"
+        }
+      ],
+      "default": "wrapper",
+      "effective_default": "wrapper",
+      "requested_verified": false
+    },
+    {
+      "id": "error_mode",
+      "kind": "choice",
+      "ask": "When one day fails mid-run, should the remaining days stop?",
+      "why": "Post-fetch day failures are rare and usually global; reruns are idempotent",
+      "choices": [
+        {
+          "key": "stop",
+          "label": "Stop at the first failing day; completed days stay written; exit with that error code"
+        },
+        {
+          "key": "continue",
+          "label": "Sync the remaining days, report every failure, exit non-zero"
+        }
+      ],
+      "default": "stop",
+      "effective_default": "stop",
+      "requested_verified": false
+    }
+  ]
+}
