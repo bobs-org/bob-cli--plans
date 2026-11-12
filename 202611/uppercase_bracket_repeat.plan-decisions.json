@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "link_family",
+      "kind": "choice",
+      "ask": "What should `]}` / `[{` do when the active bracket family is links (`n`), which has no `]N` / `[N`?",
+      "why": "There is no uppercase link walk to repeat, and a visible no-op never moves the cursor by surprise.",
+      "choices": [
+        {
+          "key": "notice",
+          "label": "Show a short notice and flash the footer; nothing moves, which matches the missing `]N` / `[N`"
+        },
+        {
+          "key": "lowercase",
+          "label": "Open the next / previous link exactly like `]]` / `[[`, so the keys always do something"
+        }
+      ],
+      "default": "notice",
+      "effective_default": "notice",
+      "requested_verified": false
+    }
+  ]
+}
