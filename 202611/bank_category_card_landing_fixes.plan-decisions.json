@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "card_stays_open",
+      "kind": "choice",
+      "ask": "Keep the Category card open as it advances, so each waiting row takes one key?",
+      "why": "Already shipped and tested, and one key per row is the walk Bryan asked for",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Card stays open and moves to the next waiting row (as shipped); one key per row"
+        },
+        {
+          "key": "close",
+          "label": "Card closes after each filing (per the epic plan); row flashes, next Ctrl+Enter reopens it"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
