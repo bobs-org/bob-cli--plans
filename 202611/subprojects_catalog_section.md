@@ -1,147 +1,134 @@
 ---
 tier: epic
 title: Sub-projects move into a
-goal: "Every area and project note lists its direct child projects in one bob-owned `>
-  [!projects]` callout under a `## Projects` heading Bryan owns, rendered by Bob Ledger
-  Tools as a card in the notebook/album family. The `🧩 **Sub-projects:**` bullet under
-  `^prj` is retired, and no reader ever mistakes a parent for finished while it still
-  has open children.
+goal: 'Every area and project note lists its direct child projects in one bob-owned
+  `> [!projects]` callout under a `## Projects` heading Bryan owns, rendered by Bob
+  Ledger Tools as a card in the notebook/album family. The `🧩 **Sub-projects:**` bullet
+  under `^prj` is retired, and no reader ever mistakes a parent for finished while
+  it still has open children.
 
-  "
+  '
 decisions:
   sync_lifecycle:
     ask: How should a real `bob projects sync` run install its writes?
     choices:
-      locked:
-        Lock, pre-sync, guarded write, one commit, post-sync; fails when vault-sync
+      locked: Lock, pre-sync, guarded write, one commit, post-sync; fails when vault-sync
         can't run
-      guarded:
-        Lock, guarded write, one commit, no vault-sync cycles; offline cron runs still
-        write
+      guarded: Lock, guarded write, one commit, no vault-sync cycles; offline cron
+        runs still write
     default: locked
-    why:
-      Same lifecycle as notebooks and albums sync, so the card's ↻ behaves the same
-      everywhere
+    why: Same lifecycle as notebooks and albums sync, so the card's ↻ behaves the
+      same everywhere
     answer: locked
   memory_decision_record:
     ask: File a new decisions strand recording the accepted sub-project catalog design?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      Review the subprojects_catalog_section.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    requested: Review the subprojects_catalog_section.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file
     answer: false
   memory_capture_glossary:
-    ask:
-      Correct the Project Note Capture glossary claim that sync adds the Sub-projects
+    ask: Correct the Project Note Capture glossary claim that sync adds the Sub-projects
       line?
     memory:
-      - glossary:project-note-capture
+    - glossary:project-note-capture
     default: true
-    corrects:
-      refuses the capture, and `bob projects sync` later adds the note to the parent's
+    corrects: refuses the capture, and `bob projects sync` later adds the note to
+      the parent's
     answer: true
 phases:
-  - id: catalog-guards
-    title: PROJECTS region spec and generated-heading guards
-    depends_on: []
-    size: small
-    description:
-      "catalog-guards: add the PROJECTS RegionSpec and make every generated catalog
-      heading (Notebooks, Albums, Projects) a never-drawer, never-section-target
-      heading, fixing the live #notebooks drawer bug."
-  - id: subopen-reader-rust
-    title: Rust catalog row grammar and dual-format SUBOPEN reader
-    depends_on:
-      - catalog-guards
-    size: medium
-    description:
-      "subopen-reader-rust: add the shared row grammar/parser, read SUBOPEN from the
-      [!projects] callout with legacy-marker fallback in surface.rs, and publish shared
-      parity vectors."
-  - id: subopen-reader-plugins
-    title: Plugin dual-format SUBOPEN reader and conversion guard
-    depends_on:
-      - subopen-reader-rust
-    size: medium
-    description:
-      "subopen-reader-plugins: mirror the reader rule in task-status-cycler against the
-      byte-identical vectors, keep nav conversion from copying the callout, and deploy
-      before any writer ships."
-  - id: catalog-planner
-    title: Pure sub-project catalog planner and renderer
-    depends_on:
-      - subopen-reader-rust
-    size: medium
-    description:
-      "catalog-planner: compute hosts, membership, row states, cleaned criteria,
-      ordering, and per-host postimages (callout plus legacy-line removal) as a pure,
-      tested planner."
-  - id: highlights-snapshot
-    title: Highlights snapshot renders the projects catalog
-    depends_on:
-      - subopen-reader-rust
-    size: small
-    description:
-      "highlights-snapshot: render [!projects] in Highlights PDFs with state chips,
-      omitting the Closed group, while legacy notes keep their masthead row."
-  - id: projects-list-json
-    title: bob projects list -f json report
-    depends_on:
-      - catalog-planner
-    size: medium
-    description:
-      "projects-list-json: add the versioned JSON report (projects, catalogs, findings)
-      that the card consumes, plus a human catalog footer."
-  - id: catalog-sync-writer
-    title: Guarded projects sync writes the catalog and retires the line
-    depends_on:
-      - catalog-planner
-      - subopen-reader-plugins
-    size: large
-    description:
-      "catalog-sync-writer: compose lifecycle and catalog edits per file, install them
-      through the host-catalog transaction, delete the legacy-line writer, add -f json,
-      dry-run diffs, and a nightly step."
-  - id: catalog-at-birth
-    title: Capture writes the parent catalog row at birth
-    depends_on:
-      - catalog-sync-writer
-    size: medium
-    description:
-      "catalog-at-birth: project-note captures stage the parent's catalog row in the
-      same all-or-nothing batch, refusing a damaged parent catalog."
-  - id: projects-catalog-card
-    title: Bob Ledger Tools projects catalog card
-    depends_on:
-      - projects-list-json
-      - catalog-sync-writer
-    size: large
-    description:
-      "projects-catalog-card: paint [!projects] as a hued card with live chips, a folded
-      Closed group, sync and capture affordances, auto-sync, and e2e screenshots."
-  - id: rollout-wrapup
-    title: Docs sweep, decision record, and vault preview
-    depends_on:
-      - highlights-snapshot
-      - catalog-at-birth
-      - projects-catalog-card
-    size: small
-    description:
-      "rollout-wrapup: sweep remaining Sub-projects docs, record the decision and
-      glossary memory, and dry-run the real vault for Bryan's migration review."
+- id: catalog-guards
+  title: PROJECTS region spec and generated-heading guards
+  depends_on: []
+  size: small
+  description: 'catalog-guards: add the PROJECTS RegionSpec and make every generated
+    catalog heading (Notebooks, Albums, Projects) a never-drawer, never-section-target
+    heading, fixing the live #notebooks drawer bug.'
+- id: subopen-reader-rust
+  title: Rust catalog row grammar and dual-format SUBOPEN reader
+  depends_on:
+  - catalog-guards
+  size: medium
+  description: 'subopen-reader-rust: add the shared row grammar/parser, read SUBOPEN
+    from the [!projects] callout with legacy-marker fallback in surface.rs, and publish
+    shared parity vectors.'
+- id: subopen-reader-plugins
+  title: Plugin dual-format SUBOPEN reader and conversion guard
+  depends_on:
+  - subopen-reader-rust
+  size: medium
+  description: 'subopen-reader-plugins: mirror the reader rule in task-status-cycler
+    against the byte-identical vectors, keep nav conversion from copying the callout,
+    and deploy before any writer ships.'
+- id: catalog-planner
+  title: Pure sub-project catalog planner and renderer
+  depends_on:
+  - subopen-reader-rust
+  size: medium
+  description: 'catalog-planner: compute hosts, membership, row states, cleaned criteria,
+    ordering, and per-host postimages (callout plus legacy-line removal) as a pure,
+    tested planner.'
+- id: highlights-snapshot
+  title: Highlights snapshot renders the projects catalog
+  depends_on:
+  - subopen-reader-rust
+  size: small
+  description: 'highlights-snapshot: render [!projects] in Highlights PDFs with state
+    chips, omitting the Closed group, while legacy notes keep their masthead row.'
+- id: projects-list-json
+  title: bob projects list -f json report
+  depends_on:
+  - catalog-planner
+  size: medium
+  description: 'projects-list-json: add the versioned JSON report (projects, catalogs,
+    findings) that the card consumes, plus a human catalog footer.'
+- id: catalog-sync-writer
+  title: Guarded projects sync writes the catalog and retires the line
+  depends_on:
+  - catalog-planner
+  - subopen-reader-plugins
+  size: large
+  description: 'catalog-sync-writer: compose lifecycle and catalog edits per file,
+    install them through the host-catalog transaction, delete the legacy-line writer,
+    add -f json, dry-run diffs, and a nightly step.'
+- id: catalog-at-birth
+  title: Capture writes the parent catalog row at birth
+  depends_on:
+  - catalog-sync-writer
+  size: medium
+  description: 'catalog-at-birth: project-note captures stage the parent''s catalog
+    row in the same all-or-nothing batch, refusing a damaged parent catalog.'
+- id: projects-catalog-card
+  title: Bob Ledger Tools projects catalog card
+  depends_on:
+  - projects-list-json
+  - catalog-sync-writer
+  size: large
+  description: 'projects-catalog-card: paint [!projects] as a hued card with live
+    chips, a folded Closed group, sync and capture affordances, auto-sync, and e2e
+    screenshots.'
+- id: rollout-wrapup
+  title: Docs sweep, decision record, and vault preview
+  depends_on:
+  - highlights-snapshot
+  - catalog-at-birth
+  - projects-catalog-card
+  size: small
+  description: 'rollout-wrapup: sweep remaining Sub-projects docs, record the decision
+    and glossary memory, and dry-run the real vault for Bryan''s migration review.'
 proposed_by: bbugyi200.athena.1c6
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-13 10:58:41
 status: wip
+bead_id: bob-cli-ld
 ---
 
-- **PROMPT:**
-  [prompts/202611/subprojects_catalog_section.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/subprojects_catalog_section.md)
+- **PROMPT:** [prompts/202611/subprojects_catalog_section.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/subprojects_catalog_section.md)
+- **BEAD:** [bob-cli-ld](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ld/README.md)
 
 # Plan: Sub-projects move into a `## Projects` host catalog
 
