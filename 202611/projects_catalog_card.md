@@ -1,45 +1,42 @@
 ---
 tier: epic
 title: Bob Ledger Tools projects catalog card
-goal:
-  Complete bob-cli-ld.9 with a live projects card, reliable auto-sync, pane-local
+goal: Complete bob-cli-ld.9 with a live projects card, reliable auto-sync, pane-local
   interactions, real Obsidian evidence, and verified deployment.
 phases:
-  - id: projects-data
-    title: Shared projects report service and debounced auto-sync
-    size: medium
-    depends_on: []
-    description:
-      "projects-data: implement projects JSON decoders, the shared report/sync service,
-      lifecycle fingerprints, and deterministic data-service tests in bob-plugins."
-  - id: projects-card
-    title: Projects catalog card in Reading view and Live Preview
-    size: medium
-    depends_on:
-      - projects-data
-    description:
-      "projects-card: render the hued projects card, live chips, per-pane folds, nested
-      children, recovery actions, and responsive layout with focused UI tests."
-  - id: projects-acceptance
-    title: Real Obsidian acceptance, documentation, and deployment
-    size: medium
-    depends_on:
-      - projects-card
-    description:
-      "projects-acceptance: add the isolated real-Obsidian runner and offline wrapper,
-      inspect screenshots, document the card, run full gates, deploy, and record closure
-      evidence for the land agent."
+- id: projects-data
+  title: Shared projects report service and debounced auto-sync
+  size: medium
+  depends_on: []
+  description: 'projects-data: implement projects JSON decoders, the shared report/sync
+    service, lifecycle fingerprints, and deterministic data-service tests in bob-plugins.'
+- id: projects-card
+  title: Projects catalog card in Reading view and Live Preview
+  size: medium
+  depends_on:
+  - projects-data
+  description: 'projects-card: render the hued projects card, live chips, per-pane
+    folds, nested children, recovery actions, and responsive layout with focused UI
+    tests.'
+- id: projects-acceptance
+  title: Real Obsidian acceptance, documentation, and deployment
+  size: medium
+  depends_on:
+  - projects-card
+  description: 'projects-acceptance: add the isolated real-Obsidian runner and offline
+    wrapper, inspect screenshots, document the card, run full gates, deploy, and record
+    closure evidence for the land agent.'
 proposed_by: bbugyi200.athena.bob-cli-ld.9
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ld.9
 create_time: 2026-11-13 15:29:23
 status: wip
+bead_id: bob-cli-ld.9.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/projects_catalog_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/projects_catalog_card.md)
-- **PARENT:**
-  [202611/subprojects_catalog_section.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/subprojects_catalog_section.md)
+- **PROMPT:** [prompts/202611/projects_catalog_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/projects_catalog_card.md)
+- **PARENT:** [202611/subprojects_catalog_section.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/subprojects_catalog_section.md)
+- **BEAD:** [bob-cli-ld.9.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ld/bob-cli-ld.9.1.md)
 
 # Projects catalog card for Bob Ledger Tools
 
