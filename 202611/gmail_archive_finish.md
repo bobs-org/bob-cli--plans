@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish Gmail archive safety checks and nested landing
-goal:
-  Repair the remaining Gmail archive defects, verify the contract, and close the repair
-  epic and eligible parents normally.
+goal: Repair the remaining Gmail archive defects, verify the contract, and close the
+  repair epic and eligible parents normally.
 proposed_by: bbugyi200.athena.bob-cli-kx.2.1.8.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-kx.2.1.8
-create_time: 2026-11-13 07:05:43
-status: wip
+status: done
 ---
 
 - **PARENT:**
