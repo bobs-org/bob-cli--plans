@@ -2,19 +2,18 @@
 tier: tale
 size: medium
 title: Finish the bank Category card and close epic bob-cli-lc
-goal:
-  The Category card renders as a card instead of a squashed four-column grid, learns
-  from the row Bryan just filed, matches the approved look and accessibility contract,
-  is deployed, and epic bob-cli-lc closes.
+goal: The Category card renders as a card instead of a squashed four-column grid,
+  learns from the row Bryan just filed, matches the approved look and accessibility
+  contract, is deployed, and epic bob-cli-lc closes.
 decisions:
   card_stays_open:
-    ask: Keep the Category card open as it advances, so each waiting row takes one key?
+    ask: Keep the Category card open as it advances, so each waiting row takes one
+      key?
     choices:
-      keep:
-        Card stays open and moves to the next waiting row (as shipped); one key per row
-      close:
-        Card closes after each filing (per the epic plan); row flashes, next Ctrl+Enter
-        reopens it
+      keep: Card stays open and moves to the next waiting row (as shipped); one key
+        per row
+      close: Card closes after each filing (per the epic plan); row flashes, next
+        Ctrl+Enter reopens it
     default: keep
     why: Already shipped and tested, and one key per row is the walk Bryan asked for
     answer: keep
@@ -22,8 +21,7 @@ proposed_by: bbugyi200.athena.bob-cli-lc.land
 proposed_with: claude/opus
 bead: bob-cli-lc
 decided_by: auto
-create_time: 2026-11-13 16:04:30
-status: wip
+status: done
 ---
 
 - **PARENT:**
