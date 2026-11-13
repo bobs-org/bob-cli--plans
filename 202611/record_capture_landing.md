@@ -1,226 +1,169 @@
 ---
 tier: tale
 size: medium
-title: Repair record capture contract gaps and finish its landing
+title: Finish cached record routes and land bob-cli-l3
 goal:
-  Complete the remaining grammar and adapter requirements of bob-cli-ir.5.1, then close
-  that epic and its parent phase bob-cli-ir.5.
-proposed_by: bbugyi200.athena.bob-cli-ir.5.1.land
+  Retain record targets in typed route completion, prove acceptance reaches the field
+  menu, and finish the record-capture epic's landing.
+proposed_by: bbugyi200.apollo.bob-cli-l3.land
 proposed_with: codex/gpt-6-astra
-bead: bob-cli-ir.5.1
-status: done
+bead: bob-cli-l3
+create_time: 2026-11-12 19:22:24
+status: wip
 ---
 
 - **PARENT:**
-  [202611/capture_record_creation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_record_creation.md)
+  [202611/record_capture_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_capture_repairs.md)
 - **BEAD:**
-  [bob-cli-ir.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ir/bob-cli-ir.5.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-ir.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ir.5.1.land.md)
-- **COMMITS:**
-  - [903dd39](https://github.com/bobs-org/bob-cli--plans/commit/903dd39e46ee3ab3f21e34f3f97208acf6715a55)
-    — docs(plans): mark record capture creation phase done
+  [bob-cli-l3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l3/README.md)
 
-# Repair record capture contract gaps and finish its landing
+# Finish record capture and close bob-cli-l3
 
-This is the remaining work from the landing audit of **bob-cli-ir.5.1**, not a new
-record feature. One coding agent can repair these bounded paths in the shared capture
-grammar and native adapter, verify them, and finish the landing in the same turn. There
-is no later land agent for this tale. Do not wait for this work's commit SHA, push, or
-CI before closing the completed epic.
+This is the remaining work from the land audit of **bob-cli-l3**, not a new feature or a
+repeat of its three completed phases. One coding agent must implement this tale **and
+finish the epic closeout below**. A tale has no land agent and no other agent will
+resume this landing. The epic has no parent_bead.
 
-## Context and binding scope
+Read `sase bead read bob-cli-l3 -r "Need landing audit and follow-up dispositions"` and
+its linked `plan:202611/record_capture_repairs.md` using audited artifact reads. The
+original plan's selected decisions remain final: `plus_commit_record_rows = skip`,
+`album_refusal_presentation = refusal`, and `config_backed_album_test = repurpose`.
+Preserve them. No memory changes, release version changes, or CHANGELOG edits are
+needed.
 
-Read `sase bead read bob-cli-ir.5.1 -r "Need landing findings and follow-up outcomes"`
-and `sase bead read bob-cli-ir.5 -r "Need parent phase and inherited decisions"`. Read
-the approved plans through `sase artifact read`:
+## Evidence already established
 
-- `plan:202611/capture_record_creation.md` is the epic being finished. Its four phases
-  are closed; implementation commits are `83ad74e2`, `4c97ed41`, `f2561f96`, and
-  `e081e729`.
-- `plan:202611/record_notes.md` defines the original capture-records phase and the
-  adjacent phases. Its containing epic **bob-cli-ir** belongs to its own land agent.
+- bob-cli phase l3.1 is commit `b7f74b58`: album-backed test fixtures and help snapshots
+  only; the retirement-contract test remains. All migrated record tests pass in Linux
+  exact-SHA CI 43322752069. The macOS job was cancelled only after lib and CLI results
+  were printed; inspect those logs, not just its conclusion.
+- Mac phase l3.2 is `e0c6c16`: route rows now use generic acceptance instead of Record
+  Card acceptance, and typed +/, skips record rows. l3.3 is `9faa57b`: quiet bare-album
+  refusal in submit/live/explicit preview, current-parse rewrite button, reset clears
+  latestParse. Bob-served Return/Tab/click tests and all three bare-album tests pass in
+  exact-SHA Mac run 43328622700.
+- **Still broken:** `CapturePanelModel.cachedRouteCompletion` calls its `rankedTargets`,
+  which delegates to `CaptureRefFileUnder.rankedTargets` in
+  `Sources/CaptureCore/CaptureRefFileUnder.swift`. That helper calls `eligibleTargets`,
+  retaining only inbox/area/project. It discards every record before
+  `CaptureRecordRouteCache` can preserve its insertion and continuation. The filter was
+  introduced by `6dddea35` before l3, but integrating it is part of l3's explicit
+  cached-record acceptance scope.
+- Run 43328622700 has seven failed assertions in l3.2's two tests:
+  `testCachedRecordRouteAcceptsAndRequestsItsNextMissingField` gets `eat/ `, refuses
+  acceptance and times out; `testRecordRouteRowsDoNotQuickCommitPlusOrComma` gets kind
+  `inbox`. These remain epic work, despite l3.3 calling them pre-existing.
+- Follow-up triage is recorded on l3 by the lander: duplicate gcal proposals from l3.1
+  #1/#2 were corroborated on l2; docs-budget proposal l3.3 #1 is already repaired
+  (plugin b6f3dd9: 5980 words, cap 6000; do not reopen jz); shell-deadline and
+  pipe-drain failures have evidence on g8 / causal epic 3j and kl. The separate
+  pre-existing macOS case-sensitive fixture failures are tracked by **bob-cli-l9**. Do
+  not absorb those independent repairs. The detailed audit is
+  `file:explicit:e7464a79500ce17eac54934f`; read it with `sase artifact read`.
+- Integration review at primary b7f74b58 found no later base commits; since epic
+  creation, Gmail transport 8e78584d, walker glossary 6981b04c, and gcal ack b6ed0e59 do
+  not consume or conflict with record routes. Mac has only the two epic commits since
+  creation. Recheck any newer drift before finishing.
 
-The audited base is `e081e729`, also fetched `origin/master` at review time. Recheck
-post-audit drift before editing, especially siblings adding record completion, append,
-or Mac consumers. Preserve their landed contracts. Do not implement those sibling
-features here. Existing record creation, missing-folder creation, collision reservation,
-no-replace installation, and rollback are already implemented; retain them and their
-tests.
+## 1. Open and integrate
 
-Inherited decisions remain final: `seed_records=yes` belongs to seeding phases;
-`memory_glossary_capture=yes` is already satisfied; the other memory decisions remain
-out of this child landing's scope. No memory edit is needed. Do not edit package
-versions or CHANGELOG.md. Preserve schema version 1. The grammar is currently 20; these
-are corrections to that approved record contract, not a new syntax feature. Use a final
-Conventional Commit subject with `!` (for example
-`fix(capture)!: complete record claiming and preview contracts`): the initial record
-grammar commit accidentally omitted the required breaking marker. Do not rewrite
-existing history or manually commit; declare the message through `/sase_final`.
+Work in the provided primary bob-cli checkout. Use `/sase_repo` to open
+`bob-mac-capture`, and only use the printed linked checkout path. Read its AGENTS.md.
+Open `plans` through `/sase_repo` for the final status edit. Fetch and integrate newer
+base changes as necessary without discarding other work.
 
-## Reproductions and implementation
+## 2. Retain record targets for typed routes
 
-Use the checkout-built binary and isolated temporary vault/config/state, with
-`BOB_NOW="2026-10-07 13:40:00"`. A minimal records config is:
+Separate general target ranking from File-under eligibility. Extract one shared ranking
+implementation over the supplied targets, preserving the existing order: canonical
+prefix, alias prefix, then other substring matches; input order within each bucket and
+empty-query order remain stable. Typed route completion calls that general ranking with
+Bob's targets. Keep `CaptureRefFileUnder.rankedTargets` as the restricted wrapper so
+File under still excludes records, notebooks, and unknown kinds. Preserve its existing
+restriction test and ordinary route behavior. Do not locally parse new capture grammar;
+bob remains authoritative.
 
-```yaml
-records:
-  restaurant:
-    dir: eat
-    label: Restaurant
-    fields:
-      status:
-        required: true
-        values: { liked: Liked, to_try: To try }
-      text: {}
-      tags: { list: true }
-      rating: { values: number }
-```
+Keep `CaptureRecordRouteCache` insertion, label, recordType, and continuation through
+the cached response. A selected movie route accepts to `@movies/ ` with the trailing
+space and sends the next-missing-field request. Record Card contexts still use
+acceptRecordCandidate. Do not make failed cached-route tests pass by forcing the server
+path or deleting their cache assertions.
 
-1. **Keep record intent ahead of task and template parsing.**
-   `src/native/capture_language/record.rs` currently examines only the first and last
-   whitespace token. `Ramen @eat/ s:1\n- status:: liked` therefore succeeds as a
-   scheduled inbox task. `Ramen @eat/^bad_stem\n- status:: liked` goes to generic
-   task-block-ID diagnostics. A test named `task_sigils_in_the_tail_keep_task_meaning`
-   even asserts fallback for malformed explicit record stems. Honor the approved
-   configured-record refusal instead: recognized trailing task markers must not hide a
-   record route, and malformed record tails must remain record diagnostics. Keep
-   ordinary mid-prose route mentions, escaped/quoted routes, unknown nonexistent
-   folders, and explicit forced destinations literal according to existing rules; do not
-   reinterpret unrelated nested task routes. Apply shared claiming to strict and editor
-   parsing and lexical policy preflight. Use `record_marker_unsupported` for task
-   modifiers and an appropriate record stem/shape code for malformed stems. Cover both
-   route/title orders, all supported task-marker families at both edges, and UTF-8
-   diagnostic ranges. Change contradictory tests, not the approved scope.
+## 3. Prove the complete interaction with truthful fixtures
 
-   A normal claimed record with `--clip` currently attempts the clipboard (the audit
-   reached an xclip timeout) instead of refusing the task-only execution modifier. Check
-   modifiers before any clipboard read or other task side effect, while retaining the
-   explicitly approved forced-destination literal behavior. Use a fake clipboard command
-   to prove it is never invoked by a refused record capture.
+Repair the two failing CapturePanelModelTests to prove they use the cache: before
+acceptance, assert the intended record target, exact replacement range, and no
+capture-complete invocation. After explicit acceptance, assert the splice, caret, one
+next-missing-field request, and the actual first missing-field value menu. For both +
+and comma, assert the literal draft remains, no record accept or vault mutation occurs,
+and the intended record list remains available as required by the skip decision.
+Preserve Return, Tab, click, and ordinary-route coverage.
 
-   `Ramen @eat/\n- status:: liked\n- text:: %t` is currently seen as a template and
-   refuses `template_missing_rows`. Template analysis runs before record field opacity
-   in both strict and editor entry points. Protect record field values from template
-   directive detection while preserving their exact bytes/ranges. Keep the existing `%t`
-   expander and source mapping, including a real parent-line `%t` with opaque field
-   values and template-injected sigils. Do not write a second expander or add filesystem
-   access to capture_language/capture-rewrite.
+The current `FAKE_BOB_CAPTURE_COMPLETE_FIXTURE` overrides every response with a route
+fixture, even the field continuation. Make fake-bob's record scenario respond by draft
+and request mode so the follow-up returns the real record-value response.
+Replace/regenerate `record-parse-movie-incomplete.json`, which currently has a fixed
+`@movies/ ` input while also serving `Buy milk @movies/ ` and is not in
+`Scripts/generate-record-fixtures.sh`. Use real Bob output with matching draft, title,
+ranges, and cursor; extend the generator and record-fixtures-README rather than
+inventing record JSON. Prefer a realistic title-bearing movie draft.
 
-   Finally, preserve established task literal decoding for record titles. The record
-   `Ramen \#READ @eat/` retains the backslash in its title/frontmatter, whereas task
-   capture of `Ramen \#READ` produces `Ramen #READ`. Reuse the relevant escape rules
-   without rewriting field values; keep title and field source spans on original bytes.
+Extend the bare-album rewrite test in CaptureRecordPreviewPanelTests so clicking the
+Bob-authored rewrite is followed by a fresh parse that actually enters record flow. Its
+current fixed `FAKE_BOB_PARSE_FIXTURE` always returns the old bare-album parse and the
+test only checks the splice. Keep the quiet live/explicit refusal, no generic
+error/Retry, stale edit, and empty-reset assertions. Use bounded waits. Add focused
+portable ranking tests for records and existing File-under restrictions.
 
-2. **Share one invocation context and resolve template rows.** `capture/plan.rs`
-   constructs a record policy, but `capture/record_note.rs` reloads it and creates a
-   `RecordCatalog` for every item. Thread a shared native record context through the
-   batch, with one immutable schema and one lazy per-folder catalog. Continue deriving
-   reserved paths from all staged files, including record, project, and expanded
-   template items. Ordinary task drafts must not acquire record folder reads. Use
-   focused counters or test seams to verify one load/index per invocation for multiple
-   records, plus no new record I/O for ordinary tasks.
+## 4. Verify the current tree before closeout
 
-   `CaptureParseResult::new_template` in `capture_parse.rs` bypasses
-   `resolve_record_intents` and hard-codes `record: None`. This input reports no
-   diagnostic in capture-parse, although capture refuses its second row:
+Run appropriate focused tests, formatting, and **`just check`** for file-change
+verification. Never run `just check-full`. In bob-cli, the existing l2, kl, g8, and l9's
+case-sensitive fixture failures remain independent; record their exact outcomes and do
+not report the entire suite or release train green when they fail. Prove the migrated
+l3.1 nodes and retired-config regression pass.
 
-   ```text
-   {0} @eat/ %t
-   - status:: {1}
+For Mac Swift changes, obey AGENTS.md: `just portable-check` (use Athena if Swift is
+absent locally), and best-effort Mac scratch-copy `bundle.sh` plus
+`just typecheck-tests` for app/test targets; never use Bryan's checkout or install
+there. Then run `Scripts/macos-ci-check` via `/sase_monitor` on the edited tree. This
+gate snapshots the current files to a temporary precommit branch without requiring the
+final landing commit. Require the two formerly failing tests, record interactions, and
+bare-album tests to pass, with the whole Mac gate green. Do not waive l3 failures as
+follow-ups. Follow the monitor skill and wait for its staging command to exit before
+finalizing; its continuation must resume this tale through step 5. Preserve the
+artifact/ref and exact tree evidence in bead notes. Run docs-check if any docs change.
+The already-repaired word-budget report is not a reason to skip the check or refile it
+without a fresh reproduction.
 
-   Ramen liked
-   Udon WRONG
-   ```
+Do not arrange closeout after the final code's own commit SHA, push, or CI result. The
+precommit tree gate is the verification step. Close the epic in the same turn as the
+final verified code, then declare all changed repositories through `/sase_final`. If a
+push is performed, follow the repository's exact-SHA monitor rule, but do not invent a
+final-commit dependency that strands this tale.
 
-   Resolve expanded record rows with the shared records engine and a single catalog,
-   carrying earlier row reservations. Expose the applicable record metadata and
-   required/invalid states in the existing template wire structure, without replacing
-   the template envelope or treating unresolved definition placeholders as final values.
-   Map diagnostics, record spans, field `range`/`value_ranges`, and rewrites through the
-   existing template maps to original UTF-8 draft bytes. Test invalid and missing
-   values, same-draft collisions, repeated fields separated by notes, CRLF, Unicode, and
-   parse/execution agreement. Preserve the ordinary first-item projection.
+## 5. Finish bob-cli-l3's landing in this tale
 
-3. **Preserve typed values in note_files.** `capture/record_note.rs::note_file_property`
-   copies `property.display` into both `value` and `display`, with `Option<String>` in
-   `NoteFilePropertyJson`. On the same record, parse returns `liked`, `["hot", "soup"]`,
-   and numeric `4.5`, but dry-run `note_files[].properties[]` returns `Liked`,
-   `"hot, soup"`, and string `"4.5"`. Keep machine values and display labels separate.
-   Share the existing record-value JSON conversion across parse and creation output;
-   retain numeric/list types, canonical choice values, resolved dates, and explicit-none
-   semantics. `serde_json::Value` can preserve the surrounding equality derives. Dry-run
-   and committed output must agree with engine values and exact Markdown. Check the
-   landed sibling CLI serializer for reuse rather than introducing another converter.
-   Update the public JSON documentation to state the exact representation and include
-   choice/list/number examples; read `docs.md` reference memory before documentation
-   changes. Schema version remains 1.
+Re-read the epic, every child note, and linked plan; confirm no new descendants or
+unresolved work and review any post-audit drift. Include the lander's full follow-up
+dispositions from l3's note in the close note, including the separate macOS CI task ID
+and the reason the old docs proposal was declined.
 
-## Verification and follow-up disposition
+Run `sase bead epic-symbols bob-cli-l3`. It was empty in the audit. Resolve every listed
+exemption (wire up, privatize, non-test pragma, or delete according to Symvision
+policy), or re-key only to a still-open later bead that genuinely needs it. Inspect
+relevant linked justfiles too. Then close normally:
 
-Add focused regression tests for the failures above. Retain the existing successful
-record matrix: mixed task/record batches, later-item zero writes, on-disk/case and
-same-draft collisions, explicit stems, defaults/none/lists, missing directories, `@@`
-precedence, URL/wikilink opacity, no record-only ledger mutation, and install race
-preservation. Use temporary data only.
+`sase bead close bob-cli-l3 --note "<verified decisions, source/commit and drift review, cached and server route/field acceptance, bare-album refusal/rewrite, Rust fixture checks, Mac gate evidence, and all follow-up outcomes>"`
 
-Run `just check`, not `just check-full`. Run `just docs-gen` if generated help changes,
-and `just docs-check` for the JSON contract update. Inspect `git diff --check` and the
-final changes for unwanted task/ledger effects. A `check-full` infrastructure failure is
-not remaining epic scope. If a new unrelated issue arises, apply `/sase_new_task` and
-record its disposition before closing.
+If it rejects stale symbols, finish cleanup and retry. If it names unfinished phases,
+finish or reopen them; never force successful nested landing. Use force only for a
+deliberate canceled/superseded outcome with an explicit reason, never to make this
+success path proceed.
 
-The lander already completed triage of every child `PROPOSED FOLLOW-UP:` and recorded it
-on bob-cli-ir.5.1; do not create duplicate tasks:
-
-- `.1` note #1: historical mounted Mac docs budgets match existing **bob-cli-h9**;
-  supplementary note recorded there. Fresh `just docs-check` on the audited tree passed
-  all gates, with 447 documentation tests passed and one skipped.
-- `.1` note #2: declined an actionable task for an unidentified transient: no node,
-  error, or retained log, and two unchanged reruns passed. Preserve the original note
-  for recurrence; do not guess a root cause or corroborate an unrelated flake.
-- `.3` note #2: the three records CLI catalog/completion/help failures were fixed by
-  `.4` in `e081e729`; no follow-up remains for those reported failures.
-
-Integration audit covered the unrelated commits since plan baseline `361974f4`: Gmail
-routing/sync `8427bd96`, `ad2298d4`, `28729397`; records CLI `3e68a53a`; and Mac
-close-alias documentation `274eeae7`. Record Gmail rewriting remains guarded, the CLI
-contract repairs are integrated, task-only target consumers exclude record directories,
-and the close-alias prose does not alter record grammar. Recheck newer commits at
-implementation time and integrate relevant changes before the final gate.
-
-## Final step: finish the landing now
-
-After the repairs and verification, complete these actions in this coding turn; none
-depends on this turn's future commit, push, or CI result:
-
-1. Re-read bob-cli-ir.5.1 and all descendants/notes to confirm readiness; review new
-   notes and any post-audit changes. The four original phases are closed. Confirm the
-   repair satisfies the findings above and the inherited creation acceptance scope.
-2. Run `sase bead epic-symbols bob-cli-ir.5.1`. Resolve every entry by wiring,
-   privatizing, giving a justified non-test pragma, or deleting it; only re-key to a
-   concrete still-open later bead that still needs that exemption. Run the command again
-   until empty. It was empty at the audit.
-3. Close normally with
-   `sase bead close bob-cli-ir.5.1 --note "<concrete source/drift/decision review, repair and test evidence, and all three follow-up dispositions above>"`.
-   Never force merely to succeed or to advance this successful nested landing. If close
-   names unfinished descendants, resolve their real work/readiness first; if it names
-   stale epic symbols, clean them up and retry.
-4. Run `just symvision` if available and confirm the whitelist is clean. The audit found
-   no symvision recipe; if still absent, explicitly record that and the empty
-   epic-symbol results rather than fabricating a pass.
-5. Open the plans sidecar with `/sase_repo` and set `status: done` only in the
-   frontmatter of `plan:202611/capture_record_creation.md` (PLAN path from the bead).
-   Declare the changed sidecar through `/sase_final` along with code changes.
-6. Read `sase bead read bob-cli-ir.5.1 -r "Need the parent link"` and
-   `sase bead read bob-cli-ir.5 -r "Verify child completion satisfies parent phase"`.
-   The parent is phase **bob-cli-ir.5**. Confirm its capture-records scope is complete,
-   run `sase bead epic-symbols bob-cli-ir.5`, retire any remaining entries, and close
-   only that parent phase with
-   `sase bead close bob-cli-ir.5 --note "<creation grammar, parse/template metadata, typed note_files, discovery, transaction, docs, and verification evidence>"`.
-   Do not close **bob-cli-ir** or mark `plan:202611/record_notes.md` done; its other
-   phases and already-waiting land agent still own that landing. If the parent is
-   unexpectedly incomplete, record a precise blocker on it and report that instead.
-7. Finish through `/sase_final` using the breaking `fix(capture)!:` message and the
-   primary repository's completed-bead declaration where appropriate. Do not leave a
-   subprocess running when ending the turn.
+After close, run `just symvision` wherever available; if absent, record that explicitly
+(it was absent from primary and Mac at audit time). Set `status: done` in the
+frontmatter of **`plan:202611/record_capture_repairs.md`**, resolving its current PLAN
+path with `sase bead read` and editing through the opened plans repo. Re-read l3's
+parent link: there was no parent, so no ancestor closes are needed. Finally use
+`/sase_final` with commit decisions for every changed repository.
