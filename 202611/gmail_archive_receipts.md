@@ -1,72 +1,67 @@
 ---
 tier: epic
 title: Gmail archive receipts and explicit undo
-goal:
-  Complete bob-cli-kx.3 with safe explicit unarchive, durable mail receipts, desktop
+goal: Complete bob-cli-kx.3 with safe explicit unarchive, durable mail receipts, desktop
   notifications, task chips, and morning notices.
 phases:
-  - id: receipt_projection
-    title: Project authoritative archive receipts for readers
-    size: medium
-    depends_on: []
-    description:
-      "receipt_projection: add shared body-free receipt projections, offline list JSON,
-      and recent_archive sync JSON with deterministic timezone and ownership semantics."
-  - id: receipt_lifecycle
-    title: Materialize archive receipts in mail notes and Bases
-    size: medium
-    depends_on:
-      - receipt_projection
-    description:
-      "receipt_lifecycle: reconcile gmail_archived and the managed banner after durable
-      archive and release outcomes, repair interrupted local writes, and upgrade
-      untouched mail.base templates."
-  - id: unarchive
-    title: Restore recorded messages through an explicit undo command
-    size: medium
-    depends_on:
-      - receipt_lifecycle
-    description:
-      "unarchive: ship bob gmail unarchive with exact recorded IDs and receipt labels,
-      live writer and modify gates, lock-free dry-run, journal releases, receipt
-      clearing, and fault-tested idempotency."
-  - id: desktop_receipts
-    title: Notify once when sync archives mail
-    size: small
-    depends_on:
-      - unarchive
-    description:
-      "desktop_receipts: reuse the vault-sync desktop notification transport for newly
-      durable archive outcomes with an inert undo command and no repeated notifications
-      from historical receipts."
-  - id: mail_banner
-    title: Render the mail banner and Move-back action
-    size: medium
-    depends_on:
-      - desktop_receipts
-    description:
-      "mail_banner: implement the Bob Mail banner button over Bob-owned receipt data and
-      bob gmail unarchive, preserving thin-client ownership and safe rendered text."
-  - id: ledger_receipts
-    title: Show closed-task chips and the morning archive notice
-    size: medium
-    depends_on:
-      - mail_banner
-    description:
-      "ledger_receipts: add display-only archive chips in Live Preview and Reading view
-      and one morning recent_archive notice through Ledger Tools, with cached CLI data
-      and plugin deployment."
+- id: receipt_projection
+  title: Project authoritative archive receipts for readers
+  size: medium
+  depends_on: []
+  description: 'receipt_projection: add shared body-free receipt projections, offline
+    list JSON, and recent_archive sync JSON with deterministic timezone and ownership
+    semantics.'
+- id: receipt_lifecycle
+  title: Materialize archive receipts in mail notes and Bases
+  size: medium
+  depends_on:
+  - receipt_projection
+  description: 'receipt_lifecycle: reconcile gmail_archived and the managed banner
+    after durable archive and release outcomes, repair interrupted local writes, and
+    upgrade untouched mail.base templates.'
+- id: unarchive
+  title: Restore recorded messages through an explicit undo command
+  size: medium
+  depends_on:
+  - receipt_lifecycle
+  description: 'unarchive: ship bob gmail unarchive with exact recorded IDs and receipt
+    labels, live writer and modify gates, lock-free dry-run, journal releases, receipt
+    clearing, and fault-tested idempotency.'
+- id: desktop_receipts
+  title: Notify once when sync archives mail
+  size: small
+  depends_on:
+  - unarchive
+  description: 'desktop_receipts: reuse the vault-sync desktop notification transport
+    for newly durable archive outcomes with an inert undo command and no repeated
+    notifications from historical receipts.'
+- id: mail_banner
+  title: Render the mail banner and Move-back action
+  size: medium
+  depends_on:
+  - desktop_receipts
+  description: 'mail_banner: implement the Bob Mail banner button over Bob-owned receipt
+    data and bob gmail unarchive, preserving thin-client ownership and safe rendered
+    text.'
+- id: ledger_receipts
+  title: Show closed-task chips and the morning archive notice
+  size: medium
+  depends_on:
+  - mail_banner
+  description: 'ledger_receipts: add display-only archive chips in Live Preview and
+    Reading view and one morning recent_archive notice through Ledger Tools, with
+    cached CLI data and plugin deployment.'
 proposed_by: bbugyi200.athena.bob-cli-kx.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-kx.3
 create_time: 2026-11-13 08:02:43
 status: wip
+bead_id: bob-cli-kx.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_archive_receipts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_receipts.md)
-- **PARENT:**
-  [202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_on_task_close.md)
+- **PROMPT:** [prompts/202611/gmail_archive_receipts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_receipts.md)
+- **PARENT:** [202611/gmail_archive_on_task_close.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_on_task_close.md)
+- **BEAD:** [bob-cli-kx.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kx/bob-cli-kx.3.1.md)
 
 # Gmail archive receipts and explicit undo
 
