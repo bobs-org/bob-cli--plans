@@ -1,61 +1,56 @@
 ---
 tier: epic
 title: Complete the Google Calendar ack command
-goal:
-  Complete bob-cli-l5.3 with a tested one-key external-event review queue, shared
+goal: Complete bob-cli-l5.3 with a tested one-key external-event review queue, shared
   private-note editing, noninteractive ack management, and stale/doctor diagnostics,
   then close only that containing phase through this child's land agent.
 phases:
-  - id: shared_note
-    title: Share event selection, note editing, and preview services
-    size: medium
-    depends_on: []
-    description:
-      "shared_note: expose narrow typed interfaces around the existing gcal note
-      selector, editor, validator, preview, and writer; preserve note behavior, add the
-      previously-unacked save confirmation, and fix the ack sibling argv boundary.
-      Verify the existing note suites and the shared service tests."
-  - id: command
-    title: Implement the ack queue and noninteractive command forms
-    size: medium
-    depends_on:
-      - shared_note
-    description:
-      "command: add ack arguments and dispatch, the forward batched queue, explicit
-      event/series ack and clear, list/dry-run/JSON, shared stale detection, writer-host
-      messaging, and shell completion. Cover membership, redaction, selection,
-      persistence, and exit codes with fake gog."
-  - id: terminal
-    title: Implement the one-key review session
-    size: medium
-    depends_on:
-      - command
-    description:
-      "terminal: finish the bare-TTY ack session using a scoped libc termios guard and
-      shared note services, all approved keys, per-answer saves, repeat protection,
-      recurring scope defaults, queue recomputation, and disjoint summaries. Test piped
-      keys and real PTY terminal restoration."
-  - id: diagnostics
-    title: Finish stale notices, doctor diagnostics, and CLI verification
-    size: medium
-    depends_on:
-      - terminal
-    description:
-      "diagnostics: integrate event-scope stale notices into gcal list and the shared
-      JSON surfaces, add doctor ack diagnostics, complete help and generated CLI
-      references, and verify the full bob-cli-l5.3 acceptance matrix. Leave
-      enclosing-bead closure to this child epic's land agent."
+- id: shared_note
+  title: Share event selection, note editing, and preview services
+  size: medium
+  depends_on: []
+  description: 'shared_note: expose narrow typed interfaces around the existing gcal
+    note selector, editor, validator, preview, and writer; preserve note behavior,
+    add the previously-unacked save confirmation, and fix the ack sibling argv boundary.
+    Verify the existing note suites and the shared service tests.'
+- id: command
+  title: Implement the ack queue and noninteractive command forms
+  size: medium
+  depends_on:
+  - shared_note
+  description: 'command: add ack arguments and dispatch, the forward batched queue,
+    explicit event/series ack and clear, list/dry-run/JSON, shared stale detection,
+    writer-host messaging, and shell completion. Cover membership, redaction, selection,
+    persistence, and exit codes with fake gog.'
+- id: terminal
+  title: Implement the one-key review session
+  size: medium
+  depends_on:
+  - command
+  description: 'terminal: finish the bare-TTY ack session using a scoped libc termios
+    guard and shared note services, all approved keys, per-answer saves, repeat protection,
+    recurring scope defaults, queue recomputation, and disjoint summaries. Test piped
+    keys and real PTY terminal restoration.'
+- id: diagnostics
+  title: Finish stale notices, doctor diagnostics, and CLI verification
+  size: medium
+  depends_on:
+  - terminal
+  description: 'diagnostics: integrate event-scope stale notices into gcal list and
+    the shared JSON surfaces, add doctor ack diagnostics, complete help and generated
+    CLI references, and verify the full bob-cli-l5.3 acceptance matrix. Leave enclosing-bead
+    closure to this child epic''s land agent.'
 proposed_by: bbugyi200.athena.bob-cli-l5.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-l5.3
 create_time: 2026-11-12 20:43:21
 status: wip
+bead_id: bob-cli-l5.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_ack_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_ack_cli.md)
-- **PARENT:**
-  [202611/gcal_external_event_ack.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gcal_external_event_ack.md)
+- **PROMPT:** [prompts/202611/gcal_ack_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_ack_cli.md)
+- **PARENT:** [202611/gcal_external_event_ack.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gcal_external_event_ack.md)
+- **BEAD:** [bob-cli-l5.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l5/bob-cli-l5.3.1.md)
 
 # Complete the `bob gcal ack` CLI phase
 
