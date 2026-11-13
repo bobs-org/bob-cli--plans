@@ -2,9 +2,8 @@
 tier: tale
 size: medium
 title: Finish Gmail archive safety checks and nested landing
-goal:
-  Repair the remaining Gmail archive defects, verify the contract, and close the repair
-  epic and eligible parents normally.
+goal: Repair the remaining Gmail archive defects, verify the contract, and close the
+  repair epic and eligible parents normally.
 proposed_by: bbugyi200.athena.bob-cli-kx.2.1.8.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-kx.2.1.8
@@ -15,11 +14,6 @@ status: done
   [202611/gmail_archive_landing_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_landing_repairs.md)
 - **BEAD:**
   [bob-cli-kx.2.1.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kx/bob-cli-kx.2.1.8.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-kx.2.1.8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-kx.2.1.8.land.md)
-- **COMMITS:**
-  - [fada115](https://github.com/bobs-org/bob-cli/commit/fada115450d2ab8fc55c461c59401014f97ebd35)
-    — fix(gmail)\!: fail closed at archive mutation boundaries
 
 # Finish Gmail archive safety checks and nested landing
 
