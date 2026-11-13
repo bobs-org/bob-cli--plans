@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tasklink_hop_scope",
+      "kind": "choice",
+      "ask": "Which cursor rows should hop through a Task Link to a Gmail Task?",
+      "why": "Matches the glossary Task Link shape and keeps eligibility auditable on one line",
+      "choices": [
+        {
+          "key": "link_only",
+          "label": "Only a plain bullet whose sole content is one wikilink (the Pomodoro Task Link shape)"
+        },
+        {
+          "key": "any_row",
+          "label": "First block-ref link anywhere on the cursor's line; wider but surprising on multi-link rows"
+        }
+      ],
+      "default": "link_only",
+      "effective_default": "link_only",
+      "requested_verified": false
+    },
+    {
+      "id": "vim_mapping",
+      "kind": "choice",
+      "ask": "Keep the bob-mail `<M-CR>` / `<M-Enter>` vim normal-mode mapping as a fallback?",
+      "why": "Harmless where shadowed, useful where the hotkey binding is missing",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Mapping stays; fires where Meta+Enter is unbound, stays inert where the hotkey shadows it"
+        },
+        {
+          "key": "remove",
+          "label": "Dispatcher is the only path; less code, but the gesture dies where the nav hotkey is absent"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "sync_disabled_warning",
+      "kind": "choice",
+      "ask": "Should bob plugins sync warn when it deploys a plugin that community-plugins.json does not enable?",
+      "why": "Sync deployed bob-mail for a day while Obsidian never loaded it, and nothing said so",
+      "choices": [
+        {
+          "key": "warn",
+          "label": "Sync warns (table and JSON) when a deployed plugin id is missing from community-plugins.json"
+        },
+        {
+          "key": "skip",
+          "label": "Sync output unchanged; enablement stays visible only in bob plugins list"
+        }
+      ],
+      "default": "warn",
+      "effective_default": "warn",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_gmail_task",
+      "kind": "toggle",
+      "ask": "Update the glossary gmail-task strand's Cmd+Enter sentence for dispatcher delivery and Task Link coverage?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:gmail task"
+        ]
+      },
+      "corrects": "with the cursor anywhere on the row, `<cmd+enter>` (vim normal mode) opens the thread in the browser from the mail note's `gmail_url`, and a muted `\u2318\u21b5 Gmail` chip on the cursor row shows exactly when that keymap is live",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:gmail task",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Gmail Task",
+            "Capture",
+            "Pomodoro",
+            "Task Mention",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Link",
+            "Rotten Log",
+            "Task Relation",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Freshness",
+            "Work Log",
+            "Task Decay",
+            "Task Successor",
+            "Walker Footer",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
