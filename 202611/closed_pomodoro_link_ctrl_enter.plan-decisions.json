@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "stale_done_link",
+      "kind": "choice",
+      "ask": "On a closed entry's live link whose task is already Done, should Ctrl+Enter only strike the link?",
+      "why": "A closed entry is history; pressing on a live link to a finished task means mark it done",
+      "choices": [
+        {
+          "key": "retire",
+          "label": "Writes reconcile's \ud83c\udf45 ~~[[X]]~~ and leaves the task Done; a second press reopens it"
+        },
+        {
+          "key": "reopen",
+          "label": "Keeps today's toggle: reopens the task (restoring it from done/) and leaves the line live"
+        }
+      ],
+      "default": "retire",
+      "effective_default": "retire",
+      "requested_verified": false
+    }
+  ]
+}
