@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "config_key",
+      "kind": "choice",
+      "ask": "Which bob config key should hold the plugin allowlist?",
+      "why": "bob already says enabled for community-plugins.json; a second meaning invites confusion",
+      "choices": [
+        {
+          "key": "sync",
+          "label": "Ids live under `plugins: sync:`; no clash with the list VAULT column's enabled/disabled"
+        },
+        {
+          "key": "enabled",
+          "label": "Ids live under `plugins: enabled:`, matching the request; `enabled` then means two things"
+        }
+      ],
+      "default": "sync",
+      "effective_default": "sync",
+      "requested_verified": false
+    },
+    {
+      "id": "list_marks",
+      "kind": "toggle",
+      "ask": "Should `bob plugins list` and install-all show which repo plugins bob's config leaves out?",
+      "why": "list is where users find ids to add; install-all shouldn't flag drift sync never touches",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
