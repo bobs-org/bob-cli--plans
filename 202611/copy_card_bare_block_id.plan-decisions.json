@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "yank_command",
+      "kind": "choice",
+      "ask": "Should the yank-block-id palette command also copy the bare block ID?",
+      "why": "Both share one resolver and one name, and {block_id} is already bare",
+      "choices": [
+        {
+          "key": "bare",
+          "label": "The palette command copies bank-records too, so both \"block ID\" copies agree"
+        },
+        {
+          "key": "caret",
+          "label": "Only the Copy card I row changes; yank-block-id keeps copying ^bank-records"
+        }
+      ],
+      "default": "bare",
+      "effective_default": "bare",
+      "requested_verified": false
+    }
+  ]
+}
