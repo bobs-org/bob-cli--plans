@@ -1,63 +1,60 @@
 ---
 tier: epic
 title: Gmail archive-on-close landing repairs
-goal: "Finish epic bob-cli-kx.2.1 by repairing the land-audit defects in the Gmail
+goal: 'Finish epic bob-cli-kx.2.1 by repairing the land-audit defects in the Gmail
   archive core: frozen saved IDs, journaled-before-mutation ownership, receipt label
   identity, boundary revalidation, filing-safe error reporting, preview parity, and
   accurate reports, help, and docs.
 
-  "
+  '
 parent_bead: bob-cli-kx.2.1
 phases:
-  - id: ownership
-    title: Frozen IDs, receipt identity, and journal ownership
-    size: medium
-    depends_on: []
-    description:
-      "ownership: Make planning, apply, and recovery use the close's frozen saved IDs;
-      record and match the real receipt label ID; re-baseline on an archive_label
-      change; accept [?] in open observations; stop reopen/re-close false recoveries;
-      surface cross-host holds; add real label-diff property tests. Implement section 1."
-  - id: boundary
-    title: Mutation boundary, let-go, and failure isolation
-    size: medium
-    depends_on:
-      - ownership
-    description:
-      "boundary: Plan every terminal journal event before its Gmail write, revalidate
-      local evidence per thread under the maintenance lock, honor the planned decision
-      set, fix recovery ordering, scope let-go to recorded IDs and run it independently
-      of the gate, and add the missing end-to-end fault tests. Implement section 2."
-  - id: integration
-    title: Sync wiring, hydration capture, and preview parity
-    size: medium
-    depends_on:
-      - boundary
-    description:
-      "integration: Capture saved IDs before watch hydration, block archive writes after
-      failed or incomplete filing, keep filing/watch report rows when the archive phase
-      errors, simulate enablement in dry-run so a first preview confirms, and reject a
-      supplied mismatched -c. Implement section 3."
-  - id: surfaces
-    title: Reports, help, docs, and final verification
-    size: medium
-    depends_on:
-      - integration
-    description:
-      "surfaces: Fix quiet digest leaks, hollow kept/let-go rows, and paused row detail;
-      rewrite remaining read-only claims in help and docs; document the journal schema,
-      vocabulary, and exit codes; refresh the C1-C20 table; run the docs and full gates.
-      Implement section 4."
+- id: ownership
+  title: Frozen IDs, receipt identity, and journal ownership
+  size: medium
+  depends_on: []
+  description: 'ownership: Make planning, apply, and recovery use the close''s frozen
+    saved IDs; record and match the real receipt label ID; re-baseline on an archive_label
+    change; accept [?] in open observations; stop reopen/re-close false recoveries;
+    surface cross-host holds; add real label-diff property tests. Implement section
+    1.'
+- id: boundary
+  title: Mutation boundary, let-go, and failure isolation
+  size: medium
+  depends_on:
+  - ownership
+  description: 'boundary: Plan every terminal journal event before its Gmail write,
+    revalidate local evidence per thread under the maintenance lock, honor the planned
+    decision set, fix recovery ordering, scope let-go to recorded IDs and run it independently
+    of the gate, and add the missing end-to-end fault tests. Implement section 2.'
+- id: integration
+  title: Sync wiring, hydration capture, and preview parity
+  size: medium
+  depends_on:
+  - boundary
+  description: 'integration: Capture saved IDs before watch hydration, block archive
+    writes after failed or incomplete filing, keep filing/watch report rows when the
+    archive phase errors, simulate enablement in dry-run so a first preview confirms,
+    and reject a supplied mismatched -c. Implement section 3.'
+- id: surfaces
+  title: Reports, help, docs, and final verification
+  size: medium
+  depends_on:
+  - integration
+  description: 'surfaces: Fix quiet digest leaks, hollow kept/let-go rows, and paused
+    row detail; rewrite remaining read-only claims in help and docs; document the
+    journal schema, vocabulary, and exit codes; refresh the C1-C20 table; run the
+    docs and full gates. Implement section 4.'
 proposed_by: bbugyi200.athena.bob-cli-kx.2.1.land
 proposed_with: claude/opus
 create_time: 2026-11-12 23:51:11
 status: wip
+bead_id: bob-cli-kx.2.1.8
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_archive_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_landing_repairs.md)
-- **PARENT:**
-  [202611/gmail_archive_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_core.md)
+- **PROMPT:** [prompts/202611/gmail_archive_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_landing_repairs.md)
+- **PARENT:** [202611/gmail_archive_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_core.md)
+- **BEAD:** [bob-cli-kx.2.1.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kx/bob-cli-kx.2.1.8.md)
 
 # Gmail archive-on-close landing repairs
 
