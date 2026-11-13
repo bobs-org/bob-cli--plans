@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Fix Schema Card Escape, pass real acceptance, and land bob-cli-kr.4.1
-goal:
-  Repair the real-Obsidian Escape defect, drive the Athena Schema Card acceptance walk
-  to a full pass, finish the gates and guarded deploy, then close bob-cli-kr.4.1 and its
-  parent phase bob-cli-kr.4.
+goal: Repair the real-Obsidian Escape defect, drive the Athena Schema Card acceptance
+  walk to a full pass, finish the gates and guarded deploy, then close bob-cli-kr.4.1
+  and its parent phase bob-cli-kr.4.
 size: medium
 bead: bob-cli-kr.4.1
 proposed_by: bbugyi200.apollo.bob-cli-kr.4.1.land
 proposed_with: claude/opus
-create_time: 2026-11-13 06:25:02
-status: wip
+status: done
 ---
 
 - **BEAD:**
