@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair ack CLI landing defects and close bob-cli-l5.3.1
-goal: Honor queue and terminal contracts, make receipt management reliable, and close
-  the child epic and its containing CLI phase.
+goal:
+  Honor queue and terminal contracts, make receipt management reliable, and close the
+  child epic and its containing CLI phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-l5.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/gcal_ack_cli.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gcal_ack_cli.md)
 - **BEAD:**
   [bob-cli-l5.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l5/bob-cli-l5.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-l5.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-l5.3.1.land.md)
+- **COMMITS:**
+  - [b34a983](https://github.com/bobs-org/bob-cli--plans/commit/b34a983a4fbb6bb513632935026faa221cf1b777)
+    — docs(plans): mark gcal ack CLI plan complete
 
 # Repair the remaining ack CLI defects and finish bob-cli-l5.3.1
 
