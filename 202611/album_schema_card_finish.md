@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Fix Schema Card Escape, pass real acceptance, and land bob-cli-kr.4.1
-goal: Repair the real-Obsidian Escape defect, drive the Athena Schema Card acceptance
-  walk to a full pass, finish the gates and guarded deploy, then close bob-cli-kr.4.1
-  and its parent phase bob-cli-kr.4.
+goal:
+  Repair the real-Obsidian Escape defect, drive the Athena Schema Card acceptance walk
+  to a full pass, finish the gates and guarded deploy, then close bob-cli-kr.4.1 and its
+  parent phase bob-cli-kr.4.
 size: medium
 bead: bob-cli-kr.4.1
 proposed_by: bbugyi200.apollo.bob-cli-kr.4.1.land
@@ -13,6 +14,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-kr.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-kr/bob-cli-kr.4.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-kr.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-kr.4.1.land.md)
+- **COMMITS:**
+  - [f508aa4](https://github.com/bobs-org/bob-cli/commit/f508aa46eda604217b3fa15ef32a27ea4f4c8515)
+    — test(album-schema): add escape-path verification evidence
 
 # Fix Schema Card Escape, pass real acceptance, and land bob-cli-kr.4.1
 
