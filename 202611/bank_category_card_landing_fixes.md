@@ -2,18 +2,19 @@
 tier: tale
 size: medium
 title: Finish the bank Category card and close epic bob-cli-lc
-goal: The Category card renders as a card instead of a squashed four-column grid,
-  learns from the row Bryan just filed, matches the approved look and accessibility
-  contract, is deployed, and epic bob-cli-lc closes.
+goal:
+  The Category card renders as a card instead of a squashed four-column grid, learns
+  from the row Bryan just filed, matches the approved look and accessibility contract,
+  is deployed, and epic bob-cli-lc closes.
 decisions:
   card_stays_open:
-    ask: Keep the Category card open as it advances, so each waiting row takes one
-      key?
+    ask: Keep the Category card open as it advances, so each waiting row takes one key?
     choices:
-      keep: Card stays open and moves to the next waiting row (as shipped); one key
-        per row
-      close: Card closes after each filing (per the epic plan); row flashes, next
-        Ctrl+Enter reopens it
+      keep:
+        Card stays open and moves to the next waiting row (as shipped); one key per row
+      close:
+        Card closes after each filing (per the epic plan); row flashes, next Ctrl+Enter
+        reopens it
     default: keep
     why: Already shipped and tested, and one key per row is the walk Bryan asked for
     answer: keep
@@ -28,6 +29,11 @@ status: done
   [202611/bank_weekly_category_walk.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_weekly_category_walk.md)
 - **BEAD:**
   [bob-cli-lc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lc/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-lc.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-lc.land.md)
+- **COMMITS:**
+  - [37a1db5](https://github.com/bobs-org/bob-plugins/commit/37a1db57ee205f20af1c7411c172c2f47d535f75)
+    — fix(bank): un-squash the Category card and learn after each filing
 
 # Finish the bank Category card and close epic bob-cli-lc
 
