@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "caret_revisit",
+      "kind": "choice",
+      "ask": "Should caret revisits of an already-typed record field bullet also re-open bob's value menu?",
+      "why": "Same root cause (the app never asks bob); one-line set change and bob already answers correctly.",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Add record_field_key / record_field_value to the app's completion span kinds, plus tests"
+        },
+        {
+          "key": "skip",
+          "label": "Fix only the empty-bullet menu gap and the stale footer; leave caret revisits for later"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    }
+  ]
+}
