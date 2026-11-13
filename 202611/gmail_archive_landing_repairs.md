@@ -48,7 +48,7 @@ phases:
 proposed_by: bbugyi200.athena.bob-cli-kx.2.1.land
 proposed_with: claude/opus
 create_time: 2026-11-12 23:51:11
-status: wip
+status: done
 bead_id: bob-cli-kx.2.1.8
 ---
 
