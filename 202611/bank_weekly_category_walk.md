@@ -1,142 +1,131 @@
 ---
 tier: epic
 title: Bank, weekly — file every row with one key
-goal: "Bank tracking becomes one Monday chore: a Wells Fargo download link, one import
-  command, then Ctrl+Enter on each waiting bank row opens a Category card where a single
-  key ticks the row, files its category from Bryan's own list, and lands the cursor on
-  the next waiting row, so a week of transactions takes about two minutes.
+goal: 'Bank tracking becomes one Monday chore: a Wells Fargo download link, one import
+  command, then Ctrl+Enter on each waiting bank row opens a Category card where a
+  single key ticks the row, files its category from Bryan''s own list, and lands the
+  cursor on the next waiting row, so a week of transactions takes about two minutes.
 
-  "
+  '
 decisions:
   split_subscriptions:
     ask: Split the subscriptions category into Tech & AI and Media?
     default: true
-    why:
-      Categories say what you bought; the subscriptions album (bob-cli-kt) owns
+    why: Categories say what you bought; the subscriptions album (bob-cli-kt) owns
       recurrence.
     answer: true
   prefill_seed_rows:
-    ask:
-      Should the rollout pre-file the seven already-acknowledged November rows with
-      categories?
+    ask: Should the rollout pre-file the seven already-acknowledged November rows
+      with categories?
     default: true
-    why:
-      They hold the most frequent merchants, so the first Monday walk starts with warm
-      suggestions.
+    why: They hold the most frequent merchants, so the first Monday walk starts with
+      warm suggestions.
     answer: true
   kv_snooze:
     ask: When should the bob-cli-kv bank-feed spike wake up?
     choices:
-      hold:
-        Keep its 2026-12-14 snooze; the walk trial decides whether a feed is still
+      hold: Keep its 2026-12-14 snooze; the walk trial decides whether a feed is still
         needed
       now: Unsnooze it when this epic lands so a feed spike can run beside the trial
     default: hold
-    why:
-      The trial ends on the snooze date, and the walk may drop the download toil enough.
+    why: The trial ends on the snooze date, and the walk may drop the download toil
+      enough.
     answer: hold
   memory_bank_row:
     ask: Update glossary:bank-row to say Ctrl+Enter files a waiting row with a category?
     memory:
-      - glossary:bank-row
+    - glossary:bank-row
     default: false
     answer: true
   memory_walk_record:
     ask: Add a decisions record for how a bank close files a category and advances?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: weekly-chore
-    title: One weekly Bank chore with the Wells Fargo link
-    depends_on: []
-    size: small
-    description:
-      "weekly-chore: in the vault, turn the Monday Bank import chore into the single
-      weekly Bank chore (verified Wells Fargo download link, #browser, one-line import
-      command, the walk), and cancel the daily Acknowledge bank occurrence with history
-      intact."
-  - id: qfx-cleaning
-    title: Clean Wells Fargo QFX payees and merchant keys
-    depends_on: []
-    size: medium
-    description:
-      "qfx-cleaning: teach naming.rs the real QFX description shapes so payees lose
-      dates, places, card digits, order codes, and the account holder's name; merchant
-      keys collapse repeat merchants; learned payees are re-cleaned; the default account
-      stops getting [acct::]."
-  - id: category-contract
-    title: Category hotkeys, groups, hidden, and row suggestions
-    depends_on:
-      - qfx-cleaning
-    size: medium
-    description:
-      "category-contract: add the mapping form for bank.categories (label, hotkey,
-      group, hidden) with derivation and validation, report hotkey/group/hidden in
-      categories[], add a read-time suggestion {category, source} to every row JSON from
-      one function shared with import, and point import's next step at the walk."
-  - id: vault-rollout
-    title: Bryan's taxonomy in bank.md and clean seed rows
-    depends_on:
-      - category-contract
-    size: small
-    description:
-      "vault-rollout: after every host runs the new bob, write the journal-grounded
-      category list with hotkeys and groups into bank.md, drop the dead VENMO rule,
-      re-clean the seven seed rows (and pre-file them per the decision), and update the
-      hub prose to the weekly ritual."
-  - id: card-model
-    title: Pure Category card, write, and advance models
-    depends_on:
-      - category-contract
-    size: medium
-    description:
-      "card-model: in bob-ledger-tools, add pure, unit-tested models for decoding the
-      new JSON, the card view model and key table, the single-transaction row write
-      plan, the next-waiting-row finder, the walk session counter, and the end-of-run
-      summary."
-  - id: card-ui
-    title: The Category card, the walk, and Bank set category
-    depends_on:
-      - card-model
-    size: medium
-    description:
-      "card-ui: render the Category card in the key-card family, wire api.bank v2
-      claimRowClose and setCategory, commit, advance, refresh suggestions after each
-      filing, show the end-of-run notice, add Bank: set category, hide hidden categories
-      from [cat:: suggestions, and land waiting-pill jumps at the payee."
-  - id: ctrl-enter-walk
-    title: Ctrl+Enter hand-off, jump history, real-Obsidian proof, deploy
-    depends_on:
-      - card-ui
-      - vault-rollout
-    size: medium
-    description:
-      "ctrl-enter-walk: make task-status-cycler delegate Ctrl+Enter on waiting bank rows
-      to ledger-tools with today's flip as fallback, add nav's recordJump member for the
-      Ctrl+O landing, extend the real-Obsidian bank e2e, document the plugins, and
-      deploy with bob plugins sync."
-  - id: wrapup
-    title: Weekly guide, contract docs, memory, and the trial
-    depends_on:
-      - weekly-chore
-      - ctrl-enter-walk
-    size: medium
-    description:
-      "wrapup: rewrite the bank guide for the weekly walk, note the card in docs/bank.md
-      ownership, prove the real vault end to end with counts only, apply the memory and
-      kv decisions, and record the 2–4 week trial as a proposed follow-up."
+- id: weekly-chore
+  title: One weekly Bank chore with the Wells Fargo link
+  depends_on: []
+  size: small
+  description: 'weekly-chore: in the vault, turn the Monday Bank import chore into
+    the single weekly Bank chore (verified Wells Fargo download link, #browser, one-line
+    import command, the walk), and cancel the daily Acknowledge bank occurrence with
+    history intact.'
+- id: qfx-cleaning
+  title: Clean Wells Fargo QFX payees and merchant keys
+  depends_on: []
+  size: medium
+  description: 'qfx-cleaning: teach naming.rs the real QFX description shapes so payees
+    lose dates, places, card digits, order codes, and the account holder''s name;
+    merchant keys collapse repeat merchants; learned payees are re-cleaned; the default
+    account stops getting [acct::].'
+- id: category-contract
+  title: Category hotkeys, groups, hidden, and row suggestions
+  depends_on:
+  - qfx-cleaning
+  size: medium
+  description: 'category-contract: add the mapping form for bank.categories (label,
+    hotkey, group, hidden) with derivation and validation, report hotkey/group/hidden
+    in categories[], add a read-time suggestion {category, source} to every row JSON
+    from one function shared with import, and point import''s next step at the walk.'
+- id: vault-rollout
+  title: Bryan's taxonomy in bank.md and clean seed rows
+  depends_on:
+  - category-contract
+  size: small
+  description: 'vault-rollout: after every host runs the new bob, write the journal-grounded
+    category list with hotkeys and groups into bank.md, drop the dead VENMO rule,
+    re-clean the seven seed rows (and pre-file them per the decision), and update
+    the hub prose to the weekly ritual.'
+- id: card-model
+  title: Pure Category card, write, and advance models
+  depends_on:
+  - category-contract
+  size: medium
+  description: 'card-model: in bob-ledger-tools, add pure, unit-tested models for
+    decoding the new JSON, the card view model and key table, the single-transaction
+    row write plan, the next-waiting-row finder, the walk session counter, and the
+    end-of-run summary.'
+- id: card-ui
+  title: The Category card, the walk, and Bank set category
+  depends_on:
+  - card-model
+  size: medium
+  description: 'card-ui: render the Category card in the key-card family, wire api.bank
+    v2 claimRowClose and setCategory, commit, advance, refresh suggestions after each
+    filing, show the end-of-run notice, add Bank: set category, hide hidden categories
+    from [cat:: suggestions, and land waiting-pill jumps at the payee.'
+- id: ctrl-enter-walk
+  title: Ctrl+Enter hand-off, jump history, real-Obsidian proof, deploy
+  depends_on:
+  - card-ui
+  - vault-rollout
+  size: medium
+  description: 'ctrl-enter-walk: make task-status-cycler delegate Ctrl+Enter on waiting
+    bank rows to ledger-tools with today''s flip as fallback, add nav''s recordJump
+    member for the Ctrl+O landing, extend the real-Obsidian bank e2e, document the
+    plugins, and deploy with bob plugins sync.'
+- id: wrapup
+  title: Weekly guide, contract docs, memory, and the trial
+  depends_on:
+  - weekly-chore
+  - ctrl-enter-walk
+  size: medium
+  description: 'wrapup: rewrite the bank guide for the weekly walk, note the card
+    in docs/bank.md ownership, prove the real vault end to end with counts only, apply
+    the memory and kv decisions, and record the 2–4 week trial as a proposed follow-up.'
 proposed_by: bbugyi200.athena.1c7
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-13 10:55:23
 status: wip
+bead_id: bob-cli-lc
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_weekly_category_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_weekly_category_walk.md)
+- **PROMPT:** [prompts/202611/bank_weekly_category_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_weekly_category_walk.md)
+- **BEAD:** [bob-cli-lc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lc/README.md)
 
 # Plan: Bank, weekly — file every row with one key
 
