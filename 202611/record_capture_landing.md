@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish cached record routes and land bob-cli-l3
-goal:
-  Retain record targets in typed route completion, prove acceptance reaches the field
-  menu, and finish the record-capture epic's landing.
+goal: Retain record targets in typed route completion, prove acceptance reaches the
+  field menu, and finish the record-capture epic's landing.
 proposed_by: bbugyi200.apollo.bob-cli-l3.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-l3
-create_time: 2026-11-12 19:22:24
-status: wip
+status: done
 ---
 
 - **PARENT:**
