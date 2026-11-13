@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair ack CLI landing defects and close bob-cli-l5.3.1
-goal:
-  Honor queue and terminal contracts, make receipt management reliable, and close the
-  child epic and its containing CLI phase.
+goal: Honor queue and terminal contracts, make receipt management reliable, and close
+  the child epic and its containing CLI phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-l5.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-l5.3.1
-create_time: 2026-11-13 02:27:43
-status: wip
+status: done
 ---
 
 - **PARENT:**
