@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Finish cached record routes and land bob-cli-l3
-goal: Retain record targets in typed route completion, prove acceptance reaches the
-  field menu, and finish the record-capture epic's landing.
+goal:
+  Retain record targets in typed route completion, prove acceptance reaches the field
+  menu, and finish the record-capture epic's landing.
 proposed_by: bbugyi200.apollo.bob-cli-l3.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-l3
@@ -14,6 +15,11 @@ status: done
   [202611/record_capture_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_capture_repairs.md)
 - **BEAD:**
   [bob-cli-l3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-l3/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-l3.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-l3.land.md)
+- **COMMITS:**
+  - [832a27d](https://github.com/bobs-org/bob-mac-capture/commit/832a27dc3418e0c441d521490d4c33cdf0ff3a61)
+    — fix(capture): retain record targets for typed routes with truthful movie fixtures
 
 # Finish record capture and close bob-cli-l3
 
