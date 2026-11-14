@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish and land the Bank Badge epic
-goal:
-  Correct the remaining badge period, text, visibility and empty-history gaps, verify
-  integration, and close bob-cli-lh.
+goal: Correct the remaining badge period, text, visibility and empty-history gaps,
+  verify integration, and close bob-cli-lh.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-lh.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-lh
-create_time: 2026-11-14 09:04:21
-status: wip
+status: done
 ---
 
 - **PARENT:**
