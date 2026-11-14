@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish and land the Bank Badge epic
-goal:
-  Correct the remaining badge period, text, visibility and empty-history gaps, verify
-  integration, and close bob-cli-lh.
+goal: Correct the remaining badge period, text, visibility and empty-history gaps,
+  verify integration, and close bob-cli-lh.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-lh.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/bank_badge_strip_family.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_badge_strip_family.md)
 - **BEAD:**
   [bob-cli-lh](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lh/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-lh.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-lh.land.md)
-- **COMMITS:**
-  - [1a32cc1](https://github.com/bobs-org/bob-cli/commit/1a32cc1a6f7d5e1a72ce90e0e85939ff138c3299)
-    — feat(bank): close badge epic with period identity, empty-range bound and docs
 
 # Finish and land the Bank Badge epic
 
