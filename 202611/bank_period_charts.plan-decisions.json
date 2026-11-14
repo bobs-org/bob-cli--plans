@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_period_charts_term",
+      "kind": "toggle",
+      "ask": "Add a Bank Period Charts glossary term?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:bank-period-charts"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:bank-period-charts",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/bank-period-charts.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_badge_term_link",
+      "kind": "toggle",
+      "ask": "Add one sentence to the Bank Badge glossary term linking it to Bank Period Charts?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:bank-badge"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:bank-badge",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Bank Badge"
+          ]
+        }
+      ]
+    }
+  ]
+}
