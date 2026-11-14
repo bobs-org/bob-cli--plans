@@ -1,49 +1,47 @@
 ---
 tier: epic
-title: "Fix Gmail archiving: follow merges, reopen on replies, stable confirm digests"
-goal: "No bob-labelled thread sits in the Inbox unexplained. A merge-retired linker
-  follows its resolved target's status. Any hold that remains is shown as a review row
-  and a doctor count. A reply after close reopens the task and links the reply. A
-  pending -c confirmation survives edits that only shift lines.
+title: 'Fix Gmail archiving: follow merges, reopen on replies, stable confirm digests'
+goal: 'No bob-labelled thread sits in the Inbox unexplained. A merge-retired linker
+  follows its resolved target''s status. Any hold that remains is shown as a review
+  row and a doctor count. A reply after close reopens the task and links the reply.
+  A pending -c confirmation survives edits that only shift lines.
 
-  "
+  '
 phases:
-  - id: merge-follow
-    title: Follow merge edges and surface remaining holds
-    depends_on: []
-    size: medium
-    description:
-      "merge-follow: resolve each merged-into source to its target task through the
-      shared relation resolver. Archive evidence then uses those effective linkers.
-      Section tombstones count as closed. Unresolved merges and unknown statuses become
-      alert-once archive[] review rows plus a doctor count."
-  - id: digest-identity
-    title: Line-shift-proof archive confirmation identity
-    depends_on:
-      - merge-follow
-    size: small
-    description:
-      "digest-identity: the -c digest and fresh_matches_close match tasks by block id or
-      row-text hash instead of line number, with DIGEST_VERSION 2 and tolerant parsing
-      of legacy locators. It also notes the fix on bob-cli-kx."
-  - id: reply-reopen
-    title: Reopen closed Gmail Tasks when a reply arrives
-    depends_on:
-      - merge-follow
-    size: large
-    description:
-      "reply-reopen: a recent-activity search and fold of closed enrolled threads. A new
-      counted reply or bounce saves the message, then reopens the chosen linker (in
-      place, or restored from done/). It lifts any awaiting hold, resurfaces the task,
-      records a link to the reply card, and appends the turn marker. Adds config,
-      reports, JSON, docs, and the glossary fix."
+- id: merge-follow
+  title: Follow merge edges and surface remaining holds
+  depends_on: []
+  size: medium
+  description: 'merge-follow: resolve each merged-into source to its target task through
+    the shared relation resolver. Archive evidence then uses those effective linkers.
+    Section tombstones count as closed. Unresolved merges and unknown statuses become
+    alert-once archive[] review rows plus a doctor count.'
+- id: digest-identity
+  title: Line-shift-proof archive confirmation identity
+  depends_on:
+  - merge-follow
+  size: small
+  description: 'digest-identity: the -c digest and fresh_matches_close match tasks
+    by block id or row-text hash instead of line number, with DIGEST_VERSION 2 and
+    tolerant parsing of legacy locators. It also notes the fix on bob-cli-kx.'
+- id: reply-reopen
+  title: Reopen closed Gmail Tasks when a reply arrives
+  depends_on:
+  - merge-follow
+  size: large
+  description: 'reply-reopen: a recent-activity search and fold of closed enrolled
+    threads. A new counted reply or bounce saves the message, then reopens the chosen
+    linker (in place, or restored from done/). It lifts any awaiting hold, resurfaces
+    the task, records a link to the reply card, and appends the turn marker. Adds
+    config, reports, JSON, docs, and the glossary fix.'
 decisions:
   reopen_resurface:
     ask: How should a task reopened by a reply resurface for review?
     choices:
-      unblocked:
-        "Write [unblocked:: today]: it walks as TICKLER next review; no plugin change"
-      plain: Reopen to Ready only; it surfaces only through its existing freshness age
+      unblocked: 'Write [unblocked:: today]: it walks as TICKLER next review; no plugin
+        change'
+      plain: Reopen to Ready only; it surfaces only through its existing freshness
+        age
     default: unblocked
     why: Same resurfacing path the Gmail reply lift already uses
     answer: unblocked
@@ -64,10 +62,10 @@ decisions:
     why: One reply usually concerns the latest work; avoids reopening stale siblings
     answer: newest
   memory_gmail_task_glossary:
-    ask:
-      Update the Gmail Task glossary strand to say closed Gmail Tasks reopen on a reply?
+    ask: Update the Gmail Task glossary strand to say closed Gmail Tasks reopen on
+      a reply?
     memory:
-      - glossary:Gmail Task
+    - glossary:Gmail Task
     corrects: Every _open_ Gmail Task watches its thread
     default: true
     answer: true
@@ -77,10 +75,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-14 11:42:00
 status: wip
+bead_id: bob-cli-lk
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_archive_merge_and_reply_reopen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_merge_and_reply_reopen.md)
+- **PROMPT:** [prompts/202611/gmail_archive_merge_and_reply_reopen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_archive_merge_and_reply_reopen.md)
+- **BEAD:** [bob-cli-lk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lk/README.md)
 
 # Fix Gmail archiving: follow merges, reopen on replies, stable confirm digests
 
