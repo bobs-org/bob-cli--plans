@@ -19,109 +19,100 @@ decisions:
     why: Stems match @route names and the stored bytes, so all 19 rows read alike
     answer: tooltip
   card_auto_sync:
-    ask:
-      Should the Areas card run `bob areas sync` by itself when its catalog goes stale?
+    ask: Should the Areas card run `bob areas sync` by itself when its catalog goes
+      stale?
     default: false
-    why:
-      Areas change rarely; a stale pill plus nightly avoids surprise background commits
+    why: Areas change rarely; a stale pill plus nightly avoids surprise background
+      commits
     answer: false
   memory_decision_record:
     ask: Add a decision record that area catalogs nest the descendant forest?
     memory:
-      - decisions:area-catalogs-nest-the-descendant-forest
+    - decisions:area-catalogs-nest-the-descendant-forest
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_area:
-    ask:
-      "Update the glossary Area Note strand to mention the generated ## Areas catalog?"
+    ask: 'Update the glossary Area Note strand to mention the generated ## Areas catalog?'
     memory:
-      - glossary:area-note
+    - glossary:area-note
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
 phases:
-  - id: catalog-engine
-    title:
-      Shared catalog engine - AREAS spec, placement order, heading adoption, capture
-      guard
-    depends_on: []
-    size: medium
-    description:
-      "catalog-engine: add the AREAS region spec and the AfterSectionThenFirstH2
-      placement, move PROJECTS below an existing Areas section, teach every catalog to
-      adopt an authored heading instead of duplicating it, and refuse capture into `##
-      Areas`."
-  - id: areas-graph
-    title: Area graph and pure catalog planner
-    depends_on:
-      - catalog-engine
-    size: medium
-    description:
-      "areas-graph: retain the root note's bytes in the vault snapshot, build the
-      validated area graph (root rule, parent findings, cycles), and plan nested callout
-      rows per host with golden tests on the real vault shape."
-  - id: areas-report
-    title: bob areas list and check
-    depends_on:
-      - areas-graph
-    size: medium
-    description:
-      "areas-report: ship the read-only `bob areas` noun with list/check, the versioned
-      JSON report (hues, project and Today rollups, catalogs, findings), a colored tree
-      view, registration everywhere commands are listed, and the docs/areas.md contract."
-  - id: areas-sync
-    title: bob areas sync, nightly step, and Highlights coverage
-    depends_on:
-      - areas-report
-    size: medium
-    description:
-      "areas-sync: add the guarded `bob areas sync` writer and dry run, the nightly step
-      before projects, the Highlights regression test, integration tests, sync docs, and
-      a read-only preview against the real vault."
-  - id: areas-card
-    title: bob-ledger-tools Areas card shell
-    depends_on:
-      - areas-report
-    size: medium
-    description:
-      "areas-card: in bob-plugins, add the display-only `[!areas]` card - report
-      service, Reading and Live Preview painting, family chrome, hue dots, health line
-      with sync and retry, and the root card's unplaced-areas notice - then deploy."
-  - id: areas-card-chips
-    title: Areas card folds, chips, tooltips, and add-summary
-    depends_on:
-      - areas-card
-      - areas-sync
-    size: medium
-    description:
-      "areas-card-chips: add branch folds with per-pane memory, fold-aware project and
-      Today chips, row tooltips, the hover-only add-summary affordance, and narrow-width
-      polish, then deploy."
-  - id: areas-memory
-    title: Decision record and glossary update
-    depends_on:
-      - areas-sync
-    size: small
-    description:
-      "areas-memory: record the nested-forest decision and teach the Area Note glossary
-      strand about the generated catalog, then regenerate memory."
+- id: catalog-engine
+  title: Shared catalog engine - AREAS spec, placement order, heading adoption, capture
+    guard
+  depends_on: []
+  size: medium
+  description: 'catalog-engine: add the AREAS region spec and the AfterSectionThenFirstH2
+    placement, move PROJECTS below an existing Areas section, teach every catalog
+    to adopt an authored heading instead of duplicating it, and refuse capture into
+    `## Areas`.'
+- id: areas-graph
+  title: Area graph and pure catalog planner
+  depends_on:
+  - catalog-engine
+  size: medium
+  description: 'areas-graph: retain the root note''s bytes in the vault snapshot,
+    build the validated area graph (root rule, parent findings, cycles), and plan
+    nested callout rows per host with golden tests on the real vault shape.'
+- id: areas-report
+  title: bob areas list and check
+  depends_on:
+  - areas-graph
+  size: medium
+  description: 'areas-report: ship the read-only `bob areas` noun with list/check,
+    the versioned JSON report (hues, project and Today rollups, catalogs, findings),
+    a colored tree view, registration everywhere commands are listed, and the docs/areas.md
+    contract.'
+- id: areas-sync
+  title: bob areas sync, nightly step, and Highlights coverage
+  depends_on:
+  - areas-report
+  size: medium
+  description: 'areas-sync: add the guarded `bob areas sync` writer and dry run, the
+    nightly step before projects, the Highlights regression test, integration tests,
+    sync docs, and a read-only preview against the real vault.'
+- id: areas-card
+  title: bob-ledger-tools Areas card shell
+  depends_on:
+  - areas-report
+  size: medium
+  description: 'areas-card: in bob-plugins, add the display-only `[!areas]` card -
+    report service, Reading and Live Preview painting, family chrome, hue dots, health
+    line with sync and retry, and the root card''s unplaced-areas notice - then deploy.'
+- id: areas-card-chips
+  title: Areas card folds, chips, tooltips, and add-summary
+  depends_on:
+  - areas-card
+  - areas-sync
+  size: medium
+  description: 'areas-card-chips: add branch folds with per-pane memory, fold-aware
+    project and Today chips, row tooltips, the hover-only add-summary affordance,
+    and narrow-width polish, then deploy.'
+- id: areas-memory
+  title: Decision record and glossary update
+  depends_on:
+  - areas-sync
+  size: small
+  description: 'areas-memory: record the nested-forest decision and teach the Area
+    Note glossary strand about the generated catalog, then regenerate memory.'
 proposed_by: bbugyi200.apollo.e2
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-14 16:32:58
 status: wip
+bead_id: bob-cli-ln
 ---
 
-- **PROMPT:**
-  [prompts/202611/areas_catalog.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/areas_catalog.md)
+- **PROMPT:** [prompts/202611/areas_catalog.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/areas_catalog.md)
+- **BEAD:** [bob-cli-ln](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ln/README.md)
 
 # Plan: Generated `## Areas` catalogs
 
