@@ -1,85 +1,80 @@
 ---
 tier: epic
 title: Bank badge for every stats strip
-goal: "Every stats strip (the Day strip in daily `bob-plan` blocks, `bob-day-stats`
+goal: 'Every stats strip (the Day strip in daily `bob-plan` blocks, `bob-day-stats`
   fences, and every `bob-stats-strip` fence on week, quarter, year, and all-time notes)
-  is followed by one read-only Bank Badge for exactly that strip's period. Each badge
+  is followed by one read-only Bank Badge for exactly that strip''s period. Each badge
   shows only the in/out parts above $0.00, is hidden when nothing was counted and
   nothing is waiting, is colored by a calm, documented in/out rule, names partial
-  coverage, and opens the rows behind it without writing. A Bank Badge glossary term and
-  a color decision record describe it.
+  coverage, and opens the rows behind it without writing. A Bank Badge glossary term
+  and a color decision record describe it.
 
-  "
+  '
 phases:
-  - id: report-periods
-    title: bob bank report counts stats-strip periods
-    depends_on: []
-    size: medium
-    description:
-      "report-periods: add -p/--period (resolved by the periods calendar, all time over
-      the bank's own history) and -s/--summary to bob bank report, route day totals
-      through compute_totals, emit coverage and navigation JSON, document and test it."
-  - id: badge-core
-    title: Shared bank badge model and painter
-    depends_on: []
-    size: medium
-    description:
-      "badge-core: replace the daily chip with one pure badge model and one painter
-      (visibility, tone, copy, tooltip, read-only target), new tokens and CSS, the
-      stats.bank_badge key, decoder support for coverage/navigation, and migrate the
-      daily plan host."
-  - id: strip-hosts
-    title: Badge hosts after every Day and period strip
-    depends_on:
-      - report-periods
-      - badge-core
-    size: medium
-    description:
-      "strip-hosts: split bob-day-stats and bob-stats-strip fences into a strip host
-      plus a badge host, fetch -D/-w/-p reports with visibility gating, skip future
-      periods, degrade quietly on an older bob, test, document, and deploy."
-  - id: vocabulary
-    title: Bank badge vocabulary and bob-cli docs
-    depends_on:
-      - report-periods
-      - badge-core
-      - strip-hosts
-    size: small
-    description:
-      "vocabulary: write the Bank Badge glossary strand, link it from the Day Strip and
-      Stats Strip strands, add the color decision record, and update the bank, stats,
-      and periods docs plus generated pages."
+- id: report-periods
+  title: bob bank report counts stats-strip periods
+  depends_on: []
+  size: medium
+  description: 'report-periods: add -p/--period (resolved by the periods calendar,
+    all time over the bank''s own history) and -s/--summary to bob bank report, route
+    day totals through compute_totals, emit coverage and navigation JSON, document
+    and test it.'
+- id: badge-core
+  title: Shared bank badge model and painter
+  depends_on: []
+  size: medium
+  description: 'badge-core: replace the daily chip with one pure badge model and one
+    painter (visibility, tone, copy, tooltip, read-only target), new tokens and CSS,
+    the stats.bank_badge key, decoder support for coverage/navigation, and migrate
+    the daily plan host.'
+- id: strip-hosts
+  title: Badge hosts after every Day and period strip
+  depends_on:
+  - report-periods
+  - badge-core
+  size: medium
+  description: 'strip-hosts: split bob-day-stats and bob-stats-strip fences into a
+    strip host plus a badge host, fetch -D/-w/-p reports with visibility gating, skip
+    future periods, degrade quietly on an older bob, test, document, and deploy.'
+- id: vocabulary
+  title: Bank badge vocabulary and bob-cli docs
+  depends_on:
+  - report-periods
+  - badge-core
+  - strip-hosts
+  size: small
+  description: 'vocabulary: write the Bank Badge glossary strand, link it from the
+    Day Strip and Stats Strip strands, add the color decision record, and update the
+    bank, stats, and periods docs plus generated pages.'
 decisions:
   memory_bank_badge_term:
     ask: Add the Bank Badge glossary term?
     memory:
-      - glossary:bank-badge
+    - glossary:bank-badge
     default: true
-    requested:
-      As a part of this change, we should add a new glossary term for "bank badge".
+    requested: As a part of this change, we should add a new glossary term for "bank
+      badge".
     answer: true
   memory_strip_term_links:
     ask: Link the Day Strip and Stats Strip glossary terms to the new Bank Badge term?
     memory:
-      - glossary:Day Strip
-      - glossary:Stats Strip
+    - glossary:Day Strip
+    - glossary:Stats Strip
     default: true
-    requested:
-      Review the bank_badge_strip_family.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
-      recommended in that research file (but keep in mind that you are responsible for
-      planning and splitting up this work appropriately).
+    requested: Review the bank_badge_strip_family.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
+      recommended in that research file (but keep in mind that you are responsible
+      for planning and splitting up this work appropriately).
     answer: true
   memory_badge_color_record:
     ask: Record the bank badge color rule as an accepted decision?
     memory:
-      - decisions:bank-badge-tints-only-a-surplus
+    - decisions:bank-badge-tints-only-a-surplus
     default: true
-    requested:
-      Review the bank_badge_strip_family.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
-      recommended in that research file (but keep in mind that you are responsible for
-      planning and splitting up this work appropriately).
+    requested: Review the bank_badge_strip_family.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
+      recommended in that research file (but keep in mind that you are responsible
+      for planning and splitting up this work appropriately).
     answer: false
 proposed_by: bbugyi200.apollo.research.4l.linker.w0
 proposed_with: claude/opus
@@ -87,10 +82,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-14 06:52:46
 status: wip
+bead_id: bob-cli-lh
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_badge_strip_family.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_badge_strip_family.md)
+- **PROMPT:** [prompts/202611/bank_badge_strip_family.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_badge_strip_family.md)
+- **BEAD:** [bob-cli-lh](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lh/README.md)
 
 # Plan: Bank badge for every stats strip
 
