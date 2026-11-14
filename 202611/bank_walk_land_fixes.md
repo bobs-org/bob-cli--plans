@@ -1,18 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  Bank walk family b — fix landing-audit bugs and contract drift, then close bob-cli-lm
-goal:
-  "The bank walk is correct and matches its binding contract: no extra full-vault scan
-  at startup, correct planner edge cases, a reliable index, a footer meter that fetches
-  at most once per generation and never shows a stale ✓, and the exact nav palette
-  names, notices, and landing toast. Then epic bob-cli-lm is closed."
+title: Bank walk family b — fix landing-audit bugs and contract drift, then close
+  bob-cli-lm
+goal: 'The bank walk is correct and matches its binding contract: no extra full-vault
+  scan at startup, correct planner edge cases, a reliable index, a footer meter that
+  fetches at most once per generation and never shows a stale ✓, and the exact nav
+  palette names, notices, and landing toast. Then epic bob-cli-lm is closed.'
 proposed_by: bbugyi200.apollo.bob-cli-lm.land
 proposed_with: claude/opus
 bead: bob-cli-lm
-create_time: 2026-11-14 15:46:58
-status: wip
+status: done
 ---
 
 - **PARENT:**
