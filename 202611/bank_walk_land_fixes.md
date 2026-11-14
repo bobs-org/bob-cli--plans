@@ -1,13 +1,12 @@
 ---
 tier: tale
 size: medium
-title:
-  Bank walk family b — fix landing-audit bugs and contract drift, then close bob-cli-lm
-goal:
-  "The bank walk is correct and matches its binding contract: no extra full-vault scan
-  at startup, correct planner edge cases, a reliable index, a footer meter that fetches
-  at most once per generation and never shows a stale ✓, and the exact nav palette
-  names, notices, and landing toast. Then epic bob-cli-lm is closed."
+title: Bank walk family b — fix landing-audit bugs and contract drift, then close
+  bob-cli-lm
+goal: 'The bank walk is correct and matches its binding contract: no extra full-vault
+  scan at startup, correct planner edge cases, a reliable index, a footer meter that
+  fetches at most once per generation and never shows a stale ✓, and the exact nav
+  palette names, notices, and landing toast. Then epic bob-cli-lm is closed.'
 proposed_by: bbugyi200.apollo.bob-cli-lm.land
 proposed_with: claude/opus
 bead: bob-cli-lm
@@ -18,11 +17,6 @@ status: done
   [202611/bank_walk_family_b.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_walk_family_b.md)
 - **BEAD:**
   [bob-cli-lm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lm/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-lm.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-lm.land.md)
-- **COMMITS:**
-  - [f68dbdc](https://github.com/bobs-org/bob-plugins/commit/f68dbdcf88f0d36cedcbbd701a16db4fe0f7535d)
-    — fix(ledger-tools): correct bank-walk land-audit defects
 
 # Plan: finish epic `bob-cli-lm` — bank walk audit fixes and closeout
 
