@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "caret_row",
+      "kind": "choice",
+      "ask": "How should the Record Card reveal an unset optional field when the caret sits in its value?",
+      "why": "keeps the card compact and matches how set or invalid optionals already surface one row at a time",
+      "choices": [
+        {
+          "key": "caret_row",
+          "label": "Unfold only the caret's row; More keeps folding the other unset optionals"
+        },
+        {
+          "key": "expand_more",
+          "label": "Auto-expand More, revealing every unset optional while the caret's row is one of them"
+        }
+      ],
+      "default": "caret_row",
+      "effective_default": "caret_row",
+      "requested_verified": false
+    }
+  ]
+}
