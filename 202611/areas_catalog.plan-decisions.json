@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "card_titles",
+      "kind": "choice",
+      "ask": "How should the Areas card show an area's explicit H1 or alias title?",
+      "why": "Stems match @route names and the stored bytes, so all 19 rows read alike",
+      "choices": [
+        {
+          "key": "tooltip",
+          "label": "Rows keep the stored stem links; explicit titles appear on hover only"
+        },
+        {
+          "key": "inline",
+          "label": "Titled rows show the title as link text; the stem moves to the tooltip"
+        }
+      ],
+      "default": "tooltip",
+      "effective_default": "tooltip",
+      "requested_verified": false
+    },
+    {
+      "id": "card_auto_sync",
+      "kind": "toggle",
+      "ask": "Should the Areas card run `bob areas sync` by itself when its catalog goes stale?",
+      "why": "Areas change rarely; a stale pill plus nightly avoids surprise background commits",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record that area catalogs nest the descendant forest?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:area-catalogs-nest-the-descendant-forest"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:area-catalogs-nest-the-descendant-forest",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/area-catalogs-nest-the-descendant-forest.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_area",
+      "kind": "toggle",
+      "ask": "Update the glossary Area Note strand to mention the generated ## Areas catalog?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:area-note"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:area-note",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Area Note",
+            "Project Note",
+            "Capture",
+            "Task Type",
+            "Notebook",
+            "Record Note",
+            "Pomodoro",
+            "Task Link",
+            "Keep Streak",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
