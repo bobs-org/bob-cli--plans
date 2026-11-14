@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "reopen_resurface",
+      "kind": "choice",
+      "ask": "How should a task reopened by a reply resurface for review?",
+      "why": "Same resurfacing path the Gmail reply lift already uses",
+      "choices": [
+        {
+          "key": "unblocked",
+          "label": "Write [unblocked:: today]: it walks as TICKLER next review; no plugin change"
+        },
+        {
+          "key": "plain",
+          "label": "Reopen to Ready only; it surfaces only through its existing freshness age"
+        }
+      ],
+      "default": "unblocked",
+      "effective_default": "unblocked",
+      "requested_verified": false
+    },
+    {
+      "id": "reply_link",
+      "kind": "choice",
+      "ask": "How should the reopened task record the reply that reopened it?",
+      "why": "Matches Bob's Cancel/Schedule/Rotten log convention and keeps history",
+      "choices": [
+        {
+          "key": "log",
+          "label": "Newest-first dated entry under a \ud83d\udcec REOPEN LOG child; keeps every reopen"
+        },
+        {
+          "key": "bullet",
+          "label": "One plain child bullet linking the latest reply, replaced on each reopen"
+        }
+      ],
+      "default": "log",
+      "effective_default": "log",
+      "requested_verified": false
+    },
+    {
+      "id": "reopen_scope",
+      "kind": "choice",
+      "ask": "When several closed tasks link the replied thread, which should reopen?",
+      "why": "One reply usually concerns the latest work; avoids reopening stale siblings",
+      "choices": [
+        {
+          "key": "newest",
+          "label": "Only the most recently closed linker; one task per reply"
+        },
+        {
+          "key": "all",
+          "label": "Every eligible closed linker of the thread"
+        }
+      ],
+      "default": "newest",
+      "effective_default": "newest",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_gmail_task_glossary",
+      "kind": "toggle",
+      "ask": "Update the Gmail Task glossary strand to say closed Gmail Tasks reopen on a reply?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:Gmail Task"
+        ]
+      },
+      "corrects": "Every _open_ Gmail Task watches its thread",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:Gmail Task",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Gmail Task",
+            "Capture",
+            "Task Link",
+            "Pomodoro",
+            "Task Mention",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Relation",
+            "Rotten Log",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Freshness",
+            "Task Successor",
+            "Work Log",
+            "Task Decay",
+            "Walker Footer",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
