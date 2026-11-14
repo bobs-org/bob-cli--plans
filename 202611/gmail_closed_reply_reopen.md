@@ -1,68 +1,62 @@
 ---
 tier: epic
 title: Reopen closed Gmail Tasks on counted replies
-goal:
-  A counted reply or bounce after every effective Gmail linker closes saves its message,
-  reopens the newest closed task in place or from done/, records an exact reply-card log
-  entry, and resurfaces the task with safe retries and recovery.
+goal: A counted reply or bounce after every effective Gmail linker closes saves its
+  message, reopens the newest closed task in place or from done/, records an exact
+  reply-card log entry, and resurfaces the task with safe retries and recovery.
 phases:
-  - id: closed-reply-read
-    title: Prepare closed-thread replies and resumable activity cursors
-    size: medium
-    depends_on: []
-    description:
-      "closed-reply-read: add validated reopen config, account-scoped activity state,
-      closed effective linker selection, paged recent-activity discovery, and
-      metadata-first reply preparation. Expose tested typed inputs for the later
-      transaction without enabling incomplete reopening in the command. Extend fake gog
-      with separate activity-query responses. Implement section 1 and its acceptance
-      vectors."
-  - id: reopen-plan
-    title: Plan task reopening, restore, and the exact-message log
-    size: medium
-    depends_on:
-      - closed-reply-read
-    description:
-      "reopen-plan: implement the pure local reopen planner over staged vault snapshots.
-      Share the task-restore row helper, select the newest effective closed linker,
-      restore done/ tasks through plan_task_move, lift awaiting holds, preserve other
-      blockers, resurface Ready rows, and prepend the REOPEN LOG. Return edits,
-      post-restore task identities, and typed permanent/transient outcomes. Implement
-      section 2 and its acceptance vectors."
-  - id: reopen-transaction
-    title: Integrate reply reopening with sync durability and archiving
-    size: medium
-    depends_on:
-      - closed-reply-read
-      - reopen-plan
-    description:
-      "reopen-transaction: wire closed-thread preparation and the local planner into
-      command/file apply, including snapshot revalidation, atomic mail/task/restore
-      edits, marker-last recovery, retry/cursor settlement, and archive suppression with
-      receipt let-go. Exercise the complete live and dry-run path with synthetic
-      fixtures and failure injection. Implement section 3 and its acceptance vectors."
-  - id: reopen-contract
-    title: Finish reply-reopen reports, documentation, and regression coverage
-    size: medium
-    depends_on:
-      - reopen-transaction
-    description:
-      "reopen-contract: finish the additive reopened watch row and reason, quiet human
-      news, doctor config output, public contracts, and the inherited authorized Gmail
-      Task glossary correction. Complete the acceptance matrix and run the full code and
-      documentation gates. Implement section 4. Leave ancestor closure to this child
-      epic's land agent."
+- id: closed-reply-read
+  title: Prepare closed-thread replies and resumable activity cursors
+  size: medium
+  depends_on: []
+  description: 'closed-reply-read: add validated reopen config, account-scoped activity
+    state, closed effective linker selection, paged recent-activity discovery, and
+    metadata-first reply preparation. Expose tested typed inputs for the later transaction
+    without enabling incomplete reopening in the command. Extend fake gog with separate
+    activity-query responses. Implement section 1 and its acceptance vectors.'
+- id: reopen-plan
+  title: Plan task reopening, restore, and the exact-message log
+  size: medium
+  depends_on:
+  - closed-reply-read
+  description: 'reopen-plan: implement the pure local reopen planner over staged vault
+    snapshots. Share the task-restore row helper, select the newest effective closed
+    linker, restore done/ tasks through plan_task_move, lift awaiting holds, preserve
+    other blockers, resurface Ready rows, and prepend the REOPEN LOG. Return edits,
+    post-restore task identities, and typed permanent/transient outcomes. Implement
+    section 2 and its acceptance vectors.'
+- id: reopen-transaction
+  title: Integrate reply reopening with sync durability and archiving
+  size: medium
+  depends_on:
+  - closed-reply-read
+  - reopen-plan
+  description: 'reopen-transaction: wire closed-thread preparation and the local planner
+    into command/file apply, including snapshot revalidation, atomic mail/task/restore
+    edits, marker-last recovery, retry/cursor settlement, and archive suppression
+    with receipt let-go. Exercise the complete live and dry-run path with synthetic
+    fixtures and failure injection. Implement section 3 and its acceptance vectors.'
+- id: reopen-contract
+  title: Finish reply-reopen reports, documentation, and regression coverage
+  size: medium
+  depends_on:
+  - reopen-transaction
+  description: 'reopen-contract: finish the additive reopened watch row and reason,
+    quiet human news, doctor config output, public contracts, and the inherited authorized
+    Gmail Task glossary correction. Complete the acceptance matrix and run the full
+    code and documentation gates. Implement section 4. Leave ancestor closure to this
+    child epic''s land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-lk.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-lk.3
 create_time: 2026-11-14 14:00:48
 status: wip
+bead_id: bob-cli-lk.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/gmail_closed_reply_reopen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_closed_reply_reopen.md)
-- **PARENT:**
-  [202611/gmail_archive_merge_and_reply_reopen.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_merge_and_reply_reopen.md)
+- **PROMPT:** [prompts/202611/gmail_closed_reply_reopen.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gmail_closed_reply_reopen.md)
+- **PARENT:** [202611/gmail_archive_merge_and_reply_reopen.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_merge_and_reply_reopen.md)
+- **BEAD:** [bob-cli-lk.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lk/bob-cli-lk.3.1.md)
 
 # Reopen closed Gmail Tasks when a counted reply arrives
 
