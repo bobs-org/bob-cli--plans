@@ -1,70 +1,65 @@
 ---
 tier: epic
 title: Bank Period Charts on period notes
-goal: "Every week, quarter, ISO-year, and all-time note shows one compact, read-only
-  Bank Period Charts panel after its Bank Badge. The panel answers when money moved and
-  where Out went. bob computes every cent, coverage gaps are never drawn as $0, and the
-  panel looks like part of the stats-strip family. Daily notes, the badge, briefs,
-  Stats, and the Mac app stay unchanged.
+goal: 'Every week, quarter, ISO-year, and all-time note shows one compact, read-only
+  Bank Period Charts panel after its Bank Badge. The panel answers when money moved
+  and where Out went. bob computes every cent, coverage gaps are never drawn as $0,
+  and the panel looks like part of the stats-strip family. Daily notes, the badge,
+  briefs, Stats, and the Mac app stay unchanged.
 
-  "
+  '
 phases:
-  - id: report
-    title: bob bank report -c child-period aggregate
-    depends_on: []
-    size: medium
-    description:
-      "report: share the periods calendar's child partition, then add an opt-in
-      `-c/--charts` aggregate to `bob bank report` with per-bucket money, coverage
-      states, targets, group totals, folded categories, tests, and the JSON contract
-      docs."
-  - id: model
-    title: Charts decoder and pure panel model
-    depends_on: []
-    size: medium
-    description:
-      "model: strictly decode `charts` in bob-ledger-tools, add the `-c` fetch spec and
-      older-bob detection, and build the pure panel model (states, encodings, formats,
-      copy, accessibility text) with vector tests."
-  - id: paint
-    title: Panel painter, styles, and previews
-    depends_on:
-      - model
-    size: medium
-    description:
-      "paint: render the model into the read-only panel DOM with stats-strip styling,
-      container-query layout, keyboard and table twins, a Chromium preview harness, and
-      DOM tests."
-  - id: hosts
-    title: Period host lifecycle, gate, and navigation
-    depends_on:
-      - report
-      - paint
-    size: medium
-    description:
-      "hosts: mount the third sibling host in every period `bob-stats-strip` fence
-      behind `stats.bank_period`, subscribe on visibility, navigate without writing,
-      capture real bob JSON fixtures, and deploy."
-  - id: docs
-    title: Bank Period Charts docs and vocabulary
-    depends_on:
-      - hosts
-    size: small
-    description:
-      "docs: document the behavior contract and config in bob-cli and plugin docs, apply
-      only the accepted memory decisions, and record follow-up proposals."
+- id: report
+  title: bob bank report -c child-period aggregate
+  depends_on: []
+  size: medium
+  description: 'report: share the periods calendar''s child partition, then add an
+    opt-in `-c/--charts` aggregate to `bob bank report` with per-bucket money, coverage
+    states, targets, group totals, folded categories, tests, and the JSON contract
+    docs.'
+- id: model
+  title: Charts decoder and pure panel model
+  depends_on: []
+  size: medium
+  description: 'model: strictly decode `charts` in bob-ledger-tools, add the `-c`
+    fetch spec and older-bob detection, and build the pure panel model (states, encodings,
+    formats, copy, accessibility text) with vector tests.'
+- id: paint
+  title: Panel painter, styles, and previews
+  depends_on:
+  - model
+  size: medium
+  description: 'paint: render the model into the read-only panel DOM with stats-strip
+    styling, container-query layout, keyboard and table twins, a Chromium preview
+    harness, and DOM tests.'
+- id: hosts
+  title: Period host lifecycle, gate, and navigation
+  depends_on:
+  - report
+  - paint
+  size: medium
+  description: 'hosts: mount the third sibling host in every period `bob-stats-strip`
+    fence behind `stats.bank_period`, subscribe on visibility, navigate without writing,
+    capture real bob JSON fixtures, and deploy.'
+- id: docs
+  title: Bank Period Charts docs and vocabulary
+  depends_on:
+  - hosts
+  size: small
+  description: 'docs: document the behavior contract and config in bob-cli and plugin
+    docs, apply only the accepted memory decisions, and record follow-up proposals.'
 decisions:
   memory_period_charts_term:
     ask: Add a Bank Period Charts glossary term?
     memory:
-      - glossary:bank-period-charts
+    - glossary:bank-period-charts
     default: false
     answer: false
   memory_badge_term_link:
-    ask:
-      Add one sentence to the Bank Badge glossary term linking it to Bank Period Charts?
+    ask: Add one sentence to the Bank Badge glossary term linking it to Bank Period
+      Charts?
     memory:
-      - glossary:bank-badge
+    - glossary:bank-badge
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.4m.linker.w0
@@ -73,10 +68,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-14 09:39:30
 status: wip
+bead_id: bob-cli-lj
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_period_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_period_charts.md)
+- **PROMPT:** [prompts/202611/bank_period_charts.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_period_charts.md)
+- **BEAD:** [bob-cli-lj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lj/README.md)
 
 # Plan: Bank Period Charts on period notes
 
