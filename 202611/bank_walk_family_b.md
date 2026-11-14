@@ -1,90 +1,84 @@
 ---
 tier: epic
 title: Bank walk family b — ]b / [b / ]B / [B with a bank walker-footer panel
-goal: "Bank rows get a keyboard walk in Obsidian: ]b / [b step waiting rows (every row
-  when none wait), ]B / [B jump to the first row of the next / previous day, ]] / [[ and
-  ]} / [{ repeat them, and a fourth `b` walker-footer panel always names the walk's
-  scope — all read-only, cross-month, and reliable against unsaved edits.
+goal: 'Bank rows get a keyboard walk in Obsidian: ]b / [b step waiting rows (every
+  row when none wait), ]B / [B jump to the first row of the next / previous day, ]]
+  / [[ and ]} / [{ repeat them, and a fourth `b` walker-footer panel always names
+  the walk''s scope — all read-only, cross-month, and reliable against unsaved edits.
 
-  "
+  '
 decisions:
   mem_walker_footer:
-    ask:
-      Amend glossary:walker-footer for the fourth `b` bank member and its waiting dot?
+    ask: Amend glossary:walker-footer for the fourth `b` bank member and its waiting
+      dot?
     memory:
-      - glossary:walker-footer
+    - glossary:walker-footer
     default: true
-    corrects:
-      Exactly one member shows at a time, chosen by the persisted bracket family (`s` /
-      `w` / `n`) — never by cursor, timer, or remaining work.
+    corrects: Exactly one member shows at a time, chosen by the persisted bracket
+      family (`s` / `w` / `n`) — never by cursor, timer, or remaining work.
     answer: true
   mem_decision_record:
-    ask:
-      Record decisions:bank-walk-is-a-bracket-family (scope rule plus rejected
+    ask: Record decisions:bank-walk-is-a-bracket-family (scope rule plus rejected
       alternatives)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: index
-    title: Ledger api.bankWalk v1 — index, overlay, snapshot, planners, resolver
-    depends_on: []
-    size: medium
-    description:
-      "index: build the ledger-owned bank-row index with editor overlays, the immutable
-      scoped snapshot, the shared pure step/day planners, identity resolution, the
-      session anchor, and a bob parity fixture."
-  - id: keys
-    title:
-      Nav family b — four commands, repeat tables, selector letter, landing, toast,
-      vimrc
-    depends_on:
-      - index
-    size: medium
-    description:
-      "keys: add family `b` to bob-navigation-hotkeys (commands, ]] / ]} repeat, [[ s w
-      n b ]] selector, walkMode v4 with per-family attention), the serialized bank-walk
-      runtime with payee-start landing and jump history, the bank toast, and the vault
-      vimrc lines."
-  - id: footer
-    title: The b walker-footer panel, account meter, and waiting dot
-    depends_on:
-      - index
-    size: medium
-    description:
-      "footer: paint the `b` panel in the ledger walker-footer host from one snapshot
-      (scope word first, day arms from the shared planner, money only for the cursor
-      row, honest account meter), route clicks to the nav commands, and push the amber
-      `b` attention dot."
-  - id: handoff
-    title: Category card and badge hand-off plus real-Obsidian e2e
-    depends_on:
-      - keys
-      - footer
-    size: small
-    description:
-      "handoff: make Category card advances and badge waiting opens feed the walk anchor
-      (the badge also selects `b`), add the card's other-month `]b` line, and extend the
-      real-Obsidian walker e2e to four families and a `]b` landing."
-  - id: ship
-    title: Docs, import Next line, memory, deploy, and verification
-    depends_on:
-      - handoff
-    size: medium
-    description:
-      "ship: document the walk in both repos, teach `]b` in the bob bank import Next
-      line, apply the accepted memory decisions, deploy, and verify in the live vault."
+- id: index
+  title: Ledger api.bankWalk v1 — index, overlay, snapshot, planners, resolver
+  depends_on: []
+  size: medium
+  description: 'index: build the ledger-owned bank-row index with editor overlays,
+    the immutable scoped snapshot, the shared pure step/day planners, identity resolution,
+    the session anchor, and a bob parity fixture.'
+- id: keys
+  title: Nav family b — four commands, repeat tables, selector letter, landing, toast,
+    vimrc
+  depends_on:
+  - index
+  size: medium
+  description: 'keys: add family `b` to bob-navigation-hotkeys (commands, ]] / ]}
+    repeat, [[ s w n b ]] selector, walkMode v4 with per-family attention), the serialized
+    bank-walk runtime with payee-start landing and jump history, the bank toast, and
+    the vault vimrc lines.'
+- id: footer
+  title: The b walker-footer panel, account meter, and waiting dot
+  depends_on:
+  - index
+  size: medium
+  description: 'footer: paint the `b` panel in the ledger walker-footer host from
+    one snapshot (scope word first, day arms from the shared planner, money only for
+    the cursor row, honest account meter), route clicks to the nav commands, and push
+    the amber `b` attention dot.'
+- id: handoff
+  title: Category card and badge hand-off plus real-Obsidian e2e
+  depends_on:
+  - keys
+  - footer
+  size: small
+  description: 'handoff: make Category card advances and badge waiting opens feed
+    the walk anchor (the badge also selects `b`), add the card''s other-month `]b`
+    line, and extend the real-Obsidian walker e2e to four families and a `]b` landing.'
+- id: ship
+  title: Docs, import Next line, memory, deploy, and verification
+  depends_on:
+  - handoff
+  size: medium
+  description: 'ship: document the walk in both repos, teach `]b` in the bob bank
+    import Next line, apply the accepted memory decisions, deploy, and verify in the
+    live vault.'
 proposed_by: bbugyi200.apollo.research.4n.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-14 12:51:47
 status: wip
+bead_id: bob-cli-lm
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_walk_family_b.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_walk_family_b.md)
+- **PROMPT:** [prompts/202611/bank_walk_family_b.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_walk_family_b.md)
+- **BEAD:** [bob-cli-lm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lm/README.md)
 
 # Plan: Bank walk family `b` — `]b` / `[b` / `]B` / `[B` with a bank walker-footer panel
 
