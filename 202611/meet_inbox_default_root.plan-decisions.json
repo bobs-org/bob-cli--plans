@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "meet_parent",
+      "kind": "choice",
+      "ask": "Which note should own meet.md once it becomes the Meetings notebook?",
+      "why": "Keeps meeting notes beside unattributed meetings, like legacy_inbox under inbox",
+      "choices": [
+        {
+          "key": "meet_inbox",
+          "label": "Catalog in meet_inbox.md lists Meetings, with Legacy meet notes nested under it"
+        },
+        {
+          "key": "gtd",
+          "label": "Catalog in gtd.md lists Meetings beside GTD ideas; meet_inbox.md gets no catalog"
+        },
+        {
+          "key": "job",
+          "label": "Catalog in job.md lists it, though job.md covers job searches and many meetings are personal"
+        }
+      ],
+      "default": "meet_inbox",
+      "effective_default": "meet_inbox",
+      "requested_verified": false
+    },
+    {
+      "id": "pin_config",
+      "kind": "choice",
+      "ask": "Should chezmoi's bob config pin gcal.root to meet_inbox so hosts on an older bob keep a valid root?",
+      "why": "Vault sync reaches every host in minutes; when each host rebuilds bob is unknown",
+      "choices": [
+        {
+          "key": "pin",
+          "label": "Live root line; every host is right on its next chezmoi apply, though it repeats the default"
+        },
+        {
+          "key": "comment",
+          "label": "Only the commented example changes; hosts on an older bob write rootless rows until rebuilt"
+        }
+      ],
+      "default": "pin",
+      "effective_default": "pin",
+      "requested_verified": false
+    },
+    {
+      "id": "review_time",
+      "kind": "choice",
+      "ask": "Should built-in review_time stop counting MEET minutes now that default-rooted meetings sit under gtd?",
+      "why": "review_time already counts every gtd-tree minute, bob project work included",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Unchanged; meetings rooted at meet_inbox count as gtd review time until you re-root them"
+        },
+        {
+          "key": "exclude",
+          "label": "Built-in review_time gains exclude_themes MEET; docs/stats.md and registry tests change"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_inbox_file",
+      "kind": "toggle",
+      "ask": "Should the Inbox File glossary strand list meet_inbox.md as an inbox file that roots default Event Tasks?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:inbox-file"
+        ]
+      },
+      "corrects": "(today `mac_inbox.md`, `gkeep_inbox.md`, and `gmail_inbox.md`)",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:inbox-file",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Inbox File",
+            "Capture",
+            "Pomodoro",
+            "Task Type",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Link",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_meet_record",
+      "kind": "toggle",
+      "ask": "Should a new decisions strand record that meet.md is a notebook and Event Tasks default to meet_inbox?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:event-tasks-default-to-meet-inbox"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:event-tasks-default-to-meet-inbox",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/event-tasks-default-to-meet-inbox.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
