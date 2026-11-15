@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish Gmail archive merge traversal and confirmation identity
-goal:
-  Preserve every effective merge target, stabilize confirmations and journal
-  compatibility, and close bob-cli-lk with verified evidence.
+goal: Preserve every effective merge target, stabilize confirmations and journal compatibility,
+  and close bob-cli-lk with verified evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-lk.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-lk
-create_time: 2026-11-14 22:18:44
-status: wip
+status: done
 ---
 
 - **PARENT:**
