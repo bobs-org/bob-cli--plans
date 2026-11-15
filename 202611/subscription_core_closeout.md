@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair subscription core parity and finish its landing
-goal:
-  Subscription history, row projections, and import previews agree on guarded inputs and
-  exact money, and bob-cli-ls.2.1 plus its parent core phase close normally.
+goal: Subscription history, row projections, and import previews agree on guarded
+  inputs and exact money, and bob-cli-ls.2.1 plus its parent core phase close normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ls.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ls.2.1
-create_time: 2026-11-15 17:06:46
-status: wip
+status: done
 ---
 
 - **PARENT:**
