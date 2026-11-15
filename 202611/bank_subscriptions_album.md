@@ -1,141 +1,131 @@
 ---
 tier: epic
-title: "Subscriptions album: records that know how they show up on the statement"
-goal: "A 🔁 Subscriptions album under bank holds every discretionary recurring charge,
-  seeded from a reviewed bank history. bob bank import links each new matching row to
-  its record, and the link renders as a quiet 🔁 chip. bob bank check and bob bank
+title: 'Subscriptions album: records that know how they show up on the statement'
+goal: 'A 🔁 Subscriptions album under bank holds every discretionary recurring charge,
+  seeded from a reviewed bank history. bob bank import links each new matching row
+  to its record, and the link renders as a quiet 🔁 chip. bob bank check and bob bank
   subscriptions keep the album honest: they flag price changes, charges after a cancel,
-  and possible new subscriptions. The old Zorg recurring table retires without losing a
-  link, and bob-cli-kt closes.
+  and possible new subscriptions. The old Zorg recurring table retires without losing
+  a link, and bob-cli-kt closes.
 
-  "
+  '
 decisions:
   payee_source:
-    ask:
-      When import links a new row to a subscription, should the row's payee be the
-      record's title?
+    ask: When import links a new row to a subscription, should the row's payee be
+      the record's title?
     choices:
-      record_title:
-        The row reads as the record title; rename a service once, on its record
-      learned_first:
-        Your last hand-edited payee for that merchant wins; the title fills only new
-        merchants
+      record_title: The row reads as the record title; rename a service once, on its
+        record
+      learned_first: Your last hand-edited payee for that merchant wins; the title
+        fills only new merchants
     default: record_title
     why: It is deterministic, and the record is the one place where a service is named
     answer: record_title
   memory_decision_record:
-    ask:
-      Add a decisions strand recording that subscription records own their bank match?
+    ask: Add a decisions strand recording that subscription records own their bank
+      match?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_term:
     ask: Add a Subscription Record glossary term (aka "Shows up as")?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 phases:
-  - id: seed
-    title: Seed the album from a reviewed bank history
-    depends_on: []
-    size: medium
-    description:
-      "seed: create the subscriptions album with the full schema, regenerate the
-      evidence from the bank journal, ask Bryan one question round, write the reviewed
-      records, add obligation bank rules, and hand-link the live rows."
-  - id: core
-    title: Subscription registry, match resolver, and ledger
-    depends_on: []
-    size: large
-    description:
-      "core: load subscription records, implement the Shows-up-as match contract and the
-      single attribution resolver over rows and journal history, derive each record's
-      ledger, and add subscription fields to bank row JSON."
-  - id: legacy
-    title: Retire old_recur.md into a legacy_recur notebook
-    depends_on:
-      - seed
-    size: medium
-    description:
-      "legacy: move the Zorg table into a legacy_recur notebook under cash, keep every
-      block ID, point historical links for discretionary rows at their records and every
-      other link at the notebook, and point the cash audit task at the album."
-  - id: import
-    title: Import links new rows to their subscription
-    depends_on:
-      - core
-    size: medium
-    description:
-      "import: insert the subscription tier into import naming (rule, subscription,
-      learned without subscription links, restaurant), fill in payee and category, and
-      add the import summary line."
-  - id: check
-    title: Subscription findings in bob bank check
-    depends_on:
-      - core
-    size: medium
-    description:
-      "check: report charged-after-cancel, still-charging, price-change, candidate,
-      invalid-needle, overlap, and unknown-category findings, with paste-ready fixes. A
-      bank rule doubles as a candidate's dismissal."
-  - id: report
-    title: The bob bank subscriptions command
-    depends_on:
-      - core
-      - check
-    size: medium
-    description:
-      "report: add the read-only bob bank subscriptions report with beautiful human
-      output and the JSON contract every plugin surface reads, plus the audit guide."
-  - id: chips
-    title: 🔁 chips on bank rows
-    depends_on:
-      - core
-    size: medium
-    description:
-      "chips: render subscription links as state-aware 🔁 pills in Live Preview, Reading
-      view, and the queue card, with tooltips, ghost chips, and click-to-link."
-  - id: linker
-    title: Category card subscription linker
-    depends_on:
-      - chips
-      - report
-    size: medium
-    description:
-      "linker: add the slash picker, the context strip, and the New subscription sheet
-      to the Category card, and connect ghost-chip clicks to them."
-  - id: surfaces
-    title: Record header strip and album summary card
-    depends_on:
-      - linker
-      - report
-    size: medium
-    description:
-      "surfaces: draw the per-record header strip with its charge timeline, the album
-      summary card, and the formatted index rows on the subscriptions album."
-  - id: acceptance
-    title: Vault acceptance, memory, and closing bob-cli-kt
-    depends_on:
-      - legacy
-      - import
-      - surfaces
-    size: medium
-    description:
-      "acceptance: prove the delivered system on the real vault, keep the vault
-      candidate-clean, link rows written since the seed, land the accepted memory, and
-      close bob-cli-kt."
+- id: seed
+  title: Seed the album from a reviewed bank history
+  depends_on: []
+  size: medium
+  description: 'seed: create the subscriptions album with the full schema, regenerate
+    the evidence from the bank journal, ask Bryan one question round, write the reviewed
+    records, add obligation bank rules, and hand-link the live rows.'
+- id: core
+  title: Subscription registry, match resolver, and ledger
+  depends_on: []
+  size: large
+  description: 'core: load subscription records, implement the Shows-up-as match contract
+    and the single attribution resolver over rows and journal history, derive each
+    record''s ledger, and add subscription fields to bank row JSON.'
+- id: legacy
+  title: Retire old_recur.md into a legacy_recur notebook
+  depends_on:
+  - seed
+  size: medium
+  description: 'legacy: move the Zorg table into a legacy_recur notebook under cash,
+    keep every block ID, point historical links for discretionary rows at their records
+    and every other link at the notebook, and point the cash audit task at the album.'
+- id: import
+  title: Import links new rows to their subscription
+  depends_on:
+  - core
+  size: medium
+  description: 'import: insert the subscription tier into import naming (rule, subscription,
+    learned without subscription links, restaurant), fill in payee and category, and
+    add the import summary line.'
+- id: check
+  title: Subscription findings in bob bank check
+  depends_on:
+  - core
+  size: medium
+  description: 'check: report charged-after-cancel, still-charging, price-change,
+    candidate, invalid-needle, overlap, and unknown-category findings, with paste-ready
+    fixes. A bank rule doubles as a candidate''s dismissal.'
+- id: report
+  title: The bob bank subscriptions command
+  depends_on:
+  - core
+  - check
+  size: medium
+  description: 'report: add the read-only bob bank subscriptions report with beautiful
+    human output and the JSON contract every plugin surface reads, plus the audit
+    guide.'
+- id: chips
+  title: 🔁 chips on bank rows
+  depends_on:
+  - core
+  size: medium
+  description: 'chips: render subscription links as state-aware 🔁 pills in Live Preview,
+    Reading view, and the queue card, with tooltips, ghost chips, and click-to-link.'
+- id: linker
+  title: Category card subscription linker
+  depends_on:
+  - chips
+  - report
+  size: medium
+  description: 'linker: add the slash picker, the context strip, and the New subscription
+    sheet to the Category card, and connect ghost-chip clicks to them.'
+- id: surfaces
+  title: Record header strip and album summary card
+  depends_on:
+  - linker
+  - report
+  size: medium
+  description: 'surfaces: draw the per-record header strip with its charge timeline,
+    the album summary card, and the formatted index rows on the subscriptions album.'
+- id: acceptance
+  title: Vault acceptance, memory, and closing bob-cli-kt
+  depends_on:
+  - legacy
+  - import
+  - surfaces
+  size: medium
+  description: 'acceptance: prove the delivered system on the real vault, keep the
+    vault candidate-clean, link rows written since the seed, land the accepted memory,
+    and close bob-cli-kt.'
 proposed_by: bbugyi200.athena.1cp
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-15 13:11:17
 status: wip
+bead_id: bob-cli-ls
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_subscriptions_album.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_subscriptions_album.md)
+- **PROMPT:** [prompts/202611/bank_subscriptions_album.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_subscriptions_album.md)
+- **BEAD:** [bob-cli-ls](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ls/README.md)
 
 # Plan: Subscriptions album — records that know how they show up on the statement
 
