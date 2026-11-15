@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair subscription core parity and finish its landing
-goal: Subscription history, row projections, and import previews agree on guarded
-  inputs and exact money, and bob-cli-ls.2.1 plus its parent core phase close normally.
+goal:
+  Subscription history, row projections, and import previews agree on guarded inputs and
+  exact money, and bob-cli-ls.2.1 plus its parent core phase close normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-ls.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/subscription_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/subscription_core.md)
 - **BEAD:**
   [bob-cli-ls.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ls/bob-cli-ls.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-ls.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-ls.2.1.land.md)
+- **COMMITS:**
+  - [594215a](https://github.com/bobs-org/bob-cli--plans/commit/594215ae91c9d361ab200f833ee8dbf82f45ea2e)
+    — docs: mark subscription core epic plan done
 
 # Finish subscription core and close its landing
 
