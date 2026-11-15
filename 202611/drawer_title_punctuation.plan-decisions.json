@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "punctuation",
+      "kind": "choice",
+      "ask": "Which new punctuation should a drawer title accept?",
+      "why": "Covers questions and the colon headers already in the vault, but not LABEL: value notes",
+      "choices": [
+        {
+          "key": "sentence",
+          "label": "Adds ? ! ; anywhere plus a trailing : (OPTIONS:); LABEL: value notes stay plain notes"
+        },
+        {
+          "key": "question_bang",
+          "label": "Adds only ? and !; colon-ended headers like OPTIONS: stay plain notes"
+        },
+        {
+          "key": "broad",
+          "label": "Adds ? ! ; : anywhere except ::; ALL-CAPS LABEL: value notes also become drawers"
+        }
+      ],
+      "default": "sentence",
+      "effective_default": "sentence",
+      "requested_verified": false
+    },
+    {
+      "id": "slug_reach",
+      "kind": "choice",
+      "ask": "Should typing the slug #what-is-sase also select the punctuated drawer WHAT IS SASE?",
+      "why": "One identity rule, like existing Q&A drawers; the - # menu works either way",
+      "choices": [
+        {
+          "key": "exact",
+          "label": "Punctuation stays part of drawer identity, like Q&A; #what-is-sase gets a fixable refusal"
+        },
+        {
+          "key": "punctuation_blind",
+          "label": "#what-is-sase selects WHAT IS SASE?; more resolver work and new ambiguous-slug cases"
+        }
+      ],
+      "default": "exact",
+      "effective_default": "exact",
+      "requested_verified": false
+    }
+  ]
+}
