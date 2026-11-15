@@ -1,108 +1,97 @@
 ---
 tier: epic
-title: "Bank setup: render the bank: mapping on the hub, edit it through bob"
-goal: 'bank.md''s nested bank: mapping renders on the hub as a calm, honest Setup header
-  showing what bob actually uses (accounts, categories as Category-card keycaps, rules,
-  free keys, located errors), and every common edit — above all "none of these
-  categories fits this row" — becomes one previewed, revertable gesture written only by
-  a guarded bob writer that preserves Bryan''s authored YAML byte-for-byte, with YAML
-  editing kept first-class.
+title: 'Bank setup: render the bank: mapping on the hub, edit it through bob'
+goal: 'bank.md''s nested bank: mapping renders on the hub as a calm, honest Setup
+  header showing what bob actually uses (accounts, categories as Category-card keycaps,
+  rules, free keys, located errors), and every common edit — above all "none of these
+  categories fits this row" — becomes one previewed, revertable gesture written only
+  by a guarded bob writer that preserves Bryan''s authored YAML byte-for-byte, with
+  YAML editing kept first-class.
 
   '
 phases:
-  - id: config-report
-    title: The bob bank config report and located diagnostics
-    depends_on: []
-    size: medium
-    description:
-      "config-report: add the read-only bob bank config report with fingerprint,
-      provenance, usage, and fully located findings, fixing bob-cli-lq."
-  - id: config-spans
-    title: Shared YAML span primitives and the bank entry editor
-    depends_on: []
-    size: medium
-    description:
-      "config-spans: extract album-agnostic span primitives and build a
-      style-preserving, entry-granular bank: editor library."
-  - id: setup-header
-    title: The Setup header on the bank hub
-    depends_on:
-      - config-report
-    size: medium
-    description:
-      "setup-header: render the collapsed/expanded Setup header in both views, scope the
-      bank row hide to it, and paint Source-mode lint."
-  - id: writer-core
-    title: bob bank config update with category and group ops
-    depends_on:
-      - config-report
-      - config-spans
-    size: medium
-    description:
-      "writer-core: add the guarded config writer envelope, transaction, inverse ops,
-      hotkey-shift consequences, and category/group ops."
-  - id: writer-ops
-    title: Account, rule, and setting ops with the migration refusals
-    depends_on:
-      - writer-core
-    size: medium
-    description:
-      "writer-ops: add account, rule, and stale_after ops plus the typed refusals that
-      keep history-bearing edits in YAML."
-  - id: category-new
-    title: New category from the Category card
-    depends_on:
-      - setup-header
-      - writer-core
-    size: medium
-    description:
-      "category-new: add the plugin config-update service and shared session, and the +
-      New category stage that adds then files the row."
-  - id: setup-card
-    title: The Bank Setup card with the Categories section
-    depends_on:
-      - category-new
-    size: medium
-    description:
-      "setup-card: build the keyboard-first Setup card shell, Categories gestures, Undo,
-      the YAML excursion, and entry points."
-  - id: setup-card-more
-    title: Accounts, Rules, and Checks in the Setup card
-    depends_on:
-      - setup-card
-      - writer-ops
-    size: medium
-    description:
-      "setup-card-more: add the Accounts, Rules, and Checks sections and their gestures
-      to the Setup card."
+- id: config-report
+  title: The bob bank config report and located diagnostics
+  depends_on: []
+  size: medium
+  description: 'config-report: add the read-only bob bank config report with fingerprint,
+    provenance, usage, and fully located findings, fixing bob-cli-lq.'
+- id: config-spans
+  title: Shared YAML span primitives and the bank entry editor
+  depends_on: []
+  size: medium
+  description: 'config-spans: extract album-agnostic span primitives and build a style-preserving,
+    entry-granular bank: editor library.'
+- id: setup-header
+  title: The Setup header on the bank hub
+  depends_on:
+  - config-report
+  size: medium
+  description: 'setup-header: render the collapsed/expanded Setup header in both views,
+    scope the bank row hide to it, and paint Source-mode lint.'
+- id: writer-core
+  title: bob bank config update with category and group ops
+  depends_on:
+  - config-report
+  - config-spans
+  size: medium
+  description: 'writer-core: add the guarded config writer envelope, transaction,
+    inverse ops, hotkey-shift consequences, and category/group ops.'
+- id: writer-ops
+  title: Account, rule, and setting ops with the migration refusals
+  depends_on:
+  - writer-core
+  size: medium
+  description: 'writer-ops: add account, rule, and stale_after ops plus the typed
+    refusals that keep history-bearing edits in YAML.'
+- id: category-new
+  title: New category from the Category card
+  depends_on:
+  - setup-header
+  - writer-core
+  size: medium
+  description: 'category-new: add the plugin config-update service and shared session,
+    and the + New category stage that adds then files the row.'
+- id: setup-card
+  title: The Bank Setup card with the Categories section
+  depends_on:
+  - category-new
+  size: medium
+  description: 'setup-card: build the keyboard-first Setup card shell, Categories
+    gestures, Undo, the YAML excursion, and entry points.'
+- id: setup-card-more
+  title: Accounts, Rules, and Checks in the Setup card
+  depends_on:
+  - setup-card
+  - writer-ops
+  size: medium
+  description: 'setup-card-more: add the Accounts, Rules, and Checks sections and
+    their gestures to the Setup card.'
 decisions:
   mobile:
-    ask:
-      On Obsidian mobile, should bank.md show a one-line desktop-only Setup header
+    ask: On Obsidian mobile, should bank.md show a one-line desktop-only Setup header
       instead of the raw bank row?
     choices:
-      degrade:
-        Mobile shows a one-line "drawn by bob on desktop" header and YAML link; raw row
-        hidden
-      skip:
-        No Setup chrome on mobile; the native inert bank row stays visible and untouched
+      degrade: Mobile shows a one-line "drawn by bob on desktop" header and YAML link;
+        raw row hidden
+      skip: No Setup chrome on mobile; the native inert bank row stays visible and
+        untouched
     default: degrade
-    why: matches the album header's mobile behavior and never shows the inert JSON row
+    why: matches the album header's mobile behavior and never shows the inert JSON
+      row
     answer: degrade
   decision_record:
-    ask:
-      Should the land agent record a decision that nested frontmatter is drawn by the
-      plugin and written only by bob?
+    ask: Should the land agent record a decision that nested frontmatter is drawn
+      by the plugin and written only by bob?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   glossary_term:
-    ask:
-      Should the land agent add a Bank Setup glossary strand (Setup header, Setup card,
-      bob bank config)?
+    ask: Should the land agent add a Bank Setup glossary strand (Setup header, Setup
+      card, bob bank config)?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 proposed_by: bbugyi200.athena.1co
@@ -111,10 +100,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-15 13:16:04
 status: wip
+bead_id: bob-cli-lt
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_setup_render_and_edit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_setup_render_and_edit.md)
+- **PROMPT:** [prompts/202611/bank_setup_render_and_edit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_setup_render_and_edit.md)
+- **BEAD:** [bob-cli-lt](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lt/README.md)
 
 # Bank setup: render the `bank:` mapping on the hub, edit it through bob
 
