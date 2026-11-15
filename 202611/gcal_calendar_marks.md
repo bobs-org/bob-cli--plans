@@ -1,13 +1,13 @@
 ---
 tier: epic
 title: Multi-calendar gcal sync with calendar marks, starting with Birthdays
-goal: "`bob gcal sync` syncs several Google Calendars from one account, chosen by id.
-  Every row from a non-primary calendar starts its title with that calendar's configured
-  mark, so `- **all day** 🎂 Ava's Birthday [📅](…)` lands in 2026/20261114.md and the
-  source calendar is clear in the note, every CLI surface, and JSON. Removing a calendar
-  from config freezes its old rows instead of cancelling them.
+goal: '`bob gcal sync` syncs several Google Calendars from one account, chosen by
+  id. Every row from a non-primary calendar starts its title with that calendar''s
+  configured mark, so `- **all day** 🎂 Ava''s Birthday [📅](…)` lands in 2026/20261114.md
+  and the source calendar is clear in the note, every CLI surface, and JSON. Removing
+  a calendar from config freezes its old rows instead of cancelling them.
 
-  "
+  '
 decisions:
   birthday_mark:
     ask: Which mark should the Birthdays calendar wear?
@@ -19,86 +19,80 @@ decisions:
     why: 🎂 is the most legible birthday glyph at the start of a row
     answer: cake
   mark_decision_record:
-    ask:
-      Add a decisions record saying every non-primary calendar's rows wear its
+    ask: Add a decisions record saying every non-primary calendar's rows wear its
       configured mark?
     memory:
-      - decisions:non-primary-calendars-wear-a-mark
+    - decisions:non-primary-calendars-wear-a-mark
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: calendar-config
-    title: Calendar marks in config, a resolved calendar set, and per-calendar fake gog
-    depends_on: []
-    size: medium
-    description:
-      "calendar-config: add the required, validated `mark` key to `gcal.calendars`,
-      check the calendar set against the account's calendar list before any fetch
-      (missing calendars, primary/email aliases, unmarked non-primary), carry a resolved
-      calendar identity on every snapshot event, and teach the test fake gog to serve
-      events and lookups per calendar."
-  - id: marked-rows
-    title: Marked titles in the daily note
-    depends_on:
-      - calendar-config
-    size: medium
-    description:
-      "marked-rows: render the mark at the front of the Google-owned title span through
-      one shared helper used for rendering and journal span hashes. New rows are born
-      marked; untouched rows follow mark changes in place; hand-edited titles are kept
-      and reported once; block ids and probes stay on the bare title."
-  - id: deconfigured-freeze
-    title: Freeze rows from calendars that left the config
-    depends_on:
-      - calendar-config
-    size: small
-    description:
-      "deconfigured-freeze: journaled rows whose calendar is no longer configured are
-      left alone, reported once, and never looked up, which removes the false Moved and
-      Deleted verdicts; re-adding the calendar resumes the same identities."
-  - id: calendar-surfaces
-    title: Calendar identity on every CLI surface and in JSON
-    depends_on:
-      - marked-rows
-    size: medium
-    description:
-      "calendar-surfaces: show marks and the sync set in `bob gcal calendars`, `list`,
-      `sync`, `doctor`, and the ack and note human lines; add additive `mark` and
-      `calendar` JSON fields; update the gcal and JSON reference docs."
-  - id: enable-birthdays
-    title: Decision record, setup guide, and the Birthdays config row
-    depends_on:
-      - calendar-surfaces
-      - deconfigured-freeze
-    size: small
-    description:
-      "enable-birthdays: write the calendar-mark decision record, add the
-      add-another-calendar step to the setup guide, enable the Birthdays calendar by id
-      with its mark in the chezmoi bob config, and record follow-ups."
-  - id: live-acceptance
-    title: Install, apply, and prove Ava's birthday lands
-    depends_on:
-      - enable-birthdays
-    size: small
-    description:
-      "live-acceptance: install the new bob and apply the chezmoi config on the hosts
-      that hold the Google grant, then run doctor, calendars, list, a dry run, the real
-      `-D yesterday` sync, and an idempotent rerun. Ava's birthday must land as exactly
-      one marked all-day bullet."
+- id: calendar-config
+  title: Calendar marks in config, a resolved calendar set, and per-calendar fake
+    gog
+  depends_on: []
+  size: medium
+  description: 'calendar-config: add the required, validated `mark` key to `gcal.calendars`,
+    check the calendar set against the account''s calendar list before any fetch (missing
+    calendars, primary/email aliases, unmarked non-primary), carry a resolved calendar
+    identity on every snapshot event, and teach the test fake gog to serve events
+    and lookups per calendar.'
+- id: marked-rows
+  title: Marked titles in the daily note
+  depends_on:
+  - calendar-config
+  size: medium
+  description: 'marked-rows: render the mark at the front of the Google-owned title
+    span through one shared helper used for rendering and journal span hashes. New
+    rows are born marked; untouched rows follow mark changes in place; hand-edited
+    titles are kept and reported once; block ids and probes stay on the bare title.'
+- id: deconfigured-freeze
+  title: Freeze rows from calendars that left the config
+  depends_on:
+  - calendar-config
+  size: small
+  description: 'deconfigured-freeze: journaled rows whose calendar is no longer configured
+    are left alone, reported once, and never looked up, which removes the false Moved
+    and Deleted verdicts; re-adding the calendar resumes the same identities.'
+- id: calendar-surfaces
+  title: Calendar identity on every CLI surface and in JSON
+  depends_on:
+  - marked-rows
+  size: medium
+  description: 'calendar-surfaces: show marks and the sync set in `bob gcal calendars`,
+    `list`, `sync`, `doctor`, and the ack and note human lines; add additive `mark`
+    and `calendar` JSON fields; update the gcal and JSON reference docs.'
+- id: enable-birthdays
+  title: Decision record, setup guide, and the Birthdays config row
+  depends_on:
+  - calendar-surfaces
+  - deconfigured-freeze
+  size: small
+  description: 'enable-birthdays: write the calendar-mark decision record, add the
+    add-another-calendar step to the setup guide, enable the Birthdays calendar by
+    id with its mark in the chezmoi bob config, and record follow-ups.'
+- id: live-acceptance
+  title: Install, apply, and prove Ava's birthday lands
+  depends_on:
+  - enable-birthdays
+  size: small
+  description: 'live-acceptance: install the new bob and apply the chezmoi config
+    on the hosts that hold the Google grant, then run doctor, calendars, list, a dry
+    run, the real `-D yesterday` sync, and an idempotent rerun. Ava''s birthday must
+    land as exactly one marked all-day bullet.'
 proposed_by: bbugyi200.apollo.research.4q.linker.w1
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-15 12:24:18
 status: wip
+bead_id: bob-cli-lr
 ---
 
-- **PROMPT:**
-  [prompts/202611/gcal_calendar_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_calendar_marks.md)
+- **PROMPT:** [prompts/202611/gcal_calendar_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/gcal_calendar_marks.md)
+- **BEAD:** [bob-cli-lr](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lr/README.md)
 
 # Plan: Multi-calendar gcal sync with calendar marks, starting with Birthdays
 
