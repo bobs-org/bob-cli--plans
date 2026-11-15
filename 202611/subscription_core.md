@@ -1,49 +1,45 @@
 ---
 tier: epic
 title: Subscription registry, attribution, and ledger core
-goal:
-  Complete bob-cli-ls.2 with one reusable subscription resolver and ledger, guarded
+goal: Complete bob-cli-ls.2 with one reusable subscription resolver and ledger, guarded
   registry inputs, and additive bank row JSON.
 phases:
-  - id: registry_match
-    title: Typed subscription registry and deterministic matching
-    size: medium
-    depends_on: []
-    description:
-      "registry_match: load the subscription album by noun, validate typed records and
-      match needles, expose snapshot-based parsing and deterministic match provenance,
-      and cover failures with synthetic tests."
-  - id: attribution_ledger
-    title: Shared charge attribution and subscription ledger
-    size: medium
-    depends_on:
-      - registry_match
-    description:
-      "attribution_ledger: build the deduplicated journal-and-row universe, resolve
-      explicit links and eligible pattern matches, derive coverage-aware subscription
-      ledger facts, and test integer money and calendar boundaries."
-  - id: integrate
-    title: Guarded loaders, row JSON, suggestions, and documentation
-    size: medium
-    depends_on:
-      - registry_match
-      - attribution_ledger
-    description:
-      "integrate: generalize the guarded restaurant loader, integrate the shared
-      subscription snapshot into list/report/import row JSON and category suggestions,
-      surface bounded availability warnings, document the contract, and verify the full
-      core scope."
+- id: registry_match
+  title: Typed subscription registry and deterministic matching
+  size: medium
+  depends_on: []
+  description: 'registry_match: load the subscription album by noun, validate typed
+    records and match needles, expose snapshot-based parsing and deterministic match
+    provenance, and cover failures with synthetic tests.'
+- id: attribution_ledger
+  title: Shared charge attribution and subscription ledger
+  size: medium
+  depends_on:
+  - registry_match
+  description: 'attribution_ledger: build the deduplicated journal-and-row universe,
+    resolve explicit links and eligible pattern matches, derive coverage-aware subscription
+    ledger facts, and test integer money and calendar boundaries.'
+- id: integrate
+  title: Guarded loaders, row JSON, suggestions, and documentation
+  size: medium
+  depends_on:
+  - registry_match
+  - attribution_ledger
+  description: 'integrate: generalize the guarded restaurant loader, integrate the
+    shared subscription snapshot into list/report/import row JSON and category suggestions,
+    surface bounded availability warnings, document the contract, and verify the full
+    core scope.'
 proposed_by: bbugyi200.athena.bob-cli-ls.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ls.2
 create_time: 2026-11-15 13:23:43
 status: wip
+bead_id: bob-cli-ls.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/subscription_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/subscription_core.md)
-- **PARENT:**
-  [202611/bank_subscriptions_album.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_subscriptions_album.md)
+- **PROMPT:** [prompts/202611/subscription_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/subscription_core.md)
+- **PARENT:** [202611/bank_subscriptions_album.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_subscriptions_album.md)
+- **BEAD:** [bob-cli-ls.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ls/bob-cli-ls.2.1.md)
 
 # Subscription core implementation
 
