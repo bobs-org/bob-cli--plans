@@ -2,94 +2,90 @@
 tier: epic
 title: Double-slash Go To Notes in Bob Mac Capture
 goal: 'Typing a second real `/` after the `/` Go To trigger (or pasting a whole-draft
-  `//query`) opens a Go To · Notes picker over the vault''s living notes; picking a row
-  opens that note in Obsidian without writing anything, while `\\` still types one
-  literal backslash.
+  `//query`) opens a Go To · Notes picker over the vault''s living notes; picking
+  a row opens that note in Obsidian without writing anything, while `\\` still types
+  one literal backslash.
 
   '
 decisions:
   meta_dir:
-    ask:
-      Hide the legacy `_meta/` pages from `//` along with every other `_`-prefixed
+    ask: Hide the legacy `_meta/` pages from `//` along with every other `_`-prefixed
       folder?
     default: true
-    why:
-      Measured contents are zorg migration machinery; restoring them later is one tier
-      line.
+    why: Measured contents are zorg migration machinery; restoring them later is one
+      tier line.
     answer: true
   bases:
     ask: List the vault's Obsidian Bases (`.base` files) as View rows in `//` v1?
     default: false
-    why:
-      bob-open-notes is unverified on non-Markdown paths; a fast-follow can add them
-      safely.
+    why: bob-open-notes is unverified on non-Markdown paths; a fast-follow can add
+      them safely.
     answer: true
   memory_note_goto_record:
     ask: Write a decisions strand recording the `//` Go To Notes design after it ships?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: cli-note-catalog
-    title: bob-cli note catalog module (tiers, kinds, rows, map, ranking)
-    depends_on: []
-    size: medium
-    description: "cli-note-catalog: build the read-only `note_catalog` module that walks
-      the vault, applies the hidden tiers, classifies kinds, and produces ranked rows
-      plus the empty-state map, with golden tests on a synthetic tier vault.
+- id: cli-note-catalog
+  title: bob-cli note catalog module (tiers, kinds, rows, map, ranking)
+  depends_on: []
+  size: medium
+  description: 'cli-note-catalog: build the read-only `note_catalog` module that walks
+    the vault, applies the hidden tiers, classifies kinds, and produces ranked rows
+    plus the empty-state map, with golden tests on a synthetic tier vault.
 
-      "
-  - id: cli-note-goto
-    title: bob-cli `//` grammar claim, note_goto completion, Tasks continuation, docs
-    depends_on:
-      - cli-note-catalog
-    size: medium
-    description: "cli-note-goto: claim whole-draft `//query` as `note_goto` across
-      parse, refusal, and completion; serve catalog rows; advertise `/` as the bare Go
-      To continuation key; bump the grammar; update help, docs, and CLI tests.
+    '
+- id: cli-note-goto
+  title: bob-cli `//` grammar claim, note_goto completion, Tasks continuation, docs
+  depends_on:
+  - cli-note-catalog
+  size: medium
+  description: 'cli-note-goto: claim whole-draft `//query` as `note_goto` across parse,
+    refusal, and completion; serve catalog rows; advertise `/` as the bare Go To continuation
+    key; bump the grammar; update help, docs, and CLI tests.
 
-      "
-  - id: mac-note-core
-    title: CaptureCore Notes source, index, row presentation, open URL
-    depends_on: []
-    size: medium
-    description: "mac-note-core: decode the note_goto contract, add the `.noteGoto`
-      source, a note index with grouped map and filtered ranking, note row anatomy,
-      captions, and the line-less bob-open-notes URL, all unit-tested in
-      CaptureCoreTests.
+    '
+- id: mac-note-core
+  title: CaptureCore Notes source, index, row presentation, open URL
+  depends_on: []
+  size: medium
+  description: 'mac-note-core: decode the note_goto contract, add the `.noteGoto`
+    source, a note index with grouped map and filtered ranking, note row anatomy,
+    captions, and the line-less bob-open-notes URL, all unit-tested in CaptureCoreTests.
 
-      "
-  - id: mac-note-panel
-    title: Panel wiring, keys, accept and open, truthful fixtures, Mac docs
-    depends_on:
-      - cli-note-goto
-      - mac-note-core
-    size: medium
-    description: "mac-note-panel: wire `note_goto` into the panel model and key router
-      (continuation, peel, consume rules), open notes read-only, add generated fixtures
-      and panel tests, document the picker, and land green on macOS CI.
+    '
+- id: mac-note-panel
+  title: Panel wiring, keys, accept and open, truthful fixtures, Mac docs
+  depends_on:
+  - cli-note-goto
+  - mac-note-core
+  size: medium
+  description: 'mac-note-panel: wire `note_goto` into the panel model and key router
+    (continuation, peel, consume rules), open notes read-only, add generated fixtures
+    and panel tests, document the picker, and land green on macOS CI.
 
-      "
-  - id: mac-note-polish
-    title: No-blink scope swap, warm notes snapshot, accessibility, closeout
-    depends_on:
-      - mac-note-panel
-    size: medium
-    description:
-      "mac-note-polish: keep the card mounted across `/` and `//`, serve rows from a
-      warm in-memory snapshot, announce scope changes, run the acceptance closeout, and
-      write the decision strand only when its memory decision says yes."
+    '
+- id: mac-note-polish
+  title: No-blink scope swap, warm notes snapshot, accessibility, closeout
+  depends_on:
+  - mac-note-panel
+  size: medium
+  description: 'mac-note-polish: keep the card mounted across `/` and `//`, serve
+    rows from a warm in-memory snapshot, announce scope changes, run the acceptance
+    closeout, and write the decision strand only when its memory decision says yes.'
 proposed_by: bbugyi200.athena.1cr
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-15 16:46:56
 status: wip
+bead_id: bob-cli-ly
 ---
 
-- **PROMPT:**
-  [prompts/202611/note_goto_double_slash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_goto_double_slash.md)
+- **PROMPT:** [prompts/202611/note_goto_double_slash.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_goto_double_slash.md)
+- **BEAD:** [bob-cli-ly](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ly/README.md)
 
 # Double-slash Go To Notes in Bob Mac Capture
 
