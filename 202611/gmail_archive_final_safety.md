@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Gmail archive merge traversal and confirmation identity
-goal: Preserve every effective merge target, stabilize confirmations and journal compatibility,
-  and close bob-cli-lk with verified evidence.
+goal:
+  Preserve every effective merge target, stabilize confirmations and journal
+  compatibility, and close bob-cli-lk with verified evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-lk.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/gmail_archive_merge_and_reply_reopen.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/gmail_archive_merge_and_reply_reopen.md)
 - **BEAD:**
   [bob-cli-lk](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lk/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-lk.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-lk.land.md)
+- **COMMITS:**
+  - [49231b3](https://github.com/bobs-org/bob-cli/commit/49231b374a483d53bbc33018836577d940d0aa0c)
+    — fix(gmail): keep branching merge terminals and line-shift-proof confirms
 
 # Finish Gmail archive merge traversal and confirmation identity
 
