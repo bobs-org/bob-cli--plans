@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  "Land bank setup (bob-cli-lt): Setup e2e, real-Obsidian proof, scoped hide, docs
-  budget, closeout"
-goal:
-  Finish the remaining land-agent acceptance work for epic bob-cli-lt and close it. That
-  means real-Obsidian e2e proof of the Setup header, the + New category flow, and the
-  Bank Setup card; a truly scoped raw-row hide; the bob-ledger-tools reference page back
-  under its word cap; green gates and deployment; and a recorded closeout.
+title: 'Land bank setup (bob-cli-lt): Setup e2e, real-Obsidian proof, scoped hide,
+  docs budget, closeout'
+goal: Finish the remaining land-agent acceptance work for epic bob-cli-lt and close
+  it. That means real-Obsidian e2e proof of the Setup header, the + New category flow,
+  and the Bank Setup card; a truly scoped raw-row hide; the bob-ledger-tools reference
+  page back under its word cap; green gates and deployment; and a recorded closeout.
 proposed_by: bbugyi200.athena.bob-cli-lt.land
 proposed_with: claude/opus
 bead: bob-cli-lt
-create_time: 2026-11-15 23:22:51
-status: wip
+status: done
 ---
 
 - **PARENT:**
