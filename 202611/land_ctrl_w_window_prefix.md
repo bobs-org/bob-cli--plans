@@ -2,11 +2,11 @@
 tier: tale
 size: medium
 title: Finish and land the Ctrl+W window prefix epic (bob-cli-m0)
-goal: "Prove every Ctrl+W window move in real Obsidian, make sure a move never leaves an
-  empty split behind, re-arm a Ctrl+W pressed while an action runs, make the full athena
-  harness green, ship nav 2.83.2, and close epic bob-cli-m0.
+goal: 'Prove every Ctrl+W window move in real Obsidian, make sure a move never leaves
+  an empty split behind, re-arm a Ctrl+W pressed while an action runs, make the full
+  athena harness green, ship nav 2.83.2, and close epic bob-cli-m0.
 
-  "
+  '
 proposed_by: bbugyi200.apollo.bob-cli-m0.land
 proposed_with: claude/opus
 bead: bob-cli-m0
@@ -17,12 +17,6 @@ status: done
   [202611/obsidian_ctrl_w_window_prefix.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_ctrl_w_window_prefix.md)
 - **BEAD:**
   [bob-cli-m0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-m0/README.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-m0.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-m0.land.md)
-- **COMMITS:**
-  - [21ad362](https://github.com/bobs-org/bob-plugins/commit/21ad3624b788da6d4ec175cb8d1f53cb3898ebc2)
-    — feat(navigation): land Ctrl+W window prefix 2.83.2 with collapse hardening,
-    re-arm, and actions e2e
 
 # Plan: finish and land the Ctrl+W window prefix epic (bob-cli-m0)
 
