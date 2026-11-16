@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "walker_footer_glossary",
+      "kind": "toggle",
+      "ask": "Should the walker-footer glossary strand also say the selected letter wears its attention hue as ink?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:walker-footer"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:walker-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip",
+            "Record Note",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Capture",
+            "Notebook",
+            "Task Link",
+            "Project Note",
+            "Area Note",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
