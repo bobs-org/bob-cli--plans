@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "exit_guard",
+      "kind": "choice",
+      "ask": "Add a 1.5 s guard after the PRE exit landing that swallows a repeated rapid press?",
+      "why": "20 of 36 mornings ended PRE in a 2 s-or-less run; the next real answer took 5 s or more",
+      "choices": [
+        {
+          "key": "guard",
+          "label": "Walk keys swallowed 1.5 s after the exit, so an extra press can't close the NEW task"
+        },
+        {
+          "key": "plain",
+          "label": "Usual 350 ms settle; an extra press after that completes the landed row"
+        }
+      ],
+      "default": "guard",
+      "effective_default": "guard",
+      "requested_verified": false
+    },
+    {
+      "id": "post_next",
+      "kind": "choice",
+      "ask": "When POST is the only group left after PRE, should Ctrl+Enter land on POST's first row?",
+      "why": "Bryan asked for the next review group; the guard covers Morning review too",
+      "choices": [
+        {
+          "key": "land",
+          "label": "Lands on POST's first row, where ]s goes; one rule for every next group"
+        },
+        {
+          "key": "stop",
+          "label": "Keeps today's `]s \u2192 POST` stop there, matching the lane rule"
+        }
+      ],
+      "default": "land",
+      "effective_default": "land",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_new_record",
+      "kind": "toggle",
+      "ask": "Add the decision record decisions/ctrl-enter-leaves-pre for this course change?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:ctrl-enter-leaves-pre"
+        ]
+      },
+      "requested": "After I complete the final task in the PRE GTD review group, we should jump to the first task in the next review group, but I think we intentionally do not currently. Can you help me fix this?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:ctrl-enter-leaves-pre",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/ctrl-enter-leaves-pre.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_supersede_answering",
+      "kind": "toggle",
+      "ask": "Mark decisions/answering-advances-the-walk superseded in part by the new record?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:answering-advances-the-walk"
+        ]
+      },
+      "corrects": "Ctrl+Enter never auto-advances across the PRE/POST checklist boundary.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:answering-advances-the-walk",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Answering A Walk Landing Advances The Walk"
+          ]
+        }
+      ]
+    }
+  ]
+}
