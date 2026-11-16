@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_bank_closing",
+      "kind": "toggle",
+      "ask": "Add a \"Bank Closing\" glossary strand defining the period closing balance?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:bank-closing"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:bank-closing",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/bank-closing.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_stats_strip_link",
+      "kind": "toggle",
+      "ask": "Add one Stats Strip glossary sentence pointing at the Bank Closing in the charts header?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:stats-strip"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:stats-strip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Stats Strip",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Task Link",
+            "Task Relation",
+            "Capture",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Walker Footer",
+            "Area Note",
+            "Root Parent",
+            "Bank Row"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_close_decision",
+      "kind": "toggle",
+      "ask": "Record a decision that period closes are posted balances drawn at read time, never written?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:period-closes-are-drawn-posted-balances"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:period-closes-are-drawn-posted-balances",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/period-closes-are-drawn-posted-balances.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
