@@ -1,71 +1,72 @@
 ---
 tier: epic
 title: Ctrl+W N — numbered tab hints and an in-place tab jump
-goal: "In Bob's Obsidian, every main-area tab carries a quiet numeral (1–9, in reading
+goal: 'In Bob''s Obsidian, every main-area tab carries a quiet numeral (1–9, in reading
   order across splits) beside its title, and Ctrl+W followed by that digit focuses
   exactly that tab where it lives — selected inside its own split, never moved, cloned,
   or reopened — while the numerals brighten into accent key caps when the Ctrl+W card
   appears and the destination numeral flashes once to confirm the jump.
 
-  "
+  '
 phases:
-  - id: model
-    title: Tab catalog, digit planner, and main-area enumeration
-    depends_on: []
-    size: medium
-    description: "model: add the pure tab catalog, digit normalization, focus-tab
-      planner, numeral visibility verdict, and view-model tab data, plus read-only
-      main-area and hotkey readers that do not need a main-area active leaf.
+- id: model
+  title: Tab catalog, digit planner, and main-area enumeration
+  depends_on: []
+  size: medium
+  description: 'model: add the pure tab catalog, digit normalization, focus-tab planner,
+    numeral visibility verdict, and view-model tab data, plus read-only main-area
+    and hotkey readers that do not need a main-area active leaf.
 
-      "
-  - id: actions
-    title: In-place tab-jump executor
-    depends_on:
-      - model
-    size: medium
-    description: "actions: execute focus-tab plans losslessly (load if deferred, session
-      check, setActiveLeaf, invariants, restore), fold the selectedTab fix through the
-      move executor, and prove it on real Obsidian with a new e2e tabs group.
+    '
+- id: actions
+  title: In-place tab-jump executor
+  depends_on:
+  - model
+  size: medium
+  description: 'actions: execute focus-tab plans losslessly (load if deferred, session
+    check, setActiveLeaf, invariants, restore), fold the selectedTab fix through the
+    move executor, and prove it on real Obsidian with a new e2e tabs group.
 
-      "
-  - id: paint
-    title: Tab numerals, card tabs row, and previews
-    depends_on:
-      - model
-    size: medium
-    description: "paint: build the dormant tab-numeral stamper and CSS (idle, lit, here,
-      flash, stacked) and the card's pill ranges and tabs row, with a light/dark preview
-      harness and unit tests.
+    '
+- id: paint
+  title: Tab numerals, card tabs row, and previews
+  depends_on:
+  - model
+  size: medium
+  description: 'paint: build the dormant tab-numeral stamper and CSS (idle, lit, here,
+    flash, stacked) and the card''s pill ranges and tabs row, with a light/dark preview
+    harness and unit tests.
 
-      "
-  - id: prefix
-    title: Digits in the Ctrl+W prefix, palette commands, go live
-    depends_on:
-      - actions
-      - paint
-    size: medium
-    description: "prefix: wire digits into the Ctrl+W state machine with an
-      armed-catalog freeze, light the numerals with the card, flash on success, add Jump
-      to tab 1–9 commands, flip the dormant seams, bump the minor version, and prove it
-      on real Obsidian.
+    '
+- id: prefix
+  title: Digits in the Ctrl+W prefix, palette commands, go live
+  depends_on:
+  - actions
+  - paint
+  size: medium
+  description: 'prefix: wire digits into the Ctrl+W state machine with an armed-catalog
+    freeze, light the numerals with the card, flash on success, add Jump to tab 1–9
+    commands, flip the dormant seams, bump the minor version, and prove it on real
+    Obsidian.
 
-      "
-  - id: finish
-    title: Docs, visual acceptance, and polish
-    depends_on:
-      - prefix
-    size: medium
-    description:
-      "finish: document digits and numerals on the Window keys page, run real-Obsidian
-      visual acceptance in light and dark, fix every polish issue, and sync."
+    '
+- id: finish
+  title: Docs, visual acceptance, and polish
+  depends_on:
+  - prefix
+  size: medium
+  description: 'finish: document digits and numerals on the Window keys page, run
+    real-Obsidian visual acceptance in light and dark, fix every polish issue, and
+    sync.'
 proposed_by: bbugyi200.apollo.research.4y.linker.w0
 proposed_with: claude/opus
 create_time: 2026-11-16 11:00:59
 status: wip
+bead_id: bob-cli-mc
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_ctrl_w_numbered_tab_jump.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_ctrl_w_numbered_tab_jump.md)
+- **PROMPT:** [prompts/202611/obsidian_ctrl_w_numbered_tab_jump.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_ctrl_w_numbered_tab_jump.md)
+- **BEAD:** [bob-cli-mc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mc/README.md)
 
 # Plan: Ctrl+W N — numbered tab hints and an in-place tab jump
 
