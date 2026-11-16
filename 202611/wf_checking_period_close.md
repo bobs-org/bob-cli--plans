@@ -1,83 +1,74 @@
 ---
 tier: epic
 title: Period closing balance for WF Checking on period notes
-goal: "Every week, quarter, ISO-year, and all-time note shows the checking account's
-  exact posted balance at the end of that period (or, honestly labeled, as of the last
-  imported day). bob computes the balance live from bank evidence, and it is never
-  written into notes. Daily notes stay untouched.
+goal: 'Every week, quarter, ISO-year, and all-time note shows the checking account''s
+  exact posted balance at the end of that period (or, honestly labeled, as of the
+  last imported day). bob computes the balance live from bank evidence, and it is
+  never written into notes. Daily notes stay untouched.
 
-  "
+  '
 phases:
-  - id: resolver
-    title: Historical balance resolver and check findings
-    depends_on: []
-    size: medium
-    description:
-      "resolver: add the pure bank/balance.rs resolver (coverage spans, final days,
-      batch attribution, anchor segments, cross-checks, and period resolution) plus the
-      two new `bob bank check` balance findings and their docs rows, with the invariant
-      test suite."
-  - id: report
-    title: balances[] in bob bank report, human line, and docs
-    depends_on:
-      - resolver
-    size: small
-    description:
-      "report: wire the resolver into `bob bank report` for every period selector as an
-      additive `balances[]` array and a human Balance line, then document the Closing
-      balances contract and verify read-only against the live vault."
-  - id: readout
-    title: Bank Charts header balance readout in bob-ledger-tools
-    depends_on:
-      - report
-    size: medium
-    description:
-      "readout: decode `balances[]` and paint the hero's resting BALANCE readout in the
-      Bank Period Charts header, including the header-only quiet-period state, tooltip,
-      aria, and activation. Update both repos' docs, review preview screenshots, and
-      sync the plugins."
-  - id: vocabulary
-    title: Bank Closing vocabulary and decision record
-    depends_on:
-      - readout
-    size: small
-    description:
-      "vocabulary: apply the accepted memory decisions (Bank Closing glossary strand,
-      Stats Strip cross-reference, decision record) and republish memory."
+- id: resolver
+  title: Historical balance resolver and check findings
+  depends_on: []
+  size: medium
+  description: 'resolver: add the pure bank/balance.rs resolver (coverage spans, final
+    days, batch attribution, anchor segments, cross-checks, and period resolution)
+    plus the two new `bob bank check` balance findings and their docs rows, with the
+    invariant test suite.'
+- id: report
+  title: balances[] in bob bank report, human line, and docs
+  depends_on:
+  - resolver
+  size: small
+  description: 'report: wire the resolver into `bob bank report` for every period
+    selector as an additive `balances[]` array and a human Balance line, then document
+    the Closing balances contract and verify read-only against the live vault.'
+- id: readout
+  title: Bank Charts header balance readout in bob-ledger-tools
+  depends_on:
+  - report
+  size: medium
+  description: 'readout: decode `balances[]` and paint the hero''s resting BALANCE
+    readout in the Bank Period Charts header, including the header-only quiet-period
+    state, tooltip, aria, and activation. Update both repos'' docs, review preview
+    screenshots, and sync the plugins.'
+- id: vocabulary
+  title: Bank Closing vocabulary and decision record
+  depends_on:
+  - readout
+  size: small
+  description: 'vocabulary: apply the accepted memory decisions (Bank Closing glossary
+    strand, Stats Strip cross-reference, decision record) and republish memory.'
 decisions:
   memory_bank_closing:
     ask: Add a "Bank Closing" glossary strand defining the period closing balance?
     memory:
-      - glossary:bank-closing
+    - glossary:bank-closing
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_stats_strip_link:
-    ask:
-      Add one Stats Strip glossary sentence pointing at the Bank Closing in the charts
-      header?
+    ask: Add one Stats Strip glossary sentence pointing at the Bank Closing in the
+      charts header?
     memory:
-      - glossary:stats-strip
+    - glossary:stats-strip
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: true
   memory_close_decision:
-    ask:
-      Record a decision that period closes are posted balances drawn at read time, never
-      written?
+    ask: Record a decision that period closes are posted balances drawn at read time,
+      never written?
     memory:
-      - decisions:period-closes-are-drawn-posted-balances
+    - decisions:period-closes-are-drawn-posted-balances
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 proposed_by: bbugyi200.apollo.research.50.linker.w0
 proposed_with: claude/opus
@@ -85,10 +76,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-16 15:40:30
 status: wip
+bead_id: bob-cli-mg
 ---
 
-- **PROMPT:**
-  [prompts/202611/wf_checking_period_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/wf_checking_period_close.md)
+- **PROMPT:** [prompts/202611/wf_checking_period_close.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/wf_checking_period_close.md)
+- **BEAD:** [bob-cli-mg](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mg/README.md)
 
 # Plan: Period closing balance for WF Checking on period notes
 
