@@ -1,95 +1,89 @@
 ---
 tier: epic
 title: Ctrl+W window prefix for Obsidian vertical splits
-goal: "In Bob's Obsidian, Ctrl+W followed by a key focuses, moves, and creates main-area
-  splits from the keyboard. h/l focus the neighbouring split, H/L move the current tab
-  into, out of, or across splits (creating and collapsing splits as needed) without
+goal: 'In Bob''s Obsidian, Ctrl+W followed by a key focuses, moves, and creates main-area
+  splits from the keyboard. h/l focus the neighbouring split, H/L move the current
+  tab into, out of, or across splits (creating and collapsing splits as needed) without
   losing its editor state, and a calm, theme-native hint shows exactly what each key
   will do.
 
-  "
+  '
 decisions:
   linux_ctrl_w:
-    ask:
-      How should Ctrl+W behave on Linux, where Obsidian binds it to Close tab by
+    ask: How should Ctrl+W behave on Linux, where Obsidian binds it to Close tab by
       default?
     choices:
-      keep:
-        Linux keeps Ctrl+W as Close tab; the prefix arms where Ctrl+W is unbound (your
-        Mac)
-      rebind:
-        Rebind vault Close tab to Meta+W; Mac unchanged, Linux closes with Super+W and
-        gets the prefix
+      keep: Linux keeps Ctrl+W as Close tab; the prefix arms where Ctrl+W is unbound
+        (your Mac)
+      rebind: Rebind vault Close tab to Meta+W; Mac unchanged, Linux closes with Super+W
+        and gets the prefix
     default: keep
     why: Your Mac is the daily driver, and a vault hotkey edit syncs to every host
     answer: keep
   window_prefix_record:
-    ask: Record an accepted decisions strand for the Ctrl+W window prefix once it ships?
+    ask: Record an accepted decisions strand for the Ctrl+W window prefix once it
+      ships?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: spike
-    title: Real-Obsidian layout and keyboard spike
-    depends_on: []
-    size: medium
-    description:
-      "spike: build the window-prefix CDP e2e harness and prove lossless cross-group tab
-      moves, split create/collapse, and keyboard precedence in real Obsidian."
-  - id: model
-    title: Pure layout model, planners, key table, and view model
-    depends_on: []
-    size: medium
-    description:
-      "model: add Obsidian-free fragments that turn a layout snapshot into
-      focus/move/split plans, key normalization, arming verdicts, and the hint view
-      model."
-  - id: actions
-    title: Live layout adapter and lossless executor
-    depends_on:
-      - spike
-      - model
-    size: medium
-    description:
-      "actions: build the live snapshot adapter and executor that focuses, joins,
-      creates, collapses, and duplicates splits with invariants, rollback, and an API
-      canary."
-  - id: hint
-    title: Ring, card, minimap, and motion painter
-    depends_on:
-      - model
-    size: medium
-    description:
-      "hint: paint the armed ring, key-cap badge, hint card with minimap, nudges,
-      pulses, and receipts from the view model, with a light/dark preview harness."
-  - id: prefix
-    title: Ctrl+W prefix state machine
-    depends_on:
-      - actions
-      - hint
-    size: medium
-    description:
-      "prefix: wire the capture listener, armed keymap scope, arming gate, dispatch,
-      cancel paths, and two-tier hint timing into a reliable Ctrl+W prefix."
-  - id: finish
-    title: Commands, focused-split underline, docs, acceptance, rollout
-    depends_on:
-      - prefix
-    size: medium
-    description:
-      "finish: add palette commands and the focused-split underline, document the window
-      keys, run the full real-Obsidian acceptance, and sync."
+- id: spike
+  title: Real-Obsidian layout and keyboard spike
+  depends_on: []
+  size: medium
+  description: 'spike: build the window-prefix CDP e2e harness and prove lossless
+    cross-group tab moves, split create/collapse, and keyboard precedence in real
+    Obsidian.'
+- id: model
+  title: Pure layout model, planners, key table, and view model
+  depends_on: []
+  size: medium
+  description: 'model: add Obsidian-free fragments that turn a layout snapshot into
+    focus/move/split plans, key normalization, arming verdicts, and the hint view
+    model.'
+- id: actions
+  title: Live layout adapter and lossless executor
+  depends_on:
+  - spike
+  - model
+  size: medium
+  description: 'actions: build the live snapshot adapter and executor that focuses,
+    joins, creates, collapses, and duplicates splits with invariants, rollback, and
+    an API canary.'
+- id: hint
+  title: Ring, card, minimap, and motion painter
+  depends_on:
+  - model
+  size: medium
+  description: 'hint: paint the armed ring, key-cap badge, hint card with minimap,
+    nudges, pulses, and receipts from the view model, with a light/dark preview harness.'
+- id: prefix
+  title: Ctrl+W prefix state machine
+  depends_on:
+  - actions
+  - hint
+  size: medium
+  description: 'prefix: wire the capture listener, armed keymap scope, arming gate,
+    dispatch, cancel paths, and two-tier hint timing into a reliable Ctrl+W prefix.'
+- id: finish
+  title: Commands, focused-split underline, docs, acceptance, rollout
+  depends_on:
+  - prefix
+  size: medium
+  description: 'finish: add palette commands and the focused-split underline, document
+    the window keys, run the full real-Obsidian acceptance, and sync.'
 proposed_by: bbugyi200.apollo.e9
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-15 20:01:42
 status: wip
+bead_id: bob-cli-m0
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_ctrl_w_window_prefix.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_ctrl_w_window_prefix.md)
+- **PROMPT:** [prompts/202611/obsidian_ctrl_w_window_prefix.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_ctrl_w_window_prefix.md)
+- **BEAD:** [bob-cli-m0](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-m0/README.md)
 
 # Plan: Ctrl+W window prefix for Obsidian vertical splits
 
