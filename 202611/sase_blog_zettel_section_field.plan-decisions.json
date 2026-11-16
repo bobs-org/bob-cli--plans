@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "why_section",
+      "kind": "choice",
+      "ask": "Should the album and the spine keep a \"Why I use SASE\" section?",
+      "why": "Every version of the ^section-field outline omits it; adding it later is one YAML line",
+      "choices": [
+        {
+          "key": "omit",
+          "label": "Leave it out, matching ^section-field; the spine drops its \"Why I use SASE\" stub"
+        },
+        {
+          "key": "keep",
+          "label": "Add `why: \ud83d\ude4b Why I use SASE` after `intro`; the spine keeps that stub as section 1"
+        }
+      ],
+      "default": "omit",
+      "effective_default": "omit",
+      "requested_verified": false
+    },
+    {
+      "id": "close_section",
+      "kind": "choice",
+      "ask": "Should the album and the spine keep a separate Conclusion after Future Work?",
+      "why": "The ^section-field outline ends at Future Work; adding it later is one YAML line",
+      "choices": [
+        {
+          "key": "omit",
+          "label": "Future Work closes the post; the spine drops its \"Conclusion\" stub"
+        },
+        {
+          "key": "keep",
+          "label": "Add `close: \ud83c\udfc1 Conclusion` after `future`; the spine keeps that stub last"
+        }
+      ],
+      "default": "omit",
+      "effective_default": "omit",
+      "requested_verified": false
+    }
+  ]
+}
