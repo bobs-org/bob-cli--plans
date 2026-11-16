@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: 'Land bank setup (bob-cli-lt): Setup e2e, real-Obsidian proof, scoped hide,
-  docs budget, closeout'
-goal: Finish the remaining land-agent acceptance work for epic bob-cli-lt and close
-  it. That means real-Obsidian e2e proof of the Setup header, the + New category flow,
-  and the Bank Setup card; a truly scoped raw-row hide; the bob-ledger-tools reference
-  page back under its word cap; green gates and deployment; and a recorded closeout.
+title:
+  "Land bank setup (bob-cli-lt): Setup e2e, real-Obsidian proof, scoped hide, docs
+  budget, closeout"
+goal:
+  Finish the remaining land-agent acceptance work for epic bob-cli-lt and close it. That
+  means real-Obsidian e2e proof of the Setup header, the + New category flow, and the
+  Bank Setup card; a truly scoped raw-row hide; the bob-ledger-tools reference page back
+  under its word cap; green gates and deployment; and a recorded closeout.
 proposed_by: bbugyi200.athena.bob-cli-lt.land
 proposed_with: claude/opus
 bead: bob-cli-lt
@@ -17,6 +19,11 @@ status: done
   [202611/bank_setup_render_and_edit.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bank_setup_render_and_edit.md)
 - **BEAD:**
   [bob-cli-lt](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-lt/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-lt.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-lt.land.md)
+- **COMMITS:**
+  - [ae73186](https://github.com/bobs-org/bob-cli--plans/commit/ae731865b0bdf1f75068ee0f44760a27418cb942)
+    — docs(plans): mark bank setup epic and landing tale done
 
 # Land bank setup (bob-cli-lt): e2e, real-Obsidian proof, scoped hide, docs budget, closeout
 
