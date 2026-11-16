@@ -1,158 +1,146 @@
 ---
 tier: epic
 title: Schema editors that arrange instantly and pick emoji beautifully
-goal: "The album Schema Card and the Bank setup card move fields, choices, categories,
+goal: 'The album Schema Card and the Bank setup card move fields, choices, categories,
   groups, and rules any distance with an instant local preview, then save the whole
   arrangement as one guarded bob transaction with one commit and one Undo. Every emoji
   prompt is a searchable Emoji Slot. Both cards use a calmer, contextual layout. Bob
-  stays the only writer, and nothing is saved without a successful preview of the exact
-  envelope.
+  stays the only writer, and nothing is saved without a successful preview of the
+  exact envelope.
 
-  "
+  '
 decisions:
   enter_saves:
     ask: How many Enter presses should it take to save a quiet arrangement?
     choices:
-      quiet_once:
-        Quiet arrangements save on one ⏎; index-grouping, rule, and hotkey changes need
-        a second ⏎
-      always_twice:
-        Every arrangement shows bob's consequence first and saves on a second ⏎
+      quiet_once: Quiet arrangements save on one ⏎; index-grouping, rule, and hotkey
+        changes need a second ⏎
+      always_twice: Every arrangement shows bob's consequence first and saves on a
+        second ⏎
     default: quiet_once
     why: Reorders are cheap to undo with u; loud cases still stop for confirmation
     answer: quiet_once
   cldr_keywords:
-    ask:
-      Vendor CLDR English emoji keywords (~150–250 KB) into bob-emoji for much richer
-      search?
+    ask: Vendor CLDR English emoji keywords (~150–250 KB) into bob-emoji for much
+      richer search?
     default: true
     why: gemoji's thin keywords are the biggest search gap (memory→🧠, find→🔍)
     answer: true
   bank_cross_group:
-    ask:
-      Let a bank category move into another group as one loud arrangement (category.set
+    ask: Let a bank category move into another group as one loud arrangement (category.set
       + category.move)?
     default: false
-    why:
-      Changing a group also changes filing layout; v1 keeps it an explicit edit in the
-      edit stage
+    why: Changing a group also changes filing layout; v1 keeps it an explicit edit
+      in the edit stage
     answer: false
   decision_record:
     ask: Add a decisions memory record that one schema arrangement is one commit?
     memory:
-      - decisions
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    - decisions
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     default: true
     answer: false
 phases:
-  - id: quick-fixes
-    title: Quick fixes that ship before the redesign
-    depends_on: []
-    size: small
-    description:
-      "quick-fixes: stop q from cancelling inside bank inputs, keep a bank category's
-      emoji when its label is edited, make Alt+J/K work with macOS Option, and port
-      bob's split_icon so album choice splitting matches Rust."
-  - id: arrange-engine
-    title: Pure arrangement engine
-    depends_on:
-      - quick-fixes
-    size: medium
-    description:
-      "arrange-engine: add a DOM-free projected-order model with nudges, edges, gap
-      placement, local undo, anchor rebase, and a save marker. Add album and bank
-      envelope compilers checked by a simulator, plus gap-hint labels and FLIP planning."
-  - id: emoji-engine
-    title: bob-emoji search upgrades and api v1
-    depends_on: []
-    size: medium
-    description:
-      "emoji-engine: normalize multi-token queries with tiered ranking, look up pasted
-      glyphs, add catalog categories, CLDR keywords when chosen, and label suggestions.
-      Expose a frozen versioned api on bob-emoji that keeps the editor :shortcode: menu."
-  - id: album-card-shell
-    title: Album Schema Card visual refresh and region painting
-    depends_on:
-      - arrange-engine
-    size: medium
-    description:
-      "album-card-shell: give the album card one title line, the details row as the
-      header subtitle, pills, a one-line status rule, and a contextual hint strip with a
-      ⋯ action list. Remove Preview this edit, latch Enter, and repaint regions instead
-      of rebuilding the modal."
-  - id: album-arrange
-    title: Album arrangement editing and one-envelope save
-    depends_on:
-      - album-card-shell
-    size: medium
-    description:
-      "album-arrange: wire the engine into the album card. Alt+J/K, ends, counts, and m
-      move-to change a local projection with FLIP, deltas, and a pending bar. A latched
-      quiet/loud Enter saves one envelope in the background, and u steps back or stages
-      Undo. The save survives closing the card."
-  - id: album-emoji-slot
-    title: Shared Emoji Slot in the album card
-    depends_on:
-      - album-arrange
-      - emoji-engine
-    size: medium
-    description:
-      "album-emoji-slot: build the shared Emoji Slot (glyph well, preview chip, and
-      in-card panel served by the bob-emoji api, with a plain fallback). Wire it into
-      album choice add/edit and field-add initial choices with duplicate badges, IME
-      guards, and a strict Esc ladder."
-  - id: album-place-drag
-    title: Add-and-place ghosts and pointer drag
-    depends_on:
-      - album-emoji-slot
-    size: medium
-    description:
-      "album-place-drag: show a ghost chip or row for choice-add and field-add that the
-      move keys place before the single add op. Add shared pointer drag with grip
-      handles, an insertion caret, autoscroll, and Esc cancel for album items."
-  - id: bank-arrange
-    title: Bank setup card arrangement parity
-    depends_on:
-      - album-place-drag
-    size: medium
-    description:
-      "bank-arrange: bring arrangement editing to bank categories, groups, and rules
-      (always loud) without per-move confirm stages. Paint bob's dry-run order and
-      hotkey shifts, check bob's order against the local one, and add region painting,
-      Ctrl+Z semantics, and saves that survive closing the card."
-  - id: bank-emoji-slot
-    title: Emoji Slot for bank categories
-    depends_on:
-      - bank-arrange
-    size: small
-    description:
-      "bank-emoji-slot: use the Emoji Slot for setup-card new/edit category and the
-      category card's new-category stage. Compose the emoji and label into bob's fused
-      label, keep the emoji unless the user clears it, and draw suggestions from bank
-      vocabulary."
-  - id: acceptance
-    title: End-to-end acceptance, measurements, and decision record
-    depends_on:
-      - bank-emoji-slot
-    size: medium
-    description:
-      "acceptance: run real-Obsidian walkthroughs that count commits for both cards,
-      plus timing budgets and light/dark/reduced-motion screenshots. Do a final
-      consistency pass, write the decision record, and propose follow-ups for CLI
-      save-latency trims."
+- id: quick-fixes
+  title: Quick fixes that ship before the redesign
+  depends_on: []
+  size: small
+  description: 'quick-fixes: stop q from cancelling inside bank inputs, keep a bank
+    category''s emoji when its label is edited, make Alt+J/K work with macOS Option,
+    and port bob''s split_icon so album choice splitting matches Rust.'
+- id: arrange-engine
+  title: Pure arrangement engine
+  depends_on:
+  - quick-fixes
+  size: medium
+  description: 'arrange-engine: add a DOM-free projected-order model with nudges,
+    edges, gap placement, local undo, anchor rebase, and a save marker. Add album
+    and bank envelope compilers checked by a simulator, plus gap-hint labels and FLIP
+    planning.'
+- id: emoji-engine
+  title: bob-emoji search upgrades and api v1
+  depends_on: []
+  size: medium
+  description: 'emoji-engine: normalize multi-token queries with tiered ranking, look
+    up pasted glyphs, add catalog categories, CLDR keywords when chosen, and label
+    suggestions. Expose a frozen versioned api on bob-emoji that keeps the editor
+    :shortcode: menu.'
+- id: album-card-shell
+  title: Album Schema Card visual refresh and region painting
+  depends_on:
+  - arrange-engine
+  size: medium
+  description: 'album-card-shell: give the album card one title line, the details
+    row as the header subtitle, pills, a one-line status rule, and a contextual hint
+    strip with a ⋯ action list. Remove Preview this edit, latch Enter, and repaint
+    regions instead of rebuilding the modal.'
+- id: album-arrange
+  title: Album arrangement editing and one-envelope save
+  depends_on:
+  - album-card-shell
+  size: medium
+  description: 'album-arrange: wire the engine into the album card. Alt+J/K, ends,
+    counts, and m move-to change a local projection with FLIP, deltas, and a pending
+    bar. A latched quiet/loud Enter saves one envelope in the background, and u steps
+    back or stages Undo. The save survives closing the card.'
+- id: album-emoji-slot
+  title: Shared Emoji Slot in the album card
+  depends_on:
+  - album-arrange
+  - emoji-engine
+  size: medium
+  description: 'album-emoji-slot: build the shared Emoji Slot (glyph well, preview
+    chip, and in-card panel served by the bob-emoji api, with a plain fallback). Wire
+    it into album choice add/edit and field-add initial choices with duplicate badges,
+    IME guards, and a strict Esc ladder.'
+- id: album-place-drag
+  title: Add-and-place ghosts and pointer drag
+  depends_on:
+  - album-emoji-slot
+  size: medium
+  description: 'album-place-drag: show a ghost chip or row for choice-add and field-add
+    that the move keys place before the single add op. Add shared pointer drag with
+    grip handles, an insertion caret, autoscroll, and Esc cancel for album items.'
+- id: bank-arrange
+  title: Bank setup card arrangement parity
+  depends_on:
+  - album-place-drag
+  size: medium
+  description: 'bank-arrange: bring arrangement editing to bank categories, groups,
+    and rules (always loud) without per-move confirm stages. Paint bob''s dry-run
+    order and hotkey shifts, check bob''s order against the local one, and add region
+    painting, Ctrl+Z semantics, and saves that survive closing the card.'
+- id: bank-emoji-slot
+  title: Emoji Slot for bank categories
+  depends_on:
+  - bank-arrange
+  size: small
+  description: 'bank-emoji-slot: use the Emoji Slot for setup-card new/edit category
+    and the category card''s new-category stage. Compose the emoji and label into
+    bob''s fused label, keep the emoji unless the user clears it, and draw suggestions
+    from bank vocabulary.'
+- id: acceptance
+  title: End-to-end acceptance, measurements, and decision record
+  depends_on:
+  - bank-emoji-slot
+  size: medium
+  description: 'acceptance: run real-Obsidian walkthroughs that count commits for
+    both cards, plus timing budgets and light/dark/reduced-motion screenshots. Do
+    a final consistency pass, write the decision record, and propose follow-ups for
+    CLI save-latency trims.'
 proposed_by: bbugyi200.apollo.research.51.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-16 15:38:34
 status: wip
+bead_id: bob-cli-mf
 ---
 
-- **PROMPT:**
-  [prompts/202611/schema_editor_arrange_and_emoji.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/schema_editor_arrange_and_emoji.md)
+- **PROMPT:** [prompts/202611/schema_editor_arrange_and_emoji.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/schema_editor_arrange_and_emoji.md)
+- **BEAD:** [bob-cli-mf](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mf/README.md)
 
 # Plan: Schema editors that arrange instantly and pick emoji beautifully
 
