@@ -1,90 +1,87 @@
 ---
 tier: epic
-title: "Go To Notes follow-ups: Recent, Archive scope, living-first [[, and <C-o> back"
-goal: "The `//` Go To Notes picker remembers what Bryan opened (a Recent group), reaches
+title: 'Go To Notes follow-ups: Recent, Archive scope, living-first [[, and <C-o>
+  back'
+goal: 'The `//` Go To Notes picker remembers what Bryan opened (a Recent group), reaches
   archived notes behind Command-X, lends its living-note tiers to `[[` link completion
-  so machinery and zorg satellites stop crowding the 20 suggestion slots, and a
-  line-less note open records a Vim jump so `<C-o>` returns to where Bryan was.
+  so machinery and zorg satellites stop crowding the 20 suggestion slots, and a line-less
+  note open records a Vim jump so `<C-o>` returns to where Bryan was.
 
-  "
+  '
 decisions:
   link_tiers:
-    ask:
-      Drop archived and hidden notes from vault-wide `[[` suggestions instead of listing
-      them after living notes?
+    ask: Drop archived and hidden notes from vault-wide `[[` suggestions instead of
+      listing them after living notes?
     choices:
-      demote:
-        List them after every living match, so every note stays reachable from
+      demote: List them after every living match, so every note stays reachable from
         completion
-      hide:
-        Remove them from vault-wide suggestions; typing the path by hand still links
-        them
+      hide: Remove them from vault-wide suggestions; typing the path by hand still
+        links them
     default: demote
     why: Living notes fill the 20 slots first, and linking a done/ note stays possible.
     answer: demote
 phases:
-  - id: cli-archive-scope
-    title: "bob-cli: shared note tiers and `capture-complete -A` archive catalog"
-    depends_on: []
-    size: medium
-    description: "cli-archive-scope: give `note_catalog` one shared path-tier predicate
-      (living, archive, hidden), add an archive catalog of top-level done/ notes,
-      superseded library folders, and zorg daily satellites, and serve it behind a new
-      `capture-complete -A/--archived-notes` flag with an `archived` marker; help, docs,
-      and tests.
+- id: cli-archive-scope
+  title: 'bob-cli: shared note tiers and `capture-complete -A` archive catalog'
+  depends_on: []
+  size: medium
+  description: 'cli-archive-scope: give `note_catalog` one shared path-tier predicate
+    (living, archive, hidden), add an archive catalog of top-level done/ notes, superseded
+    library folders, and zorg daily satellites, and serve it behind a new `capture-complete
+    -A/--archived-notes` flag with an `archived` marker; help, docs, and tests.
 
-      "
-  - id: cli-link-tiers
-    title: "bob-cli: living notes first in vault-wide `[[` link completion"
-    depends_on:
-      - cli-archive-scope
-    size: small
-    description: "cli-link-tiers: tag every `[[` note-index entry with the shared tier
-      and order (or drop, per decision link_tiers) archive and hidden notes after living
-      matches in `[[note`, `[[##`, `[[^^`, and record link-value suggestions, leaving
-      target-scoped completion and link resolution unchanged.
+    '
+- id: cli-link-tiers
+  title: 'bob-cli: living notes first in vault-wide `[[` link completion'
+  depends_on:
+  - cli-archive-scope
+  size: small
+  description: 'cli-link-tiers: tag every `[[` note-index entry with the shared tier
+    and order (or drop, per decision link_tiers) archive and hidden notes after living
+    matches in `[[note`, `[[##`, `[[^^`, and record link-value suggestions, leaving
+    target-scoped completion and link resolution unchanged.
 
-      "
-  - id: mac-recent-notes
-    title: "Mac: Recent group in the empty `//` picker from an app-local open log"
-    depends_on: []
-    size: medium
-    description: "mac-recent-notes: record each successful `//` open in an app-local,
-      schema-versioned open log, show up to eight recently opened notes as a Recent
-      section after Today in the empty Notes picker, add a Settings action that clears
-      the log, and land green on macOS CI.
+    '
+- id: mac-recent-notes
+  title: 'Mac: Recent group in the empty `//` picker from an app-local open log'
+  depends_on: []
+  size: medium
+  description: 'mac-recent-notes: record each successful `//` open in an app-local,
+    schema-versioned open log, show up to eight recently opened notes as a Recent
+    section after Today in the empty Notes picker, add a Settings action that clears
+    the log, and land green on macOS CI.
 
-      "
-  - id: mac-archive-scope
-    title: "Mac: Command-X toggles Go To · Archive in the `//` picker"
-    depends_on:
-      - cli-archive-scope
-      - mac-recent-notes
-    size: medium
-    description: "mac-archive-scope: claim the reserved Command-X in Notes to toggle a
-      Go To · Archive scope fed by `capture-complete --archived-notes`, with stale-safe
-      scope state, archive rows and groups, an old-bob hint, generated fixtures, docs,
-      and green exact-SHA macOS CI.
+    '
+- id: mac-archive-scope
+  title: 'Mac: Command-X toggles Go To · Archive in the `//` picker'
+  depends_on:
+  - cli-archive-scope
+  - mac-recent-notes
+  size: medium
+  description: 'mac-archive-scope: claim the reserved Command-X in Notes to toggle
+    a Go To · Archive scope fed by `capture-complete --archived-notes`, with stale-safe
+    scope state, archive rows and groups, an old-bob hint, generated fixtures, docs,
+    and green exact-SHA macOS CI.
 
-      "
-  - id: plugin-open-notes-jump
-    title: "bob-plugins: line-less bob-open-notes opens record a `<C-o>` jump"
-    depends_on: []
-    size: small
-    description:
-      "plugin-open-notes-jump: in bob-navigation-hotkeys, record a Vim jump from the
-      prior caret to the landed note when `obsidian://bob-open-notes` opens a Markdown
-      note without a line, with tests, docs, and a deployed sync."
+    '
+- id: plugin-open-notes-jump
+  title: 'bob-plugins: line-less bob-open-notes opens record a `<C-o>` jump'
+  depends_on: []
+  size: small
+  description: 'plugin-open-notes-jump: in bob-navigation-hotkeys, record a Vim jump
+    from the prior caret to the landed note when `obsidian://bob-open-notes` opens
+    a Markdown note without a line, with tests, docs, and a deployed sync.'
 proposed_by: bbugyi200.athena.1cs
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-16 10:14:19
 status: wip
+bead_id: bob-cli-mb
 ---
 
-- **PROMPT:**
-  [prompts/202611/note_goto_followups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_goto_followups.md)
+- **PROMPT:** [prompts/202611/note_goto_followups.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/note_goto_followups.md)
+- **BEAD:** [bob-cli-mb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mb/README.md)
 
 # Go To Notes follow-ups: Recent, Archive scope, living-first `[[`, and `<C-o>` back
 
