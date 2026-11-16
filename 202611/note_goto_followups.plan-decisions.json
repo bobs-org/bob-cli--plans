@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "link_tiers",
+      "kind": "choice",
+      "ask": "Drop archived and hidden notes from vault-wide `[[` suggestions instead of listing them after living notes?",
+      "why": "Living notes fill the 20 slots first, and linking a done/ note stays possible.",
+      "choices": [
+        {
+          "key": "demote",
+          "label": "List them after every living match, so every note stays reachable from completion"
+        },
+        {
+          "key": "hide",
+          "label": "Remove them from vault-wide suggestions; typing the path by hand still links them"
+        }
+      ],
+      "default": "demote",
+      "effective_default": "demote",
+      "requested_verified": false
+    }
+  ]
+}
