@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "b_dot_hue",
+      "kind": "choice",
+      "ask": "Should the b dot stay amber, the bank badge's waiting ink, instead of turning red like w?",
+      "why": "Amber already means \"waiting\" on the bank badge and the b panel's WAITING word",
+      "choices": [
+        {
+          "key": "amber",
+          "label": "Keep amber; waiting rows read as an inbox, and red stays reserved for over-limit trouble"
+        },
+        {
+          "key": "red",
+          "label": "Make it red like w; one alarm color, but it stops matching the bank badge's waiting ink"
+        }
+      ],
+      "default": "amber",
+      "effective_default": "amber",
+      "requested_verified": false
+    },
+    {
+      "id": "s_dot_hues",
+      "kind": "choice",
+      "ask": "Should the s dot switch to the review footer's tier hues so it always matches the group it summons?",
+      "why": "You know the s dot as red, and recoloring it was not requested",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Keep today's palette; the morning PRE dot stays red but disagrees with the footer's cyan PRE group"
+        },
+        {
+          "key": "match",
+          "label": "Use the footer's hues; the dot always matches its first group, but the morning PRE dot turns cyan"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    },
+    {
+      "id": "mem_walker_footer",
+      "kind": "toggle",
+      "ask": "Amend glossary:walker-footer so its dot sentence names the new w dot?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:walker-footer"
+        ]
+      },
+      "corrects": "A quiet dot marks the selector's `s` while review commitments are due off-`s`, and an amber dot marks `b` while bank rows wait off-`b`.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:walker-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip",
+            "Record Note",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Capture",
+            "Notebook",
+            "Task Link",
+            "Project Note",
+            "Area Note",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
