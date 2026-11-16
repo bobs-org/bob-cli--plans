@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scroll_guard",
+      "kind": "choice",
+      "ask": "Should bob-ledger-tools also undo any scroll of Obsidian's never-scrolling workspace containers and log the cause?",
+      "why": "The white-screen trigger didn't reproduce on Linux; these containers never legitimately scroll.",
+      "choices": [
+        {
+          "key": "guard",
+          "label": "Add the guard; the white screen can't stick whatever the trigger, and each catch logs its cause."
+        },
+        {
+          "key": "skip",
+          "label": "Fix only the confirmed card, click, and focus defects; a recurrence needs fresh debugging."
+        }
+      ],
+      "default": "guard",
+      "effective_default": "guard",
+      "requested_verified": false
+    }
+  ]
+}
