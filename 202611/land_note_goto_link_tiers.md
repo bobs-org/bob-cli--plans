@@ -1,17 +1,15 @@
 ---
 tier: tale
 size: small
-title:
-  "Finish bob-cli-mb: document and test living-first [[ suggestions, then close the epic"
-goal:
-  bob-cli-mb.2 shipped the living/archive/hidden partition for vault-wide `[[`
+title: 'Finish bob-cli-mb: document and test living-first [[ suggestions, then close
+  the epic'
+goal: bob-cli-mb.2 shipped the living/archive/hidden partition for vault-wide `[[`
   suggestions but skipped the help sentence, the docs/capture.md rule, docs-gen, and
   most of the required tests. Add those, then close epic bob-cli-mb.
 proposed_by: bbugyi200.athena.bob-cli-mb.land
 proposed_with: claude/opus
 bead: bob-cli-mb
-create_time: 2026-11-16 13:03:07
-status: wip
+status: done
 ---
 
 - **PARENT:**
