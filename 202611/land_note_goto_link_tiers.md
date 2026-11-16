@@ -1,9 +1,10 @@
 ---
 tier: tale
 size: small
-title: 'Finish bob-cli-mb: document and test living-first [[ suggestions, then close
-  the epic'
-goal: bob-cli-mb.2 shipped the living/archive/hidden partition for vault-wide `[[`
+title:
+  "Finish bob-cli-mb: document and test living-first [[ suggestions, then close the epic"
+goal:
+  bob-cli-mb.2 shipped the living/archive/hidden partition for vault-wide `[[`
   suggestions but skipped the help sentence, the docs/capture.md rule, docs-gen, and
   most of the required tests. Add those, then close epic bob-cli-mb.
 proposed_by: bbugyi200.athena.bob-cli-mb.land
@@ -16,6 +17,11 @@ status: done
   [202611/note_goto_followups.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/note_goto_followups.md)
 - **BEAD:**
   [bob-cli-mb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mb/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-mb.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-mb.land.md)
+- **COMMITS:**
+  - [0510aaf](https://github.com/bobs-org/bob-cli/commit/0510aaf0e997ca97c10919ec21214b362a1b8c12)
+    — docs(capture): document living-first \[\[ suggestions and cover the tier partition
 
 # Finish bob-cli-mb: living-first `[[` help, docs, and tests, then close the epic
 
