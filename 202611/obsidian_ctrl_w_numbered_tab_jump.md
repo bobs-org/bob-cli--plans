@@ -61,7 +61,7 @@ phases:
 proposed_by: bbugyi200.apollo.research.4y.linker.w0
 proposed_with: claude/opus
 create_time: 2026-11-16 11:00:59
-status: wip
+status: done
 bead_id: bob-cli-mc
 ---
 
