@@ -1,81 +1,76 @@
 ---
 tier: epic
-title: "Video attachments: %c embeds clips and Z plays them"
-goal: "With a video path on the clipboard, `%c` embeds the clip under the new task as
-  `![[vid/NAME.mp4|400]]`; in Obsidian the clip sits in the same 400 px column as
-  screenshots, and `Z` opens a calm, keyboard-first player that shares the image
-  viewer's chrome, origin line, and `y`/`r` gestures. Every attachment bob copies is one
-  vault sync can carry, and Bob Mac Capture previews a video as a video.
+title: 'Video attachments: %c embeds clips and Z plays them'
+goal: 'With a video path on the clipboard, `%c` embeds the clip under the new task
+  as `![[vid/NAME.mp4|400]]`; in Obsidian the clip sits in the same 400 px column
+  as screenshots, and `Z` opens a calm, keyboard-first player that shares the image
+  viewer''s chrome, origin line, and `y`/`r` gestures. Every attachment bob copies
+  is one vault sync can carry, and Bob Mac Capture previews a video as a video.
 
-  "
+  '
 phases:
-  - id: cli-video
-    title: "bob-cli: the video attachment kind"
-    depends_on: []
-    size: medium
-    description:
-      "cli-video: add AttachmentKind::Video (mp4 mov webm mkv) copied to vid/ and
-      embedded at 400 px on every %c route and bob attachments import; add size_bytes to
-      attachment JSON and sizes to human output; fix the would-save padding; write the
-      shared media catalog in docs/attachments.md; mark the commit with !."
-  - id: plugin-video-viewer
-    title: "bob-plugins: the VideoZoomModal player"
-    depends_on: []
-    size: medium
-    description:
-      "plugin-video-viewer: add behavior-preserving media hooks to ImageZoomModal and
-      build VideoZoomModal on them (start policy, Space/click play, arrow seeks,
-      readout, zoom/pan, o/y/r, in-place failure card, full decoder teardown) with pure
-      helpers and Node-harness tests; not yet wired to Z."
-  - id: cli-guards
-    title: "bob-cli: streamed copies and sync guards for every attachment"
-    depends_on:
-      - cli-video
-    size: medium
-    description:
-      "cli-guards: stream attachment hashing and copying (no whole-file buffers, abort
-      when the source changes after planning), refuse attachments of 95 MiB or more and
-      destinations the vault .gitignore ignores, warn at 50 MiB, document the new codes,
-      and record the decision strand; mark the commit with !."
-  - id: plugin-z-dispatch
-    title: "bob-plugins: Z dispatches videos, imports video paths, sizes inline clips"
-    depends_on:
-      - cli-video
-      - plugin-video-viewer
-    size: medium
-    description:
-      "plugin-z-dispatch: teach the Z resolver and path-bullet import about the video
-      catalog, open VideoZoomModal for videos, degrade against an old bob, ship the
-      inline 400 px embed CSS, update the image-zoom docs, add the real-Obsidian video
-      e2e harness, and deploy with bob plugins sync."
-  - id: mac-video-card
-    title: "bob-mac-capture: videos in the clip card"
-    depends_on:
-      - cli-video
-    size: medium
-    description:
-      "mac-video-card: count videos in the clip header, show size_bytes, and render a
-      cancellable, cached AVFoundation poster with a play glyph and duration badge for
-      video rows, staying a thin client of bob's kind; green exact-SHA macOS CI."
-  - id: plugin-video-transport
-    title: "bob-plugins: scrubber, frame step, speed, mute, fullscreen"
-    depends_on:
-      - plugin-z-dispatch
-    size: medium
-    description:
-      "plugin-video-transport: add the hairline scrubber with hover time bubble and drag
-      seek, frame stepping, playback speed, g/G, mute, fullscreen, and the play/pause
-      flash to VideoZoomModal; extend the real-Obsidian e2e and docs; deploy."
+- id: cli-video
+  title: 'bob-cli: the video attachment kind'
+  depends_on: []
+  size: medium
+  description: 'cli-video: add AttachmentKind::Video (mp4 mov webm mkv) copied to
+    vid/ and embedded at 400 px on every %c route and bob attachments import; add
+    size_bytes to attachment JSON and sizes to human output; fix the would-save padding;
+    write the shared media catalog in docs/attachments.md; mark the commit with !.'
+- id: plugin-video-viewer
+  title: 'bob-plugins: the VideoZoomModal player'
+  depends_on: []
+  size: medium
+  description: 'plugin-video-viewer: add behavior-preserving media hooks to ImageZoomModal
+    and build VideoZoomModal on them (start policy, Space/click play, arrow seeks,
+    readout, zoom/pan, o/y/r, in-place failure card, full decoder teardown) with pure
+    helpers and Node-harness tests; not yet wired to Z.'
+- id: cli-guards
+  title: 'bob-cli: streamed copies and sync guards for every attachment'
+  depends_on:
+  - cli-video
+  size: medium
+  description: 'cli-guards: stream attachment hashing and copying (no whole-file buffers,
+    abort when the source changes after planning), refuse attachments of 95 MiB or
+    more and destinations the vault .gitignore ignores, warn at 50 MiB, document the
+    new codes, and record the decision strand; mark the commit with !.'
+- id: plugin-z-dispatch
+  title: 'bob-plugins: Z dispatches videos, imports video paths, sizes inline clips'
+  depends_on:
+  - cli-video
+  - plugin-video-viewer
+  size: medium
+  description: 'plugin-z-dispatch: teach the Z resolver and path-bullet import about
+    the video catalog, open VideoZoomModal for videos, degrade against an old bob,
+    ship the inline 400 px embed CSS, update the image-zoom docs, add the real-Obsidian
+    video e2e harness, and deploy with bob plugins sync.'
+- id: mac-video-card
+  title: 'bob-mac-capture: videos in the clip card'
+  depends_on:
+  - cli-video
+  size: medium
+  description: 'mac-video-card: count videos in the clip header, show size_bytes,
+    and render a cancellable, cached AVFoundation poster with a play glyph and duration
+    badge for video rows, staying a thin client of bob''s kind; green exact-SHA macOS
+    CI.'
+- id: plugin-video-transport
+  title: 'bob-plugins: scrubber, frame step, speed, mute, fullscreen'
+  depends_on:
+  - plugin-z-dispatch
+  size: medium
+  description: 'plugin-video-transport: add the hairline scrubber with hover time
+    bubble and drag seek, frame stepping, playback speed, g/G, mute, fullscreen, and
+    the play/pause flash to VideoZoomModal; extend the real-Obsidian e2e and docs;
+    deploy.'
 decisions:
   memory_video_decision:
     ask: Record the accepted design as decisions:clip-videos-embed-from-vid?
     memory:
-      - decisions:clip-videos-embed-from-vid
+    - decisions:clip-videos-embed-from-vid
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 proposed_by: bbugyi200.athena.research.63.linker.w0
 proposed_with: claude/opus
@@ -83,10 +78,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-16 17:31:28
 status: wip
+bead_id: bob-cli-mj
 ---
 
-- **PROMPT:**
-  [prompts/202611/video_attachments_z_player.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/video_attachments_z_player.md)
+- **PROMPT:** [prompts/202611/video_attachments_z_player.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/video_attachments_z_player.md)
+- **BEAD:** [bob-cli-mj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mj/README.md)
 
 # Plan: Video attachments — `%c` embeds clips, `Z` plays them
 
