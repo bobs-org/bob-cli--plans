@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "inline_title",
+      "kind": "choice",
+      "ask": "Should record notes hide Obsidian's filename-derived inline title while the sheet replaces Properties?",
+      "why": "The H1 already titles the record; the stem above it is the loudest leftover noise",
+      "choices": [
+        {
+          "key": "hide",
+          "label": "Pages open on the H1 and the sheet; rename via the tab header or file explorer"
+        },
+        {
+          "key": "keep",
+          "label": "The snake_case inline title stays above the H1, like album notes; the title shows twice"
+        }
+      ],
+      "default": "hide",
+      "effective_default": "hide",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Should the land agent record a decisions strand that record values are edited only through bob?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:record-values-edited-through-bob"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:record-values-edited-through-bob",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/record-values-edited-through-bob.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
