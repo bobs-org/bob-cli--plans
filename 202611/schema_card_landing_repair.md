@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Schema Card geometry and finish bob-cli-mu
-goal:
-  Field keycaps and labels share the approved axis, refusal motion is correct, and
-  bob-cli-mu is verified and closed.
+goal: Field keycaps and labels share the approved axis, refusal motion is correct,
+  and bob-cli-mu is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-mu.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-mu
-create_time: 2026-11-17 17:06:42
-status: wip
+status: done
 ---
 
 - **PARENT:**
