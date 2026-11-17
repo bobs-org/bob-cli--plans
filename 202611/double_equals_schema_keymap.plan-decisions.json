@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "records",
+      "kind": "choice",
+      "ask": "Should `==` on an album's record note also open its parent album's Schema Card?",
+      "why": "The \u229e Schema button you asked to mirror appears only on album notes",
+      "choices": [
+        {
+          "key": "album_only",
+          "label": "Only album notes and bank.md react; a record keeps Vim's line reindent"
+        },
+        {
+          "key": "records_too",
+          "label": "Records open their parent album's Schema Card, like Edit album schema"
+        }
+      ],
+      "default": "album_only",
+      "effective_default": "album_only",
+      "requested_verified": false
+    }
+  ]
+}
