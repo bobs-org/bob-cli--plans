@@ -1,40 +1,38 @@
 ---
 tier: epic
 title: Keep a typed / literal after album routes and open the record list
-goal: "In Bob Mac Capture, typing `/` right after an album route such as `@eat` inserts
-  a literal `/` (the `@eat/` record route) instead of the `/` → `#` capture alias, an
-  explicit `#` still opens the section menu, and a draft that is only `@eat/`
-  immediately lists that album's existing record notes.
+goal: 'In Bob Mac Capture, typing `/` right after an album route such as `@eat` inserts
+  a literal `/` (the `@eat/` record route) instead of the `/` → `#` capture alias,
+  an explicit `#` still opens the section menu, and a draft that is only `@eat/` immediately
+  lists that album''s existing record notes.
 
-  "
+  '
 phases:
-  - id: bob_rewrite
-    title: bob capture-rewrite keeps / literal after album routes
-    depends_on: []
-    size: medium
-    description:
-      "bob_rewrite: teach capture-rewrite's / → # alias (and its typing-tip proof) to
-      stay literal when the / is glued to a single-@ album route, via one more bounded
-      album-head read; add Rust unit and CLI tests, update docs/capture.md, the CLI
-      help, and the capture-alias glossary strand."
-  - id: mac_record_list
-    title: Mac Capture opens the record list on a bare @album/ draft
-    depends_on:
-      - bob_rewrite
-    size: small
-    description:
-      "mac_record_list: in bob-mac-capture, skip the cached route list when the caret's
-      record_route span is the whole draft so bob's record_target rows show; add
-      real-bob fixtures, fake-bob cases, hosted tests, and docs; verify on macOS CI."
+- id: bob_rewrite
+  title: bob capture-rewrite keeps / literal after album routes
+  depends_on: []
+  size: medium
+  description: 'bob_rewrite: teach capture-rewrite''s / → # alias (and its typing-tip
+    proof) to stay literal when the / is glued to a single-@ album route, via one
+    more bounded album-head read; add Rust unit and CLI tests, update docs/capture.md,
+    the CLI help, and the capture-alias glossary strand.'
+- id: mac_record_list
+  title: Mac Capture opens the record list on a bare @album/ draft
+  depends_on:
+  - bob_rewrite
+  size: small
+  description: 'mac_record_list: in bob-mac-capture, skip the cached route list when
+    the caret''s record_route span is the whole draft so bob''s record_target rows
+    show; add real-bob fixtures, fake-bob cases, hosted tests, and docs; verify on
+    macOS CI.'
 decisions:
   capture_alias_glossary:
-    ask:
-      Update the Capture Alias glossary strand to say / stays literal after an album
-      route?
+    ask: Update the Capture Alias glossary strand to say / stays literal after an
+      album route?
     memory:
-      - glossary:capture-alias
+    - glossary:capture-alias
     default: true
-    corrects: "`/` → `#` wherever a `#` menu would open"
+    corrects: '`/` → `#` wherever a `#` menu would open'
     answer: true
 proposed_by: bbugyi200.athena.1d8
 proposed_with: claude/opus
@@ -42,10 +40,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 06:44:43
 status: wip
+bead_id: bob-cli-mn
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_slash_record_list.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_slash_record_list.md)
+- **PROMPT:** [prompts/202611/album_slash_record_list.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_slash_record_list.md)
+- **BEAD:** [bob-cli-mn](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mn/README.md)
 
 # Plan: Keep a typed `/` literal after album routes and open the record list
 
