@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "morning_clause",
+      "kind": "choice",
+      "ask": "Drop the Morning review row's stale \"highlight chosen (\u22643 themes, highlight first)\" clause?",
+      "why": "The \u22643-theme cap it cites is retired, and two rows asking for the day's pick would compete",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "Delete the clause; the new Headline row is the one place the day's pick is made"
+        },
+        {
+          "key": "keep",
+          "label": "Leave the Morning review row byte-for-byte unchanged, retired theme cap included"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    },
+    {
+      "id": "stage_headline_row",
+      "kind": "choice",
+      "ask": "Give the Headline row its own `headline` POST stage in the chezmoi-managed bob config?",
+      "why": "A stage keeps the walk order wherever recurrence or regrouping moves the row",
+      "choices": [
+        {
+          "key": "stage",
+          "label": "Add `headline` to post_stages; the row walks after Monday's weekly review, before Morning review"
+        },
+        {
+          "key": "file_order",
+          "label": "Leave config alone and rely only on the row sitting above Morning review in gtd_daily.md"
+        }
+      ],
+      "default": "stage",
+      "effective_default": "stage",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_headline",
+      "kind": "toggle",
+      "ask": "Add a \"Daily Headline\" glossary strand (it also renders into the docs site glossary)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:daily-headline"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:daily-headline",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/daily-headline.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Record a decision strand \"The Daily Headline is one Bryan-owned line, read but never written by bob\"?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:daily-headline-is-bryans-line"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:daily-headline-is-bryans-line",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/daily-headline-is-bryans-line.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
