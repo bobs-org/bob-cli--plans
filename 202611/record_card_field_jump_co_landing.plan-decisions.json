@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "record_card_digits",
+      "kind": "choice",
+      "ask": "What should digits and Shift+J/K do on the Record Card, given the Schema Card's field jumps?",
+      "why": "Keeps the one-key pick and carries the Schema Card's Shift+J/K habit over",
+      "choices": [
+        {
+          "key": "pick",
+          "label": "Digits pick a choice and save; Shift+J/K step fields, clamped like the Schema Card"
+        },
+        {
+          "key": "pick_only",
+          "label": "Digits pick a choice and save; Shift+J/K stay unbound on the Record Card"
+        },
+        {
+          "key": "field_numbers",
+          "label": "Digits jump to field N like the Schema Card; pick digits only in the open list"
+        }
+      ],
+      "default": "pick",
+      "effective_default": "pick",
+      "requested_verified": false
+    },
+    {
+      "id": "climb_keeps_field",
+      "kind": "toggle",
+      "ask": "Should = on the Record Card open the album Schema Card already on the same field?",
+      "why": "You climb to change that field's schema; landing on Album details wastes a jump",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "scoped_force",
+      "kind": "toggle",
+      "ask": "May the remaining ms/mu agents pass -F to clear a sync refusal when the refused build has provably landed?",
+      "why": "Three phases already left the vault stale; the checks and sync backups keep -F safe",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
