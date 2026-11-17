@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ends",
+      "kind": "choice",
+      "ask": "Should Ctrl+N / Ctrl+P wrap around at the ends of the emoji results?",
+      "why": "Command Mode, the copy card, and the bank Category card all wrap Ctrl+N/P",
+      "choices": [
+        {
+          "key": "wrap",
+          "label": "Ctrl+N on the last emoji lands on the first, and Ctrl+P on the first lands on the last"
+        },
+        {
+          "key": "stop",
+          "label": "Ctrl+N and Ctrl+P stop on the first and last emoji, like the arrow keys"
+        }
+      ],
+      "default": "wrap",
+      "effective_default": "wrap",
+      "requested_verified": false
+    }
+  ]
+}
