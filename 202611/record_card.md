@@ -1,103 +1,92 @@
 ---
 tier: epic
-title: "Record Card: an editable value sheet under the H1 of every record note"
-goal:
-  "Every healthy record note shows its album-defined fields as a quiet, beautiful record
-  sheet under the H1 and above ## Notes, in bob's vocabulary. Every value is editable
-  from a keyboard-first Record Card (== , Ctrl+Shift+P, palette, Command Mode, or a
-  click) through one guarded bob writer, with Undo. Native Properties hide only when the
-  sheet shows every key and bob can write."
+title: 'Record Card: an editable value sheet under the H1 of every record note'
+goal: 'Every healthy record note shows its album-defined fields as a quiet, beautiful
+  record sheet under the H1 and above ## Notes, in bob''s vocabulary. Every value
+  is editable from a keyboard-first Record Card (== , Ctrl+Shift+P, palette, Command
+  Mode, or a click) through one guarded bob writer, with Undo. Native Properties hide
+  only when the sheet shows every key and bob can write.'
 phases:
-  - id: record-read
-    title: Per-record read and record fingerprint in bob records show
-    depends_on: []
-    size: medium
-    description:
-      "record-read: add an optional STEM to bob records show that returns one record's
-      typed properties with source lines, identity and other keys, findings, full ranked
-      suggestions, and a semantic record fingerprint, read-only, with human and JSON
-      output and docs."
-  - id: record-envelope
-    title: Guarded JSON envelope for bob records update
-    depends_on:
-      - record-read
-    size: medium
-    description:
-      "record-envelope: add bob records update -i FILE, a guarded envelope of typed
-      field.set/field.unset ops with an expect fingerprint, inverse ops, group
-      consequence, and typed refusals (stale_record repaints in one call), plus an
-      albums list capability flag, docs, tests, and just install."
-  - id: record-sheet
-    title: Read-only record sheet under the H1 (Live Preview and Reading)
-    depends_on: []
-    size: large
-    description:
-      "record-sheet: render the record sheet after the first H1 of canonical album
-      records from metadataCache and the cached album report (no subprocess on open),
-      covering values by kind, lint, ghost chips, a read-only fold, a created footer,
-      collapse, subscription docking, light/dark/375px, and a tested hide gate that is
-      not yet applied."
-  - id: record-session
-    title: Record update service and guarded session with direct apply
-    depends_on:
-      - record-sheet
-      - record-envelope
-    size: medium
-    description:
-      "record-session: plugin service for records show/update, a record session over the
-      shared guarded session with an opt-in direct-apply path, inverse-op Undo, pane
-      saves, auto-sync echo suppression, an optimistic sheet overlay, and a real-bob
-      writer matrix."
-  - id: record-card
-    title: Record Card shell, browse keys, choices, and discrete actions
-    depends_on:
-      - record-session
-    size: large
-    description:
-      "record-card: keyboard-first Record Card modal in the Task Card / Schema Card
-      idiom with browse navigation, the choices pick list, digits, t, Ctrl+D, Undo, the
-      YAML excursion, = to the album Schema Card, the status rule, hint strip, All
-      actions menu, and live region."
-  - id: record-stages
-    title: Typed Record Card stages and Tab fill-out
-    depends_on:
-      - record-card
-    size: large
-    description:
-      "record-stages: text, suggest combobox, date, number, URL, link, and list stages
-      with debounced bob previews, a latched Enter, Tab and Shift+Tab save-and-advance,
-      and taught refusals for required, invalid, and stale edits."
-  - id: record-entry
-    title: Entry points, == on records, and the Properties hide
-    depends_on:
-      - record-stages
-    size: medium
-    description:
-      "record-entry: wire the sheet's Edit, row, chip, ghost, and missing affordances;
-      == on records; the edit-record palette command; Ctrl+Shift+P in navigation
-      hotkeys; the Command Mode row; and switch on the fail-open Properties hide (and
-      the inline-title decision)."
+- id: record-read
+  title: Per-record read and record fingerprint in bob records show
+  depends_on: []
+  size: medium
+  description: 'record-read: add an optional STEM to bob records show that returns
+    one record''s typed properties with source lines, identity and other keys, findings,
+    full ranked suggestions, and a semantic record fingerprint, read-only, with human
+    and JSON output and docs.'
+- id: record-envelope
+  title: Guarded JSON envelope for bob records update
+  depends_on:
+  - record-read
+  size: medium
+  description: 'record-envelope: add bob records update -i FILE, a guarded envelope
+    of typed field.set/field.unset ops with an expect fingerprint, inverse ops, group
+    consequence, and typed refusals (stale_record repaints in one call), plus an albums
+    list capability flag, docs, tests, and just install.'
+- id: record-sheet
+  title: Read-only record sheet under the H1 (Live Preview and Reading)
+  depends_on: []
+  size: large
+  description: 'record-sheet: render the record sheet after the first H1 of canonical
+    album records from metadataCache and the cached album report (no subprocess on
+    open), covering values by kind, lint, ghost chips, a read-only fold, a created
+    footer, collapse, subscription docking, light/dark/375px, and a tested hide gate
+    that is not yet applied.'
+- id: record-session
+  title: Record update service and guarded session with direct apply
+  depends_on:
+  - record-sheet
+  - record-envelope
+  size: medium
+  description: 'record-session: plugin service for records show/update, a record session
+    over the shared guarded session with an opt-in direct-apply path, inverse-op Undo,
+    pane saves, auto-sync echo suppression, an optimistic sheet overlay, and a real-bob
+    writer matrix.'
+- id: record-card
+  title: Record Card shell, browse keys, choices, and discrete actions
+  depends_on:
+  - record-session
+  size: large
+  description: 'record-card: keyboard-first Record Card modal in the Task Card / Schema
+    Card idiom with browse navigation, the choices pick list, digits, t, Ctrl+D, Undo,
+    the YAML excursion, = to the album Schema Card, the status rule, hint strip, All
+    actions menu, and live region.'
+- id: record-stages
+  title: Typed Record Card stages and Tab fill-out
+  depends_on:
+  - record-card
+  size: large
+  description: 'record-stages: text, suggest combobox, date, number, URL, link, and
+    list stages with debounced bob previews, a latched Enter, Tab and Shift+Tab save-and-advance,
+    and taught refusals for required, invalid, and stale edits.'
+- id: record-entry
+  title: Entry points, == on records, and the Properties hide
+  depends_on:
+  - record-stages
+  size: medium
+  description: 'record-entry: wire the sheet''s Edit, row, chip, ghost, and missing
+    affordances; == on records; the edit-record palette command; Ctrl+Shift+P in navigation
+    hotkeys; the Command Mode row; and switch on the fail-open Properties hide (and
+    the inline-title decision).'
 decisions:
   inline_title:
-    ask:
-      Should record notes hide Obsidian's filename-derived inline title while the sheet
-      replaces Properties?
+    ask: Should record notes hide Obsidian's filename-derived inline title while the
+      sheet replaces Properties?
     choices:
-      hide:
-        Pages open on the H1 and the sheet; rename via the tab header or file explorer
-      keep:
-        The snake_case inline title stays above the H1, like album notes; the title
-        shows twice
+      hide: Pages open on the H1 and the sheet; rename via the tab header or file
+        explorer
+      keep: The snake_case inline title stays above the H1, like album notes; the
+        title shows twice
     default: hide
-    why:
-      The H1 already titles the record; the stem above it is the loudest leftover noise
+    why: The H1 already titles the record; the stem above it is the loudest leftover
+      noise
     answer: hide
   decision_record:
-    ask:
-      Should the land agent record a decisions strand that record values are edited only
-      through bob?
+    ask: Should the land agent record a decisions strand that record values are edited
+      only through bob?
     memory:
-      - decisions:record-values-edited-through-bob
+    - decisions:record-values-edited-through-bob
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.55.linker.w0
@@ -106,10 +95,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 11:29:50
 status: wip
+bead_id: bob-cli-ms
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card.md)
+- **PROMPT:** [prompts/202611/record_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card.md)
+- **BEAD:** [bob-cli-ms](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ms/README.md)
 
 # Record Card: an editable value sheet under the H1 of every record note
 
