@@ -1,102 +1,97 @@
 ---
 tier: epic
 title: Walk attention marks in Bob Mac Capture's idle agenda
-goal: "Whenever the Obsidian walker selector shows attention for a family (an off-family
-  dot or selected-family ink) — `s` review, `w` lanes, `b` bank — Bob Mac Capture's idle
-  agenda shows that family's mark (its letter with a hue dot) at the title row's
+goal: 'Whenever the Obsidian walker selector shows attention for a family (an off-family
+  dot or selected-family ink) — `s` review, `w` lanes, `b` bank — Bob Mac Capture''s
+  idle agenda shows that family''s mark (its letter with a hue dot) at the title row''s
   trailing edge, computed by bob from the same contract, and shows nothing otherwise.
 
-  "
+  '
 decisions:
   mark_frame:
     ask: How should the walk marks be framed in the agenda title row?
     choices:
-      bare:
-        Letters with hue dots only; most concise, reads as status, never looks like link
-        syntax
-      brackets:
-        Faint [[ … ]] around the marks; strongest echo of the Obsidian selector, ~4
-        glyphs wider
+      bare: Letters with hue dots only; most concise, reads as status, never looks
+        like link syntax
+      brackets: Faint [[ … ]] around the marks; strongest echo of the Obsidian selector,
+        ~4 glyphs wider
     default: bare
-    why:
-      The letter plus dot is already the selector's own glyph; brackets add width, not
-      meaning
+    why: The letter plus dot is already the selector's own glyph; brackets add width,
+      not meaning
     answer: bare
   mark_counts:
     ask: Show a small count beside the s and b marks (due commitments, waiting rows)?
     default: false
-    why:
-      Obsidian's selector shows dots only; counts stay in the tooltip and VoiceOver
+    why: Obsidian's selector shows dots only; counts stay in the tooltip and VoiceOver
       label
     answer: true
   memory_walk_marks_record:
-    ask:
-      Record this design as a decision that partly supersedes the idle agenda's
+    ask: Record this design as a decision that partly supersedes the idle agenda's
       only-fact-source claim?
     memory:
-      - decisions
-      - decisions:idle-capture-shows-ledger-agenda
+    - decisions
+    - decisions:idle-capture-shows-ledger-agenda
     default: true
     corrects: (`bob capture-pomodoros --tasks` as the agenda's only fact source)
     answer: true
 phases:
-  - id: scan-once
-    title: Freshness scan parses the vault once
-    depends_on: []
-    size: small
-    description: "scan-once: share one Tasks settings read and one TaskIndex across the
-      freshness scan's READY/PENDING/NEXT/OPEN queries and its all-task pass, with
-      byte-identical outputs and recorded before/after timings.
+- id: scan-once
+  title: Freshness scan parses the vault once
+  depends_on: []
+  size: small
+  description: 'scan-once: share one Tasks settings read and one TaskIndex across
+    the freshness scan''s READY/PENDING/NEXT/OPEN queries and its all-task pass, with
+    byte-identical outputs and recorded before/after timings.
 
-      "
-  - id: bob-walks
-    title: bob walks attention report and contract
-    depends_on: []
-    size: medium
-    description: "bob-walks: add the read-only `bob walks` command (human + JSON schema
-      1) that reports s/w/b attention with per-family failure isolation, plus the
-      docs/walks.md contract, conformance vectors, goldens, and doc updates.
+    '
+- id: bob-walks
+  title: bob walks attention report and contract
+  depends_on: []
+  size: medium
+  description: 'bob-walks: add the read-only `bob walks` command (human + JSON schema
+    1) that reports s/w/b attention with per-family failure isolation, plus the docs/walks.md
+    contract, conformance vectors, goldens, and doc updates.
 
-      "
-  - id: plugin-parity
-    title: Pin the walker footer to the walks conformance vectors
-    depends_on:
-      - bob-walks
-    size: small
-    description: "plugin-parity: run the docs/walks.md vectors against bob-ledger-tools'
-      real attention pushes in a JS test, fix any drift in favor of the contract, link
-      the contract from the plugin docs, and sync.
+    '
+- id: plugin-parity
+  title: Pin the walker footer to the walks conformance vectors
+  depends_on:
+  - bob-walks
+  size: small
+  description: 'plugin-parity: run the docs/walks.md vectors against bob-ledger-tools''
+    real attention pushes in a JS test, fix any drift in favor of the contract, link
+    the contract from the plugin docs, and sync.
 
-      "
-  - id: mac-walks-core
-    title: CaptureCore walks models, client, tones, and presentation
-    depends_on:
-      - bob-walks
-    size: medium
-    description: "mac-walks-core: decode `bob walks --format json` on its own process
-      lane, add the tier hue table, title-row walk marks in the agenda presentation, the
-      pure refresh policy, fake-bob support, protocol docs, and green macOS CI.
+    '
+- id: mac-walks-core
+  title: CaptureCore walks models, client, tones, and presentation
+  depends_on:
+  - bob-walks
+  size: medium
+  description: 'mac-walks-core: decode `bob walks --format json` on its own process
+    lane, add the tier hue table, title-row walk marks in the agenda presentation,
+    the pure refresh policy, fake-bob support, protocol docs, and green macOS CI.
 
-      "
-  - id: mac-walk-marks
-    title: Walk marks store, view, docs, and decision record
-    depends_on:
-      - mac-walks-core
-    size: medium
-    description:
-      "mac-walk-marks: wire the walks store and refresh triggers, paint the marks at the
-      title row's trailing edge with motion, contrast, and no-wrap guarantees, update
-      docs and renders, watch CI green, and write the decision record."
+    '
+- id: mac-walk-marks
+  title: Walk marks store, view, docs, and decision record
+  depends_on:
+  - mac-walks-core
+  size: medium
+  description: 'mac-walk-marks: wire the walks store and refresh triggers, paint the
+    marks at the title row''s trailing edge with motion, contrast, and no-wrap guarantees,
+    update docs and renders, watch CI green, and write the decision record.'
 proposed_by: bbugyi200.apollo.es
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 17:59:50
 status: wip
+bead_id: bob-cli-mx
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_walk_attention_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_walk_attention_marks.md)
+- **PROMPT:** [prompts/202611/mac_walk_attention_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_walk_attention_marks.md)
+- **BEAD:** [bob-cli-mx](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mx/README.md)
 
 # Plan: Walk attention marks in Bob Mac Capture's idle agenda
 
