@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_capture_alias_glossary",
+      "kind": "toggle",
+      "ask": "Update the Capture Alias glossary strand so `.` \u2192 `@` also names the item-start position?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "`.` \u2192 `@` after body text and a space or tab, wherever a bare `@` opens route completion and the item is not already routed",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Freshness",
+            "Task Successor",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
