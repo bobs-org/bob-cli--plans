@@ -1,104 +1,95 @@
 ---
 tier: epic
-title: "Daily Headline: one line a day, shown wherever the week looks at its days"
-goal: "Every daily note can carry one Bryan-written `**Headline:**` line naming the
-  result that would make the day count. bob reads it (and never writes it) and serves it
-  to the week note's Days table and strip, the weekly brief, the terminal, and the top
-  of the Bob Mac Capture idle agenda. A concise POST checklist row in gtd_daily.md
+title: 'Daily Headline: one line a day, shown wherever the week looks at its days'
+goal: 'Every daily note can carry one Bryan-written `**Headline:**` line naming the
+  result that would make the day count. bob reads it (and never writes it) and serves
+  it to the week note''s Days table and strip, the weekly brief, the terminal, and
+  the top of the Bob Mac Capture idle agenda. A concise POST checklist row in gtd_daily.md
   prompts it each morning.
 
-  "
+  '
 decisions:
   morning_clause:
-    ask:
-      Drop the Morning review row's stale "highlight chosen (≤3 themes, highlight
+    ask: Drop the Morning review row's stale "highlight chosen (≤3 themes, highlight
       first)" clause?
     choices:
-      drop:
-        Delete the clause; the new Headline row is the one place the day's pick is made
-      keep:
-        Leave the Morning review row byte-for-byte unchanged, retired theme cap included
+      drop: Delete the clause; the new Headline row is the one place the day's pick
+        is made
+      keep: Leave the Morning review row byte-for-byte unchanged, retired theme cap
+        included
     default: drop
-    why:
-      The ≤3-theme cap it cites is retired, and two rows asking for the day's pick would
-      compete
+    why: The ≤3-theme cap it cites is retired, and two rows asking for the day's pick
+      would compete
     answer: drop
   stage_headline_row:
-    ask:
-      Give the Headline row its own `headline` POST stage in the chezmoi-managed bob
-      config?
+    ask: Give the Headline row its own `headline` POST stage in the chezmoi-managed
+      bob config?
     choices:
-      stage:
-        Add `headline` to post_stages; the row walks after Monday's weekly review,
+      stage: Add `headline` to post_stages; the row walks after Monday's weekly review,
         before Morning review
-      file_order:
-        Leave config alone and rely only on the row sitting above Morning review in
-        gtd_daily.md
+      file_order: Leave config alone and rely only on the row sitting above Morning
+        review in gtd_daily.md
     default: stage
-    why: A stage keeps the walk order wherever recurrence or regrouping moves the row
+    why: A stage keeps the walk order wherever recurrence or regrouping moves the
+      row
     answer: stage
   memory_glossary_headline:
-    ask:
-      Add a "Daily Headline" glossary strand (it also renders into the docs site
+    ask: Add a "Daily Headline" glossary strand (it also renders into the docs site
       glossary)?
     memory:
-      - glossary:daily-headline
+    - glossary:daily-headline
     default: false
     answer: true
   memory_decision_record:
-    ask:
-      Record a decision strand "The Daily Headline is one Bryan-owned line, read but
-      never written by bob"?
+    ask: Record a decision strand "The Daily Headline is one Bryan-owned line, read
+      but never written by bob"?
     memory:
-      - decisions:daily-headline-is-bryans-line
+    - decisions:daily-headline-is-bryans-line
     default: false
     answer: false
 phases:
-  - id: cli
-    title: bob-cli reads the Daily Headline and serves it
-    depends_on: []
-    size: medium
-    description:
-      "cli: add the shared daily-headline parser, put `headline` on week-report day
-      columns and children, day brief parts, and `capture-pomodoros --tasks`, update
-      terminal output, docs, and tests."
-  - id: plugins
-    title: Week note Days table and strip show each day's headline
-    depends_on:
-      - cli
-    size: small
-    description:
-      "plugins: bob-ledger-tools reads the day-row `headline`, renders it in the Days
-      table Summary (future days too), adds it to week-strip day tooltips, then builds,
-      tests, and syncs."
-  - id: mac
-    title: Headline row at the top of the Mac idle agenda
-    depends_on:
-      - cli
-    size: medium
-    description:
-      "mac: decode the snapshot `headline`, add a fixed headline row under the Today
-      title, measure, plan, and draw it, cover it with tests and a design render, update
-      docs, and gate on macOS CI."
-  - id: vault
-    title: Template slot, morning checklist row, and POST stage
-    depends_on:
-      - cli
-    size: small
-    description:
-      "vault: add the empty `**Headline:**` slot to the daily template, add the concise
-      staged POST row to gtd_daily.md, apply the morning-clause and staging decisions,
-      and verify end to end."
+- id: cli
+  title: bob-cli reads the Daily Headline and serves it
+  depends_on: []
+  size: medium
+  description: 'cli: add the shared daily-headline parser, put `headline` on week-report
+    day columns and children, day brief parts, and `capture-pomodoros --tasks`, update
+    terminal output, docs, and tests.'
+- id: plugins
+  title: Week note Days table and strip show each day's headline
+  depends_on:
+  - cli
+  size: small
+  description: 'plugins: bob-ledger-tools reads the day-row `headline`, renders it
+    in the Days table Summary (future days too), adds it to week-strip day tooltips,
+    then builds, tests, and syncs.'
+- id: mac
+  title: Headline row at the top of the Mac idle agenda
+  depends_on:
+  - cli
+  size: medium
+  description: 'mac: decode the snapshot `headline`, add a fixed headline row under
+    the Today title, measure, plan, and draw it, cover it with tests and a design
+    render, update docs, and gate on macOS CI.'
+- id: vault
+  title: Template slot, morning checklist row, and POST stage
+  depends_on:
+  - cli
+  size: small
+  description: 'vault: add the empty `**Headline:**` slot to the daily template, add
+    the concise staged POST row to gtd_daily.md, apply the morning-clause and staging
+    decisions, and verify end to end.'
 proposed_by: bbugyi200.athena.1dq
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 17:21:16
 status: wip
+bead_id: bob-cli-mv
 ---
 
-- **PROMPT:**
-  [prompts/202611/daily_headline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/daily_headline.md)
+- **PROMPT:** [prompts/202611/daily_headline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/daily_headline.md)
+- **BEAD:** [bob-cli-mv](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mv/README.md)
 
 # Plan: Daily Headline
 
