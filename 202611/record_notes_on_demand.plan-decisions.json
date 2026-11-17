@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "first_cleanup",
+      "kind": "choice",
+      "ask": "Should the coder run the real bob records tidy on the live vault once after landing?",
+      "why": "Nightly already cleans periodically, so the coding turn never writes the live vault",
+      "choices": [
+        {
+          "key": "nightly",
+          "label": "Coder only dry-runs; the next bob nightly with the new bob cleans the ~105 records"
+        },
+        {
+          "key": "now",
+          "label": "Coder runs it once after just install: one commit across ~105 records, then nightly"
+        }
+      ],
+      "default": "nightly",
+      "effective_default": "nightly",
+      "requested_verified": false
+    }
+  ]
+}
