@@ -1,50 +1,47 @@
 ---
 tier: epic
 title: Schema card field jumps, numbered fields, and grouped rhythm
-goal: "On the album Schema Card (opened from album and record notes), Shift+J/Shift+K
+goal: 'On the album Schema Card (opened from album and record notes), Shift+J/Shift+K
   step between fields and 1–9 jump straight to a numbered field, with a keycap showing
-  each field's number beside its name and clear space between field groups. On the bank
-  Setup card (~/bob/bank.md), Shift+J/Shift+K step between category groups while digit
-  hotkeys keep working. Every jump is pure navigation that never writes, and the numbers
-  and jumps always follow the order painted on screen.
+  each field''s number beside its name and clear space between field groups. On the
+  bank Setup card (~/bob/bank.md), Shift+J/Shift+K step between category groups while
+  digit hotkeys keep working. Every jump is pure navigation that never writes, and
+  the numbers and jumps always follow the order painted on screen.
 
-  "
+  '
 phases:
-  - id: field-nav
-    title: Album card field navigation on one painted order
-    depends_on: []
-    size: medium
-    description:
-      "field-nav: route the Schema Card's targets through one painted-order helper
-      shared with the body painter, add Shift+J/K field steps and 1–9 field jumps with
-      clamp-bump-announce feedback and reveal scrolling, retire the album digit count
-      prefix, add shared bump/reveal helpers, unit tests, a real-key e2e probe, and key
-      docs."
-  - id: field-visuals
-    title: Numbered field keycaps, heading rows, and group rhythm
-    depends_on:
-      - field-nav
-    size: medium
-    description:
-      "field-visuals: paint keycaps for fields 1–9 with current-group emphasis, make
-      field rows transparent headings, add dialog-scoped group spacing and a shared
-      label axis, add the field hint item and row accessibility, then check geometry and
-      screenshots in real Obsidian and update the visual docs."
-  - id: bank-groups
-    title: Bank Setup card group jumps
-    depends_on:
-      - field-nav
-    size: small
-    description:
-      "bank-groups: add Shift+J/K category-group jumps in the Categories tab using
-      painted order, make hotkeys match lowercase only so Shift+K stops selecting Car,
-      tint the current group label, add a footer hint, reuse the shared bump/reveal
-      helpers, and add tests and docs."
+- id: field-nav
+  title: Album card field navigation on one painted order
+  depends_on: []
+  size: medium
+  description: 'field-nav: route the Schema Card''s targets through one painted-order
+    helper shared with the body painter, add Shift+J/K field steps and 1–9 field jumps
+    with clamp-bump-announce feedback and reveal scrolling, retire the album digit
+    count prefix, add shared bump/reveal helpers, unit tests, a real-key e2e probe,
+    and key docs.'
+- id: field-visuals
+  title: Numbered field keycaps, heading rows, and group rhythm
+  depends_on:
+  - field-nav
+  size: medium
+  description: 'field-visuals: paint keycaps for fields 1–9 with current-group emphasis,
+    make field rows transparent headings, add dialog-scoped group spacing and a shared
+    label axis, add the field hint item and row accessibility, then check geometry
+    and screenshots in real Obsidian and update the visual docs.'
+- id: bank-groups
+  title: Bank Setup card group jumps
+  depends_on:
+  - field-nav
+  size: small
+  description: 'bank-groups: add Shift+J/K category-group jumps in the Categories
+    tab using painted order, make hotkeys match lowercase only so Shift+K stops selecting
+    Car, tint the current group label, add a footer hint, reuse the shared bump/reveal
+    helpers, and add tests and docs.'
 decisions:
   field_number_record:
     ask: Add a decisions strand saying schema-card digits are painted field numbers?
     memory:
-      - decisions:schema-card-digits-are-field-numbers
+    - decisions:schema-card-digits-are-field-numbers
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.57.linker.w0
@@ -53,10 +50,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 15:36:18
 status: wip
+bead_id: bob-cli-mu
 ---
 
-- **PROMPT:**
-  [prompts/202611/schema_card_field_jumps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/schema_card_field_jumps.md)
+- **PROMPT:** [prompts/202611/schema_card_field_jumps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/schema_card_field_jumps.md)
+- **BEAD:** [bob-cli-mu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mu/README.md)
 
 # Plan: Schema card field jumps, numbered fields, and grouped rhythm
 
