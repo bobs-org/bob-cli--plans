@@ -1,53 +1,48 @@
 ---
 tier: epic
-title:
-  "Backlog triage T1: bob-plugins red gates, closed-prerequisite reopen, highlights-scan
-  lock window"
-goal: "bob-plugins npm test has no deterministic reds, capture never reopens a closed or
-  archived prerequisite, a writing highlights scan holds bob_sync.lock only while it
-  writes, and the lander chains the next five-bead triage epic until every open task
-  bead is closed.
+title: 'Backlog triage T1: bob-plugins red gates, closed-prerequisite reopen, highlights-scan
+  lock window'
+goal: 'bob-plugins npm test has no deterministic reds, capture never reopens a closed
+  or archived prerequisite, a writing highlights scan holds bob_sync.lock only while
+  it writes, and the lander chains the next five-bead triage epic until every open
+  task bead is closed.
 
-  "
+  '
 phases:
-  - id: plugin-reds
-    title: Fix the deterministic bob-plugins npm test reds
-    depends_on: []
-    size: medium
-    description:
-      "plugin-reds: update the stale walkMode v5 and hex-guard pins (bob-cli-md), stop
-      Platform shadowing from breaking platform tests (bob-cli-me), defuse the
-      block-marks fixture date bomb (bob-cli-m8), and close all three."
-  - id: closed-prereqs
-    title: Never promote closed or archived prerequisites
-    depends_on:
-      - plugin-reds
-    size: medium
-    description:
-      "closed-prereqs: filter capture promotion seeds by graph.open, guard the rewrite
-      loop, add closed/done/cancelled prerequisite tests, and close bob-cli-jh."
-  - id: scan-lock
-    title: Narrow the highlights-scan bob_sync.lock window
-    depends_on:
-      - closed-prereqs
-    size: large
-    description:
-      "scan-lock: per scan_lock, plan the library lock-free and lock only for intake and
-      writes with re-validation, preserving the 9c.1 guarantee, then resolve bob-cli-mo."
+- id: plugin-reds
+  title: Fix the deterministic bob-plugins npm test reds
+  depends_on: []
+  size: medium
+  description: 'plugin-reds: update the stale walkMode v5 and hex-guard pins (bob-cli-md),
+    stop Platform shadowing from breaking platform tests (bob-cli-me), defuse the
+    block-marks fixture date bomb (bob-cli-m8), and close all three.'
+- id: closed-prereqs
+  title: Never promote closed or archived prerequisites
+  depends_on:
+  - plugin-reds
+  size: medium
+  description: 'closed-prereqs: filter capture promotion seeds by graph.open, guard
+    the rewrite loop, add closed/done/cancelled prerequisite tests, and close bob-cli-jh.'
+- id: scan-lock
+  title: Narrow the highlights-scan bob_sync.lock window
+  depends_on:
+  - closed-prereqs
+  size: large
+  description: 'scan-lock: per scan_lock, plan the library lock-free and lock only
+    for intake and writes with re-validation, preserving the 9c.1 guarantee, then
+    resolve bob-cli-mo.'
 decisions:
   scan_lock:
     ask: Should this epic narrow how long a writing highlights scan holds bob_sync.lock?
     choices:
-      narrow:
-        Plan lock-free and lock only for intake and writes; lock_busy shrinks to the
-        write phase
+      narrow: Plan lock-free and lock only for intake and writes; lock_busy shrinks
+        to the write phase
       defer: Skip the scan-lock phase; bob-cli-mo stays open for a later batch
-      cancel:
-        Skip the scan-lock phase and close bob-cli-mo as canceled; plugin retry is
-        enough
+      cancel: Skip the scan-lock phase and close bob-cli-mo as canceled; plugin retry
+        is enough
     default: narrow
-    why:
-      On the Mac every 3 s-budget writer fails lock_busy for minutes, four times an hour
+    why: On the Mac every 3 s-budget writer fails lock_busy for minutes, four times
+      an hour
     answer: narrow
 proposed_by: bbugyi200.athena.1dh
 proposed_with: claude/opus
@@ -55,10 +50,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-17 11:16:42
 status: wip
+bead_id: bob-cli-mr
 ---
 
-- **PROMPT:**
-  [prompts/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md)
+- **PROMPT:** [prompts/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md)
+- **BEAD:** [bob-cli-mr](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mr/README.md)
 
 # Backlog triage T1: bob-plugins red gates, closed-prerequisite reopen, highlights-scan lock window
 
