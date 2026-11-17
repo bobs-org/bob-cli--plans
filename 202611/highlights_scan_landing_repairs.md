@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish the highlights scan lock-window landing
-goal: Repair optimistic scan validation, intake collisions, and recovery receipts,
-  then close bob-cli-mr.3.1 and its parent phase.
+goal:
+  Repair optimistic scan validation, intake collisions, and recovery receipts, then
+  close bob-cli-mr.3.1 and its parent phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-mr.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/highlights_scan_lock_window.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/highlights_scan_lock_window.md)
 - **BEAD:**
   [bob-cli-mr.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mr/bob-cli-mr.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-mr.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-mr.3.1.land.md)
+- **COMMITS:**
+  - [123e50c](https://github.com/bobs-org/bob-cli--plans/commit/123e50c8854e0b23e234ec5b6a96a0a61cd533e6)
+    — chore(plans): mark highlights_scan_lock_window done
 
 # Finish the highlights scan lock-window landing
 
