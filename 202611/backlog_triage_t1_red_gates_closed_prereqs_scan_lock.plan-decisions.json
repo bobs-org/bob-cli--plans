@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scan_lock",
+      "kind": "choice",
+      "ask": "Should this epic narrow how long a writing highlights scan holds bob_sync.lock?",
+      "why": "On the Mac every 3 s-budget writer fails lock_busy for minutes, four times an hour",
+      "choices": [
+        {
+          "key": "narrow",
+          "label": "Plan lock-free and lock only for intake and writes; lock_busy shrinks to the write phase"
+        },
+        {
+          "key": "defer",
+          "label": "Skip the scan-lock phase; bob-cli-mo stays open for a later batch"
+        },
+        {
+          "key": "cancel",
+          "label": "Skip the scan-lock phase and close bob-cli-mo as canceled; plugin retry is enough"
+        }
+      ],
+      "default": "narrow",
+      "effective_default": "narrow",
+      "requested_verified": false
+    }
+  ]
+}
