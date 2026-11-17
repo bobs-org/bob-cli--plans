@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "capture_panel_term",
+      "kind": "toggle",
+      "ask": "Add the Capture Panel glossary term as the new strand glossary/capture-panel.md?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-panel"
+        ]
+      },
+      "requested": "Can you help me add excellent new \"capture panel\" and \"ref panel\" terms to the glossary that specify the bob-mac-capture app's capture panel and its ref panel, respectively?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-panel",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/capture-panel.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "ref_panel_term",
+      "kind": "toggle",
+      "ask": "Add the Ref Panel glossary term (aliases Bob Refs, refs panel) as the new strand glossary/ref-panel.md?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:ref-panel"
+        ]
+      },
+      "requested": "Can you help me add excellent new \"capture panel\" and \"ref panel\" terms to the glossary that specify the bob-mac-capture app's capture panel and its ref panel, respectively?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:ref-panel",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/ref-panel.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "capture_strand_link",
+      "kind": "toggle",
+      "ask": "Also link the Capture strand's \"Bob Mac Capture's panel\" phrase to the new Capture Panel term?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:capture"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Pomodoro",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
