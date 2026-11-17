@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Schema Card geometry and finish bob-cli-mu
-goal: Field keycaps and labels share the approved axis, refusal motion is correct,
-  and bob-cli-mu is verified and closed.
+goal:
+  Field keycaps and labels share the approved axis, refusal motion is correct, and
+  bob-cli-mu is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-mu.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/schema_card_field_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/schema_card_field_jumps.md)
 - **BEAD:**
   [bob-cli-mu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mu/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-mu.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-mu.land.md)
+- **COMMITS:**
+  - [5c8dc47](https://github.com/bobs-org/bob-cli--plans/commit/5c8dc47a0b029270a3b8bf4dc034877d071895ad)
+    — docs(plans): mark schema card field-jump epic and repair tale done
 
 # Repair Schema Card geometry and finish bob-cli-mu
 
