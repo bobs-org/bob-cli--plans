@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "capture_alias_glossary",
+      "kind": "toggle",
+      "ask": "Update the Capture Alias glossary strand to say / stays literal after an album route?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "`/` \u2192 `#` wherever a `#` menu would open",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Freshness",
+            "Task Successor",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
