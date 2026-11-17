@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "suggest_followup",
+      "kind": "choice",
+      "ask": "Should the implementer file a follow-up task bead to improve bob-emoji's label suggestions?",
+      "why": "Once people can find the panel they will see its noisy first row more often.",
+      "choices": [
+        {
+          "key": "file",
+          "label": "File a large task bead with the measured noisy examples; no code change here"
+        },
+        {
+          "key": "skip",
+          "label": "File nothing; the noisy \"For <label>\" row stays as it is"
+        }
+      ],
+      "default": "file",
+      "effective_default": "file",
+      "requested_verified": false
+    }
+  ]
+}
