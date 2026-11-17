@@ -1,48 +1,43 @@
 ---
 tier: epic
 title: Narrow the full highlights scan lock window
-goal:
-  Full highlights scans plan without writer locks and acquire them only for validated
-  intake, recovery, or writes while preserving paired PDF and reference-note
-  publication.
+goal: Full highlights scans plan without writer locks and acquire them only for validated
+  intake, recovery, or writes while preserving paired PDF and reference-note publication.
 phases:
-  - id: prepared-scan
-    title: Share full-scan planning and capture validation inputs
-    size: medium
-    depends_on: []
-    description:
-      "prepared-scan: extract a shared prepared full scan, an exhaustive mutation
-      predicate, and input validation for optimistic planning; retain the existing lock
-      window while establishing tested helpers."
-  - id: locked-apply
-    title: Apply prepared scans inside a bounded mutation window
-    size: medium
-    depends_on:
-      - prepared-scan
-    description:
-      "locked-apply: move full-library planning and hooks outside the locks, validate
-      before mutation, preserve protected intake and recovery, and make no-work scans
-      finish without either lock in human and JSON modes."
-  - id: scan-proof
-    title: Prove scan interleavings and document the new lock window
-    size: medium
-    depends_on:
-      - locked-apply
-    description:
-      "scan-proof: complete adversarial concurrency coverage, update lock and receipt
-      contracts, and run the full code and documentation gates with clean-base
-      attribution for unrelated failures."
+- id: prepared-scan
+  title: Share full-scan planning and capture validation inputs
+  size: medium
+  depends_on: []
+  description: 'prepared-scan: extract a shared prepared full scan, an exhaustive
+    mutation predicate, and input validation for optimistic planning; retain the existing
+    lock window while establishing tested helpers.'
+- id: locked-apply
+  title: Apply prepared scans inside a bounded mutation window
+  size: medium
+  depends_on:
+  - prepared-scan
+  description: 'locked-apply: move full-library planning and hooks outside the locks,
+    validate before mutation, preserve protected intake and recovery, and make no-work
+    scans finish without either lock in human and JSON modes.'
+- id: scan-proof
+  title: Prove scan interleavings and document the new lock window
+  size: medium
+  depends_on:
+  - locked-apply
+  description: 'scan-proof: complete adversarial concurrency coverage, update lock
+    and receipt contracts, and run the full code and documentation gates with clean-base
+    attribution for unrelated failures.'
 proposed_by: bbugyi200.athena.bob-cli-mr.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-mr.3
 create_time: 2026-11-17 12:14:05
 status: wip
+bead_id: bob-cli-mr.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/highlights_scan_lock_window.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/highlights_scan_lock_window.md)
-- **PARENT:**
-  [202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md)
+- **PROMPT:** [prompts/202611/highlights_scan_lock_window.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/highlights_scan_lock_window.md)
+- **PARENT:** [202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t1_red_gates_closed_prereqs_scan_lock.md)
+- **BEAD:** [bob-cli-mr.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mr/bob-cli-mr.3.1.md)
 
 # Narrow the full highlights scan lock window
 
