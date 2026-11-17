@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "field_number_record",
+      "kind": "toggle",
+      "ask": "Add a decisions strand saying schema-card digits are painted field numbers?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:schema-card-digits-are-field-numbers"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:schema-card-digits-are-field-numbers",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/schema-card-digits-are-field-numbers.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
