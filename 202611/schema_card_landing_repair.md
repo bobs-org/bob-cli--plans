@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Schema Card geometry and finish bob-cli-mu
-goal: Field keycaps and labels share the approved axis, refusal motion is correct,
-  and bob-cli-mu is verified and closed.
+goal:
+  Field keycaps and labels share the approved axis, refusal motion is correct, and
+  bob-cli-mu is verified and closed.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-mu.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,12 @@ status: done
   [202611/schema_card_field_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/schema_card_field_jumps.md)
 - **BEAD:**
   [bob-cli-mu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-mu/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-mu.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-mu.land.md)
+- **COMMITS:**
+  - [b067881](https://github.com/bobs-org/bob-plugins/commit/b067881386a0bd4239102f9de6f13e3571aa53a9)
+    — fix(schema-card): size field keycaps on the row em and bump empty-schema Shift+K
+    up
 
 # Repair Schema Card geometry and finish bob-cli-mu
 
