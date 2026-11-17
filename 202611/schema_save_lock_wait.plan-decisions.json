@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "wait_budget",
+      "kind": "choice",
+      "ask": "Should a waiting save give up on its own after 10 minutes of lock contention?",
+      "why": "Mac highlights scans run up to ~5 min; a bound stops endless bob spawns on a hung lock",
+      "choices": [
+        {
+          "key": "ten_minutes",
+          "label": "The wait ends after 10 minutes with the preview kept, and Enter starts a fresh wait"
+        },
+        {
+          "key": "until_stopped",
+          "label": "The save keeps retrying until it lands, Esc stops it, or the card closes"
+        }
+      ],
+      "default": "ten_minutes",
+      "effective_default": "ten_minutes",
+      "requested_verified": false
+    },
+    {
+      "id": "scan_followup",
+      "kind": "choice",
+      "ask": "Should the implementer file a large follow-up task bead to shorten how long writing highlights scans hold bob_sync.lock?",
+      "why": "The scan holds the lock 80-300 s every 15 min with no writes, breaking every 3 s writer",
+      "choices": [
+        {
+          "key": "file",
+          "label": "One large task bead records the Mac cron evidence; this plan still changes no bob-cli code"
+        },
+        {
+          "key": "skip",
+          "label": "No bead; only album and bank saves learn to wait"
+        }
+      ],
+      "default": "file",
+      "effective_default": "file",
+      "requested_verified": false
+    }
+  ]
+}
