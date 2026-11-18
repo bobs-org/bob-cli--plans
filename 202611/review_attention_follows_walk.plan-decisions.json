@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "post_hue",
+      "kind": "choice",
+      "ask": "Should POST share PRE's cyan, so the review opens and closes in the same checklist color?",
+      "why": "PRE/POST are one row kind sharing teal marks in notes; a ninth hue blurs at dot size",
+      "choices": [
+        {
+          "key": "bookends",
+          "label": "POST joins PRE's cyan; the walk opens and closes in one hue, PRE/POST text tells them apart"
+        },
+        {
+          "key": "dusk",
+          "label": "POST gets its own indigo dusk hue; distinct from PRE, but near TICKLER blue and PROJECTS purple"
+        }
+      ],
+      "default": "bookends",
+      "effective_default": "bookends",
+      "requested_verified": false
+    },
+    {
+      "id": "s_count",
+      "kind": "choice",
+      "ask": "Should the Mac `s` mark count every row `]s` can still land on (Bob's walk total)?",
+      "why": "one number that drops with every answer and never reads 0 on a lit mark",
+      "choices": [
+        {
+          "key": "walk",
+          "label": "The count is the walk total; nonzero exactly when lit, matching the footer's Review r/N"
+        },
+        {
+          "key": "commitments",
+          "label": "The count stays the commitment total; a ROTTEN- or POST-only mark shows bare"
+        }
+      ],
+      "default": "walk",
+      "effective_default": "walk",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_attention_decision",
+      "kind": "toggle",
+      "ask": "Should the record phase add a decision record for the new s predicate and mark the old one superseded?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:Idle Capture Mirrors Walk Attention",
+          "decisions:review-attention-follows-the-walk"
+        ]
+      },
+      "corrects": "`s` carries Bob's due commitment count and `b` its waiting-row count",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:Idle Capture Mirrors Walk Attention",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Idle Capture Mirrors Walk Attention"
+          ]
+        },
+        {
+          "selector": "decisions:review-attention-follows-the-walk",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/review-attention-follows-the-walk.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Should the record phase correct the Walker Footer and Morning GTD Review Footer strands' `s` dot rule?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:Walker Footer",
+          "glossary:Morning GTD Review Footer"
+        ]
+      },
+      "corrects": "Off-family dots mark the selector: `s` while review commitments are due",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:Walker Footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip",
+            "Record Note",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Capture",
+            "Notebook",
+            "Task Link",
+            "Project Note",
+            "Area Note",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        },
+        {
+          "selector": "glossary:Morning GTD Review Footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Morning GTD Review Footer",
+            "Keep Streak"
+          ]
+        }
+      ]
+    }
+  ]
+}
