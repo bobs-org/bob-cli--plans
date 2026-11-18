@@ -1,53 +1,49 @@
 ---
 tier: epic
-title:
-  "Backlog triage T2: notebook safety, ledger identity, midnight dating, and clobber
-  evidence"
-goal: "Five remaining wrong-write and capture-identity defects are fixed, their task
+title: 'Backlog triage T2: notebook safety, ledger identity, midnight dating, and
+  clobber evidence'
+goal: 'Five remaining wrong-write and capture-identity defects are fixed, their task
   beads are resolved with evidence, and the lander continues the five-task backlog
   chain.
 
-  "
+  '
 phases:
-  - id: notebook-safety
-    description:
-      "notebook-safety: reject ambiguous bullet-led @@notebook items before writes and
-      close bob-cli-k9."
-    title: Refuse bullet-led notebook drafts before any checkbox write
-    size: medium
-    depends_on: []
-  - id: ledger-identity
-    description:
-      "ledger-identity: carry explicit refs through status/name rewrites, report the
-      final recorded name, and close bob-cli-dq and bob-cli-ht."
-    title: Preserve Pomodoro preview identity and report the settled name
-    size: medium
-    depends_on:
-      - notebook-safety
-  - id: midnight-dating
-    description:
-      "midnight-dating: refuse past-offset starts before today while preserving valid
-      overnight ends, and close bob-cli-h1."
-    title: Refuse offset starts before the current ledger day
-    size: medium
-    depends_on:
-      - ledger-identity
-  - id: clobber-evidence
-    description:
-      "clobber-evidence: require evidence beyond a shared created timestamp before
-      quarantine and close bob-cli-l0."
-    title: Require corroboration before quarantining a foreign-note clobber
-    size: medium
-    depends_on:
-      - midnight-dating
+- id: notebook-safety
+  description: 'notebook-safety: reject ambiguous bullet-led @@notebook items before
+    writes and close bob-cli-k9.'
+  title: Refuse bullet-led notebook drafts before any checkbox write
+  size: medium
+  depends_on: []
+- id: ledger-identity
+  description: 'ledger-identity: carry explicit refs through status/name rewrites,
+    report the final recorded name, and close bob-cli-dq and bob-cli-ht.'
+  title: Preserve Pomodoro preview identity and report the settled name
+  size: medium
+  depends_on:
+  - notebook-safety
+- id: midnight-dating
+  description: 'midnight-dating: refuse past-offset starts before today while preserving
+    valid overnight ends, and close bob-cli-h1.'
+  title: Refuse offset starts before the current ledger day
+  size: medium
+  depends_on:
+  - ledger-identity
+- id: clobber-evidence
+  description: 'clobber-evidence: require evidence beyond a shared created timestamp
+    before quarantine and close bob-cli-l0.'
+  title: Require corroboration before quarantining a foreign-note clobber
+  size: medium
+  depends_on:
+  - midnight-dating
 proposed_by: bbugyi200.athena.bob-cli-mr.land--2
 proposed_with: muse/muse-spark-1.3-contributor
 create_time: 2026-11-17 19:17:51
 status: wip
+bead_id: bob-cli-my
 ---
 
-- **PROMPT:**
-  [prompts/202611/backlog_triage_t2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t2.md)
+- **PROMPT:** [prompts/202611/backlog_triage_t2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t2.md)
+- **BEAD:** [bob-cli-my](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-my/README.md)
 
 # Backlog triage T2
 
