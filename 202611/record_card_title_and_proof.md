@@ -1,58 +1,50 @@
 ---
 tier: epic
-title:
-  "Finish the Record Card: the title moves into the sheet, records drop their H1, and
-  real Obsidian proves it"
-goal:
-  Every record note shows its title at the top of the record sheet instead of an H1. bob
-  writes and keeps record notes without an H1, and the live vault has none. The
-  record-sheet tests pass on any date. A real-Obsidian walkthrough on athena proves the
-  Record Card epic acceptance, including the Properties hide.
+title: 'Finish the Record Card: the title moves into the sheet, records drop their
+  H1, and real Obsidian proves it'
+goal: Every record note shows its title at the top of the record sheet instead of
+  an H1. bob writes and keeps record notes without an H1, and the live vault has none.
+  The record-sheet tests pass on any date. A real-Obsidian walkthrough on athena proves
+  the Record Card epic acceptance, including the Properties hide.
 parent_bead: bob-cli-ms
 phases:
-  - id: sheet-title
-    title: Record sheet shows the title and mounts on H1-less records
-    depends_on: []
-    size: medium
-    description:
-      "sheet-title: in bob-ledger-tools, render the record title at the top of the
-      record sheet with page-title styling, mount the sheet at the top of H1-less
-      records (including frontmatter-only notes) in Live Preview and Reading, make the
-      title's one home the sheet, pin the rollover test's clock, update docs, bump, and
-      deploy."
-  - id: h1-retire
-    title: bob writes records without an H1 and tidy removes redundant ones
-    depends_on:
-      - sheet-title
-    size: medium
-    description:
-      "h1-retire: bob records new, update, and capture write record notes with no H1,
-      Notes insertion handles H1-less bodies, bob records tidy also removes an H1 that
-      only repeats the frontmatter title, docs and tests follow, then just install and
-      the live-vault cleanup per the first_cleanup decision."
-  - id: obsidian-proof
-    title: Real-Obsidian Record Card walkthrough, hide-selector fix, and vault coverage
-    depends_on:
-      - sheet-title
-      - h1-retire
-    size: large
-    description:
-      "obsidian-proof: add the obsidian-record-card-e2e CDP walkthrough with an offline
-      npm test wrapper, run it on athena with a current BOB_BIN, fix the Properties-hide
-      selectors and any other defects it finds, run the read-only live-vault coverage
-      check, and record the evidence as artifacts."
+- id: sheet-title
+  title: Record sheet shows the title and mounts on H1-less records
+  depends_on: []
+  size: medium
+  description: 'sheet-title: in bob-ledger-tools, render the record title at the top
+    of the record sheet with page-title styling, mount the sheet at the top of H1-less
+    records (including frontmatter-only notes) in Live Preview and Reading, make the
+    title''s one home the sheet, pin the rollover test''s clock, update docs, bump,
+    and deploy.'
+- id: h1-retire
+  title: bob writes records without an H1 and tidy removes redundant ones
+  depends_on:
+  - sheet-title
+  size: medium
+  description: 'h1-retire: bob records new, update, and capture write record notes
+    with no H1, Notes insertion handles H1-less bodies, bob records tidy also removes
+    an H1 that only repeats the frontmatter title, docs and tests follow, then just
+    install and the live-vault cleanup per the first_cleanup decision.'
+- id: obsidian-proof
+  title: Real-Obsidian Record Card walkthrough, hide-selector fix, and vault coverage
+  depends_on:
+  - sheet-title
+  - h1-retire
+  size: large
+  description: 'obsidian-proof: add the obsidian-record-card-e2e CDP walkthrough with
+    an offline npm test wrapper, run it on athena with a current BOB_BIN, fix the
+    Properties-hide selectors and any other defects it finds, run the read-only live-vault
+    coverage check, and record the evidence as artifacts.'
 decisions:
   first_cleanup:
-    ask:
-      Should the h1-retire coder run the real bob records tidy on the live vault once,
-      right after just install?
+    ask: Should the h1-retire coder run the real bob records tidy on the live vault
+      once, right after just install?
     choices:
-      now:
-        One guarded tidy commit strips the H1 from all ~191 records as soon as the phase
-        lands
-      nightly:
-        Coder only dry-runs; the next bob nightly strips the H1s, so titles show twice
-        until then
+      now: One guarded tidy commit strips the H1 from all ~191 records as soon as
+        the phase lands
+      nightly: Coder only dry-runs; the next bob nightly strips the H1s, so titles
+        show twice until then
     default: now
     why: Bryan asked for the H1 to go, and nightly leaves up to a day of doubled titles
     answer: now
@@ -61,12 +53,12 @@ proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-17 22:26:11
 status: wip
+bead_id: bob-cli-ms.8
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_card_title_and_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card_title_and_proof.md)
-- **PARENT:**
-  [202611/record_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_card.md)
+- **PROMPT:** [prompts/202611/record_card_title_and_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card_title_and_proof.md)
+- **PARENT:** [202611/record_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_card.md)
+- **BEAD:** [bob-cli-ms.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ms/bob-cli-ms.8.md)
 
 # Finish the Record Card: the title moves into the sheet, records drop their H1, and real Obsidian proves it
 
