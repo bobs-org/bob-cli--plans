@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "keycast_shift",
+      "kind": "choice",
+      "ask": "Should this tale also make the screencast keycast overlay show \u21e7 on chorded letters, so \u2303\u21e7X stops recording as \u2303X?",
+      "why": "The ambiguity hid which chord was pressed in this bug's screencast; the fix is tiny",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Fix the Hammerspoon keycast label in chezmoi plus its busted spec; future screencasts show \u2303\u21e7X"
+        },
+        {
+          "key": "skip",
+          "label": "Leave the overlay as is; \u2303\u21e7X and \u2303X keep rendering the same in screencasts and keystroke tracks"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    }
+  ]
+}
