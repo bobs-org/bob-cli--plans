@@ -1,48 +1,43 @@
 ---
 tier: epic
 title: Prove the Record Card in real Obsidian and verify vault coverage
-goal:
-  Finish bob-cli-ms.8.3 with a repeatable CDP walkthrough, DOM-backed hide repairs,
-  guarded keyboard-edit proof, read-only vault coverage, and verified deployment
-  evidence.
+goal: Finish bob-cli-ms.8.3 with a repeatable CDP walkthrough, DOM-backed hide repairs,
+  guarded keyboard-edit proof, read-only vault coverage, and verified deployment evidence.
 parent_bead: bob-cli-ms.8.3
 phases:
-  - id: sheet-dom
-    title: Prove record sheet rendering and fix Properties hiding in real Obsidian
-    size: medium
-    depends_on: []
-    description:
-      "sheet-dom: build the isolated Record Card CDP runner and offline wrapper, prove
-      the sheet and native Properties lifecycle on athena, and fix defects using
-      captured DOM evidence and regression tests."
-  - id: card-workflows
-    title: Prove Record Card entry points and guarded keyboard edits
-    size: medium
-    depends_on:
-      - sheet-dom
-    description:
-      "card-workflows: extend the same CDP runner with all Record Card entry points,
-      typed keyboard saves, Undo, refusal cases, YAML return, Schema Card navigation,
-      and byte-neutrality checks; fix failures and publish inspected evidence."
-  - id: coverage-release
-    title: Verify live record coverage and the final deployed build
-    size: medium
-    depends_on:
-      - card-workflows
-    description:
-      "coverage-release: add and run the read-only per-record coverage audit, run the
-      complete walkthrough and repository gates against the final tree, deploy without
-      force, and publish the final acceptance and deployment evidence."
+- id: sheet-dom
+  title: Prove record sheet rendering and fix Properties hiding in real Obsidian
+  size: medium
+  depends_on: []
+  description: 'sheet-dom: build the isolated Record Card CDP runner and offline wrapper,
+    prove the sheet and native Properties lifecycle on athena, and fix defects using
+    captured DOM evidence and regression tests.'
+- id: card-workflows
+  title: Prove Record Card entry points and guarded keyboard edits
+  size: medium
+  depends_on:
+  - sheet-dom
+  description: 'card-workflows: extend the same CDP runner with all Record Card entry
+    points, typed keyboard saves, Undo, refusal cases, YAML return, Schema Card navigation,
+    and byte-neutrality checks; fix failures and publish inspected evidence.'
+- id: coverage-release
+  title: Verify live record coverage and the final deployed build
+  size: medium
+  depends_on:
+  - card-workflows
+  description: 'coverage-release: add and run the read-only per-record coverage audit,
+    run the complete walkthrough and repository gates against the final tree, deploy
+    without force, and publish the final acceptance and deployment evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-ms.8.3
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-18 08:59:22
 status: wip
+bead_id: bob-cli-ms.8.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_card_obsidian_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card_obsidian_proof.md)
-- **PARENT:**
-  [202611/record_card_title_and_proof.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_card_title_and_proof.md)
+- **PROMPT:** [prompts/202611/record_card_obsidian_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_card_obsidian_proof.md)
+- **PARENT:** [202611/record_card_title_and_proof.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_card_title_and_proof.md)
+- **BEAD:** [bob-cli-ms.8.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ms/bob-cli-ms.8.3.1.md)
 
 # Finish bob-cli-ms.8.3: real Obsidian Record Card proof
 
