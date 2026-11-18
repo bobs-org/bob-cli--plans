@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "command_name",
+      "kind": "choice",
+      "ask": "Which name should the new orchestrator command use?",
+      "why": "Says what each run is (run what's due); 4 letters; no command collisions",
+      "choices": [
+        {
+          "key": "tick",
+          "label": "One scheduler beat per cron run; crisp in crontab, help, and logs; the research pick"
+        },
+        {
+          "key": "tend",
+          "label": "Frequent light care beside nightly; no vocabulary collisions; needs a gloss on first read"
+        }
+      ],
+      "default": "tick",
+      "effective_default": "tick",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions-web record for the one-ordered-pass design (rejected alternatives included)?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:frequent-work-is-one-ordered-pass"
+        ]
+      },
+      "requested": "Review the bob_periodic_orchestrator.md file in the research sidecar repo for context and inspiration before planning. I agree with all of the requirements recommended in that research file",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:frequent-work-is-one-ordered-pass",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/frequent-work-is-one-ordered-pass.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
