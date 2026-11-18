@@ -1,116 +1,103 @@
 ---
 tier: epic
-title: "Record walk: ‹ › links on every record, N of M painted live"
-goal:
-  Every record note carries one bob-maintained `‹ prev · ↑ album · next ›` line that
-  forms a cycling alphabetical ring per album, `[n` / `]n` follow it with no key
-  changes, and Obsidian paints `N of M` beside it on a record-sheet rail and in the `n`
-  links footer, without ever writing a count into Markdown.
+title: 'Record walk: ‹ › links on every record, N of M painted live'
+goal: Every record note carries one bob-maintained `‹ prev · ↑ album · next ›` line
+  that forms a cycling alphabetical ring per album, `[n` / `]n` follow it with no
+  key changes, and Obsidian paints `N of M` beside it on a record-sheet rail and in
+  the `n` links footer, without ever writing a count into Markdown.
 phases:
-  - id: walk-core
-    title: Pure ring, line grammar, and edit planner
-    size: medium
-    depends_on: []
-    description:
-      "walk-core: add the pure src/native/albums/walk.rs module (shared title order,
-      ring math, label sanitizer, walk-line render/recognize/classify, in-place
-      insert/replace planning, album-level and radius planners) plus shared
-      tests/fixtures/record_walk/vectors.json; no CLI-visible change."
-  - id: walk-sync
-    title: Albums sync repairs walk lines; list/check report them
-    size: medium
-    depends_on:
-      - walk-core
-    description:
-      "walk-sync: compose walk-line edits into bob albums sync (standalone and nightly),
-      add the walk object, record_walk_v1 capability, and album_walk_* findings to
-      albums list/check, and write the Record walk contract in docs/records.md."
-  - id: walk-records
-    title: Records show/check/tidy learn the walk line
-    size: small
-    depends_on:
-      - walk-core
-    description:
-      "walk-records: add record.walk to records show (JSON + human card), record_walk_*
-      findings to records check, teach tidy's probes to see past the walk line, and pin
-      Notes-insertion goldens with a walk line present."
-  - id: walk-writers
-    title: Record creation stages its neighbours in the same transaction
-    size: medium
-    depends_on:
-      - walk-core
-    description:
-      "walk-writers: capture creates and bob records new plan the ring from the final
-      overlay, stage the new record's line plus only the neighbour lines the batch
-      changes under preimage guards, and report them as walk_files[]."
-  - id: nav-guard
-    title: Album-folder ghost guard and footer label fallback
-    size: small
-    depends_on: []
-    description:
-      "nav-guard (bob-plugins): [n / ]n and the links footer never create a note inside
-      an album folder (notice + best-effort sync request instead), and footer arms whose
-      label strips to empty fall back to the target stem."
-  - id: walk-model
-    title: Plugin walk model, cross-check, and footer count
-    size: medium
-    depends_on:
-      - walk-core
-      - nav-guard
-    description:
-      "walk-model (bob-plugins): pure JS walk-line parser and metadataCache ring (shared
-      vectors), neighbour cross-check with a syncing state, live refresh on sibling
-      changes, and the N/M position in the n links footer."
-  - id: walk-rail
-    title: Record-sheet walk rail
-    size: medium
-    depends_on:
-      - walk-model
-    description:
-      "walk-rail (bob-plugins): render the walk line as a docked rail under the record
-      sheet in Live Preview and Reading view (prev, album + N of M, next, hue track,
-      wrap cue, narrow collapse, a11y), with an Obsidian e2e and docs."
-  - id: walk-ship
-    title: End-to-end verification, docs pass, and memory
-    size: small
-    depends_on:
-      - walk-sync
-      - walk-records
-      - walk-writers
-      - walk-rail
-    description:
-      "walk-ship: run the end-to-end CLI walkthrough in a temp vault, review a read-only
-      albums sync dry run of the live vault, finish cross-repo doc links, and apply the
-      accepted memory decisions."
+- id: walk-core
+  title: Pure ring, line grammar, and edit planner
+  size: medium
+  depends_on: []
+  description: 'walk-core: add the pure src/native/albums/walk.rs module (shared title
+    order, ring math, label sanitizer, walk-line render/recognize/classify, in-place
+    insert/replace planning, album-level and radius planners) plus shared tests/fixtures/record_walk/vectors.json;
+    no CLI-visible change.'
+- id: walk-sync
+  title: Albums sync repairs walk lines; list/check report them
+  size: medium
+  depends_on:
+  - walk-core
+  description: 'walk-sync: compose walk-line edits into bob albums sync (standalone
+    and nightly), add the walk object, record_walk_v1 capability, and album_walk_*
+    findings to albums list/check, and write the Record walk contract in docs/records.md.'
+- id: walk-records
+  title: Records show/check/tidy learn the walk line
+  size: small
+  depends_on:
+  - walk-core
+  description: 'walk-records: add record.walk to records show (JSON + human card),
+    record_walk_* findings to records check, teach tidy''s probes to see past the
+    walk line, and pin Notes-insertion goldens with a walk line present.'
+- id: walk-writers
+  title: Record creation stages its neighbours in the same transaction
+  size: medium
+  depends_on:
+  - walk-core
+  description: 'walk-writers: capture creates and bob records new plan the ring from
+    the final overlay, stage the new record''s line plus only the neighbour lines
+    the batch changes under preimage guards, and report them as walk_files[].'
+- id: nav-guard
+  title: Album-folder ghost guard and footer label fallback
+  size: small
+  depends_on: []
+  description: 'nav-guard (bob-plugins): [n / ]n and the links footer never create
+    a note inside an album folder (notice + best-effort sync request instead), and
+    footer arms whose label strips to empty fall back to the target stem.'
+- id: walk-model
+  title: Plugin walk model, cross-check, and footer count
+  size: medium
+  depends_on:
+  - walk-core
+  - nav-guard
+  description: 'walk-model (bob-plugins): pure JS walk-line parser and metadataCache
+    ring (shared vectors), neighbour cross-check with a syncing state, live refresh
+    on sibling changes, and the N/M position in the n links footer.'
+- id: walk-rail
+  title: Record-sheet walk rail
+  size: medium
+  depends_on:
+  - walk-model
+  description: 'walk-rail (bob-plugins): render the walk line as a docked rail under
+    the record sheet in Live Preview and Reading view (prev, album + N of M, next,
+    hue track, wrap cue, narrow collapse, a11y), with an Obsidian e2e and docs.'
+- id: walk-ship
+  title: End-to-end verification, docs pass, and memory
+  size: small
+  depends_on:
+  - walk-sync
+  - walk-records
+  - walk-writers
+  - walk-rail
+  description: 'walk-ship: run the end-to-end CLI walkthrough in a temp vault, review
+    a read-only albums sync dry run of the live vault, finish cross-repo doc links,
+    and apply the accepted memory decisions.'
 decisions:
   footer_copy:
     ask: How should the n links footer show a record's position?
     choices:
-      bare: "`Links 3/104`; the album name lives in the tooltip and on the rail"
-      album:
-        "`Links · Eat 3/104`; names the album, but is wider and sheds sooner as the
-        status bar narrows"
+      bare: '`Links 3/104`; the album name lives in the tooltip and on the rail'
+      album: '`Links · Eat 3/104`; names the album, but is wider and sheds sooner
+        as the status bar narrows'
     default: bare
     why: Rhymes with the lane footer's `Lanes 3/12`; the rail already names the album
     answer: bare
   memory_decision_record:
-    ask:
-      Record a decision that record walks store links and never counts, with albums sync
-      as the only repair owner?
+    ask: Record a decision that record walks store links and never counts, with albums
+      sync as the only repair owner?
     memory:
-      - decisions:record-walks-store-links-never-counts
+    - decisions:record-walks-store-links-never-counts
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_record_note:
-    ask:
-      Add one Record Note glossary sentence naming the bob-owned walk line on each
+    ask: Add one Record Note glossary sentence naming the bob-owned walk line on each
       record's first body line?
     memory:
-      - glossary:record-note
+    - glossary:record-note
     default: false
     answer: true
 proposed_by: bbugyi200.apollo.research.5b.linker.w0
@@ -119,10 +106,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-18 11:07:16
 status: wip
+bead_id: bob-cli-na
 ---
 
-- **PROMPT:**
-  [prompts/202611/record_walk_ring.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_walk_ring.md)
+- **PROMPT:** [prompts/202611/record_walk_ring.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/record_walk_ring.md)
+- **BEAD:** [bob-cli-na](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-na/README.md)
 
 # Record walk: ‹ › links on every record, N of M painted live
 
