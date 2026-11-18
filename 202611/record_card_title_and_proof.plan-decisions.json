@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "first_cleanup",
+      "kind": "choice",
+      "ask": "Should the h1-retire coder run the real bob records tidy on the live vault once, right after just install?",
+      "why": "Bryan asked for the H1 to go, and nightly leaves up to a day of doubled titles",
+      "choices": [
+        {
+          "key": "now",
+          "label": "One guarded tidy commit strips the H1 from all ~191 records as soon as the phase lands"
+        },
+        {
+          "key": "nightly",
+          "label": "Coder only dry-runs; the next bob nightly strips the H1s, so titles show twice until then"
+        }
+      ],
+      "default": "now",
+      "effective_default": "now",
+      "requested_verified": false
+    }
+  ]
+}
