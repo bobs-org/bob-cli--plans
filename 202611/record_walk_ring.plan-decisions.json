@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "footer_copy",
+      "kind": "choice",
+      "ask": "How should the n links footer show a record's position?",
+      "why": "Rhymes with the lane footer's `Lanes 3/12`; the rail already names the album",
+      "choices": [
+        {
+          "key": "bare",
+          "label": "`Links 3/104`; the album name lives in the tooltip and on the rail"
+        },
+        {
+          "key": "album",
+          "label": "`Links \u00b7 Eat 3/104`; names the album, but is wider and sheds sooner as the status bar narrows"
+        }
+      ],
+      "default": "bare",
+      "effective_default": "bare",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Record a decision that record walks store links and never counts, with albums sync as the only repair owner?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:record-walks-store-links-never-counts"
+        ]
+      },
+      "requested": "I agree with all of the requirements recommended in that research file (but keep in mind that you are responsible for planning and splitting up this work appropriately).",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:record-walks-store-links-never-counts",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/record-walks-store-links-never-counts.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_record_note",
+      "kind": "toggle",
+      "ask": "Add one Record Note glossary sentence naming the bob-owned walk line on each record's first body line?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:record-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:record-note",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Record Note",
+            "Capture",
+            "Notebook",
+            "Project Note",
+            "Pomodoro",
+            "Keep Streak",
+            "Task Type",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
