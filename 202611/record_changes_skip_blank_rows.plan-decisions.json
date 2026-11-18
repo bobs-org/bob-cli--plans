@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "full_preview",
+      "kind": "toggle",
+      "ask": "Should the Preview pane's update diff also hide blank spacer rows, not just the Record Card's Changes section?",
+      "why": "Preview shows the same blank rows; create previews already hide blank body lines",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "heading_rows",
+      "kind": "choice",
+      "ask": "Should the compact Changes section keep added heading rows such as `## Notes`?",
+      "why": "One row names the new section and the bullet still fits in the three-row card",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "A first note shows two rows, `## Notes` and the bullet, so the new section is visible"
+        },
+        {
+          "key": "drop",
+          "label": "Card shows only note bullets; a newly created section's heading no longer appears"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
