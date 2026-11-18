@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "dirty_clone_policy",
+      "kind": "choice",
+      "ask": "How should machine-managed SDD integration treat a clone whose only problem is uncommitted edits?",
+      "why": "Launch already evicts and re-clones sidecars, so stashing dirt buys little and risks owned work",
+      "choices": [
+        {
+          "key": "preserve",
+          "label": "Never snapshot or reset plain dirt; only wedged git states self-heal"
+        },
+        {
+          "key": "unclaimed_only",
+          "label": "Still self-heal plain dirt in numbered workspaces that have no claim"
+        }
+      ],
+      "default": "preserve",
+      "effective_default": "preserve",
+      "requested_verified": false
+    },
+    {
+      "id": "name_snapshot",
+      "kind": "toggle",
+      "ask": "Should the finalizer's dirty-work-vanished error name the SDD recovery snapshot and its restore command?",
+      "why": "Turns a silent loss into a one-command recovery for any remaining recovery path",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
