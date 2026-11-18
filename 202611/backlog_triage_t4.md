@@ -1,56 +1,51 @@
 ---
 tier: epic
-title: "Backlog triage T4: green macOS master CI and CPU-work Live Preview gates"
-goal:
-  Make bob-cli's macos-latest master test job green so the release train can ship again,
-  then stop the two most-corroborated bob-plugins wall-clock flakes, and continue the
-  five-task backlog chain.
+title: 'Backlog triage T4: green macOS master CI and CPU-work Live Preview gates'
+goal: Make bob-cli's macos-latest master test job green so the release train can ship
+  again, then stop the two most-corroborated bob-plugins wall-clock flakes, and continue
+  the five-task backlog chain.
 phases:
-  - id: macos-case
-    title: Make case-sensitive collision tests portable to macOS
-    size: medium
-    description:
-      "macos-case: Resolve bob-cli-l9 (album, record, and highlights-scan collision
-      tests that assume a case-sensitive filesystem) without weakening any collision
-      protection."
-    depends_on: []
-  - id: macos-symlink
-    title: Fix the macOS /var symlink path failures in note catalog and note goto
-    size: medium
-    description:
-      "macos-symlink: Resolve bob-cli-n6 (note_catalog xlib tier and note_goto
-      vault_root under the /var -> /private/var temp symlink), fixing product
-      canonicalization where it is a real bug."
-    depends_on:
-      - macos-case
-  - id: pipe-drain
-    title: Make the detached-grandchild pipe-drain tests deterministic and portable
-    size: medium
-    description:
-      "pipe-drain: Resolve bob-cli-kl so both subprocess_runner pipe-drain tests pass
-      deterministically on Linux under full-suite load and on macOS, which has no
-      setsid(1)."
-    depends_on:
-      - macos-symlink
-  - id: cpu-gates
-    title: Gate the 200-link Live Preview budgets on CPU work
-    size: medium
-    description:
-      "cpu-gates: Resolve bob-cli-ju (off-clock link chips, 35 ms) and bob-cli-ki
-      (keep-moving marks surface, 250 ms) by measuring CPU work with the convention
-      bob-cli-3w established, with unchanged budgets and workloads."
-    depends_on:
-      - pipe-drain
+- id: macos-case
+  title: Make case-sensitive collision tests portable to macOS
+  size: medium
+  description: 'macos-case: Resolve bob-cli-l9 (album, record, and highlights-scan
+    collision tests that assume a case-sensitive filesystem) without weakening any
+    collision protection.'
+  depends_on: []
+- id: macos-symlink
+  title: Fix the macOS /var symlink path failures in note catalog and note goto
+  size: medium
+  description: 'macos-symlink: Resolve bob-cli-n6 (note_catalog xlib tier and note_goto
+    vault_root under the /var -> /private/var temp symlink), fixing product canonicalization
+    where it is a real bug.'
+  depends_on:
+  - macos-case
+- id: pipe-drain
+  title: Make the detached-grandchild pipe-drain tests deterministic and portable
+  size: medium
+  description: 'pipe-drain: Resolve bob-cli-kl so both subprocess_runner pipe-drain
+    tests pass deterministically on Linux under full-suite load and on macOS, which
+    has no setsid(1).'
+  depends_on:
+  - macos-symlink
+- id: cpu-gates
+  title: Gate the 200-link Live Preview budgets on CPU work
+  size: medium
+  description: 'cpu-gates: Resolve bob-cli-ju (off-clock link chips, 35 ms) and bob-cli-ki
+    (keep-moving marks surface, 250 ms) by measuring CPU work with the convention
+    bob-cli-3w established, with unchanged budgets and workloads.'
+  depends_on:
+  - pipe-drain
 proposed_by: bbugyi200.athena.bob-cli-n5.land
 proposed_with: claude/opus
 create_time: 2026-11-18 01:55:50
 status: wip
+bead_id: bob-cli-n7
 ---
 
-- **PROMPT:**
-  [prompts/202611/backlog_triage_t4.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t4.md)
-- **PARENT:**
-  [202611/backlog_triage_t3.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t3.md)
+- **PROMPT:** [prompts/202611/backlog_triage_t4.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t4.md)
+- **PARENT:** [202611/backlog_triage_t3.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t3.md)
+- **BEAD:** [bob-cli-n7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-n7/README.md)
 
 # Backlog triage T4
 
