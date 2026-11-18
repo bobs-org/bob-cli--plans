@@ -11,7 +11,7 @@ proposed_by: bbugyi200.apollo.bob-cli-na.land
 proposed_with: claude/opus
 bead: bob-cli-na
 create_time: 2026-11-18 17:18:44
-status: wip
+status: done
 ---
 
 - **PARENT:**
