@@ -1,101 +1,95 @@
 ---
 tier: epic
-title: "bob tick: one ordered, configurable pass for Bob's frequent background work"
-goal: "One `bob tick` command runs Bob's more-than-daily background work (gcal, gmail,
-  gkeep, refs, projects, tasks) in a fixed order. Each step has its own cadence, set in
-  chezmoi's Bob config. The Mac's four staggered cron jobs become one 5-minute
-  `bob-tick` job. Automated `bob gcal sync` runs stay at least an hour apart, and the
-  command's output, status board, and receipt explain what ran, what waited, and why.
+title: 'bob tick: one ordered, configurable pass for Bob''s frequent background work'
+goal: 'One `bob tick` command runs Bob''s more-than-daily background work (gcal, gmail,
+  gkeep, refs, projects, tasks) in a fixed order. Each step has its own cadence, set
+  in chezmoi''s Bob config. The Mac''s four staggered cron jobs become one 5-minute
+  `bob-tick` job. Automated `bob gcal sync` runs stay at least an hour apart, and
+  the command''s output, status board, and receipt explain what ran, what waited,
+  and why.
 
-  "
+  '
 decisions:
   command_name:
     ask: Which name should the new orchestrator command use?
     choices:
-      tick:
-        One scheduler beat per cron run; crisp in crontab, help, and logs; the research
-        pick
-      tend:
-        Frequent light care beside nightly; no vocabulary collisions; needs a gloss on
-        first read
+      tick: One scheduler beat per cron run; crisp in crontab, help, and logs; the
+        research pick
+      tend: Frequent light care beside nightly; no vocabulary collisions; needs a
+        gloss on first read
     default: tick
     why: Says what each run is (run what's due); 4 letters; no command collisions
     answer: tick
   decision_record:
-    ask:
-      Add a decisions-web record for the one-ordered-pass design (rejected alternatives
+    ask: Add a decisions-web record for the one-ordered-pass design (rejected alternatives
       included)?
     memory:
-      - decisions:frequent-work-is-one-ordered-pass
-    requested:
-      Review the bob_periodic_orchestrator.md file in the research sidecar repo for
-      context and inspiration before planning. I agree with all of the requirements
+    - decisions:frequent-work-is-one-ordered-pass
+    requested: Review the bob_periodic_orchestrator.md file in the research sidecar
+      repo for context and inspiration before planning. I agree with all of the requirements
       recommended in that research file
     default: true
     answer: false
 phases:
-  - id: engine
-    title: Engine, CLI, and the three views
-    depends_on: []
-    size: medium
-    description:
-      "engine: add src/native/tick/ with the strict tick: config block, the fixed
-      six-step catalog, the pure planner, atomic host-local state, the run lock,
-      subprocess supervision (SIGTERM, grace, SIGKILL; signal forwarding), generic
-      exit-code outcomes, the run, -d, -s, -q, and -f json views, the last.json receipt
-      with a Darwin notification, writer pinning, CLI registration in the Vault section,
-      generated CLI docs, and fake-step integration tests."
-  - id: gates
-    title: Step gates and per-step adapters
-    depends_on:
-      - engine
-    size: medium
-    description:
-      "gates: add the today's-note readiness gate for gcal and tasks; gcal's once-a-day
-      yesterday sync and its cooldown shared with gcal's host status; the refs change
-      gate (lib/xlib listing fingerprint, pre-scan hook, 6h ceiling); an additive gmail
-      JSON busy field mapped to waiting; per-step JSON adapters with one-line summaries;
-      and gate reasons in -d."
-  - id: chezmoi_config
-    title: Pin cadences in chezmoi
-    depends_on:
-      - engine
-    size: xsmall
-    description:
-      "chezmoi_config: add the commented tick: block (gcal 1h, gmail 1h, gkeep manual,
-      refs, projects, tasks 15m) to the chezmoi Bob config, update the gcal comment, and
-      validate it against the engine build and an older bob."
-  - id: docs
-    title: Contract page, decision record, and the bob sync tip
-    depends_on:
-      - gates
-    size: small
-    description:
-      "docs: write the docs/tick.md behavior contract with its mkdocs nav entry, add
-      cross-links from the step commands' pages, add the migration-notes line and the
-      unknown `bob sync` tip, and author the decisions-web record, then regenerate docs."
-  - id: mac_cutover
-    title: Mac cron cutover
-    depends_on:
-      - gates
-      - chezmoi_config
-      - docs
-    size: small
-    description:
-      "mac_cutover: once the Mac's bob has the gates build (wait with a monitor if not),
-      replace the four Mac cron jobs with one */5 bob-tick job, delete the Highlights
-      shell wrapper and its test, update the Mac-schedule doc sections, converge with
-      cronctl, verify, and remove the stale bob_sync wrappers."
+- id: engine
+  title: Engine, CLI, and the three views
+  depends_on: []
+  size: medium
+  description: 'engine: add src/native/tick/ with the strict tick: config block, the
+    fixed six-step catalog, the pure planner, atomic host-local state, the run lock,
+    subprocess supervision (SIGTERM, grace, SIGKILL; signal forwarding), generic exit-code
+    outcomes, the run, -d, -s, -q, and -f json views, the last.json receipt with a
+    Darwin notification, writer pinning, CLI registration in the Vault section, generated
+    CLI docs, and fake-step integration tests.'
+- id: gates
+  title: Step gates and per-step adapters
+  depends_on:
+  - engine
+  size: medium
+  description: 'gates: add the today''s-note readiness gate for gcal and tasks; gcal''s
+    once-a-day yesterday sync and its cooldown shared with gcal''s host status; the
+    refs change gate (lib/xlib listing fingerprint, pre-scan hook, 6h ceiling); an
+    additive gmail JSON busy field mapped to waiting; per-step JSON adapters with
+    one-line summaries; and gate reasons in -d.'
+- id: chezmoi_config
+  title: Pin cadences in chezmoi
+  depends_on:
+  - engine
+  size: xsmall
+  description: 'chezmoi_config: add the commented tick: block (gcal 1h, gmail 1h,
+    gkeep manual, refs, projects, tasks 15m) to the chezmoi Bob config, update the
+    gcal comment, and validate it against the engine build and an older bob.'
+- id: docs
+  title: Contract page, decision record, and the bob sync tip
+  depends_on:
+  - gates
+  size: small
+  description: 'docs: write the docs/tick.md behavior contract with its mkdocs nav
+    entry, add cross-links from the step commands'' pages, add the migration-notes
+    line and the unknown `bob sync` tip, and author the decisions-web record, then
+    regenerate docs.'
+- id: mac_cutover
+  title: Mac cron cutover
+  depends_on:
+  - gates
+  - chezmoi_config
+  - docs
+  size: small
+  description: 'mac_cutover: once the Mac''s bob has the gates build (wait with a
+    monitor if not), replace the four Mac cron jobs with one */5 bob-tick job, delete
+    the Highlights shell wrapper and its test, update the Mac-schedule doc sections,
+    converge with cronctl, verify, and remove the stale bob_sync wrappers.'
 proposed_by: bbugyi200.athena.1e2
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-18 13:06:49
 status: wip
+bead_id: bob-cli-nb
 ---
 
-- **PROMPT:**
-  [prompts/202611/bob_tick.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_tick.md)
+- **PROMPT:** [prompts/202611/bob_tick.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bob_tick.md)
+- **BEAD:** [bob-cli-nb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nb/README.md)
 
 # Plan: `bob tick` — one ordered pass for Bob's frequent background work
 
