@@ -1,104 +1,95 @@
 ---
 tier: epic
 title: Review attention follows the ]s walk
-goal: "The s selector dot, the selected-s ink, Bob Mac Capture's s mark, and bob walks
-  all light exactly when ]s has a row to land on, ROTTEN and POST included, wearing the
-  hue of the group ]s enters first, with POST finally given a color.
+goal: 'The s selector dot, the selected-s ink, Bob Mac Capture''s s mark, and bob
+  walks all light exactly when ]s has a row to land on, ROTTEN and POST included,
+  wearing the hue of the group ]s enters first, with POST finally given a color.
 
-  "
+  '
 decisions:
   post_hue:
-    ask:
-      Should POST share PRE's cyan, so the review opens and closes in the same checklist
-      color?
+    ask: Should POST share PRE's cyan, so the review opens and closes in the same
+      checklist color?
     choices:
-      bookends:
-        POST joins PRE's cyan; the walk opens and closes in one hue, PRE/POST text tells
-        them apart
-      dusk:
-        POST gets its own indigo dusk hue; distinct from PRE, but near TICKLER blue and
-        PROJECTS purple
+      bookends: POST joins PRE's cyan; the walk opens and closes in one hue, PRE/POST
+        text tells them apart
+      dusk: POST gets its own indigo dusk hue; distinct from PRE, but near TICKLER
+        blue and PROJECTS purple
     default: bookends
-    why:
-      PRE/POST are one row kind sharing teal marks in notes; a ninth hue blurs at dot
-      size
+    why: PRE/POST are one row kind sharing teal marks in notes; a ninth hue blurs
+      at dot size
     answer: bookends
   s_count:
-    ask:
-      Should the Mac `s` mark count every row `]s` can still land on (Bob's walk total)?
+    ask: Should the Mac `s` mark count every row `]s` can still land on (Bob's walk
+      total)?
     choices:
-      walk:
-        The count is the walk total; nonzero exactly when lit, matching the footer's
+      walk: The count is the walk total; nonzero exactly when lit, matching the footer's
         Review r/N
-      commitments:
-        The count stays the commitment total; a ROTTEN- or POST-only mark shows bare
+      commitments: The count stays the commitment total; a ROTTEN- or POST-only mark
+        shows bare
     default: walk
     why: one number that drops with every answer and never reads 0 on a lit mark
     answer: walk
   memory_attention_decision:
-    ask:
-      Should the record phase add a decision record for the new s predicate and mark the
-      old one superseded?
+    ask: Should the record phase add a decision record for the new s predicate and
+      mark the old one superseded?
     memory:
-      - decisions:Idle Capture Mirrors Walk Attention
-      - decisions:review-attention-follows-the-walk
+    - decisions:Idle Capture Mirrors Walk Attention
+    - decisions:review-attention-follows-the-walk
     default: true
-    corrects: "`s` carries Bob's due commitment count and `b` its waiting-row count"
+    corrects: '`s` carries Bob''s due commitment count and `b` its waiting-row count'
     answer: true
   memory_glossary:
-    ask:
-      Should the record phase correct the Walker Footer and Morning GTD Review Footer
-      strands' `s` dot rule?
+    ask: Should the record phase correct the Walker Footer and Morning GTD Review
+      Footer strands' `s` dot rule?
     memory:
-      - glossary:Walker Footer
-      - glossary:Morning GTD Review Footer
+    - glossary:Walker Footer
+    - glossary:Morning GTD Review Footer
     default: true
-    corrects: "Off-family dots mark the selector: `s` while review commitments are due"
+    corrects: 'Off-family dots mark the selector: `s` while review commitments are
+      due'
     answer: true
 phases:
-  - id: cli-contract
-    title: "bob walks: s attention follows the ]s walk"
-    size: medium
-    depends_on: []
-    description:
-      "cli-contract: bob walks lights s iff walk > 0, picks the first of nine tiers,
-      adds the three label forms, ROTTEN/POST hues, docs/walks.md S1-S7 vectors, and
-      tests."
-  - id: obsidian-attention
-    title: "Obsidian: selector dot, ink, and footer hues follow the ]s walk"
-    size: medium
-    depends_on: []
-    description:
-      "obsidian-attention: ledger push follows the walk, POST gets its hue, nav selector
-      gains rotten/post tiers, vectors plus a dot-iff-not-clear parity test, previews,
-      docs, sync."
-  - id: mac-marks
-    title: "Mac Capture: s mark shows for every landable walk"
-    size: medium
-    depends_on: []
-    description:
-      "mac-marks: WalkAttentionTone gains rotten/post, the s count reads walk, tests and
-      docs follow, and macOS CI runs green."
-  - id: record
-    title: Record the decision, fix the glossary, regenerate docs, verify parity
-    size: small
-    depends_on:
-      - cli-contract
-      - obsidian-attention
-      - mac-marks
-    description:
-      "record: new decision record plus supersession mark, two glossary fixes, memory
-      init and docs-gen, and an end-to-end parity check."
+- id: cli-contract
+  title: 'bob walks: s attention follows the ]s walk'
+  size: medium
+  depends_on: []
+  description: 'cli-contract: bob walks lights s iff walk > 0, picks the first of
+    nine tiers, adds the three label forms, ROTTEN/POST hues, docs/walks.md S1-S7
+    vectors, and tests.'
+- id: obsidian-attention
+  title: 'Obsidian: selector dot, ink, and footer hues follow the ]s walk'
+  size: medium
+  depends_on: []
+  description: 'obsidian-attention: ledger push follows the walk, POST gets its hue,
+    nav selector gains rotten/post tiers, vectors plus a dot-iff-not-clear parity
+    test, previews, docs, sync.'
+- id: mac-marks
+  title: 'Mac Capture: s mark shows for every landable walk'
+  size: medium
+  depends_on: []
+  description: 'mac-marks: WalkAttentionTone gains rotten/post, the s count reads
+    walk, tests and docs follow, and macOS CI runs green.'
+- id: record
+  title: Record the decision, fix the glossary, regenerate docs, verify parity
+  size: small
+  depends_on:
+  - cli-contract
+  - obsidian-attention
+  - mac-marks
+  description: 'record: new decision record plus supersession mark, two glossary fixes,
+    memory init and docs-gen, and an end-to-end parity check.'
 proposed_by: bbugyi200.athena.1dx
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-18 09:48:00
 status: wip
+bead_id: bob-cli-n8
 ---
 
-- **PROMPT:**
-  [prompts/202611/review_attention_follows_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/review_attention_follows_walk.md)
+- **PROMPT:** [prompts/202611/review_attention_follows_walk.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/review_attention_follows_walk.md)
+- **BEAD:** [bob-cli-n8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-n8/README.md)
 
 # Review attention follows the `]s` walk
 
