@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_w_count_supersession",
+      "kind": "toggle",
+      "ask": "Should the decisions web record the w count as a new strand that partly supersedes the bare-w claim?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:idle-capture-mirrors-walk-attention",
+          "decisions:w-count-reads-lane-excess"
+        ]
+      },
+      "corrects": "`w` stays bare because its report label names the over-limit lanes.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:idle-capture-mirrors-walk-attention",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Idle Capture Mirrors Walk Attention"
+          ]
+        },
+        {
+          "selector": "decisions:w-count-reads-lane-excess",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/w-count-reads-lane-excess.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
