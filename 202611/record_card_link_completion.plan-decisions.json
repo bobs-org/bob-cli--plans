@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "field_value_links",
+      "kind": "choice",
+      "ask": "Should free-text record field values (like a zettel's claim::) also complete [[ note links and (( task links?",
+      "why": "Claim-style fields are prose, and links typed into them already capture and store correctly",
+      "choices": [
+        {
+          "key": "prose_links",
+          "label": "bob hands open [[/(( tokens in non-suggest Text values to link completion; docs updated"
+        },
+        {
+          "key": "values_own",
+          "label": "Values keep owning [[/(( as documented; only title lines and note bullets complete (Mac-only)"
+        }
+      ],
+      "default": "prose_links",
+      "effective_default": "prose_links",
+      "requested_verified": false
+    }
+  ]
+}
