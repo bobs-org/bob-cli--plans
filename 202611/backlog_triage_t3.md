@@ -1,60 +1,53 @@
 ---
 tier: epic
-title:
-  "Backlog triage T3: capture safety, reply recipients, docs, and ranker verification"
-goal:
-  Resolve five existing defects without changing capture grammar or writing to live
-  services, then continue the five-task backlog chain.
+title: 'Backlog triage T3: capture safety, reply recipients, docs, and ranker verification'
+goal: Resolve five existing defects without changing capture grammar or writing to
+  live services, then continue the five-task backlog chain.
 phases:
-  - id: glossary-drift
-    title: Refresh the generated Capture Alias glossary
-    size: small
-    description:
-      "glossary-drift: Resolve bob-cli-mz by regenerating the glossary and passing the
-      documentation gate."
-    depends_on: []
-  - id: short-flags
-    title: Refuse unknown short options before capture text
-    size: medium
-    description:
-      "short-flags: Resolve the remaining short-option half of bob-cli-8a without
-      rejecting capture operators or literal text."
-    depends_on:
-      - glossary-drift
-  - id: record-literals
-    title: Keep record field punctuation literal during rewrite
-    size: medium
-    description:
-      "record-literals: Resolve bob-cli-ja at the shared rewrite/completion boundary
-      with record-value parity tests."
-    depends_on:
-      - short-flags
-  - id: reply-to
-    title: Honor Reply-To when drafting plain Gmail replies
-    size: medium
-    description:
-      "reply-to: Resolve bob-cli-ia with fake-gog coverage while preserving self-sent
-      and reply-all behavior."
-    depends_on:
-      - record-literals
-  - id: ranker-measurement
-    title: Stabilize the dependency-stage ranker performance gate
-    size: medium
-    description:
-      "ranker-measurement: resolve bob-cli-3w with meaningful load-independent
-      regression measurement."
-    depends_on:
-      - reply-to
+- id: glossary-drift
+  title: Refresh the generated Capture Alias glossary
+  size: small
+  description: 'glossary-drift: Resolve bob-cli-mz by regenerating the glossary and
+    passing the documentation gate.'
+  depends_on: []
+- id: short-flags
+  title: Refuse unknown short options before capture text
+  size: medium
+  description: 'short-flags: Resolve the remaining short-option half of bob-cli-8a
+    without rejecting capture operators or literal text.'
+  depends_on:
+  - glossary-drift
+- id: record-literals
+  title: Keep record field punctuation literal during rewrite
+  size: medium
+  description: 'record-literals: Resolve bob-cli-ja at the shared rewrite/completion
+    boundary with record-value parity tests.'
+  depends_on:
+  - short-flags
+- id: reply-to
+  title: Honor Reply-To when drafting plain Gmail replies
+  size: medium
+  description: 'reply-to: Resolve bob-cli-ia with fake-gog coverage while preserving
+    self-sent and reply-all behavior.'
+  depends_on:
+  - record-literals
+- id: ranker-measurement
+  title: Stabilize the dependency-stage ranker performance gate
+  size: medium
+  description: 'ranker-measurement: resolve bob-cli-3w with meaningful load-independent
+    regression measurement.'
+  depends_on:
+  - reply-to
 proposed_by: bbugyi200.athena.bob-cli-my.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-17 22:21:53
 status: wip
+bead_id: bob-cli-n5
 ---
 
-- **PROMPT:**
-  [prompts/202611/backlog_triage_t3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t3.md)
-- **PARENT:**
-  [202611/backlog_triage_t2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t2.md)
+- **PROMPT:** [prompts/202611/backlog_triage_t3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/backlog_triage_t3.md)
+- **PARENT:** [202611/backlog_triage_t2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/backlog_triage_t2.md)
+- **BEAD:** [bob-cli-n5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-n5/README.md)
 
 # Backlog triage T3
 
