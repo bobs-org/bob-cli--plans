@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "bank_uppercase_hotkeys",
+      "kind": "choice",
+      "ask": "Should bank Setup category hotkeys match uppercase letters again now that Shift+J/K no longer jump?",
+      "why": "bob-cli stores hotkeys as lowercase [a-z0-9], and keeping Shift+letter free costs nothing",
+      "choices": [
+        {
+          "key": "keep",
+          "label": "Shift+letter and Caps Lock letters select nothing, as the bank docs promise today"
+        },
+        {
+          "key": "restore",
+          "label": "Pre-epic case-insensitive matching returns; Shift+K selects \ud83d\ude97 Car again"
+        }
+      ],
+      "default": "keep",
+      "effective_default": "keep",
+      "requested_verified": false
+    }
+  ]
+}
