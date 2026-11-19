@@ -2,14 +2,12 @@
 tier: tale
 size: medium
 title: Finish literal YAML integration and land the Record Card proof epic
-goal:
-  Stored literal lists agree across record reads, warnings and album grouping, and epic
-  bob-cli-ms.8.3.1 plus parent phase bob-cli-ms.8.3 are verified and closed.
+goal: Stored literal lists agree across record reads, warnings and album grouping,
+  and epic bob-cli-ms.8.3.1 plus parent phase bob-cli-ms.8.3 are verified and closed.
 proposed_by: bbugyi200.apollo.bob-cli-ms.8.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ms.8.3.1
-create_time: 2026-11-19 07:18:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
