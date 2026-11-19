@@ -1,61 +1,56 @@
 ---
 tier: epic
 title: Preserve intention links through vault rewrites
-goal:
-  Links inside daily and period intentions, summaries, and reflections survive archive,
-  task, and reference rewrites with valid YAML and correct provenance; the shared
-  periods problems report identifies malformed or stale period text.
+goal: Links inside daily and period intentions, summaries, and reflections survive
+  archive, task, and reference rewrites with valid YAML and correct provenance; the
+  shared periods problems report identifies malformed or stale period text.
 phases:
-  - id: owned_repair
-    title: Verified owned-field repair, archive integration, and digest carry
-    size: medium
-    depends_on: []
-    description:
-      "owned_repair: add a pure canonical-note adapter that rewrites only stored
-      intentions, summary, and reflection through the verified fields writer. Integrate
-      moved block and archive-rename repair, extend draft digest carry, and test YAML
-      preservation and archive behavior."
-  - id: task_repair
-    title: Task move, merge, and split link parity
-    size: medium
-    depends_on:
-      - owned_repair
-    description:
-      "task_repair: cover task move source/destination/bystander notes, preserve merge's
-      retained source identities, and repair cross-note split anchors using the shared
-      adapter and existing body resolvers. Verify previews, postimages, counts, cursor
-      positions, and drafted versus edited/reflected provenance."
-  - id: reference_repair
-    title: Reference rename and overwrite owned-field repair
-    size: medium
-    depends_on:
-      - owned_repair
-    description:
-      "reference_repair: route canonical daily and period owned fields through typed
-      verified repair in the reference link planner, including its overwrite and
-      highlight-only callers. Preserve selectors, ambiguity handling, preview evidence,
-      and unrelated YAML; restamp only eligible drafted notes."
-  - id: findings
-    title: Period field findings and public documentation
-    size: medium
-    depends_on:
-      - owned_repair
-    description:
-      "findings: add dangling_period_link, intentions_shape, intentions_over_soft_cap,
-      and legacy_period_text to the shared report-only collector for canonical daily and
-      period notes. Test human/JSON/nightly behavior, document the contract, and
-      regenerate CLI documentation."
+- id: owned_repair
+  title: Verified owned-field repair, archive integration, and digest carry
+  size: medium
+  depends_on: []
+  description: 'owned_repair: add a pure canonical-note adapter that rewrites only
+    stored intentions, summary, and reflection through the verified fields writer.
+    Integrate moved block and archive-rename repair, extend draft digest carry, and
+    test YAML preservation and archive behavior.'
+- id: task_repair
+  title: Task move, merge, and split link parity
+  size: medium
+  depends_on:
+  - owned_repair
+  description: 'task_repair: cover task move source/destination/bystander notes, preserve
+    merge''s retained source identities, and repair cross-note split anchors using
+    the shared adapter and existing body resolvers. Verify previews, postimages, counts,
+    cursor positions, and drafted versus edited/reflected provenance.'
+- id: reference_repair
+  title: Reference rename and overwrite owned-field repair
+  size: medium
+  depends_on:
+  - owned_repair
+  description: 'reference_repair: route canonical daily and period owned fields through
+    typed verified repair in the reference link planner, including its overwrite and
+    highlight-only callers. Preserve selectors, ambiguity handling, preview evidence,
+    and unrelated YAML; restamp only eligible drafted notes.'
+- id: findings
+  title: Period field findings and public documentation
+  size: medium
+  depends_on:
+  - owned_repair
+  description: 'findings: add dangling_period_link, intentions_shape, intentions_over_soft_cap,
+    and legacy_period_text to the shared report-only collector for canonical daily
+    and period notes. Test human/JSON/nightly behavior, document the contract, and
+    regenerate CLI documentation.'
 proposed_by: bbugyi200.athena.bob-cli-nh.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-nh.4
 create_time: 2026-11-19 13:01:11
 status: wip
+bead_id: bob-cli-nh.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/intention_link_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/intention_link_repair.md)
-- **PARENT:**
-  [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **PROMPT:** [prompts/202611/intention_link_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/intention_link_repair.md)
+- **PARENT:** [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **BEAD:** [bob-cli-nh.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nh/bob-cli-nh.4.1.md)
 
 # Preserve intention links through vault rewrites
 
