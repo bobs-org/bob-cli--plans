@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Copy-chip authoring card and Alt+Click editing
-goal:
-  Complete bob-cli-ni.5 with exact previewed copy-chip creation, conversion, and editing
-  in one undo step.
+goal: Complete bob-cli-ni.5 with exact previewed copy-chip creation, conversion, and
+  editing in one undo step.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ni.5
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ni.5
-create_time: 2026-11-19 12:50:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
