@@ -1,62 +1,57 @@
 ---
 tier: epic
 title: Complete the intention card and editor
-goal:
-  Daily and period notes show the intention property card, all approved card-editor
+goal: Daily and period notes show the intention property card, all approved card-editor
   gestures write through guarded bob updates, and the plugins are deployed with real
   Obsidian acceptance evidence for bob-cli-nh.7.
 phases:
-  - id: display
-    title: Intention card model, property-card host, and visual previews
-    size: medium
-    depends_on: []
-    description:
-      "display: implement the canonical subject and metadata models, digest parity,
-      placement anchors, and intention display on the landed property-card host; include
-      parent and recent-closed lines, fail-open ownership, unit coverage, and reviewed
-      light/dark/narrow previews. Build, validate, and sync plugins."
-  - id: editor
-    title: Guarded intention card editor and field stages
-    size: medium
-    depends_on:
-      - display
-    description:
-      "editor: adapt createGuardedUpdateSession to bob periods update, build the browse
-      modal and intention/reflection/summary stages, register the intentions card kind,
-      and implement add/edit/reorder/remove/Undo with preview/apply, draft retention,
-      and overlays. Test real writer round trips, build, and sync."
-  - id: navigation
-    title: Period navigation, YAML excursion, command entry points, and docs
-    size: medium
-    depends_on:
-      - editor
-    description:
-      "navigation: add in-place parent and sibling navigation, missing-note states, the
-      intentions YAML excursion, Edit intentions and Reflect on yesterday
-      palette/Command Mode entries, and the non-Vim fallback. Document the complete card
-      in docs/intention-card.md and nav; test, regenerate, and sync plugins."
-  - id: acceptance
-    title: Real Obsidian acceptance and final plugin deployment
-    size: medium
-    depends_on:
-      - navigation
-    description:
-      "acceptance: add the isolated intention-card CDP runner and offline wrapper, prove
-      mounting, both yesterday gestures, field edits/Undo, navigation/YAML, stale
-      drafts, and fail-open behavior with a current real bob binary. Run regression and
-      docs gates, inspect screenshots, deploy and verify provenance, and provide
-      closeout evidence for bob-cli-nh.7 without closing ancestors."
+- id: display
+  title: Intention card model, property-card host, and visual previews
+  size: medium
+  depends_on: []
+  description: 'display: implement the canonical subject and metadata models, digest
+    parity, placement anchors, and intention display on the landed property-card host;
+    include parent and recent-closed lines, fail-open ownership, unit coverage, and
+    reviewed light/dark/narrow previews. Build, validate, and sync plugins.'
+- id: editor
+  title: Guarded intention card editor and field stages
+  size: medium
+  depends_on:
+  - display
+  description: 'editor: adapt createGuardedUpdateSession to bob periods update, build
+    the browse modal and intention/reflection/summary stages, register the intentions
+    card kind, and implement add/edit/reorder/remove/Undo with preview/apply, draft
+    retention, and overlays. Test real writer round trips, build, and sync.'
+- id: navigation
+  title: Period navigation, YAML excursion, command entry points, and docs
+  size: medium
+  depends_on:
+  - editor
+  description: 'navigation: add in-place parent and sibling navigation, missing-note
+    states, the intentions YAML excursion, Edit intentions and Reflect on yesterday
+    palette/Command Mode entries, and the non-Vim fallback. Document the complete
+    card in docs/intention-card.md and nav; test, regenerate, and sync plugins.'
+- id: acceptance
+  title: Real Obsidian acceptance and final plugin deployment
+  size: medium
+  depends_on:
+  - navigation
+  description: 'acceptance: add the isolated intention-card CDP runner and offline
+    wrapper, prove mounting, both yesterday gestures, field edits/Undo, navigation/YAML,
+    stale drafts, and fail-open behavior with a current real bob binary. Run regression
+    and docs gates, inspect screenshots, deploy and verify provenance, and provide
+    closeout evidence for bob-cli-nh.7 without closing ancestors.'
 proposed_by: bbugyi200.athena.bob-cli-nh.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-nh.7
 create_time: 2026-11-19 18:17:35
 status: wip
+bead_id: bob-cli-nh.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/intention_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/intention_card.md)
-- **PARENT:**
-  [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **PROMPT:** [prompts/202611/intention_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/intention_card.md)
+- **PARENT:** [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **BEAD:** [bob-cli-nh.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nh/bob-cli-nh.7.1.md)
 
 # Complete the intention card and editor
 
