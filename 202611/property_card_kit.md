@@ -1,52 +1,48 @@
 ---
 tier: epic
 title: Extract the shared property-card kit
-goal:
-  Album, record, and bank cards share property ownership, editor registration, host
-  lifecycle, and chrome while preserving their behavior and appearance; the verified and
-  deployed kit unblocks the intention-card phase.
+goal: Album, record, and bank cards share property ownership, editor registration,
+  host lifecycle, and chrome while preserving their behavior and appearance; the verified
+  and deployed kit unblocks the intention-card phase.
 phases:
-  - id: ownership
-    title: Shared property ownership and card editor registry
-    size: medium
-    depends_on: []
-    description:
-      "ownership: capture the unchanged album, record, and bank acceptance baseline,
-      generalize selective property hiding into propertyCardOwnKeys, and replace the
-      closed double-equals dispatch with registerPropertyCard. Migrate all three cards,
-      preserving existing assertions, gates, command identities, and editor behavior."
-  - id: host
-    title: Shared Reading and Live Preview host lifecycle
-    size: medium
-    depends_on:
-      - ownership
-    description:
-      "host: extract createPropertyCardHost and move album, record, and bank lifecycle
-      plumbing onto it. Preserve species models, anchors, caches, record-walk
-      integration, Source-mode bank lint, embed display behavior, and cleanup."
-  - id: chrome
-    title: Shared property-card chrome and precise documentation
-    size: medium
-    depends_on:
-      - host
-    description:
-      "chrome: consolidate property-card chrome and hue tokens without changing pixels,
-      align the three plugin references around card versus card editor, and document the
-      extension API for the intention-card phase. Compare final screenshots to the
-      original baseline, run the complete acceptance gates, and deploy with bob plugins
-      sync. Prepare completion evidence for the land agent; do not close bob-cli-nh.6 or
-      bob-cli-nh from a child phase."
+- id: ownership
+  title: Shared property ownership and card editor registry
+  size: medium
+  depends_on: []
+  description: 'ownership: capture the unchanged album, record, and bank acceptance
+    baseline, generalize selective property hiding into propertyCardOwnKeys, and replace
+    the closed double-equals dispatch with registerPropertyCard. Migrate all three
+    cards, preserving existing assertions, gates, command identities, and editor behavior.'
+- id: host
+  title: Shared Reading and Live Preview host lifecycle
+  size: medium
+  depends_on:
+  - ownership
+  description: 'host: extract createPropertyCardHost and move album, record, and bank
+    lifecycle plumbing onto it. Preserve species models, anchors, caches, record-walk
+    integration, Source-mode bank lint, embed display behavior, and cleanup.'
+- id: chrome
+  title: Shared property-card chrome and precise documentation
+  size: medium
+  depends_on:
+  - host
+  description: 'chrome: consolidate property-card chrome and hue tokens without changing
+    pixels, align the three plugin references around card versus card editor, and
+    document the extension API for the intention-card phase. Compare final screenshots
+    to the original baseline, run the complete acceptance gates, and deploy with bob
+    plugins sync. Prepare completion evidence for the land agent; do not close bob-cli-nh.6
+    or bob-cli-nh from a child phase.'
 proposed_by: bbugyi200.athena.bob-cli-nh.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-nh.6
 create_time: 2026-11-19 09:44:33
 status: wip
+bead_id: bob-cli-nh.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_card_kit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_kit.md)
-- **PARENT:**
-  [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **PROMPT:** [prompts/202611/property_card_kit.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_kit.md)
+- **PARENT:** [202611/period_intentions.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/period_intentions.md)
+- **BEAD:** [bob-cli-nh.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nh/bob-cli-nh.6.1.md)
 
 # Plan: Extract the property-card kit without changing the existing cards
 
