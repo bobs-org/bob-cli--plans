@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "generation_mirror",
+      "kind": "choice",
+      "ask": "Retire the Python copy of clan-generation matching so cancellation trusts the pinned Rust policy?",
+      "why": "Pinned core 6f8f016e already has the veto; rust-core-required forbids a Python copy",
+      "choices": [
+        {
+          "key": "retire",
+          "label": "Rust answer only; five helpers and two old-pin skips go; sase-1tm closes as done"
+        },
+        {
+          "key": "keep",
+          "label": "Python copy and veto stay; sase-1tm gets a note and stays ready for triage"
+        }
+      ],
+      "default": "retire",
+      "effective_default": "retire",
+      "requested_verified": false
+    }
+  ]
+}
