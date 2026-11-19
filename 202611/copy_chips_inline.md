@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Inline copy chips in Live Preview and Reading view
-goal: Render and copy inline chips with exact payloads, stable feedback, a shared
-  cursor API, and verified deployment for bob-cli-ni.2.
+goal:
+  Render and copy inline chips with exact payloads, stable feedback, a shared cursor
+  API, and verified deployment for bob-cli-ni.2.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ni.2
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/copy_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/copy_chips.md)
 - **BEAD:**
   [bob-cli-ni.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ni/bob-cli-ni.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ni.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ni.2.md)
+- **COMMITS:**
+  - [76fa3f9](https://github.com/bobs-org/bob-plugins/commit/76fa3f92a7db0131fdb99dbd8d899e54f330e160)
+    — feat(bob-copy-chips): inline copy chips in Live Preview and Reading view
 
 # Inline copy chips in Live Preview and Reading view
 
