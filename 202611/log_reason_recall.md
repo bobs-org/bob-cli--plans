@@ -1,136 +1,124 @@
 ---
 tier: epic
-title:
-  "Log Recall: Ctrl+N/P phrase history for Schedule, Work, Rotten, and Cancel Log
-  prompts"
+title: 'Log Recall: Ctrl+N/P phrase history for Schedule, Work, Rotten, and Cancel
+  Log prompts'
 goal: 'Every free-text prompt in Obsidian and Bob Mac Capture that writes a Schedule,
-  Work, Rotten, or Cancel Log entry can reuse a reason typed earlier for any task in two
-  keystrokes. Ctrl+N/P move through a visible "USED BEFORE" band that is filtered by the
-  draft and ranked by recent and frequent use. The band fills the field, and Enter still
-  writes exactly the text the field shows. The four histories are derived read-only from
-  the vault by `bob logs list`, so they need no new store, have no cold start, and pick
-  up note edits and deletions on their own.
+  Work, Rotten, or Cancel Log entry can reuse a reason typed earlier for any task
+  in two keystrokes. Ctrl+N/P move through a visible "USED BEFORE" band that is filtered
+  by the draft and ranked by recent and frequent use. The band fills the field, and
+  Enter still writes exactly the text the field shows. The four histories are derived
+  read-only from the vault by `bob logs list`, so they need no new store, have no
+  cold start, and pick up note edits and deletions on their own.
 
   '
 decisions:
   memory_decision_record:
-    ask:
-      Add a decision record for Log Recall (vault-derived history, fill-on-navigate
+    ask: Add a decision record for Log Recall (vault-derived history, fill-on-navigate
       band) after all phases land?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
   memory_glossary_term:
-    ask:
-      Add a "Log Recall" glossary term (aliases USED BEFORE band, reason recall) after
-      all phases land?
+    ask: Add a "Log Recall" glossary term (aliases USED BEFORE band, reason recall)
+      after all phases land?
     memory:
-      - glossary
+    - glossary
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: logs-catalog
-    title: "bob-cli: vault-derived log phrase catalog and `bob logs list`"
-    depends_on: []
-    size: medium
-    description:
-      "logs-catalog: add a cached scanner over task Schedule, Work, Rotten, and Cancel
-      Logs. It filters out machine-written text using a classifier backed by a writer
-      registry test, then ranks by tiered literal match plus newest-pinned frecency. It
-      ships the read-only `bob logs list` (human and JSON output), the shared rank
-      vectors, and the docs/log-recall.md contract."
-  - id: recall-core
-    title: "bob-plugins: recall store, model, band decorator, and the Work Log modals"
-    depends_on:
-      - logs-catalog
-    size: medium
-    description:
-      "recall-core: add a ledger-tools `api.logs` store (stale-while-revalidate plus a
-      session overlay) and nav's pure model and `attachLogRecall` band decorator with
-      styles. Expose `api.logRecall` v1 and wire TaskLinkLanePromptModal,
-      LaneReleaseSummaryModal (which also gets the standard preview and footer), and
-      block-id-prompt's WorkSummaryPromptModal."
-  - id: picker-stages
-    title: "bob-plugins: Task Card picker log stages"
-    depends_on:
-      - recall-core
-    size: medium
-    description:
-      "picker-stages: attach recall to the schedule-review form (a Schedule reason field
-      and a Work summary field sharing one band that follows focus) and to the
-      schedule-work-log, lane-release-reason, and cancel-reason stages. Ctrl+N/P route
-      through the picker keydown mixin, Esc and Ctrl+[ back out in layers, and the
-      writers call noteUsed."
-  - id: rotten-and-successor
-    title: "bob-plugins: Rotten keep prompts and the successor inline cancel reason"
-    depends_on:
-      - recall-core
-    size: medium
-    description:
-      "rotten-and-successor: attach Rotten recall to RottenKeepReasonStage (single keep
-      and decay-card Stay) and to the batch keep form (which gets the standard footer).
-      Attach dense Cancel recall to the successor picker's inline reason, with a
-      blur-commit guard. Wire noteUsed into the rotten and successor-cancel writers."
-  - id: mac-cancel-recall
-    title: "bob-mac-capture: pull-in cancel reason recall"
-    depends_on:
-      - logs-catalog
-    size: medium
-    description:
-      "mac-cancel-recall: in CaptureCore, decode the `bob logs list` JSON and add the
-      ranking (tested against the vendored vectors), the recall state, and the band
-      presentation. Add a gated 3-row USED BEFORE band under CapturePullInReasonField,
-      plus router Ctrl+N/P and ↑/↓, Esc layering, and the blur guard. Gate on exact-SHA
-      macOS CI."
-  - id: capture-log-complete
-    title: "bob-cli: Work Log phrase completion in capture-complete"
-    depends_on:
-      - logs-catalog
-    size: medium
-    description:
-      "capture-log-complete: add an additive `pomodoro_close_log_summary` capture-parse
-      span and a `work_log` capture-complete context. Its history candidates replace
-      only the entry summary, never preselect, and require two typed characters."
-  - id: mac-worklog-recall
-    title: "bob-mac-capture: inline Work Log recall in the completion popup"
-    depends_on:
-      - capture-log-complete
-      - mac-cancel-recall
-    size: medium
-    description:
-      "mac-worklog-recall: request completion inside close-log summary spans, decode the
-      `work_log` context, and render USED BEFORE history rows. Return accepts only a
-      selected row; otherwise it keeps today's behavior. Gate on exact-SHA macOS CI."
-  - id: recall-memory
-    title: Decision record, glossary term, and cross-repo docs sweep
-    depends_on:
-      - picker-stages
-      - rotten-and-successor
-      - mac-worklog-recall
-    size: small
-    description:
-      "recall-memory: write the Log Recall decision record and glossary term through
-      /sase_memory_write, citing the landed commits. Verify that docs/log-recall.md, the
-      plugin reference, and the Mac docs agree with the shipped behavior."
+- id: logs-catalog
+  title: 'bob-cli: vault-derived log phrase catalog and `bob logs list`'
+  depends_on: []
+  size: medium
+  description: 'logs-catalog: add a cached scanner over task Schedule, Work, Rotten,
+    and Cancel Logs. It filters out machine-written text using a classifier backed
+    by a writer registry test, then ranks by tiered literal match plus newest-pinned
+    frecency. It ships the read-only `bob logs list` (human and JSON output), the
+    shared rank vectors, and the docs/log-recall.md contract.'
+- id: recall-core
+  title: 'bob-plugins: recall store, model, band decorator, and the Work Log modals'
+  depends_on:
+  - logs-catalog
+  size: medium
+  description: 'recall-core: add a ledger-tools `api.logs` store (stale-while-revalidate
+    plus a session overlay) and nav''s pure model and `attachLogRecall` band decorator
+    with styles. Expose `api.logRecall` v1 and wire TaskLinkLanePromptModal, LaneReleaseSummaryModal
+    (which also gets the standard preview and footer), and block-id-prompt''s WorkSummaryPromptModal.'
+- id: picker-stages
+  title: 'bob-plugins: Task Card picker log stages'
+  depends_on:
+  - recall-core
+  size: medium
+  description: 'picker-stages: attach recall to the schedule-review form (a Schedule
+    reason field and a Work summary field sharing one band that follows focus) and
+    to the schedule-work-log, lane-release-reason, and cancel-reason stages. Ctrl+N/P
+    route through the picker keydown mixin, Esc and Ctrl+[ back out in layers, and
+    the writers call noteUsed.'
+- id: rotten-and-successor
+  title: 'bob-plugins: Rotten keep prompts and the successor inline cancel reason'
+  depends_on:
+  - recall-core
+  size: medium
+  description: 'rotten-and-successor: attach Rotten recall to RottenKeepReasonStage
+    (single keep and decay-card Stay) and to the batch keep form (which gets the standard
+    footer). Attach dense Cancel recall to the successor picker''s inline reason,
+    with a blur-commit guard. Wire noteUsed into the rotten and successor-cancel writers.'
+- id: mac-cancel-recall
+  title: 'bob-mac-capture: pull-in cancel reason recall'
+  depends_on:
+  - logs-catalog
+  size: medium
+  description: 'mac-cancel-recall: in CaptureCore, decode the `bob logs list` JSON
+    and add the ranking (tested against the vendored vectors), the recall state, and
+    the band presentation. Add a gated 3-row USED BEFORE band under CapturePullInReasonField,
+    plus router Ctrl+N/P and ↑/↓, Esc layering, and the blur guard. Gate on exact-SHA
+    macOS CI.'
+- id: capture-log-complete
+  title: 'bob-cli: Work Log phrase completion in capture-complete'
+  depends_on:
+  - logs-catalog
+  size: medium
+  description: 'capture-log-complete: add an additive `pomodoro_close_log_summary`
+    capture-parse span and a `work_log` capture-complete context. Its history candidates
+    replace only the entry summary, never preselect, and require two typed characters.'
+- id: mac-worklog-recall
+  title: 'bob-mac-capture: inline Work Log recall in the completion popup'
+  depends_on:
+  - capture-log-complete
+  - mac-cancel-recall
+  size: medium
+  description: 'mac-worklog-recall: request completion inside close-log summary spans,
+    decode the `work_log` context, and render USED BEFORE history rows. Return accepts
+    only a selected row; otherwise it keeps today''s behavior. Gate on exact-SHA macOS
+    CI.'
+- id: recall-memory
+  title: Decision record, glossary term, and cross-repo docs sweep
+  depends_on:
+  - picker-stages
+  - rotten-and-successor
+  - mac-worklog-recall
+  size: small
+  description: 'recall-memory: write the Log Recall decision record and glossary term
+    through /sase_memory_write, citing the landed commits. Verify that docs/log-recall.md,
+    the plugin reference, and the Mac docs agree with the shipped behavior.'
 proposed_by: bbugyi200.apollo.f3
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-19 12:14:00
 status: wip
+bead_id: bob-cli-nj
 ---
 
-- **PROMPT:**
-  [prompts/202611/log_reason_recall.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/log_reason_recall.md)
+- **PROMPT:** [prompts/202611/log_reason_recall.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/log_reason_recall.md)
+- **BEAD:** [bob-cli-nj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nj/README.md)
 
 # Plan: Log Recall — Ctrl+N/P phrase history for log prompts
 
