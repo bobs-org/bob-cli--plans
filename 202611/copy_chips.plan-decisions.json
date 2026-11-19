@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Record a decision that copy chips are code spans whose payloads are literal text?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:copy-chips-are-code-spans"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:copy-chips-are-code-spans",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/copy-chips-are-code-spans.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_copy_chip",
+      "kind": "toggle",
+      "ask": "Add a Copy Chip glossary strand?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:copy-chip"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:copy-chip",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/copy-chip.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
