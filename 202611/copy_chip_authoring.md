@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Copy-chip authoring card and Alt+Click editing
-goal: Complete bob-cli-ni.5 with exact previewed copy-chip creation, conversion, and
-  editing in one undo step.
+goal:
+  Complete bob-cli-ni.5 with exact previewed copy-chip creation, conversion, and editing
+  in one undo step.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ni.5
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/copy_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/copy_chips.md)
 - **BEAD:**
   [bob-cli-ni.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ni/bob-cli-ni.5.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ni.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ni.5.md)
+- **COMMITS:**
+  - [ccc0f72](https://github.com/bobs-org/bob-plugins/commit/ccc0f724a1a9f0c41f411eca96f898243ca5a845)
+    — feat(bob-copy-chips): add make-or-edit card and Alt+Click edit
 
 # Copy-chip authoring card and Alt+Click editing
 
