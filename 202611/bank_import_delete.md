@@ -1,50 +1,46 @@
 ---
 tier: epic
-title: "bob bank import -D: import the week's downloads, then delete them"
-goal: "`bank import -D ~/Downloads/*.qfx`, typed into Bob Command Mode or a shell,
+title: 'bob bank import -D: import the week''s downloads, then delete them'
+goal: '`bank import -D ~/Downloads/*.qfx`, typed into Bob Command Mode or a shell,
   previews the import and the planned deletions. Ctrl+Enter imports the batch, then
-  permanently deletes exactly the source files bob parsed. It deletes them only if the
-  whole batch was recorded and each file is unchanged since bob read it. A refused or
-  failed import keeps every file, and the output says so.
+  permanently deletes exactly the source files bob parsed. It deletes them only if
+  the whole batch was recorded and each file is unchanged since bob read it. A refused
+  or failed import keeps every file, and the output says so.
 
-  "
+  '
 phases:
-  - id: expand
-    title: bob expands ~ and glob patterns in bank import FILE operands
-    depends_on: []
-    size: medium
-    description:
-      'expand: add a shared native::host_paths operand expander (tilde, literal-first
-      glob, dedupe, no-match refusal) and adopt it in bob bank import. Also light up the
-      "bank" Command Mode invalidation tag, filter completion to exports, add a macOS
-      privacy hint for unreadable files, and document file patterns.'
-  - id: delete
-    title: The -D/--delete flag, its delete gate, output, JSON, and docs
-    depends_on:
-      - expand
-    size: medium
-    description:
-      "delete: add -D/--delete with an up-front check of each file, a gate that deletes
-      only after the batch succeeds and only files whose bytes still match their digest,
-      per-file outcomes, colored human output, an additive JSON `delete` object, exit
-      codes, and the docs/bank.md and Monday guide rewrite."
-  - id: card
-    title: Bank card weekly-import button opens the Command Mode preview
-    depends_on:
-      - delete
-    size: small
-    description:
-      'card: in bob-plugins, turn the bank queue card''s static "Weekly import" footer
-      text into a one-click chip. The chip opens the Command Mode preview of `bank
-      import -D ~/Downloads/*.qfx` and shows a fallback notice only when Command Mode is
-      unavailable.'
+- id: expand
+  title: bob expands ~ and glob patterns in bank import FILE operands
+  depends_on: []
+  size: medium
+  description: 'expand: add a shared native::host_paths operand expander (tilde, literal-first
+    glob, dedupe, no-match refusal) and adopt it in bob bank import. Also light up
+    the "bank" Command Mode invalidation tag, filter completion to exports, add a
+    macOS privacy hint for unreadable files, and document file patterns.'
+- id: delete
+  title: The -D/--delete flag, its delete gate, output, JSON, and docs
+  depends_on:
+  - expand
+  size: medium
+  description: 'delete: add -D/--delete with an up-front check of each file, a gate
+    that deletes only after the batch succeeds and only files whose bytes still match
+    their digest, per-file outcomes, colored human output, an additive JSON `delete`
+    object, exit codes, and the docs/bank.md and Monday guide rewrite.'
+- id: card
+  title: Bank card weekly-import button opens the Command Mode preview
+  depends_on:
+  - delete
+  size: small
+  description: 'card: in bob-plugins, turn the bank queue card''s static "Weekly import"
+    footer text into a one-click chip. The chip opens the Command Mode preview of
+    `bank import -D ~/Downloads/*.qfx` and shows a fallback notice only when Command
+    Mode is unavailable.'
 decisions:
   memory_record:
-    ask:
-      Add a decisions:host-file-operands-expand-in-bob record for bob-side ~/glob
+    ask: Add a decisions:host-file-operands-expand-in-bob record for bob-side ~/glob
       expansion?
     memory:
-      - decisions:host-file-operands-expand-in-bob
+    - decisions:host-file-operands-expand-in-bob
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.5j.linker.w0
@@ -53,10 +49,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-19 14:47:04
 status: wip
+bead_id: bob-cli-no
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_import_delete.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_import_delete.md)
+- **PROMPT:** [prompts/202611/bank_import_delete.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_import_delete.md)
+- **BEAD:** [bob-cli-no](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-no/README.md)
 
 # bob bank import -D: import the week's downloads, then delete them
 
