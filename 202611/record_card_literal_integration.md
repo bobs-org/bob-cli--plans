@@ -2,8 +2,9 @@
 tier: tale
 size: medium
 title: Finish literal YAML integration and land the Record Card proof epic
-goal: Stored literal lists agree across record reads, warnings and album grouping,
-  and epic bob-cli-ms.8.3.1 plus parent phase bob-cli-ms.8.3 are verified and closed.
+goal:
+  Stored literal lists agree across record reads, warnings and album grouping, and epic
+  bob-cli-ms.8.3.1 plus parent phase bob-cli-ms.8.3 are verified and closed.
 proposed_by: bbugyi200.apollo.bob-cli-ms.8.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ms.8.3.1
@@ -14,6 +15,11 @@ status: done
   [202611/record_card_obsidian_proof.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/record_card_obsidian_proof.md)
 - **BEAD:**
   [bob-cli-ms.8.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ms/bob-cli-ms.8.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ms.8.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ms.8.3.1.land.md)
+- **COMMITS:**
+  - [5b4c263](https://github.com/bobs-org/bob-cli/commit/5b4c26360efe9d90d20b8371ac53a05bef7492b6)
+    — fix(records): validate stored literal lists without CLI comma splitting
 
 # Finish literal YAML integration and land the Record Card proof epic
 
