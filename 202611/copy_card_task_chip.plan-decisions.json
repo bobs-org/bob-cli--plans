@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "gy_follows_task",
+      "kind": "toggle",
+      "ask": "Should `gy` also fall back to the only chip in the cursor's task, like the Copy card's `C` row?",
+      "why": "The copy-chips epic promised one cursor rule, so gy and Mod+Y C never disagree.",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_copy_chip",
+      "kind": "toggle",
+      "ask": "Rewrite the glossary:copy-chip cursor-rule sentence to include the task fallback?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:copy-chip"
+        ]
+      },
+      "corrects": "The cursor rule, shared by `gy` and the Copy card: a chip under the cursor wins; otherwise the only chip on the line; otherwise the `bob-copy` fence the cursor is inside; two or more chips on the line with the cursor on none is ambiguous and never guessed.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:copy-chip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Copy Chip"
+          ]
+        }
+      ]
+    }
+  ]
+}
