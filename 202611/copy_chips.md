@@ -1,88 +1,84 @@
 ---
 tier: epic
-title: "Copy chips: click-to-copy text authored in Obsidian notes"
-goal: "Typing an inline code span that starts with `copy:` (or a `bob-copy` fence) gives
-  a quiet, theme-native chip that copies exactly the authored text with one click or one
-  key, in every Obsidian view. Mod+Shift+Y makes or edits a chip without hand-escaping.
-  The GTD agent prompts in gtd_daily.md are the first chips.
+title: 'Copy chips: click-to-copy text authored in Obsidian notes'
+goal: 'Typing an inline code span that starts with `copy:` (or a `bob-copy` fence)
+  gives a quiet, theme-native chip that copies exactly the authored text with one
+  click or one key, in every Obsidian view. Mod+Shift+Y makes or edits a chip without
+  hand-escaping. The GTD agent prompts in gtd_daily.md are the first chips.
 
-  "
+  '
 decisions:
   memory_decision_record:
-    ask:
-      Record a decision that copy chips are code spans whose payloads are literal text?
+    ask: Record a decision that copy chips are code spans whose payloads are literal
+      text?
     default: false
     memory:
-      - decisions:copy-chips-are-code-spans
+    - decisions:copy-chips-are-code-spans
     answer: false
   memory_glossary_copy_chip:
     ask: Add a Copy Chip glossary strand?
     default: false
     memory:
-      - glossary:copy-chip
+    - glossary:copy-chip
     answer: true
 phases:
-  - id: grammar
-    title: Plugin scaffold, grammar module, and conformance vectors
-    depends_on: []
-    size: medium
-    description:
-      "grammar: create and register the bob-copy-chips plugin, then build the pure
-      parser, scanner, and serializer every surface shares, pinned by JSON vectors and a
-      round-trip property test."
-  - id: inline
-    title: Inline chips in Live Preview and Reading view
-    depends_on:
-      - grammar
-    size: large
-    description:
-      "inline: render copy chips as quiet pills in Live Preview and Reading view, copy
-      on click with in-place feedback, add the cursor-line copy command, and publish
-      api.copyChips v1."
-  - id: fence
-    title: The bob-copy fence card
-    depends_on:
-      - inline
-    size: medium
-    description:
-      "fence: render bob-copy fences as titled cards with a header Copy button and
-      byte-exact payloads, and teach chipAt and the cursor-line command about fences."
-  - id: copycard
-    title: Copy card C row
-    depends_on:
-      - inline
-    size: medium
-    description:
-      "copycard: add a C row to the Mod+Y Copy card in Bob Navigation Hotkeys that
-      copies the chip at the cursor through api.copyChips."
-  - id: author
-    title: Make-or-edit card and Alt+Click edit
-    depends_on:
-      - fence
-    size: large
-    description:
-      "author: add the Mod+Shift+Y card that makes, converts, or edits a chip with a
-      live preview, writing the result in one undo step, plus Alt+Click to edit."
-  - id: adopt
-    title: Vault adoption, GTD prompt chips, and memory
-    depends_on:
-      - author
-      - copycard
-    size: medium
-    description:
-      "adopt: add the gy Vim mapping, turn the GTD agent prompts into chips, reconcile
-      with bob-cli-nh's new Summarize yesterday row, apply accepted memory decisions,
-      and record follow-ups."
+- id: grammar
+  title: Plugin scaffold, grammar module, and conformance vectors
+  depends_on: []
+  size: medium
+  description: 'grammar: create and register the bob-copy-chips plugin, then build
+    the pure parser, scanner, and serializer every surface shares, pinned by JSON
+    vectors and a round-trip property test.'
+- id: inline
+  title: Inline chips in Live Preview and Reading view
+  depends_on:
+  - grammar
+  size: large
+  description: 'inline: render copy chips as quiet pills in Live Preview and Reading
+    view, copy on click with in-place feedback, add the cursor-line copy command,
+    and publish api.copyChips v1.'
+- id: fence
+  title: The bob-copy fence card
+  depends_on:
+  - inline
+  size: medium
+  description: 'fence: render bob-copy fences as titled cards with a header Copy button
+    and byte-exact payloads, and teach chipAt and the cursor-line command about fences.'
+- id: copycard
+  title: Copy card C row
+  depends_on:
+  - inline
+  size: medium
+  description: 'copycard: add a C row to the Mod+Y Copy card in Bob Navigation Hotkeys
+    that copies the chip at the cursor through api.copyChips.'
+- id: author
+  title: Make-or-edit card and Alt+Click edit
+  depends_on:
+  - fence
+  size: large
+  description: 'author: add the Mod+Shift+Y card that makes, converts, or edits a
+    chip with a live preview, writing the result in one undo step, plus Alt+Click
+    to edit.'
+- id: adopt
+  title: Vault adoption, GTD prompt chips, and memory
+  depends_on:
+  - author
+  - copycard
+  size: medium
+  description: 'adopt: add the gy Vim mapping, turn the GTD agent prompts into chips,
+    reconcile with bob-cli-nh''s new Summarize yesterday row, apply accepted memory
+    decisions, and record follow-ups.'
 proposed_by: bbugyi200.apollo.research.5g.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-19 10:05:30
 status: wip
+bead_id: bob-cli-ni
 ---
 
-- **PROMPT:**
-  [prompts/202611/copy_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/copy_chips.md)
+- **PROMPT:** [prompts/202611/copy_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/copy_chips.md)
+- **BEAD:** [bob-cli-ni](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ni/README.md)
 
 # Plan: Copy chips
 
