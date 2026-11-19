@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: 'Land copy chips: bring the Copy card C row in line with the plan, then close
-  bob-cli-ni'
-goal: The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the
-  cursor, in its own CHIP group after TASK. The row copies through the card's normal
-  path and Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni
-  is then closed.
+title:
+  "Land copy chips: bring the Copy card C row in line with the plan, then close
+  bob-cli-ni"
+goal:
+  The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the cursor,
+  in its own CHIP group after TASK. The row copies through the card's normal path and
+  Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni is then
+  closed.
 proposed_by: bbugyi200.apollo.bob-cli-ni.land
 proposed_with: claude/opus
 bead: bob-cli-ni
@@ -17,6 +19,11 @@ status: done
   [202611/copy_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/copy_chips.md)
 - **BEAD:**
   [bob-cli-ni](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ni/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ni.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ni.land.md)
+- **COMMITS:**
+  - [b91b549](https://github.com/bobs-org/bob-cli--plans/commit/b91b5495aa121d6456e1f4917de77eb9b934a78a)
+    — chore(plans): mark copy_chips epic plan done after C-row landing
 
 # Land copy chips: fix the Copy card C row and close bob-cli-ni
 
