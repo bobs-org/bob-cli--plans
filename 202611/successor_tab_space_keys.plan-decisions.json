@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "shift_tab",
+      "kind": "choice",
+      "ask": "Should Shift-Tab on the Mac Pull-In card move the highlight to the previous offer, like Obsidian?",
+      "why": "Once the card owns Tab, native Shift-Tab would jump focus out of the list",
+      "choices": [
+        {
+          "key": "previous",
+          "label": "Shift-Tab moves up one visible offer without marking, keeping focus where Tab does"
+        },
+        {
+          "key": "native",
+          "label": "Shift-Tab stays AppKit's reverse focus traversal; only Tab changes"
+        }
+      ],
+      "default": "previous",
+      "effective_default": "previous",
+      "requested_verified": false
+    }
+  ]
+}
