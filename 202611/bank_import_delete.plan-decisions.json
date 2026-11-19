@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_record",
+      "kind": "toggle",
+      "ask": "Add a decisions:host-file-operands-expand-in-bob record for bob-side ~/glob expansion?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:host-file-operands-expand-in-bob"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:host-file-operands-expand-in-bob",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/host-file-operands-expand-in-bob.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
