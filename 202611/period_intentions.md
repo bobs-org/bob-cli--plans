@@ -1,173 +1,157 @@
 ---
 tier: epic
-title:
-  Intentions, summary, and reflection on every day and period, shown in an intention
+title: Intentions, summary, and reflection on every day and period, shown in an intention
   card
-goal: "Every canonical daily note and every week, quarter, and year note carries the
-  same three hidden frontmatter fields: `intentions` (Bryan's list), `summary` (an
-  agent's short account of what happened), and `reflection` (Bryan's account of what it
-  meant). bob is the only writer. A new intention card in the property-card family
-  (album, record, and bank cards) shows the fields at the top of the note, and `==`
-  edits them. The daily Headline, week Intentions, quarter Outcomes, and year Theme are
-  migrated and retired. The morning ritual gains a PRE row that launches a summary agent
-  and a POST row that reflects on yesterday. The agent finds the summary instructions
-  through bob, never through note text.
+goal: 'Every canonical daily note and every week, quarter, and year note carries the
+  same three hidden frontmatter fields: `intentions` (Bryan''s list), `summary` (an
+  agent''s short account of what happened), and `reflection` (Bryan''s account of
+  what it meant). bob is the only writer. A new intention card in the property-card
+  family (album, record, and bank cards) shows the fields at the top of the note,
+  and `==` edits them. The daily Headline, week Intentions, quarter Outcomes, and
+  year Theme are migrated and retired. The morning ritual gains a PRE row that launches
+  a summary agent and a POST row that reflects on yesterday. The agent finds the summary
+  instructions through bob, never through note text.
 
-  "
+  '
 phases:
-  - id: fields
-    title: Intention fields contract, typed reader, YAML writer, and readers
-    depends_on: []
-    size: large
-    description:
-      "fields: add src/native/intentions/ with the day-or-period subject resolver, the
-      typed frontmatter reader (intentions, summary, reflection, and stamps) with a
-      legacy fallback to the old body shapes, a line-preserving YAML writer that
-      verifies by re-parsing, and one review state machine for days and periods. Rewire
-      every reader to it: capture-pomodoros, periods show, list, parts, strip, and
-      brief. Document the contract in docs/periods.md."
-  - id: update
-    title: bob periods update guarded envelope and day subjects in show
-    depends_on:
-      - fields
-    size: medium
-    description:
-      "update: add `bob periods update <SUBJECT> -i FILE|-`, the guarded JSON envelope
-      the card editor writes through. It has intention, reflection, and summary ops, a
-      field fingerprint as `expect`, dry run, inverse_ops for Undo, the vault lock, and
-      atomic writes. Teach `bob periods show` day subjects, update help and docs, and
-      run `just docs-gen`."
-  - id: summary
-    title: Day brief, summary drafting, and brief-carried instructions
-    depends_on:
-      - fields
-    size: large
-    description:
-      "summary: add the versioned day-summary instruction asset and day brief v1. Every
-      `bob periods brief` prints its instructions first. `bob periods draft` writes a
-      day's summary and splits a period draft into summary plus Review body. A
-      reflection no longer blocks a first draft. Bump the brief to v3 vocabulary, add
-      the seven day summaries to the week brief, and ship v3 callouts. Docs."
-  - id: repair
-    title: Link repair inside the owned keys and problems findings
-    depends_on:
-      - fields
-    size: large
-    description:
-      "repair: make archive, task move/merge/split, ref rename, and every other vault
-      link retargeting rewrite links inside intentions, summary, and reflection on daily
-      and period notes exactly as they rewrite body links. Restamp a drafted summary
-      digest. Add the dangling_period_link, intentions_shape, intentions_over_soft_cap,
-      and legacy_period_text findings to `bob periods list -p`."
-  - id: migrate
-    title: Migration step and scaffolds without the old sections
-    depends_on:
-      - fields
-      - summary
-    size: medium
-    description:
-      "migrate: add the intentions step to `bob periods migrate`. One dry-run-first,
-      idempotent vault_rewrite moves the daily Headline and Reflection, week Intentions,
-      quarter Outcomes, year Theme + Outcomes, `## Reflection`, and the Review opener
-      into frontmatter. It reports placeholders and conflicts. Scaffolds stop emitting
-      the old sections. Fixture-vault goldens mirror the live shapes."
-  - id: kit
-    title: Property-card kit extracted from the album, record, and bank cards
-    depends_on: []
-    size: large
-    description:
-      'kit: in bob-ledger-tools, extract the shared property-card kit with no visible
-      change: owned-key property hiding (generalized from the record sheet''s observer),
-      a `==` registry replacing the closed album|bank|record list, the host mount
-      lifecycle, and shared `.bob-property-card` chrome. Move all three cards onto it.
-      Align plugin docs so "card" means the panel and "card editor" means what `==`
-      opens.'
-  - id: card
-    title: Intention card, card editor, commands, and deploy
-    depends_on:
-      - kit
-      - update
-    size: large
-    description:
-      "card: build the intention card on the kit (kicker, numbered intentions, SUMMARY
-      with provenance, REFLECTION, recent-closed ghost line, parent intentions line) and
-      its `==` card editor (browse keys, one-line intention stage, reflection textarea,
-      reorder, remove, Undo, `=` climb, `[`/`]` siblings, `y` YAML). Add palette and
-      Command Mode rows, previews, and e2e. Deploy with `bob plugins sync`."
-  - id: adopt
-    title: Adopt in the vault and chezmoi
-    depends_on:
-      - migrate
-      - repair
-      - card
-    size: medium
-    description:
-      "adopt: install the new bob, then dry-run and apply `bob periods migrate` on the
-      live vault and refresh callouts. Drop the daily template's Headline line. Replace
-      the `#post #headline` GTD row and add the PRE Summarize yesterday and POST Reflect
-      on yesterday rows. Set `post_stages`, add types.json entries, and add the day.md
-      and vault AGENTS.md pointers. Verify, then record the follow-ups."
-  - id: vocabulary
-    title: Glossary terms and decision records
-    depends_on:
-      - card
-      - migrate
-    size: small
-    description:
-      "vocabulary: apply the accepted memory decisions. Add glossary strands for
-      Intention, Property Card, Intention Card, Album Card, Record Card, and Bank Card.
-      Mark Daily Headline superseded, correct Period Note, write the two decision
-      records, then run `sase memory init`."
+- id: fields
+  title: Intention fields contract, typed reader, YAML writer, and readers
+  depends_on: []
+  size: large
+  description: 'fields: add src/native/intentions/ with the day-or-period subject
+    resolver, the typed frontmatter reader (intentions, summary, reflection, and stamps)
+    with a legacy fallback to the old body shapes, a line-preserving YAML writer that
+    verifies by re-parsing, and one review state machine for days and periods. Rewire
+    every reader to it: capture-pomodoros, periods show, list, parts, strip, and brief.
+    Document the contract in docs/periods.md.'
+- id: update
+  title: bob periods update guarded envelope and day subjects in show
+  depends_on:
+  - fields
+  size: medium
+  description: 'update: add `bob periods update <SUBJECT> -i FILE|-`, the guarded
+    JSON envelope the card editor writes through. It has intention, reflection, and
+    summary ops, a field fingerprint as `expect`, dry run, inverse_ops for Undo, the
+    vault lock, and atomic writes. Teach `bob periods show` day subjects, update help
+    and docs, and run `just docs-gen`.'
+- id: summary
+  title: Day brief, summary drafting, and brief-carried instructions
+  depends_on:
+  - fields
+  size: large
+  description: 'summary: add the versioned day-summary instruction asset and day brief
+    v1. Every `bob periods brief` prints its instructions first. `bob periods draft`
+    writes a day''s summary and splits a period draft into summary plus Review body.
+    A reflection no longer blocks a first draft. Bump the brief to v3 vocabulary,
+    add the seven day summaries to the week brief, and ship v3 callouts. Docs.'
+- id: repair
+  title: Link repair inside the owned keys and problems findings
+  depends_on:
+  - fields
+  size: large
+  description: 'repair: make archive, task move/merge/split, ref rename, and every
+    other vault link retargeting rewrite links inside intentions, summary, and reflection
+    on daily and period notes exactly as they rewrite body links. Restamp a drafted
+    summary digest. Add the dangling_period_link, intentions_shape, intentions_over_soft_cap,
+    and legacy_period_text findings to `bob periods list -p`.'
+- id: migrate
+  title: Migration step and scaffolds without the old sections
+  depends_on:
+  - fields
+  - summary
+  size: medium
+  description: 'migrate: add the intentions step to `bob periods migrate`. One dry-run-first,
+    idempotent vault_rewrite moves the daily Headline and Reflection, week Intentions,
+    quarter Outcomes, year Theme + Outcomes, `## Reflection`, and the Review opener
+    into frontmatter. It reports placeholders and conflicts. Scaffolds stop emitting
+    the old sections. Fixture-vault goldens mirror the live shapes.'
+- id: kit
+  title: Property-card kit extracted from the album, record, and bank cards
+  depends_on: []
+  size: large
+  description: 'kit: in bob-ledger-tools, extract the shared property-card kit with
+    no visible change: owned-key property hiding (generalized from the record sheet''s
+    observer), a `==` registry replacing the closed album|bank|record list, the host
+    mount lifecycle, and shared `.bob-property-card` chrome. Move all three cards
+    onto it. Align plugin docs so "card" means the panel and "card editor" means what
+    `==` opens.'
+- id: card
+  title: Intention card, card editor, commands, and deploy
+  depends_on:
+  - kit
+  - update
+  size: large
+  description: 'card: build the intention card on the kit (kicker, numbered intentions,
+    SUMMARY with provenance, REFLECTION, recent-closed ghost line, parent intentions
+    line) and its `==` card editor (browse keys, one-line intention stage, reflection
+    textarea, reorder, remove, Undo, `=` climb, `[`/`]` siblings, `y` YAML). Add palette
+    and Command Mode rows, previews, and e2e. Deploy with `bob plugins sync`.'
+- id: adopt
+  title: Adopt in the vault and chezmoi
+  depends_on:
+  - migrate
+  - repair
+  - card
+  size: medium
+  description: 'adopt: install the new bob, then dry-run and apply `bob periods migrate`
+    on the live vault and refresh callouts. Drop the daily template''s Headline line.
+    Replace the `#post #headline` GTD row and add the PRE Summarize yesterday and
+    POST Reflect on yesterday rows. Set `post_stages`, add types.json entries, and
+    add the day.md and vault AGENTS.md pointers. Verify, then record the follow-ups.'
+- id: vocabulary
+  title: Glossary terms and decision records
+  depends_on:
+  - card
+  - migrate
+  size: small
+  description: 'vocabulary: apply the accepted memory decisions. Add glossary strands
+    for Intention, Property Card, Intention Card, Album Card, Record Card, and Bank
+    Card. Mark Daily Headline superseded, correct Period Note, write the two decision
+    records, then run `sase memory init`.'
 decisions:
   day_summary_cap:
     ask: Should a daily summary allow 1–3 sentences of up to 60 words?
     choices:
-      sixty:
-        1–3 sentences, at most 60 words, one paragraph, at most 2 links; week tables
-        clip it with a tooltip
-      one_line:
-        One line of at most 25 words, the same cap as week, quarter, and year summaries
+      sixty: 1–3 sentences, at most 60 words, one paragraph, at most 2 links; week
+        tables clip it with a tooltip
+      one_line: One line of at most 25 words, the same cap as week, quarter, and year
+        summaries
     default: sixty
     why: A day has no Review, so its summary carries the whole closeout.
     answer: sixty
   memory_glossary_terms:
-    ask:
-      Add glossary strands for Intention, Property Card, Intention Card, Album Card,
-      Record Card, and Bank Card?
+    ask: Add glossary strands for Intention, Property Card, Intention Card, Album
+      Card, Record Card, and Bank Card?
     memory:
-      - glossary:intention
-      - glossary:property-card
-      - glossary:intention-card
-      - glossary:album-card
-      - glossary:record-card
-      - glossary:bank-card
+    - glossary:intention
+    - glossary:property-card
+    - glossary:intention-card
+    - glossary:album-card
+    - glossary:record-card
+    - glossary:bank-card
     default: true
-    requested:
-      We should add excellent new glossary terms for "intention", "property card",
-      "intention card", "album card". "record card", and "bank card".
+    requested: We should add excellent new glossary terms for "intention", "property
+      card", "intention card", "album card". "record card", and "bank card".
     answer: true
   memory_glossary_fixes:
-    ask:
-      Retire the Daily Headline glossary strand and correct Period Note for the new
-      fields and card?
+    ask: Retire the Daily Headline glossary strand and correct Period Note for the
+      new fields and card?
     memory:
-      - glossary:Daily Headline
-      - glossary:Period Note
+    - glossary:Daily Headline
+    - glossary:Period Note
     default: true
-    corrects: "- Bryan's `Intentions`, `Outcomes`, or `Theme`;"
+    corrects: '- Bryan''s `Intentions`, `Outcomes`, or `Theme`;'
     answer: true
   memory_decision_records:
-    ask:
-      Record decisions that intentions live in bob-written frontmatter and that property
-      cards fail open?
+    ask: Record decisions that intentions live in bob-written frontmatter and that
+      property cards fail open?
     memory:
-      - decisions:intentions-live-in-frontmatter
-      - decisions:property-cards-own-their-rows
+    - decisions:intentions-live-in-frontmatter
+    - decisions:property-cards-own-their-rows
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 proposed_by: bbugyi200.athena.1ef
 proposed_with: claude/opus
@@ -175,10 +159,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-19 09:35:20
 status: wip
+bead_id: bob-cli-nh
 ---
 
-- **PROMPT:**
-  [prompts/202611/period_intentions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_intentions.md)
+- **PROMPT:** [prompts/202611/period_intentions.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/period_intentions.md)
+- **BEAD:** [bob-cli-nh](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nh/README.md)
 
 # Plan: Intentions, summary, and reflection on every day and period
 
