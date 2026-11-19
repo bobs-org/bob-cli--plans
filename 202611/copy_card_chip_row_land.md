@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: 'Land copy chips: bring the Copy card C row in line with the plan, then close
-  bob-cli-ni'
-goal: The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the
-  cursor, in its own CHIP group after TASK. The row copies through the card's normal
-  path and Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni
-  is then closed.
+title:
+  "Land copy chips: bring the Copy card C row in line with the plan, then close
+  bob-cli-ni"
+goal:
+  The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the cursor,
+  in its own CHIP group after TASK. The row copies through the card's normal path and
+  Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni is then
+  closed.
 proposed_by: bbugyi200.apollo.bob-cli-ni.land
 proposed_with: claude/opus
 bead: bob-cli-ni
@@ -17,6 +19,11 @@ status: done
   [202611/copy_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/copy_chips.md)
 - **BEAD:**
   [bob-cli-ni](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ni/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ni.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ni.land.md)
+- **COMMITS:**
+  - [d6d2c33](https://github.com/bobs-org/bob-plugins/commit/d6d2c334228cb2647ba7c40667858061bb9714f7)
+    — feat(navigation): land copy-chip C row per plan 202611/copy_card_chip_row_land
 
 # Land copy chips: fix the Copy card C row and close bob-cli-ni
 
