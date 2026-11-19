@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  "Land copy chips: bring the Copy card C row in line with the plan, then close
-  bob-cli-ni"
-goal:
-  The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the cursor,
-  in its own CHIP group after TASK. The row copies through the card's normal path and
-  Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni is then
-  closed.
+title: 'Land copy chips: bring the Copy card C row in line with the plan, then close
+  bob-cli-ni'
+goal: The Mod+Y Copy card shows a C chip row only when a chip can be resolved at the
+  cursor, in its own CHIP group after TASK. The row copies through the card's normal
+  path and Notice, then flashes the chip. Its tests, e2e, and docs match. Epic bob-cli-ni
+  is then closed.
 proposed_by: bbugyi200.apollo.bob-cli-ni.land
 proposed_with: claude/opus
 bead: bob-cli-ni
-create_time: 2026-11-19 14:30:11
-status: wip
+status: done
 ---
 
 - **PARENT:**
