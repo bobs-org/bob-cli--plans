@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "gtd_ack_copy_chip",
+      "kind": "toggle",
+      "ask": "Turn the Ack row's terminal-only `bob gcal ack -n 7` into a copy chip?",
+      "why": "It needs a TTY, so it can't run as a chip; a \u29c9 chip makes the terminal step one gesture",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_command_chip",
+      "kind": "toggle",
+      "ask": "Add the glossary:command-chip strand drafted in the adopt phase?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:command-chip"
+        ]
+      },
+      "requested": "As a part of this change, we should add a new glossary term for \"command chip\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:command-chip",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/command-chip.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_copy_chip",
+      "kind": "toggle",
+      "ask": "Correct glossary:copy-chip for the plugin rename and point it at Command Chip?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:copy-chip"
+        ]
+      },
+      "corrects": "The `bob-copy-chips` plugin renders the span as a quiet pill and the fence as a titled card.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:copy-chip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Copy Chip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Record the command-chip safety policy as decisions:command-chips-run-through-command-mode?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:command-chips-run-through-command-mode"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:command-chips-run-through-command-mode",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/command-chips-run-through-command-mode.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
