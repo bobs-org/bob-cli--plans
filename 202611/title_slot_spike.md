@@ -1,14 +1,16 @@
 ---
 tier: tale
 size: medium
-title: 'Title-slot spike: kit mount primitive, real-Obsidian CDP proof, and GO/NO-GO
-  verdict (bob-cli-o6.1)'
-goal: bob-ledger-tools ships an unused, unit-tested kit primitive that mounts a property
-  card in Obsidian's title slot (after the inline title, before native Properties)
-  in Live Preview and Reading, a real-Obsidian CDP spike on athena measures it across
-  switches, splits, re-renders, settings, tall cards, and teardown, and bead bob-cli-o6.1
-  carries a TITLE SLOT GO or NO-GO verdict note with report and screenshot artifacts
-  that the collection-cards and day-period-cards phases build on.
+title:
+  "Title-slot spike: kit mount primitive, real-Obsidian CDP proof, and GO/NO-GO verdict
+  (bob-cli-o6.1)"
+goal:
+  bob-ledger-tools ships an unused, unit-tested kit primitive that mounts a property
+  card in Obsidian's title slot (after the inline title, before native Properties) in
+  Live Preview and Reading, a real-Obsidian CDP spike on athena measures it across
+  switches, splits, re-renders, settings, tall cards, and teardown, and bead
+  bob-cli-o6.1 carries a TITLE SLOT GO or NO-GO verdict note with report and screenshot
+  artifacts that the collection-cards and day-period-cards phases build on.
 proposed_by: bbugyi200.athena.bob-cli-o6.1
 proposed_with: claude/opus
 bead: bob-cli-o6.1
@@ -19,6 +21,11 @@ status: done
   [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
 - **BEAD:**
   [bob-cli-o6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.1.md)
+- **COMMITS:**
+  - [c5f5a1b](https://github.com/bobs-org/bob-plugins/commit/c5f5a1b5faf6a10a456dfa122cb26adb54bb16d9)
+    — feat(ledger-tools): add title-slot mount primitive and real-Obsidian spike
 
 # Title-slot spike and kit mount primitive (bead `bob-cli-o6.1`)
 
