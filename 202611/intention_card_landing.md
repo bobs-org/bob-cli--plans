@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish intention card state and land bob-cli-nh.7.1
-goal:
-  Repair the remaining intention card state and field-stage gaps, verify and deploy
+goal: Repair the remaining intention card state and field-stage gaps, verify and deploy
   them, then close bob-cli-nh.7.1 and parent phase bob-cli-nh.7 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-nh.7.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-nh.7.1
-create_time: 2026-11-20 08:09:27
-status: wip
+status: done
 ---
 
 - **PARENT:**
