@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Album `title:` key, H1-less album create, and `bob albums tidy`
-goal:
-  bob reads album frontmatter `title:` first everywhere, `bob albums create` writes
+goal: bob reads album frontmatter `title:` first everywhere, `bob albums create` writes
   `title:` and no H1, and a dry-run-first `bob albums tidy` moves existing album H1
   titles into `title:` with byte-identical walk lines, records indexes, and owner
   catalogs before and after.
@@ -10,8 +9,7 @@ size: medium
 proposed_by: bbugyi200.athena.bob-cli-o6.3
 proposed_with: claude/opus
 bead: bob-cli-o6.3
-create_time: 2026-11-20 12:00:37
-status: wip
+status: done
 ---
 
 - **PARENT:**
