@@ -1,12 +1,14 @@
 ---
 tier: tale
 size: medium
-title: 'Finish command chips: ⌘↵ never targets chips hidden in multi-line comments
-  or math, then close bob-cli-nu'
-goal: commandChipAt (the ⌘↵ target rule and keycap) ignores run chips and bob-run
-  fences inside multi-line %% comments, HTML comments, and $$ math blocks, matching
-  what Live Preview and Reading view render. The command-chips e2e asserts the Live
-  Preview copy-card press, and the epic bob-cli-nu is closed.
+title:
+  "Finish command chips: ⌘↵ never targets chips hidden in multi-line comments or math,
+  then close bob-cli-nu"
+goal:
+  commandChipAt (the ⌘↵ target rule and keycap) ignores run chips and bob-run fences
+  inside multi-line %% comments, HTML comments, and $$ math blocks, matching what Live
+  Preview and Reading view render. The command-chips e2e asserts the Live Preview
+  copy-card press, and the epic bob-cli-nu is closed.
 proposed_by: bbugyi200.apollo.bob-cli-nu.land
 proposed_with: claude/opus
 bead: bob-cli-nu
@@ -17,6 +19,11 @@ status: done
   [202611/command_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/command_chips.md)
 - **BEAD:**
   [bob-cli-nu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nu/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-nu.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-nu.land.md)
+- **COMMITS:**
+  - [74ee2aa](https://github.com/bobs-org/bob-cli--plans/commit/74ee2aa268d5cc28ef4490b48ab8b9c6787510d1)
+    — docs(plans): mark the command chips epic plan done
 
 # Finish command chips and close bob-cli-nu
 
