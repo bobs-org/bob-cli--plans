@@ -1,194 +1,180 @@
 ---
 tier: epic
 title: Explicit micro tasks
-goal: "A micro task is an explicit, statusful step under a task: a checkbox bullet
-  without `#task`, nested as deep as needed, rendered as a `⌗⌗`/`⌗⌗⌗` hash run, typed in
-  capture with `..` or Ctrl+G T, ticked while working, audited on the successor card
-  when its owner closes (Done by default, Ctrl+X keeps it open as its own task,
-  Ctrl+Shift+X marks it not done, Space/Tab pulls it in), written by task merges, and
-  promoted to `## Tasks` rows. Every other sub-bullet is a note. bob-cli, bob-plugins,
+goal: 'A micro task is an explicit, statusful step under a task: a checkbox bullet
+  without `#task`, nested as deep as needed, rendered as a `⌗⌗`/`⌗⌗⌗` hash run, typed
+  in capture with `..` or Ctrl+G T, ticked while working, audited on the successor
+  card when its owner closes (Done by default, Ctrl+X keeps it open as its own task,
+  Ctrl+Shift+X marks it not done, Space/Tab pulls it in), written by task merges,
+  and promoted to `## Tasks` rows. Every other sub-bullet is a note. bob-cli, bob-plugins,
   and Bob Mac Capture agree byte for byte through shared vectors.
 
-  "
+  '
 decisions:
   captured_notes:
     ask: Where should captured notes (and every other unmarked task sub-bullet) live?
     choices:
-      loose:
-        Loose bullets that read as an implicit NOTES drawer; capture writes them as
-        today
-      drawer:
-        A physical NOTES drawer created on demand; captured notes nest one level deeper
+      loose: Loose bullets that read as an implicit NOTES drawer; capture writes them
+        as today
+      drawer: A physical NOTES drawer created on demand; captured notes nest one level
+        deeper
     default: loose
-    why:
-      Research adjustment A3, which you endorsed; the micro marker alone separates work
-      from notes
+    why: Research adjustment A3, which you endorsed; the micro marker alone separates
+      work from notes
     answer: loose
   obsidian_toggle:
     ask: How should Obsidian toggle the micro task marker on the current bullet?
     choices:
-      ctrl_bracket:
-        Teach the existing Ctrl+] checkbox toggle as the micro toggle; no new chord
-      ctrl_g_leader:
-        Also add a nav Ctrl+G leader whose T toggles it, matching the capture panel
+      ctrl_bracket: Teach the existing Ctrl+] checkbox toggle as the micro toggle;
+        no new chord
+      ctrl_g_leader: Also add a nav Ctrl+G leader whose T toggles it, matching the
+        capture panel
     default: ctrl_bracket
     why: Ctrl+] already writes exactly the bare `[ ] ` marker in Obsidian
     answer: ctrl_bracket
   memory_glossary_micro_task:
     ask: Add the new Micro Task glossary strand?
     memory:
-      - glossary:micro-task
-    requested:
-      As a part of this change, we should add an excellent new glossary term for "micro
-      task".
+    - glossary:micro-task
+    requested: As a part of this change, we should add an excellent new glossary term
+      for "micro task".
     default: true
     answer: true
   memory_capture_alias:
     ask: Update the Capture Alias strand so it covers the `..` micro marker alias?
     memory:
-      - glossary:capture-alias
-    corrects:
-      swaps for the [[capture]] sigil it stands for, only where that sigil would act at
-      the caret by opening its picker or filling a close slot.
+    - glossary:capture-alias
+    corrects: swaps for the [[capture]] sigil it stands for, only where that sigil
+      would act at the caret by opening its picker or filling a close slot.
     default: true
     answer: true
   memory_micro_decision:
-    ask:
-      Record the micro task decision and mark Capture Bullets Mirror The Task Block
+    ask: Record the micro task decision and mark Capture Bullets Mirror The Task Block
       superseded in part?
     memory:
-      - decisions:capture-bullets-mirror-the-task-block
-      - decisions:micro-tasks-are-checkbox-bullets
+    - decisions:capture-bullets-mirror-the-task-block
+    - decisions:micro-tasks-are-checkbox-bullets
     corrects: every other first-level bullet, with its nested bullets, is one note.
     default: true
     answer: true
 phases:
-  - id: contract
-    title: Micro task contract, recognizer, and reader hardening
-    depends_on: []
-    size: medium
-    description:
-      "contract: write docs/micro-tasks.md, add the pure Rust recognizer and the shared
-      MT vectors, pin that micro tasks never count as open subtasks, and stop bob
-      projects sync from stamping them."
-  - id: capture-grammar
-    title: Capture grammar for micro tasks
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "capture-grammar: accept `[ ] ` steps where a micro task may stand, refuse it
-      elsewhere with byte-ranged diagnostics, emit a micro_task span with depth, and
-      bump the grammar revision."
-  - id: merge-split
-    title: Merge writes micro tasks; split carries them
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "merge-split: task-target merges write the source as an open micro task, and Task
-      Split leaves a `[>]` carried stub for a micro bullet and refuses resolved ones."
-  - id: capture-rewrite
-    title: The `..` alias and the micro toggle rewrite
-    depends_on:
-      - capture-grammar
-    size: medium
-    description:
-      "capture-rewrite: add expand_micro_marker for `- ..`, the
-      --toggle-micro/--selection-end mode, and a micro_marker typing tip."
-  - id: close-engine
-    title: Micro rows on the capture successor card
-    depends_on:
-      - capture-grammar
-      - merge-split
-    size: large
-    description:
-      "close-engine: plan micro rows for capture's managed Done gestures, apply Done,
-      Not done, Keep open, and pull-in verdicts all-or-nothing, and own the JSON, CLI,
-      picker v5, copy, and MC vectors."
-  - id: ledger-marks
-    title: Hash-run rendering and freshness guards in ledger tools
-    depends_on:
-      - contract
-    size: medium
-    description:
-      "ledger-marks: draw the depth hash run in Live Preview and Reading view in the
-      owner's ink, style not-done and carried rows, and keep freshness off micro lines."
-  - id: plugins-authoring
-    title: Obsidian micro guards, toggle, and split twin
-    depends_on:
-      - merge-split
-    size: medium
-    description:
-      "plugins-authoring: make the cycler tick micro tasks without task semantics,
-      refuse task-only gestures, mirror the split stub, fix the offer-close scope count,
-      and provide the Obsidian toggle."
-  - id: plugins-promotion
-    title: Promotion maps micro tasks to tasks and notes to notes
-    depends_on:
-      - plugins-authoring
-    size: medium
-    description:
-      "plugins-promotion: change the project seed so micro tasks become `## Tasks` rows,
-      notes and any NOTES drawer become `## Notes`, and the receipt counts both."
-  - id: plugins-close-card
-    title: Micro rows on the Obsidian successor card
-    depends_on:
-      - close-engine
-      - plugins-promotion
-    size: large
-    description:
-      "plugins-close-card: plan micro rows in the cycler, render and key them in nav's
-      picker v5, and apply verdicts through a new nav split API, pinned to the MC
-      vectors."
-  - id: mac-authoring
-    title: Mac `..`, Ctrl+G T, and the hash-run overlay
-    depends_on:
-      - capture-rewrite
-    size: medium
-    description:
-      "mac-authoring: apply expand_micro_marker natively, bind Ctrl+G T to bob's toggle
-      rewrite, and draw micro_task spans as a hash run."
-  - id: mac-close-card
-    title: Micro rows on the Mac Pull-In card
-    depends_on:
-      - close-engine
-      - mac-authoring
-    size: large
-    description:
-      "mac-close-card: render micro groups first on the Pull-In card with the shared
-      keys and copy, and submit verdicts with --micro-choice and --keep-open behind
-      capability detection."
-  - id: vault-migration
-    title: Reviewed migration of step-like loose bullets
-    depends_on:
-      - ledger-marks
-      - plugins-authoring
-    size: medium
-    description:
-      "vault-migration: scan the vault read-only for step-like loose bullets and
-      unfiltered Dataview TASK queries, then propose per-candidate conversions behind a
-      gate."
-  - id: memory
-    title: Glossary term, alias correction, and decision record
-    depends_on:
-      - ledger-marks
-      - plugins-close-card
-      - mac-close-card
-    size: small
-    description:
-      "memory: write the accepted memory changes and regenerate the glossary reference
-      page."
+- id: contract
+  title: Micro task contract, recognizer, and reader hardening
+  depends_on: []
+  size: medium
+  description: 'contract: write docs/micro-tasks.md, add the pure Rust recognizer
+    and the shared MT vectors, pin that micro tasks never count as open subtasks,
+    and stop bob projects sync from stamping them.'
+- id: capture-grammar
+  title: Capture grammar for micro tasks
+  depends_on:
+  - contract
+  size: medium
+  description: 'capture-grammar: accept `[ ] ` steps where a micro task may stand,
+    refuse it elsewhere with byte-ranged diagnostics, emit a micro_task span with
+    depth, and bump the grammar revision.'
+- id: merge-split
+  title: Merge writes micro tasks; split carries them
+  depends_on:
+  - contract
+  size: medium
+  description: 'merge-split: task-target merges write the source as an open micro
+    task, and Task Split leaves a `[>]` carried stub for a micro bullet and refuses
+    resolved ones.'
+- id: capture-rewrite
+  title: The `..` alias and the micro toggle rewrite
+  depends_on:
+  - capture-grammar
+  size: medium
+  description: 'capture-rewrite: add expand_micro_marker for `- ..`, the --toggle-micro/--selection-end
+    mode, and a micro_marker typing tip.'
+- id: close-engine
+  title: Micro rows on the capture successor card
+  depends_on:
+  - capture-grammar
+  - merge-split
+  size: large
+  description: 'close-engine: plan micro rows for capture''s managed Done gestures,
+    apply Done, Not done, Keep open, and pull-in verdicts all-or-nothing, and own
+    the JSON, CLI, picker v5, copy, and MC vectors.'
+- id: ledger-marks
+  title: Hash-run rendering and freshness guards in ledger tools
+  depends_on:
+  - contract
+  size: medium
+  description: 'ledger-marks: draw the depth hash run in Live Preview and Reading
+    view in the owner''s ink, style not-done and carried rows, and keep freshness
+    off micro lines.'
+- id: plugins-authoring
+  title: Obsidian micro guards, toggle, and split twin
+  depends_on:
+  - merge-split
+  size: medium
+  description: 'plugins-authoring: make the cycler tick micro tasks without task semantics,
+    refuse task-only gestures, mirror the split stub, fix the offer-close scope count,
+    and provide the Obsidian toggle.'
+- id: plugins-promotion
+  title: Promotion maps micro tasks to tasks and notes to notes
+  depends_on:
+  - plugins-authoring
+  size: medium
+  description: 'plugins-promotion: change the project seed so micro tasks become `##
+    Tasks` rows, notes and any NOTES drawer become `## Notes`, and the receipt counts
+    both.'
+- id: plugins-close-card
+  title: Micro rows on the Obsidian successor card
+  depends_on:
+  - close-engine
+  - plugins-promotion
+  size: large
+  description: 'plugins-close-card: plan micro rows in the cycler, render and key
+    them in nav''s picker v5, and apply verdicts through a new nav split API, pinned
+    to the MC vectors.'
+- id: mac-authoring
+  title: Mac `..`, Ctrl+G T, and the hash-run overlay
+  depends_on:
+  - capture-rewrite
+  size: medium
+  description: 'mac-authoring: apply expand_micro_marker natively, bind Ctrl+G T to
+    bob''s toggle rewrite, and draw micro_task spans as a hash run.'
+- id: mac-close-card
+  title: Micro rows on the Mac Pull-In card
+  depends_on:
+  - close-engine
+  - mac-authoring
+  size: large
+  description: 'mac-close-card: render micro groups first on the Pull-In card with
+    the shared keys and copy, and submit verdicts with --micro-choice and --keep-open
+    behind capability detection.'
+- id: vault-migration
+  title: Reviewed migration of step-like loose bullets
+  depends_on:
+  - ledger-marks
+  - plugins-authoring
+  size: medium
+  description: 'vault-migration: scan the vault read-only for step-like loose bullets
+    and unfiltered Dataview TASK queries, then propose per-candidate conversions behind
+    a gate.'
+- id: memory
+  title: Glossary term, alias correction, and decision record
+  depends_on:
+  - ledger-marks
+  - plugins-close-card
+  - mac-close-card
+  size: small
+  description: 'memory: write the accepted memory changes and regenerate the glossary
+    reference page.'
 proposed_by: bbugyi200.apollo.research.5n.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-20 18:05:14
 status: wip
+bead_id: bob-cli-of
 ---
 
-- **PROMPT:**
-  [prompts/202611/explicit_micro_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/explicit_micro_tasks.md)
+- **PROMPT:** [prompts/202611/explicit_micro_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/explicit_micro_tasks.md)
+- **BEAD:** [bob-cli-of](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-of/README.md)
 
 # Plan: Explicit micro tasks
 
