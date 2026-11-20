@@ -1,116 +1,110 @@
 ---
 tier: epic
 title: Ctrl+J jump pin on the successor card
-goal: "On the successor card in Obsidian and in Mac Capture, Ctrl+J pins one offer as
-  the jump successor. The pinned offer can still be left open, pulled in, marked Done,
-  or canceled. Once every write of the triggering close or capture has landed, Obsidian
-  opens that task's note and focuses its line. The pin never writes to the vault, wins
-  over the Cmd+Return open-notes landing, parks a ]s walk instead of advancing it, and
-  never fails the close if the target can't be found.
+goal: 'On the successor card in Obsidian and in Mac Capture, Ctrl+J pins one offer
+  as the jump successor. The pinned offer can still be left open, pulled in, marked
+  Done, or canceled. Once every write of the triggering close or capture has landed,
+  Obsidian opens that task''s note and focuses its line. The pin never writes to the
+  vault, wins over the Cmd+Return open-notes landing, parks a ]s walk instead of advancing
+  it, and never fails the close if the target can''t be found.
 
-  "
+  '
 decisions:
   walk_park_record:
-    ask:
-      Record a decision that a pinned close lands on the pin and parks the walk, marking
-      two walk records superseded in part?
+    ask: Record a decision that a pinned close lands on the pin and parks the walk,
+      marking two walk records superseded in part?
     memory:
-      - decisions
-      - decisions:answering-advances-the-walk
-      - decisions:ctrl-enter-leaves-pre
+    - decisions
+    - decisions:answering-advances-the-walk
+    - decisions:ctrl-enter-leaves-pre
     default: true
-    corrects:
-      takes that row out of today's walk advances once to the next remaining item.
+    corrects: takes that row out of today's walk advances once to the next remaining
+      item.
     answer: true
   jump_glossary_term:
-    ask: Add a Jump Successor glossary term and regenerate the docs glossary from it?
+    ask: Add a Jump Successor glossary term and regenerate the docs glossary from
+      it?
     memory:
-      - glossary:jump-successor
+    - glossary:jump-successor
     default: false
     answer: false
 phases:
-  - id: cli-jump-offer
-    title: bob capture --jump-offer and the jump JSON contract
-    depends_on: []
-    size: medium
-    description:
-      "cli-jump-offer: add `-j, --jump-offer <N|KEY>` to `bob capture`, the
-      `pull_in.jump.supported` capability, the write-free `offer_jump_stale` refusal,
-      and a top-level `jump` object resolved from final staged text (routed moves, block
-      IDs, cleaned description), with dry-run parity, contract vectors, and docs §12.24
-      plus the picker v5 rows."
-  - id: nav-pin-card
-    title: Obsidian successor card pin (picker API v5)
-    depends_on: []
-    size: medium
-    description:
-      "nav-pin-card: in bob-navigation-hotkeys, extract code from fragment 206 to make
-      room, then add the Ctrl+J pin: radio toggle by key, a solid accent `↗ Jump`
-      capsule, hover button, footer chip, summary, and status copy. Enter's highlight
-      fallback is suppressed while a pin is staged, and a jump-only commit returns
-      `{picks, closes, jump}`. Picker API goes to v5."
-  - id: nav-jump-landing
-    title: Obsidian landing API, walk follow, and receipt line
-    depends_on:
-      - nav-pin-card
-    size: medium
-    description:
-      "nav-jump-landing: add nav `api.landOnTask(target)`, which re-finds the task by
-      identity (never by a clamped line), focuses it, records a Vim jump, and flashes
-      the line. Add reviewWalk v2 `continue(origin, {follow})`, which parks the walk
-      before landing, and a notice v5 `↗ “S”` receipt line."
-  - id: cycler-jump-close
-    title: task-status-cycler honors the pin after every managed Done
-    depends_on:
-      - nav-jump-landing
-    size: medium
-    description:
-      "cycler-jump-close: offer the pin only when the caller can honor it; keep `jump`
-      through normalization; resolve the target's post-write identity from picks,
-      closes, or recovery edits; land after retirement and the notice, or return it to
-      walk-owned callers. Covers the Vim Ctrl+Enter walk path, parked successors, and
-      cycler API v6."
-  - id: nav-jump-callers
-    title: Wire the remaining Obsidian picker callers
-    depends_on:
-      - cycler-jump-close
-    size: medium
-    description:
-      "nav-jump-callers: opt the PRE/POST checklist claim and the relation-complete
-      compose path into the jump; on project promotion, land on the pin instead of the
-      new ^prj line; leave the pin withheld on the relation-merge card. Tests for each."
-  - id: mac-jump-pin
-    title: Mac Capture Pull-In card pin
-    depends_on:
-      - cli-jump-offer
-    size: medium
-    description:
-      "mac-jump-pin: add `jumpKey` to CapturePullInOutcomes. Ctrl+J is consumed by the
-      card's router. Add the capsule with a glide animation, plus footer, button,
-      context-menu, and VoiceOver copy. Gate `--jump-offer` on the capability, reopen
-      after `offer_jump_stale`, and on success open the jump landing as a one-entry
-      `bob-open-notes` URL in place of the open-notes intent."
-  - id: jump-docs-memory
-    title: Walk docs, decision record, and glossary
-    depends_on:
-      - nav-jump-callers
-      - mac-jump-pin
-    size: small
-    description:
-      "jump-docs-memory: update bob-cli `docs/freshness.md` §6 for the pinned-close
-      park, cross-check every surface's Ctrl+J docs, and (per the memory decisions)
-      write the walk-park decision record, the supersession marks, and the glossary term
-      with `just docs-gen`."
+- id: cli-jump-offer
+  title: bob capture --jump-offer and the jump JSON contract
+  depends_on: []
+  size: medium
+  description: 'cli-jump-offer: add `-j, --jump-offer <N|KEY>` to `bob capture`, the
+    `pull_in.jump.supported` capability, the write-free `offer_jump_stale` refusal,
+    and a top-level `jump` object resolved from final staged text (routed moves, block
+    IDs, cleaned description), with dry-run parity, contract vectors, and docs §12.24
+    plus the picker v5 rows.'
+- id: nav-pin-card
+  title: Obsidian successor card pin (picker API v5)
+  depends_on: []
+  size: medium
+  description: 'nav-pin-card: in bob-navigation-hotkeys, extract code from fragment
+    206 to make room, then add the Ctrl+J pin: radio toggle by key, a solid accent
+    `↗ Jump` capsule, hover button, footer chip, summary, and status copy. Enter''s
+    highlight fallback is suppressed while a pin is staged, and a jump-only commit
+    returns `{picks, closes, jump}`. Picker API goes to v5.'
+- id: nav-jump-landing
+  title: Obsidian landing API, walk follow, and receipt line
+  depends_on:
+  - nav-pin-card
+  size: medium
+  description: 'nav-jump-landing: add nav `api.landOnTask(target)`, which re-finds
+    the task by identity (never by a clamped line), focuses it, records a Vim jump,
+    and flashes the line. Add reviewWalk v2 `continue(origin, {follow})`, which parks
+    the walk before landing, and a notice v5 `↗ “S”` receipt line.'
+- id: cycler-jump-close
+  title: task-status-cycler honors the pin after every managed Done
+  depends_on:
+  - nav-jump-landing
+  size: medium
+  description: 'cycler-jump-close: offer the pin only when the caller can honor it;
+    keep `jump` through normalization; resolve the target''s post-write identity from
+    picks, closes, or recovery edits; land after retirement and the notice, or return
+    it to walk-owned callers. Covers the Vim Ctrl+Enter walk path, parked successors,
+    and cycler API v6.'
+- id: nav-jump-callers
+  title: Wire the remaining Obsidian picker callers
+  depends_on:
+  - cycler-jump-close
+  size: medium
+  description: 'nav-jump-callers: opt the PRE/POST checklist claim and the relation-complete
+    compose path into the jump; on project promotion, land on the pin instead of the
+    new ^prj line; leave the pin withheld on the relation-merge card. Tests for each.'
+- id: mac-jump-pin
+  title: Mac Capture Pull-In card pin
+  depends_on:
+  - cli-jump-offer
+  size: medium
+  description: 'mac-jump-pin: add `jumpKey` to CapturePullInOutcomes. Ctrl+J is consumed
+    by the card''s router. Add the capsule with a glide animation, plus footer, button,
+    context-menu, and VoiceOver copy. Gate `--jump-offer` on the capability, reopen
+    after `offer_jump_stale`, and on success open the jump landing as a one-entry
+    `bob-open-notes` URL in place of the open-notes intent.'
+- id: jump-docs-memory
+  title: Walk docs, decision record, and glossary
+  depends_on:
+  - nav-jump-callers
+  - mac-jump-pin
+  size: small
+  description: 'jump-docs-memory: update bob-cli `docs/freshness.md` §6 for the pinned-close
+    park, cross-check every surface''s Ctrl+J docs, and (per the memory decisions)
+    write the walk-park decision record, the supersession marks, and the glossary
+    term with `just docs-gen`.'
 proposed_by: bbugyi200.apollo.research.5m.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-20 17:03:12
 status: wip
+bead_id: bob-cli-oe
 ---
 
-- **PROMPT:**
-  [prompts/202611/successor_jump_pin.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/successor_jump_pin.md)
+- **PROMPT:** [prompts/202611/successor_jump_pin.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/successor_jump_pin.md)
+- **BEAD:** [bob-cli-oe](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oe/README.md)
 
 # Plan: Ctrl+J jump pin on the successor card
 
