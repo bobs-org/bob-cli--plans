@@ -1,20 +1,17 @@
 ---
 tier: tale
 size: medium
-title:
-  "Identity kit: species registry, title block and rail builders, card tokens, and title
-  ownership in the bob-ledger-tools kit"
-goal:
-  The bob-ledger-tools property-card kit exports a species registry, glyph tile, title
-  block, and docked rail builders. It also ships data-card-kind tokens with the temporal
-  day accent, plus title ownership that hides and reveals the title in Live Preview and
-  Reading and always fails open. All of this is unit-tested and preview-rendered, while
-  every existing card stays pixel-identical.
+title: 'Identity kit: species registry, title block and rail builders, card tokens,
+  and title ownership in the bob-ledger-tools kit'
+goal: The bob-ledger-tools property-card kit exports a species registry, glyph tile,
+  title block, and docked rail builders. It also ships data-card-kind tokens with
+  the temporal day accent, plus title ownership that hides and reveals the title in
+  Live Preview and Reading and always fails open. All of this is unit-tested and preview-rendered,
+  while every existing card stays pixel-identical.
 proposed_by: bbugyi200.athena.bob-cli-o6.2
 proposed_with: claude/opus
 bead: bob-cli-o6.2
-create_time: 2026-11-20 12:01:05
-status: wip
+status: done
 ---
 
 - **PARENT:**
