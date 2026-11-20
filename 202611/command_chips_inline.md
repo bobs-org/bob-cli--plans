@@ -1,68 +1,62 @@
 ---
 tier: epic
 title: Complete inline command chips in Live Preview and Reading view
-goal:
-  Finish bob-cli-nu.4 with safe source-aware activation, persistent live feedback, both
-  inline renderers, and verified visual and Obsidian evidence.
+goal: Finish bob-cli-nu.4 with safe source-aware activation, persistent live feedback,
+  both inline renderers, and verified visual and Obsidian evidence.
 phases:
-  - id: engine-contract
-    title: Complete the engine contract consumed by inline chips
-    size: medium
-    depends_on: []
-    description:
-      "engine-contract: complete additive resolver metadata, signature lookup, per-run
-      state callbacks, loading behavior, and catalog invalidation. Preserve existing
-      Command Mode consumers and guards; add focused contract regressions."
-  - id: runtime
-    title: Shared command-chip state and activation
-    size: medium
-    depends_on:
-      - engine-contract
-    description:
-      "runtime: add source policy, cached resolution, CommandChipRunStore, and
-      commandChipActivate with stale checks, a synchronous latch, output deduplication,
-      copy-only behavior, and cleanup. Publish shared hooks for renderers and the outer
-      fence/keymap phases."
-  - id: live
-    title: Shared command-chip face and Live Preview rendering
-    size: medium
-    depends_on:
-      - runtime
-    description:
-      "live: add the production inline DOM face and state styling, extend the existing
-      viewport scan to both chip kinds, wire gestures and subscriptions, preserve copy
-      behavior, and verify mixed-chip performance and rebuild continuity."
-  - id: reading
-    title: Reading, embeds, hover previews, and query source attribution
-    size: medium
-    depends_on:
-      - live
-    description:
-      "reading: extend the single Markdown processor with accessible command buttons and
-      render-child cleanup. Verify Tasks and Dataview source hooks, prevent dashboard
-      paths from authorizing imported content, and test stale source and protected
-      folders across reading surfaces."
-  - id: evidence
-    title: Visual previews, isolated Obsidian acceptance, and documentation
-    size: medium
-    depends_on:
-      - reading
-    description:
-      "evidence: add production-backed light/dark previews and an isolated stub-bob
-      Obsidian harness with offline self-tests; finish reference docs and run required
-      gates. Record deploy and acceptance evidence for the child epic land agent; do not
-      close bob-cli-nu.4 yourself."
+- id: engine-contract
+  title: Complete the engine contract consumed by inline chips
+  size: medium
+  depends_on: []
+  description: 'engine-contract: complete additive resolver metadata, signature lookup,
+    per-run state callbacks, loading behavior, and catalog invalidation. Preserve
+    existing Command Mode consumers and guards; add focused contract regressions.'
+- id: runtime
+  title: Shared command-chip state and activation
+  size: medium
+  depends_on:
+  - engine-contract
+  description: 'runtime: add source policy, cached resolution, CommandChipRunStore,
+    and commandChipActivate with stale checks, a synchronous latch, output deduplication,
+    copy-only behavior, and cleanup. Publish shared hooks for renderers and the outer
+    fence/keymap phases.'
+- id: live
+  title: Shared command-chip face and Live Preview rendering
+  size: medium
+  depends_on:
+  - runtime
+  description: 'live: add the production inline DOM face and state styling, extend
+    the existing viewport scan to both chip kinds, wire gestures and subscriptions,
+    preserve copy behavior, and verify mixed-chip performance and rebuild continuity.'
+- id: reading
+  title: Reading, embeds, hover previews, and query source attribution
+  size: medium
+  depends_on:
+  - live
+  description: 'reading: extend the single Markdown processor with accessible command
+    buttons and render-child cleanup. Verify Tasks and Dataview source hooks, prevent
+    dashboard paths from authorizing imported content, and test stale source and protected
+    folders across reading surfaces.'
+- id: evidence
+  title: Visual previews, isolated Obsidian acceptance, and documentation
+  size: medium
+  depends_on:
+  - reading
+  description: 'evidence: add production-backed light/dark previews and an isolated
+    stub-bob Obsidian harness with offline self-tests; finish reference docs and run
+    required gates. Record deploy and acceptance evidence for the child epic land
+    agent; do not close bob-cli-nu.4 yourself.'
 proposed_by: bbugyi200.apollo.bob-cli-nu.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-nu.4
 create_time: 2026-11-20 07:36:58
 status: wip
+bead_id: bob-cli-nu.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/command_chips_inline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/command_chips_inline.md)
-- **PARENT:**
-  [202611/command_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/command_chips.md)
+- **PROMPT:** [prompts/202611/command_chips_inline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/command_chips_inline.md)
+- **PARENT:** [202611/command_chips.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/command_chips.md)
+- **BEAD:** [bob-cli-nu.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nu/bob-cli-nu.4.1.md)
 
 # Inline command chips
 
