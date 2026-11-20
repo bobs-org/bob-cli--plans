@@ -1,21 +1,18 @@
 ---
 tier: tale
 size: medium
-title:
-  "Title-slot spike: kit mount primitive, real-Obsidian CDP proof, and GO/NO-GO verdict
-  (bob-cli-o6.1)"
-goal:
-  bob-ledger-tools ships an unused, unit-tested kit primitive that mounts a property
-  card in Obsidian's title slot (after the inline title, before native Properties) in
-  Live Preview and Reading, a real-Obsidian CDP spike on athena measures it across
-  switches, splits, re-renders, settings, tall cards, and teardown, and bead
-  bob-cli-o6.1 carries a TITLE SLOT GO or NO-GO verdict note with report and screenshot
-  artifacts that the collection-cards and day-period-cards phases build on.
+title: 'Title-slot spike: kit mount primitive, real-Obsidian CDP proof, and GO/NO-GO
+  verdict (bob-cli-o6.1)'
+goal: bob-ledger-tools ships an unused, unit-tested kit primitive that mounts a property
+  card in Obsidian's title slot (after the inline title, before native Properties)
+  in Live Preview and Reading, a real-Obsidian CDP spike on athena measures it across
+  switches, splits, re-renders, settings, tall cards, and teardown, and bead bob-cli-o6.1
+  carries a TITLE SLOT GO or NO-GO verdict note with report and screenshot artifacts
+  that the collection-cards and day-period-cards phases build on.
 proposed_by: bbugyi200.athena.bob-cli-o6.1
 proposed_with: claude/opus
 bead: bob-cli-o6.1
-create_time: 2026-11-20 12:01:08
-status: wip
+status: done
 ---
 
 - **PARENT:**
