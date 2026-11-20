@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "browse_ctrl_np",
+      "kind": "choice",
+      "ask": "Should Ctrl+N / Ctrl+P also step between fields when no stage is open (browse mode)?",
+      "why": "One rule (Ctrl+N/P = \u2193/\u2191 wherever arrows move) matches Bob's other pickers",
+      "choices": [
+        {
+          "key": "everywhere",
+          "label": "Ctrl+N/P also move the field selection in browse; a full \u2193/\u2191 synonym on the card"
+        },
+        {
+          "key": "pickers_only",
+          "label": "Ctrl+N/P move only picker highlights; browse keeps j/k, arrows, and Tab"
+        }
+      ],
+      "default": "everywhere",
+      "effective_default": "everywhere",
+      "requested_verified": false
+    }
+  ]
+}
