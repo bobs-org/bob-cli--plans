@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "captured_notes",
+      "kind": "choice",
+      "ask": "Where should captured notes (and every other unmarked task sub-bullet) live?",
+      "why": "Research adjustment A3, which you endorsed; the micro marker alone separates work from notes",
+      "choices": [
+        {
+          "key": "loose",
+          "label": "Loose bullets that read as an implicit NOTES drawer; capture writes them as today"
+        },
+        {
+          "key": "drawer",
+          "label": "A physical NOTES drawer created on demand; captured notes nest one level deeper"
+        }
+      ],
+      "default": "loose",
+      "effective_default": "loose",
+      "requested_verified": false
+    },
+    {
+      "id": "obsidian_toggle",
+      "kind": "choice",
+      "ask": "How should Obsidian toggle the micro task marker on the current bullet?",
+      "why": "Ctrl+] already writes exactly the bare `[ ] ` marker in Obsidian",
+      "choices": [
+        {
+          "key": "ctrl_bracket",
+          "label": "Teach the existing Ctrl+] checkbox toggle as the micro toggle; no new chord"
+        },
+        {
+          "key": "ctrl_g_leader",
+          "label": "Also add a nav Ctrl+G leader whose T toggles it, matching the capture panel"
+        }
+      ],
+      "default": "ctrl_bracket",
+      "effective_default": "ctrl_bracket",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_micro_task",
+      "kind": "toggle",
+      "ask": "Add the new Micro Task glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:micro-task"
+        ]
+      },
+      "requested": "As a part of this change, we should add an excellent new glossary term for \"micro task\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:micro-task",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/micro-task.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_capture_alias",
+      "kind": "toggle",
+      "ask": "Update the Capture Alias strand so it covers the `..` micro marker alias?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:capture-alias"
+        ]
+      },
+      "corrects": "swaps for the [[capture]] sigil it stands for, only where that sigil would act at the caret by opening its picker or filling a close slot.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:capture-alias",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Alias",
+            "Capture",
+            "Task Link",
+            "Task Type",
+            "Pomodoro",
+            "Task Relation",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Freshness",
+            "Task Successor",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_micro_decision",
+      "kind": "toggle",
+      "ask": "Record the micro task decision and mark Capture Bullets Mirror The Task Block superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:capture-bullets-mirror-the-task-block",
+          "decisions:micro-tasks-are-checkbox-bullets"
+        ]
+      },
+      "corrects": "every other first-level bullet, with its nested bullets, is one note.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:capture-bullets-mirror-the-task-block",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Bullets Mirror The Task Block"
+          ]
+        },
+        {
+          "selector": "decisions:micro-tasks-are-checkbox-bullets",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/micro-tasks-are-checkbox-bullets.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
