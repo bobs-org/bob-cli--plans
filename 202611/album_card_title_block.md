@@ -1,14 +1,14 @@
 ---
 tier: tale
 size: medium
-title: Album card becomes the title block and owns the album title from the title
-  slot
-goal: On desktop Obsidian, opening an album note such as eat.md shows one title, the
-  album card's, in the title slot above native Properties. The card paints at once
-  from local data. The redundant H1 is hidden at render time, and touching it with
-  the cursor reveals it. The schema folds to one line. A reusable adopter glue does
-  the slot mount and title ownership, so the record-card phase can reuse it unchanged.
-  Every failure restores native rendering.
+title: Album card becomes the title block and owns the album title from the title slot
+goal:
+  On desktop Obsidian, opening an album note such as eat.md shows one title, the album
+  card's, in the title slot above native Properties. The card paints at once from local
+  data. The redundant H1 is hidden at render time, and touching it with the cursor
+  reveals it. The schema folds to one line. A reusable adopter glue does the slot mount
+  and title ownership, so the record-card phase can reuse it unchanged. Every failure
+  restores native rendering.
 proposed_by: bbugyi200.athena.bob-cli-o6.4.1.1
 proposed_with: claude/opus
 bead: bob-cli-o6.4.1.1
@@ -19,6 +19,11 @@ status: done
   [202611/collection_cards_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/collection_cards_title_block.md)
 - **BEAD:**
   [bob-cli-o6.4.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.4.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.4.1.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.4.1.1.md)
+- **COMMITS:**
+  - [a68e29b](https://github.com/bobs-org/bob-plugins/commit/a68e29be2b0bb50aee47a19d65a3485c207b59bb)
+    — feat(ledger-tools): album card owns the title block from the title slot
 
 # Album card becomes the title block (phase `album-card`, bead bob-cli-o6.4.1.1)
 
