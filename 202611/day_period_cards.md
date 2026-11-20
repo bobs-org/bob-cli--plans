@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: 'Day and period cards: the intention card always mounts in the title slot as
-  the note''s title block, with a leaf tile, state pill, docked rail, and set-intentions
-  ghost (bob-cli-o6.5)'
-goal: On desktop Obsidian, every canonical daily, week, quarter, and year note opens
-  on a day or period card mounted in Obsidian's title slot. The card shows a path-computed
+title:
+  "Day and period cards: the intention card always mounts in the title slot as the
+  note's title block, with a leaf tile, state pill, docked rail, and set-intentions
+  ghost (bob-cli-o6.5)"
+goal:
+  On desktop Obsidian, every canonical daily, week, quarter, and year note opens on a
+  day or period card mounted in Obsidian's title slot. The card shows a path-computed
   title, a leaf tile, a species kicker, a state pill, and a docked rail with a children
   strip on periods. The recognized H1, nav line, and child-link line are hidden at
   render time and revealed when the cursor touches them. Current and future subjects
@@ -21,6 +23,11 @@ status: done
   [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
 - **BEAD:**
   [bob-cli-o6.5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.5.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.5](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.5.md)
+- **COMMITS:**
+  - [eed318e](https://github.com/bobs-org/bob-plugins/commit/eed318e0542a09d99278ff936763ab1666d6d3ee)
+    — feat(ledger-tools): day and period cards own the title block
 
 # Day and period cards (phase `bob-cli-o6.5`)
 
