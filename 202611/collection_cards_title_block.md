@@ -1,67 +1,60 @@
 ---
 tier: epic
-title:
-  "Collection cards adopt the title block: album, record, and bank cards wear their
-  species, and album and record cards own the note title from the title slot"
-goal:
-  On desktop Obsidian, every album note and record note opens on its card in the title
-  slot above native Properties, and that card is the note's only visible title. The
-  album card paints its title from local data at once, hides its redundant H1 at render
-  time, and folds its schema to one line. The record card carries the RECORD kicker, a
-  sheet tile, and paper material, with its walk rail docked at its bottom. The bank
-  Setup card gains the BANK kicker and tile. The Record Card and album card editor
-  headers show the species tile and word. Every failure restores native rendering.
+title: 'Collection cards adopt the title block: album, record, and bank cards wear
+  their species, and album and record cards own the note title from the title slot'
+goal: On desktop Obsidian, every album note and record note opens on its card in the
+  title slot above native Properties, and that card is the note's only visible title.
+  The album card paints its title from local data at once, hides its redundant H1
+  at render time, and folds its schema to one line. The record card carries the RECORD
+  kicker, a sheet tile, and paper material, with its walk rail docked at its bottom.
+  The bank Setup card gains the BANK kicker and tile. The Record Card and album card
+  editor headers show the species tile and word. Every failure restores native rendering.
 parent_bead: bob-cli-o6.4
 phases:
-  - id: album-card
-    title:
-      Album card becomes the title block and owns the album title from the title slot
-    depends_on: []
-    size: large
-    description:
-      "album-card: in bob-ledger-tools, give notebookHeaderNoteTitle the album title
-      rule, paint the album card's title block (stack tile, ALBUM kicker with owner
-      links, title, summary subtitle, actions) from local data before the report, fold
-      the schema to one line by default, mount the card in the title slot with title
-      ownership through a reusable adopter glue fragment (body fallback otherwise),
-      update unit, preview, and album e2e checks, update docs, bump, deploy, and run the
-      album e2e on athena."
-  - id: record-card
-    title:
-      Record card wears the RECORD kicker and sheet tile, mounts in the title slot, and
-      migrates its title selectors onto the kit
-    depends_on:
-      - album-card
-    size: large
-    description:
-      "record-card: in bob-ledger-tools, rebuild the record sheet header as the kit
-      title block (RECORD kicker with album link and noun, sheet tile, paper material),
-      mount it in the title slot through the album-card adopter glue with the walk rail
-      docked inside and the first-line walk line hidden by a record title recognizer
-      with reveal, move the inline-title and owned-row hiding onto kit classes, update
-      unit, preview, and record e2e checks (never the record-writer harness), update
-      docs, bump, deploy, and run the record e2e scripts on athena."
-  - id: bank-and-editors
-    title: Bank Setup card and the two card editors show the species tile and word
-    depends_on: []
-    size: medium
-    description:
-      'bank-and-editors: in bob-ledger-tools, add an additive kit identity badge (tile
-      plus species word), put it on the bank Setup card head row with
-      data-card-kind="bank" and an unchanged "Bank setup" aria-label, and on the Record
-      Card and album card editor (Schema Card) modal headers, update unit, preview, and
-      bank e2e checks and the docs header sentences, bump, deploy, and run the bank e2e
-      on athena.'
+- id: album-card
+  title: Album card becomes the title block and owns the album title from the title
+    slot
+  depends_on: []
+  size: large
+  description: 'album-card: in bob-ledger-tools, give notebookHeaderNoteTitle the
+    album title rule, paint the album card''s title block (stack tile, ALBUM kicker
+    with owner links, title, summary subtitle, actions) from local data before the
+    report, fold the schema to one line by default, mount the card in the title slot
+    with title ownership through a reusable adopter glue fragment (body fallback otherwise),
+    update unit, preview, and album e2e checks, update docs, bump, deploy, and run
+    the album e2e on athena.'
+- id: record-card
+  title: Record card wears the RECORD kicker and sheet tile, mounts in the title slot,
+    and migrates its title selectors onto the kit
+  depends_on:
+  - album-card
+  size: large
+  description: 'record-card: in bob-ledger-tools, rebuild the record sheet header
+    as the kit title block (RECORD kicker with album link and noun, sheet tile, paper
+    material), mount it in the title slot through the album-card adopter glue with
+    the walk rail docked inside and the first-line walk line hidden by a record title
+    recognizer with reveal, move the inline-title and owned-row hiding onto kit classes,
+    update unit, preview, and record e2e checks (never the record-writer harness),
+    update docs, bump, deploy, and run the record e2e scripts on athena.'
+- id: bank-and-editors
+  title: Bank Setup card and the two card editors show the species tile and word
+  depends_on: []
+  size: medium
+  description: 'bank-and-editors: in bob-ledger-tools, add an additive kit identity
+    badge (tile plus species word), put it on the bank Setup card head row with data-card-kind="bank"
+    and an unchanged "Bank setup" aria-label, and on the Record Card and album card
+    editor (Schema Card) modal headers, update unit, preview, and bank e2e checks
+    and the docs header sentences, bump, deploy, and run the bank e2e on athena.'
 proposed_by: bbugyi200.athena.bob-cli-o6.4
 proposed_with: claude/opus
 create_time: 2026-11-20 13:42:57
 status: wip
+bead_id: bob-cli-o6.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/collection_cards_title_block.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/collection_cards_title_block.md)
-- **PARENT:**
-  [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
+- **PROMPT:** [prompts/202611/collection_cards_title_block.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/collection_cards_title_block.md)
+- **PARENT:** [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
+- **BEAD:** [bob-cli-o6.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.4.1.md)
 
 # Collection cards adopt the title block
 
