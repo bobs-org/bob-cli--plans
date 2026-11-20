@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Finish intention card state and land bob-cli-nh.7.1
-goal:
-  Repair the remaining intention card state and field-stage gaps, verify and deploy
+goal: Repair the remaining intention card state and field-stage gaps, verify and deploy
   them, then close bob-cli-nh.7.1 and parent phase bob-cli-nh.7 normally.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-nh.7.1.land
@@ -15,12 +14,6 @@ status: done
   [202611/intention_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/intention_card.md)
 - **BEAD:**
   [bob-cli-nh.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nh/bob-cli-nh.7.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-nh.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-nh.7.1.land.md)
-- **COMMITS:**
-  - [5c41b5b](https://github.com/bobs-org/bob-plugins/commit/5c41b5b3c069bfbf3cf10d7b50944e88767f339b)
-    — fix(ledger-tools): finish intention card overlays, guarded retry/Undo, and field
-    stages
 
 # Finish the intention card state paths and land bob-cli-nh.7.1
 
