@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "rebuild_trigger",
+      "kind": "choice",
+      "ask": "Should install-all also skip the rebuild when only docs, tests, or repo metadata changed since the last install?",
+      "why": "Tests/docs-only commits are common there and never change the built app",
+      "choices": [
+        {
+          "key": "app_inputs",
+          "label": "Docs/tests/CI-only changes skip; any other changed path rebuilds"
+        },
+        {
+          "key": "any_change",
+          "label": "Any new commit or local change rebuilds; skip only on the exact installed commit"
+        }
+      ],
+      "default": "app_inputs",
+      "effective_default": "app_inputs",
+      "requested_verified": false
+    }
+  ]
+}
