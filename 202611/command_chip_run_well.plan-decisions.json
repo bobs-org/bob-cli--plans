@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "copy_only_look",
+      "kind": "choice",
+      "ask": "Should a command chip that can only copy wear the copy chip's blue well and copy glyph?",
+      "why": "The click copies, so the copy look tells the truth and keeps one meaning per hue",
+      "choices": [
+        {
+          "key": "copy",
+          "label": "Blue copy well and body, exactly like a copy chip; blue always means a click copies"
+        },
+        {
+          "key": "run",
+          "label": "Keeps the purple run body with a muted copy well; blue no longer always means copy"
+        }
+      ],
+      "default": "copy",
+      "effective_default": "copy",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_command_chip",
+      "kind": "toggle",
+      "ask": "Should the glossary Command Chip strand stop calling the inline chip a quiet pill?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:command-chip"
+        ]
+      },
+      "corrects": "renders the span as a quiet pill with a \u25b6 glyph",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:command-chip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Command Chip",
+            "Copy Chip",
+            "Command Mode",
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Pomodoro",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
