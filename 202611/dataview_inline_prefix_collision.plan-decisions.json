@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "legacy_totals",
+      "kind": "choice",
+      "ask": "Strip the 119 legacy `## Pomodoros` inline-query totals so inline DQL can be turned fully off?",
+      "why": "The Day Strip replaced heading totals; a 2026-10-25 edit already stripped newer notes",
+      "choices": [
+        {
+          "key": "strip",
+          "label": "Strip to `## Pomodoros` and turn inline DQL off; June\u2013Sept notes lose the heading total"
+        },
+        {
+          "key": "reprefix",
+          "label": "Keep inline DQL on under `dv=` and rewrite the 119 headings to it; old totals stay visible"
+        }
+      ],
+      "default": "strip",
+      "effective_default": "strip",
+      "requested_verified": false
+    },
+    {
+      "id": "snapshot_parity",
+      "kind": "choice",
+      "ask": "Should vault-note snapshots honor the vault's Dataview inline-query setting instead of hard-coding `=`?",
+      "why": "The projector already mirrors the vault's Tasks settings; hard-coded `=` keeps the bug in PDFs",
+      "choices": [
+        {
+          "key": "follow_settings",
+          "label": "Snapshots read the vault's inline-query toggle and prefix; a bare prefix stays code"
+        },
+        {
+          "key": "leave",
+          "label": "Vault-only fix; snapshots keep turning `= \u2026` code into Open live query links"
+        }
+      ],
+      "default": "follow_settings",
+      "effective_default": "follow_settings",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions memory record saying Dataview inline queries never claim Bob's `=` code?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Notebook Route Writes Notes; `@@` Stays Draft-Wide",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Awaiting A Gmail Reply Is A Tagged Schedule Hold",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Close Selections List Explicitly",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Consumption Keeps Notes And Recorded Time",
+            "Ctrl+Enter Carries The Last PRE Chore Into The Next Group",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Force Resets The Day",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Idle Capture Mirrors Walk Attention",
+            "meet-filing-follows-google-until-edited",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Note Defaults Filter By Task Type",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Open Pomodoro Names Follow Task Links",
+            "Past Day Sync Closes Bob Filed Meetings",
+            "Private Event Notes Beat Google Per Field",
+            "Projects Block Their Tasks From The ^prj Line",
+            "q-and-ctrl-bracket-mirror-esc",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Equals Alias And Flips",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Attention Follows The ]s Walk",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "The Mac `w` Mark Counts Lane Excess",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
