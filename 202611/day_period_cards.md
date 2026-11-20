@@ -1,13 +1,11 @@
 ---
 tier: tale
 size: medium
-title:
-  "Day and period cards: the intention card always mounts in the title slot as the
-  note's title block, with a leaf tile, state pill, docked rail, and set-intentions
-  ghost (bob-cli-o6.5)"
-goal:
-  On desktop Obsidian, every canonical daily, week, quarter, and year note opens on a
-  day or period card mounted in Obsidian's title slot. The card shows a path-computed
+title: 'Day and period cards: the intention card always mounts in the title slot as
+  the note''s title block, with a leaf tile, state pill, docked rail, and set-intentions
+  ghost (bob-cli-o6.5)'
+goal: On desktop Obsidian, every canonical daily, week, quarter, and year note opens
+  on a day or period card mounted in Obsidian's title slot. The card shows a path-computed
   title, a leaf tile, a species kicker, a state pill, and a docked rail with a children
   strip on periods. The recognized H1, nav line, and child-link line are hidden at
   render time and revealed when the cursor touches them. Current and future subjects
@@ -16,8 +14,7 @@ goal:
 proposed_by: bbugyi200.athena.bob-cli-o6.5
 proposed_with: claude/opus
 bead: bob-cli-o6.5
-create_time: 2026-11-20 13:37:49
-status: wip
+status: done
 ---
 
 - **PARENT:**
