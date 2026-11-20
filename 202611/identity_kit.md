@@ -1,13 +1,15 @@
 ---
 tier: tale
 size: medium
-title: 'Identity kit: species registry, title block and rail builders, card tokens,
-  and title ownership in the bob-ledger-tools kit'
-goal: The bob-ledger-tools property-card kit exports a species registry, glyph tile,
-  title block, and docked rail builders. It also ships data-card-kind tokens with
-  the temporal day accent, plus title ownership that hides and reveals the title in
-  Live Preview and Reading and always fails open. All of this is unit-tested and preview-rendered,
-  while every existing card stays pixel-identical.
+title:
+  "Identity kit: species registry, title block and rail builders, card tokens, and title
+  ownership in the bob-ledger-tools kit"
+goal:
+  The bob-ledger-tools property-card kit exports a species registry, glyph tile, title
+  block, and docked rail builders. It also ships data-card-kind tokens with the temporal
+  day accent, plus title ownership that hides and reveals the title in Live Preview and
+  Reading and always fails open. All of this is unit-tested and preview-rendered, while
+  every existing card stays pixel-identical.
 proposed_by: bbugyi200.athena.bob-cli-o6.2
 proposed_with: claude/opus
 bead: bob-cli-o6.2
@@ -18,6 +20,11 @@ status: done
   [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
 - **BEAD:**
   [bob-cli-o6.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.2.md)
+- **COMMITS:**
+  - [6278b78](https://github.com/bobs-org/bob-plugins/commit/6278b78c8f0987071d189245dd40eca426c55e12)
+    — feat(ledger-tools): add property-card identity kit and title ownership
 
 # Identity kit (phase `bob-cli-o6.2`)
 
