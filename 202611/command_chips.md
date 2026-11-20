@@ -1,138 +1,127 @@
 ---
 tier: epic
-title: "Command chips: one-gesture bob runs from Obsidian notes"
-goal:
-  "Typing `run: bob …` in an inline code span, or a `bob-run` fence, gives a quiet ▶
-  chip. One click or ⌘↵ runs it through Bob Command Mode the way the sheet's Ctrl+Enter
-  would. A chip holds one command or a whole `&&` sequence, and its run state shows in
-  place. The copy-chip plugin becomes `bob-chips` and owns both kinds, and the GTD rows
-  that hold bob commands become command chips."
+title: 'Command chips: one-gesture bob runs from Obsidian notes'
+goal: 'Typing `run: bob …` in an inline code span, or a `bob-run` fence, gives a quiet
+  ▶ chip. One click or ⌘↵ runs it through Bob Command Mode the way the sheet''s Ctrl+Enter
+  would. A chip holds one command or a whole `&&` sequence, and its run state shows
+  in place. The copy-chip plugin becomes `bob-chips` and owns both kinds, and the
+  GTD rows that hold bob commands become command chips.'
 decisions:
   gtd_ack_copy_chip:
     ask: Turn the Ack row's terminal-only `bob gcal ack -n 7` into a copy chip?
     default: true
-    why:
-      It needs a TTY, so it can't run as a chip; a ⧉ chip makes the terminal step one
-      gesture
+    why: It needs a TTY, so it can't run as a chip; a ⧉ chip makes the terminal step
+      one gesture
     answer: true
   memory_glossary_command_chip:
     ask: Add the glossary:command-chip strand drafted in the adopt phase?
     default: true
     memory:
-      - glossary:command-chip
-    requested:
-      As a part of this change, we should add a new glossary term for "command chip".
+    - glossary:command-chip
+    requested: As a part of this change, we should add a new glossary term for "command
+      chip".
     answer: true
   memory_glossary_copy_chip:
-    ask: Correct glossary:copy-chip for the plugin rename and point it at Command Chip?
+    ask: Correct glossary:copy-chip for the plugin rename and point it at Command
+      Chip?
     default: true
     memory:
-      - glossary:copy-chip
-    corrects:
-      The `bob-copy-chips` plugin renders the span as a quiet pill and the fence as a
-      titled card.
+    - glossary:copy-chip
+    corrects: The `bob-copy-chips` plugin renders the span as a quiet pill and the
+      fence as a titled card.
     answer: true
   memory_decision_record:
-    ask:
-      Record the command-chip safety policy as
-      decisions:command-chips-run-through-command-mode?
+    ask: Record the command-chip safety policy as decisions:command-chips-run-through-command-mode?
     default: false
     memory:
-      - decisions:command-chips-run-through-command-mode
+    - decisions:command-chips-run-through-command-mode
     answer: false
 phases:
-  - id: rename
-    title: Rename bob-copy-chips to bob-chips with no behavior change
-    depends_on: []
-    size: medium
-    description:
-      "rename: move the copy-chip plugin to the id bob-chips. The phase includes a
-      dual-listed transition and a double-load guard. It updates every touchpoint: the
-      navigation C-row lookup, docs, chezmoi allowlist, vault enablement, the vimrc
-      obcommand ids, and a bob-cli docs redirect. Copy-chip behavior and api.copyChips
-      v2 stay byte-stable."
-  - id: engine
-    title: Command Mode chip engine (resolve, runText, openText, provenance)
-    depends_on: []
-    size: medium
-    description:
-      "engine: add feature-detected api.commandMode members. resolve(text) parses a chip
-      payload into catalog-legal steps. runText runs it with sheet Ctrl+Enter semantics
-      plus the confirm floor, and openText is the guarded path. Also add activeRun and
-      onCatalogChanged, plus trigger/source provenance on run records. One activation
-      planner is shared with the sheet so they can never drift."
-  - id: grammar
-    title: run:/bob-run grammar, command-chip cursor rule, and vectors
-    depends_on:
-      - rename
-    size: medium
-    description:
-      "grammar: build the pure run: and bob-run grammar on the shared scanner, with a
-      serializer, link spans, and the command-chip chipAt rule (under cursor, link,
-      line, task). Publish the pure members of api.commandChips v1, pinned by JSON
-      vectors and a round-trip test."
-  - id: inline
-    title: Inline command chips in Live Preview and Reading view
-    depends_on:
-      - grammar
-      - engine
-    size: large
-    description:
-      "inline: render run: spans as ▶ pills in Live Preview and Reading view. Click
-      runs through runText and Shift+Click opens Command Mode. Live state comes from a
-      store keyed by signature. Unavailable and copy-only faces cover no-run folders,
-      mobile, and a missing Command Mode. Includes visual previews, perf, and stub-bob
-      e2e."
-  - id: fence
-    title: The bob-run sequence card
-    depends_on:
-      - inline
-    size: medium
-    description:
-      "fence: render bob-run fences as titled sequence cards. Each card has numbered
-      monospace steps, a Run button, per-step live marks, unavailable and copy-only
-      variants, and an armed state."
-  - id: keymap
-    title: ⌘↵ runs the command chip at the cursor, with an armed chip and keycap hint
-    depends_on:
-      - inline
-    size: medium
-    description:
-      "keymap: compose a command-chip step into the existing Meta+Enter dispatcher in
-      bob-navigation-hotkeys, add targetAt/runAtCursor and a palette command, and paint
-      the armed chip and a muted ⌘↵ Run keycap from the live binding. The Gmail and
-      Highlights hints yield, and every old ⌘↵ target is regression-tested."
-  - id: author
-    title: Mod+Shift+Y makes and edits command chips
-    depends_on:
-      - fence
-    size: medium
-    description:
-      "author: extend the make-or-edit card with a Copy | Run kind row. Run drafts get
-      live per-step validation from resolve, an Add-bob fix, and inline-or-fence
-      serialization. Conversion defaults are predictable, and Alt+Click edits a command
-      chip."
-  - id: adopt
-    title: GTD rows, guide, glossary, and coordination
-    depends_on:
-      - keymap
-      - author
-    size: medium
-    description:
-      "adopt: convert the open gtd_daily.md rows that hold bob commands (the Bank row
-      only once the Mac's bob has -D), add the vimrc comment and the bob-cli guide
-      section, apply the accepted memory decisions, and leave coordination notes on
-      bob-cli-nc and bob-cli-nn."
+- id: rename
+  title: Rename bob-copy-chips to bob-chips with no behavior change
+  depends_on: []
+  size: medium
+  description: 'rename: move the copy-chip plugin to the id bob-chips. The phase includes
+    a dual-listed transition and a double-load guard. It updates every touchpoint:
+    the navigation C-row lookup, docs, chezmoi allowlist, vault enablement, the vimrc
+    obcommand ids, and a bob-cli docs redirect. Copy-chip behavior and api.copyChips
+    v2 stay byte-stable.'
+- id: engine
+  title: Command Mode chip engine (resolve, runText, openText, provenance)
+  depends_on: []
+  size: medium
+  description: 'engine: add feature-detected api.commandMode members. resolve(text)
+    parses a chip payload into catalog-legal steps. runText runs it with sheet Ctrl+Enter
+    semantics plus the confirm floor, and openText is the guarded path. Also add activeRun
+    and onCatalogChanged, plus trigger/source provenance on run records. One activation
+    planner is shared with the sheet so they can never drift.'
+- id: grammar
+  title: run:/bob-run grammar, command-chip cursor rule, and vectors
+  depends_on:
+  - rename
+  size: medium
+  description: 'grammar: build the pure run: and bob-run grammar on the shared scanner,
+    with a serializer, link spans, and the command-chip chipAt rule (under cursor,
+    link, line, task). Publish the pure members of api.commandChips v1, pinned by
+    JSON vectors and a round-trip test.'
+- id: inline
+  title: Inline command chips in Live Preview and Reading view
+  depends_on:
+  - grammar
+  - engine
+  size: large
+  description: 'inline: render run: spans as ▶ pills in Live Preview and Reading view.
+    Click runs through runText and Shift+Click opens Command Mode. Live state comes
+    from a store keyed by signature. Unavailable and copy-only faces cover no-run
+    folders, mobile, and a missing Command Mode. Includes visual previews, perf, and
+    stub-bob e2e.'
+- id: fence
+  title: The bob-run sequence card
+  depends_on:
+  - inline
+  size: medium
+  description: 'fence: render bob-run fences as titled sequence cards. Each card has
+    numbered monospace steps, a Run button, per-step live marks, unavailable and copy-only
+    variants, and an armed state.'
+- id: keymap
+  title: ⌘↵ runs the command chip at the cursor, with an armed chip and keycap hint
+  depends_on:
+  - inline
+  size: medium
+  description: 'keymap: compose a command-chip step into the existing Meta+Enter dispatcher
+    in bob-navigation-hotkeys, add targetAt/runAtCursor and a palette command, and
+    paint the armed chip and a muted ⌘↵ Run keycap from the live binding. The Gmail
+    and Highlights hints yield, and every old ⌘↵ target is regression-tested.'
+- id: author
+  title: Mod+Shift+Y makes and edits command chips
+  depends_on:
+  - fence
+  size: medium
+  description: 'author: extend the make-or-edit card with a Copy | Run kind row. Run
+    drafts get live per-step validation from resolve, an Add-bob fix, and inline-or-fence
+    serialization. Conversion defaults are predictable, and Alt+Click edits a command
+    chip.'
+- id: adopt
+  title: GTD rows, guide, glossary, and coordination
+  depends_on:
+  - keymap
+  - author
+  size: medium
+  description: 'adopt: convert the open gtd_daily.md rows that hold bob commands (the
+    Bank row only once the Mac''s bob has -D), add the vimrc comment and the bob-cli
+    guide section, apply the accepted memory decisions, and leave coordination notes
+    on bob-cli-nc and bob-cli-nn.'
 proposed_by: bbugyi200.apollo.research.5k.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-20 05:59:31
 status: wip
+bead_id: bob-cli-nu
 ---
 
-- **PROMPT:**
-  [prompts/202611/command_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/command_chips.md)
+- **PROMPT:** [prompts/202611/command_chips.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/command_chips.md)
+- **BEAD:** [bob-cli-nu](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nu/README.md)
 
 # Plan: Command chips
 
