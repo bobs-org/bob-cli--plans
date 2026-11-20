@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "relation",
+      "kind": "choice",
+      "ask": "Should each new task link back to the SASE Blog \u00b7 2026-11-16 reading task with an `inspired by` relation?",
+      "why": "Matches the configured annotation follow-up convention (annotation_task_relation)",
+      "choices": [
+        {
+          "key": "link",
+          "label": "Each task gets an `inspired by` LINKS child; the reading task's LINKED FROM lists all 17"
+        },
+        {
+          "key": "plain",
+          "label": "One-line tasks with only the \ud83d\udd16 backlink; the reading task is left untouched"
+        }
+      ],
+      "default": "link",
+      "effective_default": "link",
+      "requested_verified": false
+    }
+  ]
+}
