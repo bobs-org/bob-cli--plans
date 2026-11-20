@@ -1,116 +1,105 @@
 ---
 tier: epic
-title:
-  "Property cards become the note title block: one title, a clear species, and a docked
-  rail on album, record, day, and period notes"
-goal:
-  On desktop Obsidian, every album note, record note, canonical daily note, and week,
-  quarter, and year note opens on its property card, and that card is the note's only
-  visible title. The card leads with a species glyph tile and a kicker word (ALBUM,
+title: 'Property cards become the note title block: one title, a clear species, and
+  a docked rail on album, record, day, and period notes'
+goal: On desktop Obsidian, every album note, record note, canonical daily note, and
+  week, quarter, and year note opens on its property card, and that card is the note's
+  only visible title. The card leads with a species glyph tile and a kicker word (ALBUM,
   RECORD, DAY, WEEK, QUARTER, YEAR), so an album, a record, and a day can never be
-  mistaken for each other, even in grayscale. The redundant H1, inline title, and nav
-  line are hidden at render time, never deleted (except album H1s, which move into a
-  bob-owned `title:` key). Every failure restores native rendering.
+  mistaken for each other, even in grayscale. The redundant H1, inline title, and
+  nav line are hidden at render time, never deleted (except album H1s, which move
+  into a bob-owned `title:` key). Every failure restores native rendering.
 phases:
-  - id: title-slot
-    title: Title-slot spike and kit mount primitive (go/no-go)
-    depends_on: []
-    size: large
-    description:
-      "title-slot: build the kit primitive that mounts a property card in Obsidian's
-      title slot (after the hidden inline title, before native Properties) in Live
-      Preview and Reading, prove it with a real-Obsidian CDP spike on athena across
-      switches, splits, re-renders, settings, and teardown, record a GO or NO-GO verdict
-      with evidence on this phase bead, and deploy the unused primitive."
-  - id: identity-kit
-    title:
-      "Identity kit: species tile, kicker, title row, rail, tokens, and title ownership"
-    depends_on: []
-    size: large
-    description:
-      "identity-kit: add the shared species registry, glyph tiles, kicker/title/subtitle
-      row, docked rail with optional children strip, data-card-kind tokens and the
-      temporal accent, and generalized title ownership (inline-title hide, Live Preview
-      block hide with reveal-on-selection-touch, Reading source hide) to the
-      bob-ledger-tools kit, with unit tests and a preview matrix; no card adopts it yet."
-  - id: album-title-cli
-    title: Album `title:` key, H1-less album create, and `bob albums tidy`
-    depends_on: []
-    size: large
-    description:
-      "album-title-cli: in bob-cli, make frontmatter `title:` the first title source for
-      album notes in every reader, make bob albums create write `title:` and no H1, and
-      add bob albums tidy (dry-run by default) that backfills `title:` from the H1 and
-      removes the now-redundant H1 under record-tidy keep rules, with registry,
-      completion, docs, and no-churn sync tests. No live-vault apply in this phase."
-  - id: collection-cards
-    title: Album, record, and bank cards adopt the title block
-    depends_on:
-      - title-slot
-      - identity-kit
-    size: large
-    description:
-      "collection-cards: the album card and record card adopt the identity kit and the
-      title slot (or body fallback per the title-slot verdict), the album card renders
-      its title from local data and hides its redundant H1, the album folds its schema
-      to one line, the bank Setup card gains the BANK kicker, the Record Card and album
-      card editor headers carry the species, docs follow, and the plugins deploy."
-  - id: day-period-cards
-    title: Day and period cards always mount as the title block with a docked rail
-    depends_on:
-      - title-slot
-      - identity-kit
-    size: large
-    description:
-      "day-period-cards: the intention card becomes the day card and period card: it
-      always mounts on canonical daily, week, quarter, and year notes with a
-      path-computed title, leaf tile, temporal accent, state pill, docked nav rail with
-      children strip, and a set-intentions ghost on current and future subjects;
-      recognized H1, nav, and child-link lines hide with reveal; content bands stay
-      gated; docs, editor header, and deploy follow."
-  - id: obsidian-proof
-    title: Real-Obsidian proof, preview matrix, live album tidy, and final deploy
-    depends_on:
-      - collection-cards
-      - day-period-cards
-      - album-title-cli
-    size: large
-    description:
-      "obsidian-proof: add and run a real-Obsidian title-block walkthrough on athena
-      (ownership, reveal, fallback, heading links, Outline, byte neutrality, grayscale,
-      forced colors), render the full preview matrix, fix what it finds, run the live
-      bob albums tidy only when every host runs a bob that reads album `title:`, pass
-      every gate, and deploy the final tree."
-  - id: glossary
-    title: Glossary updates the reviewer accepted
-    depends_on:
-      - obsidian-proof
-    size: small
-    description:
-      "glossary: apply only the memory decisions answered yes (glossary strands and the
-      optional decision record) so memory matches the shipped cards, then run sase
-      memory init; if every memory decision is no, record that on this bead and change
-      nothing."
+- id: title-slot
+  title: Title-slot spike and kit mount primitive (go/no-go)
+  depends_on: []
+  size: large
+  description: 'title-slot: build the kit primitive that mounts a property card in
+    Obsidian''s title slot (after the hidden inline title, before native Properties)
+    in Live Preview and Reading, prove it with a real-Obsidian CDP spike on athena
+    across switches, splits, re-renders, settings, and teardown, record a GO or NO-GO
+    verdict with evidence on this phase bead, and deploy the unused primitive.'
+- id: identity-kit
+  title: 'Identity kit: species tile, kicker, title row, rail, tokens, and title ownership'
+  depends_on: []
+  size: large
+  description: 'identity-kit: add the shared species registry, glyph tiles, kicker/title/subtitle
+    row, docked rail with optional children strip, data-card-kind tokens and the temporal
+    accent, and generalized title ownership (inline-title hide, Live Preview block
+    hide with reveal-on-selection-touch, Reading source hide) to the bob-ledger-tools
+    kit, with unit tests and a preview matrix; no card adopts it yet.'
+- id: album-title-cli
+  title: Album `title:` key, H1-less album create, and `bob albums tidy`
+  depends_on: []
+  size: large
+  description: 'album-title-cli: in bob-cli, make frontmatter `title:` the first title
+    source for album notes in every reader, make bob albums create write `title:`
+    and no H1, and add bob albums tidy (dry-run by default) that backfills `title:`
+    from the H1 and removes the now-redundant H1 under record-tidy keep rules, with
+    registry, completion, docs, and no-churn sync tests. No live-vault apply in this
+    phase.'
+- id: collection-cards
+  title: Album, record, and bank cards adopt the title block
+  depends_on:
+  - title-slot
+  - identity-kit
+  size: large
+  description: 'collection-cards: the album card and record card adopt the identity
+    kit and the title slot (or body fallback per the title-slot verdict), the album
+    card renders its title from local data and hides its redundant H1, the album folds
+    its schema to one line, the bank Setup card gains the BANK kicker, the Record
+    Card and album card editor headers carry the species, docs follow, and the plugins
+    deploy.'
+- id: day-period-cards
+  title: Day and period cards always mount as the title block with a docked rail
+  depends_on:
+  - title-slot
+  - identity-kit
+  size: large
+  description: 'day-period-cards: the intention card becomes the day card and period
+    card: it always mounts on canonical daily, week, quarter, and year notes with
+    a path-computed title, leaf tile, temporal accent, state pill, docked nav rail
+    with children strip, and a set-intentions ghost on current and future subjects;
+    recognized H1, nav, and child-link lines hide with reveal; content bands stay
+    gated; docs, editor header, and deploy follow.'
+- id: obsidian-proof
+  title: Real-Obsidian proof, preview matrix, live album tidy, and final deploy
+  depends_on:
+  - collection-cards
+  - day-period-cards
+  - album-title-cli
+  size: large
+  description: 'obsidian-proof: add and run a real-Obsidian title-block walkthrough
+    on athena (ownership, reveal, fallback, heading links, Outline, byte neutrality,
+    grayscale, forced colors), render the full preview matrix, fix what it finds,
+    run the live bob albums tidy only when every host runs a bob that reads album
+    `title:`, pass every gate, and deploy the final tree.'
+- id: glossary
+  title: Glossary updates the reviewer accepted
+  depends_on:
+  - obsidian-proof
+  size: small
+  description: 'glossary: apply only the memory decisions answered yes (glossary strands
+    and the optional decision record) so memory matches the shipped cards, then run
+    sase memory init; if every memory decision is no, record that on this bead and
+    change nothing.'
 decisions:
   memory_glossary_cards:
-    ask:
-      Update the Intention Card, Property Card, and Record Card glossary strands to
-      match the shipped cards?
+    ask: Update the Intention Card, Property Card, and Record Card glossary strands
+      to match the shipped cards?
     memory:
-      - glossary:intention-card
-      - glossary:property-card
-      - glossary:record-card
+    - glossary:intention-card
+    - glossary:property-card
+    - glossary:record-card
     default: true
-    corrects:
-      paints at the top of a canonical daily or period note in Reading view and Live
-      Preview when any of `intentions`, `summary`, or `reflection` is nonempty.
+    corrects: paints at the top of a canonical daily or period note in Reading view
+      and Live Preview when any of `intentions`, `summary`, or `reflection` is nonempty.
     answer: true
   memory_decision_title_block:
-    ask:
-      Add a decisions strand that property cards own the title block and title bytes
-      stay per species?
+    ask: Add a decisions strand that property cards own the title block and title
+      bytes stay per species?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.athena.1eh
@@ -119,10 +108,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-20 11:49:14
 status: wip
+bead_id: bob-cli-o6
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_title_block.md)
+- **PROMPT:** [prompts/202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_title_block.md)
+- **BEAD:** [bob-cli-o6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/README.md)
 
 # Property cards become the note title block
 
