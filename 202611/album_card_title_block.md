@@ -1,19 +1,18 @@
 ---
 tier: tale
 size: medium
-title: Album card becomes the title block and owns the album title from the title slot
-goal:
-  On desktop Obsidian, opening an album note such as eat.md shows one title, the album
-  card's, in the title slot above native Properties. The card paints at once from local
-  data. The redundant H1 is hidden at render time, and touching it with the cursor
-  reveals it. The schema folds to one line. A reusable adopter glue does the slot mount
-  and title ownership, so the record-card phase can reuse it unchanged. Every failure
-  restores native rendering.
+title: Album card becomes the title block and owns the album title from the title
+  slot
+goal: On desktop Obsidian, opening an album note such as eat.md shows one title, the
+  album card's, in the title slot above native Properties. The card paints at once
+  from local data. The redundant H1 is hidden at render time, and touching it with
+  the cursor reveals it. The schema folds to one line. A reusable adopter glue does
+  the slot mount and title ownership, so the record-card phase can reuse it unchanged.
+  Every failure restores native rendering.
 proposed_by: bbugyi200.athena.bob-cli-o6.4.1.1
 proposed_with: claude/opus
 bead: bob-cli-o6.4.1.1
-create_time: 2026-11-20 13:58:04
-status: wip
+status: done
 ---
 
 - **PARENT:**
