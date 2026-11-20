@@ -1,19 +1,16 @@
 ---
 tier: tale
 size: medium
-title:
-  "Finish command chips: ⌘↵ never targets chips hidden in multi-line comments or math,
-  then close bob-cli-nu"
-goal:
-  commandChipAt (the ⌘↵ target rule and keycap) ignores run chips and bob-run fences
-  inside multi-line %% comments, HTML comments, and $$ math blocks, matching what Live
-  Preview and Reading view render. The command-chips e2e asserts the Live Preview
-  copy-card press, and the epic bob-cli-nu is closed.
+title: 'Finish command chips: ⌘↵ never targets chips hidden in multi-line comments
+  or math, then close bob-cli-nu'
+goal: commandChipAt (the ⌘↵ target rule and keycap) ignores run chips and bob-run
+  fences inside multi-line %% comments, HTML comments, and $$ math blocks, matching
+  what Live Preview and Reading view render. The command-chips e2e asserts the Live
+  Preview copy-card press, and the epic bob-cli-nu is closed.
 proposed_by: bbugyi200.apollo.bob-cli-nu.land
 proposed_with: claude/opus
 bead: bob-cli-nu
-create_time: 2026-11-20 14:02:19
-status: wip
+status: done
 ---
 
 - **PARENT:**
