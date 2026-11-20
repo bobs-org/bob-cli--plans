@@ -50,7 +50,7 @@ proposed_by: bbugyi200.apollo.bob-cli-nu.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-nu.4
 create_time: 2026-11-20 07:36:58
-status: wip
+status: done
 bead_id: bob-cli-nu.4.1
 ---
 
