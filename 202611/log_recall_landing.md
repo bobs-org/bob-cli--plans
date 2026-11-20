@@ -1,20 +1,17 @@
 ---
 tier: tale
 size: medium
-title:
-  "Land Log Recall (bob-cli-nj): fix Work Log completion, the Mac pull-in recall tests,
-  and the doc budgets, then close the epic"
-goal:
-  "Log Recall matches its approved plan everywhere: work_log capture completion queries
-  the text before the cursor, drops exact repeats, offers up to 8 rows, and keeps the
-  pre-epic empty successes. Mac CI is green again, the three reference pages this epic
-  grew are back under the docs budget, and epic bob-cli-nj is closed with its plan
-  marked done."
+title: 'Land Log Recall (bob-cli-nj): fix Work Log completion, the Mac pull-in recall
+  tests, and the doc budgets, then close the epic'
+goal: 'Log Recall matches its approved plan everywhere: work_log capture completion
+  queries the text before the cursor, drops exact repeats, offers up to 8 rows, and
+  keeps the pre-epic empty successes. Mac CI is green again, the three reference pages
+  this epic grew are back under the docs budget, and epic bob-cli-nj is closed with
+  its plan marked done.'
 proposed_by: bbugyi200.apollo.bob-cli-nj.land
 proposed_with: claude/opus
 bead: bob-cli-nj
-create_time: 2026-11-19 20:47:18
-status: wip
+status: done
 ---
 
 - **PARENT:**
