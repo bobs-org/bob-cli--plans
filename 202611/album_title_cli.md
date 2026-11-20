@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Album `title:` key, H1-less album create, and `bob albums tidy`
-goal: bob reads album frontmatter `title:` first everywhere, `bob albums create` writes
+goal:
+  bob reads album frontmatter `title:` first everywhere, `bob albums create` writes
   `title:` and no H1, and a dry-run-first `bob albums tidy` moves existing album H1
   titles into `title:` with byte-identical walk lines, records indexes, and owner
   catalogs before and after.
@@ -16,6 +17,11 @@ status: done
   [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
 - **BEAD:**
   [bob-cli-o6.3](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.3.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.3](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.3.md)
+- **COMMITS:**
+  - [bb91c37](https://github.com/bobs-org/bob-cli/commit/bb91c370bac2c4dac6311ed543c30639f38afa84)
+    — feat(albums): read frontmatter title first and add bob albums tidy
 
 # Album `title:` key, H1-less album create, and `bob albums tidy`
 
