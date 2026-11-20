@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "hue",
+      "kind": "choice",
+      "ask": "Which hue should mark every copy chip and bob-copy card?",
+      "why": "In the vault the accent already means links and run chips; blue is free on a task row",
+      "choices": [
+        {
+          "key": "blue",
+          "label": "Dedicated copy hue var(--color-blue), distinct from links, run chips, code, and task rows"
+        },
+        {
+          "key": "accent",
+          "label": "Theme accent var(--interactive-accent); copy chips then share a hue with links and run chips"
+        }
+      ],
+      "default": "blue",
+      "effective_default": "blue",
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_copy_chip",
+      "kind": "toggle",
+      "ask": "Should the glossary Copy Chip strand stop calling the inline chip a quiet pill?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:copy_chip"
+        ]
+      },
+      "corrects": "plugin renders the span as a quiet pill and the fence as a titled card.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:copy_chip",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Copy Chip"
+          ]
+        }
+      ]
+    }
+  ]
+}
