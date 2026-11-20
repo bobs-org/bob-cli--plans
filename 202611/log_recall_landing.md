@@ -1,13 +1,15 @@
 ---
 tier: tale
 size: medium
-title: 'Land Log Recall (bob-cli-nj): fix Work Log completion, the Mac pull-in recall
-  tests, and the doc budgets, then close the epic'
-goal: 'Log Recall matches its approved plan everywhere: work_log capture completion
-  queries the text before the cursor, drops exact repeats, offers up to 8 rows, and
-  keeps the pre-epic empty successes. Mac CI is green again, the three reference pages
-  this epic grew are back under the docs budget, and epic bob-cli-nj is closed with
-  its plan marked done.'
+title:
+  "Land Log Recall (bob-cli-nj): fix Work Log completion, the Mac pull-in recall tests,
+  and the doc budgets, then close the epic"
+goal:
+  "Log Recall matches its approved plan everywhere: work_log capture completion queries
+  the text before the cursor, drops exact repeats, offers up to 8 rows, and keeps the
+  pre-epic empty successes. Mac CI is green again, the three reference pages this epic
+  grew are back under the docs budget, and epic bob-cli-nj is closed with its plan
+  marked done."
 proposed_by: bbugyi200.apollo.bob-cli-nj.land
 proposed_with: claude/opus
 bead: bob-cli-nj
@@ -18,6 +20,11 @@ status: done
   [202611/log_reason_recall.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/log_reason_recall.md)
 - **BEAD:**
   [bob-cli-nj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-nj/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-nj.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-nj.land.md)
+- **COMMITS:**
+  - [d15432a](https://github.com/bobs-org/bob-cli/commit/d15432aa4609ea9641c9ff5987dbf03b4ff68b23)
+    — feat(capture): implement work_log log-reason recall completion
 
 # Land Log Recall (bob-cli-nj)
 
