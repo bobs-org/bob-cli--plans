@@ -2,15 +2,13 @@
 tier: tale
 size: small
 title: Finish and close the period-intentions epic (bob-cli-nh)
-goal:
-  "`just check` passes on bob-cli with the `bob periods update` command fully
+goal: '`just check` passes on bob-cli with the `bob periods update` command fully
   registered, its read contract documented, and `bob periods migrate` never dropping
-  fenced lines; then epic bob-cli-nh is closed and its plan marked done."
+  fenced lines; then epic bob-cli-nh is closed and its plan marked done.'
 proposed_by: bbugyi200.athena.bob-cli-nh.land
 proposed_with: claude/opus
 bead: bob-cli-nh
-create_time: 2026-11-20 11:02:50
-status: wip
+status: done
 ---
 
 - **PARENT:**
