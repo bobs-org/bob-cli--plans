@@ -1,23 +1,20 @@
 ---
 tier: tale
 size: medium
-title:
-  Record card wears the RECORD kicker and sheet tile, owns the note title from the title
-  slot, and migrates its title selectors onto the kit
-goal:
-  On desktop Obsidian, opening a record such as eat/<restaurant>.md shows the record
-  card in the title slot above native Properties. The card has a sheet tile, the kicker
-  RECORD · <Album title link> · <noun>, the record title, and paper material, with the
-  walk rail docked at its bottom. The card title paints at once from local data, the
-  first-line walk line (or a legacy H1 equal to the title) is hidden at render time and
-  revealed by the cursor, and every failure restores native rendering. The plan ends
-  with bob-ledger-tools bumped, deployed, verified in real Obsidian, and bead
-  bob-cli-o6.4.1.2 closed.
+title: Record card wears the RECORD kicker and sheet tile, owns the note title from
+  the title slot, and migrates its title selectors onto the kit
+goal: On desktop Obsidian, opening a record such as eat/<restaurant>.md shows the
+  record card in the title slot above native Properties. The card has a sheet tile,
+  the kicker RECORD · <Album title link> · <noun>, the record title, and paper material,
+  with the walk rail docked at its bottom. The card title paints at once from local
+  data, the first-line walk line (or a legacy H1 equal to the title) is hidden at
+  render time and revealed by the cursor, and every failure restores native rendering.
+  The plan ends with bob-ledger-tools bumped, deployed, verified in real Obsidian,
+  and bead bob-cli-o6.4.1.2 closed.
 proposed_by: bbugyi200.athena.bob-cli-o6.4.1.2
 proposed_with: claude/opus
 bead: bob-cli-o6.4.1.2
-create_time: 2026-11-20 18:07:11
-status: wip
+status: done
 ---
 
 - **BEAD:**
