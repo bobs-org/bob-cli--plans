@@ -1,79 +1,72 @@
 ---
 tier: epic
 title: Finish the title-block proof, visual matrix, and guarded album rollout
-goal:
-  The shipped title-block family is proven in real Obsidian and the full visual matrix,
-  live albums are tidied only after every sync host proves compatible, and the verified
-  merged plugin build is deployed with durable evidence for o6.6.
+goal: The shipped title-block family is proven in real Obsidian and the full visual
+  matrix, live albums are tidied only after every sync host proves compatible, and
+  the verified merged plugin build is deployed with durable evidence for o6.6.
 phases:
-  - id: title-walkthrough
-    title: Real-Obsidian title ownership and editing walkthrough
-    size: medium
-    depends_on: []
-    description:
-      "title-walkthrough: add the shared isolated obsidian-title-block-e2e runner and
-      offline wrapper, proving the shipped album, record, day, and period title blocks
-      in Live Preview and Reading, scoped ownership, real
-      Vim/search/Outline/heading-link reveal, edit/undo, and fixture byte neutrality.
-      Run on athena and repair defects in the owning fragments."
-  - id: fail-open-proof
-    title: Real-Obsidian fallback and teardown proof
-    size: medium
-    depends_on:
-      - title-walkthrough
-    description:
-      "fail-open-proof: extend the shared title-block runner with native-rendering
-      checks for Source, embeds, hover popovers, canvas, failed mounts and repaints,
-      plugin disable, file/mode changes, and leaf teardown. Measure restoration at the
-      first paint, preserve byte neutrality, and fix failures without weakening
-      assertions."
-  - id: visual-matrix
-    title: Complete and inspect the family preview and accessibility matrix
-    size: medium
-    depends_on:
-      - fail-open-proof
-    description:
-      "visual-matrix: compose the existing real card builders into the full eleven-case
-      light/dark by 375px/wide preview matrix, add grayscale and forced-colors species
-      proofs, inspect every image, and fix the owning DOM or CSS. Attach a durable
-      indexed screenshot bundle and inspection record, and rerun the shared Obsidian
-      proof after product changes."
-  - id: album-rollout
-    title: Verify every host and perform the gated live album tidy
-    size: medium
-    depends_on:
-      - visual-matrix
-    description:
-      "album-rollout: recheck athena, apollo, and mac with their actual installed bob
-      binaries; behavior-probe album title precedence in isolated fixtures. Review the
-      live tidy dry run, apply only if all hosts are compatible, sync, and prove title,
-      record-walk, index, and catalog stability. Otherwise attach the dry run and record
-      the blocking host/version as PROPOSED FOLLOW-UP."
-  - id: final-gates-deploy
-    title: Run final gates and deploy the verified merged tree
-    size: medium
-    depends_on:
-      - title-walkthrough
-      - fail-open-proof
-      - visual-matrix
-      - album-rollout
-    description:
-      "final-gates-deploy: integrate the completed phases, repair the epic-caused
-      vault-format word-budget regression if still present, run both repositories'
-      required gates and the final combined proof, deploy through bob plugins sync, and
-      run deployed-vault smoke with matching managed-file hashes. Attach the final
-      evidence manifest for the child land agent; close only this worker's own phase."
+- id: title-walkthrough
+  title: Real-Obsidian title ownership and editing walkthrough
+  size: medium
+  depends_on: []
+  description: 'title-walkthrough: add the shared isolated obsidian-title-block-e2e
+    runner and offline wrapper, proving the shipped album, record, day, and period
+    title blocks in Live Preview and Reading, scoped ownership, real Vim/search/Outline/heading-link
+    reveal, edit/undo, and fixture byte neutrality. Run on athena and repair defects
+    in the owning fragments.'
+- id: fail-open-proof
+  title: Real-Obsidian fallback and teardown proof
+  size: medium
+  depends_on:
+  - title-walkthrough
+  description: 'fail-open-proof: extend the shared title-block runner with native-rendering
+    checks for Source, embeds, hover popovers, canvas, failed mounts and repaints,
+    plugin disable, file/mode changes, and leaf teardown. Measure restoration at the
+    first paint, preserve byte neutrality, and fix failures without weakening assertions.'
+- id: visual-matrix
+  title: Complete and inspect the family preview and accessibility matrix
+  size: medium
+  depends_on:
+  - fail-open-proof
+  description: 'visual-matrix: compose the existing real card builders into the full
+    eleven-case light/dark by 375px/wide preview matrix, add grayscale and forced-colors
+    species proofs, inspect every image, and fix the owning DOM or CSS. Attach a durable
+    indexed screenshot bundle and inspection record, and rerun the shared Obsidian
+    proof after product changes.'
+- id: album-rollout
+  title: Verify every host and perform the gated live album tidy
+  size: medium
+  depends_on:
+  - visual-matrix
+  description: 'album-rollout: recheck athena, apollo, and mac with their actual installed
+    bob binaries; behavior-probe album title precedence in isolated fixtures. Review
+    the live tidy dry run, apply only if all hosts are compatible, sync, and prove
+    title, record-walk, index, and catalog stability. Otherwise attach the dry run
+    and record the blocking host/version as PROPOSED FOLLOW-UP.'
+- id: final-gates-deploy
+  title: Run final gates and deploy the verified merged tree
+  size: medium
+  depends_on:
+  - title-walkthrough
+  - fail-open-proof
+  - visual-matrix
+  - album-rollout
+  description: 'final-gates-deploy: integrate the completed phases, repair the epic-caused
+    vault-format word-budget regression if still present, run both repositories''
+    required gates and the final combined proof, deploy through bob plugins sync,
+    and run deployed-vault smoke with matching managed-file hashes. Attach the final
+    evidence manifest for the child land agent; close only this worker''s own phase.'
 proposed_by: bbugyi200.athena.bob-cli-o6.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-o6.6
 create_time: 2026-11-21 08:22:45
 status: wip
+bead_id: bob-cli-o6.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/title_block_final_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/title_block_final_proof.md)
-- **PARENT:**
-  [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
+- **PROMPT:** [prompts/202611/title_block_final_proof.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/title_block_final_proof.md)
+- **PARENT:** [202611/property_card_title_block.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_card_title_block.md)
+- **BEAD:** [bob-cli-o6.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.6.1.md)
 
 # Finish the title-block proof and rollout
 
