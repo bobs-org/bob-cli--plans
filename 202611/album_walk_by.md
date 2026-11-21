@@ -1,57 +1,53 @@
 ---
 tier: epic
 title: Album walk_by and guarded grouped record walks
-goal:
-  Finish bob-cli-oj.3 with choice-grouped record walks, additive group reports, bounded
-  atomic record moves, reversible album configuration, and verified documentation and
-  installation.
+goal: Finish bob-cli-oj.3 with choice-grouped record walks, additive group reports,
+  bounded atomic record moves, reversible album configuration, and verified documentation
+  and installation.
 phases:
-  - id: model
-    title: Parse walk_by and publish one grouped walk model
-    size: medium
-    depends_on: []
-    description:
-      "model: validate album walk_by, share choice bucketing with the index, derive
-      group-major ring slots and group heads, extend report/show JSON and shared
-      vectors, and test sync and compatibility."
-  - id: record-writes
-    title: Apply grouped record moves in one guarded transaction
-    size: medium
-    depends_on:
-      - model
-    description:
-      "record-writes: integrate the grouped walk radius into both records update paths,
-      compose the target postimage once, preserve neighbor guards and rollback, expose
-      walk_files, and prove the five-line bound plus grouped creates and capture."
-  - id: album-writes
-    title: Add reversible walk_by updates to the album writer
-    size: medium
-    depends_on:
-      - record-writes
-    description:
-      "album-writes: add walk_by.set with string-or-null field, top-level span
-      restoration and reference guards, include grouping in the album fingerprint, and
-      atomically replan walk lines for grouping and choice-order edits."
-  - id: docs-proof
-    title: Document and verify the complete grouped walk contract
-    size: small
-    depends_on:
-      - album-writes
-    description:
-      "docs-proof: document walk_by, JSON, operation and churn contracts; regenerate CLI
-      docs; run required gates, install on athena, and record evidence for the child
-      epic land agent to finish bob-cli-oj.3."
+- id: model
+  title: Parse walk_by and publish one grouped walk model
+  size: medium
+  depends_on: []
+  description: 'model: validate album walk_by, share choice bucketing with the index,
+    derive group-major ring slots and group heads, extend report/show JSON and shared
+    vectors, and test sync and compatibility.'
+- id: record-writes
+  title: Apply grouped record moves in one guarded transaction
+  size: medium
+  depends_on:
+  - model
+  description: 'record-writes: integrate the grouped walk radius into both records
+    update paths, compose the target postimage once, preserve neighbor guards and
+    rollback, expose walk_files, and prove the five-line bound plus grouped creates
+    and capture.'
+- id: album-writes
+  title: Add reversible walk_by updates to the album writer
+  size: medium
+  depends_on:
+  - record-writes
+  description: 'album-writes: add walk_by.set with string-or-null field, top-level
+    span restoration and reference guards, include grouping in the album fingerprint,
+    and atomically replan walk lines for grouping and choice-order edits.'
+- id: docs-proof
+  title: Document and verify the complete grouped walk contract
+  size: small
+  depends_on:
+  - album-writes
+  description: 'docs-proof: document walk_by, JSON, operation and churn contracts;
+    regenerate CLI docs; run required gates, install on athena, and record evidence
+    for the child epic land agent to finish bob-cli-oj.3.'
 proposed_by: bbugyi200.athena.bob-cli-oj.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-oj.3
 create_time: 2026-11-21 07:50:37
 status: wip
+bead_id: bob-cli-oj.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/album_walk_by.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_walk_by.md)
-- **PARENT:**
-  [202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bracket_n_group_jumps.md)
+- **PROMPT:** [prompts/202611/album_walk_by.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/album_walk_by.md)
+- **PARENT:** [202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bracket_n_group_jumps.md)
+- **BEAD:** [bob-cli-oj.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oj/bob-cli-oj.3.1.md)
 
 # Album walk_by: finish bob-cli-oj.3
 
