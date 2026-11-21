@@ -1,131 +1,120 @@
 ---
 tier: epic
 title: Spotify episodes become first-class podcast references
-goal: "Every Spotify episode link given to `bob ref create`, capture, or Keep becomes
+goal: 'Every Spotify episode link given to `bob ref create`, capture, or Keep becomes
   one deduplicated `podcasts` reference. Its PDF is an episode dossier: cover, show,
   date, duration, clickable chapters, full show notes, and a highlightable transcript
-  when the publisher's own feed proves the match. Every other Spotify link is refused,
+  when the publisher''s own feed proves the match. Every other Spotify link is refused,
   or is kept as an ordinary item, with a hint that says what to do instead. No Spotify
   link reaches the article engine again.
 
-  "
+  '
 decisions:
   legacy_refs:
-    ask:
-      Upgrade the two existing Spotify refs in place (title stems + new dossier PDF)
-      once the epic ships?
+    ask: Upgrade the two existing Spotify refs in place (title stems + new dossier
+      PDF) once the epic ships?
     default: true
-    why:
-      Both are cited, unannotated episodes; rename and overwrite keep their tasks and
-      links
+    why: Both are cited, unannotated episodes; rename and overwrite keep their tasks
+      and links
     answer: true
   decision_record:
     ask: Add a decisions memory record for the podcast-episode reference policy?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: clean_capture
-    title: General capture fixes the audit exposed
-    depends_on: []
-    size: medium
-    description:
-      "clean_capture: reject base62 ids as URL stems, persist the write-once source
-      store on the ingest path, and print the recorded URL (not the post-redirect URL)
-      in web PDF mastheads."
-  - id: spotify_identity
-    title: Spotify link identity, canonical dedupe, and routing guards
-    depends_on: []
-    size: medium
-    description:
-      "spotify_identity: add the spotify.rs link grammar with canonical case-preserving
-      identity and ?t= capture, resolve short links, gate capture/Keep admission, and
-      refuse non-episodes, -L, -H, and collections with teaching hints."
-  - id: episode_metadata
-    title: Episode metadata ladder and show-notes segmentation
-    depends_on:
-      - spotify_identity
-    size: medium
-    description:
-      "episode_metadata: fetch and parse browserless episode metadata (page state,
-      JSON-LD/meta, embed, oEmbed), segment show notes into notes/chapters/sponsor
-      blocks, and download cover art, all fixture-tested."
-  - id: dossier_render
-    title: Adapter render op and the episode dossier template
-    depends_on:
-      - clean_capture
-    size: medium
-    description:
-      "dossier_render: add the offline adapter `render` op and the podcast-episode
-      dossier layout, CSS, and source view, plus the Rust client method and fake-adapter
-      support."
-  - id: episode_route
-    title: The podcast route in bob ref create
-    depends_on:
-      - episode_metadata
-      - dossier_render
-    size: medium
-    description:
-      "episode_route: wire Spotify episodes into create (new, dry run, reread,
-      overwrite) as podcasts refs with title stems, honest reports, the source store,
-      help, and docs, then smoke-test live."
-  - id: episode_ingest
-    title: Capture jobs and Keep file episodes through the same route
-    depends_on:
-      - episode_route
-    size: medium
-    description:
-      "episode_ingest: route Spotify episodes in ingest_url through the shared dossier
-      builder, carry ?t= from the original URL, turn %l into a hint, and type every
-      failure."
-  - id: feed_match
-    title: Publisher feed discovery and proven item match
-    depends_on:
-      - episode_metadata
-    size: medium
-    description:
-      "feed_match: find the show's public RSS feed through iTunes Search, parse it
-      safely with a capped fetch, and accept only a unique item agreeing on two of three
-      signals."
-  - id: transcript_text
-    title: Publisher transcript parsing and paragraphing
-    depends_on:
-      - episode_metadata
-    size: medium
-    description:
-      "transcript_text: parse JSON/VTT/SRT/HTML/text transcripts into sanity-checked,
-      speaker-labelled paragraphs with honest role inference."
-  - id: transcript_dossier
-    title: Feed enrichment in the dossier and both routes
-    depends_on:
-      - episode_ingest
-      - feed_match
-      - transcript_text
-    size: medium
-    description:
-      "transcript_dossier: attach proven feed notes, chapters, and transcripts to create
-      and ingest captures under a time budget, render the transcript pages, add the
-      enrich knob, and report each step-down once."
-  - id: rollout
-    title: Podcast surfaces across repos and the legacy refs
-    depends_on:
-      - transcript_dossier
-    size: small
-    description:
-      "rollout: give podcasts refs their own kind in Bob Mac Capture, the reading board,
-      and refs.base, upgrade the two legacy refs per decision, and author the optional
-      decision record."
+- id: clean_capture
+  title: General capture fixes the audit exposed
+  depends_on: []
+  size: medium
+  description: 'clean_capture: reject base62 ids as URL stems, persist the write-once
+    source store on the ingest path, and print the recorded URL (not the post-redirect
+    URL) in web PDF mastheads.'
+- id: spotify_identity
+  title: Spotify link identity, canonical dedupe, and routing guards
+  depends_on: []
+  size: medium
+  description: 'spotify_identity: add the spotify.rs link grammar with canonical case-preserving
+    identity and ?t= capture, resolve short links, gate capture/Keep admission, and
+    refuse non-episodes, -L, -H, and collections with teaching hints.'
+- id: episode_metadata
+  title: Episode metadata ladder and show-notes segmentation
+  depends_on:
+  - spotify_identity
+  size: medium
+  description: 'episode_metadata: fetch and parse browserless episode metadata (page
+    state, JSON-LD/meta, embed, oEmbed), segment show notes into notes/chapters/sponsor
+    blocks, and download cover art, all fixture-tested.'
+- id: dossier_render
+  title: Adapter render op and the episode dossier template
+  depends_on:
+  - clean_capture
+  size: medium
+  description: 'dossier_render: add the offline adapter `render` op and the podcast-episode
+    dossier layout, CSS, and source view, plus the Rust client method and fake-adapter
+    support.'
+- id: episode_route
+  title: The podcast route in bob ref create
+  depends_on:
+  - episode_metadata
+  - dossier_render
+  size: medium
+  description: 'episode_route: wire Spotify episodes into create (new, dry run, reread,
+    overwrite) as podcasts refs with title stems, honest reports, the source store,
+    help, and docs, then smoke-test live.'
+- id: episode_ingest
+  title: Capture jobs and Keep file episodes through the same route
+  depends_on:
+  - episode_route
+  size: medium
+  description: 'episode_ingest: route Spotify episodes in ingest_url through the shared
+    dossier builder, carry ?t= from the original URL, turn %l into a hint, and type
+    every failure.'
+- id: feed_match
+  title: Publisher feed discovery and proven item match
+  depends_on:
+  - episode_metadata
+  size: medium
+  description: 'feed_match: find the show''s public RSS feed through iTunes Search,
+    parse it safely with a capped fetch, and accept only a unique item agreeing on
+    two of three signals.'
+- id: transcript_text
+  title: Publisher transcript parsing and paragraphing
+  depends_on:
+  - episode_metadata
+  size: medium
+  description: 'transcript_text: parse JSON/VTT/SRT/HTML/text transcripts into sanity-checked,
+    speaker-labelled paragraphs with honest role inference.'
+- id: transcript_dossier
+  title: Feed enrichment in the dossier and both routes
+  depends_on:
+  - episode_ingest
+  - feed_match
+  - transcript_text
+  size: medium
+  description: 'transcript_dossier: attach proven feed notes, chapters, and transcripts
+    to create and ingest captures under a time budget, render the transcript pages,
+    add the enrich knob, and report each step-down once.'
+- id: rollout
+  title: Podcast surfaces across repos and the legacy refs
+  depends_on:
+  - transcript_dossier
+  size: small
+  description: 'rollout: give podcasts refs their own kind in Bob Mac Capture, the
+    reading board, and refs.base, upgrade the two legacy refs per decision, and author
+    the optional decision record.'
 proposed_by: bbugyi200.apollo.research.5r.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-21 14:59:38
 status: wip
+bead_id: bob-cli-os
 ---
 
-- **PROMPT:**
-  [prompts/202611/spotify_episode_refs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/spotify_episode_refs.md)
+- **PROMPT:** [prompts/202611/spotify_episode_refs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/spotify_episode_refs.md)
+- **BEAD:** [bob-cli-os](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-os/README.md)
 
 # Plan: Spotify episodes become first-class podcast references
 
