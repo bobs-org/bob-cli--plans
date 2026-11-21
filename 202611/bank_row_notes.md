@@ -1,62 +1,57 @@
 ---
 tier: epic
-title: "Bank row notes: Space opens a note stage on the Category card"
-goal: "During the ]b bank walk, Space on the Category card writes a short note into the
-  row's inline `— note` tail and stays on the same row (no tick, no advance), and the
-  note renders everywhere as a quiet muted-italic dash-led caption.
+title: 'Bank row notes: Space opens a note stage on the Category card'
+goal: 'During the ]b bank walk, Space on the Category card writes a short note into
+  the row''s inline `— note` tail and stays on the same row (no tick, no advance),
+  and the note renders everywhere as a quiet muted-italic dash-led caption.
 
-  "
+  '
 phases:
-  - id: note-grammar-parity
-    title: Shared note cleaner, disjoint note spans, and prerequisite fixes
-    depends_on: []
-    size: medium
-    description:
-      "note-grammar-parity: land the byte-identical shared note-cleaner vectors and the
-      five-step cleaner in bob's Rust parser and the plugin tokenizer, add disjoint
-      noteSpan/noteMarkerSpan/noteEditable, move 🔁 link insertion before flag/note,
-      protect every `$` on a row, and document the tail order in docs/bank.md."
-  - id: note-caption
-    title: Quiet prose caption on every row surface
-    depends_on:
-      - note-grammar-parity
-    size: small
-    description:
-      "note-caption: render notes as a muted italic dash-led caption in Live Preview,
-      Reading view, and the queue card, with contrast-safe CSS and tests."
-  - id: note-writer
-    title: Pure note normalizer, write planner, and stage preview model
-    depends_on:
-      - note-caption
-    size: small
-    description:
-      "note-writer: add the pure bankNoteNormalize, bankNoteWritePlan (with round-trip
-      self-check), and bankNoteStagePreview helpers plus their test matrix; ordered
-      after note-caption only to serialize bob-plugins builds and vault syncs."
-  - id: note-stage
-    title: Space keymap, in-card note stage, stay-on-row commit, command, and docs
-    depends_on:
-      - note-writer
-    size: medium
-    description:
-      "note-stage: reassign Space to the note stage and `-` to no-category, build the
-      in-card stage and bankNoteCommit that never advances, add `Bank: note this row`,
-      update e2e, plugin and bob-cli docs, and apply memory only per the decisions."
+- id: note-grammar-parity
+  title: Shared note cleaner, disjoint note spans, and prerequisite fixes
+  depends_on: []
+  size: medium
+  description: 'note-grammar-parity: land the byte-identical shared note-cleaner vectors
+    and the five-step cleaner in bob''s Rust parser and the plugin tokenizer, add
+    disjoint noteSpan/noteMarkerSpan/noteEditable, move 🔁 link insertion before flag/note,
+    protect every `$` on a row, and document the tail order in docs/bank.md.'
+- id: note-caption
+  title: Quiet prose caption on every row surface
+  depends_on:
+  - note-grammar-parity
+  size: small
+  description: 'note-caption: render notes as a muted italic dash-led caption in Live
+    Preview, Reading view, and the queue card, with contrast-safe CSS and tests.'
+- id: note-writer
+  title: Pure note normalizer, write planner, and stage preview model
+  depends_on:
+  - note-caption
+  size: small
+  description: 'note-writer: add the pure bankNoteNormalize, bankNoteWritePlan (with
+    round-trip self-check), and bankNoteStagePreview helpers plus their test matrix;
+    ordered after note-caption only to serialize bob-plugins builds and vault syncs.'
+- id: note-stage
+  title: Space keymap, in-card note stage, stay-on-row commit, command, and docs
+  depends_on:
+  - note-writer
+  size: medium
+  description: 'note-stage: reassign Space to the note stage and `-` to no-category,
+    build the in-card stage and bankNoteCommit that never advances, add `Bank: note
+    this row`, update e2e, plugin and bob-cli docs, and apply memory only per the
+    decisions.'
 decisions:
   memory_keymap_decision:
-    ask:
-      Add a decisions record for the new card keymap (Space writes a row note; `-` files
-      without a category)?
+    ask: Add a decisions record for the new card keymap (Space writes a row note;
+      `-` files without a category)?
     memory:
-      - decisions:space-writes-a-bank-row-note
+    - decisions:space-writes-a-bank-row-note
     default: false
     answer: false
   memory_bank_row_glossary:
-    ask:
-      Update the glossary Bank Row strand to mention the inline note and the Space
+    ask: Update the glossary Bank Row strand to mention the inline note and the Space
       gesture?
     memory:
-      - glossary:bank-row
+    - glossary:bank-row
     default: false
     answer: true
 proposed_by: bbugyi200.apollo.research.5q.linker.w0
@@ -65,10 +60,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-21 12:07:04
 status: wip
+bead_id: bob-cli-oo
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_row_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_row_notes.md)
+- **PROMPT:** [prompts/202611/bank_row_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_row_notes.md)
+- **BEAD:** [bob-cli-oo](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oo/README.md)
 
 # Bank row notes: Space opens a note stage on the Category card
 
