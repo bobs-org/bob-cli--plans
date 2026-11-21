@@ -1,16 +1,18 @@
 ---
 tier: tale
 size: medium
-title: Record card wears the RECORD kicker and sheet tile, owns the note title from
-  the title slot, and migrates its title selectors onto the kit
-goal: On desktop Obsidian, opening a record such as eat/<restaurant>.md shows the
-  record card in the title slot above native Properties. The card has a sheet tile,
-  the kicker RECORD · <Album title link> · <noun>, the record title, and paper material,
-  with the walk rail docked at its bottom. The card title paints at once from local
-  data, the first-line walk line (or a legacy H1 equal to the title) is hidden at
-  render time and revealed by the cursor, and every failure restores native rendering.
-  The plan ends with bob-ledger-tools bumped, deployed, verified in real Obsidian,
-  and bead bob-cli-o6.4.1.2 closed.
+title:
+  Record card wears the RECORD kicker and sheet tile, owns the note title from the title
+  slot, and migrates its title selectors onto the kit
+goal:
+  On desktop Obsidian, opening a record such as eat/<restaurant>.md shows the record
+  card in the title slot above native Properties. The card has a sheet tile, the kicker
+  RECORD · <Album title link> · <noun>, the record title, and paper material, with the
+  walk rail docked at its bottom. The card title paints at once from local data, the
+  first-line walk line (or a legacy H1 equal to the title) is hidden at render time and
+  revealed by the cursor, and every failure restores native rendering. The plan ends
+  with bob-ledger-tools bumped, deployed, verified in real Obsidian, and bead
+  bob-cli-o6.4.1.2 closed.
 proposed_by: bbugyi200.athena.bob-cli-o6.4.1.2
 proposed_with: claude/opus
 bead: bob-cli-o6.4.1.2
@@ -19,6 +21,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-o6.4.1.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-o6/bob-cli-o6.4.1.2.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-o6.4.1.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-o6.4.1.2.md)
+- **COMMITS:**
+  - [b8b7baf](https://github.com/bobs-org/bob-plugins/commit/b8b7baf440e888cd94c948f5339cd37527928079)
+    — feat(ledger-tools): record card owns the title block from the title slot
 
 # Record card: title block in the title slot
 
