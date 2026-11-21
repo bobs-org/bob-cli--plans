@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "naming",
+      "kind": "choice",
+      "ask": "Should picking an ID-less task name it in place (one explicit vault write) and then link it?",
+      "why": "Matches the editor and Mac (( flows; without it about half the tasks need a detour",
+      "choices": [
+        {
+          "key": "inline",
+          "label": "Enter on an ID-less row opens a NAME stage; a second Enter adds ^id and links it"
+        },
+        {
+          "key": "identified_only",
+          "label": "ID-less rows stay disabled; prompts never write; NAME, naming API, Mac step dropped"
+        }
+      ],
+      "default": "inline",
+      "effective_default": "inline",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Record the prompt (( rules as a new decisions strand (decisions:prompts-link-tasks)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:prompts-link-tasks"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:prompts-link-tasks",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/prompts-link-tasks.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
