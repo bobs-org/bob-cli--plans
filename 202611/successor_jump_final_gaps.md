@@ -2,25 +2,18 @@
 tier: tale
 size: medium
 title: Finish successor jump identity and commit parity, then land oe.8 and oe
-goal:
-  Successor pins preserve task identity, receipt copy, and every commit key across all
-  surfaces, and the verified oe.8 and oe plans close normally.
+goal: Successor pins preserve task identity, receipt copy, and every commit key across
+  all surfaces, and the verified oe.8 and oe plans close normally.
 proposed_by: bbugyi200.apollo.bob-cli-oe.8.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-oe.8
-create_time: 2026-11-21 08:40:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
   [202611/successor_jump_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_jump_repairs.md)
 - **BEAD:**
   [bob-cli-oe.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oe/bob-cli-oe.8.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-oe.8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-oe.8.land.md)
-- **COMMITS:**
-  - [4e0ff78](https://github.com/bobs-org/bob-plugins/commit/4e0ff78b1534e62a55e86f8c94632bc76f3cc84b)
-    — fix(successors): keep the jump receipt when deferred landing is not follow-owned
 
 # Finish the remaining jump-pin gaps and the landing
 
