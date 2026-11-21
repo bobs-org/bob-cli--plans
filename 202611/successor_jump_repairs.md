@@ -1,65 +1,61 @@
 ---
 tier: epic
 title: Jump pin landing repairs
-goal: "Every Ctrl+J jump pin lands exactly once, on the right task, after every write of
-  the gesture has landed, on all three surfaces. Bob never lands on an unrelated twin,
-  never reports a findable task as lost, never lands before a Task Link strike or an
-  inbox-route move, and never drops the pin on the Mac inbox-route path. A pinned close
-  from a `]s` landing still records its review answer. The card capsule looks the way
-  the design specifies.
+goal: 'Every Ctrl+J jump pin lands exactly once, on the right task, after every write
+  of the gesture has landed, on all three surfaces. Bob never lands on an unrelated
+  twin, never reports a findable task as lost, never lands before a Task Link strike
+  or an inbox-route move, and never drops the pin on the Mac inbox-route path. A pinned
+  close from a `]s` landing still records its review answer. The card capsule looks
+  the way the design specifies.
 
-  "
+  '
 phases:
-  - id: cli-jump-identity
-    title: bob capture jump landing finds the right ID-less task
-    depends_on: []
-    size: small
-    description:
-      "cli-jump-identity: make the top-level jump landing settle a correct identity for
-      every ID-less offer row, failing closed to a null landing; use the
-      duplicate-refusing block-ID lookup; add the missing JS vectors; and complete
-      §12.24 with the shared semantics, commit table, and precedence."
-  - id: nav-jump-repairs
-    title: Obsidian card capsule, walk follow bookkeeping, and receipt copy
-    depends_on: []
-    size: medium
-    description:
-      "nav-jump-repairs: in bob-navigation-hotkeys, fix the capsule icon and its
-      trailing-edge placement, make the reviewWalk follow path record the review answer
-      and park only when v1 would advance, show the receipt line once, make landOnTask
-      settle before reporting, leave one authoritative applySelection/settle, and fix
-      plugin-apis.md's §12.24 citation and word budget."
-  - id: cycler-jump-ordering
-    title: Land the jump after every write in task-status-cycler and block-id-prompt
-    depends_on:
-      - nav-jump-repairs
-    size: medium
-    description:
-      "cycler-jump-ordering: make the Task Link Ctrl+Enter close and the
-      unlink-plus-inbox-route path land the jump only after their strike or move writes
-      and walk settle, stop the walk-return receipt doubling the ↗ line, and build the
-      Left identity from the fresh plan row."
-  - id: mac-jump-repairs
-    title: Mac Pull-In card keeps the pin through inbox routing
-    depends_on: []
-    size: medium
-    description:
-      "mac-jump-repairs: in bob-mac-capture, carry the jump offer and its capability
-      through the inbox-route and other re-dispatch contexts, fix the primary label
-      count for hidden highlights, animate the capsule per the design, align the pinned
-      footer's VoiceOver text, treat a missing jump object as lost, and restore docs
-      facts the epic trimmed."
+- id: cli-jump-identity
+  title: bob capture jump landing finds the right ID-less task
+  depends_on: []
+  size: small
+  description: 'cli-jump-identity: make the top-level jump landing settle a correct
+    identity for every ID-less offer row, failing closed to a null landing; use the
+    duplicate-refusing block-ID lookup; add the missing JS vectors; and complete §12.24
+    with the shared semantics, commit table, and precedence.'
+- id: nav-jump-repairs
+  title: Obsidian card capsule, walk follow bookkeeping, and receipt copy
+  depends_on: []
+  size: medium
+  description: 'nav-jump-repairs: in bob-navigation-hotkeys, fix the capsule icon
+    and its trailing-edge placement, make the reviewWalk follow path record the review
+    answer and park only when v1 would advance, show the receipt line once, make landOnTask
+    settle before reporting, leave one authoritative applySelection/settle, and fix
+    plugin-apis.md''s §12.24 citation and word budget.'
+- id: cycler-jump-ordering
+  title: Land the jump after every write in task-status-cycler and block-id-prompt
+  depends_on:
+  - nav-jump-repairs
+  size: medium
+  description: 'cycler-jump-ordering: make the Task Link Ctrl+Enter close and the
+    unlink-plus-inbox-route path land the jump only after their strike or move writes
+    and walk settle, stop the walk-return receipt doubling the ↗ line, and build the
+    Left identity from the fresh plan row.'
+- id: mac-jump-repairs
+  title: Mac Pull-In card keeps the pin through inbox routing
+  depends_on: []
+  size: medium
+  description: 'mac-jump-repairs: in bob-mac-capture, carry the jump offer and its
+    capability through the inbox-route and other re-dispatch contexts, fix the primary
+    label count for hidden highlights, animate the capsule per the design, align the
+    pinned footer''s VoiceOver text, treat a missing jump object as lost, and restore
+    docs facts the epic trimmed.'
 proposed_by: bbugyi200.apollo.bob-cli-oe.land
 proposed_with: claude/opus
 parent_bead: bob-cli-oe
 create_time: 2026-11-20 21:39:26
 status: wip
+bead_id: bob-cli-oe.8
 ---
 
-- **PROMPT:**
-  [prompts/202611/successor_jump_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/successor_jump_repairs.md)
-- **PARENT:**
-  [202611/successor_jump_pin.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_jump_pin.md)
+- **PROMPT:** [prompts/202611/successor_jump_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/successor_jump_repairs.md)
+- **PARENT:** [202611/successor_jump_pin.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_jump_pin.md)
+- **BEAD:** [bob-cli-oe.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oe/bob-cli-oe.8.md)
 
 # Plan: Jump pin landing repairs
 
