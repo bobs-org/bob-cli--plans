@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "notes_drawer_birth",
+      "kind": "choice",
+      "ask": "When should a task that has requirements grow its NOTES drawer?",
+      "why": "Keeps the drawer contract (nonempty by construction) and avoids bare headers",
+      "choices": [
+        {
+          "key": "with_first_note",
+          "label": "When it first has a note to hold, so drawers are never empty"
+        },
+        {
+          "key": "with_first_req",
+          "label": "As soon as its first requirement lands, even if NOTES starts empty"
+        }
+      ],
+      "default": "with_first_note",
+      "effective_default": "with_first_note",
+      "requested_verified": false
+    },
+    {
+      "id": "seed_review",
+      "kind": "toggle",
+      "ask": "Should the migration also prepare an opt-in list of loose notes that read like requirements?",
+      "why": "You already write requirements as plain bullets; nothing converts without approval",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_reqs_decision",
+      "kind": "toggle",
+      "ask": "Record the task requirements decision and mark Capture Bullets Mirror The Task Block superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:task-reqs-are-met-with-their-task",
+          "decisions:capture-bullets-mirror-the-task-block"
+        ]
+      },
+      "corrects": "every other first-level bullet, with its nested bullets, is one note",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:task-reqs-are-met-with-their-task",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/task-reqs-are-met-with-their-task.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:capture-bullets-mirror-the-task-block",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Bullets Mirror The Task Block"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_task_drawer",
+      "kind": "toggle",
+      "ask": "Update the Task Drawer strand for NOTES, requirements, and the retired REQUIREMENTS drawer?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-drawer"
+        ]
+      },
+      "corrects": "A drawer holds part of one task's work (`REQUIREMENTS`, `FUTURE WORK`)",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-drawer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Drawer",
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_req",
+      "kind": "toggle",
+      "ask": "Add a Task Requirement strand to the glossary web?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:task-requirement"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:task-requirement",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/task-requirement.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
