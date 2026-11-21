@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair walk_by restoration and finish the grouped-walk landing
-goal:
-  Restore authored walk_by safely and exactly, verify grouped transactions, and close
-  bob-cli-oj.3.1 plus parent phase bob-cli-oj.3.
+goal: Restore authored walk_by safely and exactly, verify grouped transactions, and
+  close bob-cli-oj.3.1 plus parent phase bob-cli-oj.3.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-oj.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-oj.3.1
-create_time: 2026-11-21 10:26:07
-status: wip
+status: done
 ---
 
 - **PARENT:**
