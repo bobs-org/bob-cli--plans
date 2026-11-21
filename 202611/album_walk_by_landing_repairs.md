@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair walk_by restoration and finish the grouped-walk landing
-goal: Restore authored walk_by safely and exactly, verify grouped transactions, and
-  close bob-cli-oj.3.1 plus parent phase bob-cli-oj.3.
+goal:
+  Restore authored walk_by safely and exactly, verify grouped transactions, and close
+  bob-cli-oj.3.1 plus parent phase bob-cli-oj.3.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-oj.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/album_walk_by.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/album_walk_by.md)
 - **BEAD:**
   [bob-cli-oj.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oj/bob-cli-oj.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-oj.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-oj.3.1.land.md)
+- **COMMITS:**
+  - [761b2b8](https://github.com/bobs-org/bob-cli--plans/commit/761b2b8b536aef795ef576ab2a98fb7f7256a9b3)
+    — chore(plans): mark album_walk_by epic and landing repairs done
 
 # Repair walk_by restoration and finish the grouped-walk landing
 
