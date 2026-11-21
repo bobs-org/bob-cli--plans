@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "browse_digits",
+      "kind": "choice",
+      "ask": "With 10+ choices and no stage open, should the first digit open the choices stage filtered to it?",
+      "why": "One key sequence everywhere, and the filtered list shows what the next digit can reach",
+      "choices": [
+        {
+          "key": "stage",
+          "label": "First digit opens the choices filtered to that prefix; the second digit picks and saves"
+        },
+        {
+          "key": "status",
+          "label": "Stage stays closed; the status line shows the pending prefix until the second digit saves"
+        },
+        {
+          "key": "legacy",
+          "label": "Browse keeps today's 1\u20139 instant pick; two-digit codes work only inside the choices stage"
+        }
+      ],
+      "default": "stage",
+      "effective_default": "stage",
+      "requested_verified": false
+    },
+    {
+      "id": "badge_format",
+      "kind": "choice",
+      "ask": "With 10+ choices, should digit badges be zero-padded to the code width (01\u202617)?",
+      "why": "The badge is the code you type, so nothing has to be guessed",
+      "choices": [
+        {
+          "key": "padded",
+          "label": "Badges show exactly what you type (01, 07, 17), so the column lines up"
+        },
+        {
+          "key": "plain",
+          "label": "Badges show 1\u202617 as today; choices 1\u20139 still need a leading 0 that badges don't show"
+        }
+      ],
+      "default": "padded",
+      "effective_default": "padded",
+      "requested_verified": false
+    }
+  ]
+}
