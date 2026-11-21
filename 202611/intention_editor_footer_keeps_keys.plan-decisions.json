@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "summary_explainer",
+      "kind": "choice",
+      "ask": "Should `s` (select Summary) also leave the keymap footer in place instead of showing its explainer?",
+      "why": "The report is about j/k; `s` is a documented hint that the next move now clears",
+      "choices": [
+        {
+          "key": "explainer",
+          "label": "`s` keeps its 'Summary selected\u2026' line until the next key; j/k then restores the keys"
+        },
+        {
+          "key": "footer",
+          "label": "`s` keeps the keymap footer like other moves; ownership still shows inside the Summary stage"
+        }
+      ],
+      "default": "explainer",
+      "effective_default": "explainer",
+      "requested_verified": false
+    }
+  ]
+}
