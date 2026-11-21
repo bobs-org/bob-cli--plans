@@ -1,90 +1,83 @@
 ---
 tier: epic
 title: Obsidian requirement guards, toggle, drop, and typing assist
-goal:
-  Complete bob-cli-on.10 (the obsidian-gestures phase of
-  plan:202611/task_requirements.md). The cycler, nav, and Block ID Prompt recognize
-  requirement lines through byte-identical JS twins that pass bob-cli's RQ/RL/RW
-  vectors. Every task gesture refuses or redirects on a req line with the contract copy.
-  Ctrl+] toggles note and req with zone placement and the first-req scoop, Alt+[ drops
-  with a reason and Alt+] restores, Ctrl+Shift+P opens the owner's Task Card, the
-  offer-close scope note never counts reqs, and typing `- [` then space expands to `- [
-  ] ` with overtype absorption, atomic Backspace, Vim insert support, and a clean Undo.
-  Each write is one undo step.
+goal: Complete bob-cli-on.10 (the obsidian-gestures phase of plan:202611/task_requirements.md).
+  The cycler, nav, and Block ID Prompt recognize requirement lines through byte-identical
+  JS twins that pass bob-cli's RQ/RL/RW vectors. Every task gesture refuses or redirects
+  on a req line with the contract copy. Ctrl+] toggles note and req with zone placement
+  and the first-req scoop, Alt+[ drops with a reason and Alt+] restores, Ctrl+Shift+P
+  opens the owner's Task Card, the offer-close scope note never counts reqs, and typing
+  `- [` then space expands to `- [ ] ` with overtype absorption, atomic Backspace,
+  Vim insert support, and a clean Undo. Each write is one undo step.
 phases:
-  - id: req-read-twin
-    title: Recognizer and layout twins in the cycler
-    depends_on: []
-    size: medium
-    description:
-      "req-read-twin: port bob-cli's task_reqs recognizer (RQ) and task_block_layout
-      zones, slots, violations, note homes, tidy, scoop, and file-into-NOTES (RL) into
-      new plugin-agnostic cycler fragments, copy the RQ/RL fixtures, and pass every RQ
-      and RL vector."
-  - id: req-write-twin
-    title: Writer twin, cross-plugin copies, and the offer-close scope fix
-    depends_on:
-      - req-read-twin
-    size: medium
-    description:
-      "req-write-twin: port the drop/restore/toggle/insert writers (RW) into the cycler
-      and pass every RW vector, copy the twin fragments byte for byte into nav and Block
-      ID Prompt with a drift test, re-copy offer_close vectors, and make
-      successorOfferCloseOpenScopeCount count only real #task subtasks."
-  - id: cycler-guards-and-drop
-    title: Cycler requirement guards, Alt+[ drop, and Alt+] restore
-    depends_on:
-      - req-write-twin
-    size: medium
-    description:
-      "cycler-guards-and-drop: add the req-line guard beside the bank-row guard and
-      consult it at every cycler task gesture, link-target, transclusion, and
-      status-writer site with the contract copy, then implement Alt+[ drop (reason
-      prompt plus nav Log Recall) and Alt+] restore through the RW twin as one undo step
-      each."
-  - id: cycler-toggle-and-typing
-    title: Ctrl+] note/req toggle, `- [` typing assist, and o/O continuation
-    depends_on:
-      - cycler-guards-and-drop
-    size: medium
-    description:
-      "cycler-toggle-and-typing: route Ctrl+] (command and Vim) through the RW toggle
-      with zone placement, the first-req scoop notice, and refusals; add the cycler's
-      CodeMirror typing extension (expansion, autopair, overtype absorption, atomic
-      Backspace, Vim insert, isolated Undo) with a real-Obsidian e2e; pin o/O req
-      continuation."
-  - id: nav-guards-and-owner-card
-    title: Nav and Block ID Prompt requirement guards and the owner Task Card
-    depends_on:
-      - req-write-twin
-    size: medium
-    description:
-      "nav-guards-and-owner-card: refuse Alt+N, Alt+F, Ctrl+Alt+F, their counted forms,
-      and the other nav task gestures on req lines with the lane copy, redirect
-      Ctrl+Shift+P (and the Task Card stage shortcuts) to the owner's Task Card, and
-      guard Block ID Prompt's Ctrl+Shift+Enter so a req line or carried stub is never
-      linked or unlinked."
-  - id: gestures-contract-and-e2e
-    title: Contract section, cross-plugin e2e, and ship
-    depends_on:
-      - cycler-toggle-and-typing
-      - nav-guards-and-owner-card
-    size: small
-    description:
-      "gestures-contract-and-e2e: document the shipped Obsidian gestures in bob-cli
-      docs/task-requirements.md, extend the real-Obsidian e2e to every gesture across
-      the three plugins, run the full plugin and docs gates, and sync the three plugins."
+- id: req-read-twin
+  title: Recognizer and layout twins in the cycler
+  depends_on: []
+  size: medium
+  description: 'req-read-twin: port bob-cli''s task_reqs recognizer (RQ) and task_block_layout
+    zones, slots, violations, note homes, tidy, scoop, and file-into-NOTES (RL) into
+    new plugin-agnostic cycler fragments, copy the RQ/RL fixtures, and pass every
+    RQ and RL vector.'
+- id: req-write-twin
+  title: Writer twin, cross-plugin copies, and the offer-close scope fix
+  depends_on:
+  - req-read-twin
+  size: medium
+  description: 'req-write-twin: port the drop/restore/toggle/insert writers (RW) into
+    the cycler and pass every RW vector, copy the twin fragments byte for byte into
+    nav and Block ID Prompt with a drift test, re-copy offer_close vectors, and make
+    successorOfferCloseOpenScopeCount count only real #task subtasks.'
+- id: cycler-guards-and-drop
+  title: Cycler requirement guards, Alt+[ drop, and Alt+] restore
+  depends_on:
+  - req-write-twin
+  size: medium
+  description: 'cycler-guards-and-drop: add the req-line guard beside the bank-row
+    guard and consult it at every cycler task gesture, link-target, transclusion,
+    and status-writer site with the contract copy, then implement Alt+[ drop (reason
+    prompt plus nav Log Recall) and Alt+] restore through the RW twin as one undo
+    step each.'
+- id: cycler-toggle-and-typing
+  title: Ctrl+] note/req toggle, `- [` typing assist, and o/O continuation
+  depends_on:
+  - cycler-guards-and-drop
+  size: medium
+  description: 'cycler-toggle-and-typing: route Ctrl+] (command and Vim) through the
+    RW toggle with zone placement, the first-req scoop notice, and refusals; add the
+    cycler''s CodeMirror typing extension (expansion, autopair, overtype absorption,
+    atomic Backspace, Vim insert, isolated Undo) with a real-Obsidian e2e; pin o/O
+    req continuation.'
+- id: nav-guards-and-owner-card
+  title: Nav and Block ID Prompt requirement guards and the owner Task Card
+  depends_on:
+  - req-write-twin
+  size: medium
+  description: 'nav-guards-and-owner-card: refuse Alt+N, Alt+F, Ctrl+Alt+F, their
+    counted forms, and the other nav task gestures on req lines with the lane copy,
+    redirect Ctrl+Shift+P (and the Task Card stage shortcuts) to the owner''s Task
+    Card, and guard Block ID Prompt''s Ctrl+Shift+Enter so a req line or carried stub
+    is never linked or unlinked.'
+- id: gestures-contract-and-e2e
+  title: Contract section, cross-plugin e2e, and ship
+  depends_on:
+  - cycler-toggle-and-typing
+  - nav-guards-and-owner-card
+  size: small
+  description: 'gestures-contract-and-e2e: document the shipped Obsidian gestures
+    in bob-cli docs/task-requirements.md, extend the real-Obsidian e2e to every gesture
+    across the three plugins, run the full plugin and docs gates, and sync the three
+    plugins.'
 proposed_by: bbugyi200.athena.bob-cli-on.10
 proposed_with: claude/opus
 parent_bead: bob-cli-on.10
 create_time: 2026-11-21 14:10:14
 status: wip
+bead_id: bob-cli-on.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_req_gestures.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_req_gestures.md)
-- **PARENT:**
-  [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/obsidian_req_gestures.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_req_gestures.md)
+- **PARENT:** [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.10.1.md)
 
 # Scope and authority
 
