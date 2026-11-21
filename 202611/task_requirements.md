@@ -1,233 +1,218 @@
 ---
 tier: epic
 title: Task requirements (reqs)
-goal: "A task can carry requirements: checkbox children without `#task`, nested as deep
-  as the work needs, drawn as a quiet ⌗⌗ run in the task's ink. They are met when the
-  task closes and can never be ticked early. They can be dropped with a reason or
-  carried into their own task, and the close card audits them once. They sit in one
-  canonical block order beside a NOTES drawer, and they promote one level at a time into
-  project tasks. bob-cli, bob-plugins, Bob Mac Capture, and the vault agree byte for
-  byte through shared vectors, and every legacy REQUIREMENTS drawer becomes NOTES.
+goal: 'A task can carry requirements: checkbox children without `#task`, nested as
+  deep as the work needs, drawn as a quiet ⌗⌗ run in the task''s ink. They are met
+  when the task closes and can never be ticked early. They can be dropped with a reason
+  or carried into their own task, and the close card audits them once. They sit in
+  one canonical block order beside a NOTES drawer, and they promote one level at a
+  time into project tasks. bob-cli, bob-plugins, Bob Mac Capture, and the vault agree
+  byte for byte through shared vectors, and every legacy REQUIREMENTS drawer becomes
+  NOTES.
 
-  "
+  '
 decisions:
   notes_drawer_birth:
     ask: When should a task that has requirements grow its NOTES drawer?
     choices:
       with_first_note: When it first has a note to hold, so drawers are never empty
-      with_first_req: As soon as its first requirement lands, even if NOTES starts empty
+      with_first_req: As soon as its first requirement lands, even if NOTES starts
+        empty
     default: with_first_note
     why: Keeps the drawer contract (nonempty by construction) and avoids bare headers
     answer: with_first_note
   seed_review:
-    ask:
-      Should the migration also prepare an opt-in list of loose notes that read like
-      requirements?
+    ask: Should the migration also prepare an opt-in list of loose notes that read
+      like requirements?
     default: true
-    why:
-      You already write requirements as plain bullets; nothing converts without approval
+    why: You already write requirements as plain bullets; nothing converts without
+      approval
     answer: true
   memory_reqs_decision:
-    ask:
-      Record the task requirements decision and mark Capture Bullets Mirror The Task
-      Block superseded in part?
+    ask: Record the task requirements decision and mark Capture Bullets Mirror The
+      Task Block superseded in part?
     memory:
-      - decisions:task-reqs-are-met-with-their-task
-      - decisions:capture-bullets-mirror-the-task-block
+    - decisions:task-reqs-are-met-with-their-task
+    - decisions:capture-bullets-mirror-the-task-block
     default: true
     corrects: every other first-level bullet, with its nested bullets, is one note
     answer: true
   memory_task_drawer:
-    ask:
-      Update the Task Drawer strand for NOTES, requirements, and the retired
-      REQUIREMENTS drawer?
+    ask: Update the Task Drawer strand for NOTES, requirements, and the retired REQUIREMENTS
+      drawer?
     memory:
-      - glossary:task-drawer
+    - glossary:task-drawer
     default: true
     corrects: A drawer holds part of one task's work (`REQUIREMENTS`, `FUTURE WORK`)
     answer: true
   memory_glossary_req:
     ask: Add a Task Requirement strand to the glossary web?
     memory:
-      - glossary:task-requirement
+    - glossary:task-requirement
     default: false
     answer: true
 phases:
-  - id: req-contract
-    title: Requirement recognizer, shared vectors, and the contract page
-    depends_on: []
-    size: medium
-    description:
-      "req-contract: retire the bob-cli-of epic, then add the recursive requirement
-      recognizer in bob-cli with its derived state model, structural row identity, RQ
-      vectors, the TaskChildKind::Requirement variant, and the docs/task-requirements.md
-      contract."
-  - id: reader-hardening
-    title: Keep every task reader and outside-text writer off requirement lines
-    depends_on:
-      - req-contract
-    size: medium
-    description:
-      "reader-hardening: make projects sync, embedded-tree closes, loss and clobber
-      guards, agenda, dataview emulation, archive moves, and lane/walk/stats counts
-      treat only real #task lines as tasks; escape pasted checkboxes from gcal, gkeep,
-      gmail, and highlights writers; add the offer-close SV case."
-  - id: block-layout
-    title: The task block layout module and requirement line writers
-    depends_on:
-      - req-contract
-    size: medium
-    description:
-      "block-layout: add task_block_layout (zones, insertion slots, tidy planning, the
-      NOTES rule) and the pure drop/restore/toggle/first-requirement writers with RL and
-      RW vectors, then route ensure_drawer and capture note placement through it."
-  - id: task-tidy
-    title: The bob task tidy command
-    depends_on:
-      - block-layout
-    size: medium
-    description:
-      "task-tidy: add `bob task tidy`, a previewed, one-commit repair of open task
-      blocks into canonical order that moves whole subtrees and files loose notes of
-      requirement-owning tasks into NOTES."
-  - id: drawer-rename
-    title: The bob task rename-drawer command
-    depends_on:
-      - task-tidy
-    size: medium
-    description:
-      "drawer-rename: add `bob task rename-drawer OLD NEW`, a previewed, idempotent,
-      one-commit rename and merge of task drawers and ^prj H2 drawer sections across the
-      vault, with heading-link repair and an inventory report."
-  - id: capture-reqs
-    title: Capture grammar, spans, typing rewrite, and NOTES routing for requirements
-    depends_on:
-      - block-layout
-    size: large
-    description:
-      "capture-reqs: admit requirement bullets at every eligible capture position and
-      depth, add refusals, the req_marker span, the expand_req_marker rewrite, NOTES
-      routing with the first-requirement scoop, and nested requirements in project-note
-      capture; grammar revision 29."
-  - id: req-split
-    title: Carry a requirement branch into its own task
-    depends_on:
-      - block-layout
-    size: medium
-    description:
-      "req-split: extend Task Split to select requirements at any depth, move the whole
-      branch with depth rebasing and the NOTES rule, leave a [>] stub, refuse overlaps
-      and excluded rows, and expose a library entry with a move map."
-  - id: close-engine
-    title: Requirements on the capture successor card
-    depends_on:
-      - reader-hardening
-      - capture-reqs
-      - req-split
-    size: large
-    description:
-      "close-engine: build per-owner requirement groups for managed Done closes, the
-      met/drop/carry/pull-in verdicts with overlap and staleness refusals, CLI flags and
-      the --req-choice gate, JSON and receipts, RV vectors, and §12 docs."
-  - id: ledger-marks
-    title: Render requirements in Obsidian
-    depends_on:
-      - req-contract
-    size: medium
-    description:
-      "ledger-marks: draw the depth-aware ⌗ run in the owner's ink in Live Preview and
-      Reading view with state styling, hidden unclickable checkboxes, the session
-      toggle, tooltips, and freshness guards in bob-ledger-tools."
-  - id: obsidian-gestures
-    title: Obsidian requirement guards, toggle, drop, and typing assist
-    depends_on:
-      - reader-hardening
-      - block-layout
-    size: large
-    description:
-      "obsidian-gestures: add recognizer and layout twins to the cycler and nav, guard
-      every task gesture on requirement lines, add Ctrl+] toggling with zone placement,
-      Alt+[ drop and Alt+] restore, the owner Task Card, the offer-close scope fix, and
-      the `- [` + space expansion with atomic Backspace."
-  - id: obsidian-close-card
-    title: Requirements on the Obsidian successor card and carry-now
-    depends_on:
-      - close-engine
-      - obsidian-gestures
-    size: large
-    description:
-      "obsidian-close-card: mirror the requirement split in nav with api.taskSplit, bind
-      Ctrl+Shift+T carry-now on requirement lines, render picker v6 requirement groups
-      with their keys, and let the cycler plan and apply verdicts with guarded Undo."
-  - id: promotion
-    title: Promotion maps requirements to tasks and notes to notes
-    depends_on:
-      - obsidian-close-card
-    size: medium
-    description:
-      "promotion: rewrite nav's project seed so top-level requirements become ## Tasks
-      rows that keep their nested requirements, notes and NOTES become ## Notes even on
-      requirement-less tasks, and the receipt counts both."
-  - id: mac-authoring
-    title: Mac requirement typing and glyph overlay
-    depends_on:
-      - capture-reqs
-    size: medium
-    description:
-      "mac-authoring: apply bob's expand_req_marker natively with overtype absorption,
-      delete a requirement marker atomically, and draw the ⌗ run over req_marker spans
-      in Bob Mac Capture."
-  - id: mac-nesting
-    title: Mac bullet indentation beyond two levels
-    depends_on:
-      - mac-authoring
-    size: medium
-    description:
-      "mac-nesting: generalize Tab/Shift-Tab, Ctrl-J continuation, paste placeholders,
-      and empty-row deletion in Bob Mac Capture from the fixed 0/2-space levels to any
-      authored depth."
-  - id: mac-close-card
-    title: Requirements on the Mac Pull-In card
-    depends_on:
-      - close-engine
-      - mac-nesting
-    size: large
-    description:
-      "mac-close-card: decode requirement groups, carry them through every offer path,
-      stage met/drop/carry/pull-in verdicts with overlap feedback, and submit them
-      behind --req-choice in Bob Mac Capture."
-  - id: vault-migration
-    title: Reviewed vault migration
-    depends_on:
-      - drawer-rename
-      - ledger-marks
-      - obsidian-gestures
-    size: small
-    description:
-      "vault-migration: gate `bob task rename-drawer REQUIREMENTS NOTES` and one `bob
-      task tidy` pass through Bryan's approval, report Dataview TASK queries without a
-      #task filter, and prepare the opt-in requirement review list."
-  - id: memory
-    title: Memory records for task requirements
-    depends_on:
-      - close-engine
-      - promotion
-      - vault-migration
-    size: small
-    description:
-      "memory: apply the accepted memory decisions (decision record and supersession
-      mark, Task Drawer strand, Task Requirement strand) with /sase_memory_write, then
-      regenerate the glossary page."
+- id: req-contract
+  title: Requirement recognizer, shared vectors, and the contract page
+  depends_on: []
+  size: medium
+  description: 'req-contract: retire the bob-cli-of epic, then add the recursive requirement
+    recognizer in bob-cli with its derived state model, structural row identity, RQ
+    vectors, the TaskChildKind::Requirement variant, and the docs/task-requirements.md
+    contract.'
+- id: reader-hardening
+  title: Keep every task reader and outside-text writer off requirement lines
+  depends_on:
+  - req-contract
+  size: medium
+  description: 'reader-hardening: make projects sync, embedded-tree closes, loss and
+    clobber guards, agenda, dataview emulation, archive moves, and lane/walk/stats
+    counts treat only real #task lines as tasks; escape pasted checkboxes from gcal,
+    gkeep, gmail, and highlights writers; add the offer-close SV case.'
+- id: block-layout
+  title: The task block layout module and requirement line writers
+  depends_on:
+  - req-contract
+  size: medium
+  description: 'block-layout: add task_block_layout (zones, insertion slots, tidy
+    planning, the NOTES rule) and the pure drop/restore/toggle/first-requirement writers
+    with RL and RW vectors, then route ensure_drawer and capture note placement through
+    it.'
+- id: task-tidy
+  title: The bob task tidy command
+  depends_on:
+  - block-layout
+  size: medium
+  description: 'task-tidy: add `bob task tidy`, a previewed, one-commit repair of
+    open task blocks into canonical order that moves whole subtrees and files loose
+    notes of requirement-owning tasks into NOTES.'
+- id: drawer-rename
+  title: The bob task rename-drawer command
+  depends_on:
+  - task-tidy
+  size: medium
+  description: 'drawer-rename: add `bob task rename-drawer OLD NEW`, a previewed,
+    idempotent, one-commit rename and merge of task drawers and ^prj H2 drawer sections
+    across the vault, with heading-link repair and an inventory report.'
+- id: capture-reqs
+  title: Capture grammar, spans, typing rewrite, and NOTES routing for requirements
+  depends_on:
+  - block-layout
+  size: large
+  description: 'capture-reqs: admit requirement bullets at every eligible capture
+    position and depth, add refusals, the req_marker span, the expand_req_marker rewrite,
+    NOTES routing with the first-requirement scoop, and nested requirements in project-note
+    capture; grammar revision 29.'
+- id: req-split
+  title: Carry a requirement branch into its own task
+  depends_on:
+  - block-layout
+  size: medium
+  description: 'req-split: extend Task Split to select requirements at any depth,
+    move the whole branch with depth rebasing and the NOTES rule, leave a [>] stub,
+    refuse overlaps and excluded rows, and expose a library entry with a move map.'
+- id: close-engine
+  title: Requirements on the capture successor card
+  depends_on:
+  - reader-hardening
+  - capture-reqs
+  - req-split
+  size: large
+  description: 'close-engine: build per-owner requirement groups for managed Done
+    closes, the met/drop/carry/pull-in verdicts with overlap and staleness refusals,
+    CLI flags and the --req-choice gate, JSON and receipts, RV vectors, and §12 docs.'
+- id: ledger-marks
+  title: Render requirements in Obsidian
+  depends_on:
+  - req-contract
+  size: medium
+  description: 'ledger-marks: draw the depth-aware ⌗ run in the owner''s ink in Live
+    Preview and Reading view with state styling, hidden unclickable checkboxes, the
+    session toggle, tooltips, and freshness guards in bob-ledger-tools.'
+- id: obsidian-gestures
+  title: Obsidian requirement guards, toggle, drop, and typing assist
+  depends_on:
+  - reader-hardening
+  - block-layout
+  size: large
+  description: 'obsidian-gestures: add recognizer and layout twins to the cycler and
+    nav, guard every task gesture on requirement lines, add Ctrl+] toggling with zone
+    placement, Alt+[ drop and Alt+] restore, the owner Task Card, the offer-close
+    scope fix, and the `- [` + space expansion with atomic Backspace.'
+- id: obsidian-close-card
+  title: Requirements on the Obsidian successor card and carry-now
+  depends_on:
+  - close-engine
+  - obsidian-gestures
+  size: large
+  description: 'obsidian-close-card: mirror the requirement split in nav with api.taskSplit,
+    bind Ctrl+Shift+T carry-now on requirement lines, render picker v6 requirement
+    groups with their keys, and let the cycler plan and apply verdicts with guarded
+    Undo.'
+- id: promotion
+  title: Promotion maps requirements to tasks and notes to notes
+  depends_on:
+  - obsidian-close-card
+  size: medium
+  description: 'promotion: rewrite nav''s project seed so top-level requirements become
+    ## Tasks rows that keep their nested requirements, notes and NOTES become ## Notes
+    even on requirement-less tasks, and the receipt counts both.'
+- id: mac-authoring
+  title: Mac requirement typing and glyph overlay
+  depends_on:
+  - capture-reqs
+  size: medium
+  description: 'mac-authoring: apply bob''s expand_req_marker natively with overtype
+    absorption, delete a requirement marker atomically, and draw the ⌗ run over req_marker
+    spans in Bob Mac Capture.'
+- id: mac-nesting
+  title: Mac bullet indentation beyond two levels
+  depends_on:
+  - mac-authoring
+  size: medium
+  description: 'mac-nesting: generalize Tab/Shift-Tab, Ctrl-J continuation, paste
+    placeholders, and empty-row deletion in Bob Mac Capture from the fixed 0/2-space
+    levels to any authored depth.'
+- id: mac-close-card
+  title: Requirements on the Mac Pull-In card
+  depends_on:
+  - close-engine
+  - mac-nesting
+  size: large
+  description: 'mac-close-card: decode requirement groups, carry them through every
+    offer path, stage met/drop/carry/pull-in verdicts with overlap feedback, and submit
+    them behind --req-choice in Bob Mac Capture.'
+- id: vault-migration
+  title: Reviewed vault migration
+  depends_on:
+  - drawer-rename
+  - ledger-marks
+  - obsidian-gestures
+  size: small
+  description: 'vault-migration: gate `bob task rename-drawer REQUIREMENTS NOTES`
+    and one `bob task tidy` pass through Bryan''s approval, report Dataview TASK queries
+    without a #task filter, and prepare the opt-in requirement review list.'
+- id: memory
+  title: Memory records for task requirements
+  depends_on:
+  - close-engine
+  - promotion
+  - vault-migration
+  size: small
+  description: 'memory: apply the accepted memory decisions (decision record and supersession
+    mark, Task Drawer strand, Task Requirement strand) with /sase_memory_write, then
+    regenerate the glossary page.'
 proposed_by: bbugyi200.athena.1ex
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: telegram
 create_time: 2026-11-21 11:13:24
 status: wip
+bead_id: bob-cli-on
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_requirements.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/task_requirements.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/README.md)
 
 # Plan: Task requirements (reqs)
 
