@@ -16,6 +16,11 @@ status: wip
   [202611/successor_jump_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/successor_jump_repairs.md)
 - **BEAD:**
   [bob-cli-oe.8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oe/bob-cli-oe.8.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-oe.8.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-oe.8.land.md)
+- **COMMITS:**
+  - [4e0ff78](https://github.com/bobs-org/bob-plugins/commit/4e0ff78b1534e62a55e86f8c94632bc76f3cc84b)
+    — fix(successors): keep the jump receipt when deferred landing is not follow-owned
 
 # Finish the remaining jump-pin gaps and the landing
 
