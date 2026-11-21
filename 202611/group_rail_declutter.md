@@ -2,38 +2,37 @@
 tier: tale
 size: medium
 title: Declutter the group row, replace its «/» arms, and land bob-cli-oj.5.1
-goal: The group row under day, week, quarter, and grouped record cards reads as one
-  calm line (an intuitive group-jump icon, the neighbouring group's name, and a quiet
-  tick track) with no duplicated step-row text, the links walker footer follows the
-  same look, and the bob-cli-oj.5.1 epic and its parent phase bob-cli-oj.5 are closed.
+goal:
+  The group row under day, week, quarter, and grouped record cards reads as one calm
+  line (an intuitive group-jump icon, the neighbouring group's name, and a quiet tick
+  track) with no duplicated step-row text, the links walker footer follows the same
+  look, and the bob-cli-oj.5.1 epic and its parent phase bob-cli-oj.5 are closed.
 decisions:
   layout:
     ask: Should the group row stay as its own slimmed second row under the step row?
     choices:
-      slim: Second row shows only icon + group name per arm and a tick track in the
-        centre
-      fold: No second row; group arms become icon-only buttons at the step row's outer
-        edges
+      slim:
+        Second row shows only icon + group name per arm and a tick track in the centre
+      fold:
+        No second row; group arms become icon-only buttons at the step row's outer edges
     default: slim
     why: The neighbouring group's name stays visible, which is the row's whole point
     answer: slim
   glyph:
     ask: Which mark should replace the «/» on group arms?
     choices:
-      skip: Lucide skip-back / skip-forward icons, the media previous/next-chapter
-        mark
+      skip: Lucide skip-back / skip-forward icons, the media previous/next-chapter mark
       keys: Small muted key chips reading [N and ]N, the keys each arm runs
-      chevron: The step row's ‹ / ›, with the group name drawn as a property-style
-        pill
+      chevron: The step row's ‹ / ›, with the group name drawn as a property-style pill
     default: skip
-    why: Widely read as "jump a whole section"; never mistaken for quotes or step
-      arrows
+    why: Widely read as "jump a whole section"; never mistaken for quotes or step arrows
     answer: skip
   footer:
     ask: Should the status-bar links walker footer get the same mark and declutter?
     default: true
-    why: The screenshot shows the same «/» and duplication there; one change keeps
-      both consistent
+    why:
+      The screenshot shows the same «/» and duplication there; one change keeps both
+      consistent
     answer: true
 proposed_by: bbugyi200.athena.bob-cli-oj.5.1.land
 proposed_with: claude/opus
@@ -46,6 +45,11 @@ status: done
   [202611/group_rail.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/group_rail.md)
 - **BEAD:**
   [bob-cli-oj.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oj/bob-cli-oj.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-oj.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-oj.5.1.land.md)
+- **COMMITS:**
+  - [b8a4c00](https://github.com/bobs-org/bob-cli--plans/commit/b8a4c00646dae5071489f1a2214c3f31a0edf796)
+    — chore(plans): mark group_rail done after landing bob-cli-oj.5.1
 
 # Declutter the group row, replace its «/» arms, and land bob-cli-oj.5.1
 
