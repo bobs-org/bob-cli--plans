@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_keymap_decision",
+      "kind": "toggle",
+      "ask": "Add a decisions record for the new card keymap (Space writes a row note; `-` files without a category)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:space-writes-a-bank-row-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:space-writes-a-bank-row-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/space-writes-a-bank-row-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_bank_row_glossary",
+      "kind": "toggle",
+      "ask": "Update the glossary Bank Row strand to mention the inline note and the Space gesture?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:bank-row"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:bank-row",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Bank Row",
+            "Record Note",
+            "Capture",
+            "Notebook",
+            "Project Note",
+            "Pomodoro",
+            "Keep Streak",
+            "Task Type",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
