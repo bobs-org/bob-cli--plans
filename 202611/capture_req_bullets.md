@@ -1,72 +1,68 @@
 ---
 tier: epic
 title: Requirement bullets in capture (grammar 29)
-goal: "Capture admits requirement bullets at every eligible position and depth, refuses
-  the ineligible ones with taught codes, shows them as req_marker spans, expands a typed
-  `- [` + space into `- [ ] `, and writes them into the reqs zone with the NOTES rule
-  and the first-requirement scoop, completing phase bob-cli-on.6 (capture-reqs).
+goal: 'Capture admits requirement bullets at every eligible position and depth, refuses
+  the ineligible ones with taught codes, shows them as req_marker spans, expands a
+  typed `- [` + space into `- [ ] `, and writes them into the reqs zone with the NOTES
+  rule and the first-requirement scoop, completing phase bob-cli-on.6 (capture-reqs).
 
-  "
+  '
 phases:
-  - id: depth-model
-    title: Numeric authored depth with today's behavior kept
-    depends_on: []
-    size: medium
-    description:
-      "depth-model: turn AuthoredDepth into a numeric level, teach the authored-line
-      classifier any even-space level with a capped form, move every consumer and the
-      grouping helpers onto it, and make the sub-bullet renderers depth-preserving, all
-      without changing any capture, parse, or rewrite output."
-  - id: req-positions
-    title: Shared requirement position resolver, refusals, req_marker span, grammar 29
-    depends_on:
-      - depth-model
-    size: medium
-    description:
-      "req-positions: add the pure req-position resolver shared by bob capture and
-      capture-parse, admit nested req chains past level 2, refuse req_in_drawer,
-      req_parent, req_state, and req_depth, emit req_marker spans with depth, and bump
-      the grammar to revision 29."
-  - id: new-block-writes
-    title: Requirements in the blocks capture creates
-    depends_on:
-      - req-positions
-    size: medium
-    description:
-      "new-block-writes: render new tasks, list tasks, Pomodoro-created tasks, and
-      project-note rows so reqs sit in the reqs zone and notes follow the NOTES rule
-      through task_block_layout, and report an additive requirements summary in JSON and
-      human output."
-  - id: existing-target-writes
-    title: Requirements added to existing tasks, the scoop, and req_link
-    depends_on:
-      - new-block-writes
-    size: medium
-    description:
-      "existing-target-writes: write note-less @route+id requirement bullets and the
-      same-line `[ ] text @route+id` form through insert_reqs with the first-requirement
-      scoop, refuse forced-drawer reqs and Task Links to req anchors (req_link), and
-      preview the scoop."
-  - id: req-rewrite
-    title: The expand_req_marker typing rewrite
-    depends_on:
-      - req-positions
-    size: medium
-    description:
-      "req-rewrite: add expand_req_marker to capture-rewrite with resolver-driven
-      eligibility and the notebook policy preflight, and document client-side overtype
-      absorption and atomic Backspace in capture-rewrite help and docs/capture.md."
+- id: depth-model
+  title: Numeric authored depth with today's behavior kept
+  depends_on: []
+  size: medium
+  description: 'depth-model: turn AuthoredDepth into a numeric level, teach the authored-line
+    classifier any even-space level with a capped form, move every consumer and the
+    grouping helpers onto it, and make the sub-bullet renderers depth-preserving,
+    all without changing any capture, parse, or rewrite output.'
+- id: req-positions
+  title: Shared requirement position resolver, refusals, req_marker span, grammar
+    29
+  depends_on:
+  - depth-model
+  size: medium
+  description: 'req-positions: add the pure req-position resolver shared by bob capture
+    and capture-parse, admit nested req chains past level 2, refuse req_in_drawer,
+    req_parent, req_state, and req_depth, emit req_marker spans with depth, and bump
+    the grammar to revision 29.'
+- id: new-block-writes
+  title: Requirements in the blocks capture creates
+  depends_on:
+  - req-positions
+  size: medium
+  description: 'new-block-writes: render new tasks, list tasks, Pomodoro-created tasks,
+    and project-note rows so reqs sit in the reqs zone and notes follow the NOTES
+    rule through task_block_layout, and report an additive requirements summary in
+    JSON and human output.'
+- id: existing-target-writes
+  title: Requirements added to existing tasks, the scoop, and req_link
+  depends_on:
+  - new-block-writes
+  size: medium
+  description: 'existing-target-writes: write note-less @route+id requirement bullets
+    and the same-line `[ ] text @route+id` form through insert_reqs with the first-requirement
+    scoop, refuse forced-drawer reqs and Task Links to req anchors (req_link), and
+    preview the scoop.'
+- id: req-rewrite
+  title: The expand_req_marker typing rewrite
+  depends_on:
+  - req-positions
+  size: medium
+  description: 'req-rewrite: add expand_req_marker to capture-rewrite with resolver-driven
+    eligibility and the notebook policy preflight, and document client-side overtype
+    absorption and atomic Backspace in capture-rewrite help and docs/capture.md.'
 proposed_by: bbugyi200.athena.bob-cli-on.6
 proposed_with: claude/opus
 parent_bead: bob-cli-on.6
 create_time: 2026-11-21 13:50:27
 status: wip
+bead_id: bob-cli-on.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_req_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_req_bullets.md)
-- **PARENT:**
-  [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/capture_req_bullets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_req_bullets.md)
+- **PARENT:** [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.6.1.md)
 
 # Requirement bullets in capture (grammar 29)
 
