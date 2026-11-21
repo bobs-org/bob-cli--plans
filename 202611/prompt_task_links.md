@@ -1,118 +1,104 @@
 ---
 tier: epic
 title: (( task links in Bob's prose prompts
-goal:
-  Typing (( in every Bob prose prompt that already completes [[ (S1–S16) opens the LINK
-  band's tasks mode. It inserts bob's exact [[target#^id]] link to any vault task, names
-  an ID-less task in place with one explicit write, never submits the prompt early, and
-  never moves focus out of the field.
+goal: Typing (( in every Bob prose prompt that already completes [[ (S1–S16) opens
+  the LINK band's tasks mode. It inserts bob's exact [[target#^id]] link to any vault
+  task, names an ID-less task in place with one explicit write, never submits the
+  prompt early, and never moves focus out of the field.
 decisions:
   naming:
-    ask:
-      Should picking an ID-less task name it in place (one explicit vault write) and
-      then link it?
+    ask: Should picking an ID-less task name it in place (one explicit vault write)
+      and then link it?
     choices:
-      inline:
-        Enter on an ID-less row opens a NAME stage; a second Enter adds ^id and links it
-      identified_only:
-        ID-less rows stay disabled; prompts never write; NAME, naming API, Mac step
-        dropped
+      inline: Enter on an ID-less row opens a NAME stage; a second Enter adds ^id
+        and links it
+      identified_only: ID-less rows stay disabled; prompts never write; NAME, naming
+        API, Mac step dropped
     default: inline
-    why:
-      Matches the editor and Mac (( flows; without it about half the tasks need a detour
+    why: Matches the editor and Mac (( flows; without it about half the tasks need
+      a detour
     answer: inline
   decision_record:
-    ask:
-      Record the prompt (( rules as a new decisions strand
-      (decisions:prompts-link-tasks)?
+    ask: Record the prompt (( rules as a new decisions strand (decisions:prompts-link-tasks)?
     memory:
-      - decisions:prompts-link-tasks
+    - decisions:prompts-link-tasks
     default: false
     answer: false
 phases:
-  - id: cli-task-links
-    title:
-      "bob capture-complete --task-links: (( in plain prose, with shared prose vectors"
-    size: small
-    depends_on: []
-    description:
-      "cli-task-links: add a prose (( detector without capture-grammar checks, the
-      -T/--task-links option on capture-complete -L, byte-identical prose trigger
-      vectors, tests, and capture-complete docs."
-  - id: bip-task-api
-    title:
-      "block-id-prompt api.taskLinks v1: prose detector, ranked session, and safe ID
-      naming"
-    size: medium
-    depends_on:
-      - cli-task-links
-    description:
-      "bip-task-api: expose the existing (( engine as api.taskLinks v1. It adds the
-      prose fieldAt detector replaying the shared vectors, a snapshot session with
-      ranked rows, guards (including subjects) and indexing progress, and an editor-free
-      validate/name write via vault.process or the open editor."
-  - id: nav-task-band
-    title:
-      "proseField v2: the tasks mode of the LINK band, the NAME stage, and the
-      real-Obsidian spike"
-    size: medium
-    depends_on:
-      - bip-task-api
-    description:
-      "nav-task-band: add the tasks mode to nav's proseField controller in new fragments
-      (model, renderer, mode state machine). It covers the list and NAME stages,
-      beforeinput-fed ID editing, the leftover (( hint, and API v2, plus tests, preview
-      states, a real-Obsidian spike, and the block-id-prompt docs section."
-  - id: prompt-subjects
-    title: "Task-bearing prompts S1–S12: subject guards, host safety, prose lint"
-    size: medium
-    depends_on:
-      - nav-task-band
-    description:
-      "prompt-subjects: wire subjects for S1–S11 (S12 none) and audit picker-host key
-      offering during NAME. It adds the per-family host-safety tests and extends the
-      prose-field lint with subjects."
-  - id: card-surfaces
-    title: Intention Card, Record Card, and Task from email (S13–S15)
-    size: medium
-    depends_on:
-      - nav-task-band
-    description:
-      "card-surfaces: make (( and NAME survive the Intention Card repaints and key
-      ladder, the Record Card typed stages, and the (( field-mode link stage, and verify
-      the email task modal."
-  - id: mac-pull-in-tasks
-    title:
-      "Mac Pull-In reason: the tasks mode and NAME stage, plus Return never confirms
-      while the band is open"
-    size: medium
-    depends_on:
-      - cli-task-links
-    description:
-      "mac-pull-in-tasks: request -T in the Pull-In LINK band and render wikilink_task
-      rows. It adds the BlockIDField NAME stage backed by capture-task-id and dims the
-      reason row's own task. It also fixes Return confirming the Pull-In while the band
-      is open, plus docs and macOS CI."
-  - id: task-walkthrough
-    title: Real-Obsidian walkthrough, mention round-trip, and screenshots
-    size: small
-    depends_on:
-      - prompt-subjects
-      - card-surfaces
-    description:
-      "task-walkthrough: run the isolated real-Obsidian e2e over S1, S6, S10, S11, S14,
-      and S15, then confirm the mention chips after bob task reconcile, attach
-      screenshots, and run the docs check."
+- id: cli-task-links
+  title: 'bob capture-complete --task-links: (( in plain prose, with shared prose
+    vectors'
+  size: small
+  depends_on: []
+  description: 'cli-task-links: add a prose (( detector without capture-grammar checks,
+    the -T/--task-links option on capture-complete -L, byte-identical prose trigger
+    vectors, tests, and capture-complete docs.'
+- id: bip-task-api
+  title: 'block-id-prompt api.taskLinks v1: prose detector, ranked session, and safe
+    ID naming'
+  size: medium
+  depends_on:
+  - cli-task-links
+  description: 'bip-task-api: expose the existing (( engine as api.taskLinks v1. It
+    adds the prose fieldAt detector replaying the shared vectors, a snapshot session
+    with ranked rows, guards (including subjects) and indexing progress, and an editor-free
+    validate/name write via vault.process or the open editor.'
+- id: nav-task-band
+  title: 'proseField v2: the tasks mode of the LINK band, the NAME stage, and the
+    real-Obsidian spike'
+  size: medium
+  depends_on:
+  - bip-task-api
+  description: 'nav-task-band: add the tasks mode to nav''s proseField controller
+    in new fragments (model, renderer, mode state machine). It covers the list and
+    NAME stages, beforeinput-fed ID editing, the leftover (( hint, and API v2, plus
+    tests, preview states, a real-Obsidian spike, and the block-id-prompt docs section.'
+- id: prompt-subjects
+  title: 'Task-bearing prompts S1–S12: subject guards, host safety, prose lint'
+  size: medium
+  depends_on:
+  - nav-task-band
+  description: 'prompt-subjects: wire subjects for S1–S11 (S12 none) and audit picker-host
+    key offering during NAME. It adds the per-family host-safety tests and extends
+    the prose-field lint with subjects.'
+- id: card-surfaces
+  title: Intention Card, Record Card, and Task from email (S13–S15)
+  size: medium
+  depends_on:
+  - nav-task-band
+  description: 'card-surfaces: make (( and NAME survive the Intention Card repaints
+    and key ladder, the Record Card typed stages, and the (( field-mode link stage,
+    and verify the email task modal.'
+- id: mac-pull-in-tasks
+  title: 'Mac Pull-In reason: the tasks mode and NAME stage, plus Return never confirms
+    while the band is open'
+  size: medium
+  depends_on:
+  - cli-task-links
+  description: 'mac-pull-in-tasks: request -T in the Pull-In LINK band and render
+    wikilink_task rows. It adds the BlockIDField NAME stage backed by capture-task-id
+    and dims the reason row''s own task. It also fixes Return confirming the Pull-In
+    while the band is open, plus docs and macOS CI.'
+- id: task-walkthrough
+  title: Real-Obsidian walkthrough, mention round-trip, and screenshots
+  size: small
+  depends_on:
+  - prompt-subjects
+  - card-surfaces
+  description: 'task-walkthrough: run the isolated real-Obsidian e2e over S1, S6,
+    S10, S11, S14, and S15, then confirm the mention chips after bob task reconcile,
+    attach screenshots, and run the docs check.'
 proposed_by: bbugyi200.apollo.ff
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-21 17:39:45
 status: wip
+bead_id: bob-cli-oz
 ---
 
-- **PROMPT:**
-  [prompts/202611/prompt_task_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prompt_task_links.md)
+- **PROMPT:** [prompts/202611/prompt_task_links.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prompt_task_links.md)
+- **BEAD:** [bob-cli-oz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oz/README.md)
 
 # Plan: `((` task links in Bob's prose prompts
 
