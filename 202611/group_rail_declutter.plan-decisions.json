@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "layout",
+      "kind": "choice",
+      "ask": "Should the group row stay as its own slimmed second row under the step row?",
+      "why": "The neighbouring group's name stays visible, which is the row's whole point",
+      "choices": [
+        {
+          "key": "slim",
+          "label": "Second row shows only icon + group name per arm and a tick track in the centre"
+        },
+        {
+          "key": "fold",
+          "label": "No second row; group arms become icon-only buttons at the step row's outer edges"
+        }
+      ],
+      "default": "slim",
+      "effective_default": "slim",
+      "requested_verified": false
+    },
+    {
+      "id": "glyph",
+      "kind": "choice",
+      "ask": "Which mark should replace the \u00ab/\u00bb on group arms?",
+      "why": "Widely read as \"jump a whole section\"; never mistaken for quotes or step arrows",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Lucide skip-back / skip-forward icons, the media previous/next-chapter mark"
+        },
+        {
+          "key": "keys",
+          "label": "Small muted key chips reading [N and ]N, the keys each arm runs"
+        },
+        {
+          "key": "chevron",
+          "label": "The step row's \u2039 / \u203a, with the group name drawn as a property-style pill"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    },
+    {
+      "id": "footer",
+      "kind": "toggle",
+      "ask": "Should the status-bar links walker footer get the same mark and declutter?",
+      "why": "The screenshot shows the same \u00ab/\u00bb and duplication there; one change keeps both consistent",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
