@@ -1,69 +1,64 @@
 ---
 tier: epic
 title: The group row at the bottom of property cards
-goal:
-  Day, week, and quarter cards and grouped record walk rails show a quiet group row (`«
-  Q3 · W27 … week 8 of 14 ▮▮■▯ … 2027-Q1 · W01 »`) from the same resolver behind `[N` /
-  `]N`; legacy dailies get a derived step row; every missing stop reads dashed `+`
-  (creatable) or dotted and faint (ghost) across rail items, chips, and arms; the album
-  card says `· walks by Section`; and a preview matrix plus the existing e2e suites
-  prove it on athena.
+goal: Day, week, and quarter cards and grouped record walk rails show a quiet group
+  row (`« Q3 · W27 … week 8 of 14 ▮▮■▯ … 2027-Q1 · W01 »`) from the same resolver
+  behind `[N` / `]N`; legacy dailies get a derived step row; every missing stop reads
+  dashed `+` (creatable) or dotted and faint (ghost) across rail items, chips, and
+  arms; the album card says `· walks by Section`; and a preview matrix plus the existing
+  e2e suites prove it on athena.
 parent_bead: bob-cli-oj.5
 phases:
-  - id: row-kit
-    title: Kit group-row builder, rail missing-target states, and their CSS
-    size: medium
-    depends_on: []
-    description:
-      "row-kit: add propertyCardBuildGroupRow (new 240l fragment, exported through a new
-      374d fragment), let propertyCardBuildRail take per-item `state` and an optional
-      `group` row between the step row and the children strip, add the CSS for both rows
-      (light, dark, narrow below 28rem, forced-colors, reduced motion), unit-test the
-      builder, then build, test, bump, commit, and sync."
-  - id: calendar-rail
-    title: Day, week, and quarter cards adopt the group row and the derived step row
-    size: medium
-    depends_on:
-      - row-kit
-    description:
-      "calendar-rail: compute one nav answer per card from walkMode.links v7 (fallback
-      api.navGroups), render the group row and the legacy derived step row, classify
-      every rail item and chip as exists/creatable/ghost, repaint on vault
-      create/delete/rename and midnight, run the group commands with re-validation, test
-      it, update docs/intention-card.md, then build, test, bump, commit, and sync."
-  - id: record-rail
-    title: Grouped record walk rail and the album card's "walks by" pill
-    size: medium
-    depends_on:
-      - row-kit
-    description:
-      "record-rail: give grouped record walk rails the kit group row in place of the
-      whole-walk thumb track, reword the count tooltip, activate arms through the group
-      commands with re-validation, add the album card's `· walks by <Field>` pill, test
-      it, update docs/record-card.md and docs/albums.md, then build, test, bump, commit,
-      and sync."
-  - id: rail-proof
-    title: Preview matrix, real-Obsidian e2e runs, and final deploy for the group rail
-    size: medium
-    depends_on:
-      - calendar-rail
-      - record-rail
-    description:
-      "rail-proof: add scripts/preview-group-rail.cjs over the real card builders,
-      render the contract's fixtures in light and dark at 375px and wide plus grayscale
-      and forced-colors, inspect every image and fix what looks wrong, run the
-      intention-card, record-card, record-walk, and title-block e2e suites on athena,
-      attach every report, pass the gates, and deploy the final tree."
+- id: row-kit
+  title: Kit group-row builder, rail missing-target states, and their CSS
+  size: medium
+  depends_on: []
+  description: 'row-kit: add propertyCardBuildGroupRow (new 240l fragment, exported
+    through a new 374d fragment), let propertyCardBuildRail take per-item `state`
+    and an optional `group` row between the step row and the children strip, add the
+    CSS for both rows (light, dark, narrow below 28rem, forced-colors, reduced motion),
+    unit-test the builder, then build, test, bump, commit, and sync.'
+- id: calendar-rail
+  title: Day, week, and quarter cards adopt the group row and the derived step row
+  size: medium
+  depends_on:
+  - row-kit
+  description: 'calendar-rail: compute one nav answer per card from walkMode.links
+    v7 (fallback api.navGroups), render the group row and the legacy derived step
+    row, classify every rail item and chip as exists/creatable/ghost, repaint on vault
+    create/delete/rename and midnight, run the group commands with re-validation,
+    test it, update docs/intention-card.md, then build, test, bump, commit, and sync.'
+- id: record-rail
+  title: Grouped record walk rail and the album card's "walks by" pill
+  size: medium
+  depends_on:
+  - row-kit
+  description: 'record-rail: give grouped record walk rails the kit group row in place
+    of the whole-walk thumb track, reword the count tooltip, activate arms through
+    the group commands with re-validation, add the album card''s `· walks by <Field>`
+    pill, test it, update docs/record-card.md and docs/albums.md, then build, test,
+    bump, commit, and sync.'
+- id: rail-proof
+  title: Preview matrix, real-Obsidian e2e runs, and final deploy for the group rail
+  size: medium
+  depends_on:
+  - calendar-rail
+  - record-rail
+  description: 'rail-proof: add scripts/preview-group-rail.cjs over the real card
+    builders, render the contract''s fixtures in light and dark at 375px and wide
+    plus grayscale and forced-colors, inspect every image and fix what looks wrong,
+    run the intention-card, record-card, record-walk, and title-block e2e suites on
+    athena, attach every report, pass the gates, and deploy the final tree.'
 proposed_by: bbugyi200.athena.bob-cli-oj.5
 proposed_with: claude/opus
 create_time: 2026-11-21 12:21:08
 status: wip
+bead_id: bob-cli-oj.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/group_rail.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/group_rail.md)
-- **PARENT:**
-  [202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bracket_n_group_jumps.md)
+- **PROMPT:** [prompts/202611/group_rail.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/group_rail.md)
+- **PARENT:** [202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/bracket_n_group_jumps.md)
+- **BEAD:** [bob-cli-oj.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oj/bob-cli-oj.5.1.md)
 
 # The group row at the bottom of property cards
 
