@@ -1,140 +1,130 @@
 ---
 tier: epic
-title: "[N / ]N group jumps for days, periods, records, and any note"
-goal: "`[N` / `]N` (and `[{` / `]}` after any `n` walk) open the first note of the
-  previous / next group on every canonical daily, week, and quarter note, on records of
-  albums that set `walk_by`, and on any note whose nav line carries `«` / `»` links.
-  `[n` / `]n` walk a grouped album one group at a time. The property card's docked rail
-  and the links walker footer show the same group stops, and a stop whose note does not
-  exist yet looks clearly, calmly different from one that will never be created.
+title: '[N / ]N group jumps for days, periods, records, and any note'
+goal: '`[N` / `]N` (and `[{` / `]}` after any `n` walk) open the first note of the
+  previous / next group on every canonical daily, week, and quarter note, on records
+  of albums that set `walk_by`, and on any note whose nav line carries `«` / `»` links.
+  `[n` / `]n` walk a grouped album one group at a time. The property card''s docked
+  rail and the links walker footer show the same group stops, and a stop whose note
+  does not exist yet looks clearly, calmly different from one that will never be created.
 
-  "
+  '
 decisions:
   daily_create:
-    ask:
-      Should `]N` / `[N` create a missing daily note from the daily template, the way
-      `]n` does?
+    ask: Should `]N` / `[N` create a missing daily note from the daily template, the
+      way `]n` does?
     default: true
     answer: true
   walk_more_albums:
-    ask:
-      Should movies and podcasts also walk by status, matching their status-grouped
+    ask: Should movies and podcasts also walk by status, matching their status-grouped
       album index?
     default: false
     why: Both are short two-group walks; adopt after v1 proves out on three albums
     answer: false
   memory_glossary:
-    ask:
-      Update the Record Note and Walker Footer glossary strands for grouped walks and
-      group stops?
+    ask: Update the Record Note and Walker Footer glossary strands for grouped walks
+      and group stops?
     memory:
-      - glossary:record-note
-      - glossary:walker-footer
+    - glossary:record-note
+    - glossary:walker-footer
     corrects: linking it to the previous and next records in the album's title order
     default: true
     answer: true
   memory_decision_group_stops:
-    ask:
-      Add a decisions-web record that group stops are derived on Bob notes and authored
-      only on nav lines?
+    ask: Add a decisions-web record that group stops are derived on Bob notes and
+      authored only on nav lines?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: nav-grammar
-    title: Group-link grammar, one resolver, and the [N / ]N commands
-    depends_on: []
-    size: medium
-    description:
-      "nav-grammar: in bob-navigation-hotkeys, tighten the `[n`/`]n` matcher so doubled
-      arrows never step, recognize `«`/`»` (typed `<<`/`>>`) group links on link-only
-      nav lines, build the one resolver (authored, then the Ledger Tools provider), add
-      the group commands with the creation guard and repeat guard, route `[{`/`]}` on
-      family `n`, publish `walkMode.links` v7, and map `[N`/`]N` in the vault vimrc."
-  - id: calendar-groups
-    title: Calendar group provider, legacy step fill-in, and the pre-adoption guard
-    depends_on: []
-    size: medium
-    description:
-      "calendar-groups: in bob-ledger-tools, add the `api.navGroups` v1 provider for
-      daily, week, and quarter group stops plus derived step stops for notes without a
-      written nav link, classify every target as existing, creatable, or ghost, and make
-      `periodNotes.ensureNote` refuse pre-adoption past years."
-  - id: walk-by-cli
-    title: Album `walk_by` and group-major record walk lines in bob
-    depends_on: []
-    size: large
-    description:
-      "walk-by-cli: in bob-cli, add the album `walk_by` key (non-list choices field),
-      order `ring_slots` group-major, rewrite at most five walk lines when a record's
-      `walk_by` value changes, report groups and group heads in albums and records JSON
-      with a `record_walk_groups_v1` capability, add the `bob albums update` set/unset
-      op, strip `«`/`»` from walk labels, extend the shared golden vectors, and document
-      it."
-  - id: record-groups
-    title: Grouped record walk model and the record group provider
-    depends_on:
-      - walk-by-cli
-      - calendar-groups
-    size: medium
-    description:
-      "record-groups: in bob-ledger-tools, mirror bob's group-major order in the record
-      walk model from the shared vectors, gate sync requests on bob's capability, and
-      extend `api.navGroups` with record group stops (heads of the neighboring occupied
-      groups, wrapping)."
-  - id: group-rail
-    title: The group row at the bottom of property cards
-    depends_on:
-      - nav-grammar
-      - calendar-groups
-      - record-groups
-    size: large
-    description:
-      'group-rail: add the kit group-row builder and the shared missing-target look
-      (dashed `+` creatable, dotted ghost), adopt it on day, week, and quarter cards and
-      the record walk rail, give legacy dailies a derived step row, add the album
-      card''s "walks by" pill, and prove the look in the preview matrix.'
-  - id: links-footer
-    title: Group arms and hints in the links walker footer
-    depends_on:
-      - nav-grammar
-      - calendar-groups
-      - record-groups
-    size: medium
-    description:
-      "links-footer: add outer `«`/`»` group arms, the current-group context, the `]}
-      next week` and boundary hints, ghost and creatable arm states, end-first shedding,
-      and re-validated arm activation through the group commands."
-  - id: adopt-and-prove
-    title: Album adoption, real-Obsidian proof, and final deploy
-    depends_on:
-      - group-rail
-      - links-footer
-    size: medium
-    description:
-      "adopt-and-prove: verify every host runs plugins and a bob that support grouped
-      walks, set `walk_by` on the zettel, subscriptions, and eat albums (plus movies and
-      podcasts if accepted), sync them, add a real-Obsidian group-jump e2e, run the
-      existing walk, footer, card, and title-block e2e suites, and deploy the final
-      tree."
-  - id: glossary
-    title: Accepted memory updates
-    depends_on:
-      - adopt-and-prove
-    size: small
-    description:
-      "glossary: apply only the memory decisions answered yes, then run `sase memory
-      init`."
+- id: nav-grammar
+  title: Group-link grammar, one resolver, and the [N / ]N commands
+  depends_on: []
+  size: medium
+  description: 'nav-grammar: in bob-navigation-hotkeys, tighten the `[n`/`]n` matcher
+    so doubled arrows never step, recognize `«`/`»` (typed `<<`/`>>`) group links
+    on link-only nav lines, build the one resolver (authored, then the Ledger Tools
+    provider), add the group commands with the creation guard and repeat guard, route
+    `[{`/`]}` on family `n`, publish `walkMode.links` v7, and map `[N`/`]N` in the
+    vault vimrc.'
+- id: calendar-groups
+  title: Calendar group provider, legacy step fill-in, and the pre-adoption guard
+  depends_on: []
+  size: medium
+  description: 'calendar-groups: in bob-ledger-tools, add the `api.navGroups` v1 provider
+    for daily, week, and quarter group stops plus derived step stops for notes without
+    a written nav link, classify every target as existing, creatable, or ghost, and
+    make `periodNotes.ensureNote` refuse pre-adoption past years.'
+- id: walk-by-cli
+  title: Album `walk_by` and group-major record walk lines in bob
+  depends_on: []
+  size: large
+  description: 'walk-by-cli: in bob-cli, add the album `walk_by` key (non-list choices
+    field), order `ring_slots` group-major, rewrite at most five walk lines when a
+    record''s `walk_by` value changes, report groups and group heads in albums and
+    records JSON with a `record_walk_groups_v1` capability, add the `bob albums update`
+    set/unset op, strip `«`/`»` from walk labels, extend the shared golden vectors,
+    and document it.'
+- id: record-groups
+  title: Grouped record walk model and the record group provider
+  depends_on:
+  - walk-by-cli
+  - calendar-groups
+  size: medium
+  description: 'record-groups: in bob-ledger-tools, mirror bob''s group-major order
+    in the record walk model from the shared vectors, gate sync requests on bob''s
+    capability, and extend `api.navGroups` with record group stops (heads of the neighboring
+    occupied groups, wrapping).'
+- id: group-rail
+  title: The group row at the bottom of property cards
+  depends_on:
+  - nav-grammar
+  - calendar-groups
+  - record-groups
+  size: large
+  description: 'group-rail: add the kit group-row builder and the shared missing-target
+    look (dashed `+` creatable, dotted ghost), adopt it on day, week, and quarter
+    cards and the record walk rail, give legacy dailies a derived step row, add the
+    album card''s "walks by" pill, and prove the look in the preview matrix.'
+- id: links-footer
+  title: Group arms and hints in the links walker footer
+  depends_on:
+  - nav-grammar
+  - calendar-groups
+  - record-groups
+  size: medium
+  description: 'links-footer: add outer `«`/`»` group arms, the current-group context,
+    the `]} next week` and boundary hints, ghost and creatable arm states, end-first
+    shedding, and re-validated arm activation through the group commands.'
+- id: adopt-and-prove
+  title: Album adoption, real-Obsidian proof, and final deploy
+  depends_on:
+  - group-rail
+  - links-footer
+  size: medium
+  description: 'adopt-and-prove: verify every host runs plugins and a bob that support
+    grouped walks, set `walk_by` on the zettel, subscriptions, and eat albums (plus
+    movies and podcasts if accepted), sync them, add a real-Obsidian group-jump e2e,
+    run the existing walk, footer, card, and title-block e2e suites, and deploy the
+    final tree.'
+- id: glossary
+  title: Accepted memory updates
+  depends_on:
+  - adopt-and-prove
+  size: small
+  description: 'glossary: apply only the memory decisions answered yes, then run `sase
+    memory init`.'
 proposed_by: bbugyi200.athena.1es
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-21 07:41:32
 status: wip
+bead_id: bob-cli-oj
 ---
 
-- **PROMPT:**
-  [prompts/202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bracket_n_group_jumps.md)
+- **PROMPT:** [prompts/202611/bracket_n_group_jumps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bracket_n_group_jumps.md)
+- **BEAD:** [bob-cli-oj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oj/README.md)
 
 # `[N` / `]N` group jumps for days, periods, records, and any note
 
