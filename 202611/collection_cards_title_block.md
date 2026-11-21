@@ -48,7 +48,7 @@ phases:
 proposed_by: bbugyi200.athena.bob-cli-o6.4
 proposed_with: claude/opus
 create_time: 2026-11-20 13:42:57
-status: wip
+status: done
 bead_id: bob-cli-o6.4.1
 ---
 
