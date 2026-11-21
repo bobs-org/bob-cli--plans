@@ -1,140 +1,132 @@
 ---
 tier: epic
 title: Wikilink completion in Bob's prose prompts
-goal: "Typing `[[` in any Bob-owned field that writes Markdown prose into the vault
+goal: 'Typing `[[` in any Bob-owned field that writes Markdown prose into the vault
   (intentions, Work/Rotten/Cancel/Schedule Log reasons, record text, notebook summaries,
-  the Mac Pull-In reason) opens one consistent LINK band that inserts exactly the link
-  it shows, never submits a half-typed link, never touches text after the caret, and
-  never writes the vault. Identifier and filter fields stay literal.
+  the Mac Pull-In reason) opens one consistent LINK band that inserts exactly the
+  link it shows, never submits a half-typed link, never touches text after the caret,
+  and never writes the vault. Identifier and filter fields stay literal.
 
-  "
+  '
 decisions:
   link_text:
     ask: Which link text should an accepted note row insert in Obsidian prompts?
     choices:
-      path: Bob's vault-relative path, e.g. [[2026/2026-11-21]]; matches bob and the Mac
-      shortest:
-        Obsidian's shortest unique form, e.g. [[2026-11-21]]; the Mac keeps paths
+      path: Bob's vault-relative path, e.g. [[2026/2026-11-21]]; matches bob and the
+        Mac
+      shortest: Obsidian's shortest unique form, e.g. [[2026-11-21]]; the Mac keeps
+        paths
     default: path
-    why:
-      Matches ~7.3k machine-written Bob links and stays unambiguous as the vault grows
+    why: Matches ~7.3k machine-written Bob links and stays unambiguous as the vault
+      grows
     answer: path
   decision_record:
     ask: Record the `[[` scope rule and Enter rule as a new decisions strand?
     memory:
-      - decisions
+    - decisions
     default: true
-    requested:
-      I agree with all of the requirements recommended in that research file (but keep
-      in mind that you are responsible for planning and splitting up this work
-      appropriately).
+    requested: I agree with all of the requirements recommended in that research file
+      (but keep in mind that you are responsible for planning and splitting up this
+      work appropriately).
     answer: false
 phases:
-  - id: cli-link-fixes
-    title: Fix bob's wikilink field range and ranking, publish shared vectors
-    depends_on: []
-    size: medium
-    description:
-      "cli-link-fixes: in bob-cli, end unclosed link fields at the caret, keep authored
-      #subpath and |alias text when the target is replaced, break ranking ties by depth
-      then inbound links, publish tests/fixtures/wikilink_complete/vectors.json, and
-      write the new decisions strand."
-  - id: link-engine
-    title: Obsidian link engine (field model, ranking port, metadata index)
-    depends_on:
-      - cli-link-fixes
-    size: medium
-    description:
-      "link-engine: in bob-navigation-hotkeys, add pure JS fragments for the field model
-      and ranking that replay bob's vectors exactly, plus a lazy LinkIndex built on
-      Obsidian's metadataCache. No UI."
-  - id: link-band
-    title: proseField controller, LINK band, and the Work summary pilot
-    depends_on:
-      - link-engine
-    size: medium
-    description:
-      "link-band: build the two-mode proseField controller and the LINK band (rendering,
-      CSS, keyboard contract, undo-safe insertion, a11y, unresolved-link hint) and
-      api.proseField v1. Pilot it on block-id-prompt's Work summary prompt (S1) and
-      verify undo, IME, and Esc layering in real Obsidian."
-  - id: modal-prompts
-    title: Standalone modal prompts
-    depends_on:
-      - link-band
-    size: medium
-    description:
-      "modal-prompts: opt surfaces S2-S6, S12, and S13 into links with a correct
-      sourcePath. Keep each host's guards, and close the Ctrl+[ gaps on these surfaces."
-  - id: task-card-prompts
-    title: Task Card stages and the scheduled inline reason
-    depends_on:
-      - link-band
-    size: medium
-    description:
-      "task-card-prompts: opt the Task Card picker stages S7-S10 into links through the
-      shared picker wiring. Add S11, the scheduled-stage reason tail, through minOffset
-      so the date token never completes."
-  - id: intention-card
-    title: Intention Card fields
-    depends_on:
-      - link-band
-    size: medium
-    description:
-      "intention-card: attach proseField to the Intention Card's intention input,
-      summary input, and reflection textarea (S14). The band must survive repaints and [
-      / ] travel, and it is the first rung of the card's back-out ladder."
-  - id: record-card
-    title: Record Card typed stages and link-stage convergence
-    depends_on:
-      - link-band
-    size: medium
-    description:
-      "record-card: attach proseField to the Record Card's text, suggest, and list
-      stages (S15). Converge the link stage onto the engine in field mode, retiring
-      recordCardLinkCandidates and its bracket bug, and survive the per-keystroke
-      repaint."
-  - id: cli-links-only
-    title: bob capture-complete --links-only
-    depends_on:
-      - cli-link-fixes
-    size: small
-    description:
-      "cli-links-only: add -L/--links-only and -S/--source-note to bob capture-complete.
-      They complete only wikilink fields in plain prose and never apply capture grammar.
-      Includes help, docs-gen, and tests."
-  - id: mac-pull-in
-    title: Mac Pull-In reason link band
-    depends_on:
-      - cli-links-only
-    size: medium
-    description:
-      "mac-pull-in: wire the Pull-In cancel reason field (S16) in bob-mac-capture to
-      capture-complete --links-only. Render a LINK band in the recall band's slot with
-      the same key contract, fail open on an older bob, and watch macOS CI to green."
-  - id: prose-lint
-    title: Prose-field role lint and end-to-end walkthrough
-    depends_on:
-      - modal-prompts
-      - task-card-prompts
-      - intention-card
-      - record-card
-    size: small
-    description:
-      "prose-lint: mark every text control in bob-plugins with a role (prose, literal,
-      mixed, or none) and add a contract test that pins the S1-S15 allowlist and its
-      wiring. Then run one isolated real-Obsidian walkthrough across representative
-      surfaces."
+- id: cli-link-fixes
+  title: Fix bob's wikilink field range and ranking, publish shared vectors
+  depends_on: []
+  size: medium
+  description: 'cli-link-fixes: in bob-cli, end unclosed link fields at the caret,
+    keep authored #subpath and |alias text when the target is replaced, break ranking
+    ties by depth then inbound links, publish tests/fixtures/wikilink_complete/vectors.json,
+    and write the new decisions strand.'
+- id: link-engine
+  title: Obsidian link engine (field model, ranking port, metadata index)
+  depends_on:
+  - cli-link-fixes
+  size: medium
+  description: 'link-engine: in bob-navigation-hotkeys, add pure JS fragments for
+    the field model and ranking that replay bob''s vectors exactly, plus a lazy LinkIndex
+    built on Obsidian''s metadataCache. No UI.'
+- id: link-band
+  title: proseField controller, LINK band, and the Work summary pilot
+  depends_on:
+  - link-engine
+  size: medium
+  description: 'link-band: build the two-mode proseField controller and the LINK band
+    (rendering, CSS, keyboard contract, undo-safe insertion, a11y, unresolved-link
+    hint) and api.proseField v1. Pilot it on block-id-prompt''s Work summary prompt
+    (S1) and verify undo, IME, and Esc layering in real Obsidian.'
+- id: modal-prompts
+  title: Standalone modal prompts
+  depends_on:
+  - link-band
+  size: medium
+  description: 'modal-prompts: opt surfaces S2-S6, S12, and S13 into links with a
+    correct sourcePath. Keep each host''s guards, and close the Ctrl+[ gaps on these
+    surfaces.'
+- id: task-card-prompts
+  title: Task Card stages and the scheduled inline reason
+  depends_on:
+  - link-band
+  size: medium
+  description: 'task-card-prompts: opt the Task Card picker stages S7-S10 into links
+    through the shared picker wiring. Add S11, the scheduled-stage reason tail, through
+    minOffset so the date token never completes.'
+- id: intention-card
+  title: Intention Card fields
+  depends_on:
+  - link-band
+  size: medium
+  description: 'intention-card: attach proseField to the Intention Card''s intention
+    input, summary input, and reflection textarea (S14). The band must survive repaints
+    and [ / ] travel, and it is the first rung of the card''s back-out ladder.'
+- id: record-card
+  title: Record Card typed stages and link-stage convergence
+  depends_on:
+  - link-band
+  size: medium
+  description: 'record-card: attach proseField to the Record Card''s text, suggest,
+    and list stages (S15). Converge the link stage onto the engine in field mode,
+    retiring recordCardLinkCandidates and its bracket bug, and survive the per-keystroke
+    repaint.'
+- id: cli-links-only
+  title: bob capture-complete --links-only
+  depends_on:
+  - cli-link-fixes
+  size: small
+  description: 'cli-links-only: add -L/--links-only and -S/--source-note to bob capture-complete.
+    They complete only wikilink fields in plain prose and never apply capture grammar.
+    Includes help, docs-gen, and tests.'
+- id: mac-pull-in
+  title: Mac Pull-In reason link band
+  depends_on:
+  - cli-links-only
+  size: medium
+  description: 'mac-pull-in: wire the Pull-In cancel reason field (S16) in bob-mac-capture
+    to capture-complete --links-only. Render a LINK band in the recall band''s slot
+    with the same key contract, fail open on an older bob, and watch macOS CI to green.'
+- id: prose-lint
+  title: Prose-field role lint and end-to-end walkthrough
+  depends_on:
+  - modal-prompts
+  - task-card-prompts
+  - intention-card
+  - record-card
+  size: small
+  description: 'prose-lint: mark every text control in bob-plugins with a role (prose,
+    literal, mixed, or none) and add a contract test that pins the S1-S15 allowlist
+    and its wiring. Then run one isolated real-Obsidian walkthrough across representative
+    surfaces.'
 proposed_by: bbugyi200.apollo.research.5o.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-21 10:32:14
 status: wip
+bead_id: bob-cli-om
 ---
 
-- **PROMPT:**
-  [prompts/202611/prose_wikilink_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_wikilink_completion.md)
+- **PROMPT:** [prompts/202611/prose_wikilink_completion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_wikilink_completion.md)
+- **BEAD:** [bob-cli-om](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-om/README.md)
 
 # Plan: Wikilink completion in Bob's prose prompts
 
