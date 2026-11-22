@@ -2,16 +2,14 @@
 tier: tale
 size: small
 title: Finish and land the obsidian-gestures epic (bob-cli-on.10.1)
-goal:
-  Close the two gaps the bob-cli-on.10.1 land agent found — the cycler's transcluded
+goal: Close the two gaps the bob-cli-on.10.1 land agent found — the cycler's transcluded
   tree close still checks checkbox lines without `#task`, and the requirement writer
   twin's insert lacks bob-cli's new `added` count — then ship both plugins and close
   bob-cli-on.10.1 and its parent phase bob-cli-on.10.
 proposed_by: bbugyi200.athena.bob-cli-on.10.1.land
 proposed_with: claude/opus
 bead: bob-cli-on.10.1
-create_time: 2026-11-21 22:52:06
-status: wip
+status: done
 ---
 
 - **PARENT:**
