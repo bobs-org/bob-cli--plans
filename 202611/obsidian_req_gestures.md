@@ -71,7 +71,7 @@ proposed_by: bbugyi200.athena.bob-cli-on.10
 proposed_with: claude/opus
 parent_bead: bob-cli-on.10
 create_time: 2026-11-21 14:10:14
-status: wip
+status: done
 bead_id: bob-cli-on.10.1
 ---
 
