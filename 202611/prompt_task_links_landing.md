@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Finish landing bob-cli-oz — post-NAME Enter, in-flight keys, S6 siblings, live
-  Esc ladder, T9 gate
-goal: Fix the five gaps the bob-cli-oz land agent found in the prompt (( task links
-  so the epic's T2, T11, and T9 rules hold and the live walk passes without workarounds.
-  Then close epic bob-cli-oz.
+title:
+  Finish landing bob-cli-oz — post-NAME Enter, in-flight keys, S6 siblings, live Esc
+  ladder, T9 gate
+goal:
+  Fix the five gaps the bob-cli-oz land agent found in the prompt (( task links so the
+  epic's T2, T11, and T9 rules hold and the live walk passes without workarounds. Then
+  close epic bob-cli-oz.
 proposed_by: bbugyi200.apollo.bob-cli-oz.land
 proposed_with: claude/opus
 bead: bob-cli-oz
@@ -16,6 +18,12 @@ status: done
   [202611/prompt_task_links.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/prompt_task_links.md)
 - **BEAD:**
   [bob-cli-oz](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-oz/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-oz.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-oz.land.md)
+- **COMMITS:**
+  - [65fce22](https://github.com/bobs-org/bob-plugins/commit/65fce2281dca17551bed7b6ae1985196f66a5ff0)
+    — feat(nav): land prompt task-links follow-ups items 1-3 plus tests, docs, perf
+    harness
 
 # Plan: finish landing `bob-cli-oz` (`((` task links in Bob's prose prompts)
 
