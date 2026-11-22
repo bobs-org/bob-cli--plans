@@ -1,110 +1,101 @@
 ---
 tier: epic
-title:
-  Property cards own the frontmatter — foot row, =- drawer, created stamp, =+ editor,
-  takeover
-goal: "On every note a property card mounts on, the card shows the whole frontmatter: a
-  quiet foot row with a concise created stamp and a collapsed read-only Properties
+title: Property cards own the frontmatter — foot row, =- drawer, created stamp, =+
+  editor, takeover
+goal: 'On every note a property card mounts on, the card shows the whole frontmatter:
+  a quiet foot row with a concise created stamp and a collapsed read-only Properties
   drawer toggled by =-. A keyboard-first =+ property editor, backed by a byte-preserving
-  `bob props` writer, does at least everything Obsidian's native Properties can on any
-  Markdown note. Obsidian's native Properties block is hidden on card notes, and every
-  failure path brings it back.
+  `bob props` writer, does at least everything Obsidian''s native Properties can on
+  any Markdown note. Obsidian''s native Properties block is hidden on card notes,
+  and every failure path brings it back.
 
-  "
+  '
 phases:
-  - id: foot-drawer
-    title: Card foot row, drawer, created stamp, and =- (bob-plugins)
-    depends_on: []
-    size: large
-    description:
-      "foot-drawer: kit created formatter, inventory model, foot row and read-only
-      drawer adopted by every card (record fold and footer migrated), =- arm on the
-      generalized = gate, palette and Command Mode toggle, tests, e2e, docs."
-  - id: props-cli
-    title: Generic bob props show|update (bob-cli)
-    depends_on: []
-    size: large
-    description:
-      "props-cli: new bob props group on yaml_spans.rs with fingerprinted span ops, role
-      table, typed refusals, byte-exact inverse ops, props_v1 capability, catalog and
-      completion entries, golden byte-preservation tests, docs/props.md contract."
-  - id: owns-frontmatter
-    title: Whole-container ownership primitive and focus spike (bob-plugins)
-    depends_on: []
-    size: medium
-    description:
-      "owns-frontmatter: unwired propertyCardOwnFrontmatter kit primitive (StateField,
-      Reading class, CSS variables plus direct-child fallback, inert and focus guard)
-      with unit tests and the S1 real-Obsidian go/no-go probe recording the Add file
-      property command id."
-  - id: editor-core
-    title: The =+ property editor (bob-plugins)
-    depends_on:
-      - foot-drawer
-      - props-cli
-    size: large
-    description:
-      "editor-core: keyboard-first modal on the record chassis for any note: grouped
-      rows with route marks, value stages incl. checkbox, date-time, tags, add flow with
-      vault completion, delete, undo/redo, y excursion, == hand-off, degraded modes,
-      entry points, tests, docs."
-  - id: editor-parity
-    title:
-      Rename, reorder, multi-select, copy/paste, filter, kind change, YAML stage
-      (bob-plugins)
-    depends_on:
-      - editor-core
-    size: large
-    description:
-      "editor-parity: completes native Properties parity and beyond in =+ with rename,
-      reorder, multi-select batch ops, YAML copy and overwrite-previewed paste, filter,
-      feature-detected kind and vault type change, and a validated YAML stage."
-  - id: takeover
-    title: Hide native Properties on card notes (bob-plugins, plus memory if approved)
-    depends_on:
-      - foot-drawer
-      - owns-frontmatter
-      - editor-parity
-    size: large
-    description:
-      "takeover: wires whole-container ownership into album, record, and intention cards
-      behind eligibility and a cached props_v1 probe, reroutes Mod+; and native focus
-      helpers to =+, runs the fail-open e2e matrix and visual walkthrough, updates docs
-      and approved memory."
+- id: foot-drawer
+  title: Card foot row, drawer, created stamp, and =- (bob-plugins)
+  depends_on: []
+  size: large
+  description: 'foot-drawer: kit created formatter, inventory model, foot row and
+    read-only drawer adopted by every card (record fold and footer migrated), =- arm
+    on the generalized = gate, palette and Command Mode toggle, tests, e2e, docs.'
+- id: props-cli
+  title: Generic bob props show|update (bob-cli)
+  depends_on: []
+  size: large
+  description: 'props-cli: new bob props group on yaml_spans.rs with fingerprinted
+    span ops, role table, typed refusals, byte-exact inverse ops, props_v1 capability,
+    catalog and completion entries, golden byte-preservation tests, docs/props.md
+    contract.'
+- id: owns-frontmatter
+  title: Whole-container ownership primitive and focus spike (bob-plugins)
+  depends_on: []
+  size: medium
+  description: 'owns-frontmatter: unwired propertyCardOwnFrontmatter kit primitive
+    (StateField, Reading class, CSS variables plus direct-child fallback, inert and
+    focus guard) with unit tests and the S1 real-Obsidian go/no-go probe recording
+    the Add file property command id.'
+- id: editor-core
+  title: The =+ property editor (bob-plugins)
+  depends_on:
+  - foot-drawer
+  - props-cli
+  size: large
+  description: 'editor-core: keyboard-first modal on the record chassis for any note:
+    grouped rows with route marks, value stages incl. checkbox, date-time, tags, add
+    flow with vault completion, delete, undo/redo, y excursion, == hand-off, degraded
+    modes, entry points, tests, docs.'
+- id: editor-parity
+  title: Rename, reorder, multi-select, copy/paste, filter, kind change, YAML stage
+    (bob-plugins)
+  depends_on:
+  - editor-core
+  size: large
+  description: 'editor-parity: completes native Properties parity and beyond in =+
+    with rename, reorder, multi-select batch ops, YAML copy and overwrite-previewed
+    paste, filter, feature-detected kind and vault type change, and a validated YAML
+    stage.'
+- id: takeover
+  title: Hide native Properties on card notes (bob-plugins, plus memory if approved)
+  depends_on:
+  - foot-drawer
+  - owns-frontmatter
+  - editor-parity
+  size: large
+  description: 'takeover: wires whole-container ownership into album, record, and
+    intention cards behind eligibility and a cached props_v1 probe, reroutes Mod+;
+    and native focus helpers to =+, runs the fail-open e2e matrix and visual walkthrough,
+    updates docs and approved memory.'
 decisions:
   bank_foot:
-    ask:
-      Should the bank card on bank.md also get the foot row, drawer, and created stamp?
+    ask: Should the bank card on bank.md also get the foot row, drawer, and created
+      stamp?
     default: true
-    why:
-      You asked for created on all cards; bank.md still keeps native Properties
+    why: You asked for created on all cards; bank.md still keeps native Properties
       (research D5)
     answer: true
   drawer_memory:
     ask: How should an opened =- drawer be remembered?
     choices:
-      note: Per note for the session; walking ]n to another day shows it collapsed again
+      note: Per note for the session; walking ]n to another day shows it collapsed
+        again
       pane: Per pane for the session; it stays open while walking ]n/[n through notes
     default: note
     why: Matches every existing card fold (record fold, schema chips, bank setup)
     answer: note
   memory_glossary_cards:
-    ask:
-      Correct the Property Card and Record Card glossary strands for whole-frontmatter
+    ask: Correct the Property Card and Record Card glossary strands for whole-frontmatter
       ownership?
     memory:
-      - glossary:property-card
-      - glossary:record-card
+    - glossary:property-card
+    - glossary:record-card
     default: true
-    corrects:
-      "`parent`, `type`, `created`, legacy, and unrelated keys stay in Properties."
+    corrects: '`parent`, `type`, `created`, legacy, and unrelated keys stay in Properties.'
     answer: true
   memory_decision_record:
-    ask:
-      Add a decision record that cards own in-document Properties, with one writer per
-      key?
+    ask: Add a decision record that cards own in-document Properties, with one writer
+      per key?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 proposed_by: bbugyi200.apollo.research.5v.linker.w0
@@ -113,10 +104,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-22 14:35:08
 status: wip
+bead_id: bob-cli-pf
 ---
 
-- **PROMPT:**
-  [prompts/202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/README.md)
 
 # Plan: Property cards own the frontmatter
 
