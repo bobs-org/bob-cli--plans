@@ -2,8 +2,7 @@
 tier: tale
 size: small
 title: Finish and land the obsidian-gestures epic (bob-cli-on.10.1)
-goal:
-  Close the two gaps the bob-cli-on.10.1 land agent found — the cycler's transcluded
+goal: Close the two gaps the bob-cli-on.10.1 land agent found — the cycler's transcluded
   tree close still checks checkbox lines without `#task`, and the requirement writer
   twin's insert lacks bob-cli's new `added` count — then ship both plugins and close
   bob-cli-on.10.1 and its parent phase bob-cli-on.10.
@@ -17,11 +16,6 @@ status: done
   [202611/obsidian_req_gestures.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_req_gestures.md)
 - **BEAD:**
   [bob-cli-on.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.10.1.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-on.10.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-on.10.1.land.md)
-- **COMMITS:**
-  - [f74c45e](https://github.com/bobs-org/bob-plugins/commit/f74c45e1612c6320a4ef9fccae890b5b82696c78)
-    — fix(plugins): finish req gesture landing
 
 # Plan: Finish and land the obsidian-gestures epic
 
