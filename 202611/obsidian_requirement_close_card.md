@@ -1,73 +1,68 @@
 ---
 tier: epic
 title: Obsidian requirement close card and carry-now
-goal:
-  Complete bob-cli-on.11 with guarded requirement carry, successor picker v6, ordered
-  verdict writes, one Undo, and final jump landing across managed Done gestures.
+goal: Complete bob-cli-on.11 with guarded requirement carry, successor picker v6,
+  ordered verdict writes, one Undo, and final jump landing across managed Done gestures.
 phases:
-  - id: carry_api
-    title: Carry a requirement through the navigation split API
-    size: medium
-    depends_on: []
-    description:
-      "carry_api: extend the Task Split twin through SP50, publish taskSplit v1, and
-      route Ctrl+Shift+T on requirement lines through guarded carry with jump history."
-  - id: req_model
-    title: Port requirement close snapshots and verdict validation
-    size: medium
-    depends_on: []
-    description:
-      "req_model: add pure requirement group, identity, choice, fold, and
-      stale-validation twins pinned to RV1-RV19, with copies for navigation and the
-      cycler."
-  - id: picker_v6
-    title: Render and stage requirement verdicts in the successor picker
-    size: medium
-    depends_on:
-      - req_model
-    description:
-      "picker_v6: add requirement groups, contextual keys and reasons, branch folds,
-      navigation-only pins, and reqs results to the navigation successor picker v6."
-  - id: req_apply
-    title: Apply requirement carry and drop verdicts with guarded Undo
-    size: medium
-    depends_on:
-      - carry_api
-      - req_model
-    description:
-      "req_apply: build the cycler carry/drop service using the navigation carry API and
-      existing requirement writers, preserving preimages, receipts, move maps, and one
-      guarded Undo."
-  - id: req_delivery
-    title: Place carried tasks and resolve final requirement landings
-    size: medium
-    depends_on:
-      - req_apply
-    description:
-      "req_delivery: adapt successor placement for carried tasks without freshness
-      stamping and resolve requirement pins through composed move maps and final note
-      routing."
-  - id: close_wiring
-    title: Connect managed Done paths and verify the complete card flow
-    size: medium
-    depends_on:
-      - picker_v6
-      - req_delivery
-    description:
-      "close_wiring: capture pre-close scope on all managed Done paths, integrate one
-      requirement-first card and ordered apply, resolve jumps last, finish contract
-      docs, and verify both deployed plugins."
+- id: carry_api
+  title: Carry a requirement through the navigation split API
+  size: medium
+  depends_on: []
+  description: 'carry_api: extend the Task Split twin through SP50, publish taskSplit
+    v1, and route Ctrl+Shift+T on requirement lines through guarded carry with jump
+    history.'
+- id: req_model
+  title: Port requirement close snapshots and verdict validation
+  size: medium
+  depends_on: []
+  description: 'req_model: add pure requirement group, identity, choice, fold, and
+    stale-validation twins pinned to RV1-RV19, with copies for navigation and the
+    cycler.'
+- id: picker_v6
+  title: Render and stage requirement verdicts in the successor picker
+  size: medium
+  depends_on:
+  - req_model
+  description: 'picker_v6: add requirement groups, contextual keys and reasons, branch
+    folds, navigation-only pins, and reqs results to the navigation successor picker
+    v6.'
+- id: req_apply
+  title: Apply requirement carry and drop verdicts with guarded Undo
+  size: medium
+  depends_on:
+  - carry_api
+  - req_model
+  description: 'req_apply: build the cycler carry/drop service using the navigation
+    carry API and existing requirement writers, preserving preimages, receipts, move
+    maps, and one guarded Undo.'
+- id: req_delivery
+  title: Place carried tasks and resolve final requirement landings
+  size: medium
+  depends_on:
+  - req_apply
+  description: 'req_delivery: adapt successor placement for carried tasks without
+    freshness stamping and resolve requirement pins through composed move maps and
+    final note routing.'
+- id: close_wiring
+  title: Connect managed Done paths and verify the complete card flow
+  size: medium
+  depends_on:
+  - picker_v6
+  - req_delivery
+  description: 'close_wiring: capture pre-close scope on all managed Done paths, integrate
+    one requirement-first card and ordered apply, resolve jumps last, finish contract
+    docs, and verify both deployed plugins.'
 proposed_by: bbugyi200.athena.bob-cli-on.11
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-on.11
 create_time: 2026-11-22 14:59:29
 status: wip
+bead_id: bob-cli-on.11.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_requirement_close_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_requirement_close_card.md)
-- **PARENT:**
-  [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/obsidian_requirement_close_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_requirement_close_card.md)
+- **PARENT:** [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on.11.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.11.1.md)
 
 # Obsidian requirement close card and carry-now
 
