@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Finish and land the requirement close engine
-goal:
-  Fix the epic-caused requirement-close defects found at landing (overlap ancestry
+goal: Fix the epic-caused requirement-close defects found at landing (overlap ancestry
   across hand-ticked rows, Pomodoro-close carry placement at the closing continuation,
   permanent dead-code suppressions, a weak test), then close bob-cli-on.8.1 and its
   parent phase bob-cli-on.8.
@@ -10,8 +9,7 @@ size: medium
 proposed_by: bbugyi200.athena.bob-cli-on.8.1.land
 proposed_with: claude/opus
 bead: bob-cli-on.8.1
-create_time: 2026-11-22 14:11:14
-status: wip
+status: done
 ---
 
 - **PARENT:**
