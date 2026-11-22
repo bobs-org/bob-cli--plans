@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "arm_scope",
+      "kind": "choice",
+      "ask": "Should a walk line count when an arrow-labelled arm points outside the album, not just at a member's bare stem?",
+      "why": "An all-link run around the album's \u2191 hub is already bob's line; vectors stay self-contained",
+      "choices": [
+        {
+          "key": "arrow",
+          "label": "Any \u2039/\u203a arm beside the \u2191 hub counts; renames, moves out, and every link format heal"
+        },
+        {
+          "key": "member",
+          "label": "Only bare member-stem arms count; both classifiers need member lists; moved-out arms stay damaged"
+        }
+      ],
+      "default": "arrow",
+      "effective_default": "arrow",
+      "requested_verified": false
+    }
+  ]
+}
