@@ -1,75 +1,68 @@
 ---
 tier: epic
 title: Requirements on the capture successor card
-goal:
-  "Complete bob-cli-on.8: managed capture Done closes audit each owner's pending
-  requirements, apply explicit drop/carry/pull-in choices atomically, reject stale or
-  overlapping choices, and report the final navigation and outcomes to clients."
+goal: 'Complete bob-cli-on.8: managed capture Done closes audit each owner''s pending
+  requirements, apply explicit drop/carry/pull-in choices atomically, reject stale
+  or overlapping choices, and report the final navigation and outcomes to clients.'
 phases:
-  - id: rows
-    title: Pre-close requirement groups and snapshot identity
-    depends_on: []
-    size: medium
-    description:
-      "rows: collect each managed closing owner's pre-close requirement forest,
-      implement snapshot-bound row keys and canonical group copy, and establish the RV
-      fixture schema and row-building vectors."
-  - id: choices
-    title: Requirement verdict resolution and refusal rules
-    depends_on:
-      - rows
-    size: medium
-    description:
-      "choices: implement the pure Met, Drop, Carry, and Carry-Pulled selection model,
-      shared card numbering, overlap and snapshot validation, and requirement-aware
-      mark-all exclusion with RV selection vectors."
-  - id: writes
-    title: Atomic carry and drop planning
-    depends_on:
-      - choices
-    size: medium
-    description:
-      "writes: adapt carry_req and drop_req to guarded staged capture snapshots, compose
-      line movement across disjoint branches, and return exact outcome receipts without
-      adding another commit path."
-  - id: placement
-    title: Carried-task pull-in and final jump resolution
-    depends_on:
-      - writes
-    size: medium
-    description:
-      "placement: plan carried-task links at the existing successor destination, raise
-      only pulled tasks to Next without stamping freshness, and resolve pinned
-      requirement landings through carry and routing move maps."
-  - id: capture
-    title: CLI, capability gate, JSON, and human output
-    depends_on:
-      - placement
-    size: medium
-    description:
-      "capture: connect the requirement pipeline to every managed capture Done entry,
-      add carry and req-choice arguments, publish groups and receipts, preserve
-      old-client defaults, and cover the public CLI flow end to end."
-  - id: contract
-    title: Published contract and cross-feature regression evidence
-    depends_on:
-      - capture
-    size: medium
-    description:
-      "contract: finish task-dependencies sections 12.25 and 12.26 and the JSON
-      reference, complete RV and compatibility coverage, run the canonical code and docs
-      gates, and prepare completion evidence for bob-cli-on.8's land agent."
+- id: rows
+  title: Pre-close requirement groups and snapshot identity
+  depends_on: []
+  size: medium
+  description: 'rows: collect each managed closing owner''s pre-close requirement
+    forest, implement snapshot-bound row keys and canonical group copy, and establish
+    the RV fixture schema and row-building vectors.'
+- id: choices
+  title: Requirement verdict resolution and refusal rules
+  depends_on:
+  - rows
+  size: medium
+  description: 'choices: implement the pure Met, Drop, Carry, and Carry-Pulled selection
+    model, shared card numbering, overlap and snapshot validation, and requirement-aware
+    mark-all exclusion with RV selection vectors.'
+- id: writes
+  title: Atomic carry and drop planning
+  depends_on:
+  - choices
+  size: medium
+  description: 'writes: adapt carry_req and drop_req to guarded staged capture snapshots,
+    compose line movement across disjoint branches, and return exact outcome receipts
+    without adding another commit path.'
+- id: placement
+  title: Carried-task pull-in and final jump resolution
+  depends_on:
+  - writes
+  size: medium
+  description: 'placement: plan carried-task links at the existing successor destination,
+    raise only pulled tasks to Next without stamping freshness, and resolve pinned
+    requirement landings through carry and routing move maps.'
+- id: capture
+  title: CLI, capability gate, JSON, and human output
+  depends_on:
+  - placement
+  size: medium
+  description: 'capture: connect the requirement pipeline to every managed capture
+    Done entry, add carry and req-choice arguments, publish groups and receipts, preserve
+    old-client defaults, and cover the public CLI flow end to end.'
+- id: contract
+  title: Published contract and cross-feature regression evidence
+  depends_on:
+  - capture
+  size: medium
+  description: 'contract: finish task-dependencies sections 12.25 and 12.26 and the
+    JSON reference, complete RV and compatibility coverage, run the canonical code
+    and docs gates, and prepare completion evidence for bob-cli-on.8''s land agent.'
 proposed_by: bbugyi200.athena.bob-cli-on.8
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-on.8
 create_time: 2026-11-22 07:22:28
 status: wip
+bead_id: bob-cli-on.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/requirement_close_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/requirement_close_engine.md)
-- **PARENT:**
-  [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/requirement_close_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/requirement_close_engine.md)
+- **PARENT:** [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.8.1.md)
 
 # Requirements on the capture successor card
 
