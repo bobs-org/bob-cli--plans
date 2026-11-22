@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish and land the requirement close engine
-goal: Fix the epic-caused requirement-close defects found at landing (overlap ancestry
+goal:
+  Fix the epic-caused requirement-close defects found at landing (overlap ancestry
   across hand-ticked rows, Pomodoro-close carry placement at the closing continuation,
   permanent dead-code suppressions, a weak test), then close bob-cli-on.8.1 and its
   parent phase bob-cli-on.8.
@@ -16,6 +17,11 @@ status: done
   [202611/requirement_close_engine.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/requirement_close_engine.md)
 - **BEAD:**
   [bob-cli-on.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.8.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-on.8.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-on.8.1.land.md)
+- **COMMITS:**
+  - [c72c941](https://github.com/bobs-org/bob-cli/commit/c72c941deb7329e65e1899ae475a55136fe80f79)
+    — fix(capture): land requirement-close overlap, x\! pull-in, and dead-code cleanup
 
 # Finish and land the requirement close engine (bob-cli-on.8.1)
 
