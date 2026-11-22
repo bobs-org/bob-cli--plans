@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "stall_after",
+      "kind": "choice",
+      "ask": "How long may a step keep waiting on contention before tick reports it failed?",
+      "why": "about 8 refs retries, so real churn surfaces the same morning",
+      "choices": [
+        {
+          "key": "two_hours",
+          "label": "2 hours; a stuck lock or churn loop mails within about one morning hour block"
+        },
+        {
+          "key": "six_hours",
+          "label": "6 hours; quieter, matching the refs full-scan interval"
+        },
+        {
+          "key": "one_hour",
+          "label": "1 hour; fastest alert, but long user-driven lock holds may still mail"
+        }
+      ],
+      "default": "two_hours",
+      "effective_default": "two_hours",
+      "requested_verified": false
+    }
+  ]
+}
