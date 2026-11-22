@@ -1,48 +1,45 @@
 ---
 tier: epic
 title: Refresh only reference plans affected by concurrent edits
-goal:
-  Complete bob-cli-pj.2 with dependency-aware PDF replanning at all three stale sites,
-  bounded retries outside writer locks, and preserved fail-closed guards.
+goal: Complete bob-cli-pj.2 with dependency-aware PDF replanning at all three stale
+  sites, bounded retries outside writer locks, and preserved fail-closed guards.
 phases:
-  - id: dependency_classification
-    title: Track PDF dependencies and classify scan changes
-    size: medium
-    depends_on: []
-    description:
-      "dependency_classification: record actual shared reads, retain per-PDF locator
-      inputs, build many-owner evidence, and classify all snapshot differences with
-      fail-closed precedence. Keep existing rebuild behavior until the refresh consumer
-      lands."
-  - id: preparation_refresh
-    title: Refresh affected plans during unlocked preparation
-    size: medium
-    depends_on:
-      - dependency_classification
-    description:
-      "preparation_refresh: preserve unfinished preparation on coherence mismatches, add
-      a bounded subset refresh with correct draft replacement and shared finalization,
-      and use it for both during-planning and immediate post-preparation validation."
-  - id: lock_refresh_and_contract
-    title: Refresh outside writer locks and prove the complete contract
-    size: medium
-    depends_on:
-      - preparation_refresh
-    description:
-      "lock_refresh_and_contract: carry the refresh budget through lock revalidation,
-      preserve recovery/intake and receipt rules, complete adversarial interleave
-      coverage, document the coherence contract, and run the full repository gates."
+- id: dependency_classification
+  title: Track PDF dependencies and classify scan changes
+  size: medium
+  depends_on: []
+  description: 'dependency_classification: record actual shared reads, retain per-PDF
+    locator inputs, build many-owner evidence, and classify all snapshot differences
+    with fail-closed precedence. Keep existing rebuild behavior until the refresh
+    consumer lands.'
+- id: preparation_refresh
+  title: Refresh affected plans during unlocked preparation
+  size: medium
+  depends_on:
+  - dependency_classification
+  description: 'preparation_refresh: preserve unfinished preparation on coherence
+    mismatches, add a bounded subset refresh with correct draft replacement and shared
+    finalization, and use it for both during-planning and immediate post-preparation
+    validation.'
+- id: lock_refresh_and_contract
+  title: Refresh outside writer locks and prove the complete contract
+  size: medium
+  depends_on:
+  - preparation_refresh
+  description: 'lock_refresh_and_contract: carry the refresh budget through lock revalidation,
+    preserve recovery/intake and receipt rules, complete adversarial interleave coverage,
+    document the coherence contract, and run the full repository gates.'
 proposed_by: bbugyi200.athena.bob-cli-pj.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pj.2
 create_time: 2026-11-22 18:51:54
 status: wip
+bead_id: bob-cli-pj.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/refs_incremental_coherence.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/refs_incremental_coherence.md)
-- **PARENT:**
-  [202611/tick_contention_noise.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/tick_contention_noise.md)
+- **PROMPT:** [prompts/202611/refs_incremental_coherence.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/refs_incremental_coherence.md)
+- **PARENT:** [202611/tick_contention_noise.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/tick_contention_noise.md)
+- **BEAD:** [bob-cli-pj.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pj/bob-cli-pj.2.1.md)
 
 # Refresh only reference plans affected by concurrent edits
 
