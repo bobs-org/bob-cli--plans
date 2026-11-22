@@ -1,52 +1,53 @@
 ---
 tier: epic
 title: Stop bob tick from mailing on self-healing vault contention
-goal: "Mac bob tick runs exit 0 with a waiting step when the only trouble is vault-lock
+goal: 'Mac bob tick runs exit 0 with a waiting step when the only trouble is vault-lock
   contention or notes edited mid-scan, persistent contention still alerts, and a refs
   full scan re-plans only the PDFs an edit actually affects.
 
-  "
+  '
 decisions:
   stall_after:
     ask: How long may a step keep waiting on contention before tick reports it failed?
     choices:
-      two_hours:
-        2 hours; a stuck lock or churn loop mails within about one morning hour block
+      two_hours: 2 hours; a stuck lock or churn loop mails within about one morning
+        hour block
       six_hours: 6 hours; quieter, matching the refs full-scan interval
       one_hour: 1 hour; fastest alert, but long user-driven lock holds may still mail
     default: two_hours
     why: about 8 refs retries, so real churn surfaces the same morning
     answer: two_hours
 phases:
-  - id: tick-contention-waits
-    title: Report vault contention as waiting, with escalation
-    depends_on: []
-    size: medium
-    description: "tick-contention-waits: give bob ref scan an inputs_changed error code,
-      map lock_busy/scan_busy/inputs_changed child failures to tick waits, escalate
-      persistent contention to a stalled failure, keep derive follow-ups, and update
-      docs and tests.
+- id: tick-contention-waits
+  title: Report vault contention as waiting, with escalation
+  depends_on: []
+  size: medium
+  description: 'tick-contention-waits: give bob ref scan an inputs_changed error code,
+    map lock_busy/scan_busy/inputs_changed child failures to tick waits, escalate
+    persistent contention to a stalled failure, keep derive follow-ups, and update
+    docs and tests.
 
-      "
-  - id: refs-incremental-coherence
-    title: Invalidate only the plans an edit affects
-    depends_on:
-      - tick-contention-waits
-    size: large
-    description:
-      "refs-incremental-coherence: classify scan snapshot mismatches by owner, re-plan
-      only affected PDFs then re-run finalization in a bounded refresh at all three
-      stale sites, keep global and fail-closed paths, and extend the interleave tests."
+    '
+- id: refs-incremental-coherence
+  title: Invalidate only the plans an edit affects
+  depends_on:
+  - tick-contention-waits
+  size: large
+  description: 'refs-incremental-coherence: classify scan snapshot mismatches by owner,
+    re-plan only affected PDFs then re-run finalization in a bounded refresh at all
+    three stale sites, keep global and fail-closed paths, and extend the interleave
+    tests.'
 proposed_by: bbugyi200.athena.1fa.1
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-22 18:00:43
 status: wip
+bead_id: bob-cli-pj
 ---
 
-- **PROMPT:**
-  [prompts/202611/tick_contention_noise.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/tick_contention_noise.md)
+- **PROMPT:** [prompts/202611/tick_contention_noise.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/tick_contention_noise.md)
+- **BEAD:** [bob-cli-pj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pj/README.md)
 
 # Stop `bob tick` from mailing on self-healing vault contention
 
