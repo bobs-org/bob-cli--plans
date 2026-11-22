@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "bank_foot",
+      "kind": "toggle",
+      "ask": "Should the bank card on bank.md also get the foot row, drawer, and created stamp?",
+      "why": "You asked for created on all cards; bank.md still keeps native Properties (research D5)",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "drawer_memory",
+      "kind": "choice",
+      "ask": "How should an opened =- drawer be remembered?",
+      "why": "Matches every existing card fold (record fold, schema chips, bank setup)",
+      "choices": [
+        {
+          "key": "note",
+          "label": "Per note for the session; walking ]n to another day shows it collapsed again"
+        },
+        {
+          "key": "pane",
+          "label": "Per pane for the session; it stays open while walking ]n/[n through notes"
+        }
+      ],
+      "default": "note",
+      "effective_default": "note",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary_cards",
+      "kind": "toggle",
+      "ask": "Correct the Property Card and Record Card glossary strands for whole-frontmatter ownership?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card",
+          "glossary:record-card"
+        ]
+      },
+      "corrects": "`parent`, `type`, `created`, legacy, and unrelated keys stay in Properties.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Bank Card",
+            "Period Note",
+            "Command Mode",
+            "Intention",
+            "Root Parent",
+            "Capture",
+            "Pomodoro",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Link",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:record-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Record Card",
+            "Keep Streak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record that cards own in-document Properties, with one writer per key?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Jump Successor Lands Last And Parks The Walk",
+            "A Notebook Route Writes Notes; `@@` Stays Draft-Wide",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Awaiting A Gmail Reply Is A Tagged Schedule Hold",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Close Selections List Explicitly",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Consumption Keeps Notes And Recorded Time",
+            "Ctrl+Enter Carries The Last PRE Chore Into The Next Group",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Force Resets The Day",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Idle Capture Mirrors Walk Attention",
+            "meet-filing-follows-google-until-edited",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Note Defaults Filter By Task Type",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Open Pomodoro Names Follow Task Links",
+            "Past Day Sync Closes Bob Filed Meetings",
+            "Private Event Notes Beat Google Per Field",
+            "Projects Block Their Tasks From The ^prj Line",
+            "q-and-ctrl-bracket-mirror-esc",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Equals Alias And Flips",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Attention Follows The ]s Walk",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "The Mac `w` Mark Counts Lane Excess",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    }
+  ]
+}
