@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "drawer_glyph",
+      "kind": "choice",
+      "ask": "Which glyph should replace the bullet on a drawer header in Obsidian and the Mac?",
+      "why": "An open tray stays distinct from the square task checkbox even at small sizes",
+      "choices": [
+        {
+          "key": "tray",
+          "label": "Open tray (a shallow \u2294 with an inner shelf line); the Mac draws SF Symbol tray"
+        },
+        {
+          "key": "drawer_front",
+          "label": "Drawer front (wide rounded box, centered handle); the Mac draws SF Symbol cabinet"
+        }
+      ],
+      "default": "tray",
+      "effective_default": "tray",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_drawer_record",
+      "kind": "toggle",
+      "ask": "Add a \"Drawers Keep Their Real Names\" decision and mark Capture Bullets Mirror The Task Block superseded in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:drawers-keep-their-names",
+          "decisions:capture-bullets-mirror-the-task-block"
+        ]
+      },
+      "corrects": "ALL-CAPS with notes is a drawer",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:drawers-keep-their-names",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/drawers-keep-their-names.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:capture-bullets-mirror-the-task-block",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Bullets Mirror The Task Block"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Rewrite the Task Drawer and Project Note Capture glossary strands for bold, true-case drawers?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-drawer",
+          "glossary:project-note-capture"
+        ]
+      },
+      "corrects": "A direct non-checkbox ALL-CAPS child bullet of a `#task` line, with its notes nested",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-drawer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Drawer",
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:project-note-capture",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Project Note Capture",
+            "Capture",
+            "Notebook",
+            "Project Note",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
