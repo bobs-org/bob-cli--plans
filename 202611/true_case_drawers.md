@@ -1,158 +1,144 @@
 ---
 tier: epic
-title: "True-case drawers: bold headers that keep their real names"
-goal: "A task drawer is a `- **Title**` bullet whose title keeps its authored
-  capitalization everywhere: on disk, in capture, in Obsidian and Bob Mac Capture, and
-  through promotion, reversal, and rename. Every surface draws it as a quiet,
-  recognizable drawer, and ALL-CAPS stops being structure after a gated, multi-host-safe
-  migration.
+title: 'True-case drawers: bold headers that keep their real names'
+goal: 'A task drawer is a `- **Title**` bullet whose title keeps its authored capitalization
+  everywhere: on disk, in capture, in Obsidian and Bob Mac Capture, and through promotion,
+  reversal, and rename. Every surface draws it as a quiet, recognizable drawer, and
+  ALL-CAPS stops being structure after a gated, multi-host-safe migration.
 
-  "
+  '
 decisions:
   drawer_glyph:
-    ask:
-      Which glyph should replace the bullet on a drawer header in Obsidian and the Mac?
+    ask: Which glyph should replace the bullet on a drawer header in Obsidian and
+      the Mac?
     choices:
-      tray:
-        Open tray (a shallow ⊔ with an inner shelf line); the Mac draws SF Symbol tray
-      drawer_front:
-        Drawer front (wide rounded box, centered handle); the Mac draws SF Symbol
-        cabinet
+      tray: Open tray (a shallow ⊔ with an inner shelf line); the Mac draws SF Symbol
+        tray
+      drawer_front: Drawer front (wide rounded box, centered handle); the Mac draws
+        SF Symbol cabinet
     default: tray
     why: An open tray stays distinct from the square task checkbox even at small sizes
     answer: tray
   memory_drawer_record:
-    ask:
-      Add a "Drawers Keep Their Real Names" decision and mark Capture Bullets Mirror The
-      Task Block superseded in part?
+    ask: Add a "Drawers Keep Their Real Names" decision and mark Capture Bullets Mirror
+      The Task Block superseded in part?
     memory:
-      - decisions:drawers-keep-their-names
-      - decisions:capture-bullets-mirror-the-task-block
+    - decisions:drawers-keep-their-names
+    - decisions:capture-bullets-mirror-the-task-block
     corrects: ALL-CAPS with notes is a drawer
     default: true
     answer: true
   memory_glossary:
-    ask:
-      Rewrite the Task Drawer and Project Note Capture glossary strands for bold,
+    ask: Rewrite the Task Drawer and Project Note Capture glossary strands for bold,
       true-case drawers?
     memory:
-      - glossary:task-drawer
-      - glossary:project-note-capture
-    corrects:
-      A direct non-checkbox ALL-CAPS child bullet of a `#task` line, with its notes
-      nested
+    - glossary:task-drawer
+    - glossary:project-note-capture
+    corrects: A direct non-checkbox ALL-CAPS child bullet of a `#task` line, with
+      its notes nested
     default: true
     answer: true
 phases:
-  - id: drawer-contract
-    title: Dual-read drawer recognizer, readers, and outside-text escape
-    depends_on: []
-    size: large
-    description:
-      "drawer-contract: one recognizer that reads `- **Title**` and legacy ALL-CAPS
-      drawers, the true-case drawer model and Unicode key, every bob-cli vault reader
-      retargeted, the `__…__` escape for imported text, DV/DH vectors, and the
-      task-drawers contract page, with every writer left unchanged."
-  - id: plugin-readers
-    title: One plugin recognizer twin and dual-read plugin readers
-    depends_on:
-      - drawer-contract
-    size: large
-    description:
-      "plugin-readers: one byte-identical recognizer twin replaces every drifted plugin
-      copy, the DV/DH vectors are copied, and every plugin reader accepts both drawer
-      forms; deployed with plugin writers unchanged."
-  - id: reader-rollout
-    title: Every host reads bold drawers before any writer flips
-    depends_on:
-      - drawer-contract
-      - plugin-readers
-    size: small
-    description:
-      "reader-rollout: a host-currency script plus a gated check that bob on athena,
-      apollo, and the Mac and the vault's deployed plugins all read bold drawers."
-  - id: bob-writers
-    title: Every bob-cli writer emits bold drawer headers
-    depends_on:
-      - reader-rollout
-    size: medium
-    description:
-      "bob-writers: every bob-cli writer creates `- **Title**` and `- **Notes**`
-      headers, leaves existing headers untouched, and flips the writer vectors."
-  - id: drawer-rename
-    title: Drawer rename respells and inventories legacy drawers
-    depends_on:
-      - bob-writers
-    size: medium
-    description:
-      "drawer-rename: `bob task rename-drawer` writes NEW verbatim, allows case-only
-      respelling, and gains a read-only legacy inventory for the migration."
-  - id: capture-drawers
-    title: One place resolver and bold drawer drafts in capture
-    depends_on:
-      - bob-writers
-    size: large
-    description:
-      "capture-drawers: one place resolver for drawers, project sections, and notebook
-      sections; bold draft forms in all four container contexts; `drawer_marker` spans,
-      `**Title**` menu rows, preview drawer annotations, the `*` rewrite, catalog
-      spelling preference, and grammar 30."
-  - id: obsidian-drawers
-    title: Obsidian drawer rendering, typing, and bold writers
-    depends_on:
-      - bob-writers
-    size: large
-    description:
-      "obsidian-drawers: the drawer glyph and true-case title in Live Preview and
-      reading view, the `*` typing assists and Toggle Drawer, bold plugin writers, and
-      verbatim promotion and reversal."
-  - id: mac-drawers
-    title: Bob Mac Capture drawer rendering and typing
-    depends_on:
-      - capture-drawers
-    size: large
-    description:
-      "mac-drawers: the Mac renders bob's drawer spans and preview annotations, dims the
-      delimiters, drives the `*` assist through capture-rewrite, and stops uppercasing
-      drawer titles."
-  - id: vault-migration
-    title: Reviewed migration of legacy ALL-CAPS drawers
-    depends_on:
-      - drawer-rename
-      - capture-drawers
-      - obsidian-drawers
-    size: small
-    description:
-      "vault-migration: confirm every host writes bold, inventory the legacy drawers,
-      and apply Bryan's per-line rename or release decisions through a gate."
-  - id: cutover
-    title: Retire ALL-CAPS drawer recognition
-    depends_on:
-      - vault-migration
-    size: medium
-    description:
-      "cutover: once no unreleased legacy drawer remains, remove ALL-CAPS recognition,
-      the legacy casing helpers and vectors, and the ALL-CAPS import escape in bob-cli
-      and the plugins; grammar 31."
-  - id: memory
-    title: Memory records for true-case drawers
-    depends_on:
-      - cutover
-      - mac-drawers
-    size: small
-    description:
-      "memory: apply the accepted memory decisions with /sase_memory_write and
-      regenerate the glossary page."
+- id: drawer-contract
+  title: Dual-read drawer recognizer, readers, and outside-text escape
+  depends_on: []
+  size: large
+  description: 'drawer-contract: one recognizer that reads `- **Title**` and legacy
+    ALL-CAPS drawers, the true-case drawer model and Unicode key, every bob-cli vault
+    reader retargeted, the `__…__` escape for imported text, DV/DH vectors, and the
+    task-drawers contract page, with every writer left unchanged.'
+- id: plugin-readers
+  title: One plugin recognizer twin and dual-read plugin readers
+  depends_on:
+  - drawer-contract
+  size: large
+  description: 'plugin-readers: one byte-identical recognizer twin replaces every
+    drifted plugin copy, the DV/DH vectors are copied, and every plugin reader accepts
+    both drawer forms; deployed with plugin writers unchanged.'
+- id: reader-rollout
+  title: Every host reads bold drawers before any writer flips
+  depends_on:
+  - drawer-contract
+  - plugin-readers
+  size: small
+  description: 'reader-rollout: a host-currency script plus a gated check that bob
+    on athena, apollo, and the Mac and the vault''s deployed plugins all read bold
+    drawers.'
+- id: bob-writers
+  title: Every bob-cli writer emits bold drawer headers
+  depends_on:
+  - reader-rollout
+  size: medium
+  description: 'bob-writers: every bob-cli writer creates `- **Title**` and `- **Notes**`
+    headers, leaves existing headers untouched, and flips the writer vectors.'
+- id: drawer-rename
+  title: Drawer rename respells and inventories legacy drawers
+  depends_on:
+  - bob-writers
+  size: medium
+  description: 'drawer-rename: `bob task rename-drawer` writes NEW verbatim, allows
+    case-only respelling, and gains a read-only legacy inventory for the migration.'
+- id: capture-drawers
+  title: One place resolver and bold drawer drafts in capture
+  depends_on:
+  - bob-writers
+  size: large
+  description: 'capture-drawers: one place resolver for drawers, project sections,
+    and notebook sections; bold draft forms in all four container contexts; `drawer_marker`
+    spans, `**Title**` menu rows, preview drawer annotations, the `*` rewrite, catalog
+    spelling preference, and grammar 30.'
+- id: obsidian-drawers
+  title: Obsidian drawer rendering, typing, and bold writers
+  depends_on:
+  - bob-writers
+  size: large
+  description: 'obsidian-drawers: the drawer glyph and true-case title in Live Preview
+    and reading view, the `*` typing assists and Toggle Drawer, bold plugin writers,
+    and verbatim promotion and reversal.'
+- id: mac-drawers
+  title: Bob Mac Capture drawer rendering and typing
+  depends_on:
+  - capture-drawers
+  size: large
+  description: 'mac-drawers: the Mac renders bob''s drawer spans and preview annotations,
+    dims the delimiters, drives the `*` assist through capture-rewrite, and stops
+    uppercasing drawer titles.'
+- id: vault-migration
+  title: Reviewed migration of legacy ALL-CAPS drawers
+  depends_on:
+  - drawer-rename
+  - capture-drawers
+  - obsidian-drawers
+  size: small
+  description: 'vault-migration: confirm every host writes bold, inventory the legacy
+    drawers, and apply Bryan''s per-line rename or release decisions through a gate.'
+- id: cutover
+  title: Retire ALL-CAPS drawer recognition
+  depends_on:
+  - vault-migration
+  size: medium
+  description: 'cutover: once no unreleased legacy drawer remains, remove ALL-CAPS
+    recognition, the legacy casing helpers and vectors, and the ALL-CAPS import escape
+    in bob-cli and the plugins; grammar 31.'
+- id: memory
+  title: Memory records for true-case drawers
+  depends_on:
+  - cutover
+  - mac-drawers
+  size: small
+  description: 'memory: apply the accepted memory decisions with /sase_memory_write
+    and regenerate the glossary page.'
 proposed_by: bbugyi200.apollo.research.5x.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-22 17:36:44
 status: wip
+bead_id: bob-cli-ph
 ---
 
-- **PROMPT:**
-  [prompts/202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/true_case_drawers.md)
+- **PROMPT:** [prompts/202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/true_case_drawers.md)
+- **BEAD:** [bob-cli-ph](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/README.md)
 
 # Plan: True-case drawers
 
