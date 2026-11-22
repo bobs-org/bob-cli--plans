@@ -1,65 +1,60 @@
 ---
 tier: epic
 title: Card foot row, properties drawer, and equals-minus entry points
-goal:
-  Every property card exposes its complete frontmatter and created stamp through a
-  read-only foot and drawer, with preserved card editing and verified real-Obsidian
+goal: Every property card exposes its complete frontmatter and created stamp through
+  a read-only foot and drawer, with preserved card editing and verified real-Obsidian
   behavior, completing bob-cli-pf.1.
 phases:
-  - id: models
-    title: Shared created stamp and source-ordered property inventory
-    size: medium
-    depends_on: []
-    description:
-      "models: build and test the pure created formatter and complete inventory model,
-      including source order, duplicate diagnostics, grouping, and typed empty values."
-  - id: drawer-record
-    title: Shared foot runtime and Record Card migration
-    size: medium
-    depends_on:
-      - models
-    description:
-      "drawer-record: build the lazy accessible foot and drawer, per-note session state
-      and mount lifecycle, then replace the record-only fold and created footer in
-      Reading and Live Preview."
-  - id: adapters
-    title: Album, temporal, and bank foot adoption
-    size: medium
-    depends_on:
-      - drawer-record
-    description:
-      "adapters: adopt the shared foot after each rail on album, day, week, quarter,
-      year, and bank setup cards, including identity-only and collapsed states, with
-      focused tests and species documentation."
-  - id: entrypoints
-    title: Equals arm table and drawer commands
-    size: medium
-    depends_on:
-      - adapters
-    description:
-      "entrypoints: generalize the existing equals gate, add the mounted-view minus arm
-      and palette and Command Mode toggles, retain equals behavior, and publish the
-      tested kit integration contract."
-  - id: acceptance
-    title: Real-Obsidian drawer acceptance and deployment
-    size: medium
-    depends_on:
-      - entrypoints
-    description:
-      "acceptance: add and run the isolated real-Obsidian foot walkthrough, inspect the
-      complete screenshot matrix, verify no-write and no-spawn behavior, run repository
-      gates, and deploy the verified plugins."
+- id: models
+  title: Shared created stamp and source-ordered property inventory
+  size: medium
+  depends_on: []
+  description: 'models: build and test the pure created formatter and complete inventory
+    model, including source order, duplicate diagnostics, grouping, and typed empty
+    values.'
+- id: drawer-record
+  title: Shared foot runtime and Record Card migration
+  size: medium
+  depends_on:
+  - models
+  description: 'drawer-record: build the lazy accessible foot and drawer, per-note
+    session state and mount lifecycle, then replace the record-only fold and created
+    footer in Reading and Live Preview.'
+- id: adapters
+  title: Album, temporal, and bank foot adoption
+  size: medium
+  depends_on:
+  - drawer-record
+  description: 'adapters: adopt the shared foot after each rail on album, day, week,
+    quarter, year, and bank setup cards, including identity-only and collapsed states,
+    with focused tests and species documentation.'
+- id: entrypoints
+  title: Equals arm table and drawer commands
+  size: medium
+  depends_on:
+  - adapters
+  description: 'entrypoints: generalize the existing equals gate, add the mounted-view
+    minus arm and palette and Command Mode toggles, retain equals behavior, and publish
+    the tested kit integration contract.'
+- id: acceptance
+  title: Real-Obsidian drawer acceptance and deployment
+  size: medium
+  depends_on:
+  - entrypoints
+  description: 'acceptance: add and run the isolated real-Obsidian foot walkthrough,
+    inspect the complete screenshot matrix, verify no-write and no-spawn behavior,
+    run repository gates, and deploy the verified plugins.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.1
 create_time: 2026-11-22 14:45:05
 status: wip
+bead_id: bob-cli-pf.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/card_foot_drawer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/card_foot_drawer.md)
-- **PARENT:**
-  [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/card_foot_drawer.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/card_foot_drawer.md)
+- **PARENT:** [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.1.1.md)
 
 # Card foot row and properties drawer
 
