@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "layout_rows",
+      "kind": "choice",
+      "ask": "Should a layout-table row with one filled cell keep that cell's paragraphs instead of flattening them?",
+      "why": "Mail layout tables are mostly one content cell between empty spacers",
+      "choices": [
+        {
+          "key": "keep_blocks",
+          "label": "Single-cell rows keep paragraphs, headings, and lists; multi-cell rows still join with \u00b7"
+        },
+        {
+          "key": "flatten",
+          "label": "Rows stay one paragraph; Alertmanager-style mail becomes one run-on line"
+        }
+      ],
+      "default": "keep_blocks",
+      "effective_default": "keep_blocks",
+      "requested_verified": false
+    }
+  ]
+}
