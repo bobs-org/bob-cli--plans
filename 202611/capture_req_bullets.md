@@ -56,7 +56,7 @@ proposed_by: bbugyi200.athena.bob-cli-on.6
 proposed_with: claude/opus
 parent_bead: bob-cli-on.6
 create_time: 2026-11-21 13:50:27
-status: wip
+status: done
 bead_id: bob-cli-on.6.1
 ---
 

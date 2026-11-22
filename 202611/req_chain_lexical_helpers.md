@@ -11,7 +11,7 @@ proposed_by: bbugyi200.athena.bob-cli-on.6.1.land
 proposed_with: claude/opus
 bead: bob-cli-on.6.1
 create_time: 2026-11-21 22:05:56
-status: wip
+status: done
 ---
 
 - **PARENT:**
