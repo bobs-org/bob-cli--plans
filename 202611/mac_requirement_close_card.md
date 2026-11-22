@@ -1,76 +1,70 @@
 ---
 tier: epic
 title: Requirements on the Mac Pull-In card
-goal:
-  Complete bob-cli-on.15 so the Mac Pull-In card presents nested requirement groups,
+goal: Complete bob-cli-on.15 so the Mac Pull-In card presents nested requirement groups,
   stages their verdicts safely, and submits them through the existing capability-gated
   bob contract with compiled and tested native UI.
 phases:
-  - id: protocol
-    title: Decode requirement cards and encode gated verdict arguments
-    size: medium
-    depends_on: []
-    description:
-      "protocol: add typed requirement capability, group, row, consequence, and receipt
-      models in bob-mac-capture, canonical collection helpers, and capability-gated
-      BobProcessClient arguments. Generate synthetic fixtures from current bob and cover
-      old payloads and requirement-only responses. Follow the protocol section and
-      shared verification rules below; do not activate the card yet."
-  - id: outcomes
-    title: Stage requirement verdicts and preserve branch identity
-    size: medium
-    depends_on:
-      - protocol
-    description:
-      "outcomes: extend the portable Pull-In outcomes and the choice model with typed
-      requirement rows, Met/Drop/Carry/Carry-and-pull verdicts, overlap refusal, branch
-      folding, owner grouping, navigation-only pins, refresh, and commit projections.
-      Follow the outcomes section and test its transition matrix, including default-Met
-      commits and Shift-Return downgrading."
-  - id: pipeline
-    title: Preserve requirement choices through preview and submission
-    size: medium
-    depends_on:
-      - outcomes
-    description:
-      "pipeline: thread requirement capability and staged choices through
-      CapturePanelModel snapshots, guarded dispatch, every refusal/retry and inbox-route
-      path, all offer collectors, preview call sites, and notification receipts.
-      Requirement groups alone must open the card. Follow the pipeline section and test
-      stale recovery, executable identity changes, and post-commit jump behavior."
-  - id: card_ui
-    title: Render requirement branches and wire their keyboard actions
-    size: medium
-    depends_on:
-      - pipeline
-    description:
-      "card_ui: render requirement sections first with bob-authored copy, depth glyphs,
-      branch folds, consequences, scope summaries and accessible states. Wire Ctrl+X,
-      Ctrl+Shift+X, Ctrl+Shift+T, Space/Tab and Ctrl+J through the existing router,
-      controller and reason/recall UI. Preserve ordinary offer behavior, text focus,
-      mark-all exclusions and Esc semantics; follow the card_ui section."
-  - id: integration
-    title: Verify complete Mac requirement flows and publish their documentation
-    size: medium
-    depends_on:
-      - card_ui
-    description:
-      "integration: exercise the full fake-bob and current-bob synthetic-vault
-      acceptance matrix, finish cross-surface regression coverage and requirement
-      receipts, update Mac keyboard/preview/protocol docs and the bob-cli requirement
-      contract, and run portable, documentation, scratch-Mac and exact-SHA macOS gates.
-      Record completion evidence for the child epic land agent; do not close ancestors."
+- id: protocol
+  title: Decode requirement cards and encode gated verdict arguments
+  size: medium
+  depends_on: []
+  description: 'protocol: add typed requirement capability, group, row, consequence,
+    and receipt models in bob-mac-capture, canonical collection helpers, and capability-gated
+    BobProcessClient arguments. Generate synthetic fixtures from current bob and cover
+    old payloads and requirement-only responses. Follow the protocol section and shared
+    verification rules below; do not activate the card yet.'
+- id: outcomes
+  title: Stage requirement verdicts and preserve branch identity
+  size: medium
+  depends_on:
+  - protocol
+  description: 'outcomes: extend the portable Pull-In outcomes and the choice model
+    with typed requirement rows, Met/Drop/Carry/Carry-and-pull verdicts, overlap refusal,
+    branch folding, owner grouping, navigation-only pins, refresh, and commit projections.
+    Follow the outcomes section and test its transition matrix, including default-Met
+    commits and Shift-Return downgrading.'
+- id: pipeline
+  title: Preserve requirement choices through preview and submission
+  size: medium
+  depends_on:
+  - outcomes
+  description: 'pipeline: thread requirement capability and staged choices through
+    CapturePanelModel snapshots, guarded dispatch, every refusal/retry and inbox-route
+    path, all offer collectors, preview call sites, and notification receipts. Requirement
+    groups alone must open the card. Follow the pipeline section and test stale recovery,
+    executable identity changes, and post-commit jump behavior.'
+- id: card_ui
+  title: Render requirement branches and wire their keyboard actions
+  size: medium
+  depends_on:
+  - pipeline
+  description: 'card_ui: render requirement sections first with bob-authored copy,
+    depth glyphs, branch folds, consequences, scope summaries and accessible states.
+    Wire Ctrl+X, Ctrl+Shift+X, Ctrl+Shift+T, Space/Tab and Ctrl+J through the existing
+    router, controller and reason/recall UI. Preserve ordinary offer behavior, text
+    focus, mark-all exclusions and Esc semantics; follow the card_ui section.'
+- id: integration
+  title: Verify complete Mac requirement flows and publish their documentation
+  size: medium
+  depends_on:
+  - card_ui
+  description: 'integration: exercise the full fake-bob and current-bob synthetic-vault
+    acceptance matrix, finish cross-surface regression coverage and requirement receipts,
+    update Mac keyboard/preview/protocol docs and the bob-cli requirement contract,
+    and run portable, documentation, scratch-Mac and exact-SHA macOS gates. Record
+    completion evidence for the child epic land agent; do not close ancestors.'
 proposed_by: bbugyi200.athena.bob-cli-on.15
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-on.15
 create_time: 2026-11-22 14:56:47
 status: wip
+bead_id: bob-cli-on.15.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_requirement_close_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_requirement_close_card.md)
-- **PARENT:**
-  [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **PROMPT:** [prompts/202611/mac_requirement_close_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_requirement_close_card.md)
+- **PARENT:** [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
+- **BEAD:** [bob-cli-on.15.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.15.1.md)
 
 # Requirements on the Mac Pull-In card
 
