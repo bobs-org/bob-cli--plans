@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "index_key",
+      "kind": "choice",
+      "ask": "Which album setting should choose the Records index headings?",
+      "why": "Opt-in, and keeps ]n navigation separate from index display",
+      "choices": [
+        {
+          "key": "own_key",
+          "label": "New top-level `index_group_by` key; albums without it never change"
+        },
+        {
+          "key": "follow_walk_by",
+          "label": "Headings follow `walk_by`; no new key, but reverses the documented independence"
+        }
+      ],
+      "default": "own_key",
+      "effective_default": "own_key",
+      "requested_verified": false
+    },
+    {
+      "id": "vault_rollout",
+      "kind": "choice",
+      "ask": "How should the coder roll this out to `~/bob/sase_blog_zettel.md`?",
+      "why": "You asked for this album; the edit only swaps row facets under the older bob",
+      "choices": [
+        {
+          "key": "edit_now",
+          "label": "Edit its frontmatter now; rows show status, not section, until `just install-all`"
+        },
+        {
+          "key": "defer",
+          "label": "Leave the vault alone; the summary lists the frontmatter to add after install"
+        }
+      ],
+      "default": "edit_now",
+      "effective_default": "edit_now",
+      "requested_verified": false
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions-web record for the accepted Records-heading rule?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:records-index-headings-are-opt-in"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:records-index-headings-are-opt-in",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/records-index-headings-are-opt-in.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
