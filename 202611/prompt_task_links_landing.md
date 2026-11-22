@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Finish landing bob-cli-oz — post-NAME Enter, in-flight keys, S6 siblings, live Esc
-  ladder, T9 gate
-goal:
-  Fix the five gaps the bob-cli-oz land agent found in the prompt (( task links so the
-  epic's T2, T11, and T9 rules hold and the live walk passes without workarounds. Then
-  close epic bob-cli-oz.
+title: Finish landing bob-cli-oz — post-NAME Enter, in-flight keys, S6 siblings, live
+  Esc ladder, T9 gate
+goal: Fix the five gaps the bob-cli-oz land agent found in the prompt (( task links
+  so the epic's T2, T11, and T9 rules hold and the live walk passes without workarounds.
+  Then close epic bob-cli-oz.
 proposed_by: bbugyi200.apollo.bob-cli-oz.land
 proposed_with: claude/opus
 bead: bob-cli-oz
-create_time: 2026-11-22 08:23:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
