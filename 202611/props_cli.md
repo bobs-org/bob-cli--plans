@@ -1,47 +1,43 @@
 ---
 tier: epic
 title: Generic bob props show and update
-goal:
-  Complete bob-cli-pf.2 with an ordered property report and guarded, reversible
+goal: Complete bob-cli-pf.2 with an ordered property report and guarded, reversible
   frontmatter edits that preserve unrelated bytes and enforce one writer per key.
 phases:
-  - id: inventory-roles
-    title: Ordered frontmatter inventory and authoritative property roles
-    size: medium
-    depends_on: []
-    description:
-      "inventory-roles: build the source-preserving props document model, semantic
-      fingerprint, note-kind and role classifier, and show report with focused fixtures;
-      publish the internal seams for the writer."
-  - id: span-operations
-    title: Strict property operations and byte-exact undo
-    size: medium
-    depends_on:
-      - inventory-roles
-    description:
-      "span-operations: implement the strict six-operation protocol and pure span
-      planner, serialization, role enforcement, candidate verification, and exact
-      inverse operations against the inventory model."
-  - id: cli-integration
-    title: Guarded props commands, capability, completion, and contract
-    size: medium
-    depends_on:
-      - span-operations
-    description:
-      "cli-integration: wire show and update into the CLI, lock and atomically apply
-      fresh plans, register catalog and completion, document the protocol, and verify
-      the complete command in isolated vaults."
+- id: inventory-roles
+  title: Ordered frontmatter inventory and authoritative property roles
+  size: medium
+  depends_on: []
+  description: 'inventory-roles: build the source-preserving props document model,
+    semantic fingerprint, note-kind and role classifier, and show report with focused
+    fixtures; publish the internal seams for the writer.'
+- id: span-operations
+  title: Strict property operations and byte-exact undo
+  size: medium
+  depends_on:
+  - inventory-roles
+  description: 'span-operations: implement the strict six-operation protocol and pure
+    span planner, serialization, role enforcement, candidate verification, and exact
+    inverse operations against the inventory model.'
+- id: cli-integration
+  title: Guarded props commands, capability, completion, and contract
+  size: medium
+  depends_on:
+  - span-operations
+  description: 'cli-integration: wire show and update into the CLI, lock and atomically
+    apply fresh plans, register catalog and completion, document the protocol, and
+    verify the complete command in isolated vaults.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.2
 create_time: 2026-11-22 14:47:15
 status: wip
+bead_id: bob-cli-pf.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/props_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/props_cli.md)
-- **PARENT:**
-  [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/props_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/props_cli.md)
+- **PARENT:** [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.2.1.md)
 
 # Generic note properties for bob-cli
 
