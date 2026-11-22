@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scope",
+      "kind": "choice",
+      "ask": "Which Task Link lines should make the Copy card target the linked task?",
+      "why": "Adds a TASK group only where the card shows none today, so no existing row changes meaning",
+      "choices": [
+        {
+          "key": "unowned",
+          "label": "Task Link bullets no task owns, in any note; lines inside a task keep their owner"
+        },
+        {
+          "key": "daily",
+          "label": "Only Pomodoro Task Links in daily notes; Task Links elsewhere still get no TASK group"
+        },
+        {
+          "key": "every",
+          "label": "Every Task Link bullet, so one under another task targets the link, not that task"
+        }
+      ],
+      "default": "unowned",
+      "effective_default": "unowned",
+      "requested_verified": false
+    }
+  ]
+}
