@@ -2,9 +2,8 @@
 tier: tale
 size: small
 title: Repair mixed close-card Undo and finish the Obsidian requirement landing
-goal:
-  Make one guarded Undo restore ordinary offer-close and requirement verdicts together,
-  then finish bob-cli-on.11.1.7 and its verified parent closeout.
+goal: Make one guarded Undo restore ordinary offer-close and requirement verdicts
+  together, then finish bob-cli-on.11.1.7 and its verified parent closeout.
 proposed_by: bbugyi200.athena.bob-cli-on.11.1.7.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-on.11.1.7
@@ -15,11 +14,6 @@ status: done
   [202611/obsidian_req_close_card_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_req_close_card_repairs.md)
 - **BEAD:**
   [bob-cli-on.11.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.11.1.7.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-on.11.1.7.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-on.11.1.7.land.md)
-- **COMMITS:**
-  - [9c9c972](https://github.com/bobs-org/bob-cli/commit/9c9c972c2873a23bb62ea44d89b756fd37823cbf)
-    — docs(task-requirements): cover mixed close-card Undo in one gesture
 
 # Repair mixed close-card Undo and finish the landing
 
