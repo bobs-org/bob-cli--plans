@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Shared dual-read task drawer readers in every plugin
-goal:
-  Complete bob-cli-ph.2 with one verified recognizer twin, synchronized Rust-owned
+goal: Complete bob-cli-ph.2 with one verified recognizer twin, synchronized Rust-owned
   fixtures, unchanged legacy writers, and four deployed plugin bundles.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ph.2
-create_time: 2026-11-23 12:22:53
-status: wip
+status: done
 ---
 
 - **PARENT:**
