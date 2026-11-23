@@ -1,8 +1,7 @@
 ---
 tier: tale
 title: Shared dual-read task drawer readers in every plugin
-goal:
-  Complete bob-cli-ph.2 with one verified recognizer twin, synchronized Rust-owned
+goal: Complete bob-cli-ph.2 with one verified recognizer twin, synchronized Rust-owned
   fixtures, unchanged legacy writers, and four deployed plugin bundles.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.2
@@ -15,11 +14,6 @@ status: done
   [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
 - **BEAD:**
   [bob-cli-ph.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.2.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-ph.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ph.2.md)
-- **COMMITS:**
-  - [b1fa8ad](https://github.com/bobs-org/bob-cli/commit/b1fa8ad6de8c3818152296f7c9af7cb2ec21ed1e)
-    — docs: document plugin task drawer reader parity
 
 # Complete bob-cli-ph.2: shared dual-read task drawer readers
 
