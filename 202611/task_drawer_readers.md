@@ -1,9 +1,10 @@
 ---
 tier: tale
 title: Dual-read task drawers in Rust (drawer-contract)
-goal: Every bob-cli vault reader recognizes both `- **Title**` and legacy ALL-CAPS
-  task drawers with their authored titles, imported text can never become a drawer,
-  and every header writer and capture draft grammar stays byte-for-byte unchanged.
+goal:
+  Every bob-cli vault reader recognizes both `- **Title**` and legacy ALL-CAPS task
+  drawers with their authored titles, imported text can never become a drawer, and every
+  header writer and capture draft grammar stays byte-for-byte unchanged.
 size: medium
 bead: bob-cli-ph.1
 proposed_by: bbugyi200.apollo.bob-cli-ph.1
@@ -13,6 +14,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-ph.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ph.1](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ph.1.md)
+- **COMMITS:**
+  - [37b2080](https://github.com/bobs-org/bob-cli/commit/37b2080e9efca170f542954f088ce4169d430cfa)
+    — feat(drawers): add dual-read task drawer readers
 
 # Plan: Dual-read task drawers in Rust
 
