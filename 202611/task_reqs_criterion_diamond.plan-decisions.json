@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_glossary_req",
+      "kind": "toggle",
+      "ask": "Rewrite the Task Requirement glossary strand's rendering and teaching lines for the diamond?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:task-requirement"
+        ]
+      },
+      "corrects": "Obsidian and Bob Mac Capture draw a tightly kerned hash run in the owner's ink over",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:task-requirement",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Requirement",
+            "Task Freshness",
+            "Capture",
+            "Keep Streak",
+            "Task Drawer",
+            "Task Successor",
+            "Pomodoro",
+            "Walker Footer",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Relation",
+            "Task Type",
+            "Task Link",
+            "Bank Row",
+            "Stats Strip",
+            "Area Note",
+            "Root Parent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_req_mark_record",
+      "kind": "toggle",
+      "ask": "Add a \"Requirements Wear The Criterion Diamond\" decision record to the decisions web?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:requirements-wear-the-criterion-diamond"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:requirements-wear-the-criterion-diamond",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/requirements-wear-the-criterion-diamond.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
