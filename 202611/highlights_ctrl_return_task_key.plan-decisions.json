@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "presentation",
+      "kind": "choice",
+      "ask": "Open the reading task without showing Bob Refs when the focused PDF resolves cleanly?",
+      "why": "Showing Refs only to vanish when Obsidian takes focus adds nothing; failures still land on Tabs",
+      "choices": [
+        {
+          "key": "headless",
+          "label": "Obsidian jumps straight to the task; Bob Refs appears only when the task can't open"
+        },
+        {
+          "key": "panel",
+          "label": "Bob Refs flashes up in Tabs, then the task opens exactly as \u2318T then \u2303\u21a9 would"
+        }
+      ],
+      "default": "headless",
+      "effective_default": "headless",
+      "requested_verified": false
+    }
+  ]
+}
