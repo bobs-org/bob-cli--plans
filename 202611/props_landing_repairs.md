@@ -2,7 +2,8 @@
 tier: tale
 size: medium
 title: Repair property ownership and YAML writes, then finish the props landing
-goal: Make props ownership and reversible writes satisfy the approved contract, verify
+goal:
+  Make props ownership and reversible writes satisfy the approved contract, verify
   integration, and close bob-cli-pf.2.1 and parent phase bob-cli-pf.2.
 proposed_by: bbugyi200.apollo.bob-cli-pf.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/props_cli.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/props_cli.md)
 - **BEAD:**
   [bob-cli-pf.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-pf.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pf.2.1.land.md)
+- **COMMITS:**
+  - [77c260f](https://github.com/bobs-org/bob-cli--plans/commit/77c260f3fce6382df29e4d3792550c82ac6d8439)
+    — chore(plans): mark props_cli and landing repairs done
 
 # Repair and land generic note properties
 
