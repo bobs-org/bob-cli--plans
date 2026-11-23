@@ -1,82 +1,74 @@
 ---
 tier: epic
 title: Complete Property Editor native parity
-goal:
-  The =+ Property Editor supports keyboard rename, reorder, selection, copy/paste,
+goal: The =+ Property Editor supports keyboard rename, reorder, selection, copy/paste,
   filtering, kind conversion, and validated YAML stages through the existing guarded
   writer, with real-Obsidian evidence and deployed plugins completing bob-cli-pf.5.
 phases:
-  - id: selection-filter
-    title: Add property selection, filtering, and batch delete
-    size: medium
-    depends_on: []
-    description:
-      "selection-filter: add the marks gutter, stable selection and visual ranges,
-      key/value filtering, and one-batch delete to the landed property editor; preserve
-      the close ladder and guarded write lifecycle."
-  - id: rename-reorder
-    title: Add guarded property rename and reorder
-    size: medium
-    depends_on:
-      - selection-filter
-    description:
-      "rename-reorder: implement the inline rename stage and source-order moves with
-      attached comments, stable focus, filter lockout, undo, and reduced-motion-aware
-      feedback."
-  - id: source-fragments
-    title: Extract lossless property source and clipboard fragments
-    size: medium
-    depends_on:
-      - rename-reorder
-    description:
-      "source-fragments: build a read-only, source-ordered YAML fragment adapter for
-      exact property copying, source-seeded YAML stages, and validated clipboard
-      mappings without changing bob's writer contract."
-  - id: yaml-stage
-    title: Add the validated multiline YAML value stage
-    size: small
-    depends_on:
-      - source-fragments
-    description:
-      "yaml-stage: add source-seeded YAML value editing through prop.set_yaml and the
-      existing preview latch; retain opaque-key refusals and the source excursion."
-  - id: clipboard
-    title: Add YAML copy and overwrite-previewed paste
-    size: medium
-    depends_on:
-      - yaml-stage
-    description:
-      "clipboard: wire keyboard and menu copy/paste, show ordered new/replaced/skipped
-      keys, and apply the exact approved editable subset in one guarded undoable batch."
-  - id: kind-change
-    title: Add local kind conversion and explicit vault type changes
-    size: medium
-    depends_on:
-      - clipboard
-    description:
-      "kind-change: preview and apply loose-value conversions; feature-detect Obsidian's
-      type manager and require a separate confirmation naming affected notes before
-      changing a vault-wide property type."
-  - id: acceptance
-    title: Verify property editor parity in Obsidian and deploy
-    size: medium
-    depends_on:
-      - kind-change
-    description:
-      "acceptance: extend the existing scratch-vault real-Obsidian runner for all parity
-      actions, review visual evidence, update the native Properties parity reference,
-      run required gates, and sync the plugins."
+- id: selection-filter
+  title: Add property selection, filtering, and batch delete
+  size: medium
+  depends_on: []
+  description: 'selection-filter: add the marks gutter, stable selection and visual
+    ranges, key/value filtering, and one-batch delete to the landed property editor;
+    preserve the close ladder and guarded write lifecycle.'
+- id: rename-reorder
+  title: Add guarded property rename and reorder
+  size: medium
+  depends_on:
+  - selection-filter
+  description: 'rename-reorder: implement the inline rename stage and source-order
+    moves with attached comments, stable focus, filter lockout, undo, and reduced-motion-aware
+    feedback.'
+- id: source-fragments
+  title: Extract lossless property source and clipboard fragments
+  size: medium
+  depends_on:
+  - rename-reorder
+  description: 'source-fragments: build a read-only, source-ordered YAML fragment
+    adapter for exact property copying, source-seeded YAML stages, and validated clipboard
+    mappings without changing bob''s writer contract.'
+- id: yaml-stage
+  title: Add the validated multiline YAML value stage
+  size: small
+  depends_on:
+  - source-fragments
+  description: 'yaml-stage: add source-seeded YAML value editing through prop.set_yaml
+    and the existing preview latch; retain opaque-key refusals and the source excursion.'
+- id: clipboard
+  title: Add YAML copy and overwrite-previewed paste
+  size: medium
+  depends_on:
+  - yaml-stage
+  description: 'clipboard: wire keyboard and menu copy/paste, show ordered new/replaced/skipped
+    keys, and apply the exact approved editable subset in one guarded undoable batch.'
+- id: kind-change
+  title: Add local kind conversion and explicit vault type changes
+  size: medium
+  depends_on:
+  - clipboard
+  description: 'kind-change: preview and apply loose-value conversions; feature-detect
+    Obsidian''s type manager and require a separate confirmation naming affected notes
+    before changing a vault-wide property type.'
+- id: acceptance
+  title: Verify property editor parity in Obsidian and deploy
+  size: medium
+  depends_on:
+  - kind-change
+  description: 'acceptance: extend the existing scratch-vault real-Obsidian runner
+    for all parity actions, review visual evidence, update the native Properties parity
+    reference, run required gates, and sync the plugins.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.5
 create_time: 2026-11-23 12:39:49
 status: wip
+bead_id: bob-cli-pf.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_editor_parity.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_parity.md)
-- **PARENT:**
-  [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/property_editor_parity.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_parity.md)
+- **PARENT:** [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.5.1.md)
 
 # Complete native Properties parity in the Property Editor
 
