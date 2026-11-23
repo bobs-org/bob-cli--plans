@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish the landed plugin drawer readers
-goal:
-  Repair standalone fixture tests, verify and deploy all four dual-read plugin bundles,
-  and close bob-cli-ph.2 with rollout evidence.
+goal: Repair standalone fixture tests, verify and deploy all four dual-read plugin
+  bundles, and close bob-cli-ph.2 with rollout evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.2
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ph.2
-create_time: 2026-11-23 16:11:26
-status: wip
+status: done
 ---
 
 - **BEAD:**
