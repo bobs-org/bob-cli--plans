@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "undo_scope",
+      "kind": "choice",
+      "ask": "Also make the card's Undo survive the frontmatter write that follows a Carry in a project note?",
+      "why": "The apply bug loses choices on every project-note close; Undo only refuses visibly",
+      "choices": [
+        {
+          "key": "follow_up",
+          "label": "Fix the apply path only and file a bead for the Undo refusal"
+        },
+        {
+          "key": "now",
+          "label": "Also rework Undo to restore only req hunks; touches the documented Undo contract"
+        }
+      ],
+      "default": "follow_up",
+      "effective_default": "follow_up",
+      "requested_verified": false
+    }
+  ]
+}
