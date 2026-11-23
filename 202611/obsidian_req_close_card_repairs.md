@@ -1,40 +1,37 @@
 ---
 tier: epic
 title: Repair the Obsidian requirement close card and prove it end to end
-goal:
-  Make explicit requirement verdicts, jump pins, staleness guards, counted and idless
-  closes actually work on the Obsidian managed Done card, prove every path through
-  public entry points and real Obsidian, and finish the contract docs.
+goal: Make explicit requirement verdicts, jump pins, staleness guards, counted and
+  idless closes actually work on the Obsidian managed Done card, prove every path
+  through public entry points and real Obsidian, and finish the contract docs.
 parent_bead: bob-cli-on.11.1
 phases:
-  - id: verdict_wiring
-    title: Fix verdict, landing, staleness, and range wiring with public-path tests
-    size: medium
-    depends_on: []
-    description:
-      "verdict_wiring: map picker reqs to resolver selectors, feed the landing resolver
-      synchronous final texts with exact line text, guard owner blocks from card open
-      through apply, fix counted-range capture, and add the public-path integration
-      matrix."
-  - id: idless_acceptance
-    title: Open the card for idless owners, add real-Obsidian e2e, and finish docs
-    size: medium
-    depends_on:
-      - verdict_wiring
-    description:
-      "idless_acceptance: route idless owners with Pending reqs through a
-      requirement-only card pass, add real-Obsidian close-card e2e scenarios, finish the
-      bob-cli and bob-plugins docs, run the combined gates, and deploy both plugins."
+- id: verdict_wiring
+  title: Fix verdict, landing, staleness, and range wiring with public-path tests
+  size: medium
+  depends_on: []
+  description: 'verdict_wiring: map picker reqs to resolver selectors, feed the landing
+    resolver synchronous final texts with exact line text, guard owner blocks from
+    card open through apply, fix counted-range capture, and add the public-path integration
+    matrix.'
+- id: idless_acceptance
+  title: Open the card for idless owners, add real-Obsidian e2e, and finish docs
+  size: medium
+  depends_on:
+  - verdict_wiring
+  description: 'idless_acceptance: route idless owners with Pending reqs through a
+    requirement-only card pass, add real-Obsidian close-card e2e scenarios, finish
+    the bob-cli and bob-plugins docs, run the combined gates, and deploy both plugins.'
 proposed_by: bbugyi200.athena.bob-cli-on.11.1.land
 proposed_with: claude/opus
 create_time: 2026-11-22 20:02:18
 status: wip
+bead_id: bob-cli-on.11.1.7
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_req_close_card_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_req_close_card_repairs.md)
-- **PARENT:**
-  [202611/obsidian_requirement_close_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_requirement_close_card.md)
+- **PROMPT:** [prompts/202611/obsidian_req_close_card_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_req_close_card_repairs.md)
+- **PARENT:** [202611/obsidian_requirement_close_card.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_requirement_close_card.md)
+- **BEAD:** [bob-cli-on.11.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/bob-cli-on.11.1.7.md)
 
 # Repair the Obsidian requirement close card and prove it end to end
 
