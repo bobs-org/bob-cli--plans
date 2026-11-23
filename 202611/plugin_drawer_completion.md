@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish the landed plugin drawer readers
-goal: Repair standalone fixture tests, verify and deploy all four dual-read plugin
-  bundles, and close bob-cli-ph.2 with rollout evidence.
+goal:
+  Repair standalone fixture tests, verify and deploy all four dual-read plugin bundles,
+  and close bob-cli-ph.2 with rollout evidence.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.2
 proposed_with: codex/gpt-6-astra
@@ -12,6 +13,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-ph.2](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.2.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ph.2](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ph.2.md)
+- **COMMITS:**
+  - [63e9e76](https://github.com/bobs-org/bob-plugins/commit/63e9e7609338d91de8f592c3c134d69abd92b9ab)
+    — test(plugins): load drawer DV/DH vectors from the cycler fixture
 
 # Finish bob-cli-ph.2 from the landed plugin readers
 
