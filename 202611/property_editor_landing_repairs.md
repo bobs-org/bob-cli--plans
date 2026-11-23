@@ -41,7 +41,7 @@ phases:
 proposed_by: bbugyi200.apollo.bob-cli-pf.4.1.land
 proposed_with: claude/opus
 create_time: 2026-11-23 03:09:52
-status: wip
+status: done
 bead_id: bob-cli-pf.4.1.7
 ---
 
