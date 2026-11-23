@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "daily_scope",
+      "kind": "choice",
+      "ask": "Should the Links stage admit only Event Tasks from daily notes?",
+      "why": "Event Tasks are what was asked for; other daily-note tasks add hundreds of look-alike rows.",
+      "choices": [
+        {
+          "key": "events",
+          "label": "Only `## Events` rows led by `**HHMM-HHMM**` join; `^gtd` rows and old ledger tasks stay out"
+        },
+        {
+          "key": "all",
+          "label": "Every daily-note task joins, like Mac Capture's `~` catalog, adding a `^gtd` row per day"
+        }
+      ],
+      "default": "events",
+      "effective_default": "events",
+      "requested_verified": false
+    },
+    {
+      "id": "day_window",
+      "kind": "choice",
+      "ask": "Should Event Tasks from every past day be linkable?",
+      "why": "Relations are history and capture `~` reaches any day; newest-first ranking sinks old rows.",
+      "choices": [
+        {
+          "key": "all_days",
+          "label": "Every daily note's Event Tasks join; equal-score rows rank newest day first"
+        },
+        {
+          "key": "recent",
+          "label": "Only today, future days, and the last 30 days join; older meetings need a hand-written link"
+        }
+      ],
+      "default": "all_days",
+      "effective_default": "all_days",
+      "requested_verified": false
+    },
+    {
+      "id": "chip_names",
+      "kind": "choice",
+      "ask": "Should LINKS and LINKED FROM chips also name Event Tasks as `HHMM-HHMM Title`?",
+      "why": "Otherwise every new meeting link shows the raw gcal link markdown seen in the screencast.",
+      "choices": [
+        {
+          "key": "clean",
+          "label": "Chips drop the \ud83d\udcc5/\ud83d\udcf9/\ud83d\udccd link markdown and fields, matching the Links stage rows"
+        },
+        {
+          "key": "leave",
+          "label": "Chips keep their current text, such as `1100-1130 Phone Call w/ Dan [\ud83d\udcc5](https:/\u2026`"
+        }
+      ],
+      "default": "clean",
+      "effective_default": "clean",
+      "requested_verified": false
+    }
+  ]
+}
