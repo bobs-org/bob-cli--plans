@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Preserve the property row through YAML Done and finish the nested landing
-goal:
-  YAML Done retains the selected occurrence or nearest surviving row, acceptance proves
-  it, and the repair epic and its completed parents close normally.
+goal: YAML Done retains the selected occurrence or nearest surviving row, acceptance
+  proves it, and the repair epic and its completed parents close normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pf.4.1.7.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-pf.4.1.7
-create_time: 2026-11-23 11:33:18
-status: wip
+status: done
 ---
 
 - **PARENT:**
