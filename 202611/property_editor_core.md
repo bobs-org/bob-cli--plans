@@ -1,68 +1,62 @@
 ---
 tier: epic
 title: Complete the core note property editor
-goal:
-  Any Markdown note supports guarded keyboard-first property editing, add/delete,
+goal: Any Markdown note supports guarded keyboard-first property editing, add/delete,
   undo/redo, ownership routing, and YAML return through the verified =+ editor.
 phases:
-  - id: props-runtime
-    title: Guarded property transport, history, and overlays
-    size: medium
-    depends_on: []
-    description:
-      "props-runtime: implement the props v1 client, guarded session, bounded per-path
-      undo/redo, and confirmed-write overlays with deterministic tests."
-  - id: editor-shell
-    title: Property modal, role routing, and discrete edits
-    size: medium
-    depends_on:
-      - props-runtime
-    description:
-      "editor-shell: build cache-first grouped rows, role routing, navigation and close
-      ladder, checkbox/delete/history actions, and degraded states."
-  - id: value-stages
-    title: Shared typed stages, date-time, and tags
-    size: medium
-    depends_on:
-      - editor-shell
-    description:
-      "value-stages: reuse record helpers for typed edits, add datetime and tags, wire
-      prose completion, and verify preview/apply races and record regressions."
-  - id: add-flow
-    title: Property name completion and positioned creation
-    size: medium
-    depends_on:
-      - value-stages
-    description:
-      "add-flow: implement positioned insertion, vault name/type/count completion,
-      literal-name override, and atomic first-property creation through typed stages."
-  - id: entrypoints-yaml
-    title: Public entry points and YAML return
-    size: medium
-    depends_on:
-      - add-flow
-    description:
-      "entrypoints-yaml: wire the plus chord, palette and Command Mode, drawer actions,
-      public API, species hand-offs, and the props YAML excursion with Done return."
-  - id: acceptance-docs
-    title: Real Obsidian acceptance and editor documentation
-    size: medium
-    depends_on:
-      - entrypoints-yaml
-    description:
-      "acceptance-docs: add real-Obsidian acceptance and offline self-tests, document
-      the core editor, and record verified evidence for closing bob-cli-pf.4."
+- id: props-runtime
+  title: Guarded property transport, history, and overlays
+  size: medium
+  depends_on: []
+  description: 'props-runtime: implement the props v1 client, guarded session, bounded
+    per-path undo/redo, and confirmed-write overlays with deterministic tests.'
+- id: editor-shell
+  title: Property modal, role routing, and discrete edits
+  size: medium
+  depends_on:
+  - props-runtime
+  description: 'editor-shell: build cache-first grouped rows, role routing, navigation
+    and close ladder, checkbox/delete/history actions, and degraded states.'
+- id: value-stages
+  title: Shared typed stages, date-time, and tags
+  size: medium
+  depends_on:
+  - editor-shell
+  description: 'value-stages: reuse record helpers for typed edits, add datetime and
+    tags, wire prose completion, and verify preview/apply races and record regressions.'
+- id: add-flow
+  title: Property name completion and positioned creation
+  size: medium
+  depends_on:
+  - value-stages
+  description: 'add-flow: implement positioned insertion, vault name/type/count completion,
+    literal-name override, and atomic first-property creation through typed stages.'
+- id: entrypoints-yaml
+  title: Public entry points and YAML return
+  size: medium
+  depends_on:
+  - add-flow
+  description: 'entrypoints-yaml: wire the plus chord, palette and Command Mode, drawer
+    actions, public API, species hand-offs, and the props YAML excursion with Done
+    return.'
+- id: acceptance-docs
+  title: Real Obsidian acceptance and editor documentation
+  size: medium
+  depends_on:
+  - entrypoints-yaml
+  description: 'acceptance-docs: add real-Obsidian acceptance and offline self-tests,
+    document the core editor, and record verified evidence for closing bob-cli-pf.4.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.4
 create_time: 2026-11-22 23:01:39
 status: wip
+bead_id: bob-cli-pf.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_editor_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_core.md)
-- **PARENT:**
-  [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/property_editor_core.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_core.md)
+- **PARENT:** [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.4.1.md)
 
 # Complete the core note property editor
 
