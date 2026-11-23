@@ -88,7 +88,7 @@ proposed_by: bbugyi200.athena.1f8
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-23 03:54:17
-status: wip
+status: done
 bead_id: bob-cli-pq
 ---
 
