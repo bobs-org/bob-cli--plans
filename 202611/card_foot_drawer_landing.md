@@ -2,9 +2,10 @@
 tier: tale
 size: small
 title: Finish and land the card foot drawer epic
-goal: Drawer tag chips search their tag, aliases stay plain chips, =- heals in any
-  pane, docs match the shipped =- entry points and foot kit API, and epic bob-cli-pf.1.1
-  plus its parent phase bob-cli-pf.1 are verified and closed.
+goal:
+  Drawer tag chips search their tag, aliases stay plain chips, =- heals in any pane,
+  docs match the shipped =- entry points and foot kit API, and epic bob-cli-pf.1.1 plus
+  its parent phase bob-cli-pf.1 are verified and closed.
 proposed_by: bbugyi200.apollo.bob-cli-pf.1.1.land
 proposed_with: claude/opus
 bead: bob-cli-pf.1.1
@@ -15,6 +16,11 @@ status: done
   [202611/card_foot_drawer.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_foot_drawer.md)
 - **BEAD:**
   [bob-cli-pf.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-pf.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pf.1.1.land.md)
+- **COMMITS:**
+  - [4abf33e](https://github.com/bobs-org/bob-cli--plans/commit/4abf33e33885bfb5e798c8787be6d44a15e86926)
+    — docs(plans): mark card foot drawer epic complete
 
 # Finish and land the card foot drawer epic (bob-cli-pf.1.1)
 
