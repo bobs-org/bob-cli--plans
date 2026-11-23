@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish reference refresh convergence and land bob-cli-pj.2.1
-goal: Reference scans converge safely through replacement plans and lock retries,
-  with the epic and parent phase verified and closed.
+goal:
+  Reference scans converge safely through replacement plans and lock retries, with the
+  epic and parent phase verified and closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-pj.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/refs_incremental_coherence.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/refs_incremental_coherence.md)
 - **BEAD:**
   [bob-cli-pj.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pj/bob-cli-pj.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-pj.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-pj.2.1.land.md)
+- **COMMITS:**
+  - [b000b3b](https://github.com/bobs-org/bob-cli--plans/commit/b000b3ba6773cf4ef8ab07ee830be978624ce8b6)
+    — chore(plans): mark refs_incremental_coherence done after verified landing
 
 # Finish reference refresh convergence and land bob-cli-pj.2.1
 
