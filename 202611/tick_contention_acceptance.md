@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Prove scan refresh dependencies and finish the tick contention landing
-goal: Real scan interleavings prove the remaining dependency and ownership cases,
-  gates pass, and bob-cli-pj is closed with its plan marked done.
+goal:
+  Real scan interleavings prove the remaining dependency and ownership cases, gates
+  pass, and bob-cli-pj is closed with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-pj.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/tick_contention_noise.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/tick_contention_noise.md)
 - **BEAD:**
   [bob-cli-pj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pj/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-pj.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-pj.land.md)
+- **COMMITS:**
+  - [08b2765](https://github.com/bobs-org/bob-cli--plans/commit/08b2765eb6028a786a812a20753e4b8b89ec2127)
+    — docs(plans): mark tick contention plan complete
 
 # Prove the remaining scan refresh cases and land bob-cli-pj
 
