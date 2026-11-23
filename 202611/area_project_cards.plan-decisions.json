@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "card_structure_counts",
+      "kind": "toggle",
+      "ask": "Should the card's live readouts also count sub-areas and sub-projects?",
+      "why": "The catalogs right below already count them, so the card stays calm",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_area_card",
+      "kind": "toggle",
+      "ask": "Add an Area Card glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:area-card"
+        ]
+      },
+      "requested": "As a part of this change, we should add new glossary terms for \"area card\" and \"project card\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:area-card",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/area-card.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_project_card",
+      "kind": "toggle",
+      "ask": "Add a Project Card glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:project-card"
+        ]
+      },
+      "requested": "As a part of this change, we should add new glossary terms for \"area card\" and \"project card\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:project-card",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/project-card.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_property_card",
+      "kind": "toggle",
+      "ask": "Update the Property Card glossary strand for the area and project species and bank.md takeover?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card"
+        ]
+      },
+      "corrects": "The shared family of note-top panels \u2014 album, record, day, period, and bank",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Bank Card",
+            "Period Note",
+            "Command Mode",
+            "Intention",
+            "Root Parent",
+            "Capture",
+            "Pomodoro",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Task Link",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
