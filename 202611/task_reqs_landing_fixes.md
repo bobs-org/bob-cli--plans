@@ -1,17 +1,15 @@
 ---
 tier: tale
 title: Finish and land task requirements (bob-cli-on)
-goal:
-  Fix the epic-caused gaps found at landing. A req-owning ^prj task files its notes into
-  a real `## Notes` section. Capture reports implicit NOTES filing. The Mac reveals a
-  requirement marker's raw bytes when the caret touches it. User docs stop teaching the
-  retired REQUIREMENTS drawer. Then close epic bob-cli-on.
+goal: Fix the epic-caused gaps found at landing. A req-owning ^prj task files its
+  notes into a real `## Notes` section. Capture reports implicit NOTES filing. The
+  Mac reveals a requirement marker's raw bytes when the caret touches it. User docs
+  stop teaching the retired REQUIREMENTS drawer. Then close epic bob-cli-on.
 size: medium
 bead: bob-cli-on
 proposed_by: bbugyi200.athena.bob-cli-on.land
 proposed_with: claude/opus
-create_time: 2026-11-23 01:47:26
-status: wip
+status: done
 ---
 
 - **PARENT:**
