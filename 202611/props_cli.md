@@ -31,7 +31,7 @@ proposed_by: bbugyi200.apollo.bob-cli-pf.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.2
 create_time: 2026-11-22 14:47:15
-status: wip
+status: done
 bead_id: bob-cli-pf.2.1
 ---
 
