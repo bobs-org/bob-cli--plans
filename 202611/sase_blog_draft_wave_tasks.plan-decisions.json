@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "wave_split",
+      "kind": "choice",
+      "ask": "Should the waves follow the album's sections, even if a few waves hold only 3 tasks?",
+      "why": "each wave review rereads whole sections, and no wave goes over the 5-task Ready cap",
+      "choices": [
+        {
+          "key": "sections",
+          "label": "7 waves of 3-5 tasks in album section order; no section is split across waves"
+        },
+        {
+          "key": "even",
+          "label": "6 waves of 4-5 tasks in walk order; five sections each split across two waves"
+        }
+      ],
+      "default": "sections",
+      "effective_default": "sections",
+      "requested_verified": false
+    },
+    {
+      "id": "gate_role",
+      "kind": "choice",
+      "ask": "Should each wave task be a short review of that wave's drafts, rather than a bare milestone?",
+      "why": "it follows the earlier Wave 1 review and gives new records from the section-fill task a place to go",
+      "choices": [
+        {
+          "key": "review",
+          "label": "Each wave task is a short reread of the wave that also routes new records into the next wave"
+        },
+        {
+          "key": "milestone",
+          "label": "Each wave task is a bare \"Finish Wave N\" marker, closed as soon as it unblocks"
+        }
+      ],
+      "default": "review",
+      "effective_default": "review",
+      "requested_verified": false
+    },
+    {
+      "id": "close_planning_task",
+      "kind": "choice",
+      "ask": "Should the agent complete ^create-draft-tasks after the tasks exist?",
+      "why": "Bryan closes his own WIP tasks, and the close logs the Pomodoro work there",
+      "choices": [
+        {
+          "key": "leave_open",
+          "label": "Leave ^create-draft-tasks In Progress so Bryan closes it from Obsidian"
+        },
+        {
+          "key": "close",
+          "label": "Complete it with a `!sase_blog_drafts:create-draft-tasks` capture after the wave tasks are verified"
+        }
+      ],
+      "default": "leave_open",
+      "effective_default": "leave_open",
+      "requested_verified": false
+    }
+  ]
+}
