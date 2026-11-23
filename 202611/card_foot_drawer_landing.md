@@ -2,15 +2,13 @@
 tier: tale
 size: small
 title: Finish and land the card foot drawer epic
-goal:
-  Drawer tag chips search their tag, aliases stay plain chips, =- heals in any pane,
-  docs match the shipped =- entry points and foot kit API, and epic bob-cli-pf.1.1 plus
-  its parent phase bob-cli-pf.1 are verified and closed.
+goal: Drawer tag chips search their tag, aliases stay plain chips, =- heals in any
+  pane, docs match the shipped =- entry points and foot kit API, and epic bob-cli-pf.1.1
+  plus its parent phase bob-cli-pf.1 are verified and closed.
 proposed_by: bbugyi200.apollo.bob-cli-pf.1.1.land
 proposed_with: claude/opus
 bead: bob-cli-pf.1.1
-create_time: 2026-11-22 21:11:56
-status: wip
+status: done
 ---
 
 - **PARENT:**
