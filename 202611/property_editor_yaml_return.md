@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Preserve the property row through YAML Done and finish the nested landing
-goal: YAML Done retains the selected occurrence or nearest surviving row, acceptance
-  proves it, and the repair epic and its completed parents close normally.
+goal:
+  YAML Done retains the selected occurrence or nearest surviving row, acceptance proves
+  it, and the repair epic and its completed parents close normally.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pf.4.1.7.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/property_editor_landing_repairs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_editor_landing_repairs.md)
 - **BEAD:**
   [bob-cli-pf.4.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.4.1.7.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-pf.4.1.7.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pf.4.1.7.land.md)
+- **COMMITS:**
+  - [806e56f](https://github.com/bobs-org/bob-cli--plans/commit/806e56fdce2b0569caf00f2dad86c56515acec32)
+    — chore(plans): mark property editor yaml-return and parent plans done
 
 # Preserve the property row through YAML Done and finish the nested landing
 
