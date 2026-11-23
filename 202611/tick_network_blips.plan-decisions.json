@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "offline_retry",
+      "kind": "choice",
+      "ask": "Should an offline wait retry on the next 5-minute tick instead of waiting out the cadence?",
+      "why": "Mac outages are short (wake, Wi-Fi handoff); a recovered network should sync promptly",
+      "choices": [
+        {
+          "key": "next_tick",
+          "label": "Retry each tick until online; Gmail may spend ~2 min of retries per offline tick"
+        },
+        {
+          "key": "cadence",
+          "label": "Wait one step cadence; fewer retries, but Gmail can lag an hour after a blip"
+        }
+      ],
+      "default": "next_tick",
+      "effective_default": "next_tick",
+      "requested_verified": false
+    }
+  ]
+}
