@@ -1,58 +1,53 @@
 ---
 tier: epic
 title: Finish the core property editor's landing repairs and real-app acceptance
-goal:
-  The =+ property editor survives in-flight writes, keeps the requested row, shows
+goal: The =+ property editor survives in-flight writes, keeps the requested row, shows
   confirmed writes on every surface, and passes a reviewed real-Obsidian run covering
   every bob-cli-pf.4.1 acceptance bullet.
 parent_bead: bob-cli-pf.4.1
 phases:
-  - id: write-safety
-    title: In-flight write safety, Esc, and YAML escape
-    size: medium
-    depends_on: []
-    description:
-      "write-safety: make cancel/close/undo during a pending write safe, register modal
-      sessions for generation and rename events, narrow old-bob detection, route Esc
-      through the close ladder, and close the modal on y/Ctrl+E from the originating
-      leaf."
-  - id: row-fidelity
-    title: Row identity, overlays, diagnostics, and value fidelity
-    size: medium
-    depends_on:
-      - write-safety
-    description:
-      "row-fidelity: keep requested keys across reconciliation, publish confirmed
-      overlays to cards and drawers, show recovery diagnostics, preserve
-      datetime/tag/null spelling, and fix add-flow completion and draft loss."
-  - id: acceptance-writes
-    title: Real-Obsidian acceptance for write paths
-    size: medium
-    depends_on:
-      - row-fidelity
-    description:
-      "acceptance-writes: extend the property-editor real-app harness to every
-      write-path and recovery bullet with disk byte assertions, run it on athena, and
-      fix what it finds."
-  - id: acceptance-surfaces
-    title: Real-Obsidian acceptance for panes, entry points, and visuals
-    size: medium
-    depends_on:
-      - acceptance-writes
-    description:
-      "acceptance-surfaces: cover panes, history reopen, YAML Done, close keys, unload,
-      every entry point, and reviewed light/dark narrow/wide screenshots on athena;
-      document the run in validation.md."
+- id: write-safety
+  title: In-flight write safety, Esc, and YAML escape
+  size: medium
+  depends_on: []
+  description: 'write-safety: make cancel/close/undo during a pending write safe,
+    register modal sessions for generation and rename events, narrow old-bob detection,
+    route Esc through the close ladder, and close the modal on y/Ctrl+E from the originating
+    leaf.'
+- id: row-fidelity
+  title: Row identity, overlays, diagnostics, and value fidelity
+  size: medium
+  depends_on:
+  - write-safety
+  description: 'row-fidelity: keep requested keys across reconciliation, publish confirmed
+    overlays to cards and drawers, show recovery diagnostics, preserve datetime/tag/null
+    spelling, and fix add-flow completion and draft loss.'
+- id: acceptance-writes
+  title: Real-Obsidian acceptance for write paths
+  size: medium
+  depends_on:
+  - row-fidelity
+  description: 'acceptance-writes: extend the property-editor real-app harness to
+    every write-path and recovery bullet with disk byte assertions, run it on athena,
+    and fix what it finds.'
+- id: acceptance-surfaces
+  title: Real-Obsidian acceptance for panes, entry points, and visuals
+  size: medium
+  depends_on:
+  - acceptance-writes
+  description: 'acceptance-surfaces: cover panes, history reopen, YAML Done, close
+    keys, unload, every entry point, and reviewed light/dark narrow/wide screenshots
+    on athena; document the run in validation.md.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.4.1.land
 proposed_with: claude/opus
 create_time: 2026-11-23 03:09:52
 status: wip
+bead_id: bob-cli-pf.4.1.7
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_editor_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_landing_repairs.md)
-- **PARENT:**
-  [202611/property_editor_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_editor_core.md)
+- **PROMPT:** [prompts/202611/property_editor_landing_repairs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_editor_landing_repairs.md)
+- **PARENT:** [202611/property_editor_core.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/property_editor_core.md)
+- **BEAD:** [bob-cli-pf.4.1.7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.4.1.7.md)
 
 # Finish the core property editor's landing repairs and real-app acceptance
 
