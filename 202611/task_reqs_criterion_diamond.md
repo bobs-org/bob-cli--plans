@@ -1,108 +1,99 @@
 ---
 tier: epic
 title: Task requirements wear the criterion diamond
-goal: "Every task requirement is drawn with one quiet, constant-width diamond in its
-  owner's ink, at every depth, in Obsidian, Bob Mac Capture, the successor cards, and
-  CLI text. The mark's fill shows the requirement's state, indentation alone shows its
-  depth, and the Mac draft shows honest bytes. Nothing about how requirements behave,
-  are stored, or are typed changes.
+goal: 'Every task requirement is drawn with one quiet, constant-width diamond in its
+  owner''s ink, at every depth, in Obsidian, Bob Mac Capture, the successor cards,
+  and CLI text. The mark''s fill shows the requirement''s state, indentation alone
+  shows its depth, and the Mac draft shows honest bytes. Nothing about how requirements
+  behave, are stored, or are typed changes.
 
-  "
+  '
 decisions:
   memory_glossary_req:
-    ask:
-      Rewrite the Task Requirement glossary strand's rendering and teaching lines for
-      the diamond?
+    ask: Rewrite the Task Requirement glossary strand's rendering and teaching lines
+      for the diamond?
     memory:
-      - glossary:task-requirement
-    corrects:
-      Obsidian and Bob Mac Capture draw a tightly kerned hash run in the owner's ink
-      over
+    - glossary:task-requirement
+    corrects: Obsidian and Bob Mac Capture draw a tightly kerned hash run in the owner's
+      ink over
     default: true
     answer: true
   memory_req_mark_record:
-    ask:
-      Add a "Requirements Wear The Criterion Diamond" decision record to the decisions
+    ask: Add a "Requirements Wear The Criterion Diamond" decision record to the decisions
       web?
     memory:
-      - decisions:requirements-wear-the-criterion-diamond
+    - decisions:requirements-wear-the-criterion-diamond
     default: false
     answer: false
 phases:
-  - id: glyph-contract
-    title: The requirement mark becomes a token in bob-cli and the plugin twins
-    depends_on: []
-    size: medium
-    description:
-      "glyph-contract: req_run becomes a per-state text glyph, the CLI strings and RV
-      vectors carry the diamond, the close-card glyph becomes the `requirement` token,
-      the contract page gets the full rendering spec, and the plugin twins and vector
-      copies change in lockstep so every gate stays green."
-  - id: line-annotations
-    title: Bob annotates requirement lines in previews and the idle agenda
-    depends_on:
-      - glyph-contract
-    size: medium
-    description:
-      "line-annotations: an additive `req: {depth, state}` object on capture preview
-      block lines and idle-agenda lines, computed by the recognizer, so the Mac can draw
-      the diamond without inferring anything from `[ ]`."
-  - id: obsidian-marks
-    title: Obsidian draws the criterion diamond in notes
-    depends_on: []
-    size: medium
-    description:
-      "obsidian-marks: bob-ledger-tools replaces the hash-run mask with four diamond
-      masks in a constant 1em slot, state by fill, owner ink, the verified display
-      fixes, real tooltips, a click guard that teaches instead of ticking, the shared
-      card mark, and a light/dark taste pass."
-  - id: obsidian-cards
-    title: Obsidian successor cards wear the diamond
-    depends_on:
-      - glyph-contract
-      - obsidian-marks
-    size: small
-    description:
-      "obsidian-cards: Navigation Hotkeys draws the shared mark on requirement rows and
-      the group heading, flips it with the staged verdict, and uses a diamond header
-      icon on requirements-only cards."
-  - id: mac-editor
-    title: The Mac draft shows requirement bytes as a teal chip
-    depends_on: []
-    size: medium
-    description:
-      "mac-editor: Bob Mac Capture deletes the hash overlay, the byte concealment, and
-      its caret-reveal plumbing, and paints the real `[ ]` bytes as a teal chip like the
-      existing route and theme washes."
-  - id: mac-diamonds
-    title: Mac previews, agenda, and Pull-In card draw the diamond
-    depends_on:
-      - glyph-contract
-      - line-annotations
-      - mac-editor
-    size: medium
-    description:
-      "mac-diamonds: one SwiftUI requirement mark drawn from bob's state in the live
-      preview, the idle agenda, and the Pull-In card rows, header, and filter, with
-      staged-verdict flips, regenerated fixtures, and updated Mac docs."
-  - id: memory
-    title: Memory records for the criterion diamond
-    depends_on:
-      - obsidian-cards
-      - mac-diamonds
-    size: small
-    description:
-      "memory: apply only the accepted memory decisions with /sase_memory_write, then
-      regenerate memory and the glossary page."
+- id: glyph-contract
+  title: The requirement mark becomes a token in bob-cli and the plugin twins
+  depends_on: []
+  size: medium
+  description: 'glyph-contract: req_run becomes a per-state text glyph, the CLI strings
+    and RV vectors carry the diamond, the close-card glyph becomes the `requirement`
+    token, the contract page gets the full rendering spec, and the plugin twins and
+    vector copies change in lockstep so every gate stays green.'
+- id: line-annotations
+  title: Bob annotates requirement lines in previews and the idle agenda
+  depends_on:
+  - glyph-contract
+  size: medium
+  description: 'line-annotations: an additive `req: {depth, state}` object on capture
+    preview block lines and idle-agenda lines, computed by the recognizer, so the
+    Mac can draw the diamond without inferring anything from `[ ]`.'
+- id: obsidian-marks
+  title: Obsidian draws the criterion diamond in notes
+  depends_on: []
+  size: medium
+  description: 'obsidian-marks: bob-ledger-tools replaces the hash-run mask with four
+    diamond masks in a constant 1em slot, state by fill, owner ink, the verified display
+    fixes, real tooltips, a click guard that teaches instead of ticking, the shared
+    card mark, and a light/dark taste pass.'
+- id: obsidian-cards
+  title: Obsidian successor cards wear the diamond
+  depends_on:
+  - glyph-contract
+  - obsidian-marks
+  size: small
+  description: 'obsidian-cards: Navigation Hotkeys draws the shared mark on requirement
+    rows and the group heading, flips it with the staged verdict, and uses a diamond
+    header icon on requirements-only cards.'
+- id: mac-editor
+  title: The Mac draft shows requirement bytes as a teal chip
+  depends_on: []
+  size: medium
+  description: 'mac-editor: Bob Mac Capture deletes the hash overlay, the byte concealment,
+    and its caret-reveal plumbing, and paints the real `[ ]` bytes as a teal chip
+    like the existing route and theme washes.'
+- id: mac-diamonds
+  title: Mac previews, agenda, and Pull-In card draw the diamond
+  depends_on:
+  - glyph-contract
+  - line-annotations
+  - mac-editor
+  size: medium
+  description: 'mac-diamonds: one SwiftUI requirement mark drawn from bob''s state
+    in the live preview, the idle agenda, and the Pull-In card rows, header, and filter,
+    with staged-verdict flips, regenerated fixtures, and updated Mac docs.'
+- id: memory
+  title: Memory records for the criterion diamond
+  depends_on:
+  - obsidian-cards
+  - mac-diamonds
+  size: small
+  description: 'memory: apply only the accepted memory decisions with /sase_memory_write,
+    then regenerate memory and the glossary page.'
 proposed_by: bbugyi200.athena.1f8
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-23 03:54:17
 status: wip
+bead_id: bob-cli-pq
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_reqs_criterion_diamond.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_reqs_criterion_diamond.md)
+- **PROMPT:** [prompts/202611/task_reqs_criterion_diamond.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_reqs_criterion_diamond.md)
+- **BEAD:** [bob-cli-pq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pq/README.md)
 
 # Plan: Task requirements wear the criterion diamond
 
