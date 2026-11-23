@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Prove scan refresh dependencies and finish the tick contention landing
-goal:
-  Real scan interleavings prove the remaining dependency and ownership cases, gates
-  pass, and bob-cli-pj is closed with its plan marked done.
+goal: Real scan interleavings prove the remaining dependency and ownership cases,
+  gates pass, and bob-cli-pj is closed with its plan marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-pj.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-pj
-create_time: 2026-11-22 22:09:15
-status: wip
+status: done
 ---
 
 - **PARENT:**
