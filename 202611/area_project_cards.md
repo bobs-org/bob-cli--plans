@@ -1,14 +1,14 @@
 ---
 tier: epic
 title: Area and project cards with a bob-validated settings editor
-goal: "Every area and project note opens with a calm property card (an Area Card or a
-  Project Card) that says what the home is, where it sits, its lifecycle, and the
+goal: 'Every area and project note opens with a calm property card (an Area Card or
+  a Project Card) that says what the home is, where it sits, its lifecycle, and the
   policies it declares. `=+` (and `==`) edit every area/project setting through typed,
   inheritance-aware stages that bob validates and writes byte-preservingly. Once no
   second frontmatter writer remains, the cards take over native Properties on these
   notes, bank.md included, and every failure path brings native Properties back.
 
-  "
+  '
 decisions:
   card_structure_counts:
     ask: Should the card's live readouts also count sub-areas and sub-projects?
@@ -18,149 +18,137 @@ decisions:
   memory_area_card:
     ask: Add an Area Card glossary strand?
     memory:
-      - glossary:area-card
+    - glossary:area-card
     default: true
-    requested:
-      As a part of this change, we should add new glossary terms for "area card" and
-      "project card".
+    requested: As a part of this change, we should add new glossary terms for "area
+      card" and "project card".
     answer: true
   memory_project_card:
     ask: Add a Project Card glossary strand?
     memory:
-      - glossary:project-card
+    - glossary:project-card
     default: true
-    requested:
-      As a part of this change, we should add new glossary terms for "area card" and
-      "project card".
+    requested: As a part of this change, we should add new glossary terms for "area
+      card" and "project card".
     answer: true
   memory_property_card:
-    ask:
-      Update the Property Card glossary strand for the area and project species and
-      bank.md takeover?
+    ask: Update the Property Card glossary strand for the area and project species
+      and bank.md takeover?
     memory:
-      - glossary:property-card
+    - glossary:property-card
     default: true
-    corrects:
-      The shared family of note-top panels — album, record, day, period, and bank
+    corrects: The shared family of note-top panels — album, record, day, period, and
+      bank
     answer: true
 phases:
-  - id: one-writer
-    title: Retire the second frontmatter writers on project notes (bob-plugins + vault)
-    depends_on: []
-    size: medium
-    description: "one-writer: remove the bob-project-tasks count writer and the
-      project-creation processFrontMatter call, sweep the retired count keys out of the
-      vault through bob props, and update projects.base and project.md, retiring status
-      waiting.
+- id: one-writer
+  title: Retire the second frontmatter writers on project notes (bob-plugins + vault)
+  depends_on: []
+  size: medium
+  description: 'one-writer: remove the bob-project-tasks count writer and the project-creation
+    processFrontMatter call, sweep the retired count keys out of the vault through
+    bob props, and update projects.base and project.md, retiring status waiting.
 
-      "
-  - id: contract-writes
-    title: Area/project roles, validation, and setting ops in bob props (bob-cli)
-    depends_on: []
-    size: medium
-    description: "contract-writes: complete the role table for area/project notes and
-      bank.md, validate contract keys on every write path, and add bob-expanded
-      setting.set / setting.clear ops with golden byte tests.
+    '
+- id: contract-writes
+  title: Area/project roles, validation, and setting ops in bob props (bob-cli)
+  depends_on: []
+  size: medium
+  description: 'contract-writes: complete the role table for area/project notes and
+    bank.md, validate contract keys on every write path, and add bob-expanded setting.set
+    / setting.clear ops with golden byte tests.
 
-      "
-  - id: contract-reads
-    title:
-      The settings contract in bob props show, dry-run effects, and list issues
-      (bob-cli)
-    depends_on:
-      - contract-writes
-    size: medium
-    description: "contract-reads: expose each setting's stage, choices, declared and
-      effective value with its source, the ^prj line facts, dry-run consequence effects,
-      per-row contract_issues in areas/projects list, the props_contract_v1 capability,
-      and docs.
+    '
+- id: contract-reads
+  title: The settings contract in bob props show, dry-run effects, and list issues
+    (bob-cli)
+  depends_on:
+  - contract-writes
+  size: medium
+  description: 'contract-reads: expose each setting''s stage, choices, declared and
+    effective value with its source, the ^prj line facts, dry-run consequence effects,
+    per-row contract_issues in areas/projects list, the props_contract_v1 capability,
+    and docs.
 
-      "
-  - id: home-cards
-    title: Area Card and Project Card painted from local data (bob-plugins)
-    depends_on: []
-    size: large
-    description: "home-cards: add the area and project species and one shared home
-      adapter that paints kicker, crumb, title, subtitle or lifecycle line, authored
-      chips, the Ready readout, the pf foot with where-marks, collapse, and material,
-      with mount rules, fail-open, e2e, screenshots, and docs. Native Properties stays
-      visible.
+    '
+- id: home-cards
+  title: Area Card and Project Card painted from local data (bob-plugins)
+  depends_on: []
+  size: large
+  description: 'home-cards: add the area and project species and one shared home adapter
+    that paints kicker, crumb, title, subtitle or lifecycle line, authored chips,
+    the Ready readout, the pf foot with where-marks, collapse, and material, with
+    mount rules, fail-open, e2e, screenshots, and docs. Native Properties stays visible.
 
-      "
-  - id: card-live
-    title:
-      Report-backed lifecycle reasons, readouts, lint, and the ^prj goal line
-      (bob-plugins)
-    depends_on:
-      - home-cards
-      - contract-reads
-    size: medium
-    description: "card-live: patch the cards in place from the already-cached
-      areas/projects reports (blocked reasons, close dates, open/today readouts,
-      contract issues in the foot lint) and decorate the recognized ^prj line as the
-      note's goal.
+    '
+- id: card-live
+  title: Report-backed lifecycle reasons, readouts, lint, and the ^prj goal line (bob-plugins)
+  depends_on:
+  - home-cards
+  - contract-reads
+  size: medium
+  description: 'card-live: patch the cards in place from the already-cached areas/projects
+    reports (blocked reasons, close dates, open/today readouts, contract issues in
+    the foot lint) and decorate the recognized ^prj line as the note''s goal.
 
-      "
-  - id: editor-settings
-    title:
-      The settings group in =+, ghost rows, simple stages, and == registration
-      (bob-plugins)
-    depends_on:
-      - home-cards
-      - contract-reads
-    size: large
-    description: "editor-settings: add the AREA/PROJECT SETTINGS group with ghost rows
-      and clear-to-inherit, the ^prj handoff rows, locked and managed groups, the
-      summary, ready cap, review interval, capture names, and Stats root stages, == on
-      area/project notes, and the degraded mode.
+    '
+- id: editor-settings
+  title: The settings group in =+, ghost rows, simple stages, and == registration
+    (bob-plugins)
+  depends_on:
+  - home-cards
+  - contract-reads
+  size: large
+  description: 'editor-settings: add the AREA/PROJECT SETTINGS group with ghost rows
+    and clear-to-inherit, the ^prj handoff rows, locked and managed groups, the summary,
+    ready cap, review interval, capture names, and Stats root stages, == on area/project
+    notes, and the degraded mode.
 
-      "
-  - id: editor-policy-stages
-    title: Hue, default type, and clock-policy stages (bob-plugins)
-    depends_on:
-      - editor-settings
-    size: medium
-    description: "editor-policy-stages: add the swatch stage with a live tint preview,
-      the type picker with legacy theme migration, and the four-mode clock-policy stage
-      with shadowed-pair cleanup.
+    '
+- id: editor-policy-stages
+  title: Hue, default type, and clock-policy stages (bob-plugins)
+  depends_on:
+  - editor-settings
+  size: medium
+  description: 'editor-policy-stages: add the swatch stage with a live tint preview,
+    the type picker with legacy theme migration, and the four-mode clock-policy stage
+    with shadowed-pair cleanup.
 
-      "
-  - id: editor-parent
-    title:
-      The Lives under stage with consequence preview and catalog refresh (bob-plugins)
-    depends_on:
-      - editor-settings
-    size: medium
-    description: "editor-parent: add the restricted home picker (reusing the nav-hotkeys
-      parent picker model), the bob dry-run consequence preview, and post-apply catalog
-      syncs inside the guarded session, with byte-exact undo.
+    '
+- id: editor-parent
+  title: The Lives under stage with consequence preview and catalog refresh (bob-plugins)
+  depends_on:
+  - editor-settings
+  size: medium
+  description: 'editor-parent: add the restricted home picker (reusing the nav-hotkeys
+    parent picker model), the bob dry-run consequence preview, and post-apply catalog
+    syncs inside the guarded session, with byte-exact undo.
 
-      "
-  - id: takeover
-    title:
-      Hide native Properties on area/project notes and arbitrate bank.md (bob-plugins +
-      memory)
-    depends_on:
-      - one-writer
-      - card-live
-      - editor-policy-stages
-      - editor-parent
-    size: large
-    description:
-      "takeover: own the frontmatter on eligible area/project notes behind
-      props_contract_v1, run the bank.md spike and mount the Area Card there with
-      bank_foot suppression, reroute native entry points, run the fail-open matrix,
-      finish the docs, and apply the approved glossary decisions."
+    '
+- id: takeover
+  title: Hide native Properties on area/project notes and arbitrate bank.md (bob-plugins
+    + memory)
+  depends_on:
+  - one-writer
+  - card-live
+  - editor-policy-stages
+  - editor-parent
+  size: large
+  description: 'takeover: own the frontmatter on eligible area/project notes behind
+    props_contract_v1, run the bank.md spike and mount the Area Card there with bank_foot
+    suppression, reroute native entry points, run the fail-open matrix, finish the
+    docs, and apply the approved glossary decisions.'
 proposed_by: bbugyi200.apollo.research.5y.linker.w1
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-22 20:56:37
 status: wip
+bead_id: bob-cli-pl
 ---
 
-- **PROMPT:**
-  [prompts/202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_cards.md)
+- **PROMPT:** [prompts/202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_cards.md)
+- **BEAD:** [bob-cli-pl](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/README.md)
 
 <!-- sase:links:start -->
 
