@@ -1,11 +1,10 @@
 ---
 tier: tale
 title: Finish and land task requirements (bob-cli-on)
-goal:
-  Fix the epic-caused gaps found at landing. A req-owning ^prj task files its notes into
-  a real `## Notes` section. Capture reports implicit NOTES filing. The Mac reveals a
-  requirement marker's raw bytes when the caret touches it. User docs stop teaching the
-  retired REQUIREMENTS drawer. Then close epic bob-cli-on.
+goal: Fix the epic-caused gaps found at landing. A req-owning ^prj task files its
+  notes into a real `## Notes` section. Capture reports implicit NOTES filing. The
+  Mac reveals a requirement marker's raw bytes when the caret touches it. User docs
+  stop teaching the retired REQUIREMENTS drawer. Then close epic bob-cli-on.
 size: medium
 bead: bob-cli-on
 proposed_by: bbugyi200.athena.bob-cli-on.land
@@ -17,11 +16,6 @@ status: done
   [202611/task_requirements.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_requirements.md)
 - **BEAD:**
   [bob-cli-on](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-on/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-on.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-on.land.md)
-- **COMMITS:**
-  - [eb236b4](https://github.com/bobs-org/bob-plugins/commit/eb236b40ef8ac32cf8dbf290218592a46a24cf53)
-    — fix(task-block): port ^prj \#\# Notes home into cycler and nav twins
 
 # Finish and land task requirements (bob-cli-on)
 
