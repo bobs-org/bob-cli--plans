@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish reference refresh convergence and land bob-cli-pj.2.1
-goal:
-  Reference scans converge safely through replacement plans and lock retries, with the
-  epic and parent phase verified and closed.
+goal: Reference scans converge safely through replacement plans and lock retries,
+  with the epic and parent phase verified and closed.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-pj.2.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-pj.2.1
-create_time: 2026-11-22 21:12:36
-status: wip
+status: done
 ---
 
 - **PARENT:**
