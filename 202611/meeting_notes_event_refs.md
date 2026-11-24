@@ -1,29 +1,28 @@
 ---
 tier: epic
 title: Meeting notes become event-linked references
-goal: "One deliberate gesture, from the CLI, Obsidian, or Bob Mac Capture, files AI
-  meeting notes (Wispr Flow first, any producer) as a `meetings` reference. The
-  reference is filed under the meeting's area or project, gets a searchable recap and a
-  polished dossier PDF, and has a Next reading task related `notes from` its Event Task.
-  The `~/tmp/bryan_derrick_meet_notes.txt` notes are filed onto
-  `20261123#^bryan-bugyi-derrick` this way as the first use case.
+goal: 'One deliberate gesture, from the CLI, Obsidian, or Bob Mac Capture, files AI
+  meeting notes (Wispr Flow first, any producer) as a `meetings` reference. The reference
+  is filed under the meeting''s area or project, gets a searchable recap and a polished
+  dossier PDF, and has a Next reading task related `notes from` its Event Task. The
+  `~/tmp/bryan_derrick_meet_notes.txt` notes are filed onto `20261123#^bryan-bugyi-derrick`
+  this way as the first use case.
 
-  "
+  '
 decisions:
   scaffolding:
-    ask:
-      After filing the first notes, how should first-use retire the hand-built review
-      chain?
+    ask: After filing the first notes, how should first-use retire the hand-built
+      review chain?
     choices:
-      rehang:
-        The review chore is superseded; the email it gates now waits on the new reading
-        task
-      release: The review chore is superseded; the email it gates becomes Ready at once
-      leave:
-        Only the notes are filed; the receipt prints the commands to retire the chain
+      rehang: The review chore is superseded; the email it gates now waits on the
+        new reading task
+      release: The review chore is superseded; the email it gates becomes Ready at
+        once
+      leave: Only the notes are filed; the receipt prints the commands to retire the
+        chain
     default: rehang
-    why:
-      The reading task is the review now; rehanging keeps your read-before-email intent
+    why: The reading task is the review now; rehanging keeps your read-before-email
+      intent
     answer: rehang
   recap_scope:
     ask: How much of the normalized notes should the reference note's recap hold?
@@ -31,113 +30,106 @@ decisions:
       full: TL;DR, next steps, and every section; all of it is searchable in Obsidian
       brief: TL;DR and next steps only; section detail lives only in the PDF
     default: full
-    why: Obsidian search and hover cannot see inside PDFs, and summaries are only ~3 KB
+    why: Obsidian search and hover cannot see inside PDFs, and summaries are only
+      ~3 KB
     answer: full
   memory_decision_record:
-    ask:
-      Add a decision record that meeting notes are references linked `notes from` their
-      Event Task?
+    ask: Add a decision record that meeting notes are references linked `notes from`
+      their Event Task?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_term:
-    ask:
-      Add a glossary term for the meetings reference (meeting notes ref, its recap, and
-      `bob ref meet`)?
+    ask: Add a glossary term for the meetings reference (meeting notes ref, its recap,
+      and `bob ref meet`)?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 phases:
-  - id: notes-normalizer
-    title: Structural notes normalizer, dossier source, and recap renderer
-    depends_on: []
-    size: medium
-    description:
-      "notes-normalizer: pure Rust module that reads notes text, detects its shape,
-      builds a MeetingNotes model without changing a word, and renders the
-      round-trippable dossier Markdown plus the inert, digest-stamped recap region, with
-      synthetic golden fixtures."
-  - id: meeting-resolver
-    title:
-      Event Task resolution, matching, recent-meetings listing, and agenda notes state
-    depends_on: []
-    size: medium
-    description:
-      "meeting-resolver: read-only meetings module that resolves EVENT tokens, scores
-      auto-matches with evidence, lists recent Event Tasks with their filed-notes state,
-      looks up Google identity, resolves the parent or inbox, and adds the additive
-      notes state to the capture agenda's event rows."
-  - id: dossier-print
-    title: Meeting dossier print profile
-    depends_on:
-      - notes-normalizer
-    size: medium
-    description:
-      "dossier-print: a meeting print profile beside the note-snapshot profile (shared
-      fonts, glyph coverage, warnings) that renders the dossier Markdown into a
-      one-to-two-page PDF with a title card, TL;DR box, next-steps table, sections,
-      provenance, and an optional transcript appendix."
-  - id: meeting-birth
-    title: Marker-carried meeting identity births the LINKS relation and recap
-    depends_on:
-      - notes-normalizer
-    size: medium
-    description:
-      "meeting-birth: intake and sync births for a meetings PDF whose marker carries
-      `event` give the reading task a LINKS child and seed the note's recap from the
-      birth store, byte-identical whether ingested inline or later by `bob ref scan`."
-  - id: ref-meet-cli
-    title: The `bob ref meet` command
-    depends_on:
-      - meeting-resolver
-      - dossier-print
-      - meeting-birth
-    size: large
-    description:
-      "ref-meet-cli: the CLI leaf wiring resolver, normalizer, print profile, and birth
-      into the create/intake pipeline, with list mode, dry run, editor review,
-      clipboard/stdin intake, dedupe and overwrite, inbox re-root, the JSON contract,
-      the receipt, `meetings:` config, catalog rows, and docs."
-  - id: first-use
-    title: File the first meeting's notes
-    depends_on:
-      - ref-meet-cli
-    size: small
-    description:
-      "first-use: run the new command on the real notes file against the live vault,
-      verify every artifact (including the PDF visually), retire the hand-built review
-      chain per the scaffolding decision, and record deferred follow-ups."
-  - id: obsidian-surfaces
-    title: Obsidian surfaces for meeting notes
-    depends_on:
-      - ref-meet-cli
-    size: medium
-    description:
-      "obsidian-surfaces: bob-plugins adds a Command Mode FOR THIS NOTE row for the
-      Event Task under the cursor, a `ref-meet` outcome adapter, and a Reading Board
-      meetings kind, then deploys with `bob plugins sync`."
-  - id: mac-surfaces
-    title: Bob Mac Capture meeting-notes mode and Meetings kind
-    depends_on:
-      - ref-meet-cli
-    size: large
-    description:
-      "mac-surfaces: bob-mac-capture adds a Meeting Notes mode (hotkey, menu item, and a
-      Notes action on ended agenda rows) that previews and files clipboard notes through
-      `bob ref meet` JSON, plus a first-class Meetings kind in Bob Refs, gated green on
-      macOS CI."
+- id: notes-normalizer
+  title: Structural notes normalizer, dossier source, and recap renderer
+  depends_on: []
+  size: medium
+  description: 'notes-normalizer: pure Rust module that reads notes text, detects
+    its shape, builds a MeetingNotes model without changing a word, and renders the
+    round-trippable dossier Markdown plus the inert, digest-stamped recap region,
+    with synthetic golden fixtures.'
+- id: meeting-resolver
+  title: Event Task resolution, matching, recent-meetings listing, and agenda notes
+    state
+  depends_on: []
+  size: medium
+  description: 'meeting-resolver: read-only meetings module that resolves EVENT tokens,
+    scores auto-matches with evidence, lists recent Event Tasks with their filed-notes
+    state, looks up Google identity, resolves the parent or inbox, and adds the additive
+    notes state to the capture agenda''s event rows.'
+- id: dossier-print
+  title: Meeting dossier print profile
+  depends_on:
+  - notes-normalizer
+  size: medium
+  description: 'dossier-print: a meeting print profile beside the note-snapshot profile
+    (shared fonts, glyph coverage, warnings) that renders the dossier Markdown into
+    a one-to-two-page PDF with a title card, TL;DR box, next-steps table, sections,
+    provenance, and an optional transcript appendix.'
+- id: meeting-birth
+  title: Marker-carried meeting identity births the LINKS relation and recap
+  depends_on:
+  - notes-normalizer
+  size: medium
+  description: 'meeting-birth: intake and sync births for a meetings PDF whose marker
+    carries `event` give the reading task a LINKS child and seed the note''s recap
+    from the birth store, byte-identical whether ingested inline or later by `bob
+    ref scan`.'
+- id: ref-meet-cli
+  title: The `bob ref meet` command
+  depends_on:
+  - meeting-resolver
+  - dossier-print
+  - meeting-birth
+  size: large
+  description: 'ref-meet-cli: the CLI leaf wiring resolver, normalizer, print profile,
+    and birth into the create/intake pipeline, with list mode, dry run, editor review,
+    clipboard/stdin intake, dedupe and overwrite, inbox re-root, the JSON contract,
+    the receipt, `meetings:` config, catalog rows, and docs.'
+- id: first-use
+  title: File the first meeting's notes
+  depends_on:
+  - ref-meet-cli
+  size: small
+  description: 'first-use: run the new command on the real notes file against the
+    live vault, verify every artifact (including the PDF visually), retire the hand-built
+    review chain per the scaffolding decision, and record deferred follow-ups.'
+- id: obsidian-surfaces
+  title: Obsidian surfaces for meeting notes
+  depends_on:
+  - ref-meet-cli
+  size: medium
+  description: 'obsidian-surfaces: bob-plugins adds a Command Mode FOR THIS NOTE row
+    for the Event Task under the cursor, a `ref-meet` outcome adapter, and a Reading
+    Board meetings kind, then deploys with `bob plugins sync`.'
+- id: mac-surfaces
+  title: Bob Mac Capture meeting-notes mode and Meetings kind
+  depends_on:
+  - ref-meet-cli
+  size: large
+  description: 'mac-surfaces: bob-mac-capture adds a Meeting Notes mode (hotkey, menu
+    item, and a Notes action on ended agenda rows) that previews and files clipboard
+    notes through `bob ref meet` JSON, plus a first-class Meetings kind in Bob Refs,
+    gated green on macOS CI.'
 proposed_by: bbugyi200.apollo.research.65.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-24 10:38:42
 status: wip
+bead_id: bob-cli-pw
 ---
 
-- **PROMPT:**
-  [prompts/202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/meeting_notes_event_refs.md)
+- **PROMPT:** [prompts/202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/meeting_notes_event_refs.md)
+- **BEAD:** [bob-cli-pw](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pw/README.md)
 
 # Plan: Meeting notes become event-linked references
 
