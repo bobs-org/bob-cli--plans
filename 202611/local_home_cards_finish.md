@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish local home cards and their nested landing
-goal:
-  Repair local card policy and lifecycle defects, prove the required Obsidian
+goal: Repair local card policy and lifecycle defects, prove the required Obsidian
   interactions, and close bob-cli-pl.4.1 and parent phase bob-cli-pl.4.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pl.4.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-pl.4.1
-create_time: 2026-11-24 14:17:02
-status: wip
+status: done
 ---
 
 - **PARENT:**
