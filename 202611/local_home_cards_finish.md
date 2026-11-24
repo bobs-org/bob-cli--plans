@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish local home cards and their nested landing
-goal: Repair local card policy and lifecycle defects, prove the required Obsidian
+goal:
+  Repair local card policy and lifecycle defects, prove the required Obsidian
   interactions, and close bob-cli-pl.4.1 and parent phase bob-cli-pl.4.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pl.4.1.land
@@ -14,6 +15,11 @@ status: done
   [202611/local_home_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/local_home_cards.md)
 - **BEAD:**
   [bob-cli-pl.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/bob-cli-pl.4.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-pl.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pl.4.1.land.md)
+- **COMMITS:**
+  - [45697ae](https://github.com/bobs-org/bob-plugins/commit/45697ae018dbeb60fd687890faccb781196c3a42)
+    — fix(home-cards): finish local Area and Project card landing
 
 # Finish local home cards and land bob-cli-pl.4.1
 
