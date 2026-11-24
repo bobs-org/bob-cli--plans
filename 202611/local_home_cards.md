@@ -1,47 +1,44 @@
 ---
 tier: epic
 title: Local Area and Project cards
-goal:
-  Complete bob-cli-pl.4 with locally painted Area and Project title cards, native
-  Properties still visible, unchanged project-task interaction, and verified
-  real-Obsidian behavior.
+goal: Complete bob-cli-pl.4 with locally painted Area and Project title cards, native
+  Properties still visible, unchanged project-task interaction, and verified real-Obsidian
+  behavior.
 phases:
-  - id: presentation
-    title: Local home-card model, species, and presentation
-    size: medium
-    depends_on: []
-    description:
-      "presentation: implement the pure local Area/Project card model, field and pennant
-      species, DOM presentation, and deterministic model/DOM tests described below. Wire
-      source fragments and exports, but leave production mounting to mount-foot."
-  - id: mount-foot
-    title: Home-card host, title adoption, foot, and lifecycle integration
-    size: medium
-    depends_on:
-      - presentation
-    description:
-      "mount-foot: mount the presentation in desktop Live Preview and Reading through
-      the shared host and title kit, integrate the property foot and local invalidation,
-      and test cleanup, exclusions, collapse, truthful inventory marks, and no writes or
-      card-triggered subprocesses. Keep native Properties visible."
-  - id: acceptance
-    title: Real-Obsidian acceptance, screenshots, and card documentation
-    size: medium
-    depends_on:
-      - mount-foot
-    description:
-      "acceptance: add the disposable-vault home-card e2e and offline wrapper, run its
-      real Obsidian matrix and inspect screenshots, fix phase regressions, document the
-      cards, and complete plugin build, test, docs, and deployment checks."
+- id: presentation
+  title: Local home-card model, species, and presentation
+  size: medium
+  depends_on: []
+  description: 'presentation: implement the pure local Area/Project card model, field
+    and pennant species, DOM presentation, and deterministic model/DOM tests described
+    below. Wire source fragments and exports, but leave production mounting to mount-foot.'
+- id: mount-foot
+  title: Home-card host, title adoption, foot, and lifecycle integration
+  size: medium
+  depends_on:
+  - presentation
+  description: 'mount-foot: mount the presentation in desktop Live Preview and Reading
+    through the shared host and title kit, integrate the property foot and local invalidation,
+    and test cleanup, exclusions, collapse, truthful inventory marks, and no writes
+    or card-triggered subprocesses. Keep native Properties visible.'
+- id: acceptance
+  title: Real-Obsidian acceptance, screenshots, and card documentation
+  size: medium
+  depends_on:
+  - mount-foot
+  description: 'acceptance: add the disposable-vault home-card e2e and offline wrapper,
+    run its real Obsidian matrix and inspect screenshots, fix phase regressions, document
+    the cards, and complete plugin build, test, docs, and deployment checks.'
 proposed_by: bbugyi200.apollo.bob-cli-pl.4--1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pl.4
 create_time: 2026-11-24 09:51:06
 status: wip
+bead_id: bob-cli-pl.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/local_home_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/local_home_cards.md)
+- **PROMPT:** [prompts/202611/local_home_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/local_home_cards.md)
+- **BEAD:** [bob-cli-pl.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/bob-cli-pl.4.1.md)
 
 # Local Area and Project cards for bob-cli-pl.4
 
