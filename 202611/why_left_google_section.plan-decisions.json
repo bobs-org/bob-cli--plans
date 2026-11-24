@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "extras",
+      "kind": "choice",
+      "ask": "Should the section include the probe follow-ups and the one-line rules strip below the answer?",
+      "why": "The \"laid off?\" probe is where a live answer most often goes wrong, so it should be one glance away.",
+      "choices": [
+        {
+          "key": "full",
+          "label": "Answer, one-liner, four probe follow-ups, a rules strip, and sources (about 400 words)"
+        },
+        {
+          "key": "answer_only",
+          "label": "Only the answer, the one-liner, and sources (about 225 words); the playbook keeps everything else"
+        }
+      ],
+      "default": "full",
+      "effective_default": "full",
+      "requested_verified": false
+    },
+    {
+      "id": "sase_after_hire",
+      "kind": "choice",
+      "ask": "Should the follow-ups commit to \"sase stays my personal toolkit on my own time; the job gets my working hours\"?",
+      "why": "Research ranks it the top flight-risk counter; it sets a boundary, not abandonment.",
+      "choices": [
+        {
+          "key": "include",
+          "label": "Keep that follow-up; it states a real boundary you will repeat word for word in every interview"
+        },
+        {
+          "key": "omit",
+          "label": "Drop that follow-up until you have decided what sase's future is after a hire"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    }
+  ]
+}
