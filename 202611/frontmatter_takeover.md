@@ -1,67 +1,61 @@
 ---
 tier: epic
 title: Complete card frontmatter takeover
-goal:
-  Eligible mounted cards replace native in-document Properties without losing keyboard
-  editing, native recovery, sidebar access, or source fidelity.
+goal: Eligible mounted cards replace native in-document Properties without losing
+  keyboard editing, native recovery, sidebar access, or source fidelity.
 phases:
-  - id: focus-proof
-    title: Prove whole-container ownership in real Obsidian
-    size: medium
-    depends_on: []
-    description:
-      "focus-proof: run and strengthen the existing S1 probe, fix bounded
-      ownership/focus defects, and retain the observed Add file property command
-      contract and mode verdicts. Keep production adapters unwired."
-  - id: capability-routing
-    title: Add cached capability gating and native property entry routing
-    size: medium
-    depends_on:
-      - focus-proof
-    description:
-      "capability-routing: add the session-and-bob-path capability cache, shared
-      actual-ownership query, reversible Add file property command wrapper, and
-      owned-scope focus-helper routing. Test lifecycle and stale-result behavior before
-      enabling adapters."
-  - id: adapter-takeover
-    title: Enable fail-open ownership on album, record, and temporal cards
-    size: medium
-    depends_on:
-      - capability-routing
-    description:
-      "adapter-takeover: wire successful card mounts to generation-bound whole-container
-      ownership, preserving row hiding as fallback and promptly releasing on
-      invalidation, failure, Source, navigation, or teardown. Include identity-only day
-      cards."
-  - id: acceptance
-    title: Verify takeover restoration, keyboard access, and visual behavior
-    size: medium
-    depends_on:
-      - adapter-takeover
-    description:
-      "acceptance: build and run the disposable-vault real-Obsidian takeover matrix and
-      offline wrapper, fix integration regressions, and retain inspected screenshots and
-      reports tied to the exact CLI binary and plugin builds."
-  - id: docs-memory
-    title: Document verified ownership and correct the two approved glossary strands
-    size: small
-    depends_on:
-      - acceptance
-    description:
-      "docs-memory: update plugin behavior and validation references and the
-      inherited-approved Property Card and Record Card glossary strands, regenerate
-      memory, and prepare completion evidence for the child epic's land agent."
+- id: focus-proof
+  title: Prove whole-container ownership in real Obsidian
+  size: medium
+  depends_on: []
+  description: 'focus-proof: run and strengthen the existing S1 probe, fix bounded
+    ownership/focus defects, and retain the observed Add file property command contract
+    and mode verdicts. Keep production adapters unwired.'
+- id: capability-routing
+  title: Add cached capability gating and native property entry routing
+  size: medium
+  depends_on:
+  - focus-proof
+  description: 'capability-routing: add the session-and-bob-path capability cache,
+    shared actual-ownership query, reversible Add file property command wrapper, and
+    owned-scope focus-helper routing. Test lifecycle and stale-result behavior before
+    enabling adapters.'
+- id: adapter-takeover
+  title: Enable fail-open ownership on album, record, and temporal cards
+  size: medium
+  depends_on:
+  - capability-routing
+  description: 'adapter-takeover: wire successful card mounts to generation-bound
+    whole-container ownership, preserving row hiding as fallback and promptly releasing
+    on invalidation, failure, Source, navigation, or teardown. Include identity-only
+    day cards.'
+- id: acceptance
+  title: Verify takeover restoration, keyboard access, and visual behavior
+  size: medium
+  depends_on:
+  - adapter-takeover
+  description: 'acceptance: build and run the disposable-vault real-Obsidian takeover
+    matrix and offline wrapper, fix integration regressions, and retain inspected
+    screenshots and reports tied to the exact CLI binary and plugin builds.'
+- id: docs-memory
+  title: Document verified ownership and correct the two approved glossary strands
+  size: small
+  depends_on:
+  - acceptance
+  description: 'docs-memory: update plugin behavior and validation references and
+    the inherited-approved Property Card and Record Card glossary strands, regenerate
+    memory, and prepare completion evidence for the child epic''s land agent.'
 proposed_by: bbugyi200.apollo.bob-cli-pf.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pf.6
 create_time: 2026-11-23 20:38:13
 status: wip
+bead_id: bob-cli-pf.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/frontmatter_takeover.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/frontmatter_takeover.md)
-- **PARENT:**
-  [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **PROMPT:** [prompts/202611/frontmatter_takeover.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/frontmatter_takeover.md)
+- **PARENT:** [202611/card_owned_frontmatter.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/card_owned_frontmatter.md)
+- **BEAD:** [bob-cli-pf.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pf/bob-cli-pf.6.1.md)
 
 # Finish card frontmatter takeover for bob-cli-pf.6
 
