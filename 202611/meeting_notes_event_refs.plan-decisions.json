@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "scaffolding",
+      "kind": "choice",
+      "ask": "After filing the first notes, how should first-use retire the hand-built review chain?",
+      "why": "The reading task is the review now; rehanging keeps your read-before-email intent",
+      "choices": [
+        {
+          "key": "rehang",
+          "label": "The review chore is superseded; the email it gates now waits on the new reading task"
+        },
+        {
+          "key": "release",
+          "label": "The review chore is superseded; the email it gates becomes Ready at once"
+        },
+        {
+          "key": "leave",
+          "label": "Only the notes are filed; the receipt prints the commands to retire the chain"
+        }
+      ],
+      "default": "rehang",
+      "effective_default": "rehang",
+      "requested_verified": false
+    },
+    {
+      "id": "recap_scope",
+      "kind": "choice",
+      "ask": "How much of the normalized notes should the reference note's recap hold?",
+      "why": "Obsidian search and hover cannot see inside PDFs, and summaries are only ~3 KB",
+      "choices": [
+        {
+          "key": "full",
+          "label": "TL;DR, next steps, and every section; all of it is searchable in Obsidian"
+        },
+        {
+          "key": "brief",
+          "label": "TL;DR and next steps only; section detail lives only in the PDF"
+        }
+      ],
+      "default": "full",
+      "effective_default": "full",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record that meeting notes are references linked `notes from` their Event Task?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "#now Is A User-Owned Weekly Bet, Never A Status",
+            "A Jump Successor Lands Last And Parks The Walk",
+            "A Notebook Route Writes Notes; `@@` Stays Draft-Wide",
+            "A Pomodoro Theme Is One Name Component",
+            "A Task Move Never Advances The Walk",
+            "Active Task Statuses Are Derived, Not Authored",
+            "Alt+N Answers From Due Rows",
+            "An Empty Capture Draft Shows Today's Ledger Agenda",
+            "Answering A Walk Landing Advances The Walk",
+            "Awaiting A Gmail Reply Is A Tagged Schedule Hold",
+            "Bob Cli Releases Ride A Daily Train",
+            "Bob Gcal Is Read Only And Proposes Once",
+            "Bob Mac Capture Is A Thin Client Of bob",
+            "Buffer Reasons Ride The Description Bullets",
+            "Calendar Events Are Daily Note Event Tasks",
+            "Capture Bullets Mirror The Task Block",
+            "Capture Links A Dependency-Blocked Task By Dropping Its Prerequisites",
+            "Capture Reserves Clock Tags",
+            "Capture Sigils Say Where What How",
+            "Capture Star Blocks Existing Tasks",
+            "Close Selections List Explicitly",
+            "Code Copy Reads bob's Render-Time Catalog",
+            "Consumption Keeps Notes And Recorded Time",
+            "Ctrl+Enter Carries The Last PRE Chore Into The Next Group",
+            "Decay Decisions Are Available Immediately",
+            "Ended Off-Clock Events Settle Into Closed Sessions",
+            "ended-synced-meetings-are-born-done",
+            "Event Buffers Widen The Occupied Span",
+            "Event Task Links Close By The Clock",
+            "Gcal Force Resets The Day",
+            "Gcal Root Follows Google Until Edited",
+            "Hiding A Theme Removes It From Recent Only",
+            "Idle Capture Mirrors Walk Attention",
+            "meet-filing-follows-google-until-edited",
+            "Next And Pending Are Sticky Lanes; Only Blocked Is Derived",
+            "Next Keeps Ask For An Optional Rotten Log Reason",
+            "Note Ready Cap Counts The Lane",
+            "Off-Clock Follows Tag Then Note Default",
+            "Off-Clock Note Defaults Filter By Task Type",
+            "Off-Clock Pomodoros Are Recorded And Counted Apart",
+            "Open PDF Writes Are Coordinated",
+            "Open Pomodoro Names Follow Task Links",
+            "Past Day Sync Closes Bob Filed Meetings",
+            "Private Event Notes Beat Google Per Field",
+            "Projects Block Their Tasks From The ^prj Line",
+            "q-and-ctrl-bracket-mirror-esc",
+            "READY Is Freshness-Gated With NEW and ROTTEN Review",
+            "Recurring Occurrences Walk When Due",
+            "Ref Rename Keeps Identity",
+            "Reference Ids Follow File Stems",
+            "Reference Renames Keep Identity",
+            "Reference Sources Are Preserved Write-Once",
+            "References Are Ingested At Birth",
+            "Relation Card Tab Accepts Ctrl-D Hides",
+            "Relation Equals Alias And Flips",
+            "Relation Label Hide Is Suggestions-Only",
+            "Relation Label Prefs Live In A Per-Host Journal",
+            "Relation Label Rename Rewrites History",
+            "Review Attention Follows The ]s Walk",
+            "Review Walk Is Tiered With Daily Lane Review",
+            "Rotten Keeps Are Logged",
+            "Rotten Keeps Decay Through The Priority Ladder",
+            "Similar Tasks Are A Settled Heads-Up",
+            "Subprojects Inherit Project Blocking",
+            "sync-sorts-event-task-links",
+            "Synced Meetings Are Linked By Phase At Birth",
+            "Task Decay Is One Ladder",
+            "Task Dependencies Are Links On One Depends-On Line",
+            "Task Requirements Are Met With Their Task",
+            "The Mac `w` Mark Counts Lane Excess",
+            "Theme Hue Is Config Then Pin Then Exempt Then Unconfigured Then Area Then Hash",
+            "Theme Hue Is Pin Then Exempt Then Area Then Hash",
+            "Theme Preferences Live In A Per-Host Journal",
+            "Today Is Read From The Ledger, Never Written To Tasks",
+            "Unblocked Tasks Are Offered, Never Auto-Linked",
+            "Unblocked Tasks Resurface As Ticklers",
+            "Untracked Sessions Omit T Field"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_term",
+      "kind": "toggle",
+      "ask": "Add a glossary term for the meetings reference (meeting notes ref, its recap, and `bob ref meet`)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Album Card",
+            "Album Note",
+            "Annotation Section",
+            "Area Note",
+            "Bank Badge",
+            "Bank Card",
+            "Bank Closing",
+            "Bank Month Note",
+            "Bank Row",
+            "Bulk Capture",
+            "Capture",
+            "Capture Alias",
+            "Capture Panel",
+            "Command Chip",
+            "Command Mode",
+            "Copy Chip",
+            "Daily Headline",
+            "Day and Period Card",
+            "Day Strip",
+            "Event Ack",
+            "Event Task",
+            "Gmail Task",
+            "Inbox File",
+            "Intention",
+            "Keep Streak",
+            "Leaf Project",
+            "Mac Menu Bar Pomodoro Indicator",
+            "Merged Pomodoro",
+            "Morning GTD Review Footer",
+            "Notebook",
+            "Off-Clock Pomodoro",
+            "Period Note",
+            "Pomodoro",
+            "Project Note",
+            "Project Note Capture",
+            "Project Task",
+            "Property Card",
+            "Record Card",
+            "Record Note",
+            "Ref Panel",
+            "Reference Note",
+            "Reference Task",
+            "Root Parent",
+            "Rotten Log",
+            "Schedule Log",
+            "Stats Dash",
+            "Stats Strip",
+            "Successor Offer",
+            "Task Decay",
+            "Task Dependency Link",
+            "Task Drawer",
+            "Task Freshness",
+            "Task Link",
+            "Task Mention",
+            "Task Merge",
+            "Task Relation",
+            "Task Requirement",
+            "Task Split",
+            "Task Successor",
+            "Task Type",
+            "Top-Level Project",
+            "Walker Footer",
+            "Work Log"
+          ]
+        }
+      ]
+    }
+  ]
+}
