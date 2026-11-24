@@ -1,66 +1,59 @@
 ---
 tier: epic
 title: Area and project settings in the Property Editor
-goal:
-  Complete bob-cli-pl.6 with contract-driven settings, safe set and clear actions,
+goal: Complete bob-cli-pl.6 with contract-driven settings, safe set and clear actions,
   project task handoffs, and verified entry points in the existing Property Editor.
 phases:
-  - id: preview-contract
-    title: Return the resulting settings contract from property previews and writes
-    size: small
-    depends_on: []
-    description:
-      "preview-contract: expose the candidate contract in successful update JSON,
-      document the additive field, and test clear/apply/undo sources without changing
-      validation or writes."
-  - id: settings-rows
-    title: Extend the Property Editor with contract groups and stable virtual rows
-    size: medium
-    depends_on:
-      - preview-contract
-    description:
-      "settings-rows: add a per-kind row provider, render stable settings and project
-      virtual rows, preserve selection and clipboard behavior, gate unsupported actions,
-      and implement capability fallback."
-  - id: setting-actions
-    title:
-      Implement simple setting stages and clear-to-inherit through the shared session
-    size: medium
-    depends_on:
-      - settings-rows
-    description:
-      "setting-actions: add the five simple controls, temporary generic stages, typed
-      set/clear operations, effects and warnings, and fresh contract reconciliation
-      after apply and undo."
-  - id: settings-entrypoints
-    title: Route area and project settings entry points and project task handoffs
-    size: medium
-    depends_on:
-      - setting-actions
-    description:
-      "settings-entrypoints: register area/project in the existing registry, route card
-      actions by setting id, implement project-task navigation and handoffs, and
-      document the API and bare-plus keys."
-  - id: settings-acceptance
-    title: Verify settings behavior and visuals in real Obsidian
-    size: medium
-    depends_on:
-      - settings-entrypoints
-    description:
-      "settings-acceptance: extend the scratch-vault harness, exercise settings and
-      generic parity with current bob, inspect screenshots, fix phase-specific
-      regressions, and record deployment and verification evidence."
+- id: preview-contract
+  title: Return the resulting settings contract from property previews and writes
+  size: small
+  depends_on: []
+  description: 'preview-contract: expose the candidate contract in successful update
+    JSON, document the additive field, and test clear/apply/undo sources without changing
+    validation or writes.'
+- id: settings-rows
+  title: Extend the Property Editor with contract groups and stable virtual rows
+  size: medium
+  depends_on:
+  - preview-contract
+  description: 'settings-rows: add a per-kind row provider, render stable settings
+    and project virtual rows, preserve selection and clipboard behavior, gate unsupported
+    actions, and implement capability fallback.'
+- id: setting-actions
+  title: Implement simple setting stages and clear-to-inherit through the shared session
+  size: medium
+  depends_on:
+  - settings-rows
+  description: 'setting-actions: add the five simple controls, temporary generic stages,
+    typed set/clear operations, effects and warnings, and fresh contract reconciliation
+    after apply and undo.'
+- id: settings-entrypoints
+  title: Route area and project settings entry points and project task handoffs
+  size: medium
+  depends_on:
+  - setting-actions
+  description: 'settings-entrypoints: register area/project in the existing registry,
+    route card actions by setting id, implement project-task navigation and handoffs,
+    and document the API and bare-plus keys.'
+- id: settings-acceptance
+  title: Verify settings behavior and visuals in real Obsidian
+  size: medium
+  depends_on:
+  - settings-entrypoints
+  description: 'settings-acceptance: extend the scratch-vault harness, exercise settings
+    and generic parity with current bob, inspect screenshots, fix phase-specific regressions,
+    and record deployment and verification evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-pl.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pl.6
 create_time: 2026-11-24 15:49:19
 status: wip
+bead_id: bob-cli-pl.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/area_project_settings.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_settings.md)
-- **PARENT:**
-  [202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/area_project_cards.md)
+- **PROMPT:** [prompts/202611/area_project_settings.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_settings.md)
+- **PARENT:** [202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/area_project_cards.md)
+- **BEAD:** [bob-cli-pl.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/bob-cli-pl.6.1.md)
 
 # Area and project settings in the existing Property Editor
 
