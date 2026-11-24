@@ -1,65 +1,59 @@
 ---
 tier: epic
 title: Complete the meeting notes reference command
-goal:
-  bob ref meet lists, previews, files, and replaces event-linked meeting references
+goal: bob ref meet lists, previews, files, and replaces event-linked meeting references
   through the existing intake pipeline with a stable JSON contract and complete docs,
   completing the assigned ref-meet-cli phase bob-cli-pw.5.
 phases:
-  - id: preparation
-    title: Prepare meeting filings and render structured reports
-    size: medium
-    depends_on: []
-    description:
-      "preparation: build the internal read-only meeting request, preparation, identity,
-      and report layer from the landed resolver, normalizer, and config. Implement
-      list/preview data, match evidence, parent choices, dedupe/overwrite selection,
-      exact input hash guards, and human/JSON output models. Test without exposing an
-      unfinished public command. See the preparation section for the contract and
-      acceptance."
-  - id: first-filing
-    title: Ingest a meeting dossier with its event re-root in one commit
-    size: medium
-    depends_on:
-      - preparation
-    description:
-      "first-filing: add create/meet_route.rs using the prepared request, meeting PDF
-      profile, marker, source store, and shared intake. Extend the locked intake
-      transaction for a checked in-place event-root edit and structured outcomes. Verify
-      fresh filing, source preservation, queued drain, status, scoped commits, and
-      failure paths."
-  - id: replacement
-    title: Replace meeting notes while preserving recap ownership and task identity
-    size: medium
-    depends_on:
-      - first-filing
-    description:
-      "replacement: wire meeting overwrite into the existing recapture/overwrite
-      transaction. Preserve reference and reading-task identity, LINKS bytes, and
-      user-edited recap; replace only owned recap inside the transaction, keep recap out
-      of ref_history, and preserve existing coordination, rollback, and recovery."
-  - id: command-and-docs
-    title: Expose the complete ref meet CLI and document its contract
-    size: medium
-    depends_on:
-      - replacement
-    description:
-      "command-and-docs: add the clap leaf and dispatch over the completed services,
-      clipboard/stdin, TTY choices and editor review, receipts and exit codes, catalog
-      rows, help goldens, and all requested documentation. Verify the public CLI end to
-      end. Prepare acceptance evidence for the child epic land agent; do not close any
-      ancestor bead from this phase."
+- id: preparation
+  title: Prepare meeting filings and render structured reports
+  size: medium
+  depends_on: []
+  description: 'preparation: build the internal read-only meeting request, preparation,
+    identity, and report layer from the landed resolver, normalizer, and config. Implement
+    list/preview data, match evidence, parent choices, dedupe/overwrite selection,
+    exact input hash guards, and human/JSON output models. Test without exposing an
+    unfinished public command. See the preparation section for the contract and acceptance.'
+- id: first-filing
+  title: Ingest a meeting dossier with its event re-root in one commit
+  size: medium
+  depends_on:
+  - preparation
+  description: 'first-filing: add create/meet_route.rs using the prepared request,
+    meeting PDF profile, marker, source store, and shared intake. Extend the locked
+    intake transaction for a checked in-place event-root edit and structured outcomes.
+    Verify fresh filing, source preservation, queued drain, status, scoped commits,
+    and failure paths.'
+- id: replacement
+  title: Replace meeting notes while preserving recap ownership and task identity
+  size: medium
+  depends_on:
+  - first-filing
+  description: 'replacement: wire meeting overwrite into the existing recapture/overwrite
+    transaction. Preserve reference and reading-task identity, LINKS bytes, and user-edited
+    recap; replace only owned recap inside the transaction, keep recap out of ref_history,
+    and preserve existing coordination, rollback, and recovery.'
+- id: command-and-docs
+  title: Expose the complete ref meet CLI and document its contract
+  size: medium
+  depends_on:
+  - replacement
+  description: 'command-and-docs: add the clap leaf and dispatch over the completed
+    services, clipboard/stdin, TTY choices and editor review, receipts and exit codes,
+    catalog rows, help goldens, and all requested documentation. Verify the public
+    CLI end to end. Prepare acceptance evidence for the child epic land agent; do
+    not close any ancestor bead from this phase.'
 proposed_by: bbugyi200.apollo.bob-cli-pw.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pw.5
 create_time: 2026-11-24 15:14:19
 status: wip
+bead_id: bob-cli-pw.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/ref_meet_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_meet_cli.md)
-- **PARENT:**
-  [202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/meeting_notes_event_refs.md)
+- **PROMPT:** [prompts/202611/ref_meet_cli.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_meet_cli.md)
+- **PARENT:** [202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/meeting_notes_event_refs.md)
+- **BEAD:** [bob-cli-pw.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pw/bob-cli-pw.5.1.md)
 
 # Complete `bob ref meet` for bob-cli-pw.5
 
