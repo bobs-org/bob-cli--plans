@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Finish the Mail Close Card and land epic bob-cli-px
-goal: Bob Mac Capture builds on macOS again, and every Obsidian close gesture on a
-  Gmail Task, checkbox clicks included, shows exactly one Mail Close Card per gesture
-  that obeys the epic spec; then epic bob-cli-px is verified and closed.
+goal:
+  Bob Mac Capture builds on macOS again, and every Obsidian close gesture on a Gmail
+  Task, checkbox clicks included, shows exactly one Mail Close Card per gesture that
+  obeys the epic spec; then epic bob-cli-px is verified and closed.
 proposed_by: bbugyi200.athena.bob-cli-px.land
 proposed_with: claude/opus
 bead: bob-cli-px
@@ -15,6 +16,11 @@ status: done
   [202611/email_task_close_confirmation.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/email_task_close_confirmation.md)
 - **BEAD:**
   [bob-cli-px](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-px/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-px.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-px.land.md)
+- **COMMITS:**
+  - [4ecbf21](https://github.com/bobs-org/bob-plugins/commit/4ecbf218ee100fcb26d690930de3bdaac5ac440f)
+    — feat(plugins): finish Mail Close Card prompt-once, checkbox guard, and card spec
 
 # Finish the Mail Close Card and land epic bob-cli-px
 
