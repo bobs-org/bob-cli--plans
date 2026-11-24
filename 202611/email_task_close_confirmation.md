@@ -1,109 +1,98 @@
 ---
 tier: epic
 title: Closing an email task asks first (the Mail Close Card)
-goal: "No interactive gesture in Obsidian, bob capture, or Bob Mac Capture can complete
+goal: 'No interactive gesture in Obsidian, bob capture, or Bob Mac Capture can complete
   or cancel a Gmail Task without first showing one calm, beautiful confirmation card
   that says whose turn the thread is on and what closing it will cost; a stray Enter,
   Alt+[, or muscle-memory keypress keeps the task open.
 
-  "
+  '
 decisions:
   cli_refuses_by_default:
-    ask:
-      Should plain `bob capture` refuse every email-task close until it is confirmed
+    ask: Should plain `bob capture` refuse every email-task close until it is confirmed
       with the preview digest?
-    why:
-      '"Always" covers agents and terminals too; the refusal prints the exact rerun
+    why: '"Always" covers agents and terminals too; the refusal prints the exact rerun
       command.'
     default: true
     answer: true
   guard_checkbox_clicks:
-    ask:
-      Should mouse and tap checkbox clicks on a Gmail Task in Live Preview and Reading
-      view also open the card?
-    why:
-      Clicks are the one common close gesture outside the keymaps; without this,
+    ask: Should mouse and tap checkbox clicks on a Gmail Task in Live Preview and
+      Reading view also open the card?
+    why: Clicks are the one common close gesture outside the keymaps; without this,
       "always" has a gap.
     default: true
     answer: true
   memory_decision_record:
-    ask:
-      Should a new decisions record "Closing A Gmail Task Asks First" be added to the
-      decisions web?
+    ask: Should a new decisions record "Closing A Gmail Task Asks First" be added
+      to the decisions web?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_gmail_task:
-    ask:
-      Should the Gmail Task glossary strand mention that closing one asks first through
-      the Mail Close Card?
+    ask: Should the Gmail Task glossary strand mention that closing one asks first
+      through the Mail Close Card?
     memory:
-      - glossary:Gmail Task
+    - glossary:Gmail Task
     default: false
     answer: false
 phases:
-  - id: model
-    title: Shared Gmail Task close model, vectors, and contract page (bob-cli)
-    depends_on: []
-    size: medium
-    description:
-      "model: Rust predicate plus copy and digest model for guarded closes, the shared
-      conformance vectors, and the docs/mail-close-card.md contract."
-  - id: capture
-    title: bob capture refuses unconfirmed email-task closes
-    depends_on:
-      - model
-    size: medium
-    description:
-      "capture: last-gate post-pass that finds Gmail Tasks a capture would close, the
-      mail_close JSON payload, the -m/--mail-close DIGEST confirmation, human output,
-      and docs."
-  - id: navcard
-    title: Mail Close Card and guard API in Bob Navigation Hotkeys
-    depends_on:
-      - model
-    size: medium
-    description:
-      "navcard: model twin, the card modal, nav api.mailCloseGuard v1, and guarding
-      every nav-owned close path including review-walk landings."
-  - id: cycler
-    title: Task Status Cycler closes go through the guard
-    depends_on:
-      - navcard
-    size: medium
-    description:
-      "cycler: guard Ctrl+Enter, Alt+[ / Alt+], counted, Task Link, transclusion,
-      Pomodoro-cascade, and offer-close writes with a sync fast path, fail-closed
-      fallback, and checkbox clicks."
-  - id: mac
-    title: Bob Mac Capture shows the Mail Close Card
-    depends_on:
-      - capture
-    size: medium
-    description:
-      "mac: preview banner, a Mail Close card opened from bob's refusal, Y to confirm
-      with the digest, and docs and CI."
-  - id: verify
-    title: Cross-surface verification and records
-    depends_on:
-      - capture
-      - cycler
-      - mac
-    size: small
-    description:
-      "verify: replay the original accident on every surface, capture light and dark
-      card screenshots, and land the memory records the review accepted."
+- id: model
+  title: Shared Gmail Task close model, vectors, and contract page (bob-cli)
+  depends_on: []
+  size: medium
+  description: 'model: Rust predicate plus copy and digest model for guarded closes,
+    the shared conformance vectors, and the docs/mail-close-card.md contract.'
+- id: capture
+  title: bob capture refuses unconfirmed email-task closes
+  depends_on:
+  - model
+  size: medium
+  description: 'capture: last-gate post-pass that finds Gmail Tasks a capture would
+    close, the mail_close JSON payload, the -m/--mail-close DIGEST confirmation, human
+    output, and docs.'
+- id: navcard
+  title: Mail Close Card and guard API in Bob Navigation Hotkeys
+  depends_on:
+  - model
+  size: medium
+  description: 'navcard: model twin, the card modal, nav api.mailCloseGuard v1, and
+    guarding every nav-owned close path including review-walk landings.'
+- id: cycler
+  title: Task Status Cycler closes go through the guard
+  depends_on:
+  - navcard
+  size: medium
+  description: 'cycler: guard Ctrl+Enter, Alt+[ / Alt+], counted, Task Link, transclusion,
+    Pomodoro-cascade, and offer-close writes with a sync fast path, fail-closed fallback,
+    and checkbox clicks.'
+- id: mac
+  title: Bob Mac Capture shows the Mail Close Card
+  depends_on:
+  - capture
+  size: medium
+  description: 'mac: preview banner, a Mail Close card opened from bob''s refusal,
+    Y to confirm with the digest, and docs and CI.'
+- id: verify
+  title: Cross-surface verification and records
+  depends_on:
+  - capture
+  - cycler
+  - mac
+  size: small
+  description: 'verify: replay the original accident on every surface, capture light
+    and dark card screenshots, and land the memory records the review accepted.'
 proposed_by: bbugyi200.athena.1fs
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-24 12:22:28
 status: wip
+bead_id: bob-cli-px
 ---
 
-- **PROMPT:**
-  [prompts/202611/email_task_close_confirmation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/email_task_close_confirmation.md)
+- **PROMPT:** [prompts/202611/email_task_close_confirmation.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/email_task_close_confirmation.md)
+- **BEAD:** [bob-cli-px](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-px/README.md)
 
 # Plan: Closing an email task asks first
 
