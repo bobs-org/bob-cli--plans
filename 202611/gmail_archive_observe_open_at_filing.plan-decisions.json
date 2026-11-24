@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "repeat_pause_exit",
+      "kind": "choice",
+      "ask": "Should an unchanged paused archive gate stop failing the sync after the first run that sees it?",
+      "why": "A pause blocks all auto-archiving and becomes rare after the fix, so repeating is acceptable",
+      "choices": [
+        {
+          "key": "every_run",
+          "label": "Every paused run exits 1 as documented; cron mails each Gmail tick until confirmed"
+        },
+        {
+          "key": "first_sighting",
+          "label": "Only a new pause digest exits 1; repeats report in JSON and exit 0, mailing once"
+        }
+      ],
+      "default": "every_run",
+      "effective_default": "every_run",
+      "requested_verified": false
+    }
+  ]
+}
