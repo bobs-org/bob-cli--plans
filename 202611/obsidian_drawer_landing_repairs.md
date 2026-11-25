@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair Obsidian drawer landing gaps and close bob-cli-ph.7
-goal:
-  Preserve drawer titles and visual states, repair epic-owned checks, and complete the
-  nested landing.
+goal: Preserve drawer titles and visual states, repair epic-owned checks, and complete
+  the nested landing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.7.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-ph.7.1
-create_time: 2026-11-25 13:17:43
-status: wip
+status: done
 ---
 
 - **PARENT:**
