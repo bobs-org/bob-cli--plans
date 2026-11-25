@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "uncommitted_rows",
+      "kind": "choice",
+      "ask": "How should wake treat a due row whose task is Ready (released, or hand-written on an uncommitted task)?",
+      "why": "Release stays final with no exceptions; Alt+Z and bob snooze add commit the task for you",
+      "choices": [
+        {
+          "key": "ignore",
+          "label": "Only Next/In Progress tasks wake; a Ready row never revives a released task"
+        },
+        {
+          "key": "promote",
+          "label": "A Ready row wakes and is promoted to Next, exactly like a hand-added Task Link"
+        }
+      ],
+      "default": "ignore",
+      "effective_default": "ignore",
+      "requested_verified": false
+    },
+    {
+      "id": "wake_notice",
+      "kind": "choice",
+      "ask": "Which Mac surface should announce a wake?",
+      "why": "Bob controls visibility and dismissal end to end, which is what \"very likely to see\" needs",
+      "choices": [
+        {
+          "key": "hud",
+          "label": "Glass HUD at top-center, 12 s, hover pauses, Open/+15m/\u00d7 actions; Focus cannot hide it"
+        },
+        {
+          "key": "banner",
+          "label": "System banner through NotificationService; simpler, but Focus and alert style can hide it"
+        }
+      ],
+      "default": "hud",
+      "effective_default": "hud",
+      "requested_verified": false
+    },
+    {
+      "id": "hold_in_meetings",
+      "kind": "toggle",
+      "ask": "Hold the wake notice during a running calendar meeting and deliver it when the meeting ends?",
+      "why": "No interruption mid-meeting and no task titles on a shared screen; the beacon still lights",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "glossary_snoozed_task",
+      "kind": "toggle",
+      "ask": "Add the new Snoozed Task glossary strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:snoozed-task"
+        ]
+      },
+      "requested": "As a part of this change, we should add an excellent new glossary term for \"snoozed task\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:snoozed-task",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/snoozed-task.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Record this design as a new decisions memory record (snoozed tasks wake through bob)?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:snoozed-tasks-wake-through-bob"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:snoozed-tasks-wake-through-bob",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/snoozed-tasks-wake-through-bob.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
