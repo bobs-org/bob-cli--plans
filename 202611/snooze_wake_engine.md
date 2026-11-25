@@ -1,78 +1,72 @@
 ---
 tier: epic
 title: Snooze wake engine for bob-cli-q5.1
-goal:
-  Complete bob-cli-q5.1 with a tested snooze CLI, safe never-running wake placement,
-  shared row and time contracts, post-commit receipts and notices, first-position tick
-  integration, and trailing-ledger-section preservation.
+goal: Complete bob-cli-q5.1 with a tested snooze CLI, safe never-running wake placement,
+  shared row and time contracts, post-commit receipts and notices, first-position
+  tick integration, and trailing-ledger-section preservation.
 phases:
-  - id: row-model
-    title: Snooze row, clock, and resolved-state contracts
-    size: medium
-    depends_on: []
-    description:
-      "row-model: build src/native/snooze parsing, injected zoned time grammar, resolved
-      row classification, and live_targets reader API. Establish docs/snooze.md and
-      shared rows/when/live vectors with concrete schemas for all six vector groups.
-      Reserve Snoozed as a structural H2. Follow the row-model section and inherited
-      decisions; leave mutation, CLI, and reader integrations to their owners. Run
-      focused conformance tests and applicable repository gates."
-  - id: mutation-planners
-    title: Pure add, drop, and never-running wake planners
-    size: medium
-    depends_on:
-      - row-model
-    description:
-      "mutation-planners: implement pure add/drop/wake plans, identity-based subtree
-      moves, row deduplication and history, and opt-in never-running placement without
-      changing ordinary link placement. Finish snooze/wake/cleanup vectors, preserve
-      notes and recorded time, and prove task lines never change on wake. Export
-      reusable planners for the outer epic's capture phase."
-  - id: guarded-cli
-    title: Public snooze CLI and guarded write shell
-    size: medium
-    depends_on:
-      - mutation-planners
-    description:
-      "guarded-cli: register bob snooze list/add/drop/wake and the read-only bare
-      default, JSON and human output, completion and command-catalog entries. Add the
-      bounded vault-lock/replan/preimage shell, multi-file add transaction, writer-host
-      pin, dry-run behavior, and day rollover checks. Verify races, refusals, forecasts,
-      and repeated wakes. Generate CLI references."
-  - id: wake-delivery
-    title: Wake receipts, notification arbitration, and first tick step
-    size: medium
-    depends_on:
-      - guarded-cli
-    description:
-      "wake-delivery: add post-commit wake receipts, Darwin notification, snooze.notify
-      config, live notifier-claim arbitration and truthful desktop fallback reporting.
-      Register snooze first in tick with a five-minute cadence, readiness gate,
-      two-minute ceiling and nonfailure deferred/skipped handling. Test receipt ordering
-      and notification failures with fakes; update tick/config docs."
-  - id: writer-audit
-    title: Trailing-section writer audit and complete wake-engine verification
-    size: medium
-    depends_on:
-      - wake-delivery
-    description:
-      "writer-audit: audit Rust ledger writers against a trailing Snoozed section,
-      adding byte-preservation regressions for capture link/start/close/record/lineup,
-      gcal insertion/filing, reconcile, and collect_done target repair. Fix boundary
-      leaks, complete docs and vector coverage, and run just check and just docs-check.
-      Provide closure evidence to this child epic's land agent; do not close
-      bob-cli-q5.1 or bob-cli-q5 from this child phase."
+- id: row-model
+  title: Snooze row, clock, and resolved-state contracts
+  size: medium
+  depends_on: []
+  description: 'row-model: build src/native/snooze parsing, injected zoned time grammar,
+    resolved row classification, and live_targets reader API. Establish docs/snooze.md
+    and shared rows/when/live vectors with concrete schemas for all six vector groups.
+    Reserve Snoozed as a structural H2. Follow the row-model section and inherited
+    decisions; leave mutation, CLI, and reader integrations to their owners. Run focused
+    conformance tests and applicable repository gates.'
+- id: mutation-planners
+  title: Pure add, drop, and never-running wake planners
+  size: medium
+  depends_on:
+  - row-model
+  description: 'mutation-planners: implement pure add/drop/wake plans, identity-based
+    subtree moves, row deduplication and history, and opt-in never-running placement
+    without changing ordinary link placement. Finish snooze/wake/cleanup vectors,
+    preserve notes and recorded time, and prove task lines never change on wake. Export
+    reusable planners for the outer epic''s capture phase.'
+- id: guarded-cli
+  title: Public snooze CLI and guarded write shell
+  size: medium
+  depends_on:
+  - mutation-planners
+  description: 'guarded-cli: register bob snooze list/add/drop/wake and the read-only
+    bare default, JSON and human output, completion and command-catalog entries. Add
+    the bounded vault-lock/replan/preimage shell, multi-file add transaction, writer-host
+    pin, dry-run behavior, and day rollover checks. Verify races, refusals, forecasts,
+    and repeated wakes. Generate CLI references.'
+- id: wake-delivery
+  title: Wake receipts, notification arbitration, and first tick step
+  size: medium
+  depends_on:
+  - guarded-cli
+  description: 'wake-delivery: add post-commit wake receipts, Darwin notification,
+    snooze.notify config, live notifier-claim arbitration and truthful desktop fallback
+    reporting. Register snooze first in tick with a five-minute cadence, readiness
+    gate, two-minute ceiling and nonfailure deferred/skipped handling. Test receipt
+    ordering and notification failures with fakes; update tick/config docs.'
+- id: writer-audit
+  title: Trailing-section writer audit and complete wake-engine verification
+  size: medium
+  depends_on:
+  - wake-delivery
+  description: 'writer-audit: audit Rust ledger writers against a trailing Snoozed
+    section, adding byte-preservation regressions for capture link/start/close/record/lineup,
+    gcal insertion/filing, reconcile, and collect_done target repair. Fix boundary
+    leaks, complete docs and vector coverage, and run just check and just docs-check.
+    Provide closure evidence to this child epic''s land agent; do not close bob-cli-q5.1
+    or bob-cli-q5 from this child phase.'
 proposed_by: bbugyi200.athena.bob-cli-q5.1
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.1
 create_time: 2026-11-25 10:36:10
 status: wip
+bead_id: bob-cli-q5.1.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/snooze_wake_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_wake_engine.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snooze_wake_engine.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_wake_engine.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.1.1.md)
 
 # Snooze wake engine for bob-cli-q5.1
 
