@@ -1,50 +1,45 @@
 ---
 tier: epic
 title: Vector-pinned taskSettle provider for ledger-tools
-goal:
-  Complete bob-cli-q4.8 with a Rust-parity pure JS settle transform, guarded editor
+goal: Complete bob-cli-q4.8 with a Rust-parity pure JS settle transform, guarded editor
   application, and a shared idle scheduler behind the versioned taskSettle API.
 phases:
-  - id: pure-twin
-    title: Port the pure settle transform and pin Rust parity
-    size: medium
-    description:
-      "pure-twin: port the Rust schedule, grouping, badge, and surviving-line-map
-      behavior into pure bob-ledger-tools fragments. Run all canonical settle vectors
-      through the built bundle and enforce byte-identical fixture copies. Export
-      testable helpers without advertising an incomplete taskSettle v1 namespace."
-    depends_on: []
-  - id: editor-apply
-    title: Add the guarded editor adapter and cursor policy
-    size: medium
-    description:
-      "editor-apply: add Tasks classification and daily-path adapters plus the
-      synchronous editor application layer. Apply minimal changes atomically, preserve
-      the approved cursor-stays policy, return mapped jump targets, and verify immediate
-      undo and path safety. Keep the public namespace unpublished until scheduler
-      completion."
-    depends_on:
-      - pure-twin
-  - id: pending-api
-    title: Publish taskSettle v1 with the pending scheduler
-    size: medium
-    description:
-      "pending-api: implement the shared 500 ms pending scheduler, early flush and
-      teardown lifecycle, publish the complete taskSettle v1 namespace, document its
-      consumer contract, verify skew and race behavior, and deploy bob-ledger-tools."
-    depends_on:
-      - editor-apply
+- id: pure-twin
+  title: Port the pure settle transform and pin Rust parity
+  size: medium
+  description: 'pure-twin: port the Rust schedule, grouping, badge, and surviving-line-map
+    behavior into pure bob-ledger-tools fragments. Run all canonical settle vectors
+    through the built bundle and enforce byte-identical fixture copies. Export testable
+    helpers without advertising an incomplete taskSettle v1 namespace.'
+  depends_on: []
+- id: editor-apply
+  title: Add the guarded editor adapter and cursor policy
+  size: medium
+  description: 'editor-apply: add Tasks classification and daily-path adapters plus
+    the synchronous editor application layer. Apply minimal changes atomically, preserve
+    the approved cursor-stays policy, return mapped jump targets, and verify immediate
+    undo and path safety. Keep the public namespace unpublished until scheduler completion.'
+  depends_on:
+  - pure-twin
+- id: pending-api
+  title: Publish taskSettle v1 with the pending scheduler
+  size: medium
+  description: 'pending-api: implement the shared 500 ms pending scheduler, early
+    flush and teardown lifecycle, publish the complete taskSettle v1 namespace, document
+    its consumer contract, verify skew and race behavior, and deploy bob-ledger-tools.'
+  depends_on:
+  - editor-apply
 proposed_by: bbugyi200.athena.bob-cli-q4.8
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q4.8
 create_time: 2026-11-25 10:27:06
 status: wip
+bead_id: bob-cli-q4.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_settle_twin.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_settle_twin.md)
-- **PARENT:**
-  [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **PROMPT:** [prompts/202611/task_settle_twin.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_settle_twin.md)
+- **PARENT:** [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **BEAD:** [bob-cli-q4.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/bob-cli-q4.8.1.md)
 
 # Complete the ledger-tools settle provider for bob-cli-q4.8
 
