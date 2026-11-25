@@ -1,136 +1,124 @@
 ---
 tier: epic
 title: One tie per task pair — dependencies absorb plain links
-goal: "A task pair can hold a dependency or a plain (unlabelled) link, never both, in
-  either direction. Every Bob writer enforces it. Reconcile heals hand edits in the
-  dependency's favour. The four Obsidian relationship stages show each pair's tie at a
-  glance and convert it with Ctrl plus the Task Card key, and capture plus Bob Mac
-  Capture explain the rule.
+goal: 'A task pair can hold a dependency or a plain (unlabelled) link, never both,
+  in either direction. Every Bob writer enforces it. Reconcile heals hand edits in
+  the dependency''s favour. The four Obsidian relationship stages show each pair''s
+  tie at a glance and convert it with Ctrl plus the Task Card key, and capture plus
+  Bob Mac Capture explain the rule.
 
-  "
+  '
 decisions:
   ctrl_shift_l:
-    ask:
-      Should the stages also take ⌃⇧L ("it links to this") so all four Task Card
+    ask: Should the stages also take ⌃⇧L ("it links to this") so all four Task Card
       relationship keys work as Ctrl chords?
     default: true
     why: Completes the ⌃+Task-Card-key grammar (b ⇧B l ⇧L) at almost no cost
     answer: true
   memory_decision_record:
-    ask:
-      Add a decisions memory record (dependency-absorbs-plain-link) for this policy once
-      it ships?
+    ask: Add a decisions memory record (dependency-absorbs-plain-link) for this policy
+      once it ships?
     memory:
-      - decisions:dependency-absorbs-plain-link
+    - decisions:dependency-absorbs-plain-link
     default: false
     answer: false
   memory_glossary_relation:
-    ask:
-      Add a one-sentence plain-link exclusivity rule to the Task Relation glossary
+    ask: Add a one-sentence plain-link exclusivity rule to the Task Relation glossary
       strand?
     memory:
-      - glossary:task-relation
+    - glossary:task-relation
     default: false
     answer: true
 phases:
-  - id: tie-contract
-    title: Contract, shared vectors, and the Rust tie helpers
-    depends_on: []
-    size: medium
-    description:
-      "tie-contract: write the plain-link/dependency contract and PT vectors in bob-cli
-      docs, add the shared vector fixture, and add the pure Rust helpers that classify a
-      pair's tie and drop plain entries byte-exactly."
-  - id: reconcile-fold
-    title: Reconcile fold and merge pruning
-    depends_on:
-      - tie-contract
-    size: medium
-    description:
-      "reconcile-fold: bob task reconcile drops plain LINKS entries on dependency-joined
-      pairs and reports absorbed_plain_links. bob task merge prunes the overlaps its
-      repointing would create. Dry-run the fold against the live vault without applying
-      it."
-  - id: capture-writers
-    title: Capture absorption, the plain-~ no-op, and the same-item error
-    depends_on:
-      - tie-contract
-    size: medium
-    description:
-      "capture-writers: & and * absorb the pair's plain links in the same staged write.
-      A plain ~ / ~~ over a dependency becomes a reported no-op, and & plus a plain ~ to
-      one target in a single item is a teaching error. Both report additive JSON and
-      human output."
-  - id: capture-complete
-    title: capture-complete tie fields
-    depends_on:
-      - tie-contract
-    size: small
-    description:
-      "capture-complete: relation candidates carry dependency_tie in both directions
-      (also_prerequisite stays as a deprecated alias), and & / * candidates carry
-      plain_link."
-  - id: nav-tie-planner
-    title: Nav tie planner, mirrored vectors, and absorption in the dependency writers
-    depends_on:
-      - tie-contract
-    size: medium
-    description:
-      "nav-tie-planner: add the pure JS twins and planTieChange in
-      bob-navigation-hotkeys, pinned by mirrored PT vectors. Every existing nav
-      dependency writer (Depends on, Blocks, counted, marked, api) then absorbs plain
-      links."
-  - id: nav-tie-visibility
-    title:
-      Tie pills, the ⇄ badge, tie bands, subtitles, and the Depends-on consequence strip
-    depends_on:
-      - nav-tie-planner
-    size: medium
-    description:
-      "nav-tie-visibility: all four stages show each row's tie in both directions in a
-      new pill cluster, mark converting rows with ⇄, list the other kind of tie in an
-      empty-filter band, count it in the subtitle, give Depends on its consequence
-      strip, and add the hand-edit notice."
-  - id: nav-tie-writer
-    title: applyTieChange — release, reverse, and convert writes
-    depends_on:
-      - nav-tie-visibility
-      - reconcile-fold
-    size: medium
-    description:
-      "nav-tie-writer: one guarded writer runs any planned tie change. It writes the
-      dependency side first, keeps same-note changes in one undo step, reports honest
-      notices and follow-up suffixes, and fixes reopenDependencyStageFresh."
-  - id: nav-tie-keys
-    title: The ⌃B / ⌃⇧B / ⌃L chords, ↵ conversions, and the armed release
-    depends_on:
-      - nav-tie-writer
-    size: medium
-    description:
-      "nav-tie-keys: wire the Ctrl chords and ↵ conversions in all four stages with
-      strict modifier helpers. A ↵ release takes two presses. Batches and counted
-      sessions refuse conversions, and the label stage guards its plain row. Add the
-      footers and docs, then deploy with bob plugins sync."
-  - id: mac-tie-capsules
-    title: Bob Mac Capture tie capsules and report rows
-    depends_on:
-      - capture-writers
-      - capture-complete
-    size: medium
-    description:
-      "mac-tie-capsules: decode the new capture and capture-complete fields, render the
-      tie capsules, summaries, and report rows, refresh the fixtures and docs, and watch
-      the exact-SHA macOS CI run to green."
+- id: tie-contract
+  title: Contract, shared vectors, and the Rust tie helpers
+  depends_on: []
+  size: medium
+  description: 'tie-contract: write the plain-link/dependency contract and PT vectors
+    in bob-cli docs, add the shared vector fixture, and add the pure Rust helpers
+    that classify a pair''s tie and drop plain entries byte-exactly.'
+- id: reconcile-fold
+  title: Reconcile fold and merge pruning
+  depends_on:
+  - tie-contract
+  size: medium
+  description: 'reconcile-fold: bob task reconcile drops plain LINKS entries on dependency-joined
+    pairs and reports absorbed_plain_links. bob task merge prunes the overlaps its
+    repointing would create. Dry-run the fold against the live vault without applying
+    it.'
+- id: capture-writers
+  title: Capture absorption, the plain-~ no-op, and the same-item error
+  depends_on:
+  - tie-contract
+  size: medium
+  description: 'capture-writers: & and * absorb the pair''s plain links in the same
+    staged write. A plain ~ / ~~ over a dependency becomes a reported no-op, and &
+    plus a plain ~ to one target in a single item is a teaching error. Both report
+    additive JSON and human output.'
+- id: capture-complete
+  title: capture-complete tie fields
+  depends_on:
+  - tie-contract
+  size: small
+  description: 'capture-complete: relation candidates carry dependency_tie in both
+    directions (also_prerequisite stays as a deprecated alias), and & / * candidates
+    carry plain_link.'
+- id: nav-tie-planner
+  title: Nav tie planner, mirrored vectors, and absorption in the dependency writers
+  depends_on:
+  - tie-contract
+  size: medium
+  description: 'nav-tie-planner: add the pure JS twins and planTieChange in bob-navigation-hotkeys,
+    pinned by mirrored PT vectors. Every existing nav dependency writer (Depends on,
+    Blocks, counted, marked, api) then absorbs plain links.'
+- id: nav-tie-visibility
+  title: Tie pills, the ⇄ badge, tie bands, subtitles, and the Depends-on consequence
+    strip
+  depends_on:
+  - nav-tie-planner
+  size: medium
+  description: 'nav-tie-visibility: all four stages show each row''s tie in both directions
+    in a new pill cluster, mark converting rows with ⇄, list the other kind of tie
+    in an empty-filter band, count it in the subtitle, give Depends on its consequence
+    strip, and add the hand-edit notice.'
+- id: nav-tie-writer
+  title: applyTieChange — release, reverse, and convert writes
+  depends_on:
+  - nav-tie-visibility
+  - reconcile-fold
+  size: medium
+  description: 'nav-tie-writer: one guarded writer runs any planned tie change. It
+    writes the dependency side first, keeps same-note changes in one undo step, reports
+    honest notices and follow-up suffixes, and fixes reopenDependencyStageFresh.'
+- id: nav-tie-keys
+  title: The ⌃B / ⌃⇧B / ⌃L chords, ↵ conversions, and the armed release
+  depends_on:
+  - nav-tie-writer
+  size: medium
+  description: 'nav-tie-keys: wire the Ctrl chords and ↵ conversions in all four stages
+    with strict modifier helpers. A ↵ release takes two presses. Batches and counted
+    sessions refuse conversions, and the label stage guards its plain row. Add the
+    footers and docs, then deploy with bob plugins sync.'
+- id: mac-tie-capsules
+  title: Bob Mac Capture tie capsules and report rows
+  depends_on:
+  - capture-writers
+  - capture-complete
+  size: medium
+  description: 'mac-tie-capsules: decode the new capture and capture-complete fields,
+    render the tie capsules, summaries, and report rows, refresh the fixtures and
+    docs, and watch the exact-SHA macOS CI run to green.'
 proposed_by: bbugyi200.apollo.research.6f.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-25 18:16:39
 status: wip
+bead_id: bob-cli-q8
 ---
 
-- **PROMPT:**
-  [prompts/202611/plain_link_dependency_ties.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/plain_link_dependency_ties.md)
+- **PROMPT:** [prompts/202611/plain_link_dependency_ties.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/plain_link_dependency_ties.md)
+- **BEAD:** [bob-cli-q8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q8/README.md)
 
 # Plan: One tie per task pair — dependencies absorb plain links
 
