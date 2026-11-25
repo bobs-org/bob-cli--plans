@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "old_file",
+      "kind": "choice",
+      "ask": "Should legacy_dad.md be deleted once dad.md is verified?",
+      "why": "dad.md carries every fact and every inbound link, so a second copy would only drift",
+      "choices": [
+        {
+          "key": "delete",
+          "label": "Delete it; git history keeps the old bytes and no live link points at it"
+        },
+        {
+          "key": "keep",
+          "label": "Drop only its notebook type, so it leaves the catalog but lingers as a stale duplicate"
+        }
+      ],
+      "default": "delete",
+      "effective_default": "delete",
+      "requested_verified": false
+    },
+    {
+      "id": "attachments",
+      "kind": "choice",
+      "ask": "Should the two zorg-only attachments be folded into dad.md as text?",
+      "why": "Both files are small, live only in retired ~/org, and their vault links are already dead",
+      "choices": [
+        {
+          "key": "inline",
+          "label": "Inline the Krul review quote and a condensed ChatGPT pediatrician list as nested bullets"
+        },
+        {
+          "key": "copy",
+          "label": "Copy both .txt files from ~/org into the vault at their old paths and keep the two links"
+        },
+        {
+          "key": "drop",
+          "label": "Drop both dead links; the files stay only in retired ~/org"
+        }
+      ],
+      "default": "inline",
+      "effective_default": "inline",
+      "requested_verified": false
+    },
+    {
+      "id": "edit_dates",
+      "kind": "choice",
+      "ask": "Should the zorg last-edited dates be dropped?",
+      "why": "Bob reads only [created::] on notebook notes and has no edit-date field",
+      "choices": [
+        {
+          "key": "drop",
+          "label": "Drop them; the dated log entries and git history carry the chronology"
+        },
+        {
+          "key": "keep",
+          "label": "Keep each one as an [updated::YYYY-MM-DD] field after the note's created stamp"
+        }
+      ],
+      "default": "drop",
+      "effective_default": "drop",
+      "requested_verified": false
+    }
+  ]
+}
