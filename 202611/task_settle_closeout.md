@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Repair taskSettle guards and finish the provider landing
-goal:
-  Reject stale task identities and unguarded staged writes, enforce fixture parity,
+goal: Reject stale task identities and unguarded staged writes, enforce fixture parity,
   integrate docs, and close bob-cli-q4.8.1 and parent phase bob-cli-q4.8.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q4.8.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-q4.8.1
-create_time: 2026-11-25 13:53:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
