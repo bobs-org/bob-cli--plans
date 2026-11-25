@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "line_breaks",
+      "kind": "choice",
+      "ask": "Should a Record Card text value stay one stored line, with pasted line breaks folded into spaces?",
+      "why": "Record rows and Obsidian's own Properties show text as one line; sibling fields already fold",
+      "choices": [
+        {
+          "key": "fold",
+          "label": "One stored line; long text wraps, Enter saves, pasted breaks fold to spaces with a note"
+        },
+        {
+          "key": "keep",
+          "label": "Shift+Enter adds real line breaks, saved as escaped YAML and shown pre-wrapped in rows"
+        }
+      ],
+      "default": "fold",
+      "effective_default": "fold",
+      "requested_verified": false
+    },
+    {
+      "id": "row_clamp",
+      "kind": "choice",
+      "ask": "Should long record values clamp to three lines in the Record Card field list?",
+      "why": "The open stage shows the whole value, so the list only needs to stay scannable",
+      "choices": [
+        {
+          "key": "clamp",
+          "label": "Rows stay scannable; values past three lines end in an ellipsis until opened"
+        },
+        {
+          "key": "full",
+          "label": "Rows wrap the whole value; one paragraph-long field can push others off screen"
+        }
+      ],
+      "default": "clamp",
+      "effective_default": "clamp",
+      "requested_verified": false
+    }
+  ]
+}
