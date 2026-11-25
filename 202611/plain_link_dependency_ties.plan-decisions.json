@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "ctrl_shift_l",
+      "kind": "toggle",
+      "ask": "Should the stages also take \u2303\u21e7L (\"it links to this\") so all four Task Card relationship keys work as Ctrl chords?",
+      "why": "Completes the \u2303+Task-Card-key grammar (b \u21e7B l \u21e7L) at almost no cost",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions memory record (dependency-absorbs-plain-link) for this policy once it ships?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:dependency-absorbs-plain-link"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:dependency-absorbs-plain-link",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/dependency-absorbs-plain-link.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_relation",
+      "kind": "toggle",
+      "ask": "Add a one-sentence plain-link exclusivity rule to the Task Relation glossary strand?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:task-relation"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:task-relation",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Task Relation",
+            "Capture",
+            "Pomodoro",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Project Note",
+            "Notebook",
+            "Record Note",
+            "Walker Footer",
+            "Task Type",
+            "Keep Streak",
+            "Area Note",
+            "Root Parent",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
