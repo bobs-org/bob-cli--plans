@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Finish cycler gesture settle and land bob-cli-q4.9.1
-goal:
-  Make tier-1 cycler settles undo as one step in real Obsidian. Pin the missing
+goal: Make tier-1 cycler settles undo as one step in real Obsidian. Pin the missing
   close-settle behaviors in tests. Fix the counted-cycle identity snapshot and complete
   the cycler docs. Then close epic bob-cli-q4.9.1 and its parent phase bob-cli-q4.9.
 proposed_by: bbugyi200.athena.bob-cli-q4.9.1.land
 proposed_with: claude/opus
 bead: bob-cli-q4.9.1
-create_time: 2026-11-25 17:38:56
-status: wip
+status: done
 ---
 
 - **BEAD:**
