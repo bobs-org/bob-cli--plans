@@ -1,22 +1,22 @@
 ---
 tier: epic
 title: Better o / Ctrl+Shift+O and gesture-settled task structure
-goal: "Vim `o`, `O`, and `Ctrl+Shift+O` in Obsidian write into the right zone of a task
-  block and never split a task from its children. Every bob-cli writer and every
-  Obsidian gesture that changes a task's status or note settles that note's local
-  structure in the same write. That means the local future-schedule Blocked rule, the
-  `## Tasks` status groups, and the badge row. `bob task reconcile` then only does
-  clock-driven and vault-wide work, and the drift numbers prove it.
+goal: 'Vim `o`, `O`, and `Ctrl+Shift+O` in Obsidian write into the right zone of a
+  task block and never split a task from its children. Every bob-cli writer and every
+  Obsidian gesture that changes a task''s status or note settles that note''s local
+  structure in the same write. That means the local future-schedule Blocked rule,
+  the `## Tasks` status groups, and the badge row. `bob task reconcile` then only
+  does clock-driven and vault-wide work, and the drift numbers prove it.
 
-  "
+  '
 decisions:
   o_in_group:
     ask: Where should `o`/`O` on a task inside a status group open the new Ready task?
     choices:
-      intake_end:
-        At the end of the section's intake, with a <C-o> jump back to the origin
-      below:
-        Right below the block; the settle at scaffold commit then moves it to intake
+      intake_end: At the end of the section's intake, with a <C-o> jump back to the
+        origin
+      below: Right below the block; the settle at scaffold commit then moves it to
+        intake
     default: intake_end
     why: A new Ready task must never be born inside Done & Canceled or Blocked
     answer: intake_end
@@ -29,177 +29,161 @@ decisions:
     why: Research recommendation; keeps rapid editing in place and the viewport still
     answer: stay
   wasm_spike:
-    ask:
-      Should the land agent file a research task for a WASM bob-core that could retire
-      the JS twins?
+    ask: Should the land agent file a research task for a WASM bob-core that could
+      retire the JS twins?
     default: true
     why: About nine twins exist and they already drift (BLOCKS insert order)
     answer: true
   memory_settle_record:
-    ask:
-      Add a decisions record saying writers settle note-local structure and reconcile
+    ask: Add a decisions record saying writers settle note-local structure and reconcile
       stays the safety net?
     memory:
-      - decisions:writers-settle-note-local-structure
+    - decisions:writers-settle-note-local-structure
     default: false
     answer: false
 phases:
-  - id: mirror-guard
-    title: Hand-edit mirror never writes across notes
-    depends_on: []
-    size: medium
-    description:
-      "mirror-guard: fix bead bob-cli-py. Check the debounced dependency and mention
-      mirrors against the original note path, flush or cancel them when the note
-      changes, stop the baseline cache poisoning, and add a regression test that
-      switches notes inside the debounce window."
-  - id: open-lines
-    title: o and O open real siblings after the whole subtree
-    depends_on: []
-    size: medium
-    description:
-      "open-lines: `o`/`O` on task headlines open a fresh `#task [created::]` after the
-      whole block. Inside a status group they open at the intake end. Reqs, drawers, and
-      notes get siblings after their subtree, and managed lines redirect to the owner's
-      note slot. Empty scaffolds prune themselves, `Ctrl+Shift+]` refuses managed lines,
-      and the coordination note goes on bob-cli-ph.7."
-  - id: settle-core
-    title: One pure Rust settle_note that reconcile composes
-    depends_on: []
-    size: medium
-    description:
-      "settle-core: extract reconcile's note-local subset (the local future-schedule
-      Blocked rule plus status groups and badges for eligible notes) as a pure
-      `settle_note` with a line map. Reconcile composes it with byte-identical output.
-      Add a writer helper and Rust-owned settle vectors for the plugin twin."
-  - id: drift-meter
-    title: Reconcile drift meter and recorded baseline
-    depends_on: []
-    size: medium
-    description:
-      "drift-meter: add `scripts/dev/reconcile-drift`, which replays vault commits
-      through `bob task reconcile --dry-run -f json` with `BOB_NOW` pinned. It sorts the
-      planned changes into churn categories, attributes them to gestures, and reports
-      tidy debt. Record today's baseline on the phase bead."
-  - id: layout-parity
-    title: Plain split and BLOCKS placement match the layout contract
-    depends_on:
-      - mirror-guard
-    size: medium
-    description:
-      "layout-parity: fix bead bob-cli-pn so plain Task Split writes LINKED FROM in the
-      managed-link zone, update the SP vectors, and re-copy them into the nav split
-      twin. Verify and fix the known JS BLOCKS-before-Depends-On insert-order divergence
-      from contract §14.5."
-  - id: capture-settle
-    title: Capture settles every note it touches
-    depends_on:
-      - settle-core
-    size: medium
-    description:
-      "capture-settle: run `settle_note` at the capture choke point after type agreement
-      and before the trackers finish. Forward the task-block tracker and
-      `items[].result.line` through the line map so dry-run and commit stay
-      byte-identical and Mac Capture's Open lands on the post-settle line, with no Swift
-      changes."
-  - id: command-settle
-    title: Task commands and sync writers settle their notes
-    depends_on:
-      - settle-core
-      - layout-parity
-    size: medium
-    description:
-      "command-settle: compose the settle helper into `bob task move`, `split`, `merge`,
-      and `restore`, `bob gmail sync`, `bob ref create`, `bob gkeep pull`, and any other
-      status- or residence-changing bob-cli writer the audit finds, with fixture proof
-      that a later reconcile plans nothing note-local."
-  - id: settle-twin
-    title: Vector-pinned JS settle twin behind a ledger-tools API
-    depends_on:
-      - settle-core
-    size: large
-    description:
-      "settle-twin: port `settle_note` to bob-ledger-tools, pinned byte for byte by
-      copied settle vectors. Expose it as a versioned `taskSettle` API: pure settle,
-      editor apply with a path guard and the cursor policy, and the tier-2 pending
-      scheduler with a global flush. Consumers degrade to reconcile-heals when the API
-      is absent."
-  - id: cycler-settle
-    title: Cycler gestures settle, including recurring spawns and cycling
-    depends_on:
-      - settle-twin
-      - open-lines
-    size: large
-    description:
-      "cycler-settle: tier-1 settle on Ctrl+Enter close, which also flips a
-      future-scheduled recurring spawn from `[ ]` to `[?]`. Tier-1 settle also covers
-      transcluded completion, promote and demote, and the `o`/`O` scaffold commit.
-      `Alt+]`/`Alt+[` cycling settles on idle and flushes on cursor-leave, note-leave,
-      or the next Bob command."
-  - id: nav-settle
-    title: Navigation gestures settle both notes they write
-    depends_on:
-      - settle-twin
-      - layout-parity
-    size: large
-    description:
-      "nav-settle: tier-1 settle on Alt+N, Alt+X, the Task, Decay, schedule, and
-      priority cards, Ctrl+Shift+M and Task Split (source and destination), and
-      status-changing mirror writes. Walk rows, recorded jumps, and focus targets
-      resolve by identity after the regroup, and every nav command flushes pending
-      settles first."
-  - id: link-settle
-    title: Link and Pomodoro target writes settle their target notes
-    depends_on:
-      - settle-twin
-    size: medium
-    description:
-      "link-settle: tier-1 settle on block-id-prompt's Ctrl+Shift+Enter target writes
-      and on ledger-tools Pomodoro close and other target-note status writes, in the
-      same write and including notes not open in an editor."
-  - id: notes-key
-    title: Ctrl+Shift+O opens a note where note_home says
-    depends_on:
-      - open-lines
-      - cycler-settle
-    size: medium
-    description:
-      "notes-key: after bob-cli-ph.7, `Ctrl+Shift+O` opens a note at the owner's note
-      slot through the shared drawer helpers. That is the tail on zero-req tasks, the
-      Notes drawer on req owners (created only when a note lands), and `## Notes` on a
-      `^prj`. `- [` typed below notes or drawers re-slots into the reqs zone with the
-      first-req scoop."
-  - id: acceptance
-    title: End-to-end settle acceptance and re-measure
-    depends_on:
-      - mirror-guard
-      - open-lines
-      - settle-core
-      - drift-meter
-      - layout-parity
-      - capture-settle
-      - command-settle
-      - settle-twin
-      - cycler-settle
-      - nav-settle
-      - link-settle
-      - notes-key
-    size: medium
-    description:
-      "acceptance: a fixture-level end-to-end suite where every wired gesture and writer
-      leaves reconcile with nothing note-local to plan and tidy at zero. It runs the
-      drift meter over post-deploy vault history against the baseline and does a final
-      docs sweep. With approval, it also writes the settle decisions record."
+- id: mirror-guard
+  title: Hand-edit mirror never writes across notes
+  depends_on: []
+  size: medium
+  description: 'mirror-guard: fix bead bob-cli-py. Check the debounced dependency
+    and mention mirrors against the original note path, flush or cancel them when
+    the note changes, stop the baseline cache poisoning, and add a regression test
+    that switches notes inside the debounce window.'
+- id: open-lines
+  title: o and O open real siblings after the whole subtree
+  depends_on: []
+  size: medium
+  description: 'open-lines: `o`/`O` on task headlines open a fresh `#task [created::]`
+    after the whole block. Inside a status group they open at the intake end. Reqs,
+    drawers, and notes get siblings after their subtree, and managed lines redirect
+    to the owner''s note slot. Empty scaffolds prune themselves, `Ctrl+Shift+]` refuses
+    managed lines, and the coordination note goes on bob-cli-ph.7.'
+- id: settle-core
+  title: One pure Rust settle_note that reconcile composes
+  depends_on: []
+  size: medium
+  description: 'settle-core: extract reconcile''s note-local subset (the local future-schedule
+    Blocked rule plus status groups and badges for eligible notes) as a pure `settle_note`
+    with a line map. Reconcile composes it with byte-identical output. Add a writer
+    helper and Rust-owned settle vectors for the plugin twin.'
+- id: drift-meter
+  title: Reconcile drift meter and recorded baseline
+  depends_on: []
+  size: medium
+  description: 'drift-meter: add `scripts/dev/reconcile-drift`, which replays vault
+    commits through `bob task reconcile --dry-run -f json` with `BOB_NOW` pinned.
+    It sorts the planned changes into churn categories, attributes them to gestures,
+    and reports tidy debt. Record today''s baseline on the phase bead.'
+- id: layout-parity
+  title: Plain split and BLOCKS placement match the layout contract
+  depends_on:
+  - mirror-guard
+  size: medium
+  description: 'layout-parity: fix bead bob-cli-pn so plain Task Split writes LINKED
+    FROM in the managed-link zone, update the SP vectors, and re-copy them into the
+    nav split twin. Verify and fix the known JS BLOCKS-before-Depends-On insert-order
+    divergence from contract §14.5.'
+- id: capture-settle
+  title: Capture settles every note it touches
+  depends_on:
+  - settle-core
+  size: medium
+  description: 'capture-settle: run `settle_note` at the capture choke point after
+    type agreement and before the trackers finish. Forward the task-block tracker
+    and `items[].result.line` through the line map so dry-run and commit stay byte-identical
+    and Mac Capture''s Open lands on the post-settle line, with no Swift changes.'
+- id: command-settle
+  title: Task commands and sync writers settle their notes
+  depends_on:
+  - settle-core
+  - layout-parity
+  size: medium
+  description: 'command-settle: compose the settle helper into `bob task move`, `split`,
+    `merge`, and `restore`, `bob gmail sync`, `bob ref create`, `bob gkeep pull`,
+    and any other status- or residence-changing bob-cli writer the audit finds, with
+    fixture proof that a later reconcile plans nothing note-local.'
+- id: settle-twin
+  title: Vector-pinned JS settle twin behind a ledger-tools API
+  depends_on:
+  - settle-core
+  size: large
+  description: 'settle-twin: port `settle_note` to bob-ledger-tools, pinned byte for
+    byte by copied settle vectors. Expose it as a versioned `taskSettle` API: pure
+    settle, editor apply with a path guard and the cursor policy, and the tier-2 pending
+    scheduler with a global flush. Consumers degrade to reconcile-heals when the API
+    is absent.'
+- id: cycler-settle
+  title: Cycler gestures settle, including recurring spawns and cycling
+  depends_on:
+  - settle-twin
+  - open-lines
+  size: large
+  description: 'cycler-settle: tier-1 settle on Ctrl+Enter close, which also flips
+    a future-scheduled recurring spawn from `[ ]` to `[?]`. Tier-1 settle also covers
+    transcluded completion, promote and demote, and the `o`/`O` scaffold commit. `Alt+]`/`Alt+[`
+    cycling settles on idle and flushes on cursor-leave, note-leave, or the next Bob
+    command.'
+- id: nav-settle
+  title: Navigation gestures settle both notes they write
+  depends_on:
+  - settle-twin
+  - layout-parity
+  size: large
+  description: 'nav-settle: tier-1 settle on Alt+N, Alt+X, the Task, Decay, schedule,
+    and priority cards, Ctrl+Shift+M and Task Split (source and destination), and
+    status-changing mirror writes. Walk rows, recorded jumps, and focus targets resolve
+    by identity after the regroup, and every nav command flushes pending settles first.'
+- id: link-settle
+  title: Link and Pomodoro target writes settle their target notes
+  depends_on:
+  - settle-twin
+  size: medium
+  description: 'link-settle: tier-1 settle on block-id-prompt''s Ctrl+Shift+Enter
+    target writes and on ledger-tools Pomodoro close and other target-note status
+    writes, in the same write and including notes not open in an editor.'
+- id: notes-key
+  title: Ctrl+Shift+O opens a note where note_home says
+  depends_on:
+  - open-lines
+  - cycler-settle
+  size: medium
+  description: 'notes-key: after bob-cli-ph.7, `Ctrl+Shift+O` opens a note at the
+    owner''s note slot through the shared drawer helpers. That is the tail on zero-req
+    tasks, the Notes drawer on req owners (created only when a note lands), and `##
+    Notes` on a `^prj`. `- [` typed below notes or drawers re-slots into the reqs
+    zone with the first-req scoop.'
+- id: acceptance
+  title: End-to-end settle acceptance and re-measure
+  depends_on:
+  - mirror-guard
+  - open-lines
+  - settle-core
+  - drift-meter
+  - layout-parity
+  - capture-settle
+  - command-settle
+  - settle-twin
+  - cycler-settle
+  - nav-settle
+  - link-settle
+  - notes-key
+  size: medium
+  description: 'acceptance: a fixture-level end-to-end suite where every wired gesture
+    and writer leaves reconcile with nothing note-local to plan and tidy at zero.
+    It runs the drift meter over post-deploy vault history against the baseline and
+    does a final docs sweep. With approval, it also writes the settle decisions record.'
 proposed_by: bbugyi200.athena.1fw
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-25 08:51:33
 status: wip
+bead_id: bob-cli-q4
 ---
 
-- **PROMPT:**
-  [prompts/202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/better_o_gesture_settle.md)
+- **PROMPT:** [prompts/202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/better_o_gesture_settle.md)
+- **BEAD:** [bob-cli-q4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/README.md)
 
 # Plan: Better o / Ctrl+Shift+O and gesture-settled task structure
 
