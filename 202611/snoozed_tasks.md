@@ -1,172 +1,157 @@
 ---
 tier: epic
-title: "Snoozed Tasks: plan it for today, wake it at a time"
-goal: "Bryan can snooze any open, non-Event task to a clock time today from its Task
+title: 'Snoozed Tasks: plan it for today, wake it at a time'
+goal: 'Bryan can snooze any open, non-Event task to a clock time today from its Task
   Link, its definition, capture, or the CLI. While asleep the task is clearly marked
-  with a clock and its time, stays out of Today, the walks, and plan.max_links. At its
-  time, bob wakes it into an untimed open Pomodoro, the woken Task Link shows its wake
-  time, and one hard-to-miss notice announces it and then goes away on its own.
+  with a clock and its time, stays out of Today, the walks, and plan.max_links. At
+  its time, bob wakes it into an untimed open Pomodoro, the woken Task Link shows
+  its wake time, and one hard-to-miss notice announces it and then goes away on its
+  own.
 
-  "
+  '
 decisions:
   uncommitted_rows:
-    ask:
-      How should wake treat a due row whose task is Ready (released, or hand-written on
-      an uncommitted task)?
+    ask: How should wake treat a due row whose task is Ready (released, or hand-written
+      on an uncommitted task)?
     choices:
-      ignore:
-        Only Next/In Progress tasks wake; a Ready row never revives a released task
-      promote:
-        A Ready row wakes and is promoted to Next, exactly like a hand-added Task Link
+      ignore: Only Next/In Progress tasks wake; a Ready row never revives a released
+        task
+      promote: A Ready row wakes and is promoted to Next, exactly like a hand-added
+        Task Link
     default: ignore
-    why:
-      Release stays final with no exceptions; Alt+Z and bob snooze add commit the task
-      for you
+    why: Release stays final with no exceptions; Alt+Z and bob snooze add commit the
+      task for you
     answer: ignore
   wake_notice:
     ask: Which Mac surface should announce a wake?
     choices:
-      hud:
-        Glass HUD at top-center, 12 s, hover pauses, Open/+15m/× actions; Focus cannot
-        hide it
-      banner:
-        System banner through NotificationService; simpler, but Focus and alert style
-        can hide it
+      hud: Glass HUD at top-center, 12 s, hover pauses, Open/+15m/× actions; Focus
+        cannot hide it
+      banner: System banner through NotificationService; simpler, but Focus and alert
+        style can hide it
     default: hud
-    why:
-      Bob controls visibility and dismissal end to end, which is what "very likely to
-      see" needs
+    why: Bob controls visibility and dismissal end to end, which is what "very likely
+      to see" needs
     answer: hud
   hold_in_meetings:
-    ask:
-      Hold the wake notice during a running calendar meeting and deliver it when the
-      meeting ends?
+    ask: Hold the wake notice during a running calendar meeting and deliver it when
+      the meeting ends?
     default: true
-    why:
-      No interruption mid-meeting and no task titles on a shared screen; the beacon
+    why: No interruption mid-meeting and no task titles on a shared screen; the beacon
       still lights
     answer: true
   glossary_snoozed_task:
     ask: Add the new Snoozed Task glossary strand?
     memory:
-      - glossary:snoozed-task
-    requested:
-      As a part of this change, we should add an excellent new glossary term for
-      "snoozed task".
+    - glossary:snoozed-task
+    requested: As a part of this change, we should add an excellent new glossary term
+      for "snoozed task".
     default: true
     answer: true
   decision_record:
-    ask:
-      Record this design as a new decisions memory record (snoozed tasks wake through
+    ask: Record this design as a new decisions memory record (snoozed tasks wake through
       bob)?
     memory:
-      - decisions:snoozed-tasks-wake-through-bob
+    - decisions:snoozed-tasks-wake-through-bob
     default: false
     answer: false
 phases:
-  - id: wake-engine
-    title: bob snooze core, wake writer, and tick step
-    depends_on: []
-    size: large
-    description:
-      "wake-engine: the snooze module (row grammar, states, time grammar), the bob
-      snooze list/add/drop/wake CLI with guarded writes, never-running wake placement,
-      struck history rows, the first-position tick step, the wake receipt plus Darwin
-      post plus desktop fallback, the trailing-section writer audit, shared vectors, and
-      docs/snooze.md."
-  - id: planned-today
-    title: Snoozed rows in reconcile, walks, plan, and the agenda JSON
-    depends_on:
-      - wake-engine
-    size: large
-    description:
-      "planned-today: reconcile treats live rows as recovery-only reach and never
-      touches them; freshness, ]s, and bob walks exclude snoozed tasks; bob plan gains
-      the snoozed meter and forecast lint; capture-pomodoros --tasks gains additive
-      snoozed rows and woke_at."
-  - id: capture-z
-    title: Capture z:<when> snooze token
-    depends_on:
-      - wake-engine
-    size: large
-    description:
-      "capture-z: the z:<when> token for new and existing-task captures, the
-      existing-task grammar exception, link-now and drop interplay with live rows,
-      teaching refusals, completions led by today's event end times, a snooze span kind,
-      and docs/capture.md."
-  - id: plugin-plumbing
-    title: Plugin snoozed index, exclusions, cleanup parity, and Obsidian waker
-    depends_on:
-      - planned-today
-    size: large
-    description:
-      "plugin-plumbing: the ledger-tools JS mirror of the row grammar and live predicate
-      on the shared vectors, isSnoozedToday/isPlannedToday api, ]s/]w/dash exclusions
-      and the dash.md query edit, cleanup parity in every link-removing gesture,
-      Snoozed-row Ctrl+Enter/Alt+N/Ctrl+Shift+Enter semantics, and the minute-tick bob
-      snooze wake spawn with its Notice fallback."
-  - id: plugin-marks
-    title: Clock marks, woken-link pills, Snoozed-row paint, and plan chip
-    depends_on:
-      - plugin-plumbing
-    size: large
-    description:
-      "plugin-marks: the alarm-clock definition mark that replaces 🍅 while asleep
-      (amber when due), the woke-time pill on woken Task Links, Snoozed-row and heading
-      paint, the bob-plan snoozed chip, and the docs/snooze-marks.md display contract
-      with vectors."
-  - id: snooze-card
-    title: Alt+Z Snooze Card and Task Card z
-    depends_on:
-      - plugin-marks
-    size: large
-    description:
-      "snooze-card: the Alt+Z command and Task Card z opening a Snooze Card with ranked
-      time suggestions, a consequence footer, retime/Wake now/Unsnooze on snoozed tasks,
-      teaching refusals for Event and Blocked tasks, and a pure JS planner pinned to the
-      shared vectors."
-  - id: mac-agenda
-    title: Mac Later-today band, woken accents, and exact-minute waker
-    depends_on:
-      - planned-today
-      - capture-z
-    size: large
-    description:
-      "mac-agenda: decode the additive snoozed/woke_at agenda fields, add a dim
-      Later-today band that folds first, woken-row accents, a snoozed count on the
-      budget row, z: span styling, and an always-on scheduler that runs bob snooze wake
-      at next_wake_at."
-  - id: mac-wake-notice
-    title: Presence-aware wake notice on the Mac
-    depends_on:
-      - mac-agenda
-    size: large
-    description:
-      "mac-wake-notice: the notifier claim file, snooze-woken receipt observer, pure
-      presence and meeting hold policy, the wake notice surface with chime and +15m, the
-      menu-bar beacon, the silent Notification Center record with withdrawal, Settings,
-      and Mac docs."
-  - id: close-out
-    title: Glossary, guide, decision record, and end-to-end verification
-    depends_on:
-      - capture-z
-      - snooze-card
-      - mac-wake-notice
-    size: medium
-    description:
-      "close-out: the Snoozed Task glossary strand and regenerated glossary page, the
-      decision record if approved, a how-to guide and concepts paragraph, and a live
-      end-to-end run of every acceptance case across bob, Obsidian, and the Mac."
+- id: wake-engine
+  title: bob snooze core, wake writer, and tick step
+  depends_on: []
+  size: large
+  description: 'wake-engine: the snooze module (row grammar, states, time grammar),
+    the bob snooze list/add/drop/wake CLI with guarded writes, never-running wake
+    placement, struck history rows, the first-position tick step, the wake receipt
+    plus Darwin post plus desktop fallback, the trailing-section writer audit, shared
+    vectors, and docs/snooze.md.'
+- id: planned-today
+  title: Snoozed rows in reconcile, walks, plan, and the agenda JSON
+  depends_on:
+  - wake-engine
+  size: large
+  description: 'planned-today: reconcile treats live rows as recovery-only reach and
+    never touches them; freshness, ]s, and bob walks exclude snoozed tasks; bob plan
+    gains the snoozed meter and forecast lint; capture-pomodoros --tasks gains additive
+    snoozed rows and woke_at.'
+- id: capture-z
+  title: Capture z:<when> snooze token
+  depends_on:
+  - wake-engine
+  size: large
+  description: 'capture-z: the z:<when> token for new and existing-task captures,
+    the existing-task grammar exception, link-now and drop interplay with live rows,
+    teaching refusals, completions led by today''s event end times, a snooze span
+    kind, and docs/capture.md.'
+- id: plugin-plumbing
+  title: Plugin snoozed index, exclusions, cleanup parity, and Obsidian waker
+  depends_on:
+  - planned-today
+  size: large
+  description: 'plugin-plumbing: the ledger-tools JS mirror of the row grammar and
+    live predicate on the shared vectors, isSnoozedToday/isPlannedToday api, ]s/]w/dash
+    exclusions and the dash.md query edit, cleanup parity in every link-removing gesture,
+    Snoozed-row Ctrl+Enter/Alt+N/Ctrl+Shift+Enter semantics, and the minute-tick bob
+    snooze wake spawn with its Notice fallback.'
+- id: plugin-marks
+  title: Clock marks, woken-link pills, Snoozed-row paint, and plan chip
+  depends_on:
+  - plugin-plumbing
+  size: large
+  description: 'plugin-marks: the alarm-clock definition mark that replaces 🍅 while
+    asleep (amber when due), the woke-time pill on woken Task Links, Snoozed-row and
+    heading paint, the bob-plan snoozed chip, and the docs/snooze-marks.md display
+    contract with vectors.'
+- id: snooze-card
+  title: Alt+Z Snooze Card and Task Card z
+  depends_on:
+  - plugin-marks
+  size: large
+  description: 'snooze-card: the Alt+Z command and Task Card z opening a Snooze Card
+    with ranked time suggestions, a consequence footer, retime/Wake now/Unsnooze on
+    snoozed tasks, teaching refusals for Event and Blocked tasks, and a pure JS planner
+    pinned to the shared vectors.'
+- id: mac-agenda
+  title: Mac Later-today band, woken accents, and exact-minute waker
+  depends_on:
+  - planned-today
+  - capture-z
+  size: large
+  description: 'mac-agenda: decode the additive snoozed/woke_at agenda fields, add
+    a dim Later-today band that folds first, woken-row accents, a snoozed count on
+    the budget row, z: span styling, and an always-on scheduler that runs bob snooze
+    wake at next_wake_at.'
+- id: mac-wake-notice
+  title: Presence-aware wake notice on the Mac
+  depends_on:
+  - mac-agenda
+  size: large
+  description: 'mac-wake-notice: the notifier claim file, snooze-woken receipt observer,
+    pure presence and meeting hold policy, the wake notice surface with chime and
+    +15m, the menu-bar beacon, the silent Notification Center record with withdrawal,
+    Settings, and Mac docs.'
+- id: close-out
+  title: Glossary, guide, decision record, and end-to-end verification
+  depends_on:
+  - capture-z
+  - snooze-card
+  - mac-wake-notice
+  size: medium
+  description: 'close-out: the Snoozed Task glossary strand and regenerated glossary
+    page, the decision record if approved, a how-to guide and concepts paragraph,
+    and a live end-to-end run of every acceptance case across bob, Obsidian, and the
+    Mac.'
 proposed_by: bbugyi200.athena.1fx
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-25 10:22:50
 status: wip
+bead_id: bob-cli-q5
 ---
 
-- **PROMPT:**
-  [prompts/202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/README.md)
 
 # Plan: Snoozed Tasks
 
