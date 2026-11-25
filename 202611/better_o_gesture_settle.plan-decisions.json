@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "o_in_group",
+      "kind": "choice",
+      "ask": "Where should `o`/`O` on a task inside a status group open the new Ready task?",
+      "why": "A new Ready task must never be born inside Done & Canceled or Blocked",
+      "choices": [
+        {
+          "key": "intake_end",
+          "label": "At the end of the section's intake, with a <C-o> jump back to the origin"
+        },
+        {
+          "key": "below",
+          "label": "Right below the block; the settle at scaffold commit then moves it to intake"
+        }
+      ],
+      "default": "intake_end",
+      "effective_default": "intake_end",
+      "requested_verified": false
+    },
+    {
+      "id": "settle_cursor",
+      "kind": "choice",
+      "ask": "When a settle moves the task under the cursor, should the cursor stay put?",
+      "why": "Research recommendation; keeps rapid editing in place and the viewport still",
+      "choices": [
+        {
+          "key": "stay",
+          "label": "Cursor stays on its line; a <C-o> jump entry points at the moved task"
+        },
+        {
+          "key": "follow",
+          "label": "Cursor follows the task into its group; <C-o> returns to where it was"
+        }
+      ],
+      "default": "stay",
+      "effective_default": "stay",
+      "requested_verified": false
+    },
+    {
+      "id": "wasm_spike",
+      "kind": "toggle",
+      "ask": "Should the land agent file a research task for a WASM bob-core that could retire the JS twins?",
+      "why": "About nine twins exist and they already drift (BLOCKS insert order)",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_settle_record",
+      "kind": "toggle",
+      "ask": "Add a decisions record saying writers settle note-local structure and reconcile stays the safety net?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:writers-settle-note-local-structure"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:writers-settle-note-local-structure",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/writers-settle-note-local-structure.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
