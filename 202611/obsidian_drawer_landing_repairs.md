@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Repair Obsidian drawer landing gaps and close bob-cli-ph.7
-goal: Preserve drawer titles and visual states, repair epic-owned checks, and complete
-  the nested landing.
+goal:
+  Preserve drawer titles and visual states, repair epic-owned checks, and complete the
+  nested landing.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-ph.7.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/obsidian_true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/obsidian_true_case_drawers.md)
 - **BEAD:**
   [bob-cli-ph.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.7.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ph.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ph.7.1.land.md)
+- **COMMITS:**
+  - [6906848](https://github.com/bobs-org/bob-plugins/commit/6906848059293c497d371d032c28555f10f7ab12)
+    — fix(drawers): preserve title bytes and strengthen landing regressions
 
 # Repair Obsidian drawer landing gaps and finish bob-cli-ph.7
 
