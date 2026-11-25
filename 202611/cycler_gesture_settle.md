@@ -1,56 +1,51 @@
 ---
 tier: epic
 title: Settle cycler gestures without moving rapid-cycle targets
-goal:
-  Complete bob-cli-q4.9 so closes, promotions, demotions, and committed scaffolds settle
-  immediately, while status cycling settles safely after the burst.
+goal: Complete bob-cli-q4.9 so closes, promotions, demotions, and committed scaffolds
+  settle immediately, while status cycling settles safely after the burst.
 phases:
-  - id: settle-bridge
-    title: Guarded cycler bridge and observable pending outcomes
-    size: medium
-    depends_on: []
-    description:
-      "settle-bridge: add a call-time consumer bridge and optional pending-result
-      callback so immediate and timer-driven settles record the approved stay-cursor
-      jump exactly once."
-  - id: close-settle
-    title: Settle local and transcluded closes before walk continuation
-    size: medium
-    depends_on:
-      - settle-bridge
-    description:
-      "close-settle: integrate tier-1 settle into Ctrl+Enter, completeTaskAtCursor, and
-      transcluded completion while preserving recurrence, close verification, successor
-      focus, and walk behavior."
-  - id: structure-settle
-    title: Settle promotion and committed open-line scaffolds
-    size: medium
-    depends_on:
-      - close-settle
-    description:
-      "structure-settle: compose promote and demote plans with settle in one
-      transaction, and settle nonempty o/O scaffold commits while preserving
-      empty-abandon and path guards."
-  - id: cycle-settle
-    title: Settle cycle bursts and verify the integrated gesture contract
-    size: medium
-    depends_on:
-      - structure-settle
-    description:
-      "cycle-settle: schedule single and counted cycles once per gesture, flush other
-      command boundaries safely, and verify timing, jumps, undo, degradation, and path
-      guards through unit and real-Obsidian tests."
+- id: settle-bridge
+  title: Guarded cycler bridge and observable pending outcomes
+  size: medium
+  depends_on: []
+  description: 'settle-bridge: add a call-time consumer bridge and optional pending-result
+    callback so immediate and timer-driven settles record the approved stay-cursor
+    jump exactly once.'
+- id: close-settle
+  title: Settle local and transcluded closes before walk continuation
+  size: medium
+  depends_on:
+  - settle-bridge
+  description: 'close-settle: integrate tier-1 settle into Ctrl+Enter, completeTaskAtCursor,
+    and transcluded completion while preserving recurrence, close verification, successor
+    focus, and walk behavior.'
+- id: structure-settle
+  title: Settle promotion and committed open-line scaffolds
+  size: medium
+  depends_on:
+  - close-settle
+  description: 'structure-settle: compose promote and demote plans with settle in
+    one transaction, and settle nonempty o/O scaffold commits while preserving empty-abandon
+    and path guards.'
+- id: cycle-settle
+  title: Settle cycle bursts and verify the integrated gesture contract
+  size: medium
+  depends_on:
+  - structure-settle
+  description: 'cycle-settle: schedule single and counted cycles once per gesture,
+    flush other command boundaries safely, and verify timing, jumps, undo, degradation,
+    and path guards through unit and real-Obsidian tests.'
 proposed_by: bbugyi200.athena.bob-cli-q4.9
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q4.9
 create_time: 2026-11-25 14:32:31
 status: wip
+bead_id: bob-cli-q4.9.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/cycler_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_gesture_settle.md)
-- **PARENT:**
-  [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **PROMPT:** [prompts/202611/cycler_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/cycler_gesture_settle.md)
+- **PARENT:** [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **BEAD:** [bob-cli-q4.9.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/bob-cli-q4.9.1.md)
 
 # Cycler gesture settle
 
