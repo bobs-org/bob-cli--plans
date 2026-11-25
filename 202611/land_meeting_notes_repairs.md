@@ -1,17 +1,15 @@
 ---
 tier: tale
 title: Finish and close the meeting-notes epic (bob-cli-pw)
-goal:
-  Meeting recaps follow the approved layout and never drop a word. Meeting PDFs render
-  on every TeX Live. Obsidian's ref-meet toast offers Open event. `bob ref meet` help
-  reads as user documentation. Epic bob-cli-pw is closed with a verification note and
-  its plan file is marked done.
+goal: Meeting recaps follow the approved layout and never drop a word. Meeting PDFs
+  render on every TeX Live. Obsidian's ref-meet toast offers Open event. `bob ref
+  meet` help reads as user documentation. Epic bob-cli-pw is closed with a verification
+  note and its plan file is marked done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pw.land
 proposed_with: claude/opus
 bead: bob-cli-pw
-create_time: 2026-11-25 08:25:04
-status: wip
+status: done
 ---
 
 - **PARENT:**
