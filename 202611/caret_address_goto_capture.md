@@ -1,77 +1,71 @@
 ---
 tier: epic
-title: "@route^id Go To: open a task by its exact address from Bob Capture"
-goal: "A capture draft that is exactly one bare `@route^block-id` token resolves
-  read-only to that block's line and, on Return, opens it in Obsidian through the same
-  `obsidian://bob-goto-task` landing the `/` picker uses. The panel shows the
-  destination before Return, typing `@route^` browses that note's IDs as Go rows, misses
-  are calm did-you-mean states, nothing is ever written, and every other caret form
-  keeps today's meaning byte for byte.
+title: '@route^id Go To: open a task by its exact address from Bob Capture'
+goal: 'A capture draft that is exactly one bare `@route^block-id` token resolves read-only
+  to that block''s line and, on Return, opens it in Obsidian through the same `obsidian://bob-goto-task`
+  landing the `/` picker uses. The panel shows the destination before Return, typing
+  `@route^` browses that note''s IDs as Go rows, misses are calm did-you-mean states,
+  nothing is ever written, and every other caret form keeps today''s meaning byte
+  for byte.
 
-  "
+  '
 phases:
-  - id: cli-goto
-    title: "bob-cli: claim, resolve, and refuse the bare caret address"
-    depends_on: []
-    size: medium
-    description:
-      "cli-goto: add the shared whole-draft caret-address claim, the read-only resolver
-      (exact hit, duplicates, archive hop, did-you-mean), the capture-parse task_goto
-      mode and goto payload, the bob capture refusal, grammar +1, docs, and tests."
-  - id: cli-browse
-    title:
-      "bob-cli: Go rows for @route^ completion, mint-collision copy, and /route^id
-      search"
-    depends_on:
-      - cli-goto
-    size: medium
-    description:
-      "cli-browse: add the additive block_id.goto rows to task_block_id completion for
-      bare @route^ and partial IDs, teach the new form in the mint-collision error,
-      index route^id in the / search fields, and document all three."
-  - id: plugin-refind
-    title: "bob-plugins: any-line block fallback in the Go To re-find ladder"
-    depends_on: []
-    size: small
-    description:
-      "plugin-refind: let bob-goto-task re-find a unique non-task line carrying ^block
-      when the task-only lookup misses, with tests, docs, build, and plugin sync."
-  - id: mac-card
-    title: "Mac: Go To destination card and Return dispatch"
-    depends_on:
-      - cli-goto
-    size: medium
-    description:
-      "mac-card: decode the parse goto payload, render the found, miss, and duplicate
-      cards in place of the write preview, relabel the primary button, and dispatch the
-      Go To on Return through the / landing path with an accept-time fresh parse."
-  - id: mac-browse
-    title: "Mac: Go rows in the block-ID card"
-    depends_on:
-      - cli-browse
-      - mac-card
-    size: medium
-    description:
-      "mac-browse: turn the goto-eligible block-ID card into a scoped Go To browse
-      (selectable Go rows, exact preselect, archived section, Return lands, Tab
-      completes), update mint copy, and mirror the /route^id search key."
-  - id: closeout
-    title: End-to-end verification and docs closeout
-    depends_on:
-      - plugin-refind
-      - mac-browse
-    size: small
-    description:
-      "closeout: verify every acceptance case against the real vault read-only, confirm
-      plugin deploy and green macOS CI on the landed SHAs, reconcile cross-repo docs,
-      and write the decision record only if approved."
+- id: cli-goto
+  title: 'bob-cli: claim, resolve, and refuse the bare caret address'
+  depends_on: []
+  size: medium
+  description: 'cli-goto: add the shared whole-draft caret-address claim, the read-only
+    resolver (exact hit, duplicates, archive hop, did-you-mean), the capture-parse
+    task_goto mode and goto payload, the bob capture refusal, grammar +1, docs, and
+    tests.'
+- id: cli-browse
+  title: 'bob-cli: Go rows for @route^ completion, mint-collision copy, and /route^id
+    search'
+  depends_on:
+  - cli-goto
+  size: medium
+  description: 'cli-browse: add the additive block_id.goto rows to task_block_id completion
+    for bare @route^ and partial IDs, teach the new form in the mint-collision error,
+    index route^id in the / search fields, and document all three.'
+- id: plugin-refind
+  title: 'bob-plugins: any-line block fallback in the Go To re-find ladder'
+  depends_on: []
+  size: small
+  description: 'plugin-refind: let bob-goto-task re-find a unique non-task line carrying
+    ^block when the task-only lookup misses, with tests, docs, build, and plugin sync.'
+- id: mac-card
+  title: 'Mac: Go To destination card and Return dispatch'
+  depends_on:
+  - cli-goto
+  size: medium
+  description: 'mac-card: decode the parse goto payload, render the found, miss, and
+    duplicate cards in place of the write preview, relabel the primary button, and
+    dispatch the Go To on Return through the / landing path with an accept-time fresh
+    parse.'
+- id: mac-browse
+  title: 'Mac: Go rows in the block-ID card'
+  depends_on:
+  - cli-browse
+  - mac-card
+  size: medium
+  description: 'mac-browse: turn the goto-eligible block-ID card into a scoped Go
+    To browse (selectable Go rows, exact preselect, archived section, Return lands,
+    Tab completes), update mint copy, and mirror the /route^id search key.'
+- id: closeout
+  title: End-to-end verification and docs closeout
+  depends_on:
+  - plugin-refind
+  - mac-browse
+  size: small
+  description: 'closeout: verify every acceptance case against the real vault read-only,
+    confirm plugin deploy and green macOS CI on the landed SHAs, reconcile cross-repo
+    docs, and write the decision record only if approved.'
 decisions:
   caret_goto_decision_record:
-    ask:
-      Add a decisions memory strand recording that a bare whole-draft @route^id is a
-      read-only Go To?
+    ask: Add a decisions memory strand recording that a bare whole-draft @route^id
+      is a read-only Go To?
     memory:
-      - decisions:caret-address-goes-to
+    - decisions:caret-address-goes-to
     default: false
     answer: false
 proposed_by: bbugyi200.athena.1g6
@@ -80,10 +74,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-25 15:25:22
 status: wip
+bead_id: bob-cli-q7
 ---
 
-- **PROMPT:**
-  [prompts/202611/caret_address_goto_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/caret_address_goto_capture.md)
+- **PROMPT:** [prompts/202611/caret_address_goto_capture.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/caret_address_goto_capture.md)
+- **BEAD:** [bob-cli-q7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q7/README.md)
 
 # Plan: `@route^id` Go To in Bob Capture
 
