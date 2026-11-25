@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish and land the meeting notes reference command
-goal:
-  Repair the remaining ref meet contract gaps, verify the complete command, and close
-  bob-cli-pw.5.1 plus parent phase bob-cli-pw.5.
+goal: Repair the remaining ref meet contract gaps, verify the complete command, and
+  close bob-cli-pw.5.1 plus parent phase bob-cli-pw.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pw.5.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-pw.5.1
-create_time: 2026-11-24 22:31:35
-status: wip
+status: done
 ---
 
 - **PARENT:**
