@@ -1,58 +1,53 @@
 ---
 tier: epic
 title: Complete Obsidian true-case task drawers
-goal:
-  Obsidian renders and types tray-marked true-case drawers, writes bold headers, and
-  preserves supported drawer titles through verified project conversion, completing
+goal: Obsidian renders and types tray-marked true-case drawers, writes bold headers,
+  and preserves supported drawer titles through verified project conversion, completing
   bob-cli-ph.7.
 phases:
-  - id: bold-writers-and-conversion
-    title: Bold plugin writers and verbatim project conversion
-    size: medium
-    depends_on: []
-    description:
-      "bold-writers-and-conversion: switch new plugin drawer writes to bold, refresh
-      Rust-owned fixtures, and preserve valid titles and empty sections through
-      promotion and reversal."
-  - id: drawer-rendering
-    title: Task drawer marks in Live Preview and reading view
-    size: medium
-    depends_on:
-      - bold-writers-and-conversion
-    description:
-      "drawer-rendering: render the approved tray and verbatim title using source-backed
-      attributes, owner ink, folded counts, empty and closed states, and a persistent
-      marks toggle."
-  - id: drawer-typing
-    title: Drawer marker typing and Toggle Drawer
-    size: medium
-    depends_on:
-      - drawer-rendering
-    description:
-      "drawer-typing: add scoped star expansion, Enter, overtype, atomic Backspace,
-      undo, and Toggle Drawer beside the existing requirement typing assist."
-  - id: obsidian-acceptance
-    title: Real Obsidian acceptance, screenshots, and documentation
-    size: medium
-    depends_on:
-      - bold-writers-and-conversion
-      - drawer-rendering
-      - drawer-typing
-    description:
-      "obsidian-acceptance: exercise the integrated feature in an isolated Obsidian
-      vault, inspect and publish light/dark screenshots, update the behavior docs, and
-      record verified deployment evidence."
+- id: bold-writers-and-conversion
+  title: Bold plugin writers and verbatim project conversion
+  size: medium
+  depends_on: []
+  description: 'bold-writers-and-conversion: switch new plugin drawer writes to bold,
+    refresh Rust-owned fixtures, and preserve valid titles and empty sections through
+    promotion and reversal.'
+- id: drawer-rendering
+  title: Task drawer marks in Live Preview and reading view
+  size: medium
+  depends_on:
+  - bold-writers-and-conversion
+  description: 'drawer-rendering: render the approved tray and verbatim title using
+    source-backed attributes, owner ink, folded counts, empty and closed states, and
+    a persistent marks toggle.'
+- id: drawer-typing
+  title: Drawer marker typing and Toggle Drawer
+  size: medium
+  depends_on:
+  - drawer-rendering
+  description: 'drawer-typing: add scoped star expansion, Enter, overtype, atomic
+    Backspace, undo, and Toggle Drawer beside the existing requirement typing assist.'
+- id: obsidian-acceptance
+  title: Real Obsidian acceptance, screenshots, and documentation
+  size: medium
+  depends_on:
+  - bold-writers-and-conversion
+  - drawer-rendering
+  - drawer-typing
+  description: 'obsidian-acceptance: exercise the integrated feature in an isolated
+    Obsidian vault, inspect and publish light/dark screenshots, update the behavior
+    docs, and record verified deployment evidence.'
 proposed_by: bbugyi200.apollo.bob-cli-ph.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ph.7
 create_time: 2026-11-25 08:48:51
 status: wip
+bead_id: bob-cli-ph.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/obsidian_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_true_case_drawers.md)
-- **PARENT:**
-  [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
+- **PROMPT:** [prompts/202611/obsidian_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/obsidian_true_case_drawers.md)
+- **PARENT:** [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
+- **BEAD:** [bob-cli-ph.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.7.1.md)
 
 # Complete Obsidian true-case task drawers
 
