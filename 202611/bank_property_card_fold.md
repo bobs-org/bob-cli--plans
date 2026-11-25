@@ -1,118 +1,106 @@
 ---
 tier: epic
-title:
-  "Bank as a proper property card: folded Setup, hidden native Properties, and the `_`
-  fold key"
-goal: "The bank card on bank.md owns the note top as a title-slot property card whose
-  Setup folds by default (problems stay visible), native Obsidian Properties hide behind
-  the fail-open coordinator, and a guarded bare `_` folds the card's own section on
-  bank, album, record, area, and project cards.
+title: 'Bank as a proper property card: folded Setup, hidden native Properties, and
+  the `_` fold key'
+goal: 'The bank card on bank.md owns the note top as a title-slot property card whose
+  Setup folds by default (problems stay visible), native Obsidian Properties hide
+  behind the fail-open coordinator, and a guarded bare `_` folds the card''s own section
+  on bank, album, record, area, and project cards.
 
-  "
+  '
 decisions:
   family_fold_look:
-    ask:
-      When `_` reaches record, area, and project cards, should their folds keep the
-      compact kicker chevron?
+    ask: When `_` reaches record, area, and project cards, should their folds keep
+      the compact kicker chevron?
     choices:
-      compact:
-        Chevron stays in the kicker tools and gains `_`, tooltip, and ids; card heights
-        stay pixel-stable
-      row:
-        Chevron becomes the full-width fold row bank and album use; each card grows by
-        one line
+      compact: Chevron stays in the kicker tools and gains `_`, tooltip, and ids;
+        card heights stay pixel-stable
+      row: Chevron becomes the full-width fold row bank and album use; each card grows
+        by one line
     default: compact
-    why:
-      Those folds hide a whole card body, not a named section; a row adds height, not
-      meaning
+    why: Those folds hide a whole card body, not a named section; a row adds height,
+      not meaning
     answer: compact
   memory_glossary_cards:
-    ask:
-      Correct the glossary Property Card and Bank Card strands once bank owns its title
-      and Properties?
+    ask: Correct the glossary Property Card and Bank Card strands once bank owns its
+      title and Properties?
     memory:
-      - glossary:property-card
-      - glossary:bank-card
+    - glossary:property-card
+    - glossary:bank-card
     default: true
     corrects: Bank keeps its native block.
     answer: true
   memory_card_keys_record:
-    ask:
-      Add a decisions-web record fixing the card key family (`-`/`_` show, `==`/`+`
+    ask: Add a decisions-web record fixing the card key family (`-`/`_` show, `==`/`+`
       edit)?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: fold-core
-    title: Shared fold kit, the `_` key, the command, and album Schema
-    depends_on: []
-    size: medium
-    description:
-      "fold-core: add the 240s fold kit (state helper, node-based registry, fold row),
-      species foldDefault, the guarded `_` arm and toggle-card-details command plus
-      Command Mode row, and move album Schema onto the kit with tests, e2e, docs, and
-      the vimrc comment."
-  - id: bank-fold
-    title: Setup collapses by default and the folded card stays honest
-    depends_on:
-      - fold-core
-    size: medium
-    description:
-      "bank-fold: bank Setup resolves through the fold helper (collapsed when healthy,
-      self-opening and still toggleable when broken), gains the shared fold row with an
-      attention chip, and fixes the gap tone, rule numbering, ids, and stale-notice
-      placement."
-  - id: bank-title
-    title: The bank card moves into the title slot and owns the title
-    depends_on:
-      - bank-fold
-    size: medium
-    description:
-      "bank-title: new 248cb title mixin adopts the title slot with an emoji-splitting
-      identity model and bank recognizer, retires the badge, moves the edit action into
-      the kicker as ⊞ Setup, adopts the real hue walk, and releases cleanly in Source
-      mode."
-  - id: bank-takeover
-    title: Hide native Properties on bank.md behind the fail-open gate
-    depends_on:
-      - bank-title
-    size: medium
-    description:
-      "bank-takeover: spike bank.md YAML parity in real Obsidian, add bank to the 240q
-      coordinator, acquire and release ownership from the bank host, promote the
-      bank-native e2e to full takeover verification, flip docs, and apply the
-      decision-gated glossary corrections."
-  - id: fold-family
-    title: The `_` key reaches record, area, and project folds
-    depends_on:
-      - fold-core
-    size: medium
-    description:
-      "fold-family: register record, area, and project folds with the kit (look per
-      family_fold_look), give the foot's `-` disclosure the same hover keycap, and cover
-      each kind in unit and e2e tests and docs."
-  - id: bank-polish
-    title: Area strip, screenshot review, and passive-rendering proof
-    depends_on:
-      - bank-takeover
-      - fold-family
-    size: small
-    description:
-      "bank-polish: render the authored-only area strip on the bank card, prove folding
-      is passive, review light/dark wide/narrow screenshots across the family, sweep
-      docs, and write the optional key-family decision record."
+- id: fold-core
+  title: Shared fold kit, the `_` key, the command, and album Schema
+  depends_on: []
+  size: medium
+  description: 'fold-core: add the 240s fold kit (state helper, node-based registry,
+    fold row), species foldDefault, the guarded `_` arm and toggle-card-details command
+    plus Command Mode row, and move album Schema onto the kit with tests, e2e, docs,
+    and the vimrc comment.'
+- id: bank-fold
+  title: Setup collapses by default and the folded card stays honest
+  depends_on:
+  - fold-core
+  size: medium
+  description: 'bank-fold: bank Setup resolves through the fold helper (collapsed
+    when healthy, self-opening and still toggleable when broken), gains the shared
+    fold row with an attention chip, and fixes the gap tone, rule numbering, ids,
+    and stale-notice placement.'
+- id: bank-title
+  title: The bank card moves into the title slot and owns the title
+  depends_on:
+  - bank-fold
+  size: medium
+  description: 'bank-title: new 248cb title mixin adopts the title slot with an emoji-splitting
+    identity model and bank recognizer, retires the badge, moves the edit action into
+    the kicker as ⊞ Setup, adopts the real hue walk, and releases cleanly in Source
+    mode.'
+- id: bank-takeover
+  title: Hide native Properties on bank.md behind the fail-open gate
+  depends_on:
+  - bank-title
+  size: medium
+  description: 'bank-takeover: spike bank.md YAML parity in real Obsidian, add bank
+    to the 240q coordinator, acquire and release ownership from the bank host, promote
+    the bank-native e2e to full takeover verification, flip docs, and apply the decision-gated
+    glossary corrections.'
+- id: fold-family
+  title: The `_` key reaches record, area, and project folds
+  depends_on:
+  - fold-core
+  size: medium
+  description: 'fold-family: register record, area, and project folds with the kit
+    (look per family_fold_look), give the foot''s `-` disclosure the same hover keycap,
+    and cover each kind in unit and e2e tests and docs.'
+- id: bank-polish
+  title: Area strip, screenshot review, and passive-rendering proof
+  depends_on:
+  - bank-takeover
+  - fold-family
+  size: small
+  description: 'bank-polish: render the authored-only area strip on the bank card,
+    prove folding is passive, review light/dark wide/narrow screenshots across the
+    family, sweep docs, and write the optional key-family decision record.'
 proposed_by: bbugyi200.athena.1g2
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-25 12:49:28
 status: wip
+bead_id: bob-cli-q6
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_property_card_fold.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_property_card_fold.md)
+- **PROMPT:** [prompts/202611/bank_property_card_fold.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_property_card_fold.md)
+- **BEAD:** [bob-cli-q6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q6/README.md)
 
 # Bank as a proper property card: folded Setup, hidden native Properties, and the `_` fold key
 
