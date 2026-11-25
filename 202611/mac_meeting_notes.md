@@ -1,48 +1,44 @@
 ---
 tier: epic
 title: Mac meeting notes filing and Meetings library scope
-goal:
-  Complete bob-cli-pw.8 with guarded clipboard meeting-notes filing from Capture and its
-  agenda, a first-class Meetings kind in Bob Refs, and verified macOS CI.
+goal: Complete bob-cli-pw.8 with guarded clipboard meeting-notes filing from Capture
+  and its agenda, a first-class Meetings kind in Bob Refs, and verified macOS CI.
 phases:
-  - id: meet-protocol
-    title: Meeting notes JSON client and portable session
-    size: medium
-    depends_on: []
-    description:
-      "meet-protocol: add the ref meet response models, guarded clipboard preview/file
-      client, capability detection, portable session state machine, synthetic contract
-      fixtures, and protocol documentation in bob-mac-capture."
-  - id: meetings-library
-    title: First-class Meetings kind in Bob Refs
-    size: small
-    depends_on: []
-    description:
-      "meetings-library: add RefKind.meeting, the Meetings scope on Command-6,
-      presentation and search coverage, synthetic tests, and the Bob Refs documentation
-      in bob-mac-capture."
-  - id: meet-panel
-    title: Meeting Notes sheet and agenda entry points
-    size: medium
-    depends_on:
-      - meet-protocol
-      - meetings-library
-    description:
-      "meet-panel: integrate the portable session into a native Meeting Notes mode,
-      Command-M, the status menu, and focusable agenda Notes actions; preserve the
-      capture draft, implement choice and receipt states, and finish UI tests and user
-      docs."
+- id: meet-protocol
+  title: Meeting notes JSON client and portable session
+  size: medium
+  depends_on: []
+  description: 'meet-protocol: add the ref meet response models, guarded clipboard
+    preview/file client, capability detection, portable session state machine, synthetic
+    contract fixtures, and protocol documentation in bob-mac-capture.'
+- id: meetings-library
+  title: First-class Meetings kind in Bob Refs
+  size: small
+  depends_on: []
+  description: 'meetings-library: add RefKind.meeting, the Meetings scope on Command-6,
+    presentation and search coverage, synthetic tests, and the Bob Refs documentation
+    in bob-mac-capture.'
+- id: meet-panel
+  title: Meeting Notes sheet and agenda entry points
+  size: medium
+  depends_on:
+  - meet-protocol
+  - meetings-library
+  description: 'meet-panel: integrate the portable session into a native Meeting Notes
+    mode, Command-M, the status menu, and focusable agenda Notes actions; preserve
+    the capture draft, implement choice and receipt states, and finish UI tests and
+    user docs.'
 proposed_by: bbugyi200.apollo.bob-cli-pw.8
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pw.8
 create_time: 2026-11-24 23:55:00
 status: wip
+bead_id: bob-cli-pw.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_meeting_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_meeting_notes.md)
-- **PARENT:**
-  [202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/meeting_notes_event_refs.md)
+- **PROMPT:** [prompts/202611/mac_meeting_notes.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_meeting_notes.md)
+- **PARENT:** [202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/meeting_notes_event_refs.md)
+- **BEAD:** [bob-cli-pw.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pw/bob-cli-pw.8.1.md)
 
 # Mac meeting notes: finish bob-cli-pw.8
 
