@@ -1,10 +1,11 @@
 ---
 tier: tale
 title: Finish and close the meeting-notes epic (bob-cli-pw)
-goal: Meeting recaps follow the approved layout and never drop a word. Meeting PDFs
-  render on every TeX Live. Obsidian's ref-meet toast offers Open event. `bob ref
-  meet` help reads as user documentation. Epic bob-cli-pw is closed with a verification
-  note and its plan file is marked done.
+goal:
+  Meeting recaps follow the approved layout and never drop a word. Meeting PDFs render
+  on every TeX Live. Obsidian's ref-meet toast offers Open event. `bob ref meet` help
+  reads as user documentation. Epic bob-cli-pw is closed with a verification note and
+  its plan file is marked done.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pw.land
 proposed_with: claude/opus
@@ -16,6 +17,11 @@ status: done
   [202611/meeting_notes_event_refs.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/meeting_notes_event_refs.md)
 - **BEAD:**
   [bob-cli-pw](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pw/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-pw.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pw.land.md)
+- **COMMITS:**
+  - [a458c96](https://github.com/bobs-org/bob-plugins/commit/a458c96f448b6c298709685951c438c6015f04b5)
+    — fix(command-mode): accept wikilink relation targets for ref-meet toast
 
 # Plan: Finish and close the meeting-notes epic (bob-cli-pw)
 
