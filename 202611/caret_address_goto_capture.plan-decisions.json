@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "caret_goto_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions memory strand recording that a bare whole-draft @route^id is a read-only Go To?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:caret-address-goes-to"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:caret-address-goes-to",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/caret-address-goes-to.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
