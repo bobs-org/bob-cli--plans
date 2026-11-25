@@ -1,84 +1,78 @@
 ---
 tier: epic
 title: Navigation gestures settle their written notes
-goal:
-  Complete bob-cli-q4.10 by making every in-scope navigation status or residence write
-  settle its touched notes atomically while preserving undo, task identity, cursor
-  policy, review-walk behavior, and cross-note safety.
+goal: Complete bob-cli-q4.10 by making every in-scope navigation status or residence
+  write settle its touched notes atomically while preserving undo, task identity,
+  cursor policy, review-walk behavior, and cross-note safety.
 phases:
-  - id: settle-bridge
-    title: Navigation settle adapter, command flush, and identity mapping
-    size: medium
-    depends_on: []
-    description:
-      "settle-bridge: add a guarded nav consumer of taskSettle v1, reusable editor and
-      file-postimage preparation, command-entry flushing, and identity/line-map
-      forwarding for nav state and jumps. Preserve annotated transactions and exact
-      rollback writes. Add focused adapter, command-route, cursor, and walk-identity
-      tests."
-  - id: answers
-    title: Lane, cancel, freshness, and decay answers settle atomically
-    size: medium
-    depends_on:
-      - settle-bridge
-    description:
-      "answers: wire Alt+N, Alt+X, counted and linked variants, freshness keeps, Decay
-      Card writes, and checklist-close orchestration to the adapter. Preserve pre-write
-      due-row matching, exactly-once walk advancement, and the stay/pinned-jump rules.
-      Verify grouped output, degradation, undo, and note-switch refusals."
-  - id: cards
-    title: Task, schedule, priority, and quick-roll commits settle
-    size: medium
-    depends_on:
-      - answers
-    description:
-      "cards: wire the remaining Task Card, schedule, priority, quick-roll, counted,
-      linked, and project-schedule writers through settled postimages. Compose logs and
-      same-note cleanup before settling, forward results and card state by identity, and
-      preserve cross-note rollback and deferred-prune behavior."
-  - id: relocation
-    title: Task moves and splits settle every written note
-    size: medium
-    depends_on:
-      - cards
-    description:
-      "relocation: settle move source/destination and Task Split same-note, cross-note,
-      created-note, and requirement-carry postimages before persistence. Return final
-      anchors and exact settled receipts, preserve rollback and recovery, and keep moves
-      following their destination while parking the walk. Cover routed moves that share
-      writers."
-  - id: mirrors
-    title: Status-changing dependency and relation writes settle safely
-    size: medium
-    depends_on:
-      - relocation
-    description:
-      "mirrors: audit and wire status-changing dependent and mirror writes, preserving
-      machine annotations, note-path guards, exact preimages, caches, and undo receipts.
-      Verify open/closed-note writes and the fixed A-to-B editor-switch race; record the
-      complete nav writer disposition without adding reconciliation work."
-  - id: acceptance
-    title: Morning-review acceptance, documentation, and deployment evidence
-    size: medium
-    depends_on:
-      - mirrors
-    description:
-      "acceptance: exercise the integrated navigation writers with the real settle
-      provider in a simulated full morning review and failure/undo cases. Verify settled
-      notes, identity landings, command flushing, and no unintended writes. Update
-      navigation docs, run repository gates, deploy navigation, and provide closure
-      evidence."
+- id: settle-bridge
+  title: Navigation settle adapter, command flush, and identity mapping
+  size: medium
+  depends_on: []
+  description: 'settle-bridge: add a guarded nav consumer of taskSettle v1, reusable
+    editor and file-postimage preparation, command-entry flushing, and identity/line-map
+    forwarding for nav state and jumps. Preserve annotated transactions and exact
+    rollback writes. Add focused adapter, command-route, cursor, and walk-identity
+    tests.'
+- id: answers
+  title: Lane, cancel, freshness, and decay answers settle atomically
+  size: medium
+  depends_on:
+  - settle-bridge
+  description: 'answers: wire Alt+N, Alt+X, counted and linked variants, freshness
+    keeps, Decay Card writes, and checklist-close orchestration to the adapter. Preserve
+    pre-write due-row matching, exactly-once walk advancement, and the stay/pinned-jump
+    rules. Verify grouped output, degradation, undo, and note-switch refusals.'
+- id: cards
+  title: Task, schedule, priority, and quick-roll commits settle
+  size: medium
+  depends_on:
+  - answers
+  description: 'cards: wire the remaining Task Card, schedule, priority, quick-roll,
+    counted, linked, and project-schedule writers through settled postimages. Compose
+    logs and same-note cleanup before settling, forward results and card state by
+    identity, and preserve cross-note rollback and deferred-prune behavior.'
+- id: relocation
+  title: Task moves and splits settle every written note
+  size: medium
+  depends_on:
+  - cards
+  description: 'relocation: settle move source/destination and Task Split same-note,
+    cross-note, created-note, and requirement-carry postimages before persistence.
+    Return final anchors and exact settled receipts, preserve rollback and recovery,
+    and keep moves following their destination while parking the walk. Cover routed
+    moves that share writers.'
+- id: mirrors
+  title: Status-changing dependency and relation writes settle safely
+  size: medium
+  depends_on:
+  - relocation
+  description: 'mirrors: audit and wire status-changing dependent and mirror writes,
+    preserving machine annotations, note-path guards, exact preimages, caches, and
+    undo receipts. Verify open/closed-note writes and the fixed A-to-B editor-switch
+    race; record the complete nav writer disposition without adding reconciliation
+    work.'
+- id: acceptance
+  title: Morning-review acceptance, documentation, and deployment evidence
+  size: medium
+  depends_on:
+  - mirrors
+  description: 'acceptance: exercise the integrated navigation writers with the real
+    settle provider in a simulated full morning review and failure/undo cases. Verify
+    settled notes, identity landings, command flushing, and no unintended writes.
+    Update navigation docs, run repository gates, deploy navigation, and provide closure
+    evidence.'
 proposed_by: bbugyi200.athena.bob-cli-q4.10
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q4.10
 create_time: 2026-11-25 14:29:08
 status: wip
+bead_id: bob-cli-q4.10.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/navigation_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/navigation_gesture_settle.md)
-- **PARENT:**
-  [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **PROMPT:** [prompts/202611/navigation_gesture_settle.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/navigation_gesture_settle.md)
+- **PARENT:** [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
+- **BEAD:** [bob-cli-q4.10.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/bob-cli-q4.10.1.md)
 
 # Navigation gestures settle the notes they write
 
