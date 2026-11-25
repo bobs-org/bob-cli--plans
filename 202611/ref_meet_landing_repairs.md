@@ -1,9 +1,8 @@
 ---
 tier: tale
 title: Finish and land the meeting notes reference command
-goal:
-  Repair the remaining ref meet contract gaps, verify the complete command, and close
-  bob-cli-pw.5.1 plus parent phase bob-cli-pw.5.
+goal: Repair the remaining ref meet contract gaps, verify the complete command, and
+  close bob-cli-pw.5.1 plus parent phase bob-cli-pw.5.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-pw.5.1.land
 proposed_with: codex/gpt-6-astra
@@ -15,11 +14,6 @@ status: done
   [202611/ref_meet_cli.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/ref_meet_cli.md)
 - **BEAD:**
   [bob-cli-pw.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pw/bob-cli-pw.5.1.md)
-- **AGENTS:**
-  - [bbugyi200.apollo.bob-cli-pw.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-pw.5.1.land.md)
-- **COMMITS:**
-  - [28e2388](https://github.com/bobs-org/bob-cli/commit/28e2388646c80a47c748fda3c816a2fe2ff63235)
-    — fix(ref): land remaining bob ref meet CLI repairs
 
 # Finish and land the meeting notes reference command
 
