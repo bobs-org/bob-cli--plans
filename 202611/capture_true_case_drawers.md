@@ -1,72 +1,66 @@
 ---
 tier: epic
 title: True-case capture drawers and one place resolver
-goal:
-  Complete bob-cli-ph.6 with shared place resolution, bold container drafts, preserved
+goal: Complete bob-cli-ph.6 with shared place resolution, bold container drafts, preserved
   titles, accurate completion and preview metadata, and verified capture grammar and
   documentation.
 phases:
-  - id: shared-place
-    title: Extract the shared place lexer and resolver without changing behavior
-    size: medium
-    depends_on: []
-    description:
-      "shared-place: introduce capture_language/place.rs with TaskDrawer,
-      ProjectSection, and NotebookSection adapters. Consolidate selector lexing and
-      matching while preserving existing scope policies and passing existing suites
-      unchanged. Remove obsolete selector helpers only after auditing their callers."
-  - id: bold-drafts
-    title: Admit bold container drafts across all four contexts
-    size: medium
-    depends_on:
-      - shared-place
-    description:
-      "bold-drafts: replace ALL-CAPS authored container detection with whole-bold
-      headers for task drawers, project-note sections, notebook creation seeds, and
-      record groups. Preserve literal titles, add delimiter/title spans and the
-      temporary caps_drawer_retired refusal, keep notebook route-only behavior, and make
-      bullet menu replacements valid bold drafts. Advance grammar 29 to 30."
-  - id: place-titles
-    title: Preserve selected titles and prefer explicit catalog spellings
-    size: medium
-    depends_on:
-      - bold-drafts
-    description:
-      "place-titles: complete the shared create-title rule for quoted, glued, flag, and
-      slug selectors; use explicit catalog spellings and notebook-style fallback. Route
-      completion and refusal decisions through the same resolver and prove replacement,
-      parse, preview, and commit agree for every menu row kind."
-  - id: drawer-editor-wire
-    title: Add drawer typing expansion and semantic preview annotations
-    size: medium
-    depends_on:
-      - place-titles
-    description:
-      "drawer-editor-wire: implement expand_drawer_marker through hypothetical parser
-      admission, add marker provenance to drawer objects and drawer annotations to
-      preview header lines, and cover offsets, before/after snapshots, and excluded
-      contexts. Keep Mac keystroke handling and fixture regeneration in bob-cli-ph.8."
-  - id: capture-acceptance
-    title: Verify the complete capture contract and publish its documentation
-    size: medium
-    depends_on:
-      - drawer-editor-wire
-    description:
-      "capture-acceptance: run the cross-context scratch-vault acceptance matrix, finish
-      capture and JSON documentation, and run formatting, docs, and repository gates.
-      Record evidence and unresolved baseline failures for the child epic land agent,
-      which alone verifies and closes bob-cli-ph.6."
+- id: shared-place
+  title: Extract the shared place lexer and resolver without changing behavior
+  size: medium
+  depends_on: []
+  description: 'shared-place: introduce capture_language/place.rs with TaskDrawer,
+    ProjectSection, and NotebookSection adapters. Consolidate selector lexing and
+    matching while preserving existing scope policies and passing existing suites
+    unchanged. Remove obsolete selector helpers only after auditing their callers.'
+- id: bold-drafts
+  title: Admit bold container drafts across all four contexts
+  size: medium
+  depends_on:
+  - shared-place
+  description: 'bold-drafts: replace ALL-CAPS authored container detection with whole-bold
+    headers for task drawers, project-note sections, notebook creation seeds, and
+    record groups. Preserve literal titles, add delimiter/title spans and the temporary
+    caps_drawer_retired refusal, keep notebook route-only behavior, and make bullet
+    menu replacements valid bold drafts. Advance grammar 29 to 30.'
+- id: place-titles
+  title: Preserve selected titles and prefer explicit catalog spellings
+  size: medium
+  depends_on:
+  - bold-drafts
+  description: 'place-titles: complete the shared create-title rule for quoted, glued,
+    flag, and slug selectors; use explicit catalog spellings and notebook-style fallback.
+    Route completion and refusal decisions through the same resolver and prove replacement,
+    parse, preview, and commit agree for every menu row kind.'
+- id: drawer-editor-wire
+  title: Add drawer typing expansion and semantic preview annotations
+  size: medium
+  depends_on:
+  - place-titles
+  description: 'drawer-editor-wire: implement expand_drawer_marker through hypothetical
+    parser admission, add marker provenance to drawer objects and drawer annotations
+    to preview header lines, and cover offsets, before/after snapshots, and excluded
+    contexts. Keep Mac keystroke handling and fixture regeneration in bob-cli-ph.8.'
+- id: capture-acceptance
+  title: Verify the complete capture contract and publish its documentation
+  size: medium
+  depends_on:
+  - drawer-editor-wire
+  description: 'capture-acceptance: run the cross-context scratch-vault acceptance
+    matrix, finish capture and JSON documentation, and run formatting, docs, and repository
+    gates. Record evidence and unresolved baseline failures for the child epic land
+    agent, which alone verifies and closes bob-cli-ph.6.'
 proposed_by: bbugyi200.apollo.bob-cli-ph.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-ph.6
 create_time: 2026-11-25 08:39:50
 status: wip
+bead_id: bob-cli-ph.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_true_case_drawers.md)
-- **PARENT:**
-  [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
+- **PROMPT:** [prompts/202611/capture_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_true_case_drawers.md)
+- **PARENT:** [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
+- **BEAD:** [bob-cli-ph.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.6.1.md)
 
 # Capture drawers with their real titles
 
