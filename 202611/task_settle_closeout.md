@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Repair taskSettle guards and finish the provider landing
-goal: Reject stale task identities and unguarded staged writes, enforce fixture parity,
+goal:
+  Reject stale task identities and unguarded staged writes, enforce fixture parity,
   integrate docs, and close bob-cli-q4.8.1 and parent phase bob-cli-q4.8.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q4.8.1.land
@@ -14,6 +15,11 @@ status: done
   [202611/task_settle_twin.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_settle_twin.md)
 - **BEAD:**
   [bob-cli-q4.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/bob-cli-q4.8.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q4.8.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q4.8.1.land.md)
+- **COMMITS:**
+  - [c3b80bc](https://github.com/bobs-org/bob-cli--plans/commit/c3b80bcdc5361045817367c81cecfc0e72320c35)
+    — docs(plan): mark task_settle_twin done after provider closeout
 
 # Repair taskSettle guards and finish the provider landing
 
