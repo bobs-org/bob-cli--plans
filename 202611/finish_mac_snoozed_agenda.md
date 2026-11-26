@@ -1,16 +1,14 @@
 ---
 tier: tale
 title: Finish Mac snooze scheduling and land bob-cli-q5.7.1
-goal:
-  Preserve authoritative wake outcomes and bounded retries, render the folded alarm
-  icon, verify the combined Mac tree, and close bob-cli-q5.7.1 and parent phase
+goal: Preserve authoritative wake outcomes and bounded retries, render the folded
+  alarm icon, verify the combined Mac tree, and close bob-cli-q5.7.1 and parent phase
   bob-cli-q5.7.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.7.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-q5.7.1
-create_time: 2026-11-26 10:57:48
-status: wip
+status: done
 ---
 
 - **PARENT:**
