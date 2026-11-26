@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "e2e_survival_check",
+      "kind": "choice",
+      "ask": "Add a required real-Obsidian takeover check proving ownership survives an unrelated vault write?",
+      "why": "the matrix only checks ownership right after open, which is why this regression shipped",
+      "choices": [
+        {
+          "key": "add",
+          "label": "The takeover matrix gains one required survival check, run green on athena before landing"
+        },
+        {
+          "key": "skip",
+          "label": "Unit and source-guard tests only; the real-app matrix keeps checking acquisition alone"
+        }
+      ],
+      "default": "add",
+      "effective_default": "add",
+      "requested_verified": false
+    },
+    {
+      "id": "mac_deploy",
+      "kind": "choice",
+      "ask": "After landing, refresh the MacBook's vault copy with `ssh mac 'bob plugins sync -p bob-ledger-tools'`?",
+      "why": "the Mac's plugin copy refreshes only manually, and the Mac is where the bug shows",
+      "choices": [
+        {
+          "key": "sync",
+          "label": "The fix reaches the Mac, where the bug was seen, without waiting for a manual sync"
+        },
+        {
+          "key": "leave",
+          "label": "Only athena is deployed; Bryan syncs the Mac himself"
+        }
+      ],
+      "default": "sync",
+      "effective_default": "sync",
+      "requested_verified": false
+    }
+  ]
+}
