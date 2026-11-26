@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Finish and land the snooze plugin plumbing epic
-goal: Fix the remaining snooze plugin defects the bob-cli-q5.4.1 landing review found,
-  add the missing gesture regression tests, then close bob-cli-q5.4.1 and its parent
-  phase bob-cli-q5.4.
+goal:
+  Fix the remaining snooze plugin defects the bob-cli-q5.4.1 landing review found, add
+  the missing gesture regression tests, then close bob-cli-q5.4.1 and its parent phase
+  bob-cli-q5.4.
 proposed_by: bbugyi200.athena.bob-cli-q5.4.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.4.1
@@ -15,6 +16,11 @@ status: done
   [202611/snooze_plugin_plumbing.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snooze_plugin_plumbing.md)
 - **BEAD:**
   [bob-cli-q5.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.4.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.4.1.land.md)
+- **COMMITS:**
+  - [d7875aa](https://github.com/bobs-org/bob-plugins/commit/d7875aac6d1844cdb60fdc35a25a0c2e2d6e6a65)
+    — feat(snooze): land plugin plumbing behavior
 
 # Finish and land the snooze plugin plumbing epic (bob-cli-q5.4.1)
 
