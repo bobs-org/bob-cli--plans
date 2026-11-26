@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "guarded_notes",
+      "kind": "choice",
+      "ask": "When the link guard leaves a Project-blocked target unlinked, should the item's note bullets still land?",
+      "why": "Notes don't depend on the link, and a guarded link is already a reported success",
+      "choices": [
+        {
+          "key": "land",
+          "label": "Notes land; output says \"not linked\" and then lists the notes"
+        },
+        {
+          "key": "refuse",
+          "label": "The item fails before any write; notes land only with the link"
+        }
+      ],
+      "default": "land",
+      "effective_default": "land",
+      "requested_verified": false
+    },
+    {
+      "id": "close_notes",
+      "kind": "choice",
+      "ask": "Should link-close forms (`@route:id=x\u2026`, `^route:id=x\u2026`) also take child bullets as task notes?",
+      "why": "Under whole-item `x`, child bullets are Work Log entries, so link-close notes would read ambiguously",
+      "choices": [
+        {
+          "key": "refuse",
+          "label": "Close forms keep refusing child bullets; only non-close link forms take notes"
+        },
+        {
+          "key": "notes",
+          "label": "Close forms file bullets as notes before closing, unlike whole-item `x` Work Log bullets"
+        }
+      ],
+      "default": "refuse",
+      "effective_default": "refuse",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_link_notes_record",
+      "kind": "toggle",
+      "ask": "Should the implementer add a link-notes decision strand and mark capture-bullets-mirror-the-task-block superseded?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:capture-bullets-mirror-the-task-block",
+          "decisions:existing-task-links-carry-notes"
+        ]
+      },
+      "corrects": "That position is a new task, a new project note, or a note-less `@route+id`",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:capture-bullets-mirror-the-task-block",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Capture Bullets Mirror The Task Block"
+          ]
+        },
+        {
+          "selector": "decisions:existing-task-links-carry-notes",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/existing-task-links-carry-notes.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
