@@ -1,50 +1,46 @@
 ---
 tier: epic
 title: Mac snoozed agenda and always-on wake scheduler
-goal:
-  "Complete bob-cli-q5.7: show snoozed tasks separately in the Mac agenda, preserve
-  their summary under folding, mark fresh wakes, and run Bob's wake writer at its
-  advertised instant while the panel is hidden."
+goal: 'Complete bob-cli-q5.7: show snoozed tasks separately in the Mac agenda, preserve
+  their summary under folding, mark fresh wakes, and run Bob''s wake writer at its
+  advertised instant while the panel is hidden.'
 phases:
-  - id: snooze-models
-    title: Decode snoozed agenda facts and style the capture token
-    size: small
-    depends_on: []
-    description:
-      "snooze-models: add backward-compatible agenda and wake-provenance models, import
-      Bob contract fixtures, and map the snooze semantic span to the editor's
-      time-marker palette. Update protocol documentation and verify the Swift."
-  - id: later-today-band
-    title: Render and fold Later today with woken accents
-    size: medium
-    depends_on:
-      - snooze-models
-    description:
-      "later-today-band: implement the separate presentation, persistent summary and
-      first-to-fold behavior, measured Mac views, separate budget count, and
-      sixty-minute woken accents. Cover empty-ledger, compact, and legacy cases and
-      document the shipped idle agenda behavior."
-  - id: snooze-waker
-    title: Wake snoozed tasks while the capture panel is hidden
-    size: medium
-    depends_on:
-      - later-today-band
-    description:
-      "snooze-waker: add the schema-checked non-cancelling Bob wake lane and app-owned
-      SnoozeWakeScheduler, with bounded retries and lifecycle invalidation. Include
-      snooze instants in visible boundary refresh, verify integration with fake time and
-      fake Bob, and document the command and lane contracts."
+- id: snooze-models
+  title: Decode snoozed agenda facts and style the capture token
+  size: small
+  depends_on: []
+  description: 'snooze-models: add backward-compatible agenda and wake-provenance
+    models, import Bob contract fixtures, and map the snooze semantic span to the
+    editor''s time-marker palette. Update protocol documentation and verify the Swift.'
+- id: later-today-band
+  title: Render and fold Later today with woken accents
+  size: medium
+  depends_on:
+  - snooze-models
+  description: 'later-today-band: implement the separate presentation, persistent
+    summary and first-to-fold behavior, measured Mac views, separate budget count,
+    and sixty-minute woken accents. Cover empty-ledger, compact, and legacy cases
+    and document the shipped idle agenda behavior.'
+- id: snooze-waker
+  title: Wake snoozed tasks while the capture panel is hidden
+  size: medium
+  depends_on:
+  - later-today-band
+  description: 'snooze-waker: add the schema-checked non-cancelling Bob wake lane
+    and app-owned SnoozeWakeScheduler, with bounded retries and lifecycle invalidation.
+    Include snooze instants in visible boundary refresh, verify integration with fake
+    time and fake Bob, and document the command and lane contracts.'
 proposed_by: bbugyi200.athena.bob-cli-q5.7
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.7
 create_time: 2026-11-26 07:49:17
 status: wip
+bead_id: bob-cli-q5.7.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_snoozed_agenda.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snoozed_agenda.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/mac_snoozed_agenda.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snoozed_agenda.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.7.1.md)
 
 # Mac snoozed agenda and always-on wake scheduler
 
