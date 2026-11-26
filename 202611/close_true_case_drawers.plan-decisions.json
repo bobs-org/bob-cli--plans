@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tray_width",
+      "kind": "choice",
+      "ask": "Should the Obsidian drawer tray widen to about 0.9em across, as epic plan \u00a77 specifies?",
+      "why": "Approved \u00a77 design is a wide, shallow tray ~0.95em across; today's 0.59em box nears the checkbox",
+      "choices": [
+        {
+          "key": "widen",
+          "label": "Redraw in a wide viewBox; stroke stays matched; all three hosts redeploy after the commit lands"
+        },
+        {
+          "key": "keep",
+          "label": "Keep the 0.59em square-viewBox tray shipped in 0d0a31f; only apollo needs a deploy"
+        }
+      ],
+      "default": "widen",
+      "effective_default": "widen",
+      "requested_verified": false
+    }
+  ]
+}
