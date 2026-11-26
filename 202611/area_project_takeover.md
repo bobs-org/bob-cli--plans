@@ -1,56 +1,51 @@
 ---
 tier: epic
 title: Complete area and project Properties takeover
-goal:
-  Area and project cards safely own native Properties, bank has one coordinated title
-  and foot, and the verified rollout completes bob-cli-pl.9.
+goal: Area and project cards safely own native Properties, bank has one coordinated
+  title and foot, and the verified rollout completes bob-cli-pl.9.
 phases:
-  - id: home-ownership
-    title: Gate home-card Properties ownership and route native entry points
-    size: medium
-    depends_on: []
-    description:
-      "home-ownership: extend the shared capability and mount coordinator for
-      area/project cards, preserve fail-open behavior, and route summary/Add actions to
-      the existing Property Editor."
-  - id: bank-arbitration
-    title: Integrate the Area Card with the landed bank title and setup card
-    size: medium
-    depends_on:
-      - home-ownership
-    description:
-      "bank-arbitration: prove the bank anchor in real Obsidian, implement scope-local
-      title/foot/frontmatter arbitration with the approved fallback ladder, and preserve
-      the bank editor."
-  - id: takeover-acceptance
-    title: Verify home and bank takeover through production Obsidian adapters
-    size: medium
-    depends_on:
-      - bank-arbitration
-    description:
-      "takeover-acceptance: extend and run the real-app fail-open, focus, capability,
-      and visual matrix with retained evidence and no passive writes or paint
-      subprocesses."
-  - id: cleanup-docs-memory
-    title: Repeat retired-count cleanup and publish the verified card contract
-    size: medium
-    depends_on:
-      - takeover-acceptance
-    description:
-      "cleanup-docs-memory: repeat the guarded retired-count sweep, finish source-owned
-      documentation, apply the three inherited glossary approvals, deploy, and prepare
-      completion evidence for bob-cli-pl.9."
+- id: home-ownership
+  title: Gate home-card Properties ownership and route native entry points
+  size: medium
+  depends_on: []
+  description: 'home-ownership: extend the shared capability and mount coordinator
+    for area/project cards, preserve fail-open behavior, and route summary/Add actions
+    to the existing Property Editor.'
+- id: bank-arbitration
+  title: Integrate the Area Card with the landed bank title and setup card
+  size: medium
+  depends_on:
+  - home-ownership
+  description: 'bank-arbitration: prove the bank anchor in real Obsidian, implement
+    scope-local title/foot/frontmatter arbitration with the approved fallback ladder,
+    and preserve the bank editor.'
+- id: takeover-acceptance
+  title: Verify home and bank takeover through production Obsidian adapters
+  size: medium
+  depends_on:
+  - bank-arbitration
+  description: 'takeover-acceptance: extend and run the real-app fail-open, focus,
+    capability, and visual matrix with retained evidence and no passive writes or
+    paint subprocesses.'
+- id: cleanup-docs-memory
+  title: Repeat retired-count cleanup and publish the verified card contract
+  size: medium
+  depends_on:
+  - takeover-acceptance
+  description: 'cleanup-docs-memory: repeat the guarded retired-count sweep, finish
+    source-owned documentation, apply the three inherited glossary approvals, deploy,
+    and prepare completion evidence for bob-cli-pl.9.'
 proposed_by: bbugyi200.apollo.bob-cli-pl.9
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-pl.9
 create_time: 2026-11-25 19:49:44
 status: wip
+bead_id: bob-cli-pl.9.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/area_project_takeover.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_takeover.md)
-- **PARENT:**
-  [202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/area_project_cards.md)
+- **PROMPT:** [prompts/202611/area_project_takeover.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/area_project_takeover.md)
+- **PARENT:** [202611/area_project_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/area_project_cards.md)
+- **BEAD:** [bob-cli-pl.9.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/bob-cli-pl.9.1.md)
 
 # Area and project Properties takeover
 
