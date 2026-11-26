@@ -22,6 +22,8 @@ status: done
 - **COMMITS:**
   - [403781d](https://github.com/bobs-org/bob-mac-capture/commit/403781d2b3d2921584b677fae1e76b4c5bfd952b)
     — fix(mac-capture): land true-case drawer pipeline tests and reconcile docs
+  - [ab98419](https://github.com/bobs-org/bob-mac-capture/commit/ab9841959e3032d478aa5d2f2ff6163c1c6984a5)
+    — fix(mac-capture): qualify self capture in old-Bob tip wait
   - [b38c4cc](https://github.com/bobs-org/bob-mac-capture/commit/b38c4cc3ced036c644cc230158972b819ed3fcf3)
     — fix(mac-capture): isolate drawer newline undo and harden old-Bob tip race
 
