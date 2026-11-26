@@ -22,6 +22,8 @@ status: done
 - **COMMITS:**
   - [403781d](https://github.com/bobs-org/bob-mac-capture/commit/403781d2b3d2921584b677fae1e76b4c5bfd952b)
     — fix(mac-capture): land true-case drawer pipeline tests and reconcile docs
+  - [b38c4cc](https://github.com/bobs-org/bob-mac-capture/commit/b38c4cc3ced036c644cc230158972b819ed3fcf3)
+    — fix(mac-capture): isolate drawer newline undo and harden old-Bob tip race
 
 # Land Bob Mac Capture true-case drawers
 
