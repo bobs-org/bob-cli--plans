@@ -74,7 +74,7 @@ proposed_with: claude/opus
 parent_bead: bob-cli-ph.8
 decided_by: auto
 create_time: 2026-11-25 20:55:44
-status: wip
+status: done
 bead_id: bob-cli-ph.8.1
 ---
 
