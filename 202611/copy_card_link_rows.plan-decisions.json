@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "row_keys",
+      "kind": "choice",
+      "ask": "Which keys should the new Note link and Task link rows use?",
+      "why": "L reads as link on the always-present row; K sits beside it and dodges t",
+      "choices": [
+        {
+          "key": "l_k",
+          "label": "L copies the note link, K the task link; home-row neighbors, clear of your t template"
+        },
+        {
+          "key": "w_l",
+          "label": "W copies the note link (wikilink), L the task link, the more frequent row"
+        },
+        {
+          "key": "l_b",
+          "label": "L copies the note link, B the task link (Obsidian calls it a block link)"
+        }
+      ],
+      "default": "l_k",
+      "effective_default": "l_k",
+      "requested_verified": false
+    }
+  ]
+}
