@@ -2,16 +2,15 @@
 tier: tale
 size: medium
 title: Finish bob-cli-q4 settle drift and close the epic
-goal: "Capture and `bob ref today` report post-settle line coordinates and settle every
-  note they write. The 17 settle-drift CLI nodes recorded on bob-cli-q4 pass against the
-  settle contract, and the bob-cli-q4 epic is closed.
+goal: 'Capture and `bob ref today` report post-settle line coordinates and settle
+  every note they write. The 17 settle-drift CLI nodes recorded on bob-cli-q4 pass
+  against the settle contract, and the bob-cli-q4 epic is closed.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-q4.land
 proposed_with: claude/opus
 bead: bob-cli-q4
-create_time: 2026-11-26 06:05:53
-status: wip
+status: done
 ---
 
 - **PARENT:**
