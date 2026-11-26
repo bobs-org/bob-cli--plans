@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "foot_walkthrough",
+      "kind": "choice",
+      "ask": "Should the card-foot walkthrough also gain the cursor checks, proving a record card too?",
+      "why": "Every card species mounts through the one title-slot primitive this fix changes",
+      "choices": [
+        {
+          "key": "home",
+          "label": "Prove it on Area and Project cards only; that walkthrough needs no bob build"
+        },
+        {
+          "key": "both",
+          "label": "Also prove it on a record card; needs a bob built from bob-cli and a longer run"
+        }
+      ],
+      "default": "home",
+      "effective_default": "home",
+      "requested_verified": false
+    }
+  ]
+}
