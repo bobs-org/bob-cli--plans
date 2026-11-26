@@ -2,8 +2,9 @@
 tier: tale
 size: small
 title: Refuse unplaceable snooze wakes, then land bob-cli-q5.1.1 and its parent phase
-goal: A snooze wake that cannot place a never-running Pomodoros destination refuses
-  without writing, and epic bob-cli-q5.1.1 plus phase bob-cli-q5.1 close with recorded
+goal:
+  A snooze wake that cannot place a never-running Pomodoros destination refuses without
+  writing, and epic bob-cli-q5.1.1 plus phase bob-cli-q5.1 close with recorded
   verification.
 proposed_by: bbugyi200.athena.bob-cli-q5.1.1.land
 proposed_with: claude/opus
@@ -15,6 +16,11 @@ status: done
   [202611/snooze_wake_engine.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snooze_wake_engine.md)
 - **BEAD:**
   [bob-cli-q5.1.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.1.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.1.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.1.1.land.md)
+- **COMMITS:**
+  - [19e7fe5](https://github.com/bobs-org/bob-cli/commit/19e7fe54e2a638c0856d3ded57e57b2947045fb9)
+    — fix(snooze): refuse unplaceable wake destinations without writing
 
 # Refuse unplaceable snooze wakes, then land bob-cli-q5.1.1
 
