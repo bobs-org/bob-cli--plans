@@ -1,72 +1,67 @@
 ---
 tier: epic
 title: Snooze display marks and plan chip
-goal: "Complete bob-cli-q5.5 with live snoozed definition marks, woken-link pills,
+goal: 'Complete bob-cli-q5.5 with live snoozed definition marks, woken-link pills,
   Snoozed row and heading paint, an independent plan chip, and verified light/dark
   Obsidian evidence without changing note bytes or Today semantics.
 
-  "
+  '
 phases:
-  - id: display-contract
-    title: Snooze display contract and canonical conformance vectors
-    size: small
-    description:
-      "display-contract: publish docs/snooze-marks.md and machine-readable SM vectors in
-      bob-cli before plugin implementation."
-    depends_on: []
-  - id: definition-marks
-    title: Snoozed task definition marks and refresh lifecycle
-    size: medium
-    description:
-      "definition-marks: implement alarm-clock definition marks, shared display helpers,
-      toggles, navigation, and current-state refresh in Live Preview and Reading view."
-    depends_on:
-      - display-contract
-  - id: woken-pills
-    title: Woken Task Link pills with history navigation
-    size: medium
-    description:
-      "woken-pills: render same-note wake history before eligible open ledger links,
-      with fresh and settled styling, exact identity resolution, and history-row
-      navigation."
-    depends_on:
-      - definition-marks
-  - id: snoozed-row-paint
-    title: Snoozed rows and heading summaries
-    size: medium
-    description:
-      "snoozed-row-paint: paint active, due, blocked, ignored, and struck Snoozed rows
-      plus heading summaries in Live Preview and Reading view."
-    depends_on:
-      - woken-pills
-  - id: plan-chip
-    title: Separate snoozed meter and wake forecast in bob-plan
-    size: medium
-    description:
-      "plan-chip: add the independent snoozed chip beside TODAY, its section jump, and
-      the effective-clock wake forecast without changing ledger budget status."
-    depends_on:
-      - snoozed-row-paint
-  - id: visual-proof
-    title: Obsidian display acceptance and screenshot evidence
-    size: medium
-    description:
-      "visual-proof: verify the complete display in real Obsidian, capture light and
-      dark states and accessibility evidence, fix display integration defects, and
-      attach results for the land agent."
-    depends_on:
-      - plan-chip
+- id: display-contract
+  title: Snooze display contract and canonical conformance vectors
+  size: small
+  description: 'display-contract: publish docs/snooze-marks.md and machine-readable
+    SM vectors in bob-cli before plugin implementation.'
+  depends_on: []
+- id: definition-marks
+  title: Snoozed task definition marks and refresh lifecycle
+  size: medium
+  description: 'definition-marks: implement alarm-clock definition marks, shared display
+    helpers, toggles, navigation, and current-state refresh in Live Preview and Reading
+    view.'
+  depends_on:
+  - display-contract
+- id: woken-pills
+  title: Woken Task Link pills with history navigation
+  size: medium
+  description: 'woken-pills: render same-note wake history before eligible open ledger
+    links, with fresh and settled styling, exact identity resolution, and history-row
+    navigation.'
+  depends_on:
+  - definition-marks
+- id: snoozed-row-paint
+  title: Snoozed rows and heading summaries
+  size: medium
+  description: 'snoozed-row-paint: paint active, due, blocked, ignored, and struck
+    Snoozed rows plus heading summaries in Live Preview and Reading view.'
+  depends_on:
+  - woken-pills
+- id: plan-chip
+  title: Separate snoozed meter and wake forecast in bob-plan
+  size: medium
+  description: 'plan-chip: add the independent snoozed chip beside TODAY, its section
+    jump, and the effective-clock wake forecast without changing ledger budget status.'
+  depends_on:
+  - snoozed-row-paint
+- id: visual-proof
+  title: Obsidian display acceptance and screenshot evidence
+  size: medium
+  description: 'visual-proof: verify the complete display in real Obsidian, capture
+    light and dark states and accessibility evidence, fix display integration defects,
+    and attach results for the land agent.'
+  depends_on:
+  - plan-chip
 proposed_by: bbugyi200.athena.bob-cli-q5.5
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.5
 create_time: 2026-11-26 15:37:05
 status: wip
+bead_id: bob-cli-q5.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/snooze_display_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_display_marks.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snooze_display_marks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_display_marks.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.5.1.md)
 
 # Snooze display marks for bob-cli-q5.5
 
