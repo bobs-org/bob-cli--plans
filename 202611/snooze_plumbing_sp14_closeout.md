@@ -1,10 +1,12 @@
 ---
 tier: tale
 size: small
-title: Thread planned-today into the Ctrl+Enter successor recovery, then land bob-cli-q5.4.1
-goal: Make the main managed Done gesture skip the automatic [unblocked::] write for
-  a snoozed Blocked dependent (SP14), as the CLI does. Then close epic bob-cli-q5.4.1
-  and its parent phase bob-cli-q5.4.
+title:
+  Thread planned-today into the Ctrl+Enter successor recovery, then land bob-cli-q5.4.1
+goal:
+  Make the main managed Done gesture skip the automatic [unblocked::] write for a
+  snoozed Blocked dependent (SP14), as the CLI does. Then close epic bob-cli-q5.4.1 and
+  its parent phase bob-cli-q5.4.
 proposed_by: bbugyi200.athena.bob-cli-q5.4.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.4.1
@@ -13,6 +15,11 @@ status: done
 
 - **BEAD:**
   [bob-cli-q5.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.4.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.4.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.4.1.land.md)
+- **COMMITS:**
+  - [69ff419](https://github.com/bobs-org/bob-cli--plans/commit/69ff419e5536eebe0ae2ec76a62674a43728ea02)
+    — docs(plan): mark snooze plugin epic complete
 
 # Thread planned-today into the Ctrl+Enter successor recovery, then land bob-cli-q5.4.1
 
