@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "golive_waits_for_qp",
+      "kind": "toggle",
+      "ask": "Hold cabinets' go-live for bob-cli-qp.8 (Ref Cards) as well as bob-cli-qm.7?",
+      "why": "qp.7/qp.8 assert family DOM and edit glossary:property-card; waiting avoids racing them",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_cabinet_term",
+      "kind": "toggle",
+      "ask": "Add the glossary:cabinet strand at go-live?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:cabinet"
+        ]
+      },
+      "requested": "As a part of this change we should add an excellent new glossary term for \"cabinet\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:cabinet",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/cabinet.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_card_strands",
+      "kind": "toggle",
+      "ask": "Update the property-card, area-card, and project-card strands for cabinets and the `_` pick?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card",
+          "glossary:area-card",
+          "glossary:project-card"
+        ]
+      },
+      "corrects": "`_` folds the card's own section",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Bank Card",
+            "Task Drawer",
+            "Keep Streak",
+            "Capture",
+            "Project Note",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:area-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Area Card",
+            "Task Drawer",
+            "Area Note",
+            "Task Type",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Link",
+            "Record Note",
+            "Root Parent",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:project-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Project Card",
+            "Task Drawer",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record stating that cabinets absorb bob-owned catalogs at render time and never rewrite them?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:cabinets-absorb-catalogs-at-render-time"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:cabinets-absorb-catalogs-at-render-time",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/cabinets-absorb-catalogs-at-render-time.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
