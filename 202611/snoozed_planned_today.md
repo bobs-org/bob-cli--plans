@@ -1,64 +1,59 @@
 ---
 tier: epic
 title: Snoozed reader integrations for bob-cli-q5.2
-goal:
-  Snoozed tasks survive reconciliation without propagation, stay out of review walks,
-  and appear in plan forecasts and schema-1 agenda output while Today remains
+goal: Snoozed tasks survive reconciliation without propagation, stay out of review
+  walks, and appear in plan forecasts and schema-1 agenda output while Today remains
   ledger-derived; verify and close the delegated bob-cli-q5.2 phase.
 phases:
-  - id: reader-recovery
-    title: Share snoozed reads and preserve recovery-only reach
-    size: medium
-    depends_on: []
-    description:
-      "reader-recovery: extract reusable snapshot-backed snoozed row resolution from the
-      landed core, then integrate direct recovery-only reach into task reconcile without
-      promotion, dependency propagation, consumption, or Snoozed-section writes. Add
-      focused classification and reconcile preservation tests and contract help."
-  - id: review-exclusions
-    title: Exclude planned-today tasks from freshness and walks
-    size: medium
-    depends_on:
-      - reader-recovery
-    description:
-      "review-exclusions: thread is_snoozed_today through freshness scan, evaluation,
-      placement, and seed, and use planned-today at review and lane-walk exclusion
-      sites. Preserve ledger-only Today and whole-lane plan meters. Add executable
-      freshness and walks vectors and publish their contracts for the plugin phase."
-  - id: plan-forecast
-    title: Report the snoozed meter and nonbinding wake forecast
-    size: medium
-    depends_on:
-      - reader-recovery
-      - review-exclusions
-    description:
-      "plan-forecast: extend PlanReport and every report construction path with snoozed
-      counts, next wake, and an on-clock forecast; add the forecast lint and human line
-      without changing current budget status, Today, or whole-lane meters. Cover
-      missing-ledger, clock-policy, and cap-boundary cases and update docs."
-  - id: agenda-provenance
-    title: Publish later-today agenda rows and wake provenance
-    size: medium
-    depends_on:
-      - reader-recovery
-      - plan-forecast
-    description:
-      "agenda-provenance: add the schema-1 capture-pomodoros --tasks snoozed block and
-      optional woke_at/snoozed_target item fields, including notes and zoned wake
-      instants. Add agenda goldens and one cross-command lifecycle regression, update
-      JSON contracts, and leave complete verification evidence for this child epic's
-      land agent to close bob-cli-q5.2."
+- id: reader-recovery
+  title: Share snoozed reads and preserve recovery-only reach
+  size: medium
+  depends_on: []
+  description: 'reader-recovery: extract reusable snapshot-backed snoozed row resolution
+    from the landed core, then integrate direct recovery-only reach into task reconcile
+    without promotion, dependency propagation, consumption, or Snoozed-section writes.
+    Add focused classification and reconcile preservation tests and contract help.'
+- id: review-exclusions
+  title: Exclude planned-today tasks from freshness and walks
+  size: medium
+  depends_on:
+  - reader-recovery
+  description: 'review-exclusions: thread is_snoozed_today through freshness scan,
+    evaluation, placement, and seed, and use planned-today at review and lane-walk
+    exclusion sites. Preserve ledger-only Today and whole-lane plan meters. Add executable
+    freshness and walks vectors and publish their contracts for the plugin phase.'
+- id: plan-forecast
+  title: Report the snoozed meter and nonbinding wake forecast
+  size: medium
+  depends_on:
+  - reader-recovery
+  - review-exclusions
+  description: 'plan-forecast: extend PlanReport and every report construction path
+    with snoozed counts, next wake, and an on-clock forecast; add the forecast lint
+    and human line without changing current budget status, Today, or whole-lane meters.
+    Cover missing-ledger, clock-policy, and cap-boundary cases and update docs.'
+- id: agenda-provenance
+  title: Publish later-today agenda rows and wake provenance
+  size: medium
+  depends_on:
+  - reader-recovery
+  - plan-forecast
+  description: 'agenda-provenance: add the schema-1 capture-pomodoros --tasks snoozed
+    block and optional woke_at/snoozed_target item fields, including notes and zoned
+    wake instants. Add agenda goldens and one cross-command lifecycle regression,
+    update JSON contracts, and leave complete verification evidence for this child
+    epic''s land agent to close bob-cli-q5.2.'
 proposed_by: bbugyi200.athena.bob-cli-q5.2
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.2
 create_time: 2026-11-25 19:37:32
 status: wip
+bead_id: bob-cli-q5.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/snoozed_planned_today.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snoozed_planned_today.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snoozed_planned_today.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snoozed_planned_today.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.2.1.md)
 
 # Snoozed reader integrations
 
