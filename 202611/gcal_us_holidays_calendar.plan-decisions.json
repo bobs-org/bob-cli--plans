@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "mark",
+      "kind": "choice",
+      "ask": "Which emoji should mark rows from the Holidays in United States calendar?",
+      "why": "\ud83c\uddfa\ud83c\uddf8 passed a live dry run, and only a flag sets holidays apart from personal celebrations.",
+      "choices": [
+        {
+          "key": "us_flag",
+          "label": "\ud83c\uddfa\ud83c\uddf8 names the source calendar; some Linux terminal fonts show it as the letters U S"
+        },
+        {
+          "key": "party",
+          "label": "\ud83c\udf89 renders everywhere but reads as any celebration, close to \ud83c\udf82 Birthdays"
+        }
+      ],
+      "default": "us_flag",
+      "effective_default": "us_flag",
+      "requested_verified": false
+    }
+  ]
+}
