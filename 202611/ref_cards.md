@@ -1,107 +1,98 @@
 ---
 tier: epic
 title: Ref Cards
-goal: "Every library reference note opens on a calm, information-dense Ref Card in the
-  Property Card family. The card answers what the reference is, where it came from,
-  where Bryan is with it, and what useful material it holds, and it omits whatever a
-  note lacks. `==` opens a bob-owned Reference editor. bob protects reference sync and
-  identity keys from generic edits. The work ships beside bob-cli-qm and touches it only
-  at named seams.
+goal: 'Every library reference note opens on a calm, information-dense Ref Card in
+  the Property Card family. The card answers what the reference is, where it came
+  from, where Bryan is with it, and what useful material it holds, and it omits whatever
+  a note lacks. `==` opens a bob-owned Reference editor. bob protects reference sync
+  and identity keys from generic edits. The work ships beside bob-cli-qm and touches
+  it only at named seams.
 
-  "
+  '
 phases:
-  - id: ref-props
-    title: bob props reference roles and the Reference contract
-    depends_on: []
-    size: medium
-    description:
-      "ref-props: scope the reference note kind to bob's library coverage, protect sync,
-      identity, and reading-task keys (resolving bob-cli-qn), and add the bob-owned
-      reference settings contract. It also adds the props_ref_contract_v1 capability and
-      the conditional H1 retitle, with docs and tests."
-  - id: ref-kit
-    title: Ref species kit, preview gate, vocabulary, and scaffolding
-    depends_on: []
-    size: medium
-    description:
-      "ref-kit: owns every shared-kit edit. Adds the ref species with the ribbon tile,
-      the silent created stamp, a coordinator kind, the precedence slot after prose with
-      the exhaustive test, a ref-owned preview gate, and one shared ref vocabulary that
-      the Reading Board also uses. Also adds fragment stubs, fixtures, a docs stub, and
-      coordination notes on qm.6 and qm.7."
-  - id: ref-service
-    title: Shared ref-library report service
-    depends_on: []
-    size: medium
-    description:
-      "ref-service: one lazily subscribed, stale-while-revalidate `bob ref list -A -R
-      all -f json` snapshot indexed by path and shared by every mounted card. It uses
-      narrow, debounced revalidation triggers and never spawns from paint."
-  - id: ref-card
-    title: Ref Card shell from local identity
-    depends_on:
-      - ref-kit
-    size: medium
-    description:
-      "ref-card: the pure identity model and the DOM. The host mounts behind the gate
-      and precedence. The card owns the title with matching-H1 adoption and gets the
-      byline, access chips, foot, Managed drawer, `_` compact, and `==` focus-or-add on
-      title. The docs page body comes in this phase."
-  - id: ref-readouts
-    title: Reading-state readouts from the shared snapshot
-    depends_on:
-      - ref-card
-      - ref-service
-    size: medium
-    description:
-      "ref-readouts: subscribe cards to the shared snapshot. Patch the lane chip, Today
-      pill, annotations, reread lineage, identifiers, and diagnostics into existing rows
-      with no layout shift. Spy tests prove there are no spawns."
-  - id: ref-editor
-    title: The Reference editor behind ==
-    depends_on:
-      - ref-card
-      - ref-props
-    size: medium
-    description:
-      "ref-editor: `==` opens the shared Property Editor on bob's REFERENCE contract. It
-      has editable citation rows and owned-elsewhere rows that route reading state,
-      residence, and file name to their owners. It probes the capability and falls back
-      to title focus-or-add."
-  - id: ref-acceptance
-    title: Real-Obsidian acceptance and screenshot review
-    depends_on:
-      - ref-readouts
-      - ref-editor
-    size: medium
-    description:
-      "ref-acceptance: after bob-cli-qm.6 closes, extend the takeover harness as a
-      sibling runner. Prove takeover, single ownership, native restoration, passivity,
-      data, and editor flows. Review the light, dark, narrow, wide, forced-colors, and
-      grayscale screenshot matrix beside the other family cards."
-  - id: ref-go-live
-    title: Switch Ref Cards on, docs, approved memory, and clean deploy
-    depends_on:
-      - ref-acceptance
-    size: medium
-    description:
-      "ref-go-live: after bob-cli-qm.7 closes, delete the ref preview gate, extend the
-      passive proof, and finish the docs in both repos. Apply only the accepted memory
-      decisions, then deploy clean with provenance."
+- id: ref-props
+  title: bob props reference roles and the Reference contract
+  depends_on: []
+  size: medium
+  description: 'ref-props: scope the reference note kind to bob''s library coverage,
+    protect sync, identity, and reading-task keys (resolving bob-cli-qn), and add
+    the bob-owned reference settings contract. It also adds the props_ref_contract_v1
+    capability and the conditional H1 retitle, with docs and tests.'
+- id: ref-kit
+  title: Ref species kit, preview gate, vocabulary, and scaffolding
+  depends_on: []
+  size: medium
+  description: 'ref-kit: owns every shared-kit edit. Adds the ref species with the
+    ribbon tile, the silent created stamp, a coordinator kind, the precedence slot
+    after prose with the exhaustive test, a ref-owned preview gate, and one shared
+    ref vocabulary that the Reading Board also uses. Also adds fragment stubs, fixtures,
+    a docs stub, and coordination notes on qm.6 and qm.7.'
+- id: ref-service
+  title: Shared ref-library report service
+  depends_on: []
+  size: medium
+  description: 'ref-service: one lazily subscribed, stale-while-revalidate `bob ref
+    list -A -R all -f json` snapshot indexed by path and shared by every mounted card.
+    It uses narrow, debounced revalidation triggers and never spawns from paint.'
+- id: ref-card
+  title: Ref Card shell from local identity
+  depends_on:
+  - ref-kit
+  size: medium
+  description: 'ref-card: the pure identity model and the DOM. The host mounts behind
+    the gate and precedence. The card owns the title with matching-H1 adoption and
+    gets the byline, access chips, foot, Managed drawer, `_` compact, and `==` focus-or-add
+    on title. The docs page body comes in this phase.'
+- id: ref-readouts
+  title: Reading-state readouts from the shared snapshot
+  depends_on:
+  - ref-card
+  - ref-service
+  size: medium
+  description: 'ref-readouts: subscribe cards to the shared snapshot. Patch the lane
+    chip, Today pill, annotations, reread lineage, identifiers, and diagnostics into
+    existing rows with no layout shift. Spy tests prove there are no spawns.'
+- id: ref-editor
+  title: The Reference editor behind ==
+  depends_on:
+  - ref-card
+  - ref-props
+  size: medium
+  description: 'ref-editor: `==` opens the shared Property Editor on bob''s REFERENCE
+    contract. It has editable citation rows and owned-elsewhere rows that route reading
+    state, residence, and file name to their owners. It probes the capability and
+    falls back to title focus-or-add.'
+- id: ref-acceptance
+  title: Real-Obsidian acceptance and screenshot review
+  depends_on:
+  - ref-readouts
+  - ref-editor
+  size: medium
+  description: 'ref-acceptance: after bob-cli-qm.6 closes, extend the takeover harness
+    as a sibling runner. Prove takeover, single ownership, native restoration, passivity,
+    data, and editor flows. Review the light, dark, narrow, wide, forced-colors, and
+    grayscale screenshot matrix beside the other family cards.'
+- id: ref-go-live
+  title: Switch Ref Cards on, docs, approved memory, and clean deploy
+  depends_on:
+  - ref-acceptance
+  size: medium
+  description: 'ref-go-live: after bob-cli-qm.7 closes, delete the ref preview gate,
+    extend the passive proof, and finish the docs in both repos. Apply only the accepted
+    memory decisions, then deploy clean with provenance.'
 decisions:
   memory_ref_card:
     ask: Add the glossary:ref-card strand at go-live?
     memory:
-      - glossary:ref-card
-    requested:
-      As a part of this change, we should add an excellent new glossary term for "ref
-      card".
+    - glossary:ref-card
+    requested: As a part of this change, we should add an excellent new glossary term
+      for "ref card".
     default: true
     answer: true
   memory_property_card:
     ask: Update glossary:property-card so the family names the Ref Card?
     memory:
-      - glossary:property-card
+    - glossary:property-card
     corrects: The shared family of note-top album, record, day, period, and bank cards
     default: true
     answer: true
@@ -111,10 +102,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 14:21:59
 status: wip
+bead_id: bob-cli-qp
 ---
 
-- **PROMPT:**
-  [prompts/202611/ref_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_cards.md)
+- **PROMPT:** [prompts/202611/ref_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ref_cards.md)
+- **BEAD:** [bob-cli-qp](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qp/README.md)
 
 # Plan: Ref Cards
 
