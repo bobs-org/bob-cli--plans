@@ -2,16 +2,14 @@
 tier: tale
 size: medium
 title: Land Bob Mac Capture true-case drawers
-goal:
-  The drawer pipeline tests that bob-cli-ph.8.1.4 and bob-cli-ph.8.1.5 added pass on
-  exact-tree macOS CI, the Mac drawer-menu docs show true-case titles, the drawer render
-  screenshots are durable artifacts, and epic bob-cli-ph.8.1 and its parent phase
-  bob-cli-ph.8 are closed.
+goal: The drawer pipeline tests that bob-cli-ph.8.1.4 and bob-cli-ph.8.1.5 added pass
+  on exact-tree macOS CI, the Mac drawer-menu docs show true-case titles, the drawer
+  render screenshots are durable artifacts, and epic bob-cli-ph.8.1 and its parent
+  phase bob-cli-ph.8 are closed.
 proposed_by: bbugyi200.apollo.bob-cli-ph.8.1.land
 proposed_with: claude/opus
 bead: bob-cli-ph.8.1
-create_time: 2026-11-26 04:06:39
-status: wip
+status: done
 ---
 
 - **PARENT:**
