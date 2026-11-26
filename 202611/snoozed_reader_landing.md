@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish snoozed reader recovery and landing
-goal: Restore direct snoozed recovery, align ledger membership and hooks forecasts,
-  then close bob-cli-q5.2.1 and parent phase bob-cli-q5.2.
+goal:
+  Restore direct snoozed recovery, align ledger membership and hooks forecasts, then
+  close bob-cli-q5.2.1 and parent phase bob-cli-q5.2.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.2.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/snoozed_planned_today.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_planned_today.md)
 - **BEAD:**
   [bob-cli-q5.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.2.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.2.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.2.1.land.md)
+- **COMMITS:**
+  - [bf9641d](https://github.com/bobs-org/bob-cli--plans/commit/bf9641dd4ff16d757c4b67e1cd34e614c3b19c4d)
+    — docs(plan): mark snoozed reader implementation complete
 
 # Finish snoozed reader recovery and landing
 
