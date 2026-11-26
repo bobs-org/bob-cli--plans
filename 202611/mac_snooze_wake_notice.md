@@ -1,69 +1,63 @@
 ---
 tier: epic
 title: Presence-aware Mac snooze wake notices
-goal:
-  Complete bob-cli-q5.8 with one verified Mac wake HUD per owned batch, held during
+goal: Complete bob-cli-q5.8 with one verified Mac wake HUD per owned batch, held during
   absence or meetings, actionable through Open and +15m, and backed by an automatically
   cleared beacon and silent Notification Center record.
 phases:
-  - id: notice-protocol
-    title: Make wake notification ownership and revalidation explicit
-    size: medium
-    depends_on: []
-    description:
-      "notice-protocol: add the minimal additive bob-cli receipt and list fields needed
-      to select one notification channel, negotiate compatibility, and verify that a
-      receipt still refers to actionable woken tasks. Cover the channel matrix and stale
-      history cases, and document the schema-1 additions."
-  - id: notice-core
-    title: Decode wake receipts and model notice delivery
-    size: medium
-    depends_on:
-      - notice-protocol
-    description:
-      "notice-core: implement portable receipt, list, and add-response models, bounded
-      receipt reading, independent subprocess lanes, and a deterministic presence,
-      meeting, revalidation, and expiry policy with clock-controlled tests."
-  - id: notice-runtime
-    title: Observe receipts and hold notices until return
-    size: medium
-    depends_on:
-      - notice-core
-    description:
-      "notice-runtime: implement the Darwin observer, atomic notifier claim, persistent
-      wake-id deduplication, macOS presence adapter, settings storage, and app-lifetime
-      delivery coordinator behind injected presentation callbacks. Claim only when a
-      compatible client and live presenter are attached."
-  - id: notice-hud
-    title: Present and act on the snoozed-task wake HUD
-    size: medium
-    depends_on:
-      - notice-runtime
-    description:
-      "notice-hud: extract shared non-activating glass-panel infrastructure without
-      changing existing Refs toasts, implement the accessible wake HUD and truthful
-      Open/+15m actions, and wire the coordinator into AppDelegate."
-  - id: notice-records
-    title: Add the wake beacon, silent record, and settings
-    size: medium
-    depends_on:
-      - notice-hud
-    description:
-      "notice-records: complete the status-item beacon and expiry, passive Notification
-      Center records and withdrawal, live Settings controls, diagnostics, and Mac docs.
-      Verify their shared acknowledgement lifecycle and capture integrated synthetic
-      render and behavioral evidence for the land agent."
+- id: notice-protocol
+  title: Make wake notification ownership and revalidation explicit
+  size: medium
+  depends_on: []
+  description: 'notice-protocol: add the minimal additive bob-cli receipt and list
+    fields needed to select one notification channel, negotiate compatibility, and
+    verify that a receipt still refers to actionable woken tasks. Cover the channel
+    matrix and stale history cases, and document the schema-1 additions.'
+- id: notice-core
+  title: Decode wake receipts and model notice delivery
+  size: medium
+  depends_on:
+  - notice-protocol
+  description: 'notice-core: implement portable receipt, list, and add-response models,
+    bounded receipt reading, independent subprocess lanes, and a deterministic presence,
+    meeting, revalidation, and expiry policy with clock-controlled tests.'
+- id: notice-runtime
+  title: Observe receipts and hold notices until return
+  size: medium
+  depends_on:
+  - notice-core
+  description: 'notice-runtime: implement the Darwin observer, atomic notifier claim,
+    persistent wake-id deduplication, macOS presence adapter, settings storage, and
+    app-lifetime delivery coordinator behind injected presentation callbacks. Claim
+    only when a compatible client and live presenter are attached.'
+- id: notice-hud
+  title: Present and act on the snoozed-task wake HUD
+  size: medium
+  depends_on:
+  - notice-runtime
+  description: 'notice-hud: extract shared non-activating glass-panel infrastructure
+    without changing existing Refs toasts, implement the accessible wake HUD and truthful
+    Open/+15m actions, and wire the coordinator into AppDelegate.'
+- id: notice-records
+  title: Add the wake beacon, silent record, and settings
+  size: medium
+  depends_on:
+  - notice-hud
+  description: 'notice-records: complete the status-item beacon and expiry, passive
+    Notification Center records and withdrawal, live Settings controls, diagnostics,
+    and Mac docs. Verify their shared acknowledgement lifecycle and capture integrated
+    synthetic render and behavioral evidence for the land agent.'
 proposed_by: bbugyi200.athena.bob-cli-q5.8
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.8
 create_time: 2026-11-26 12:54:19
 status: wip
+bead_id: bob-cli-q5.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_snooze_wake_notice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snooze_wake_notice.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/mac_snooze_wake_notice.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snooze_wake_notice.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.8.1.md)
 
 # Presence-aware Mac snooze wake notices
 
