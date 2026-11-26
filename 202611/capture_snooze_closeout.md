@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish capture snooze parity and land bob-cli-q5.3.1
-goal: Repair numeric-route drop previews and deduplicated completion aliases, verify
-  reader integration, and close the capture epic and its parent phase.
+goal:
+  Repair numeric-route drop previews and deduplicated completion aliases, verify reader
+  integration, and close the capture epic and its parent phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.3.1.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/capture_snooze_token.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/capture_snooze_token.md)
 - **BEAD:**
   [bob-cli-q5.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.3.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.3.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.3.1.land.md)
+- **COMMITS:**
+  - [7048c5c](https://github.com/bobs-org/bob-cli/commit/7048c5c489ebadcb577ad1281a4c3fb85c2190de)
+    — feat(capture): finish snooze drop preview parity and completion alias merge
 
 # Finish capture snooze parity and land bob-cli-q5.3.1
 
