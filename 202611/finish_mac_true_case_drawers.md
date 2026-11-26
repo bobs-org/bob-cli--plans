@@ -1,93 +1,85 @@
 ---
 tier: epic
 title: Finish Bob Mac Capture true-case drawers
-goal:
-  Bob Mac Capture builds green again, draws Bob-annotated drawer headers as a tray plus
-  the verbatim title, paints draft drawer titles and delimiters from Bob's spans, and
-  types `*`, Backspace, newline, and overtype assists on Bob's authority, completing
-  bob-cli-ph.8.
+goal: Bob Mac Capture builds green again, draws Bob-annotated drawer headers as a
+  tray plus the verbatim title, paints draft drawer titles and delimiters from Bob's
+  spans, and types `*`, Backspace, newline, and overtype assists on Bob's authority,
+  completing bob-cli-ph.8.
 decisions:
   drawer_newline_keys:
-    ask:
-      Should plain Return at a childless drawer title open its nested note instead of
-      capturing?
+    ask: Should plain Return at a childless drawer title open its nested note instead
+      of capturing?
     choices:
-      newline_keys:
-        Shift-Return, Option-Return, and Ctrl-J nest at a title end; Return always
-        captures
+      newline_keys: Shift-Return, Option-Return, and Ctrl-J nest at a title end; Return
+        always captures
       return_too: Return also nests where Bob refuses the drawer as empty_drawer_bullet
     default: newline_keys
-    why:
-      Return stays the panel's single capture key, and Bob's refusal already teaches the
-      user to nest
+    why: Return stays the panel's single capture key, and Bob's refusal already teaches
+      the user to nest
     answer: newline_keys
 phases:
-  - id: annotation-build-repair
-    title: Repair the drawer annotation build and cover the landed decoding
-    size: small
-    depends_on: []
-    description:
-      "annotation-build-repair: fix the CaptureDrawerSummary marker decode that broke
-      Mac master at b45b1951, compile every target, and add portable coverage for the
-      drawer annotation decoding and verbatim destination labels already landed."
-  - id: preview-tray
-    title: Tray and verbatim title on annotated preview drawer headers
-    size: medium
-    depends_on:
-      - annotation-build-repair
-    description:
-      "preview-tray: BlockDiffCard renders a Bob-annotated drawer header as SF Symbol
-      tray plus the semibold verbatim title, muted when empty, with accessible labels
-      and light/dark/increased-contrast render fixtures."
-  - id: draft-styling
-    title: Semibold drawer titles and dimmed delimiters in the draft editor
-    size: medium
-    depends_on:
-      - annotation-build-repair
-    description:
-      "draft-styling: paint drawer_bullet titles semibold in the section family and
-      drawer_marker delimiters in tertiary ink that returns to full ink at the caret,
-      through a portable span helper the typing phases reuse."
-  - id: star-expansion
-    title: Bob-driven star expansion and atomic Backspace
-    size: medium
-    depends_on:
-      - draft-styling
-    description:
-      "star-expansion: a physical `*` asks capture-rewrite for expand_drawer_marker,
-      applies it as one undoable native edit, absorbs a queued star, and deletes an
-      empty `****` as one Backspace."
-  - id: title-keys
-    title: Drawer title newline and closing-star overtype
-    size: medium
-    depends_on:
-      - star-expansion
-    description:
-      "title-keys: at the end of a Bob-authorized drawer title, newline keys step past
-      the closing `**` into a nested note and a typed `*` steps over the closing pair."
-  - id: mac-acceptance
-    title: Mac drawer acceptance, screenshots, and documentation
-    size: small
-    depends_on:
-      - annotation-build-repair
-      - preview-tray
-      - draft-styling
-      - star-expansion
-      - title-keys
-    description:
-      "mac-acceptance: verify the integrated feature on exact-SHA macOS CI, publish the
-      drawer render screenshots, reconcile Mac and bob-cli docs with what shipped, and
-      run every repo gate."
+- id: annotation-build-repair
+  title: Repair the drawer annotation build and cover the landed decoding
+  size: small
+  depends_on: []
+  description: 'annotation-build-repair: fix the CaptureDrawerSummary marker decode
+    that broke Mac master at b45b1951, compile every target, and add portable coverage
+    for the drawer annotation decoding and verbatim destination labels already landed.'
+- id: preview-tray
+  title: Tray and verbatim title on annotated preview drawer headers
+  size: medium
+  depends_on:
+  - annotation-build-repair
+  description: 'preview-tray: BlockDiffCard renders a Bob-annotated drawer header
+    as SF Symbol tray plus the semibold verbatim title, muted when empty, with accessible
+    labels and light/dark/increased-contrast render fixtures.'
+- id: draft-styling
+  title: Semibold drawer titles and dimmed delimiters in the draft editor
+  size: medium
+  depends_on:
+  - annotation-build-repair
+  description: 'draft-styling: paint drawer_bullet titles semibold in the section
+    family and drawer_marker delimiters in tertiary ink that returns to full ink at
+    the caret, through a portable span helper the typing phases reuse.'
+- id: star-expansion
+  title: Bob-driven star expansion and atomic Backspace
+  size: medium
+  depends_on:
+  - draft-styling
+  description: 'star-expansion: a physical `*` asks capture-rewrite for expand_drawer_marker,
+    applies it as one undoable native edit, absorbs a queued star, and deletes an
+    empty `****` as one Backspace.'
+- id: title-keys
+  title: Drawer title newline and closing-star overtype
+  size: medium
+  depends_on:
+  - star-expansion
+  description: 'title-keys: at the end of a Bob-authorized drawer title, newline keys
+    step past the closing `**` into a nested note and a typed `*` steps over the closing
+    pair.'
+- id: mac-acceptance
+  title: Mac drawer acceptance, screenshots, and documentation
+  size: small
+  depends_on:
+  - annotation-build-repair
+  - preview-tray
+  - draft-styling
+  - star-expansion
+  - title-keys
+  description: 'mac-acceptance: verify the integrated feature on exact-SHA macOS CI,
+    publish the drawer render screenshots, reconcile Mac and bob-cli docs with what
+    shipped, and run every repo gate.'
 proposed_by: bbugyi200.apollo.bob-cli-ph.8
 proposed_with: claude/opus
 parent_bead: bob-cli-ph.8
 decided_by: auto
 create_time: 2026-11-25 20:55:44
 status: wip
+bead_id: bob-cli-ph.8.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_mac_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_mac_true_case_drawers.md)
+- **PROMPT:** [prompts/202611/finish_mac_true_case_drawers.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_mac_true_case_drawers.md)
+- **BEAD:** [bob-cli-ph.8.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/bob-cli-ph.8.1.md)
 
 # Finish Bob Mac Capture true-case drawers
 
