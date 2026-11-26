@@ -2,15 +2,13 @@
 tier: tale
 size: small
 title: Refuse unplaceable snooze wakes, then land bob-cli-q5.1.1 and its parent phase
-goal:
-  A snooze wake that cannot place a never-running Pomodoros destination refuses without
-  writing, and epic bob-cli-q5.1.1 plus phase bob-cli-q5.1 close with recorded
+goal: A snooze wake that cannot place a never-running Pomodoros destination refuses
+  without writing, and epic bob-cli-q5.1.1 plus phase bob-cli-q5.1 close with recorded
   verification.
 proposed_by: bbugyi200.athena.bob-cli-q5.1.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.1.1
-create_time: 2026-11-25 19:09:54
-status: wip
+status: done
 ---
 
 - **PARENT:**
