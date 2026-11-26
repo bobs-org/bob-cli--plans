@@ -1,72 +1,65 @@
 ---
 tier: epic
 title: Snoozed task plugin plumbing
-goal:
-  Complete bob-cli-q5.4 so Obsidian excludes snoozed tasks from review and dashboard
+goal: Complete bob-cli-q5.4 so Obsidian excludes snoozed tasks from review and dashboard
   lanes, preserves gesture cleanup and notes, and requests due wakes through bob with
   one notification fallback.
 phases:
-  - id: snooze-core
-    title: Shared JavaScript snooze row, clock, and cleanup model
-    size: medium
-    depends_on: []
-    description:
-      "snooze-core: implement the pure snooze parser, injected-zone time resolver,
-      classifier, explicit row-removal planner and state-prune planner in
-      bob-ledger-tools; execute the canonical rows/when/live/cleanup vectors and
-      establish verified source twins for the independently deployed gesture plugins."
-  - id: planned-today
-    title: Snoozed cache and planned-today exclusions
-    size: medium
-    depends_on:
-      - snooze-core
-    description:
-      "planned-today: build snoozedCache and the public
-      isSnoozedToday/isPlannedToday/snoozed.rows APIs; wire target-aware invalidation,
-      day and minute refreshes, freshness, lane walks and dashboard exclusions, mirror
-      the planned-today vectors, and make the approved minimal live dash.md query/count
-      edit."
-  - id: navigation-cleanup
-    title: Navigation release, decay, and deferral cleanup
-    size: medium
-    depends_on:
-      - planned-today
-    description:
-      "navigation-cleanup: compose active Snoozed-row removal into navigation cleanup
-      and every release/cancel/roll/schedule/blocked-move/project-conversion caller;
-      handle Alt+N on a Snoozed row and the Next-to-Ready decay writer, with
-      transactional same-note and separate-note gesture tests."
-  - id: link-and-complete
-    title: Link-now, unlink, and completion from snoozed contexts
-    size: medium
-    depends_on:
-      - navigation-cleanup
-    description:
-      "link-and-complete: integrate the shared model into block-id-prompt and
-      task-status-cycler; distinguish snoozed presence from live-ledger presence, link
-      immediately from the row or definition while moving notes, prune on unlink and
-      Done, and test public gesture dispatch, stale snapshots, settle and undo."
-  - id: obsidian-waker
-    title: Desktop minute waker and notification fallback
-    size: small
-    depends_on:
-      - link-and-complete
-    description:
-      "obsidian-waker: add the desktop-only single-flight minute trigger for bob snooze
-      wake, strict report decoding, unsupported-binary disablement, and one eight-second
-      Notice only for this spawn's nonempty woken batch with notified none; document the
-      public plugin integration and verify timer lifecycle behavior."
+- id: snooze-core
+  title: Shared JavaScript snooze row, clock, and cleanup model
+  size: medium
+  depends_on: []
+  description: 'snooze-core: implement the pure snooze parser, injected-zone time
+    resolver, classifier, explicit row-removal planner and state-prune planner in
+    bob-ledger-tools; execute the canonical rows/when/live/cleanup vectors and establish
+    verified source twins for the independently deployed gesture plugins.'
+- id: planned-today
+  title: Snoozed cache and planned-today exclusions
+  size: medium
+  depends_on:
+  - snooze-core
+  description: 'planned-today: build snoozedCache and the public isSnoozedToday/isPlannedToday/snoozed.rows
+    APIs; wire target-aware invalidation, day and minute refreshes, freshness, lane
+    walks and dashboard exclusions, mirror the planned-today vectors, and make the
+    approved minimal live dash.md query/count edit.'
+- id: navigation-cleanup
+  title: Navigation release, decay, and deferral cleanup
+  size: medium
+  depends_on:
+  - planned-today
+  description: 'navigation-cleanup: compose active Snoozed-row removal into navigation
+    cleanup and every release/cancel/roll/schedule/blocked-move/project-conversion
+    caller; handle Alt+N on a Snoozed row and the Next-to-Ready decay writer, with
+    transactional same-note and separate-note gesture tests.'
+- id: link-and-complete
+  title: Link-now, unlink, and completion from snoozed contexts
+  size: medium
+  depends_on:
+  - navigation-cleanup
+  description: 'link-and-complete: integrate the shared model into block-id-prompt
+    and task-status-cycler; distinguish snoozed presence from live-ledger presence,
+    link immediately from the row or definition while moving notes, prune on unlink
+    and Done, and test public gesture dispatch, stale snapshots, settle and undo.'
+- id: obsidian-waker
+  title: Desktop minute waker and notification fallback
+  size: small
+  depends_on:
+  - link-and-complete
+  description: 'obsidian-waker: add the desktop-only single-flight minute trigger
+    for bob snooze wake, strict report decoding, unsupported-binary disablement, and
+    one eight-second Notice only for this spawn''s nonempty woken batch with notified
+    none; document the public plugin integration and verify timer lifecycle behavior.'
 proposed_by: bbugyi200.athena.bob-cli-q5.4
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.4
 create_time: 2026-11-26 07:51:54
 status: wip
+bead_id: bob-cli-q5.4.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/snooze_plugin_plumbing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_plugin_plumbing.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snooze_plugin_plumbing.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_plugin_plumbing.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.4.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.4.1.md)
 
 # Complete the snooze plugin plumbing for bob-cli-q5.4
 
