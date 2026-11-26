@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Finish and land the snooze plugin plumbing epic
-goal:
-  Fix the remaining snooze plugin defects the bob-cli-q5.4.1 landing review found, add
-  the missing gesture regression tests, then close bob-cli-q5.4.1 and its parent phase
-  bob-cli-q5.4.
+goal: Fix the remaining snooze plugin defects the bob-cli-q5.4.1 landing review found,
+  add the missing gesture regression tests, then close bob-cli-q5.4.1 and its parent
+  phase bob-cli-q5.4.
 proposed_by: bbugyi200.athena.bob-cli-q5.4.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.4.1
-create_time: 2026-11-26 12:15:53
-status: wip
+status: done
 ---
 
 - **PARENT:**
