@@ -1,61 +1,55 @@
 ---
 tier: epic
-title:
-  Finish one-tie-per-pair — counted absorption, atomic reversal, chord prompts, and the
-  tie copy
-goal: "Close the gaps the bob-cli-q8 landing found. Every nav dependency writer, counted
-  sessions included, absorbs plain links. Depends-on and Blocks batches absorb on ↵
-  instead of refusing. Chords prompt for missing block IDs. A same-note reversal is one
-  Ctrl+Z. The stage strips, hints, notices, and footers show the copy the approved plan
-  specified. The shared PT and LR vectors cover what the docs claim.
+title: Finish one-tie-per-pair — counted absorption, atomic reversal, chord prompts,
+  and the tie copy
+goal: 'Close the gaps the bob-cli-q8 landing found. Every nav dependency writer, counted
+  sessions included, absorbs plain links. Depends-on and Blocks batches absorb on
+  ↵ instead of refusing. Chords prompt for missing block IDs. A same-note reversal
+  is one Ctrl+Z. The stage strips, hints, notices, and footers show the copy the approved
+  plan specified. The shared PT and LR vectors cover what the docs claim.
 
-  "
+  '
 phases:
-  - id: tie-vector-coverage
-    title: PT12 CRLF vectors and the missing LR31/LR35 reconcile cases
-    depends_on: []
-    size: small
-    description:
-      "tie-vector-coverage: add the CRLF and no-final-newline PT12 cases to the shared
-      tie vectors and their JS mirror, add the missing LR31 skip cases (uncertain
-      target, quiet-deferred), and make LR35 compare the whole dry-run JSON with the
-      apply JSON."
-  - id: nav-tie-writers
-    title:
-      Counted absorption, batch ↵ absorption, chord block-ID prompts, and one-undo
-      reversal
-    depends_on: []
-    size: medium
-    description:
-      "nav-tie-writers: counted-session and counted-batch dependency adds absorb plain
-      links. Marked and counted Depends-on/Blocks ↵ on a ⇄ row absorbs instead of
-      refusing. Chord refusals name the pressed chord. Chords on ID-less rows or owners
-      go through the block-ID prompt. A same-note reversal commits in one editor
-      transaction. Audit the 218/665/667 writers."
-  - id: nav-tie-copy
-    title:
-      Cycle hints, owner-true Depends-on strip, release-strip chord and ^prj segments,
-      kept-relation notice, and live footers
-    depends_on:
-      - nav-tie-writers
-    size: medium
-    description:
-      "nav-tie-copy: cycle-locked rows hint the reversing chord. The Depends-on strip
-      reads the owner's state and today link. Release strips gain the muted chord
-      segment and the ^prj fan-out. Add the kept-relation notice. The Depends-on footer
-      refreshes on selection move, chord hints skip guarded chords, dependency-stage
-      pill tooltips name their key, and validation.md lists the tie suites."
+- id: tie-vector-coverage
+  title: PT12 CRLF vectors and the missing LR31/LR35 reconcile cases
+  depends_on: []
+  size: small
+  description: 'tie-vector-coverage: add the CRLF and no-final-newline PT12 cases
+    to the shared tie vectors and their JS mirror, add the missing LR31 skip cases
+    (uncertain target, quiet-deferred), and make LR35 compare the whole dry-run JSON
+    with the apply JSON.'
+- id: nav-tie-writers
+  title: Counted absorption, batch ↵ absorption, chord block-ID prompts, and one-undo
+    reversal
+  depends_on: []
+  size: medium
+  description: 'nav-tie-writers: counted-session and counted-batch dependency adds
+    absorb plain links. Marked and counted Depends-on/Blocks ↵ on a ⇄ row absorbs
+    instead of refusing. Chord refusals name the pressed chord. Chords on ID-less
+    rows or owners go through the block-ID prompt. A same-note reversal commits in
+    one editor transaction. Audit the 218/665/667 writers.'
+- id: nav-tie-copy
+  title: Cycle hints, owner-true Depends-on strip, release-strip chord and ^prj segments,
+    kept-relation notice, and live footers
+  depends_on:
+  - nav-tie-writers
+  size: medium
+  description: 'nav-tie-copy: cycle-locked rows hint the reversing chord. The Depends-on
+    strip reads the owner''s state and today link. Release strips gain the muted chord
+    segment and the ^prj fan-out. Add the kept-relation notice. The Depends-on footer
+    refreshes on selection move, chord hints skip guarded chords, dependency-stage
+    pill tooltips name their key, and validation.md lists the tie suites.'
 proposed_by: bbugyi200.apollo.bob-cli-q8.land
 proposed_with: claude/opus
 parent_bead: bob-cli-q8
 create_time: 2026-11-26 02:09:17
 status: wip
+bead_id: bob-cli-q8.10
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_plain_link_ties.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_plain_link_ties.md)
-- **PARENT:**
-  [202611/plain_link_dependency_ties.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/plain_link_dependency_ties.md)
+- **PROMPT:** [prompts/202611/finish_plain_link_ties.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_plain_link_ties.md)
+- **PARENT:** [202611/plain_link_dependency_ties.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/plain_link_dependency_ties.md)
+- **BEAD:** [bob-cli-q8.10](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q8/bob-cli-q8.10.md)
 
 # Plan: Finish one-tie-per-pair
 
