@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "type_name",
+      "kind": "choice",
+      "ask": "Which name should replace article for the note type?",
+      "why": "The only candidate that works at file and section scale with no vault or CLI collision",
+      "choices": [
+        {
+          "key": "prose",
+          "label": "Reads right as a note, a section, and a CLI noun; a mass noun, so copy says prose note"
+        },
+        {
+          "key": "page",
+          "label": "Countable, but every note is a page, refs already mean PDF pages, page section reads oddly"
+        }
+      ],
+      "default": "prose",
+      "effective_default": "prose",
+      "requested_verified": false
+    },
+    {
+      "id": "numbering_default",
+      "kind": "choice",
+      "ask": "Should prose notes keep numbering their headings by default?",
+      "why": "Keeps the house style with no contract break; extraction will write false explicitly",
+      "choices": [
+        {
+          "key": "keep_on",
+          "label": "Default unchanged; turn numbering off per note with the new toggle command"
+        },
+        {
+          "key": "flip_off",
+          "label": "Numbers only with section_numbers true; a ! break; sase_blog_contents opts in first"
+        }
+      ],
+      "default": "keep_on",
+      "effective_default": "keep_on",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Add a Prose Note glossary term (legacy alias article note) to SASE memory?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:prose-note"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:prose-note",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/prose-note.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_decision",
+      "kind": "toggle",
+      "ask": "Add a decision record for the prose type's name, ownership rule, and permanent aliases?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:prose-notes-are-owned-prose"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:prose-notes-are-owned-prose",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/prose-notes-are-owned-prose.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
