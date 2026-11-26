@@ -2,11 +2,11 @@
 tier: tale
 size: medium
 title: Finish bob-cli-q4 settle drift and close the epic
-goal: "Capture and `bob ref today` report post-settle line coordinates and settle every
-  note they write. The 17 settle-drift CLI nodes recorded on bob-cli-q4 pass against the
-  settle contract, and the bob-cli-q4 epic is closed.
+goal: 'Capture and `bob ref today` report post-settle line coordinates and settle
+  every note they write. The 17 settle-drift CLI nodes recorded on bob-cli-q4 pass
+  against the settle contract, and the bob-cli-q4 epic is closed.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-q4.land
 proposed_with: claude/opus
 bead: bob-cli-q4
@@ -17,11 +17,6 @@ status: done
   [202611/better_o_gesture_settle.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/better_o_gesture_settle.md)
 - **BEAD:**
   [bob-cli-q4](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q4/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-q4.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q4.land.md)
-- **COMMITS:**
-  - [9e94d1b](https://github.com/bobs-org/bob-cli/commit/9e94d1b164e6989c71a51b1ce2e49df5ada2cf2a)
-    — fix(capture)\!: report post-settle lines and settle bob ref today
 
 # Plan: finish bob-cli-q4 settle drift and close the epic
 
