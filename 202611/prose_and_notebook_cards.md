@@ -1,128 +1,119 @@
 ---
 tier: epic
 title: Prose and Notebook Cards
-goal: "Prose notes and notebooks open on beautiful, reliable title cards in the Property
+goal: 'Prose notes and notebooks open on beautiful, reliable title cards in the Property
   Card family. Native Properties hide under the family gate, and the cards paint rich
   derived data without spawning bob or writing the vault. The work is built beside
   bob-cli-qi and bob-cli-qj and touches them only at four explicit gates.
 
-  "
+  '
 decisions:
   stub_chip:
     ask: How should the Prose Card count the sections that still need writing?
     choices:
-      leaf:
-        "'12 to write': stub sections without subsections; umbrella headings are
-        excluded"
-      literal:
-        "'13 TODO sections': every bob stub, including umbrellas whose subsections are
-        written"
+      leaf: '''12 to write'': stub sections without subsections; umbrella headings
+        are excluded'
+      literal: '''13 TODO sections'': every bob stub, including umbrellas whose subsections
+        are written'
     default: leaf
     why: An umbrella heading whose subsections are written is not unwritten
     answer: leaf
   memory_prose_card:
     ask: Add the glossary:prose-card strand?
     memory:
-      - glossary:prose-card
-    requested:
-      As a part of this change, we should add excellent new glossary terms for "prose
-      card" and "notebook card".
+    - glossary:prose-card
+    requested: As a part of this change, we should add excellent new glossary terms
+      for "prose card" and "notebook card".
     default: true
     answer: true
   memory_notebook_card:
     ask: Add the glossary:notebook-card strand?
     memory:
-      - glossary:notebook-card
-    requested:
-      As a part of this change, we should add excellent new glossary terms for "prose
-      card" and "notebook card".
+    - glossary:notebook-card
+    requested: As a part of this change, we should add excellent new glossary terms
+      for "prose card" and "notebook card".
     default: true
     answer: true
   memory_property_card:
-    ask: Update glossary:property-card so the family lists the Notebook and Prose Cards?
+    ask: Update glossary:property-card so the family lists the Notebook and Prose
+      Cards?
     memory:
-      - glossary:property-card
-    corrects:
-      The shared family of note-top album, record, day, period, and bank cards, built on
-      the bob-ledger-tools kit.
+    - glossary:property-card
+    corrects: The shared family of note-top album, record, day, period, and bank cards,
+      built on the bob-ledger-tools kit.
     default: true
     answer: true
 phases:
-  - id: kit
-    title: Kit species, eligibility, focus-or-add, the preview gate, and scaffolding
-    depends_on: []
-    size: medium
-    description:
-      "kit: register the notebook and prose species, fix the known kit traps (silent
-      created, coordinator kinds, editor focus on a missing loose key), add the
-      exhaustively tested precedence and dual-spelling predicates, add the preview gate
-      that keeps both cards off in the live vault, and pre-create every shared file
-      region the two species phases will fill."
-  - id: notebook-card
-    title: Notebook Card shell with header absorption
-    depends_on:
-      - kit
-    size: medium
-    description:
-      "notebook-card: paint the Notebook Card's identity, title adoption, summary or
-      Add-summary ghost, foot, drawer, fold, and editor key from local data, and replace
-      the linked notebook header wherever the card mounts."
-  - id: prose-card
-    title: Prose Card shell, local-first
-    depends_on:
-      - kit
-    size: medium
-    description:
-      "prose-card: paint the quiet title-page Prose Card from local data (folio initial
-      tile, title, dek, crumbs, numbering chip, foot), owning only the inline title and
-      coupling its typography to the Bob Prose look."
-  - id: notebook-readouts
-    title: Notebook Card report-backed readouts
-    depends_on:
-      - notebook-card
-    size: medium
-    description:
-      "notebook-readouts: add the note count, newest date, section chips that jump to
-      their headings, child notebooks, an error pill, and lint from the existing shared
-      notebook report, with zero new spawns and no layout shift."
-  - id: prose-seam
-    title: Bob Prose outline seam and Prose Card measures
-    depends_on:
-      - prose-card
-    size: medium
-    description:
-      "prose-seam: after bob-cli-qj.3 closes, add a read-only versioned api.prose
-      snapshot API to Bob Prose, then paint the card's measure row, outline, and
-      findings from it."
-  - id: acceptance
-    title: Real-Obsidian acceptance and screenshot review for both cards
-    depends_on:
-      - notebook-readouts
-      - prose-seam
-    size: medium
-    description:
-      "acceptance: after bob-cli-qi.4 closes, run both cards with the preview gate on in
-      isolated real Obsidian across the takeover, single-owner, fail-open, data, focus,
-      and version-skew matrix. Review the screenshot matrix and repair defects until GO."
-  - id: go-live
-    title: Switch the cards on, docs, approved memory, and clean deploy
-    depends_on:
-      - acceptance
-    size: medium
-    description:
-      "go-live: after bob-cli-qi.6 and bob-cli-qj.4 close, delete the preview gate,
-      extend the passive-rendering proof, finish the docs in both repos, apply the
-      accepted memory decisions, and deploy cleanly."
+- id: kit
+  title: Kit species, eligibility, focus-or-add, the preview gate, and scaffolding
+  depends_on: []
+  size: medium
+  description: 'kit: register the notebook and prose species, fix the known kit traps
+    (silent created, coordinator kinds, editor focus on a missing loose key), add
+    the exhaustively tested precedence and dual-spelling predicates, add the preview
+    gate that keeps both cards off in the live vault, and pre-create every shared
+    file region the two species phases will fill.'
+- id: notebook-card
+  title: Notebook Card shell with header absorption
+  depends_on:
+  - kit
+  size: medium
+  description: 'notebook-card: paint the Notebook Card''s identity, title adoption,
+    summary or Add-summary ghost, foot, drawer, fold, and editor key from local data,
+    and replace the linked notebook header wherever the card mounts.'
+- id: prose-card
+  title: Prose Card shell, local-first
+  depends_on:
+  - kit
+  size: medium
+  description: 'prose-card: paint the quiet title-page Prose Card from local data
+    (folio initial tile, title, dek, crumbs, numbering chip, foot), owning only the
+    inline title and coupling its typography to the Bob Prose look.'
+- id: notebook-readouts
+  title: Notebook Card report-backed readouts
+  depends_on:
+  - notebook-card
+  size: medium
+  description: 'notebook-readouts: add the note count, newest date, section chips
+    that jump to their headings, child notebooks, an error pill, and lint from the
+    existing shared notebook report, with zero new spawns and no layout shift.'
+- id: prose-seam
+  title: Bob Prose outline seam and Prose Card measures
+  depends_on:
+  - prose-card
+  size: medium
+  description: 'prose-seam: after bob-cli-qj.3 closes, add a read-only versioned api.prose
+    snapshot API to Bob Prose, then paint the card''s measure row, outline, and findings
+    from it.'
+- id: acceptance
+  title: Real-Obsidian acceptance and screenshot review for both cards
+  depends_on:
+  - notebook-readouts
+  - prose-seam
+  size: medium
+  description: 'acceptance: after bob-cli-qi.4 closes, run both cards with the preview
+    gate on in isolated real Obsidian across the takeover, single-owner, fail-open,
+    data, focus, and version-skew matrix. Review the screenshot matrix and repair
+    defects until GO.'
+- id: go-live
+  title: Switch the cards on, docs, approved memory, and clean deploy
+  depends_on:
+  - acceptance
+  size: medium
+  description: 'go-live: after bob-cli-qi.6 and bob-cli-qj.4 close, delete the preview
+    gate, extend the passive-rendering proof, finish the docs in both repos, apply
+    the accepted memory decisions, and deploy cleanly.'
 proposed_by: bbugyi200.athena.1gr
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 12:37:56
 status: wip
+bead_id: bob-cli-qm
 ---
 
-- **PROMPT:**
-  [prompts/202611/prose_and_notebook_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_and_notebook_cards.md)
+- **PROMPT:** [prompts/202611/prose_and_notebook_cards.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_and_notebook_cards.md)
+- **BEAD:** [bob-cli-qm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qm/README.md)
 
 # Plan: Prose and Notebook Cards
 
