@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_ref_card",
+      "kind": "toggle",
+      "ask": "Add the glossary:ref-card strand at go-live?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:ref-card"
+        ]
+      },
+      "requested": "As a part of this change, we should add an excellent new glossary term for \"ref card\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:ref-card",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/ref-card.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_property_card",
+      "kind": "toggle",
+      "ask": "Update glossary:property-card so the family names the Ref Card?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card"
+        ]
+      },
+      "corrects": "The shared family of note-top album, record, day, period, and bank cards",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Bank Card",
+            "Task Drawer",
+            "Command Mode",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
