@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish capture snooze parity and land bob-cli-q5.3.1
-goal:
-  Repair numeric-route drop previews and deduplicated completion aliases, verify reader
-  integration, and close the capture epic and its parent phase.
+goal: Repair numeric-route drop previews and deduplicated completion aliases, verify
+  reader integration, and close the capture epic and its parent phase.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.3.1.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-q5.3.1
-create_time: 2026-11-26 05:51:51
-status: wip
+status: done
 ---
 
 - **PARENT:**
