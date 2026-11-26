@@ -1,110 +1,100 @@
 ---
 tier: epic
 title: Rename the article note type to prose
-goal: "The Bob note type for authored writing is named prose everywhere a person reads
+goal: 'The Bob note type for authored writing is named prose everywhere a person reads
   it: the type link, the bob prose CLI, Bob Prose in Obsidian, the docs, and the vault.
   Every legacy article note, bob articles call, plugin id, and JSON consumer keeps
   working unchanged, and prose-section extract/inline is planned on top of the rename.
 
-  "
+  '
 decisions:
   type_name:
     ask: Which name should replace article for the note type?
     choices:
-      prose:
-        Reads right as a note, a section, and a CLI noun; a mass noun, so copy says
-        prose note
-      page:
-        Countable, but every note is a page, refs already mean PDF pages, page section
-        reads oddly
+      prose: Reads right as a note, a section, and a CLI noun; a mass noun, so copy
+        says prose note
+      page: Countable, but every note is a page, refs already mean PDF pages, page
+        section reads oddly
     default: prose
-    why:
-      The only candidate that works at file and section scale with no vault or CLI
-      collision
+    why: The only candidate that works at file and section scale with no vault or
+      CLI collision
     answer: prose
   numbering_default:
     ask: Should prose notes keep numbering their headings by default?
     choices:
-      keep_on:
-        Default unchanged; turn numbering off per note with the new toggle command
-      flip_off:
-        Numbers only with section_numbers true; a ! break; sase_blog_contents opts in
-        first
+      keep_on: Default unchanged; turn numbering off per note with the new toggle
+        command
+      flip_off: Numbers only with section_numbers true; a ! break; sase_blog_contents
+        opts in first
     default: keep_on
-    why:
-      Keeps the house style with no contract break; extraction will write false
+    why: Keeps the house style with no contract break; extraction will write false
       explicitly
     answer: keep_on
   memory_glossary:
     ask: Add a Prose Note glossary term (legacy alias article note) to SASE memory?
     memory:
-      - glossary:prose-note
+    - glossary:prose-note
     default: false
     answer: true
   memory_decision:
-    ask:
-      Add a decision record for the prose type's name, ownership rule, and permanent
+    ask: Add a decision record for the prose type's name, ownership rule, and permanent
       aliases?
     memory:
-      - decisions:prose-notes-are-owned-prose
+    - decisions:prose-notes-are-owned-prose
     default: false
     answer: true
 phases:
-  - id: engine-rename
-    title: Rename the Rust article engine to prose
-    depends_on: []
-    size: small
-    description:
-      "engine-rename: move the article engine module and its Rust identifiers to prose
-      names, with byte-identical CLI, JSON, help, and docs output."
-  - id: prose-cli
-    title: bob prose with permanent legacy aliases
-    depends_on:
-      - engine-rename
-    size: medium
-    description:
-      "prose-cli: one predicate reads both type spellings, writers emit [[prose]], bob
-      prose becomes canonical with bob articles as a hidden alias, copy and docs move to
-      prose, and a section-numbers flag plus a host probe ship; wire vocabulary stays
-      frozen."
-  - id: prose-plugins
-    title: Bob Prose in Obsidian
-    depends_on:
-      - prose-cli
-    size: medium
-    description:
-      "prose-plugins: four plugins detect both spellings, display names and command
-      titles change under unchanged ids, a Toggle section numbers command lands, plugin
-      docs are fixed, and the bundles deploy with a currency marker."
-  - id: prose-vault
-    title: Host gate, vault cutover, and canonical plugin calls
-    depends_on:
-      - prose-cli
-      - prose-plugins
-    size: small
-    description:
-      "prose-vault: pass the host-currency gate, retype the one live note and rename the
-      vault's type files, switch plugin calls to bob prose, and apply only accepted
-      memory decisions."
-  - id: prose-sections
-    title: Plan prose-section extract and inline
-    depends_on:
-      - prose-vault
-    size: xlarge
-    description:
-      "prose-sections: author and propose the epic for bob prose extract/inline and its
-      Obsidian keymap, bound by the research requirements, with the research's open
-      questions embedded as decisions."
+- id: engine-rename
+  title: Rename the Rust article engine to prose
+  depends_on: []
+  size: small
+  description: 'engine-rename: move the article engine module and its Rust identifiers
+    to prose names, with byte-identical CLI, JSON, help, and docs output.'
+- id: prose-cli
+  title: bob prose with permanent legacy aliases
+  depends_on:
+  - engine-rename
+  size: medium
+  description: 'prose-cli: one predicate reads both type spellings, writers emit [[prose]],
+    bob prose becomes canonical with bob articles as a hidden alias, copy and docs
+    move to prose, and a section-numbers flag plus a host probe ship; wire vocabulary
+    stays frozen.'
+- id: prose-plugins
+  title: Bob Prose in Obsidian
+  depends_on:
+  - prose-cli
+  size: medium
+  description: 'prose-plugins: four plugins detect both spellings, display names and
+    command titles change under unchanged ids, a Toggle section numbers command lands,
+    plugin docs are fixed, and the bundles deploy with a currency marker.'
+- id: prose-vault
+  title: Host gate, vault cutover, and canonical plugin calls
+  depends_on:
+  - prose-cli
+  - prose-plugins
+  size: small
+  description: 'prose-vault: pass the host-currency gate, retype the one live note
+    and rename the vault''s type files, switch plugin calls to bob prose, and apply
+    only accepted memory decisions.'
+- id: prose-sections
+  title: Plan prose-section extract and inline
+  depends_on:
+  - prose-vault
+  size: xlarge
+  description: 'prose-sections: author and propose the epic for bob prose extract/inline
+    and its Obsidian keymap, bound by the research requirements, with the research''s
+    open questions embedded as decisions.'
 proposed_by: bbugyi200.apollo.research.6i.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 10:56:22
 status: wip
+bead_id: bob-cli-qj
 ---
 
-- **PROMPT:**
-  [prompts/202611/prose_note_type.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_note_type.md)
+- **PROMPT:** [prompts/202611/prose_note_type.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_note_type.md)
+- **BEAD:** [bob-cli-qj](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qj/README.md)
 
 # Plan: Rename the article note type to prose
 
