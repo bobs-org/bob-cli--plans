@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: 'Finish landing true-case drawers: cutover goldens, Mac fixtures, tray stroke,
-  closeout'
-goal: Every bob-cli test agrees that a drawer is `- **Title**` and that ALL-CAPS is
-  plain content. Bob Mac Capture's drawer fixtures describe post-cutover bob. The
-  Obsidian tray strokes like the requirement diamond. Epic bob-cli-ph is closed.
+title:
+  "Finish landing true-case drawers: cutover goldens, Mac fixtures, tray stroke,
+  closeout"
+goal:
+  Every bob-cli test agrees that a drawer is `- **Title**` and that ALL-CAPS is plain
+  content. Bob Mac Capture's drawer fixtures describe post-cutover bob. The Obsidian
+  tray strokes like the requirement diamond. Epic bob-cli-ph is closed.
 proposed_by: bbugyi200.apollo.bob-cli-ph.land
 proposed_with: claude/opus
 bead: bob-cli-ph
@@ -16,6 +18,11 @@ status: done
   [202611/true_case_drawers.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/true_case_drawers.md)
 - **BEAD:**
   [bob-cli-ph](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ph/README.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-ph.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-ph.land.md)
+- **COMMITS:**
+  - [6ea5b8f](https://github.com/bobs-org/bob-mac-capture/commit/6ea5b8f626dca4874201106493b56acab6b8319d)
+    — test(mac-capture): regenerate drawer fixtures post-cutover for bob-cli-ph
 
 # Finish landing true-case drawers
 
