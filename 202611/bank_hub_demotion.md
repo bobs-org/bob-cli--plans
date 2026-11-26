@@ -1,116 +1,106 @@
 ---
 tier: epic
 title: Demote bank.md to a single-owner bank hub, then finish the card epics
-goal: "~/bob/bank.md is an untyped, path-canonical bank hub under cash. It has exactly
-  one card (the Bank Card, gated on props_v1), no area semantics in any repo, and no
-  tasks. Every piece of logic that supported the bank/area hybrid is gone. On top of
-  that single-owner model, the unfinished work of the canceled bob-cli-pl and bob-cli-q6
+goal: '~/bob/bank.md is an untyped, path-canonical bank hub under cash. It has exactly
+  one card (the Bank Card, gated on props_v1), no area semantics in any repo, and
+  no tasks. Every piece of logic that supported the bank/area hybrid is gone. On top
+  of that single-owner model, the unfinished work of the canceled bob-cli-pl and bob-cli-q6
   epics is completed: acceptance, polish, cleanup, docs, and deployment.
 
-  "
+  '
 phases:
-  - id: vault-hub
-    title: Reparent the subscriptions album and untype bank.md in the vault
-    depends_on: []
-    size: small
-    description:
-      "vault-hub: move subscriptions.md under cash and sync albums while bank.md is
-      still an area. Then remove bank.md's area type, fix its summary and prose, sync
-      areas, and prove the albums, areas, bank, props, and capture-target outputs are
-      clean through their structured output."
-  - id: cli-hub
-    title: Remove the bank area contract from bob and guard the no-tasks hub
-    depends_on: []
-    size: medium
-    description:
-      "cli-hub: drop NoteKind::Bank from the props settings contract (a ! commit),
-      refuse @bank task captures with a preview diagnostic, and add the bank_hub_task
-      and bank_hub_area_type findings to bob bank check. Also fix the starter text and
-      the note-catalog order, invert the hybrid tests, untype the hub fixtures, and
-      correct the bob-cli docs."
-  - id: plugin-single-owner
-    title: Delete the bank/area arbitration and restore the single-owner Bank Card
-    depends_on: []
-    size: medium
-    description:
-      "plugin-single-owner: delete 249db and every bank/area arbitration hook in
-      bob-ledger-tools, restore the bank.md home-card exclusion, and gate bank on
-      props_v1. Bank becomes a no-settings Property Editor kind whatever bob reports.
-      Settle the 240r foot lifecycle by a species-agnostic test, convert the hybrid unit
-      and e2e cases, fix the baseline harness blockers, then build, test, and sync."
-  - id: takeover-proof
-    title: Real-Obsidian takeover acceptance and family screenshot review
-    depends_on:
-      - vault-hub
-      - cli-hub
-      - plugin-single-owner
-    size: medium
-    description:
-      "takeover-proof: run the production-adapter matrix in isolated real Obsidian
-      against a master-built bob, covering area, inbox, project, and the single-owner
-      bank card. Prove fail-open, focus, routing, and ^prj integrity, and repair defects
-      this work caused. Review light/dark and narrow/wide screenshots across the card
-      family and retain all evidence."
-  - id: count-sweep
-    title: Re-run the retired project-count cleanup in the vault
-    depends_on:
-      - vault-hub
-      - cli-hub
-      - plugin-single-owner
-    size: small
-    description:
-      "count-sweep: dry-run the landed retire-project-count-keys tool against the live
-      vault with a current bob. If any host recreated task_count/open_task_count,
-      attribute that host and apply the guarded cleanup, then prove a repeat dry-run is
-      a no-op and retain the receipts."
-  - id: finish
-    title: Passive-rendering proof, docs sweep, approved memory, and clean deploy
-    depends_on:
-      - takeover-proof
-      - count-sweep
-    size: medium
-    description:
-      "finish: add the unit proof that folds and refreshes never write the vault or
-      spawn bob from paint, and sweep the bob-plugins and bob-cli docs onto the
-      single-owner card contract. Apply only the memory decisions answered yes, then
-      deploy cleanly from master with the isolated post-sync smoke check."
+- id: vault-hub
+  title: Reparent the subscriptions album and untype bank.md in the vault
+  depends_on: []
+  size: small
+  description: 'vault-hub: move subscriptions.md under cash and sync albums while
+    bank.md is still an area. Then remove bank.md''s area type, fix its summary and
+    prose, sync areas, and prove the albums, areas, bank, props, and capture-target
+    outputs are clean through their structured output.'
+- id: cli-hub
+  title: Remove the bank area contract from bob and guard the no-tasks hub
+  depends_on: []
+  size: medium
+  description: 'cli-hub: drop NoteKind::Bank from the props settings contract (a !
+    commit), refuse @bank task captures with a preview diagnostic, and add the bank_hub_task
+    and bank_hub_area_type findings to bob bank check. Also fix the starter text and
+    the note-catalog order, invert the hybrid tests, untype the hub fixtures, and
+    correct the bob-cli docs.'
+- id: plugin-single-owner
+  title: Delete the bank/area arbitration and restore the single-owner Bank Card
+  depends_on: []
+  size: medium
+  description: 'plugin-single-owner: delete 249db and every bank/area arbitration
+    hook in bob-ledger-tools, restore the bank.md home-card exclusion, and gate bank
+    on props_v1. Bank becomes a no-settings Property Editor kind whatever bob reports.
+    Settle the 240r foot lifecycle by a species-agnostic test, convert the hybrid
+    unit and e2e cases, fix the baseline harness blockers, then build, test, and sync.'
+- id: takeover-proof
+  title: Real-Obsidian takeover acceptance and family screenshot review
+  depends_on:
+  - vault-hub
+  - cli-hub
+  - plugin-single-owner
+  size: medium
+  description: 'takeover-proof: run the production-adapter matrix in isolated real
+    Obsidian against a master-built bob, covering area, inbox, project, and the single-owner
+    bank card. Prove fail-open, focus, routing, and ^prj integrity, and repair defects
+    this work caused. Review light/dark and narrow/wide screenshots across the card
+    family and retain all evidence.'
+- id: count-sweep
+  title: Re-run the retired project-count cleanup in the vault
+  depends_on:
+  - vault-hub
+  - cli-hub
+  - plugin-single-owner
+  size: small
+  description: 'count-sweep: dry-run the landed retire-project-count-keys tool against
+    the live vault with a current bob. If any host recreated task_count/open_task_count,
+    attribute that host and apply the guarded cleanup, then prove a repeat dry-run
+    is a no-op and retain the receipts.'
+- id: finish
+  title: Passive-rendering proof, docs sweep, approved memory, and clean deploy
+  depends_on:
+  - takeover-proof
+  - count-sweep
+  size: medium
+  description: 'finish: add the unit proof that folds and refreshes never write the
+    vault or spawn bob from paint, and sweep the bob-plugins and bob-cli docs onto
+    the single-owner card contract. Apply only the memory decisions answered yes,
+    then deploy cleanly from master with the isolated post-sync smoke check.'
 decisions:
   hub_finding_severity:
-    ask:
-      How severe should bob bank check's new bank_hub_task and bank_hub_area_type
+    ask: How severe should bob bank check's new bank_hub_task and bank_hub_area_type
       findings be?
     choices:
       warning: Reported, but bank check still exits 0 when they are its only findings
       error: A stray hub task or an area type makes bank check fail
     default: warning
-    why:
-      The @bank refusal already blocks captures, so this finding only catches hand edits
+    why: The @bank refusal already blocks captures, so this finding only catches hand
+      edits
     answer: warning
   memory_card_glossary:
-    ask:
-      Update glossary:property-card (area/project species) and glossary:bank-card
+    ask: Update glossary:property-card (area/project species) and glossary:bank-card
       (untyped, taskless hub)?
     memory:
-      - glossary:property-card
-      - glossary:bank-card
+    - glossary:property-card
+    - glossary:bank-card
     default: true
     corrects: The shared family of note-top album, record, day, period, and bank cards
     answer: true
   memory_home_card_strands:
-    ask:
-      Add glossary:area-card and glossary:project-card strands (approved earlier for the
-      canceled pl epic)?
+    ask: Add glossary:area-card and glossary:project-card strands (approved earlier
+      for the canceled pl epic)?
     memory:
-      - glossary:area-card
-      - glossary:project-card
+    - glossary:area-card
+    - glossary:project-card
     default: false
     answer: true
   memory_bank_hub_record:
-    ask:
-      Add a decisions strand recording that the bank hub is path-canonical and is never
-      an area note?
+    ask: Add a decisions strand recording that the bank hub is path-canonical and
+      is never an area note?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: true
 proposed_by: bbugyi200.athena.1gn
@@ -119,10 +109,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 10:06:11
 status: wip
+bead_id: bob-cli-qi
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_hub_demotion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_hub_demotion.md)
+- **PROMPT:** [prompts/202611/bank_hub_demotion.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_hub_demotion.md)
+- **BEAD:** [bob-cli-qi](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qi/README.md)
 
 # Demote bank.md to a single-owner bank hub, then finish the card epics
 
