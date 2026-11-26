@@ -1,52 +1,49 @@
 ---
 tier: epic
 title: Finish Bank and Area card arbitration from retained failures
-goal:
-  Repair the remaining bank.md ownership and editor failures, verify the production
+goal: Repair the remaining bank.md ownership and editor failures, verify the production
   adapters in isolated Obsidian, and complete bob-cli-pl.9.1.2.
 parent_bead: bob-cli-pl.9.1.2
 phases:
-  - id: bank-probe-contracts
-    title: Make Bank acceptance probes match the production contract
-    size: medium
-    depends_on: []
-    description:
-      "bank-probe-contracts: isolate a complete bank acceptance slice, repair
-      report/modal assumptions, and retain independent failure evidence without masking
-      ownership defects."
-  - id: bank-mount-lifecycle
-    title: Repair pane-local title and Properties foot arbitration
-    size: medium
-    depends_on:
-      - bank-probe-contracts
-    description:
-      "bank-mount-lifecycle: fix the duplicate-foot and second-pane Area-loss failures
-      through production lifecycle paths while preserving fail-open native access."
-  - id: bank-editor-routing
-    title: Complete Bank and Area editor gestures
-    size: medium
-    depends_on:
-      - bank-mount-lifecycle
-    description:
-      "bank-editor-routing: verify and repair nested Bank Setup, bare + Area Settings,
-      Settings/chip focus, bank-first ==, and truthful bank where-marks."
-  - id: bank-proof-rollout
-    title: Retain real Bank acceptance and deploy the verified bundle
-    size: medium
-    depends_on:
-      - bank-editor-routing
-    description:
-      "bank-proof-rollout: finish the scoped real-app matrix, classify regression
-      failures against clean base, retain inspected evidence, sync without force, and
-      run post-sync smoke."
+- id: bank-probe-contracts
+  title: Make Bank acceptance probes match the production contract
+  size: medium
+  depends_on: []
+  description: 'bank-probe-contracts: isolate a complete bank acceptance slice, repair
+    report/modal assumptions, and retain independent failure evidence without masking
+    ownership defects.'
+- id: bank-mount-lifecycle
+  title: Repair pane-local title and Properties foot arbitration
+  size: medium
+  depends_on:
+  - bank-probe-contracts
+  description: 'bank-mount-lifecycle: fix the duplicate-foot and second-pane Area-loss
+    failures through production lifecycle paths while preserving fail-open native
+    access.'
+- id: bank-editor-routing
+  title: Complete Bank and Area editor gestures
+  size: medium
+  depends_on:
+  - bank-mount-lifecycle
+  description: 'bank-editor-routing: verify and repair nested Bank Setup, bare + Area
+    Settings, Settings/chip focus, bank-first ==, and truthful bank where-marks.'
+- id: bank-proof-rollout
+  title: Retain real Bank acceptance and deploy the verified bundle
+  size: medium
+  depends_on:
+  - bank-editor-routing
+  description: 'bank-proof-rollout: finish the scoped real-app matrix, classify regression
+    failures against clean base, retain inspected evidence, sync without force, and
+    run post-sync smoke.'
 proposed_by: bbugyi200.apollo.bob-cli-pl.9.1.2
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-26 03:28:33
 status: wip
+bead_id: bob-cli-pl.9.1.2.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/bank_area_arbitration_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_area_arbitration_repair.md)
+- **PROMPT:** [prompts/202611/bank_area_arbitration_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/bank_area_arbitration_repair.md)
+- **BEAD:** [bob-cli-pl.9.1.2.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-pl/bob-cli-pl.9.1.2.1.md)
 
 # Finish the remaining Bank arbitration work
 
