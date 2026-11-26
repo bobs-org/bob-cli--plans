@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "drawer_newline_keys",
+      "kind": "choice",
+      "ask": "Should plain Return at a childless drawer title open its nested note instead of capturing?",
+      "why": "Return stays the panel's single capture key, and Bob's refusal already teaches the user to nest",
+      "choices": [
+        {
+          "key": "newline_keys",
+          "label": "Shift-Return, Option-Return, and Ctrl-J nest at a title end; Return always captures"
+        },
+        {
+          "key": "return_too",
+          "label": "Return also nests where Bob refuses the drawer as empty_drawer_bullet"
+        }
+      ],
+      "default": "newline_keys",
+      "effective_default": "newline_keys",
+      "requested_verified": false
+    }
+  ]
+}
