@@ -1,47 +1,43 @@
 ---
 tier: epic
 title: Capture snooze token and atomic row operations
-goal:
-  Capture can snooze new and existing tasks, link or drop snoozed rows safely, and
-  complete same-day times with documented editor and JSON contracts.
+goal: Capture can snooze new and existing tasks, link or drop snoozed rows safely,
+  and complete same-day times with documented editor and JSON contracts.
 phases:
-  - id: grammar
-    title: Parse snooze intents and expose editor spans
-    size: medium
-    depends_on: []
-    description:
-      "grammar: add the shared terminal z:<when> intent, existing-task exception and
-      snooze-drop spelling, editor spans and diagnostics, and parser tests; guard
-      execution until the mutation phase consumes the intent."
-  - id: mutation
-    title: Apply capture snooze operations atomically
-    size: medium
-    depends_on:
-      - grammar
-    description:
-      "mutation: connect snooze add/drop to capture snapshots for existing and new
-      tasks, preserve row notes when linking now, implement retime and drop, and verify
-      refusals and whole-batch atomicity."
-  - id: completion_docs
-    title: Complete snooze times and publish the capture contract
-    size: medium
-    depends_on:
-      - mutation
-    description:
-      "completion_docs: add event-first z: completion with literal replacements,
-      document the grammar and additive JSON, and run integrated capture and
-      documentation verification."
+- id: grammar
+  title: Parse snooze intents and expose editor spans
+  size: medium
+  depends_on: []
+  description: 'grammar: add the shared terminal z:<when> intent, existing-task exception
+    and snooze-drop spelling, editor spans and diagnostics, and parser tests; guard
+    execution until the mutation phase consumes the intent.'
+- id: mutation
+  title: Apply capture snooze operations atomically
+  size: medium
+  depends_on:
+  - grammar
+  description: 'mutation: connect snooze add/drop to capture snapshots for existing
+    and new tasks, preserve row notes when linking now, implement retime and drop,
+    and verify refusals and whole-batch atomicity.'
+- id: completion_docs
+  title: Complete snooze times and publish the capture contract
+  size: medium
+  depends_on:
+  - mutation
+  description: 'completion_docs: add event-first z: completion with literal replacements,
+    document the grammar and additive JSON, and run integrated capture and documentation
+    verification.'
 proposed_by: bbugyi200.athena.bob-cli-q5.3
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.3
 create_time: 2026-11-25 19:34:24
 status: wip
+bead_id: bob-cli-q5.3.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_snooze_token.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_snooze_token.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/capture_snooze_token.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_snooze_token.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.3.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.3.1.md)
 
 # Capture snooze token for bob-cli-q5.3
 
