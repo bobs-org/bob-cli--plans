@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish tie chord dispatch and reversal composition, then land q8
-goal:
-  Make tie chords, ID prompts, and reversal side effects honor the approved contract,
+goal: Make tie chords, ID prompts, and reversal side effects honor the approved contract,
   then close bob-cli-q8.10 and its ready parent bob-cli-q8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-q8.10.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-q8.10
-create_time: 2026-11-26 06:04:21
-status: wip
+status: done
 ---
 
 - **PARENT:**
