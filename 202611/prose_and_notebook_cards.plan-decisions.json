@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "stub_chip",
+      "kind": "choice",
+      "ask": "How should the Prose Card count the sections that still need writing?",
+      "why": "An umbrella heading whose subsections are written is not unwritten",
+      "choices": [
+        {
+          "key": "leaf",
+          "label": "'12 to write': stub sections without subsections; umbrella headings are excluded"
+        },
+        {
+          "key": "literal",
+          "label": "'13 TODO sections': every bob stub, including umbrellas whose subsections are written"
+        }
+      ],
+      "default": "leaf",
+      "effective_default": "leaf",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_prose_card",
+      "kind": "toggle",
+      "ask": "Add the glossary:prose-card strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:prose-card"
+        ]
+      },
+      "requested": "As a part of this change, we should add excellent new glossary terms for \"prose card\" and \"notebook card\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:prose-card",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/prose-card.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_notebook_card",
+      "kind": "toggle",
+      "ask": "Add the glossary:notebook-card strand?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:notebook-card"
+        ]
+      },
+      "requested": "As a part of this change, we should add excellent new glossary terms for \"prose card\" and \"notebook card\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:notebook-card",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/notebook-card.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_property_card",
+      "kind": "toggle",
+      "ask": "Update glossary:property-card so the family lists the Notebook and Prose Cards?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card"
+        ]
+      },
+      "corrects": "The shared family of note-top album, record, day, period, and bank cards, built on the bob-ledger-tools kit.",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Bank Card",
+            "Task Drawer",
+            "Command Mode",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    }
+  ]
+}
