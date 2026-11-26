@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish Mac snooze scheduling and land bob-cli-q5.7.1
-goal: Preserve authoritative wake outcomes and bounded retries, render the folded
-  alarm icon, verify the combined Mac tree, and close bob-cli-q5.7.1 and parent phase
+goal:
+  Preserve authoritative wake outcomes and bounded retries, render the folded alarm
+  icon, verify the combined Mac tree, and close bob-cli-q5.7.1 and parent phase
   bob-cli-q5.7.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.7.1.land
@@ -15,6 +16,12 @@ status: done
   [202611/mac_snoozed_agenda.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/mac_snoozed_agenda.md)
 - **BEAD:**
   [bob-cli-q5.7.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.7.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.7.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.7.1.land.md)
+- **COMMITS:**
+  - [46c5202](https://github.com/bobs-org/bob-mac-capture/commit/46c5202bfeda51757088e645dd04dc21db1f53a6)
+    — fix(capture): preserve wake outcome provenance and bounded retries, render folded
+    alarm icon
 
 # Finish Mac snooze scheduling and land bob-cli-q5.7.1
 
