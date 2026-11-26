@@ -66,7 +66,7 @@ proposed_by: bbugyi200.athena.bob-cli-q4.10
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q4.10
 create_time: 2026-11-25 14:29:08
-status: wip
+status: done
 bead_id: bob-cli-q4.10.1
 ---
 
