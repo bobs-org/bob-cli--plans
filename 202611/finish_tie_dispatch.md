@@ -1,7 +1,8 @@
 ---
 tier: tale
 title: Finish tie chord dispatch and reversal composition, then land q8
-goal: Make tie chords, ID prompts, and reversal side effects honor the approved contract,
+goal:
+  Make tie chords, ID prompts, and reversal side effects honor the approved contract,
   then close bob-cli-q8.10 and its ready parent bob-cli-q8.
 size: medium
 proposed_by: bbugyi200.apollo.bob-cli-q8.10.land
@@ -14,6 +15,11 @@ status: done
   [202611/finish_plain_link_ties.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/finish_plain_link_ties.md)
 - **BEAD:**
   [bob-cli-q8.10](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q8/bob-cli-q8.10.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-q8.10.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-q8.10.land.md)
+- **COMMITS:**
+  - [deb15ba](https://github.com/bobs-org/bob-cli--plans/commit/deb15ba06e81963a4a86351e81265cf971ca292c)
+    — docs(plans): mark tie plans complete
 
 # Finish tie chord dispatch and reversal composition, then land q8
 
