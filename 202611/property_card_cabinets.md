@@ -1,166 +1,152 @@
 ---
 tier: epic
 title: Property Card Cabinets
-goal: "Child areas, sub-projects, notebooks, albums, and album records open as
-  collapsible cabinets at the bottom of their note's Property Card. Each cabinet shows
-  exactly the data its H2 section showed. Album Schema and bank Setup move into the same
-  chrome as a restyled Properties cabinet, and `_` becomes a numbered, cancel-safe
-  cabinet pick. The stored catalogs stay bob-owned Markdown, and nothing in bob-cli, the
-  release train, or Bob Mac Capture changes. The work lands dark beside bob-cli-qj,
-  bob-cli-qm, and bob-cli-qp and switches on only after the sibling go-lives it would
-  race.
+goal: 'Child areas, sub-projects, notebooks, albums, and album records open as collapsible
+  cabinets at the bottom of their note''s Property Card. Each cabinet shows exactly
+  the data its H2 section showed. Album Schema and bank Setup move into the same chrome
+  as a restyled Properties cabinet, and `_` becomes a numbered, cancel-safe cabinet
+  pick. The stored catalogs stay bob-owned Markdown, and nothing in bob-cli, the release
+  train, or Bob Mac Capture changes. The work lands dark beside bob-cli-qj, bob-cli-qm,
+  and bob-cli-qp and switches on only after the sibling go-lives it would race.
 
-  "
+  '
 decisions:
   golive_waits_for_qp:
     ask: Hold cabinets' go-live for bob-cli-qp.8 (Ref Cards) as well as bob-cli-qm.7?
     default: true
-    why:
-      qp.7/qp.8 assert family DOM and edit glossary:property-card; waiting avoids racing
-      them
+    why: qp.7/qp.8 assert family DOM and edit glossary:property-card; waiting avoids
+      racing them
     answer: true
   memory_cabinet_term:
     ask: Add the glossary:cabinet strand at go-live?
     memory:
-      - glossary:cabinet
+    - glossary:cabinet
     default: true
-    requested:
-      As a part of this change we should add an excellent new glossary term for
-      "cabinet".
+    requested: As a part of this change we should add an excellent new glossary term
+      for "cabinet".
     answer: true
   memory_card_strands:
-    ask:
-      Update the property-card, area-card, and project-card strands for cabinets and the
-      `_` pick?
+    ask: Update the property-card, area-card, and project-card strands for cabinets
+      and the `_` pick?
     memory:
-      - glossary:property-card
-      - glossary:area-card
-      - glossary:project-card
+    - glossary:property-card
+    - glossary:area-card
+    - glossary:project-card
     default: true
-    corrects: "`_` folds the card's own section"
+    corrects: '`_` folds the card''s own section'
     answer: true
   memory_decision_record:
-    ask:
-      Add a decision record stating that cabinets absorb bob-owned catalogs at render
-      time and never rewrite them?
+    ask: Add a decision record stating that cabinets absorb bob-owned catalogs at
+      render time and never rewrite them?
     memory:
-      - decisions:cabinets-absorb-catalogs-at-render-time
+    - decisions:cabinets-absorb-catalogs-at-render-time
     default: false
     answer: true
 phases:
-  - id: kit
-    title: Cabinet gate, model, session state, provider registry, and the view collector
-    depends_on: []
-    size: medium
-    description:
-      "kit: add the cabinet-owned `cabinetsPreview` gate. Add the frozen kind table with
-      canonical ranks, roles, and defaults; bottom-up numbering; session state per
-      (path, kind) with rename/delete carry; the content-provider registry; the
-      view-scoped cabinet collector; a role-aware `_` fold facade; and one toggle
-      router. Also add the go-live dependency edges onto the gating sibling go-lives and
-      COORDINATION notes."
-  - id: footer
-    title: Walker-footer overlay push/pop API
-    depends_on: []
-    size: small
-    description:
-      "footer: add a LIFO overlay API on the ledger walker-footer status item. Live walk
-      painters defer while an overlay is up, and popping repaints the current state. A
-      hidden footer unhides for the overlay's lifetime, and a view-local fallback strip
-      covers a hidden status bar. Both surfaces get aria-live, and the API never writes
-      the vault or spawns bob."
-  - id: absorption
-    title:
-      Catalog recognition, ownership claims, render-time hiding, and the body renderer
-    depends_on: []
-    size: medium
-    description:
-      "absorption: spike Vim motion over hidden ranges in real Obsidian first. Then
-      build a region.rs-mirroring recognizer and fingerprinted ownership claims, a Live
-      Preview StateField hide (fallback ladder), the strict-inside reveal, Reading
-      section tagging, a stand-down helper for inline painters, the navigation reveal
-      hook, and a generic catalog body renderer."
-  - id: chrome
-    title: One cabinet chrome, delegation, the stack, and the CSS region
-    depends_on:
-      - kit
-    size: medium
-    description:
-      "chrome: build the shared cabinet header and drawer. Delegate fold rows (Schema,
-      Setup, Outline) and the Properties foot to it under the gate, and assemble one
-      ordered stack per card with Properties last. Mount content providers lazily, add
-      the pick-badge painter, flip album Schema to closed-when-healthy, fix the bank
-      foot keycap, and own the new Cabinets CSS region."
-  - id: keys
-    title: The `_` dispatch and numbered cabinet pick
-    depends_on:
-      - chrome
-      - footer
-    size: medium
-    description:
-      "keys: route `_` to the details fold (zero extras), a direct toggle (one), or an
-      armed pick (two or more). The pick uses a Scope plus a capture listener, and
-      snapshots semantic kinds. It lights the on-card digits and the footer overlay.
-      `__` toggles 1 and `-` toggles Properties; Esc, `q`, and Ctrl+[ cancel. Disarm
-      triggers and palette parity are included."
-  - id: host-cabinets
-    title: Areas, Projects, Notebooks, and Albums cabinets on area and project cards
-    depends_on:
-      - chrome
-      - absorption
-    size: medium
-    description:
-      "host-cabinets: register providers for the four owner catalogs. Each renders the
-      stored callout through the body renderer and the existing painter, lifts title
-      status into the header, and writes honest summaries. Missing and damaged states
-      get an explicit Sync. Each claims absorption, stands inline painters and anchors
-      down, and registers navigation reveal."
-  - id: records-cabinet
-    title: The album Records cabinet
-    depends_on:
-      - chrome
-      - absorption
-    size: medium
-    description:
-      "records-cabinet: register the open-by-default Records provider for album cards.
-      It covers the stored index and tally, group folds, the empty-album teaching line,
-      and the subscriptions decoration, with absorption claims and painter stand-down.
-      The phase also retargets the albums-catalog group jump into the cabinet and
-      measures a 106-record album."
-  - id: acceptance
-    title: Real-Obsidian acceptance and screenshot review with the gate open
-    depends_on:
-      - keys
-      - host-cabinets
-      - records-cabinet
-    size: medium
-    description:
-      "acceptance: build a sibling scratch-vault e2e runner. It opens the cabinets gate
-      and every sibling species gate, and covers every species in Live Preview and
-      Reading, the full keyboard matrix, fail-open contexts, and the passive spy. It
-      also checks content parity and screenshots light/dark, narrow/wide,
-      reduced-motion, and forced-colors before a GO/NO-GO."
-  - id: go-live
-    title: Switch cabinets on, docs, approved memory, and clean deploy
-    depends_on:
-      - acceptance
-    size: medium
-    description:
-      "go-live: once the gating sibling go-lives have closed, delete the gate and update
-      the docs in both repos. Write the new cabinets reference page and the approved
-      memory (glossary:cabinet and the selected card strands and record). Then run the
-      family passive proof, `bob plugins sync`, and a post-switch smoke that includes
-      the prose Outline cabinet."
+- id: kit
+  title: Cabinet gate, model, session state, provider registry, and the view collector
+  depends_on: []
+  size: medium
+  description: 'kit: add the cabinet-owned `cabinetsPreview` gate. Add the frozen
+    kind table with canonical ranks, roles, and defaults; bottom-up numbering; session
+    state per (path, kind) with rename/delete carry; the content-provider registry;
+    the view-scoped cabinet collector; a role-aware `_` fold facade; and one toggle
+    router. Also add the go-live dependency edges onto the gating sibling go-lives
+    and COORDINATION notes.'
+- id: footer
+  title: Walker-footer overlay push/pop API
+  depends_on: []
+  size: small
+  description: 'footer: add a LIFO overlay API on the ledger walker-footer status
+    item. Live walk painters defer while an overlay is up, and popping repaints the
+    current state. A hidden footer unhides for the overlay''s lifetime, and a view-local
+    fallback strip covers a hidden status bar. Both surfaces get aria-live, and the
+    API never writes the vault or spawns bob.'
+- id: absorption
+  title: Catalog recognition, ownership claims, render-time hiding, and the body renderer
+  depends_on: []
+  size: medium
+  description: 'absorption: spike Vim motion over hidden ranges in real Obsidian first.
+    Then build a region.rs-mirroring recognizer and fingerprinted ownership claims,
+    a Live Preview StateField hide (fallback ladder), the strict-inside reveal, Reading
+    section tagging, a stand-down helper for inline painters, the navigation reveal
+    hook, and a generic catalog body renderer.'
+- id: chrome
+  title: One cabinet chrome, delegation, the stack, and the CSS region
+  depends_on:
+  - kit
+  size: medium
+  description: 'chrome: build the shared cabinet header and drawer. Delegate fold
+    rows (Schema, Setup, Outline) and the Properties foot to it under the gate, and
+    assemble one ordered stack per card with Properties last. Mount content providers
+    lazily, add the pick-badge painter, flip album Schema to closed-when-healthy,
+    fix the bank foot keycap, and own the new Cabinets CSS region.'
+- id: keys
+  title: The `_` dispatch and numbered cabinet pick
+  depends_on:
+  - chrome
+  - footer
+  size: medium
+  description: 'keys: route `_` to the details fold (zero extras), a direct toggle
+    (one), or an armed pick (two or more). The pick uses a Scope plus a capture listener,
+    and snapshots semantic kinds. It lights the on-card digits and the footer overlay.
+    `__` toggles 1 and `-` toggles Properties; Esc, `q`, and Ctrl+[ cancel. Disarm
+    triggers and palette parity are included.'
+- id: host-cabinets
+  title: Areas, Projects, Notebooks, and Albums cabinets on area and project cards
+  depends_on:
+  - chrome
+  - absorption
+  size: medium
+  description: 'host-cabinets: register providers for the four owner catalogs. Each
+    renders the stored callout through the body renderer and the existing painter,
+    lifts title status into the header, and writes honest summaries. Missing and damaged
+    states get an explicit Sync. Each claims absorption, stands inline painters and
+    anchors down, and registers navigation reveal.'
+- id: records-cabinet
+  title: The album Records cabinet
+  depends_on:
+  - chrome
+  - absorption
+  size: medium
+  description: 'records-cabinet: register the open-by-default Records provider for
+    album cards. It covers the stored index and tally, group folds, the empty-album
+    teaching line, and the subscriptions decoration, with absorption claims and painter
+    stand-down. The phase also retargets the albums-catalog group jump into the cabinet
+    and measures a 106-record album.'
+- id: acceptance
+  title: Real-Obsidian acceptance and screenshot review with the gate open
+  depends_on:
+  - keys
+  - host-cabinets
+  - records-cabinet
+  size: medium
+  description: 'acceptance: build a sibling scratch-vault e2e runner. It opens the
+    cabinets gate and every sibling species gate, and covers every species in Live
+    Preview and Reading, the full keyboard matrix, fail-open contexts, and the passive
+    spy. It also checks content parity and screenshots light/dark, narrow/wide, reduced-motion,
+    and forced-colors before a GO/NO-GO.'
+- id: go-live
+  title: Switch cabinets on, docs, approved memory, and clean deploy
+  depends_on:
+  - acceptance
+  size: medium
+  description: 'go-live: once the gating sibling go-lives have closed, delete the
+    gate and update the docs in both repos. Write the new cabinets reference page
+    and the approved memory (glossary:cabinet and the selected card strands and record).
+    Then run the family passive proof, `bob plugins sync`, and a post-switch smoke
+    that includes the prose Outline cabinet.'
 proposed_by: bbugyi200.apollo.research.6m.linker.w0
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 16:08:58
 status: wip
+bead_id: bob-cli-qq
 ---
 
-- **PROMPT:**
-  [prompts/202611/property_card_cabinets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_cabinets.md)
+- **PROMPT:** [prompts/202611/property_card_cabinets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/property_card_cabinets.md)
+- **BEAD:** [bob-cli-qq](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qq/README.md)
 
 # Property Card Cabinets
 
