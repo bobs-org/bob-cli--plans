@@ -23,6 +23,10 @@ status: done
 - **COMMITS:**
   - [0d0a31f](https://github.com/bobs-org/bob-plugins/commit/0d0a31f694ea2a80aecfd287bad556d7586aeac5)
     — fix(ledger-tools): match drawer tray stroke to requirement diamond for bob-cli-ph
+  - [4dd787b](https://github.com/bobs-org/bob-cli/commit/4dd787bceaa2c0f16e25336ec6b3ff65d6a731f5)
+    — test(drawers): begin post-cutover true-case migration for bob-cli-ph
+  - [8025ab3](https://github.com/bobs-org/bob-cli/commit/8025ab3c257b77b188e3f31212e229462a69bfe8)
+    — test(drawers): migrate 80 cutover goldens to bold true-case for bob-cli-ph
 
 # Finish landing true-case drawers
 
