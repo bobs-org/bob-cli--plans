@@ -1,15 +1,13 @@
 ---
 tier: tale
 title: Finish the Section Map and land bob-cli-rc
-goal:
-  Repair Section Map layout, motion, failure isolation, and pop-out dismissal, prove the
-  missing acceptance cases, and close bob-cli-rc.
+goal: Repair Section Map layout, motion, failure isolation, and pop-out dismissal,
+  prove the missing acceptance cases, and close bob-cli-rc.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-rc.land
 proposed_with: codex/gpt-6-astra
 bead: bob-cli-rc
-create_time: 2026-11-27 17:45:34
-status: wip
+status: done
 ---
 
 - **PARENT:**
