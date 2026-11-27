@@ -1,114 +1,104 @@
 ---
 tier: epic
 title: Finish Property Card Cabinets — acceptance GO, go-live, and close bob-cli-qq
-goal: "Cabinets pass real-Obsidian acceptance with a GO verdict: the Reading perf budget
-  is met and the intermittent Reading card miss is gone. They then go live. The
-  `cabinetsPreview` gate is deleted, the docs and the approved memory are updated, and
-  the deploy and smoke are clean. That lets bob-cli-qq.8, bob-cli-qq.9, and epic
+goal: 'Cabinets pass real-Obsidian acceptance with a GO verdict: the Reading perf
+  budget is met and the intermittent Reading card miss is gone. They then go live.
+  The `cabinetsPreview` gate is deleted, the docs and the approved memory are updated,
+  and the deploy and smoke are clean. That lets bob-cli-qq.8, bob-cli-qq.9, and epic
   bob-cli-qq all close.
 
-  "
+  '
 parent_bead: bob-cli-qq
 decisions:
   memory_cabinet_term:
     ask: Add the glossary:cabinet strand that bob-cli-qq's reviewer already approved?
     memory:
-      - glossary:cabinet
+    - glossary:cabinet
     default: true
-    requested:
-      Can you help me finish whatever work remains on the bob-cli-qq bead and then close
-      it?
+    requested: Can you help me finish whatever work remains on the bob-cli-qq bead
+      and then close it?
     answer: true
   memory_card_strands:
-    ask:
-      Update the property-card, area-card, and project-card strands for cabinets and
-      `_`?
+    ask: Update the property-card, area-card, and project-card strands for cabinets
+      and `_`?
     memory:
-      - glossary:property-card
-      - glossary:area-card
-      - glossary:project-card
+    - glossary:property-card
+    - glossary:area-card
+    - glossary:project-card
     default: true
-    corrects: "`_` folds the card's own section"
+    corrects: '`_` folds the card''s own section'
     answer: true
   memory_decision_record:
-    ask:
-      Add decisions:cabinets-absorb-catalogs-at-render-time, as approved on bob-cli-qq?
+    ask: Add decisions:cabinets-absorb-catalogs-at-render-time, as approved on bob-cli-qq?
     memory:
-      - decisions:cabinets-absorb-catalogs-at-render-time
+    - decisions:cabinets-absorb-catalogs-at-render-time
     default: true
-    requested:
-      Can you help me finish whatever work remains on the bob-cli-qq bead and then close
-      it?
+    requested: Can you help me finish whatever work remains on the bob-cli-qq bead
+      and then close it?
     answer: true
 phases:
-  - id: perf
-    title: Bring the Reading cabinet paint within the 2x inline budget
-    depends_on: []
-    size: medium
-    description:
-      "perf: profile the gate-open Reading paint of the 106-record album and the 64-row
-      Projects host. Remove the double render and paint the breakdown confirms, without
-      weakening fail-open or parity. Prove both perf checks pass in two athena runner
-      runs."
-  - id: reading-miss
-    title: Fix the intermittent Reading card miss in the shared property-card host
-    depends_on: []
-    size: medium
-    description:
-      "reading-miss: in the 240c host, resolve a Reading surface from the live preview
-      leaf when the postprocessed element is detached or its retries are exhausted.
-      Re-render only an eligible note that no host has carded, keep the absorption tags,
-      and show zero misses in a reload loop."
-  - id: polish
-    title: Footer overlay narrow clipping, Areas title row, and runner console errors
-    depends_on: []
-    size: small
-    description:
-      "polish: make the armed footer overlay shed `esc` and truncate nouns at 420 px
-      without clipping either end. Drop the duplicated callout title row in the Areas
-      cabinet body. Make the cabinets runner fail on console.error, including during
-      Live Preview cursor motions."
-  - id: acceptance
-    title: Rerun real-Obsidian Cabinets acceptance to GO and close bob-cli-qq.8
-    depends_on:
-      - perf
-      - reading-miss
-      - polish
-    size: medium
-    description:
-      "acceptance: run the full gate-open cabinets runner on athena twice, review every
-      PNG, and fix in-scope defects in place. Retain the evidence and record VERDICT: GO
-      on bob-cli-qq.8, then close it."
-  - id: switch-on
-    title: Delete the cabinets gate, convert the tests, deploy, and smoke
-    depends_on:
-      - acceptance
-    size: medium
-    description:
-      "switch-on: delete 240w and every gate branch, and drop the dead preview keys from
-      the runner. Convert the closed-gate tests, extend the passive suite, and give the
-      runner a gate-free mode. Then build, test, run bob plugins sync, and run the
-      post-switch smoke with prose Outline and a ref card."
-  - id: docs-memory
-    title: Cabinets docs in both repos, approved memory, and close bob-cli-qq.9
-    depends_on:
-      - switch-on
-    size: medium
-    description:
-      "docs-memory: add docs/cabinets.md and update the family pages, bringing
-      bob-ledger-tools.md under its word budget. Fix stale bob-cli docs, write the
-      approved glossary and decision memory, regenerate and check the docs, sync, and
-      close bob-cli-qq.9."
+- id: perf
+  title: Bring the Reading cabinet paint within the 2x inline budget
+  depends_on: []
+  size: medium
+  description: 'perf: profile the gate-open Reading paint of the 106-record album
+    and the 64-row Projects host. Remove the double render and paint the breakdown
+    confirms, without weakening fail-open or parity. Prove both perf checks pass in
+    two athena runner runs.'
+- id: reading-miss
+  title: Fix the intermittent Reading card miss in the shared property-card host
+  depends_on: []
+  size: medium
+  description: 'reading-miss: in the 240c host, resolve a Reading surface from the
+    live preview leaf when the postprocessed element is detached or its retries are
+    exhausted. Re-render only an eligible note that no host has carded, keep the absorption
+    tags, and show zero misses in a reload loop.'
+- id: polish
+  title: Footer overlay narrow clipping, Areas title row, and runner console errors
+  depends_on: []
+  size: small
+  description: 'polish: make the armed footer overlay shed `esc` and truncate nouns
+    at 420 px without clipping either end. Drop the duplicated callout title row in
+    the Areas cabinet body. Make the cabinets runner fail on console.error, including
+    during Live Preview cursor motions.'
+- id: acceptance
+  title: Rerun real-Obsidian Cabinets acceptance to GO and close bob-cli-qq.8
+  depends_on:
+  - perf
+  - reading-miss
+  - polish
+  size: medium
+  description: 'acceptance: run the full gate-open cabinets runner on athena twice,
+    review every PNG, and fix in-scope defects in place. Retain the evidence and record
+    VERDICT: GO on bob-cli-qq.8, then close it.'
+- id: switch-on
+  title: Delete the cabinets gate, convert the tests, deploy, and smoke
+  depends_on:
+  - acceptance
+  size: medium
+  description: 'switch-on: delete 240w and every gate branch, and drop the dead preview
+    keys from the runner. Convert the closed-gate tests, extend the passive suite,
+    and give the runner a gate-free mode. Then build, test, run bob plugins sync,
+    and run the post-switch smoke with prose Outline and a ref card.'
+- id: docs-memory
+  title: Cabinets docs in both repos, approved memory, and close bob-cli-qq.9
+  depends_on:
+  - switch-on
+  size: medium
+  description: 'docs-memory: add docs/cabinets.md and update the family pages, bringing
+    bob-ledger-tools.md under its word budget. Fix stale bob-cli docs, write the approved
+    glossary and decision memory, regenerate and check the docs, sync, and close bob-cli-qq.9.'
 proposed_by: bbugyi200.apollo.g7
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 09:12:14
 status: wip
+bead_id: bob-cli-qq.10
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_property_card_cabinets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_property_card_cabinets.md)
+- **PROMPT:** [prompts/202611/finish_property_card_cabinets.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_property_card_cabinets.md)
+- **BEAD:** [bob-cli-qq.10](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qq/bob-cli-qq.10.md)
 
 # Finish Property Card Cabinets
 
