@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_glossary",
+      "kind": "toggle",
+      "ask": "Add the drafted glossary:link-walk strand and point glossary:walker-footer's links footer at it?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:link-walk",
+          "glossary:walker-footer"
+        ]
+      },
+      "requested": "As a part of this change we should add an excellent new glossary term for \"link walk\".",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:link-walk",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/link-walk.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "glossary:walker-footer",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip",
+            "Record Note",
+            "Task Type",
+            "Pomodoro",
+            "Keep Streak",
+            "Capture",
+            "Notebook",
+            "Task Link",
+            "Project Note",
+            "Area Note",
+            "Root Parent",
+            "Task Relation",
+            "Task Freshness",
+            "Task Successor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add decisions:tree-notes-walk-sibling-rings recording the derived ring and parent-tour design?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:tree-notes-walk-sibling-rings"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:tree-notes-walk-sibling-rings",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/tree-notes-walk-sibling-rings.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
