@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "decision_record",
+      "kind": "toggle",
+      "ask": "Add a decisions record saying past-note suggestions are recalled live from bank rows and never stored?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "decisions:bank-note-suggestions-recall-past-rows"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "decisions:bank-note-suggestions-recall-past-rows",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/bank-note-suggestions-recall-past-rows.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
