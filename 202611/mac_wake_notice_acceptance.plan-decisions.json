@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "harness_home",
+      "kind": "choice",
+      "ask": "Should the acceptance harness be committed to bob-mac-capture as a dev script?",
+      "why": "four agents share the harness across turns and possible reboots",
+      "choices": [
+        {
+          "key": "commit",
+          "label": "One reviewed script in Scripts/ that every phase reuses; costs one push and CI run"
+        },
+        {
+          "key": "scratch",
+          "label": "Lives only in Mac /tmp and bead notes; no CI, but a reboot loses it"
+        }
+      ],
+      "default": "commit",
+      "effective_default": "commit",
+      "requested_verified": false
+    }
+  ]
+}
