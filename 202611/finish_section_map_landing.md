@@ -1,8 +1,9 @@
 ---
 tier: tale
 title: Finish the Section Map and land bob-cli-rc
-goal: Repair Section Map layout, motion, failure isolation, and pop-out dismissal,
-  prove the missing acceptance cases, and close bob-cli-rc.
+goal:
+  Repair Section Map layout, motion, failure isolation, and pop-out dismissal, prove the
+  missing acceptance cases, and close bob-cli-rc.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-rc.land
 proposed_with: codex/gpt-6-astra
@@ -14,6 +15,11 @@ status: done
   [202611/ctrl_jk_section_map.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/ctrl_jk_section_map.md)
 - **BEAD:**
   [bob-cli-rc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-rc/README.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-rc.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-rc.land.md)
+- **COMMITS:**
+  - [0cda587](https://github.com/bobs-org/bob-cli--plans/commit/0cda5872828a954971fde17027b537d7f89c453a)
+    — docs(plans): mark the Ctrl+J Section Map epic and landing tale done
 
 # Finish the Section Map and land bob-cli-rc
 
