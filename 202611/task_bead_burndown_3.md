@@ -45,7 +45,7 @@ phases:
 proposed_by: bbugyi200.athena.bob-cli-r8.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-27 15:31:16
-status: wip
+status: done
 bead_id: bob-cli-re
 ---
 
