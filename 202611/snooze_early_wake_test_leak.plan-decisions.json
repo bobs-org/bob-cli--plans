@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "cli_zone_guard",
+      "kind": "choice",
+      "ask": "Should automatic `bob snooze wake` sweeps skip, not guess, when Bob's timezone is unset?",
+      "why": "Three hosts share the vault and apollo is UTC; every real waker already sees timezone.",
+      "choices": [
+        {
+          "key": "skip",
+          "label": "Zone-less sweeps skip and write nothing; unconfigured single-host installs stop auto-waking"
+        },
+        {
+          "key": "keep",
+          "label": "bob-cli unchanged; the next caller that hides Bob's config on apollo can repeat this"
+        }
+      ],
+      "default": "skip",
+      "effective_default": "skip",
+      "requested_verified": false
+    }
+  ]
+}
