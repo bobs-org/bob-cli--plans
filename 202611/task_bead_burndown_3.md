@@ -1,63 +1,57 @@
 ---
 tier: epic
-title:
-  "Task-bead burn-down 3: signal-safe CI, executable stubs, capture block identity, and
-  merchant names"
-goal: "Close five verified task beads by repairing the clipboard CI signal harness,
-  executable-stub races, two capture block-reference panics, and spaced merchant
-  order-code cleaning; then triage and continue the task-bead burn-down.
+title: 'Task-bead burn-down 3: signal-safe CI, executable stubs, capture block identity,
+  and merchant names'
+goal: 'Close five verified task beads by repairing the clipboard CI signal harness,
+  executable-stub races, two capture block-reference panics, and spaced merchant order-code
+  cleaning; then triage and continue the task-bead burn-down.
 
-  "
+  '
 phases:
-  - id: clipboard-signal
-    title: Make the clipboard SIGINT test independent of inherited signal disposition
-    size: small
-    description:
-      "clipboard-signal: fix the inherited-SIGINT test failure in chezmoi and close
-      bob-cli-rd."
-    depends_on: []
-  - id: executable-stubs
-    title: Adopt fork-safe writers for the remaining executable test stubs
-    size: medium
-    description:
-      "executable-stubs: repair the Spotify and Gmail executable-stub races and close
-      bob-cli-5l."
-    depends_on:
-      - clipboard-signal
-  - id: idless-cancel
-    title: Preserve task block identity when canceling an ID-less successor
-    size: medium
-    description:
-      "idless-cancel: fix the capture -X stale task-block reference, verify JSON and
-      written bytes, and close bob-cli-oh."
-    depends_on:
-      - executable-stubs
-  - id: timed-entry-close
-    title: Preserve Pomodoro block references around an existing timed entry
-    size: medium
-    description:
-      "timed-entry-close: fix the x=build stale Pomodoro reference, preserve closed time
-      and children, and close bob-cli-qa."
-    depends_on:
-      - idless-cancel
-  - id: spaced-order-code
-    title: Clean spaced Amazon order codes without erasing sub-merchants
-    size: small
-    description:
-      "spaced-order-code: extend the conservative bank-name cleaner and close
-      bob-cli-qx."
-    depends_on:
-      - timed-entry-close
+- id: clipboard-signal
+  title: Make the clipboard SIGINT test independent of inherited signal disposition
+  size: small
+  description: 'clipboard-signal: fix the inherited-SIGINT test failure in chezmoi
+    and close bob-cli-rd.'
+  depends_on: []
+- id: executable-stubs
+  title: Adopt fork-safe writers for the remaining executable test stubs
+  size: medium
+  description: 'executable-stubs: repair the Spotify and Gmail executable-stub races
+    and close bob-cli-5l.'
+  depends_on:
+  - clipboard-signal
+- id: idless-cancel
+  title: Preserve task block identity when canceling an ID-less successor
+  size: medium
+  description: 'idless-cancel: fix the capture -X stale task-block reference, verify
+    JSON and written bytes, and close bob-cli-oh.'
+  depends_on:
+  - executable-stubs
+- id: timed-entry-close
+  title: Preserve Pomodoro block references around an existing timed entry
+  size: medium
+  description: 'timed-entry-close: fix the x=build stale Pomodoro reference, preserve
+    closed time and children, and close bob-cli-qa.'
+  depends_on:
+  - idless-cancel
+- id: spaced-order-code
+  title: Clean spaced Amazon order codes without erasing sub-merchants
+  size: small
+  description: 'spaced-order-code: extend the conservative bank-name cleaner and close
+    bob-cli-qx.'
+  depends_on:
+  - timed-entry-close
 proposed_by: bbugyi200.athena.bob-cli-r8.land
 proposed_with: codex/gpt-6-astra
 create_time: 2026-11-27 15:31:16
 status: wip
+bead_id: bob-cli-re
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_bead_burndown_3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_3.md)
-- **PARENT:**
-  [202611/task_bead_burndown_2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_bead_burndown_2.md)
+- **PROMPT:** [prompts/202611/task_bead_burndown_3.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_3.md)
+- **PARENT:** [202611/task_bead_burndown_2.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/task_bead_burndown_2.md)
+- **BEAD:** [bob-cli-re](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-re/README.md)
 
 # Task-bead burn-down 3
 
