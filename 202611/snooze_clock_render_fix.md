@@ -2,15 +2,13 @@
 tier: tale
 size: medium
 title: Fix the snooze definition clock's rendering, then land bob-cli-q5.5.1
-goal:
-  Snoozed task definitions show a one-line, state-tinted Lucide alarm clock with its
-  time (and `· due` when due) in real Obsidian, proven by layout and paint e2e checks
-  and deployed; then bob-cli-q5.5.1 and its parent phase bob-cli-q5.5 close.
+goal: Snoozed task definitions show a one-line, state-tinted Lucide alarm clock with
+  its time (and `· due` when due) in real Obsidian, proven by layout and paint e2e
+  checks and deployed; then bob-cli-q5.5.1 and its parent phase bob-cli-q5.5 close.
 proposed_by: bbugyi200.athena.bob-cli-q5.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.5.1
-create_time: 2026-11-26 22:47:30
-status: wip
+status: done
 ---
 
 - **PARENT:**
