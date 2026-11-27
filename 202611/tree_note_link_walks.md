@@ -1,83 +1,93 @@
 ---
 tier: epic
 title: Tree-note link walks
-goal: 'On area, project, notebook, and prose notes, `[n` / `]n` step through the note''s
-  same-type siblings under its parent (wrapping), and `[N` / `]N` tour that type''s
-  parents in outline order. Every Property Card ends with the link-walk rail, below
-  all cabinets. Keys, repeats, the links footer, and the rail always agree. Nothing
-  is written to the vault, and none of it races the bob-cli-qq cabinets go-live.
+goal: "On area, project, notebook, and prose notes, `[n` / `]n` step through the note's
+  same-type siblings under its parent (wrapping), and `[N` / `]N` tour that type's
+  parents in outline order. Every Property Card ends with the link-walk rail, below all
+  cabinets. Keys, repeats, the links footer, and the rail always agree. Nothing is
+  written to the vault, and none of it races the bob-cli-qq cabinets go-live.
 
-  '
+  "
 phases:
-- id: engine
-  title: Sibling-ring engine and the tree route in api.navGroups
-  depends_on: []
-  size: medium
-  description: 'engine: add the cross-epic gate edges, then build the lazy, generation-stamped
-    tree index and the derived `tree` route in Bob Ledger Tools'' api.navGroups (membership,
-    catalog-order comparators, project lanes, the outline-order parent tour, exists-only
-    stops, and explicit none reasons), with parity vectors and a perf test.'
-- id: nav
-  title: Matcher hardening, key notices, and the links footer copy
-  depends_on:
-  - engine
-  size: medium
-  description: 'nav: stop matching step links inside inline code, count authored step
-    links only on nav lines on tree routes, pass the tree fields through resolveNavLinks
-    and walkMode.links, give `[n`/`]n`/`[N`/`]N` useful notices, and teach the `n`
-    walker-footer panel parents, lanes, wraps, and singletons.'
-- id: rail
-  title: Rail kit polish, the card-floor helper, and the tree rail adapter
-  depends_on:
-  - engine
-  size: medium
-  description: 'rail: add the kit''s card-floor helpers, step-item wrap and tooltip
-    support, and the pure tree rail model plus its activation, re-validation, and
-    live-refresh mixin, all unit-tested and previewed. No card mounts it yet.'
-- id: cards
-  title: The rail on every tree card and the card-floor invariant
-  depends_on:
-  - nav
-  - rail
-  size: medium
-  description: 'cards: after bob-cli-qq.10.5 closes, mount the rail on area, project,
-    notebook, and prose cards in both views, make the foot and cabinet stack insert
-    above the floor, move the day/period and record rails to the floor, and prove
-    that any rail is the card''s last child on every species.'
-- id: acceptance
-  title: Real-Obsidian link-walk acceptance with screenshot review
-  depends_on:
-  - cards
-  size: medium
-  description: 'acceptance: add a scratch-vault runner for all eight keys on all four
-    types, check that rail, footer, and keys agree, run the floor, passivity, console-error,
-    and perf checks plus re-validation, review every screenshot on athena, and reach
-    GO.'
-- id: docs
-  title: Plugin docs, the link-walk glossary term, and approved memory
-  depends_on:
-  - acceptance
-  size: medium
-  description: 'docs: after bob-cli-qq.10.6 closes, document the tree route, the walk
-    rules, and the rail-as-floor contract in the bob-plugins docs. Then write the
-    approved memory (the link-walk strand, the walker-footer correction, and any approved
-    extras), regenerate, and pass both docs gates.'
+  - id: engine
+    title: Sibling-ring engine and the tree route in api.navGroups
+    depends_on: []
+    size: medium
+    description:
+      "engine: add the cross-epic gate edges, then build the lazy, generation-stamped
+      tree index and the derived `tree` route in Bob Ledger Tools' api.navGroups
+      (membership, catalog-order comparators, project lanes, the outline-order parent
+      tour, exists-only stops, and explicit none reasons), with parity vectors and a
+      perf test."
+  - id: nav
+    title: Matcher hardening, key notices, and the links footer copy
+    depends_on:
+      - engine
+    size: medium
+    description:
+      "nav: stop matching step links inside inline code, count authored step links only
+      on nav lines on tree routes, pass the tree fields through resolveNavLinks and
+      walkMode.links, give `[n`/`]n`/`[N`/`]N` useful notices, and teach the `n`
+      walker-footer panel parents, lanes, wraps, and singletons."
+  - id: rail
+    title: Rail kit polish, the card-floor helper, and the tree rail adapter
+    depends_on:
+      - engine
+    size: medium
+    description:
+      "rail: add the kit's card-floor helpers, step-item wrap and tooltip support, and
+      the pure tree rail model plus its activation, re-validation, and live-refresh
+      mixin, all unit-tested and previewed. No card mounts it yet."
+  - id: cards
+    title: The rail on every tree card and the card-floor invariant
+    depends_on:
+      - nav
+      - rail
+    size: medium
+    description:
+      "cards: after bob-cli-qq.10.5 closes, mount the rail on area, project, notebook,
+      and prose cards in both views, make the foot and cabinet stack insert above the
+      floor, move the day/period and record rails to the floor, and prove that any rail
+      is the card's last child on every species."
+  - id: acceptance
+    title: Real-Obsidian link-walk acceptance with screenshot review
+    depends_on:
+      - cards
+    size: medium
+    description:
+      "acceptance: add a scratch-vault runner for all eight keys on all four types,
+      check that rail, footer, and keys agree, run the floor, passivity, console-error,
+      and perf checks plus re-validation, review every screenshot on athena, and reach
+      GO."
+  - id: docs
+    title: Plugin docs, the link-walk glossary term, and approved memory
+    depends_on:
+      - acceptance
+    size: medium
+    description:
+      "docs: after bob-cli-qq.10.6 closes, document the tree route, the walk rules, and
+      the rail-as-floor contract in the bob-plugins docs. Then write the approved memory
+      (the link-walk strand, the walker-footer correction, and any approved extras),
+      regenerate, and pass both docs gates."
 decisions:
   memory_glossary:
-    ask: Add the drafted glossary:link-walk strand and point glossary:walker-footer's
-      links footer at it?
+    ask:
+      Add the drafted glossary:link-walk strand and point glossary:walker-footer's links
+      footer at it?
     memory:
-    - glossary:link-walk
-    - glossary:walker-footer
-    requested: As a part of this change we should add an excellent new glossary term
-      for "link walk".
+      - glossary:link-walk
+      - glossary:walker-footer
+    requested:
+      As a part of this change we should add an excellent new glossary term for "link
+      walk".
     default: true
     answer: true
   memory_decision_record:
-    ask: Add decisions:tree-notes-walk-sibling-rings recording the derived ring and
+    ask:
+      Add decisions:tree-notes-walk-sibling-rings recording the derived ring and
       parent-tour design?
     memory:
-    - decisions:tree-notes-walk-sibling-rings
+      - decisions:tree-notes-walk-sibling-rings
     default: false
     answer: true
 proposed_by: bbugyi200.apollo.research.6o.linker.w0
@@ -86,11 +96,10 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 15:00:00
 status: wip
-bead_id: bob-cli-r9
 ---
 
-- **PROMPT:** [prompts/202611/tree_note_link_walks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/tree_note_link_walks.md)
-- **BEAD:** [bob-cli-r9](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-r9/README.md)
+- **PROMPT:**
+  [prompts/202611/tree_note_link_walks.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/tree_note_link_walks.md)
 
 # Tree-note link walks
 
