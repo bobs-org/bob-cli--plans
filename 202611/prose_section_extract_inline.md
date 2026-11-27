@@ -1,22 +1,21 @@
 ---
 tier: epic
 title: Extract prose sections into prose notes and inline them back
-goal: "One Obsidian gesture turns an authored section of an area, project, or prose note
-  into a prose note, and the same gesture folds it back. bob prose extract and bob prose
-  inline own the conversion in Rust: previewed, preimage-guarded, all-or-nothing,
+goal: 'One Obsidian gesture turns an authored section of an area, project, or prose
+  note into a prose note, and the same gesture folds it back. bob prose extract and
+  bob prose inline own the conversion in Rust: previewed, preimage-guarded, all-or-nothing,
   link-repairing, crash-recoverable, and lossless on a round trip. Extraction records
   provenance that the later reversible-projects work can consume.
 
-  "
+  '
 decisions:
   keymap:
     ask: Which gesture should extract a section and inline it back?
     choices:
-      new_chord:
-        Ctrl+Shift+E toggles prose sections; Ctrl+Shift+Alt+N keeps its task/project
+      new_chord: Ctrl+Shift+E toggles prose sections; Ctrl+Shift+Alt+N keeps its task/project
         meaning
-      overload:
-        Ctrl+Shift+Alt+N also extracts on section lines and inlines in prose notes
+      overload: Ctrl+Shift+Alt+N also extracts on section lines and inlines in prose
+        notes
     default: new_chord
     why: Keeps the project gesture's refusals intact; Ctrl+Shift+E is verified unbound
     answer: new_chord
@@ -24,120 +23,110 @@ decisions:
     ask: What should extraction leave under the heading it keeps?
     choices:
       link: One `- [[stem|Title]]` bullet that renders as a plain link
-      embed:
-        One `- ![[stem]]` bullet that reads in place but repeats the promoted headings
+      embed: One `- ![[stem]]` bullet that reads in place but repeats the promoted
+        headings
     default: link
     why: Renders cleanly and stays a one-note drawer for later project reversal
     answer: link
   intro_prose:
     ask: How should extraction treat text above a note's first heading?
     choices:
-      refuse:
-        Refuse with a hint to type a heading first, so every extraction has a real
-        heading
-      overview:
-        Extract it under a synthesized `## Overview` stub that inline removes again
+      refuse: Refuse with a hint to type a heading first, so every extraction has
+        a real heading
+      overview: Extract it under a synthesized `## Overview` stub that inline removes
+        again
     default: refuse
     why: One typed heading does the same job and keeps every round trip heading-anchored
     answer: refuse
   prose_catalog:
-    ask:
-      "Add a generated ## Prose catalog to areas and projects, with the reversal
-      catalog-skip fix?"
+    ask: 'Add a generated ## Prose catalog to areas and projects, with the reversal
+      catalog-skip fix?'
     default: false
-    why:
-      Stubs already show extracted notes in place, and Ctrl+= finds children by parent
+    why: Stubs already show extracted notes in place, and Ctrl+= finds children by
+      parent
     answer: false
   memory_prose_section:
     ask: Add a Prose Section glossary term to SASE memory?
     memory:
-      - glossary:prose-section
+    - glossary:prose-section
     default: false
     answer: false
 phases:
-  - id: txn-trash-recovery
-    title: Trash files and recover interrupted vault rewrites
-    depends_on: []
-    size: medium
-    description:
-      "txn-trash-recovery: vault_rewrite gains a guarded trash operation, no-replace
-      creates, and a durable intent journal that rolls back or refuses an interrupted
-      rewrite, with crash tests at every write point."
-  - id: section-model
-    title: Prose section selection and eligibility
-    depends_on: []
-    size: medium
-    description:
-      "section-model: a pure prose-module classifier that resolves --section and --line
-      to a heading subtree in an area, project, or prose note and returns the named
-      refusal for every ineligible case."
-  - id: link-relocation
-    title: Relocate links around a moved section
-    depends_on:
-      - section-model
-    size: medium
-    description:
-      "link-relocation: a relocation map and vault-wide rewriter that repairs links in
-      every direction for extract and its inverse, preserving aliases, embeds, and link
-      form."
-  - id: extract
-    title: bob prose extract planner and hidden CLI
-    depends_on:
-      - txn-trash-recovery
-      - section-model
-      - link-relocation
-    size: medium
-    description:
-      "extract: the extract planner, the ProseConversion v1 JSON types, the fingerprint,
-      and a hidden bob prose extract that writes through vault_rewrite."
-  - id: inline
-    title: bob prose inline and the round-trip guarantee
-    depends_on:
-      - extract
-    size: medium
-    description:
-      "inline: the inline planner and bob prose inline, both commands unhidden together,
-      and a property test that inline(extract(S)) restores S."
-  - id: contract-docs
-    title: Contract docs, host probe, and vault-clone dogfood
-    depends_on:
-      - inline
-    size: small
-    description:
-      "contract-docs: document the conversion contract in docs/prose.md and the
-      reference pages, add the prose-extract-preview host probe, round-trip real
-      sections on a throwaway vault clone, and apply the accepted memory decision."
-  - id: keymap
-    title: Bob Prose extract and inline gesture in Obsidian
-    depends_on:
-      - inline
-      - contract-docs
-    size: medium
-    description:
-      "keymap: bob-articles gains extract, inline, and toggle commands with a preview
-      modal driven only by bob's JSON, bound per the keymap decision, with Command Mode
-      rows, docs, tests, marker, and deploy."
-  - id: prose-catalog
-    title: Optional generated Prose catalog
-    depends_on:
-      - inline
-    size: medium
-    description:
-      "prose-catalog: only when prose_catalog is accepted, add a generated Prose catalog
-      through host_catalog and fix project reversal to skip every generated catalog;
-      otherwise close as a no-op."
+- id: txn-trash-recovery
+  title: Trash files and recover interrupted vault rewrites
+  depends_on: []
+  size: medium
+  description: 'txn-trash-recovery: vault_rewrite gains a guarded trash operation,
+    no-replace creates, and a durable intent journal that rolls back or refuses an
+    interrupted rewrite, with crash tests at every write point.'
+- id: section-model
+  title: Prose section selection and eligibility
+  depends_on: []
+  size: medium
+  description: 'section-model: a pure prose-module classifier that resolves --section
+    and --line to a heading subtree in an area, project, or prose note and returns
+    the named refusal for every ineligible case.'
+- id: link-relocation
+  title: Relocate links around a moved section
+  depends_on:
+  - section-model
+  size: medium
+  description: 'link-relocation: a relocation map and vault-wide rewriter that repairs
+    links in every direction for extract and its inverse, preserving aliases, embeds,
+    and link form.'
+- id: extract
+  title: bob prose extract planner and hidden CLI
+  depends_on:
+  - txn-trash-recovery
+  - section-model
+  - link-relocation
+  size: medium
+  description: 'extract: the extract planner, the ProseConversion v1 JSON types, the
+    fingerprint, and a hidden bob prose extract that writes through vault_rewrite.'
+- id: inline
+  title: bob prose inline and the round-trip guarantee
+  depends_on:
+  - extract
+  size: medium
+  description: 'inline: the inline planner and bob prose inline, both commands unhidden
+    together, and a property test that inline(extract(S)) restores S.'
+- id: contract-docs
+  title: Contract docs, host probe, and vault-clone dogfood
+  depends_on:
+  - inline
+  size: small
+  description: 'contract-docs: document the conversion contract in docs/prose.md and
+    the reference pages, add the prose-extract-preview host probe, round-trip real
+    sections on a throwaway vault clone, and apply the accepted memory decision.'
+- id: keymap
+  title: Bob Prose extract and inline gesture in Obsidian
+  depends_on:
+  - inline
+  - contract-docs
+  size: medium
+  description: 'keymap: bob-articles gains extract, inline, and toggle commands with
+    a preview modal driven only by bob''s JSON, bound per the keymap decision, with
+    Command Mode rows, docs, tests, marker, and deploy.'
+- id: prose-catalog
+  title: Optional generated Prose catalog
+  depends_on:
+  - inline
+  size: medium
+  description: 'prose-catalog: only when prose_catalog is accepted, add a generated
+    Prose catalog through host_catalog and fix project reversal to skip every generated
+    catalog; otherwise close as a no-op.'
 proposed_by: bbugyi200.apollo.bob-cli-qj.5
 proposed_with: claude/opus
 parent_bead: bob-cli-qj.5
 decided_by: auto
 create_time: 2026-11-27 07:18:25
 status: wip
+bead_id: bob-cli-qj.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/prose_section_extract_inline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_section_extract_inline.md)
-- **PARENT:**
-  [202611/prose_note_type.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/prose_note_type.md)
+- **PROMPT:** [prompts/202611/prose_section_extract_inline.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/prose_section_extract_inline.md)
+- **PARENT:** [202611/prose_note_type.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/prose_note_type.md)
+- **BEAD:** [bob-cli-qj.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qj/bob-cli-qj.5.1.md)
 
 # Plan: Extract prose sections into prose notes and inline them back
 
