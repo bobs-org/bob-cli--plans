@@ -120,7 +120,7 @@ proposed_with: claude/opus
 parent_bead: bob-cli-qj.5
 decided_by: auto
 create_time: 2026-11-27 07:18:25
-status: wip
+status: done
 bead_id: bob-cli-qj.5.1
 ---
 
