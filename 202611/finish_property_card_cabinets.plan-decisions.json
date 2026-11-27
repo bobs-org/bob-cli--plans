@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "memory_cabinet_term",
+      "kind": "toggle",
+      "ask": "Add the glossary:cabinet strand that bob-cli-qq's reviewer already approved?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:cabinet"
+        ]
+      },
+      "requested": "Can you help me finish whatever work remains on the bob-cli-qq bead and then close it?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:cabinet",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/cabinet.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "id": "memory_card_strands",
+      "kind": "toggle",
+      "ask": "Update the property-card, area-card, and project-card strands for cabinets and `_`?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:property-card",
+          "glossary:area-card",
+          "glossary:project-card"
+        ]
+      },
+      "corrects": "`_` folds the card's own section",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:property-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Property Card",
+            "Notebook",
+            "Prose Card",
+            "Ref Card",
+            "Bank Card",
+            "Task Drawer",
+            "Keep Streak",
+            "Pomodoro",
+            "Task Type",
+            "Area Note",
+            "Project Note",
+            "Root Parent",
+            "Capture",
+            "Copy Chip",
+            "Ref Panel",
+            "Task Relation",
+            "Task Link",
+            "Record Note",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:area-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Area Card",
+            "Task Drawer",
+            "Area Note",
+            "Task Type",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Link",
+            "Record Note",
+            "Root Parent",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        },
+        {
+          "selector": "glossary:project-card",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Project Card",
+            "Task Drawer",
+            "Capture",
+            "Project Note",
+            "Keep Streak",
+            "Notebook",
+            "Task Relation",
+            "Pomodoro",
+            "Task Type",
+            "Record Note",
+            "Area Note",
+            "Root Parent",
+            "Task Link",
+            "Task Freshness",
+            "Task Successor",
+            "Walker Footer",
+            "Bank Row",
+            "Stats Strip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add decisions:cabinets-absorb-catalogs-at-render-time, as approved on bob-cli-qq?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:cabinets-absorb-catalogs-at-render-time"
+        ]
+      },
+      "requested": "Can you help me finish whatever work remains on the bob-cli-qq bead and then close it?",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:cabinets-absorb-catalogs-at-render-time",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/cabinets-absorb-catalogs-at-render-time.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
