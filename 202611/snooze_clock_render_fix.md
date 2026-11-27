@@ -2,9 +2,10 @@
 tier: tale
 size: medium
 title: Fix the snooze definition clock's rendering, then land bob-cli-q5.5.1
-goal: Snoozed task definitions show a one-line, state-tinted Lucide alarm clock with
-  its time (and `· due` when due) in real Obsidian, proven by layout and paint e2e
-  checks and deployed; then bob-cli-q5.5.1 and its parent phase bob-cli-q5.5 close.
+goal:
+  Snoozed task definitions show a one-line, state-tinted Lucide alarm clock with its
+  time (and `· due` when due) in real Obsidian, proven by layout and paint e2e checks
+  and deployed; then bob-cli-q5.5.1 and its parent phase bob-cli-q5.5 close.
 proposed_by: bbugyi200.athena.bob-cli-q5.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-q5.5.1
@@ -15,6 +16,11 @@ status: done
   [202611/snooze_display_marks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snooze_display_marks.md)
 - **BEAD:**
   [bob-cli-q5.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.athena.bob-cli-q5.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.5.1.land.md)
+- **COMMITS:**
+  - [d9f5774](https://github.com/bobs-org/bob-cli/commit/d9f57741c248db678bcf43b56eade3b16a2e88f4)
+    — docs: describe snooze clock labels and glyph contract
 
 # Fix the snooze definition clock's rendering, then land bob-cli-q5.5.1
 
