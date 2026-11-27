@@ -108,7 +108,7 @@ proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-26 12:37:56
-status: wip
+status: done
 bead_id: bob-cli-qm
 ---
 
