@@ -2,10 +2,10 @@
 tier: tale
 size: medium
 title: Land the Prose and Notebook Cards epic
-goal: "Prove both cards in real Obsidian against the re-landed Bob Prose, finish the
+goal: 'Prove both cards in real Obsidian against the re-landed Bob Prose, finish the
   preview-gate removal, and close bob-cli-qm.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-qm.land
 proposed_with: claude/opus
 bead: bob-cli-qm
@@ -16,11 +16,6 @@ status: done
   [202611/prose_and_notebook_cards.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/prose_and_notebook_cards.md)
 - **BEAD:**
   [bob-cli-qm](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qm/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-qm.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-qm.land.md)
-- **COMMITS:**
-  - [d971e4e](https://github.com/bobs-org/bob-plugins/commit/d971e4e05e18c5cacf42fab2abc03e0050b4e7cd)
-    — feat(ledger-tools): land prose and notebook cards acceptance
 
 # Plan: Land the Prose and Notebook Cards epic (bob-cli-qm)
 
