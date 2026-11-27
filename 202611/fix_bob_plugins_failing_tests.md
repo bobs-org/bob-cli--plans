@@ -31,6 +31,12 @@ create_time: 2026-11-27 08:00:29
 status: wip
 ---
 
+- **AGENTS:**
+  - [bbugyi200.athena.1gy](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.1gy.md)
+- **COMMITS:**
+  - [2e17910](https://github.com/bobs-org/bob-plugins/commit/2e17910bf827496415e5114f7ad4b033dc61c5b2)
+    — test(plugins): settle Undo race and update TODAY link-meter expectation
+
 # Fix the failing bob-plugins tests
 
 All work happens in the `bob-plugins` linked repo. Open it with `/sase_repo`
