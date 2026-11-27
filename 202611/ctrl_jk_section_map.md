@@ -1,78 +1,75 @@
 ---
 tier: epic
 title: Ctrl+J / Ctrl+K Section Map
-goal: "Every successful Ctrl+J / Ctrl+K section jump in Obsidian briefly shows a
-  passive, beautiful Section Map in the jumping pane: the note's headings, where you
-  are, where you came from, where the next press lands, and when a press wrapped. The
-  map is built from the same scanner and jump function the keys use, so it never
-  disagrees with them, and it never takes focus, keys, or clicks.
+goal: 'Every successful Ctrl+J / Ctrl+K section jump in Obsidian briefly shows a passive,
+  beautiful Section Map in the jumping pane: the note''s headings, where you are,
+  where you came from, where the next press lands, and when a press wrapped. The map
+  is built from the same scanner and jump function the keys use, so it never disagrees
+  with them, and it never takes focus, keys, or clicks.
 
-  "
+  '
 decisions:
   peek_lifetime:
     ask: How long should the unbound "Show section map" peek stay on screen?
     choices:
-      pinned:
-        Stays until your next key, edit, cursor move, or pane change; no fade timer
+      pinned: Stays until your next key, edit, cursor move, or pane change; no fade
+        timer
       linger: Fades 2 s after showing, exactly like a jump (the research default)
     default: pinned
     why: A deliberate peek is for reading, and any key still dismisses it at once
     answer: pinned
   section_map_record:
-    ask:
-      Add a decisions strand saying section jumps show a passive, gesture-scoped Section
-      Map?
+    ask: Add a decisions strand saying section jumps show a passive, gesture-scoped
+      Section Map?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
 phases:
-  - id: model
-    title: Shared heading scanner and Section Map model
-    depends_on: []
-    size: medium
-    description:
-      "model: refactor the section-header scanner into one walker that the keys and the
-      map share, then add the pure Section Map model (labels, nesting depth, windowing,
-      chips, counter, aria sentence) with unit and parity property tests."
-  - id: card
-    title: Section Map card painter, placement, and styles
-    depends_on:
-      - model
-    size: medium
-    description:
-      "card: build the pure DOM painter with keyed in-place reconciliation, the
-      margin/overlay/compact placement function, the .bob-section-map styles, and a
-      headless-Chromium preview whose screenshots are reviewed against the visual spec."
-  - id: wiring
-    title: Jump integration, lifecycle controller, landing flash, and peek
-    depends_on:
-      - model
-      - card
-    size: medium
-    description:
-      "wiring: move the section jump into a new fragment, fix the double scroll, add the
-      landing flash, the hold/linger/fade lifecycle with activity dismissal, the
-      doc-keyed heading cache, the aria-live sentence, and the unbound peek command."
-  - id: ship
-    title: Real-Obsidian acceptance, docs, and deploy
-    depends_on:
-      - wiring
-    size: medium
-    description:
-      "ship: prove the map end to end in real Obsidian over CDP (both key routes,
-      lifecycle, dismissal, wrap, windowing, compact, unchanged note bytes), document it
-      in the navigation plugin reference, and deploy with bob plugins sync."
+- id: model
+  title: Shared heading scanner and Section Map model
+  depends_on: []
+  size: medium
+  description: 'model: refactor the section-header scanner into one walker that the
+    keys and the map share, then add the pure Section Map model (labels, nesting depth,
+    windowing, chips, counter, aria sentence) with unit and parity property tests.'
+- id: card
+  title: Section Map card painter, placement, and styles
+  depends_on:
+  - model
+  size: medium
+  description: 'card: build the pure DOM painter with keyed in-place reconciliation,
+    the margin/overlay/compact placement function, the .bob-section-map styles, and
+    a headless-Chromium preview whose screenshots are reviewed against the visual
+    spec.'
+- id: wiring
+  title: Jump integration, lifecycle controller, landing flash, and peek
+  depends_on:
+  - model
+  - card
+  size: medium
+  description: 'wiring: move the section jump into a new fragment, fix the double
+    scroll, add the landing flash, the hold/linger/fade lifecycle with activity dismissal,
+    the doc-keyed heading cache, the aria-live sentence, and the unbound peek command.'
+- id: ship
+  title: Real-Obsidian acceptance, docs, and deploy
+  depends_on:
+  - wiring
+  size: medium
+  description: 'ship: prove the map end to end in real Obsidian over CDP (both key
+    routes, lifecycle, dismissal, wrap, windowing, compact, unchanged note bytes),
+    document it in the navigation plugin reference, and deploy with bob plugins sync.'
 proposed_by: bbugyi200.athena.1hg
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 15:01:41
 status: wip
+bead_id: bob-cli-ra
 ---
 
-- **PROMPT:**
-  [prompts/202611/ctrl_jk_section_map.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ctrl_jk_section_map.md)
+- **PROMPT:** [prompts/202611/ctrl_jk_section_map.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ctrl_jk_section_map.md)
+- **BEAD:** [bob-cli-ra](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ra/README.md)
 
 # Plan: Ctrl+J / Ctrl+K Section Map
 
