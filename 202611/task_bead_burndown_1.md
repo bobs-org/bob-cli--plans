@@ -1,66 +1,61 @@
 ---
 tier: epic
-title: "Task-bead burn-down 1: the gates that keep failing for every agent"
-goal: "The five open task beads that most often turn agents' check runs red for reasons
+title: 'Task-bead burn-down 1: the gates that keep failing for every agent'
+goal: 'The five open task beads that most often turn agents'' check runs red for reasons
   unrelated to their work are fixed and closed. The lander triages what is left and
   proposes the next five-bead epic under the same rules, and the chain continues until
   no open task beads remain.
 
-  "
+  '
 decisions:
   docs_headroom:
-    ask:
-      Trim the two bob-plugins reference pages that sit within 10 words of the cap
-      before the next edit trips it?
+    ask: Trim the two bob-plugins reference pages that sit within 10 words of the
+      cap before the next edit trips it?
     default: true
-    why:
-      Agents hit these two pages over and over (18 and 12 +1s); each failure blocks an
-      unrelated landing
+    why: Agents hit these two pages over and over (18 and 12 +1s); each failure blocks
+      an unrelated landing
     answer: true
 phases:
-  - id: wispr-kicker
-    title: Whitespace-insensitive WISPr dossier kicker assertion
-    depends_on: []
-    size: small
-    description:
-      "wispr-kicker: make the wispr_summary lib test check the letter-spaced MEETING
-      NOTES kicker without depending on pdftotext's spacing, then close bob-cli-q9."
-  - id: docs-mount-index
-    title: Stale ignored mount index is not an authored landing page
-    depends_on:
-      - wispr-kicker
-    size: small
-    description:
-      "docs-mount-index: stop bob-docs calling an untracked, gitignored mount index.md a
-      committed landing page, add a tools/docs test, then close bob-cli-it."
-  - id: frees-marks-budget
-    title: Stable frees-marks 25 ms CPU budget measurement
-    depends_on:
-      - docs-mount-index
-    size: medium
-    description:
-      "frees-marks-budget: replace the single cold CPU sample in the bob-plugins
-      frees-marks 200-link/2000-task gate with the warm best-of-N pattern that fixed
-      sibling gates, keep the 25 ms target, then close bob-cli-io."
-  - id: plugin-docs-headroom
-    title: Editing headroom on the near-cap bob-plugins reference pages
-    depends_on:
-      - frees-marks-budget
-    size: medium
-    description:
-      "plugin-docs-headroom: per docs_headroom, condense the bob-navigation-hotkeys and
-      bob-ledger-tools reference pages to at least 300 words under the cap, or cancel
-      both beads, then close bob-cli-ob and bob-cli-il."
+- id: wispr-kicker
+  title: Whitespace-insensitive WISPr dossier kicker assertion
+  depends_on: []
+  size: small
+  description: 'wispr-kicker: make the wispr_summary lib test check the letter-spaced
+    MEETING NOTES kicker without depending on pdftotext''s spacing, then close bob-cli-q9.'
+- id: docs-mount-index
+  title: Stale ignored mount index is not an authored landing page
+  depends_on:
+  - wispr-kicker
+  size: small
+  description: 'docs-mount-index: stop bob-docs calling an untracked, gitignored mount
+    index.md a committed landing page, add a tools/docs test, then close bob-cli-it.'
+- id: frees-marks-budget
+  title: Stable frees-marks 25 ms CPU budget measurement
+  depends_on:
+  - docs-mount-index
+  size: medium
+  description: 'frees-marks-budget: replace the single cold CPU sample in the bob-plugins
+    frees-marks 200-link/2000-task gate with the warm best-of-N pattern that fixed
+    sibling gates, keep the 25 ms target, then close bob-cli-io.'
+- id: plugin-docs-headroom
+  title: Editing headroom on the near-cap bob-plugins reference pages
+  depends_on:
+  - frees-marks-budget
+  size: medium
+  description: 'plugin-docs-headroom: per docs_headroom, condense the bob-navigation-hotkeys
+    and bob-ledger-tools reference pages to at least 300 words under the cap, or cancel
+    both beads, then close bob-cli-ob and bob-cli-il.'
 proposed_by: bbugyi200.athena.1h4
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 10:16:11
 status: wip
+bead_id: bob-cli-r7
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_bead_burndown_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_1.md)
+- **PROMPT:** [prompts/202611/task_bead_burndown_1.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_1.md)
+- **BEAD:** [bob-cli-r7](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-r7/README.md)
 
 # Plan: Task-bead burn-down 1 — the gates that keep failing for every agent
 
