@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "rank_poison",
+      "kind": "choice",
+      "ask": "Should dependency recovery also ignore dangling links that name no task in the vault, the way reconcile does?",
+      "why": "reconcile keeps unresolved links on purpose, so they will come back",
+      "choices": [
+        {
+          "key": "scoped",
+          "label": "One stale Depends-On or Pomodoro link elsewhere can no longer leave a \u2303L task Blocked"
+        },
+        {
+          "key": "conflicts_only",
+          "label": "Any dangling link outside `_conflicts/` still defers every release to reconcile"
+        }
+      ],
+      "default": "scoped",
+      "effective_default": "scoped",
+      "requested_verified": false
+    },
+    {
+      "id": "mirror_chords",
+      "kind": "choice",
+      "ask": "Should \u2303\u21e7B (and the Blocks stage's \u21b5) also settle the note of the task its lane transfer promotes?",
+      "why": "same helper and one more call site in the same chord family",
+      "choices": [
+        {
+          "key": "include",
+          "label": "The promoted prerequisite's note is grouped and badged in the same gesture, like \u2303B"
+        },
+        {
+          "key": "exclude",
+          "label": "Only \u2303L and \u2303B change; \u2303\u21e7B keeps leaving the promoted task's note for reconcile"
+        }
+      ],
+      "default": "include",
+      "effective_default": "include",
+      "requested_verified": false
+    }
+  ]
+}
