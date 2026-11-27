@@ -1,61 +1,57 @@
 ---
 tier: epic
-title:
-  "Task-bead burn-down 2: false deploy refusals, a red dotfiles CI, and leaking e2e
-  scratch"
-goal: "The five open task beads that now cost agents the most time are fixed and closed:
-  the chezmoi isolation test that fails every dotfiles push, the two deploy-guard arms
-  that falsely refuse plugin syncs, the real-Obsidian e2e runners that fill athena's
+title: 'Task-bead burn-down 2: false deploy refusals, a red dotfiles CI, and leaking
+  e2e scratch'
+goal: 'The five open task beads that now cost agents the most time are fixed and closed:
+  the chezmoi isolation test that fails every dotfiles push, the two deploy-guard
+  arms that falsely refuse plugin syncs, the real-Obsidian e2e runners that fill athena''s
   /tmp, and the most-reported bob-plugins perf flake. The lander triages what is left
   and proposes the next five-bead epic under the same rules, and the chain continues
   until no open task beads remain.
 
-  "
+  '
 phases:
-  - id: chezmoi-isolation
-    title: Poseidon chezmoi isolation test matches the Mac cargo config
-    depends_on: []
-    size: small
-    description:
-      "chezmoi-isolation: update the chezmoi poseidon_chezmoi_isolation_test to the
-      intent of 9430387a (the Mac renders a debug-info-only cargo config but still
-      ignores the poseidon files), then close bob-cli-id."
-  - id: deploy-inclusion-proof
-    title: Deploy guard runs the inclusion proof in both stamp arms
-    depends_on:
-      - chezmoi-isolation
-    size: medium
-    description:
-      'deploy-inclusion-proof: make evaluate_guard in src/native/plugins/deploy.rs try
-      find_inclusion_proof for clean stamps with an unknown source_head, and stop a
-      dirty incoming checkout from getting a false "no single commit holds the bundle"
-      refusal, then close bob-cli-or and bob-cli-pb.'
-  - id: e2e-scratch
-    title: Real-Obsidian e2e runners keep bounded failure scratch
-    depends_on:
-      - deploy-inclusion-proof
-    size: medium
-    description:
-      "e2e-scratch: stop the bob-plugins real-Obsidian e2e runners from leaking failure
-      scratch and screenshots into the /tmp tmpfs without bound, document where retained
-      scratch lives, then close bob-cli-qt."
-  - id: wikilink-cold-chunk
-    title: Stable task-wikilink cold-build 16 ms chunk measurement
-    depends_on:
-      - e2e-scratch
-    size: medium
-    description:
-      "wikilink-cold-chunk: make the block-id-prompt task-wikilink cold-build 16 ms
-      chunk gate measure chunk cost instead of helper-thread and cold-start noise under
-      the serial test:perf stage, keep every budget, then close bob-cli-f8."
+- id: chezmoi-isolation
+  title: Poseidon chezmoi isolation test matches the Mac cargo config
+  depends_on: []
+  size: small
+  description: 'chezmoi-isolation: update the chezmoi poseidon_chezmoi_isolation_test
+    to the intent of 9430387a (the Mac renders a debug-info-only cargo config but
+    still ignores the poseidon files), then close bob-cli-id.'
+- id: deploy-inclusion-proof
+  title: Deploy guard runs the inclusion proof in both stamp arms
+  depends_on:
+  - chezmoi-isolation
+  size: medium
+  description: 'deploy-inclusion-proof: make evaluate_guard in src/native/plugins/deploy.rs
+    try find_inclusion_proof for clean stamps with an unknown source_head, and stop
+    a dirty incoming checkout from getting a false "no single commit holds the bundle"
+    refusal, then close bob-cli-or and bob-cli-pb.'
+- id: e2e-scratch
+  title: Real-Obsidian e2e runners keep bounded failure scratch
+  depends_on:
+  - deploy-inclusion-proof
+  size: medium
+  description: 'e2e-scratch: stop the bob-plugins real-Obsidian e2e runners from leaking
+    failure scratch and screenshots into the /tmp tmpfs without bound, document where
+    retained scratch lives, then close bob-cli-qt.'
+- id: wikilink-cold-chunk
+  title: Stable task-wikilink cold-build 16 ms chunk measurement
+  depends_on:
+  - e2e-scratch
+  size: medium
+  description: 'wikilink-cold-chunk: make the block-id-prompt task-wikilink cold-build
+    16 ms chunk gate measure chunk cost instead of helper-thread and cold-start noise
+    under the serial test:perf stage, keep every budget, then close bob-cli-f8.'
 proposed_by: bbugyi200.athena.bob-cli-r7.land
 proposed_with: claude/opus
 create_time: 2026-11-27 13:01:12
 status: wip
+bead_id: bob-cli-r8
 ---
 
-- **PROMPT:**
-  [prompts/202611/task_bead_burndown_2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_2.md)
+- **PROMPT:** [prompts/202611/task_bead_burndown_2.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_bead_burndown_2.md)
+- **BEAD:** [bob-cli-r8](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-r8/README.md)
 
 # Plan: Task-bead burn-down 2 — false deploy refusals, a red dotfiles CI, and leaking e2e scratch
 
