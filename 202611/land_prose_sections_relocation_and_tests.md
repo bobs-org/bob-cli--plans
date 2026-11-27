@@ -1,11 +1,13 @@
 ---
 tier: tale
 size: medium
-title: Finish landing prose-section extract/inline — lossless link relocation, missing
-  tests, closeout
-goal: Make the round trip `inline(extract(S))` byte-identical for sections with in-note
-  links, keep the link path form, add the extract and inline tests the epic plan required
-  but never landed, then close epic bob-cli-qj.5.1.
+title:
+  Finish landing prose-section extract/inline — lossless link relocation, missing tests,
+  closeout
+goal:
+  Make the round trip `inline(extract(S))` byte-identical for sections with in-note
+  links, keep the link path form, add the extract and inline tests the epic plan
+  required but never landed, then close epic bob-cli-qj.5.1.
 proposed_by: bbugyi200.apollo.bob-cli-qj.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-qj.5.1
@@ -16,6 +18,11 @@ status: done
   [202611/prose_section_extract_inline.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/prose_section_extract_inline.md)
 - **BEAD:**
   [bob-cli-qj.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-qj/bob-cli-qj.5.1.md)
+- **AGENTS:**
+  - [bbugyi200.apollo.bob-cli-qj.5.1.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.apollo.bob-cli-qj.5.1.land.md)
+- **COMMITS:**
+  - [3deb0bd](https://github.com/bobs-org/bob-cli/commit/3deb0bd3adab6014338682e56675733325ba1c24)
+    — fix(prose): keep link form and shortest fragments across extract and inline
 
 # Plan: Finish landing prose-section extract/inline
 
