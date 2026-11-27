@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "tmp_relief",
+      "kind": "choice",
+      "ask": "Should the coder free athena's full /tmp tmpfs so `npm test` and the /tmp-bound e2e scripts can pass?",
+      "why": "Frees the tmpfs all athena agents share and keeps their evidence restorable",
+      "choices": [
+        {
+          "key": "relocate",
+          "label": "Moves about 30 GB of stale scratch to ~/.cache/tmp-overflow with a restore manifest"
+        },
+        {
+          "key": "delete",
+          "label": "Deletes the same stale scratch; frees about 30 GB, but other agents' evidence is gone for good"
+        },
+        {
+          "key": "leave",
+          "label": "Touches nothing outside the repo; npm test and two e2e scripts stay red on athena"
+        }
+      ],
+      "default": "relocate",
+      "effective_default": "relocate",
+      "requested_verified": false
+    }
+  ]
+}
