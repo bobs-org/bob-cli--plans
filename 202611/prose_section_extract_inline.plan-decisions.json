@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "keymap",
+      "kind": "choice",
+      "ask": "Which gesture should extract a section and inline it back?",
+      "why": "Keeps the project gesture's refusals intact; Ctrl+Shift+E is verified unbound",
+      "choices": [
+        {
+          "key": "new_chord",
+          "label": "Ctrl+Shift+E toggles prose sections; Ctrl+Shift+Alt+N keeps its task/project meaning"
+        },
+        {
+          "key": "overload",
+          "label": "Ctrl+Shift+Alt+N also extracts on section lines and inlines in prose notes"
+        }
+      ],
+      "default": "new_chord",
+      "effective_default": "new_chord",
+      "requested_verified": false
+    },
+    {
+      "id": "stub_form",
+      "kind": "choice",
+      "ask": "What should extraction leave under the heading it keeps?",
+      "why": "Renders cleanly and stays a one-note drawer for later project reversal",
+      "choices": [
+        {
+          "key": "link",
+          "label": "One `- [[stem|Title]]` bullet that renders as a plain link"
+        },
+        {
+          "key": "embed",
+          "label": "One `- ![[stem]]` bullet that reads in place but repeats the promoted headings"
+        }
+      ],
+      "default": "link",
+      "effective_default": "link",
+      "requested_verified": false
+    },
+    {
+      "id": "intro_prose",
+      "kind": "choice",
+      "ask": "How should extraction treat text above a note's first heading?",
+      "why": "One typed heading does the same job and keeps every round trip heading-anchored",
+      "choices": [
+        {
+          "key": "refuse",
+          "label": "Refuse with a hint to type a heading first, so every extraction has a real heading"
+        },
+        {
+          "key": "overview",
+          "label": "Extract it under a synthesized `## Overview` stub that inline removes again"
+        }
+      ],
+      "default": "refuse",
+      "effective_default": "refuse",
+      "requested_verified": false
+    },
+    {
+      "id": "prose_catalog",
+      "kind": "toggle",
+      "ask": "Add a generated ## Prose catalog to areas and projects, with the reversal catalog-skip fix?",
+      "why": "Stubs already show extracted notes in place, and Ctrl+= finds children by parent",
+      "default": false,
+      "effective_default": false,
+      "requested_verified": false
+    },
+    {
+      "id": "memory_prose_section",
+      "kind": "toggle",
+      "ask": "Add a Prose Section glossary term to SASE memory?",
+      "default": false,
+      "effective_default": false,
+      "memory": {
+        "selectors": [
+          "glossary:prose-section"
+        ]
+      },
+      "provenance": "not_asked",
+      "requested_verified": false,
+      "resolved": [
+        {
+          "selector": "glossary:prose-section",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/prose-section.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
