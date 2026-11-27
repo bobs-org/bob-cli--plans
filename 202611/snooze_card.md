@@ -1,54 +1,49 @@
 ---
 tier: epic
 title: Complete Alt+Z Snooze Card and Task Card z
-goal:
-  Snooze one task safely from Obsidian, retime or remove its row, and wake it through
-  bob, with keyboard and undo behavior verified before closing bob-cli-q5.6.
+goal: Snooze one task safely from Obsidian, retime or remove its row, and wake it
+  through bob, with keyboard and undo behavior verified before closing bob-cli-q5.6.
 phases:
-  - id: planner
-    title: Snooze add, retime, and drop planner
-    size: medium
-    description:
-      "planner: build the pure navigation snooze mutation planner, the narrow BIP
-      planning adapter, and executable shared snooze vectors."
-    depends_on: []
-  - id: runtime
-    title: Resolve snooze targets and commit guarded note edits
-    size: medium
-    description:
-      "runtime: resolve supported cursor contexts, apply same-note and cross-note plans
-      safely, provide card facts, and delegate explicit Wake now to bob."
-    depends_on:
-      - planner
-  - id: card
-    title: Alt+Z Snooze Card and Task Card z
-    size: medium
-    description:
-      "card: build the time picker, ranked suggestions, consequence footer, snoozed
-      actions, collision-safe Alt+Z registration, and Task Card integration and
-      reference docs."
-    depends_on:
-      - runtime
-  - id: acceptance
-    title: Verify the Snooze Card in real Obsidian
-    size: medium
-    description:
-      "acceptance: add and run isolated Obsidian acceptance for keyboard gestures, undo,
-      refusal and wake behavior; repair integration defects, deploy, and record evidence
-      for closing bob-cli-q5.6."
-    depends_on:
-      - card
+- id: planner
+  title: Snooze add, retime, and drop planner
+  size: medium
+  description: 'planner: build the pure navigation snooze mutation planner, the narrow
+    BIP planning adapter, and executable shared snooze vectors.'
+  depends_on: []
+- id: runtime
+  title: Resolve snooze targets and commit guarded note edits
+  size: medium
+  description: 'runtime: resolve supported cursor contexts, apply same-note and cross-note
+    plans safely, provide card facts, and delegate explicit Wake now to bob.'
+  depends_on:
+  - planner
+- id: card
+  title: Alt+Z Snooze Card and Task Card z
+  size: medium
+  description: 'card: build the time picker, ranked suggestions, consequence footer,
+    snoozed actions, collision-safe Alt+Z registration, and Task Card integration
+    and reference docs.'
+  depends_on:
+  - runtime
+- id: acceptance
+  title: Verify the Snooze Card in real Obsidian
+  size: medium
+  description: 'acceptance: add and run isolated Obsidian acceptance for keyboard
+    gestures, undo, refusal and wake behavior; repair integration defects, deploy,
+    and record evidence for closing bob-cli-q5.6.'
+  depends_on:
+  - card
 proposed_by: bbugyi200.athena.bob-cli-q5.6
 proposed_with: codex/gpt-6-astra
 parent_bead: bob-cli-q5.6
 create_time: 2026-11-27 01:34:13
 status: wip
+bead_id: bob-cli-q5.6.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/snooze_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_card.md)
-- **PARENT:**
-  [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **PROMPT:** [prompts/202611/snooze_card.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/snooze_card.md)
+- **PARENT:** [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
+- **BEAD:** [bob-cli-q5.6.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.6.1.md)
 
 # Finish the Snooze Card (bob-cli-q5.6)
 
