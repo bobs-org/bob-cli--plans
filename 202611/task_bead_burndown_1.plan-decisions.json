@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "docs_headroom",
+      "kind": "toggle",
+      "ask": "Trim the two bob-plugins reference pages that sit within 10 words of the cap before the next edit trips it?",
+      "why": "Agents hit these two pages over and over (18 and 12 +1s); each failure blocks an unrelated landing",
+      "default": true,
+      "effective_default": true,
+      "requested_verified": false
+    }
+  ]
+}
