@@ -1,70 +1,65 @@
 ---
 tier: epic
 title: Repair and accept the Mac snooze wake notice
-goal:
-  Finish bob-cli-q5.8.1 by making the landed Mac wake notice compile, verify every wake
-  against a fresh bob read, honor bob's day, vault, presence, and meeting facts, meet
-  the HUD, beacon, and record contract, and prove it end to end on the real Mac.
+goal: Finish bob-cli-q5.8.1 by making the landed Mac wake notice compile, verify every
+  wake against a fresh bob read, honor bob's day, vault, presence, and meeting facts,
+  meet the HUD, beacon, and record contract, and prove it end to end on the real Mac.
 parent_bead: bob-cli-q5.8.1
 phases:
-  - id: runtime-verify
-    title: Restore the build and verify each wake against a fresh bob read
-    size: medium
-    depends_on: []
-    description:
-      "runtime-verify: fix the StatusItemGlyph build break, make every accepted receipt
-      verify against a bob snooze read started after it, deliver immediately when
-      nothing held, gate and atomically publish the notifier claim, and make the snooze
-      process lanes serialize writes, surface bob refusals, and never cancel each other."
-  - id: runtime-facts
-    title: Take day, vault, presence, and meeting facts from their real owners
-    size: medium
-    depends_on:
-      - runtime-verify
-    description:
-      "runtime-facts: use bob's date/now and vault_root as the authorities, hold instead
-      of delivering when the agenda has no same-day facts, sample presence at launch,
-      and re-evaluate when a meeting starts while a notice is on screen."
-  - id: hud-repair
-    title: Bring the wake HUD and its actions up to the delivery contract
-    size: medium
-    depends_on:
-      - runtime-facts
-    description:
-      "hud-repair: exclude the HUD from capture, render the TODAY link budget and woke
-      time from bob, share task navigation with the record, end the nudge on x/timeout
-      without replays, key HUD state by wake ID, keep hover across updates, and make
-      +15m copy truthful."
-  - id: records-repair
-    title: Fix the beacon glyph, record lifecycle, diagnostics, and docs
-    size: medium
-    depends_on:
-      - hud-repair
-    description:
-      "records-repair: keep the base status glyph template-tinted beside an amber alarm
-      beacon, clear beacon and records on vault change, stop restores from re-posting
-      records, isolate snooze diagnostics, finish the protocol and settings docs, and
-      close the records test gaps."
-  - id: notice-acceptance
-    title: Accept the wake notice end to end on the real Mac
-    size: medium
-    depends_on:
-      - records-repair
-    description:
-      "notice-acceptance: with a compatible bob and the built app, run the six
-      end-to-end checks of plan:202611/mac_snooze_wake_notice.md, including a genuine
-      human lock/unlock, fix small defects found, and record exact evidence for the land
-      agent."
+- id: runtime-verify
+  title: Restore the build and verify each wake against a fresh bob read
+  size: medium
+  depends_on: []
+  description: 'runtime-verify: fix the StatusItemGlyph build break, make every accepted
+    receipt verify against a bob snooze read started after it, deliver immediately
+    when nothing held, gate and atomically publish the notifier claim, and make the
+    snooze process lanes serialize writes, surface bob refusals, and never cancel
+    each other.'
+- id: runtime-facts
+  title: Take day, vault, presence, and meeting facts from their real owners
+  size: medium
+  depends_on:
+  - runtime-verify
+  description: 'runtime-facts: use bob''s date/now and vault_root as the authorities,
+    hold instead of delivering when the agenda has no same-day facts, sample presence
+    at launch, and re-evaluate when a meeting starts while a notice is on screen.'
+- id: hud-repair
+  title: Bring the wake HUD and its actions up to the delivery contract
+  size: medium
+  depends_on:
+  - runtime-facts
+  description: 'hud-repair: exclude the HUD from capture, render the TODAY link budget
+    and woke time from bob, share task navigation with the record, end the nudge on
+    x/timeout without replays, key HUD state by wake ID, keep hover across updates,
+    and make +15m copy truthful.'
+- id: records-repair
+  title: Fix the beacon glyph, record lifecycle, diagnostics, and docs
+  size: medium
+  depends_on:
+  - hud-repair
+  description: 'records-repair: keep the base status glyph template-tinted beside
+    an amber alarm beacon, clear beacon and records on vault change, stop restores
+    from re-posting records, isolate snooze diagnostics, finish the protocol and settings
+    docs, and close the records test gaps.'
+- id: notice-acceptance
+  title: Accept the wake notice end to end on the real Mac
+  size: medium
+  depends_on:
+  - records-repair
+  description: 'notice-acceptance: with a compatible bob and the built app, run the
+    six end-to-end checks of plan:202611/mac_snooze_wake_notice.md, including a genuine
+    human lock/unlock, fix small defects found, and record exact evidence for the
+    land agent.'
 proposed_by: bbugyi200.athena.bob-cli-q5.8.1.land
 proposed_with: claude/opus
 create_time: 2026-11-26 20:05:48
 status: wip
+bead_id: bob-cli-q5.8.1.6
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_snooze_wake_notice_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snooze_wake_notice_repair.md)
-- **PARENT:**
-  [202611/mac_snooze_wake_notice.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/mac_snooze_wake_notice.md)
+- **PROMPT:** [prompts/202611/mac_snooze_wake_notice_repair.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_snooze_wake_notice_repair.md)
+- **PARENT:** [202611/mac_snooze_wake_notice.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/mac_snooze_wake_notice.md)
+- **BEAD:** [bob-cli-q5.8.1.6](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.8.1.6.md)
 
 # Repair and accept the Mac snooze wake notice
 
