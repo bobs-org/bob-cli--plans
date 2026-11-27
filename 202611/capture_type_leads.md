@@ -1,71 +1,66 @@
 ---
 tier: epic
 title: Capture type leads — `#f` ⇥ types `#fix Fix ▌`
-goal: "Accepting a configured task type from the Capture panel's `#` menu at the start
-  of an empty new-task item also types that type's lead word (`#f` ⇥ → `#fix Fix ▌`).
-  The menu previews the lead before you accept, one Backspace or ⌘Z removes it, and
-  accept-and-capture never mints a one-word task. The five leads (BUILD, FIX, PLAN,
-  READ, WRITE) come from `capture.type_leads` in the chezmoi-managed bob config.
+goal: 'Accepting a configured task type from the Capture panel''s `#` menu at the
+  start of an empty new-task item also types that type''s lead word (`#f` ⇥ → `#fix
+  Fix ▌`). The menu previews the lead before you accept, one Backspace or ⌘Z removes
+  it, and accept-and-capture never mints a one-word task. The five leads (BUILD, FIX,
+  PLAN, READ, WRITE) come from `capture.type_leads` in the chezmoi-managed bob config.
 
-  "
+  '
 phases:
-  - id: lead_config
-    title: bob-cli capture.type_leads loader, bob types surfacing, rename guard
-    depends_on: []
-    size: medium
-    description:
-      "lead_config: add the deploy-safe `capture.type_leads` loader with parser-probe
-      validation and per-entry degradation, show leads and their warnings in `bob
-      types`, guard `bob types rename`, and document the config key."
-  - id: lead_complete
-    title: bob-cli task_type candidates carry an optional lead
-    depends_on:
-      - lead_config
-    size: medium
-    description:
-      "lead_complete: compute the optional `lead` object on editor `task_type`
-      candidates behind Bob's eligibility gates and one parser probe, keep shell
-      completion and every write path lead-free, render it in human output, and document
-      the contract."
-  - id: mac_lead_preview
-    title: Mac decodes the lead and previews it in the Task type menu
-    depends_on:
-      - lead_complete
-    size: small
-    description:
-      "mac_lead_preview: decode `lead` tolerantly and show it as a calm `Fix…` hint
-      after the type pill, in the selected-row footer, and in VoiceOver, with protocol
-      docs and CaptureCore tests."
-  - id: mac_lead_accept
-    title: Mac inserts the lead undoably, peels it with one Backspace, skips it on ⌘↩
-    depends_on:
-      - mac_lead_preview
-    size: medium
-    description:
-      "mac_lead_accept: apply a lead-bearing accept as two native undo groups bound to
-      the response snapshot, arm a one-key Backspace peel, skip the lead on
-      Control/Command- Return, update keyboard and panel docs, add hosted tests, and
-      watch macOS CI green."
-  - id: lead_rollout
-    title: Enable the five leads in chezmoi and verify end to end
-    depends_on:
-      - lead_config
-      - mac_lead_accept
-    size: small
-    description:
-      "lead_rollout: add the `capture.type_leads` block to the chezmoi bob config, apply
-      it, verify with a master-built bob, and write the approved memory records."
+- id: lead_config
+  title: bob-cli capture.type_leads loader, bob types surfacing, rename guard
+  depends_on: []
+  size: medium
+  description: 'lead_config: add the deploy-safe `capture.type_leads` loader with
+    parser-probe validation and per-entry degradation, show leads and their warnings
+    in `bob types`, guard `bob types rename`, and document the config key.'
+- id: lead_complete
+  title: bob-cli task_type candidates carry an optional lead
+  depends_on:
+  - lead_config
+  size: medium
+  description: 'lead_complete: compute the optional `lead` object on editor `task_type`
+    candidates behind Bob''s eligibility gates and one parser probe, keep shell completion
+    and every write path lead-free, render it in human output, and document the contract.'
+- id: mac_lead_preview
+  title: Mac decodes the lead and previews it in the Task type menu
+  depends_on:
+  - lead_complete
+  size: small
+  description: 'mac_lead_preview: decode `lead` tolerantly and show it as a calm `Fix…`
+    hint after the type pill, in the selected-row footer, and in VoiceOver, with protocol
+    docs and CaptureCore tests.'
+- id: mac_lead_accept
+  title: Mac inserts the lead undoably, peels it with one Backspace, skips it on ⌘↩
+  depends_on:
+  - mac_lead_preview
+  size: medium
+  description: 'mac_lead_accept: apply a lead-bearing accept as two native undo groups
+    bound to the response snapshot, arm a one-key Backspace peel, skip the lead on
+    Control/Command- Return, update keyboard and panel docs, add hosted tests, and
+    watch macOS CI green.'
+- id: lead_rollout
+  title: Enable the five leads in chezmoi and verify end to end
+  depends_on:
+  - lead_config
+  - mac_lead_accept
+  size: small
+  description: 'lead_rollout: add the `capture.type_leads` block to the chezmoi bob
+    config, apply it, verify with a master-built bob, and write the approved memory
+    records.'
 decisions:
   memory_decision_record:
     ask: Add a decisions record "Type Leads Are Editor Text" once the feature ships?
     memory:
-      - decisions
+    - decisions
     default: false
     answer: false
   memory_glossary_term:
     ask: Add a "Type Lead" glossary term once the feature ships?
     memory:
-      - glossary
+    - glossary
     default: false
     answer: false
 proposed_by: bbugyi200.athena.1hh
@@ -74,10 +69,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 15:03:17
 status: wip
+bead_id: bob-cli-rb
 ---
 
-- **PROMPT:**
-  [prompts/202611/capture_type_leads.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_type_leads.md)
+- **PROMPT:** [prompts/202611/capture_type_leads.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/capture_type_leads.md)
+- **BEAD:** [bob-cli-rb](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-rb/README.md)
 
 # Plan: Capture type leads
 
