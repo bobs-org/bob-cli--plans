@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "motion",
+      "kind": "choice",
+      "ask": "Should Ctrl+D/U glide to each half page instead of jumping like the Bob Refs preview?",
+      "why": "Motion keeps your place in a 13-section form, and a held key still pages smoothly",
+      "choices": [
+        {
+          "key": "glide",
+          "label": "A ~0.2 s ease-out glide that shows where the content went; instant under Reduce Motion"
+        },
+        {
+          "key": "jump",
+          "label": "An instant jump, identical to the Refs preview; no animation or pending-target state"
+        }
+      ],
+      "default": "glide",
+      "effective_default": "glide",
+      "requested_verified": false
+    },
+    {
+      "id": "hint",
+      "kind": "choice",
+      "ask": "Should the Settings window show a slim pinned footer that reads \"\u2303D Down  \u2303U Up\"?",
+      "why": "Nobody guesses vim keys in a native Settings window; Bob panels teach keys in footers",
+      "choices": [
+        {
+          "key": "footer",
+          "label": "Pinned footer under a soft scroll-edge blur; the keys are discoverable in place"
+        },
+        {
+          "key": "none",
+          "label": "No footer; only the Keyboard docs teach the keys"
+        }
+      ],
+      "default": "footer",
+      "effective_default": "footer",
+      "requested_verified": false
+    }
+  ]
+}
