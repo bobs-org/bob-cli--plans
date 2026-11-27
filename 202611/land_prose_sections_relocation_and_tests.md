@@ -1,18 +1,15 @@
 ---
 tier: tale
 size: medium
-title:
-  Finish landing prose-section extract/inline — lossless link relocation, missing tests,
-  closeout
-goal:
-  Make the round trip `inline(extract(S))` byte-identical for sections with in-note
-  links, keep the link path form, add the extract and inline tests the epic plan
-  required but never landed, then close epic bob-cli-qj.5.1.
+title: Finish landing prose-section extract/inline — lossless link relocation, missing
+  tests, closeout
+goal: Make the round trip `inline(extract(S))` byte-identical for sections with in-note
+  links, keep the link path form, add the extract and inline tests the epic plan required
+  but never landed, then close epic bob-cli-qj.5.1.
 proposed_by: bbugyi200.apollo.bob-cli-qj.5.1.land
 proposed_with: claude/opus
 bead: bob-cli-qj.5.1
-create_time: 2026-11-27 15:49:33
-status: wip
+status: done
 ---
 
 - **PARENT:**
