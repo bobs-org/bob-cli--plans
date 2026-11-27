@@ -2,15 +2,14 @@
 tier: tale
 size: medium
 title: Land the Prose and Notebook Cards epic
-goal: "Prove both cards in real Obsidian against the re-landed Bob Prose, finish the
+goal: 'Prove both cards in real Obsidian against the re-landed Bob Prose, finish the
   preview-gate removal, and close bob-cli-qm.
 
-  "
+  '
 proposed_by: bbugyi200.athena.bob-cli-qm.land
 proposed_with: claude/opus
 bead: bob-cli-qm
-create_time: 2026-11-27 07:35:01
-status: wip
+status: done
 ---
 
 - **PARENT:**
