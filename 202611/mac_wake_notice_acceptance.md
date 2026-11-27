@@ -1,72 +1,67 @@
 ---
 tier: epic
 title: Finish the Mac wake notice acceptance on an isolated harness
-goal:
-  Close bob-cli-q5.8.1.6.5 by running the six end-to-end wake-notice checks on the real
-  Mac against a scratch app that has its own bundle ID, defaults domain, hotkey, state,
-  and vault, so production Bob Mac Capture is never disturbed again, and by recording
-  durable per-check evidence.
+goal: Close bob-cli-q5.8.1.6.5 by running the six end-to-end wake-notice checks on
+  the real Mac against a scratch app that has its own bundle ID, defaults domain,
+  hotkey, state, and vault, so production Bob Mac Capture is never disturbed again,
+  and by recording durable per-check evidence.
 parent_bead: bob-cli-q5.8.1.6.5
 decisions:
   harness_home:
     ask: Should the acceptance harness be committed to bob-mac-capture as a dev script?
     choices:
-      commit:
-        One reviewed script in Scripts/ that every phase reuses; costs one push and CI
-        run
+      commit: One reviewed script in Scripts/ that every phase reuses; costs one push
+        and CI run
       scratch: Lives only in Mac /tmp and bead notes; no CI, but a reboot loses it
     default: commit
     why: four agents share the harness across turns and possible reboots
     answer: commit
 phases:
-  - id: harness
-    title: Build the isolated acceptance harness and settle the CI precondition
-    size: medium
-    depends_on: []
-    description:
-      "harness: settle master exact-SHA CI for ba213181, then build a scratch Bob Mac
-      Capture with its own bundle ID, defaults domain, disabled hotkeys, XDG state,
-      disposable vault, signpost evidence log, production guard, and teardown, prove one
-      wake end to end through signposts, and get its notification permission granted."
-  - id: delivery
-    title: Accept delivery, lock and unlock, and channel routing
-    size: medium
-    depends_on:
-      - harness
-    description:
-      "delivery: on the harness, run checks 1, 2, and 6 of
-      plan:202611/mac_snooze_wake_notice.md: one active wake gives one HUD, chime, and
-      record with no second nudge from pings, repeats, or restart; a genuine locked wake
-      stays silent and appears after unlock; and auto, desktop, off, and old-bob routing
-      behave."
-  - id: meetings-actions
-    title: Accept meeting holds and HUD actions
-    size: medium
-    depends_on:
-      - delivery
-    description:
-      "meetings-actions: on the harness, run checks 3 and 4: running and overlapping
-      meetings hold until their real end and filter tasks changed during the hold; Open
-      and batch +15m work, partial and refused writes stay truthful, hover pauses the
-      countdown, and focus stays in the original app."
-  - id: records-a11y
-    title: Accept beacon, records, accessibility, and expiry
-    size: medium
-    depends_on:
-      - meetings-actions
-    description:
-      "records-a11y: on the harness, run check 5: beacon and record clearing,
-      notification denial, Reduce Motion and Reduce Transparency, the VoiceOver
-      announcement, day rollover, and the 60-minute expiry, then tear the harness down."
+- id: harness
+  title: Build the isolated acceptance harness and settle the CI precondition
+  size: medium
+  depends_on: []
+  description: 'harness: settle master exact-SHA CI for ba213181, then build a scratch
+    Bob Mac Capture with its own bundle ID, defaults domain, disabled hotkeys, XDG
+    state, disposable vault, signpost evidence log, production guard, and teardown,
+    prove one wake end to end through signposts, and get its notification permission
+    granted.'
+- id: delivery
+  title: Accept delivery, lock and unlock, and channel routing
+  size: medium
+  depends_on:
+  - harness
+  description: 'delivery: on the harness, run checks 1, 2, and 6 of plan:202611/mac_snooze_wake_notice.md:
+    one active wake gives one HUD, chime, and record with no second nudge from pings,
+    repeats, or restart; a genuine locked wake stays silent and appears after unlock;
+    and auto, desktop, off, and old-bob routing behave.'
+- id: meetings-actions
+  title: Accept meeting holds and HUD actions
+  size: medium
+  depends_on:
+  - delivery
+  description: 'meetings-actions: on the harness, run checks 3 and 4: running and
+    overlapping meetings hold until their real end and filter tasks changed during
+    the hold; Open and batch +15m work, partial and refused writes stay truthful,
+    hover pauses the countdown, and focus stays in the original app.'
+- id: records-a11y
+  title: Accept beacon, records, accessibility, and expiry
+  size: medium
+  depends_on:
+  - meetings-actions
+  description: 'records-a11y: on the harness, run check 5: beacon and record clearing,
+    notification denial, Reduce Motion and Reduce Transparency, the VoiceOver announcement,
+    day rollover, and the 60-minute expiry, then tear the harness down.'
 proposed_by: bbugyi200.athena.bob-cli-q5.8.1.6.5
 proposed_with: claude/opus
 decided_by: auto
 create_time: 2026-11-27 06:58:53
 status: wip
+bead_id: bob-cli-q5.8.1.6.5.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/mac_wake_notice_acceptance.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_wake_notice_acceptance.md)
+- **PROMPT:** [prompts/202611/mac_wake_notice_acceptance.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/mac_wake_notice_acceptance.md)
+- **BEAD:** [bob-cli-q5.8.1.6.5.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.8.1.6.5.1.md)
 
 # Finish the Mac wake notice acceptance on an isolated harness
 
