@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "schedule_layout",
+      "kind": "choice",
+      "ask": "Where should a Schedule Log entry's write stamp go?",
+      "why": "The reason body stays byte-identical, and old readers keep working during rollout",
+      "choices": [
+        {
+          "key": "inside",
+          "label": "Stamp opens the italic lead before the change; the reason body and old readers stay intact"
+        },
+        {
+          "key": "lead",
+          "label": "Stamp is the whole italic lead; the change moves into the body and readers must split it off"
+        }
+      ],
+      "default": "inside",
+      "effective_default": "inside",
+      "requested_verified": false
+    },
+    {
+      "id": "reopen_stamp",
+      "kind": "choice",
+      "ask": "Which minute should a Reopen Log entry's stamp record?",
+      "why": "Stamp = write instant for every log; the alias already shows the arrival minute",
+      "choices": [
+        {
+          "key": "write",
+          "label": "The minute bob gmail sync writes the entry; the card alias still shows the message's minute"
+        },
+        {
+          "key": "message",
+          "label": "The message's arrival minute, repeating the card alias's time"
+        }
+      ],
+      "default": "write",
+      "effective_default": "write",
+      "requested_verified": false
+    },
+    {
+      "id": "memory_decision_record",
+      "kind": "toggle",
+      "ask": "Add a decision record for stamped task logs and mark the two Rotten Log records it supersedes in part?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "decisions:task-log-entries-are-stamped-at-write",
+          "decisions:rotten-keeps-are-logged",
+          "decisions:next-keeps-ask-an-optional-rotten-reason"
+        ]
+      },
+      "corrects": "The entry reads `*YYYY-MM-DD* \u2014 <reason> \u00b7 kept N\u00d7` with the local review date",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "decisions:task-log-entries-are-stamped-at-write",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/decisions/task-log-entries-are-stamped-at-write.md",
+          "type": "strand",
+          "exists": false
+        },
+        {
+          "selector": "decisions:rotten-keeps-are-logged",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Keeps Are Logged"
+          ]
+        },
+        {
+          "selector": "decisions:next-keeps-ask-an-optional-rotten-reason",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/decisions.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Next Keeps Ask For An Optional Rotten Log Reason"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory_glossary_rotten_log",
+      "kind": "toggle",
+      "ask": "Correct the Rotten Log glossary term's entry grammar to the stamped form?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:rotten-log"
+        ]
+      },
+      "corrects": "stored as a `\ud83e\udd40 **ROTTEN LOG**` direct child with newest-first entries `*YYYY-MM-DD* \u2014 <body>`",
+      "provenance": "correction",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:rotten-log",
+          "kind": "web",
+          "scope": "project",
+          "path": "sase/memory/glossary.md",
+          "type": "web",
+          "exists": true,
+          "strands": [
+            "Rotten Log",
+            "Keep Streak",
+            "Task Freshness",
+            "Work Log",
+            "Task Decay",
+            "Walker Footer",
+            "Notebook",
+            "Prose Note",
+            "Bank Row",
+            "Stats Strip",
+            "Pomodoro",
+            "Task Type",
+            "Area Note",
+            "Project Note",
+            "Root Parent",
+            "Capture",
+            "Record Note",
+            "Task Link",
+            "Task Relation",
+            "Task Successor"
+          ]
+        }
+      ]
+    }
+  ]
+}
