@@ -1,11 +1,10 @@
 ---
 tier: tale
 title: Fix the three q5.8 Mac wake-notice defects and land bob-cli-q5
-goal:
-  Bob Mac Capture claims the snooze notifier even when it starts with a held wake
-  receipt, samples the real on-console session key at launch, and presents a wake HUD
-  without stalling the main thread for seconds; then epic bob-cli-q5 closes and its plan
-  is marked done.
+goal: Bob Mac Capture claims the snooze notifier even when it starts with a held wake
+  receipt, samples the real on-console session key at launch, and presents a wake
+  HUD without stalling the main thread for seconds; then epic bob-cli-q5 closes and
+  its plan is marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.land
 proposed_with: claude/opus
@@ -17,12 +16,6 @@ status: done
   [202611/snoozed_tasks.md](https://github.com/bobs-org/bob-cli--plans/blob/main/202611/snoozed_tasks.md)
 - **BEAD:**
   [bob-cli-q5](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/README.md)
-- **AGENTS:**
-  - [bbugyi200.athena.bob-cli-q5.land](https://github.com/bobs-org/bob-cli--agents/blob/main/sessions/bbugyi200.athena.bob-cli-q5.land.md)
-- **COMMITS:**
-  - [b897b88](https://github.com/bobs-org/bob-mac-capture/commit/b897b88d4b4df5de7ce2bf6f61ad392cc8deae72)
-    — fix(snooze-notice): hold-safe capability probe, real on-console key, HUD wake-path
-    instrumentation
 
 # Fix the three q5.8 Mac wake-notice defects and land bob-cli-q5
 
