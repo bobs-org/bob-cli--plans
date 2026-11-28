@@ -1,145 +1,156 @@
 ---
 tier: epic
 title: Datetime stamps on every task log entry
-goal: 'Every new Schedule, Rotten, Cancel, and Reopen Log entry, from every bob-cli
-  and plugin writer, carries one `YYYY-MM-DD HH:MM` stamp of the minute it was written,
-  exactly as Work Log entries already do. Older date-only entries stay valid and untouched,
-  and every reader, recall band, and display handles both forms.
+goal: "Every new Schedule, Rotten, Cancel, and Reopen Log entry, from every bob-cli and
+  plugin writer, carries one `YYYY-MM-DD HH:MM` stamp of the minute it was written,
+  exactly as Work Log entries already do. Older date-only entries stay valid and
+  untouched, and every reader, recall band, and display handles both forms.
 
-  '
+  "
 decisions:
   schedule_layout:
     ask: Where should a Schedule Log entry's write stamp go?
     choices:
-      inside: Stamp opens the italic lead before the change; the reason body and old
-        readers stay intact
-      lead: Stamp is the whole italic lead; the change moves into the body and readers
-        must split it off
+      inside:
+        Stamp opens the italic lead before the change; the reason body and old readers
+        stay intact
+      lead:
+        Stamp is the whole italic lead; the change moves into the body and readers must
+        split it off
     default: inside
-    why: The reason body stays byte-identical, and old readers keep working during
-      rollout
+    why:
+      The reason body stays byte-identical, and old readers keep working during rollout
     answer: inside
   reopen_stamp:
     ask: Which minute should a Reopen Log entry's stamp record?
     choices:
-      write: The minute bob gmail sync writes the entry; the card alias still shows
-        the message's minute
+      write:
+        The minute bob gmail sync writes the entry; the card alias still shows the
+        message's minute
       message: The message's arrival minute, repeating the card alias's time
     default: write
-    why: Stamp = write instant for every log; the alias already shows the arrival
-      minute
+    why: Stamp = write instant for every log; the alias already shows the arrival minute
     answer: write
   memory_decision_record:
-    ask: Add a decision record for stamped task logs and mark the two Rotten Log records
-      it supersedes in part?
+    ask:
+      Add a decision record for stamped task logs and mark the two Rotten Log records it
+      supersedes in part?
     memory:
-    - decisions:task-log-entries-are-stamped-at-write
-    - decisions:rotten-keeps-are-logged
-    - decisions:next-keeps-ask-an-optional-rotten-reason
-    corrects: The entry reads `*YYYY-MM-DD* — <reason> · kept N×` with the local review
-      date
+      - decisions:task-log-entries-are-stamped-at-write
+      - decisions:rotten-keeps-are-logged
+      - decisions:next-keeps-ask-an-optional-rotten-reason
+    corrects:
+      The entry reads `*YYYY-MM-DD* — <reason> · kept N×` with the local review date
     default: true
     answer: true
   memory_glossary_rotten_log:
     ask: Correct the Rotten Log glossary term's entry grammar to the stamped form?
     memory:
-    - glossary:rotten-log
-    corrects: stored as a `🥀 **ROTTEN LOG**` direct child with newest-first entries
+      - glossary:rotten-log
+    corrects:
+      stored as a `🥀 **ROTTEN LOG**` direct child with newest-first entries
       `*YYYY-MM-DD* — <body>`
     default: true
     answer: true
 phases:
-- id: cli-readers
-  title: bob-cli readers, recall, and snapshot accept stamps
-  depends_on: []
-  size: medium
-  description: 'cli-readers: add the shared Rust stamp formatter and parser. Teach
-    `bob logs` (parse, score, precision, cache) and the highlights note snapshot to
-    read stamped entries in every log. Publish the canonical reader grammar, and mark
-    the JSON change with `!`.'
-- id: plugin-readers
-  title: Plugin Rotten and Schedule readers and recall bands accept stamps
-  depends_on: []
-  size: medium
-  description: 'plugin-readers: make the nav and ledger-tools Rotten Log parsers,
-    the nav Schedule Log parser, and both plugins'' recall-age precision accept stamped
-    and legacy entries. Displays show the time. Deploy both plugins before any plugin
-    writer stamps.'
-- id: cli-cancel
-  title: bob-cli Cancel Log writers stamp entries
-  depends_on:
-  - cli-readers
-  size: medium
-  description: 'cli-cancel: split the cancel engine''s log stamp from `[cancelled::]`,
-    and stamp every Rust Cancel writer: relation cancel, merge, offer close, gcal,
-    and requirement drop. Regenerate the canonical shared fixtures with a `stamp`
-    input.'
-- id: cli-schedule-reopen
-  title: bob-cli Schedule and Reopen Log writers stamp entries
-  depends_on:
-  - cli-readers
-  - plugin-readers
-  size: medium
-  description: 'cli-schedule-reopen: stamp the capture `$<N>`, `bob task reroll`,
-    and pull-forward Schedule entries and the gmail Reopen entry from one `now` per
-    run, in the chosen layout. Mark the capture JSON change with `!`.'
-- id: nav-rotten-schedule
-  title: Navigation hotkeys stamp Rotten and Schedule entries
-  depends_on:
-  - cli-readers
-  - plugin-readers
-  size: medium
-  description: 'nav-rotten-schedule: add the generic plugin stamp formatter. Stamp
-    every bob-navigation-hotkeys Rotten and Schedule writer and preview from one commit-time
-    clock read per gesture, shared with that gesture''s Work Log entries.'
-- id: nav-cancel
-  title: Navigation hotkeys stamp Cancel entries
-  depends_on:
-  - nav-rotten-schedule
-  - cli-cancel
-  size: medium
-  description: 'nav-cancel: split nav''s cancel planners'' stamp from `[cancelled::]`.
-    Add an optional `stamp` to the `cancel.planCancel` API and stamp every nav Cancel
-    writer. Copy the regenerated task_cancel and task_split fixtures.'
-- id: cycler-bip
-  title: Cycler and Block ID Prompt stamp their entries; requirement twins follow
-    bob-cli
-  depends_on:
-  - nav-cancel
-  - cli-cancel
-  - cli-schedule-reopen
-  size: medium
-  description: 'cycler-bip: stamp task-status-cycler''s unblock Schedule entry, its
-    planCancel callers, and the cycler-owned requirement-writer twin, copied byte
-    for byte to nav. Stamp Block ID Prompt''s pull-forward entry. Copy the regenerated
-    task_reqs, req_close, and offer_close fixtures.'
-- id: mac
-  title: Bob Mac Capture re-syncs fixtures and pins minute recall ages
-  depends_on:
-  - cli-readers
-  - cli-cancel
-  size: small
-  description: 'mac: re-copy the regenerated req_close vectors, add tests that a minute
-    Cancel `last_used` renders a minute age, and refresh the stale day-only comments.'
-- id: memory
-  title: Decision record and Rotten Log glossary follow the stamped grammar
-  depends_on:
-  - cycler-bip
-  size: small
-  description: 'memory: apply the accepted memory decisions (the new decision record
-    with its supersession marks, and the Rotten Log glossary grammar), then regenerate
-    AGENTS.md and the generated docs.'
+  - id: cli-readers
+    title: bob-cli readers, recall, and snapshot accept stamps
+    depends_on: []
+    size: medium
+    description:
+      "cli-readers: add the shared Rust stamp formatter and parser. Teach `bob logs`
+      (parse, score, precision, cache) and the highlights note snapshot to read stamped
+      entries in every log. Publish the canonical reader grammar, and mark the JSON
+      change with `!`."
+  - id: plugin-readers
+    title: Plugin Rotten and Schedule readers and recall bands accept stamps
+    depends_on: []
+    size: medium
+    description:
+      "plugin-readers: make the nav and ledger-tools Rotten Log parsers, the nav
+      Schedule Log parser, and both plugins' recall-age precision accept stamped and
+      legacy entries. Displays show the time. Deploy both plugins before any plugin
+      writer stamps."
+  - id: cli-cancel
+    title: bob-cli Cancel Log writers stamp entries
+    depends_on:
+      - cli-readers
+    size: medium
+    description:
+      "cli-cancel: split the cancel engine's log stamp from `[cancelled::]`, and stamp
+      every Rust Cancel writer: relation cancel, merge, offer close, gcal, and
+      requirement drop. Regenerate the canonical shared fixtures with a `stamp` input."
+  - id: cli-schedule-reopen
+    title: bob-cli Schedule and Reopen Log writers stamp entries
+    depends_on:
+      - cli-readers
+      - plugin-readers
+    size: medium
+    description:
+      "cli-schedule-reopen: stamp the capture `$<N>`, `bob task reroll`, and
+      pull-forward Schedule entries and the gmail Reopen entry from one `now` per run,
+      in the chosen layout. Mark the capture JSON change with `!`."
+  - id: nav-rotten-schedule
+    title: Navigation hotkeys stamp Rotten and Schedule entries
+    depends_on:
+      - cli-readers
+      - plugin-readers
+    size: medium
+    description:
+      "nav-rotten-schedule: add the generic plugin stamp formatter. Stamp every
+      bob-navigation-hotkeys Rotten and Schedule writer and preview from one commit-time
+      clock read per gesture, shared with that gesture's Work Log entries."
+  - id: nav-cancel
+    title: Navigation hotkeys stamp Cancel entries
+    depends_on:
+      - nav-rotten-schedule
+      - cli-cancel
+    size: medium
+    description:
+      "nav-cancel: split nav's cancel planners' stamp from `[cancelled::]`. Add an
+      optional `stamp` to the `cancel.planCancel` API and stamp every nav Cancel writer.
+      Copy the regenerated task_cancel and task_split fixtures."
+  - id: cycler-bip
+    title:
+      Cycler and Block ID Prompt stamp their entries; requirement twins follow bob-cli
+    depends_on:
+      - nav-cancel
+      - cli-cancel
+      - cli-schedule-reopen
+    size: medium
+    description:
+      "cycler-bip: stamp task-status-cycler's unblock Schedule entry, its planCancel
+      callers, and the cycler-owned requirement-writer twin, copied byte for byte to
+      nav. Stamp Block ID Prompt's pull-forward entry. Copy the regenerated task_reqs,
+      req_close, and offer_close fixtures."
+  - id: mac
+    title: Bob Mac Capture re-syncs fixtures and pins minute recall ages
+    depends_on:
+      - cli-readers
+      - cli-cancel
+    size: small
+    description:
+      "mac: re-copy the regenerated req_close vectors, add tests that a minute Cancel
+      `last_used` renders a minute age, and refresh the stale day-only comments."
+  - id: memory
+    title: Decision record and Rotten Log glossary follow the stamped grammar
+    depends_on:
+      - cycler-bip
+    size: small
+    description:
+      "memory: apply the accepted memory decisions (the new decision record with its
+      supersession marks, and the Rotten Log glossary grammar), then regenerate
+      AGENTS.md and the generated docs."
 proposed_by: bbugyi200.athena.1ho
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-28 08:20:35
 status: wip
-bead_id: bob-cli-rt
 ---
 
-- **PROMPT:** [prompts/202611/task_log_datetime_stamps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_log_datetime_stamps.md)
-- **BEAD:** [bob-cli-rt](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-rt/README.md)
+- **PROMPT:**
+  [prompts/202611/task_log_datetime_stamps.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/task_log_datetime_stamps.md)
 
 # Plan: Datetime stamps on every task log entry
 
