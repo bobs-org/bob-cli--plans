@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "other_lines",
+      "kind": "choice",
+      "ask": "On a req, drawer header, or note bullet, should Ctrl+Shift+O open a child of that line?",
+      "why": "Keeps Ctrl+Shift+O useful for nesting a sub-note and matches today's Vim-normal habit",
+      "choices": [
+        {
+          "key": "child",
+          "label": "Req, drawer, and note lines get a child after their children; headlines use the note home"
+        },
+        {
+          "key": "home",
+          "label": "Every line inside a task block opens at the owning task's note home"
+        }
+      ],
+      "default": "child",
+      "effective_default": "child",
+      "requested_verified": false
+    },
+    {
+      "id": "prj_o",
+      "kind": "choice",
+      "ask": "Should `o` on a `^prj` headline add a completion-criterion req under the `^prj` line?",
+      "why": "One rule for every task headline, as requested; `O` still opens the intake row",
+      "choices": [
+        {
+          "key": "req",
+          "label": "`o` adds a req under the `^prj` line like any headline; `O` keeps the `## Tasks` intake row"
+        },
+        {
+          "key": "intake",
+          "label": "`o` and `O` on `^prj` both keep opening a new task at the `## Tasks` intake"
+        }
+      ],
+      "default": "req",
+      "effective_default": "req",
+      "requested_verified": false
+    }
+  ]
+}
