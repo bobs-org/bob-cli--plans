@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "glossary_snoozed_task",
+      "kind": "toggle",
+      "ask": "Add the Snoozed Task glossary strand that the bob-cli-q5 review already approved?",
+      "default": true,
+      "effective_default": true,
+      "memory": {
+        "selectors": [
+          "glossary:snoozed-task"
+        ]
+      },
+      "requested": "To be clear I want you to completely take over the work for this epic.",
+      "provenance": "asked",
+      "requested_verified": true,
+      "resolved": [
+        {
+          "selector": "glossary:snoozed-task",
+          "kind": "strand",
+          "scope": "project",
+          "path": "sase/memory/glossary/snoozed-task.md",
+          "type": "strand",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}
