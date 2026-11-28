@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "counted_gg",
+      "kind": "choice",
+      "ask": "Should a counted gg that lands below the first line (for example 120gg) also run zb?",
+      "why": "zb only helps at the top of a note; elsewhere it hides the lines below the target",
+      "choices": [
+        {
+          "key": "top_only",
+          "label": "Only gg and 1gg (which land on the first line) run zb; counted jumps keep today's scroll"
+        },
+        {
+          "key": "every",
+          "label": "Every gg runs zb, so 120gg parks line 120 at the bottom edge of the window"
+        }
+      ],
+      "default": "top_only",
+      "effective_default": "top_only",
+      "requested_verified": false
+    }
+  ]
+}
