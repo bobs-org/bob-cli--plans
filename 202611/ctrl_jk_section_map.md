@@ -65,11 +65,11 @@ decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 15:01:41
 status: done
-bead_id: bob-cli-ra
+bead_id: bob-cli-rc
 ---
 
 - **PROMPT:** [prompts/202611/ctrl_jk_section_map.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/ctrl_jk_section_map.md)
-- **BEAD:** [bob-cli-ra](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-ra/README.md)
+- **BEAD:** [bob-cli-rc](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-rc/README.md)
 
 # Plan: Ctrl+J / Ctrl+K Section Map
 
