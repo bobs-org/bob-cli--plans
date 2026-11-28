@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "empty_field_fill",
+      "kind": "choice",
+      "ask": "When the note field is empty, should other payees' notes fill the list after this payee's own notes?",
+      "why": "one rule on every row; this payee's notes still lead, so nothing it already finds moves down",
+      "choices": [
+        {
+          "key": "fill",
+          "label": "Every row shows up to 4 notes, this payee's first and then other payees' most-used recent notes"
+        },
+        {
+          "key": "only_when_none",
+          "label": "Other payees' notes appear only when this payee has none of its own"
+        }
+      ],
+      "default": "fill",
+      "effective_default": "fill",
+      "requested_verified": false
+    },
+    {
+      "id": "empty_ghost",
+      "kind": "choice",
+      "ask": "On an empty field, should the faint ghost text preview the top note even when it came from another payee?",
+      "why": "a ghost reads as \"this is probably it\", which an unrelated payee's note is not",
+      "choices": [
+        {
+          "key": "own_payee_only",
+          "label": "Only this payee's own notes ghost; new payees keep the \"What was this for?\" placeholder"
+        },
+        {
+          "key": "any_payee",
+          "label": "The top note always ghosts, so the placeholder disappears on every row that has suggestions"
+        }
+      ],
+      "default": "own_payee_only",
+      "effective_default": "own_payee_only",
+      "requested_verified": false
+    }
+  ]
+}
