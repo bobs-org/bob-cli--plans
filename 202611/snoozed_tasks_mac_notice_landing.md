@@ -1,17 +1,15 @@
 ---
 tier: tale
 title: Fix the three q5.8 Mac wake-notice defects and land bob-cli-q5
-goal:
-  Bob Mac Capture claims the snooze notifier even when it starts with a held wake
-  receipt, samples the real on-console session key at launch, and presents a wake HUD
-  without stalling the main thread for seconds; then epic bob-cli-q5 closes and its plan
-  is marked done.
+goal: Bob Mac Capture claims the snooze notifier even when it starts with a held wake
+  receipt, samples the real on-console session key at launch, and presents a wake
+  HUD without stalling the main thread for seconds; then epic bob-cli-q5 closes and
+  its plan is marked done.
 size: medium
 proposed_by: bbugyi200.athena.bob-cli-q5.land
 proposed_with: claude/opus
 bead: bob-cli-q5
-create_time: 2026-11-28 10:11:36
-status: wip
+status: done
 ---
 
 - **PARENT:**
