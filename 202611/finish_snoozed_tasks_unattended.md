@@ -1,116 +1,107 @@
 ---
 tier: epic
 title: Finish Snoozed Tasks without asking Bryan to verify anything
-goal: "bob-cli-q5.9 closes, leaving bob-cli-q5 ready for its waiting land agent. The
-  stalled human-observation flow is retired, and the four q5-owned discovered issues are
-  fixed. The Mac wake notice is proven on the real Mac from in-app machine evidence and
-  a natural lock and unlock. The q5.8 subtree is landed. The glossary strand, guide, and
-  live end-to-end acceptance ship. No question, prompt, or observation is asked of
-  Bryan.
+goal: 'bob-cli-q5.9 closes, leaving bob-cli-q5 ready for its waiting land agent. The
+  stalled human-observation flow is retired, and the four q5-owned discovered issues
+  are fixed. The Mac wake notice is proven on the real Mac from in-app machine evidence
+  and a natural lock and unlock. The q5.8 subtree is landed. The glossary strand,
+  guide, and live end-to-end acceptance ship. No question, prompt, or observation
+  is asked of Bryan.
 
-  "
+  '
 parent_bead: bob-cli-q5.9
 decisions:
   glossary_snoozed_task:
-    ask:
-      Add the Snoozed Task glossary strand that the bob-cli-q5 review already approved?
+    ask: Add the Snoozed Task glossary strand that the bob-cli-q5 review already approved?
     memory:
-      - glossary:snoozed-task
+    - glossary:snoozed-task
     default: true
     requested: To be clear I want you to completely take over the work for this epic.
     answer: true
 phases:
-  - id: takeover
-    title: Retire the stalled question flow and take ownership
-    size: small
-    depends_on: []
-    description:
-      "takeover: stop the stale waiting agents and the pending nine-question round,
-      record Bryan's no-verification directive on the affected beads, then harvest and
-      disarm the Mac lock driver."
-  - id: bob-fixes
-    title: Fix the q5-owned bob-cli contract and doc drift
-    size: small
-    depends_on: []
-    description:
-      "bob-fixes: give deferred snooze reports their documented envelope, describe
-      relative-time rounding as implemented, and correct the stale capture grammar
-      revision claims."
-  - id: plugin-resnooze
-    title: Make the Obsidian planner replace struck history on re-snooze
-    size: small
-    depends_on: []
-    description:
-      "plugin-resnooze: align the bob-navigation-hotkeys snooze planner with bob's
-      canonical re-snooze rule, flip the two tests that pinned the split, verify in real
-      Obsidian, and deploy."
-  - id: mac-probe
-    title: Add an acceptance-only in-app probe and evidence-grade signposts
-    size: medium
-    depends_on: []
-    description:
-      "mac-probe: build a probe that only the acceptance bundle can enable and that
-      reads and drives the live wake HUD, beacon, and records. Add wake-ID and reason
-      metadata to snooze signposts, the missing HUD tests, and harness subcommands,
-      including the passive lock watcher."
-  - id: mac-accept
-    title: Accept checks 1 and 3 to 6 on the harness from machine evidence
-    size: medium
-    depends_on:
-      - takeover
-      - mac-probe
-    description:
-      "mac-accept: rebuild the harness in place at the probe SHA. Run delivery, routing,
-      meeting holds, HUD actions, records, denial, accessibility, and the 60-minute
-      expiry. Use probe snapshots, signposts, and deterministic tests instead of Bryan's
-      eyes."
-  - id: lock-accept
-    title: Accept check 2 from a natural lock and Bryan's own unlock
-    size: small
-    depends_on:
-      - mac-accept
-    description:
-      "lock-accept: arm the lock watcher and wait passively, with an idle-gated
-      display-sleep fallback, for a real lock and unlock. Prove the locked wake stayed
-      silent and surfaced after unlock."
-  - id: notice-land
-    title: Tear down the harness and land the q5.8 subtree
-    size: small
-    depends_on:
-      - lock-accept
-    description:
-      "notice-land: tear down the harness and confirm production is intact. Write the
-      per-check evidence and close the open q5.8 beads bottom-up, carrying their
-      untriaged follow-ups forward."
-  - id: closeout-docs
-    title: Glossary strand, guide, and concepts paragraph
-    size: medium
-    depends_on:
-      - bob-fixes
-    description:
-      "closeout-docs: add the approved Snoozed Task glossary strand and regenerate the
-      glossary page. Write the snooze how-to guide and the Later today concepts
-      paragraph with nav entries, and pass the docs gate."
-  - id: e2e
-    title: Live end-to-end acceptance on bob and Obsidian
-    size: medium
-    depends_on:
-      - bob-fixes
-      - plugin-resnooze
-    description:
-      "e2e: run every bob and Obsidian acceptance case against the current masters, on a
-      snapshot of the real vault and in real Obsidian, and record commands, JSON
-      excerpts, and screenshots."
+- id: takeover
+  title: Retire the stalled question flow and take ownership
+  size: small
+  depends_on: []
+  description: 'takeover: stop the stale waiting agents and the pending nine-question
+    round, record Bryan''s no-verification directive on the affected beads, then harvest
+    and disarm the Mac lock driver.'
+- id: bob-fixes
+  title: Fix the q5-owned bob-cli contract and doc drift
+  size: small
+  depends_on: []
+  description: 'bob-fixes: give deferred snooze reports their documented envelope,
+    describe relative-time rounding as implemented, and correct the stale capture
+    grammar revision claims.'
+- id: plugin-resnooze
+  title: Make the Obsidian planner replace struck history on re-snooze
+  size: small
+  depends_on: []
+  description: 'plugin-resnooze: align the bob-navigation-hotkeys snooze planner with
+    bob''s canonical re-snooze rule, flip the two tests that pinned the split, verify
+    in real Obsidian, and deploy.'
+- id: mac-probe
+  title: Add an acceptance-only in-app probe and evidence-grade signposts
+  size: medium
+  depends_on: []
+  description: 'mac-probe: build a probe that only the acceptance bundle can enable
+    and that reads and drives the live wake HUD, beacon, and records. Add wake-ID
+    and reason metadata to snooze signposts, the missing HUD tests, and harness subcommands,
+    including the passive lock watcher.'
+- id: mac-accept
+  title: Accept checks 1 and 3 to 6 on the harness from machine evidence
+  size: medium
+  depends_on:
+  - takeover
+  - mac-probe
+  description: 'mac-accept: rebuild the harness in place at the probe SHA. Run delivery,
+    routing, meeting holds, HUD actions, records, denial, accessibility, and the 60-minute
+    expiry. Use probe snapshots, signposts, and deterministic tests instead of Bryan''s
+    eyes.'
+- id: lock-accept
+  title: Accept check 2 from a natural lock and Bryan's own unlock
+  size: small
+  depends_on:
+  - mac-accept
+  description: 'lock-accept: arm the lock watcher and wait passively, with an idle-gated
+    display-sleep fallback, for a real lock and unlock. Prove the locked wake stayed
+    silent and surfaced after unlock.'
+- id: notice-land
+  title: Tear down the harness and land the q5.8 subtree
+  size: small
+  depends_on:
+  - lock-accept
+  description: 'notice-land: tear down the harness and confirm production is intact.
+    Write the per-check evidence and close the open q5.8 beads bottom-up, carrying
+    their untriaged follow-ups forward.'
+- id: closeout-docs
+  title: Glossary strand, guide, and concepts paragraph
+  size: medium
+  depends_on:
+  - bob-fixes
+  description: 'closeout-docs: add the approved Snoozed Task glossary strand and regenerate
+    the glossary page. Write the snooze how-to guide and the Later today concepts
+    paragraph with nav entries, and pass the docs gate.'
+- id: e2e
+  title: Live end-to-end acceptance on bob and Obsidian
+  size: medium
+  depends_on:
+  - bob-fixes
+  - plugin-resnooze
+  description: 'e2e: run every bob and Obsidian acceptance case against the current
+    masters, on a snapshot of the real vault and in real Obsidian, and record commands,
+    JSON excerpts, and screenshots.'
 proposed_by: bbugyi200.athena.1hl
 proposed_with: claude/opus
 decided_by: reviewer
 decided_via: tui
 create_time: 2026-11-27 20:55:01
 status: wip
+bead_id: bob-cli-q5.9.1
 ---
 
-- **PROMPT:**
-  [prompts/202611/finish_snoozed_tasks_unattended.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_snoozed_tasks_unattended.md)
+- **PROMPT:** [prompts/202611/finish_snoozed_tasks_unattended.md](https://github.com/bobs-org/bob-cli--agents/blob/main/prompts/202611/finish_snoozed_tasks_unattended.md)
+- **BEAD:** [bob-cli-q5.9.1](https://github.com/bobs-org/bob-cli--beads/blob/main/pages/bob-cli-q5/bob-cli-q5.9.1.md)
 
 # Finish Snoozed Tasks without asking Bryan to verify anything
 
