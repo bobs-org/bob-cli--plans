@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "definitions": [
+    {
+      "id": "unlock_wait",
+      "kind": "choice",
+      "ask": "Should check 2 wait for Bryan's next ordinary lock and unlock before q5 closes?",
+      "why": "The fixed lockwatch proves the missing half on an ordinary lock with no action from Bryan",
+      "choices": [
+        {
+          "key": "next_lock",
+          "label": "Fix lockwatch, wait up to 72 h for his next ordinary lock; q5 closes after it or the deadline"
+        },
+        {
+          "key": "accept_now",
+          "label": "Accept check 2 today from last night's silent hold and tests; no surfaced-after-unlock proof"
+        }
+      ],
+      "default": "next_lock",
+      "effective_default": "next_lock",
+      "requested_verified": false
+    }
+  ]
+}
